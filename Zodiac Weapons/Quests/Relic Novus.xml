@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Relic Novus
+  Authors: Zamphire
+  Code Credit: ZZI, Kayla
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY alexandrite "0"> 		
+]>
+
+<Profile>
+  <Name>Relic Novus</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+	<Order>
+		<If condition="not IsQuestCompleted(66998)">
+			<!-- Celestial Radiance -->		
+			<If Condition="not HasQuest(66998) and not IsQuestCompleted(66998)">
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7838">
+						<Log Message="Equipping Artemis Bow Animus..." />
+						<EquipWeapon ItemID="7838"/>
+						<WaitTimer WaitTime="3" />
+					</While>					
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7840">
+						<Log Message="Equipping Stardust Rod Animus..." />
+						<EquipWeapon ItemID="7840"/>
+						<WaitTimer WaitTime="3" />
+					</While>						
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Dragoon))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7837">
+						<Log Message="Equipping Gae Bolg Animus..." />
+						<EquipWeapon ItemID="7837"/>
+						<WaitTimer WaitTime="3" />
+					</While>				
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Monk))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7835">
+						<Log Message="Equipping Sphairai Animus..." />
+						<EquipWeapon ItemID="7835"/>
+						<WaitTimer WaitTime="3" />
+					</While>				
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9252">
+						<Log Message="Equipping Yoshimitsu Animus..." />
+						<EquipWeapon ItemID="9252"/>
+						<WaitTimer WaitTime="3" />
+					</While>				
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7834">
+						<Log Message="Equipping Curtana Animus..." />
+						<EquipWeapon ItemID="7834"/>
+						<WaitTimer WaitTime="3" />
+					</While>	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7843">
+						<Log Message="Equipping Holy Shield Animus..." />
+						<EquipWeapon ItemID="7843"/>
+						<WaitTimer WaitTime="3" />
+					</While>				
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))">	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7841">
+						<Log Message="Equipping The Veil of the Wiyu Animus..." />
+						<EquipWeapon ItemID="7841"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Scholar))">	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7842">
+						<Log Message="Equipping Omnilex Animus..." />
+						<EquipWeapon ItemID="7842"/>>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 		
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7836">
+						<Log Message="Equipping Bravura Animus..." />
+						<EquipWeapon ItemID="7836"/>>					
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))">	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7839">
+						<Log Message="Equipping Thyrus Animus..." />
+						<EquipWeapon ItemID="7839"/>>					
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<LisbethTravel Area="North Shroud" Position="414.0081, -5.95211, -95.72392"/>		
+				<If Condition="IsQuestAcceptQualified(66998)">
+					<PickupQuest QuestId="66998" NpcId="1008948"/>
+				</If>
+			</If>
+		</If>	
+		<If Condition="GetQuestStep(66998) == 1">
+		  <GetTo ZoneId="141" XYZ="115.5095, 31, -389.3664"/>
+		  <TalkTo NpcId="1001425" XYZ="115.1293, 31.8761, -392.2027" QuestId="66998" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(66998) == 2">
+		  <GetTo ZoneId="141" XYZ="106.7625, 30.98244, -384.8175"/>
+		  <TalkTo NpcId="1009151" XYZ="105.3329, 30.90404, -385.153" QuestId="66998" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(66998) == 3">
+		  <GetTo ZoneId="156" XYZ="26.42607, 29, -823.7854"/>
+		  <TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66998" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(66998) == 255">
+			<If condition="not HasAtLeast(7885,3)">
+				<GetTo ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+				<!-- Superior Enchanted Ink -->										   
+				<BuyShopExchangeCurrency NpcId= "1008119" ItemId="7885" SelectString="2" Count="3"/>
+			</If>	
+			<If condition="HasAtLeast(7885,3)">
+			  <GetTo ZoneId="141" XYZ="106.7625, 30.98244, -384.8175"/>
+			  <TurnIn NpcId="1009151" XYZ="105.3329, 30.90404, -385.153" QuestId="66998" StepId="255"/>
+			</If>	
+		</If>	
+		<!-- Star Light, Star Bright -->
+		<If Condition="IsQuestCompleted(66998) and not HasQuest(67000) and not IsQuestCompleted(67000)">
+			<GetTo ZoneId="141" XYZ="106.5433, 30.96623, -383.0377"/>
+			<If Condition="IsQuestAcceptQualified(67000)">
+				<PickupQuest QuestId="67000" NpcId="1009151"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(67000) == 255">
+		  <LisbethTravel Area="North Shroud" Position="414.0081, -5.95211, -95.72392"/>
+		  <TurnIn QuestId="67000" NpcId="1008948" XYZ="405.1117, -4.498068, -89.15851"/>
+		</If>
+		<!-- One Man's Trash -->
+		<If Condition="not HasQuest(66676) and not IsQuestCompleted(66676)">
+		  <GetTo ZoneId="154" XYZ="408.0326, -5.942129, -82.63373"/>
+		  <If Condition="IsQuestAcceptQualified(66676)">
+			<PickupQuest QuestId="66676" NpcId="1009381"/>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(66676) == 255">
+		  <GetTo ZoneId="156" XYZ="27.14867, 28.99997, -739.166"/>
+		  <TurnIn QuestId="66676" NpcId="1006981" XYZ="25.71143, 28.99997, -738.2162"/>
+		</If>
+		<If Condition="IsQuestCompleted(67000) 
+						and not HasAtLeast(7873,1) and not HasAtLeast(7874,1) and not HasAtLeast(7875,1)
+						and not HasAtLeast(7876,1) and not HasAtLeast(7877,1) and not HasAtLeast(7878,1)
+						and not HasAtLeast(7879,1) and not HasAtLeast(7880,1) and not HasAtLeast(7881,1)
+						and not HasAtLeast(7881,1) and not HasAtLeast(9255,1)">
+			<If condition="not HasAtLeast(7883,75)"> <!-- Alexandrite -->
+				<If Condition="&alexandrite; == 1">
+					<LLoadProfile Path="Alexandrite_Farm.xml"/>
+				</If>
+				<If Condition="&alexandrite; == 0">
+					<LLoadProfile Path="Mystery Maps.xml"/>
+				</If>
+			</If>
+			<If condition="HasAtLeast(7883,75)"> <!-- Alexandrite -->
+				<If condition="not HasAtLeast(7885,3)">
+					<If condition="HasAtLeast(28,75)">
+						<GetTo ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+						<!-- Superior Enchanted Ink -->										   
+						<BuyShopExchangeCurrency NpcId= "1008119" ItemId="7885" SelectString="2" Count="3"/>
+					</If>
+					<While condition="not HasAtLeast(28,75)">
+						<RunCode name="NeedPoetics"/>
+						<WaitTimer WaitTime="60" />
+					</While>				
+				</If>
+				<If condition="HasAtLeast(7885,3)">	
+					<LisbethTravel Area="Central Thanalan" Position="106.6467, 30.97388, -384.5325"/>
+					<RunCode name="BuySphereScroll"/>
+				</If>
+			</If>		
+		</If>			
+
+
+		<!-- Upgrade to Nexus -->
+			<!-- Sphere Scroll: Curtana -->
+			<If condition="HasAtLeast(7873,1)">
+				<While condition="SphereCompletion(78783) &lt; 100">
+					<RunCode name="MeldMateria"/>
+					<WaitTimer WaitTime="60" />
+				</While>			
+				<While condition="SphereCompletion(78783) == 100">
+					<Log Message="Sphere Scroll: Curtana complete, traveling to Jalzahn..." />
+					<LisbethTravel Area="North Shroud" Position="406.4227, -4.498047, -89.40662"/>
+					<RunCode name="UpgradeAnimus"/>
+				</While>					
+			</If>
+			<!-- Sphere Scroll: Sphairai -->
+			<If condition="HasAtLeast(7874,1)">			
+				<While condition="SphereCompletion(7874) &lt; 100">
+					<RunCode name="MeldMateria"/>
+					<WaitTimer WaitTime="60" />
+				</While>
+				<While condition="SphereCompletion(7874) == 100">
+					<Log Message="Sphere Scroll: Sphairai complete, traveling to Jalzahn..." />
+					<LisbethTravel Area="North Shroud" Position="406.4227, -4.498047, -89.40662"/>
+					<RunCode name="UpgradeAnimus"/>
+				</While>				
+			</If>
+			<!-- Sphere Scroll: Bravura -->
+			<If condition="HasAtLeast(7875,1)">		
+				<While condition="SphereCompletion(7875) &lt; 100">
+					<RunCode name="MeldMateria"/>
+					<WaitTimer WaitTime="60" />
+				</While>
+				<While condition="SphereCompletion(7875) == 100">
+					<Log Message="Sphere Scroll: Bravura complete, traveling to Jalzahn..." />
+					<LisbethTravel Area="North Shroud" Position="406.4227, -4.498047, -89.40662"/>
+					<RunCode name="UpgradeAnimus"/>
+				</While>					
+			</If>			
+			<!-- Sphere Scroll: Gae Bolg -->
+			<If condition="HasAtLeast(7876,1)">			
+				<While condition="SphereCompletion(7876) &lt; 100">
+					<RunCode name="MeldMateria"/>
+					<WaitTimer WaitTime="60" />					
+				</While>
+				<While condition="SphereCompletion(7876) == 100">
+					<Log Message="Sphere Scroll: Gae Bolg complete, traveling to Jalzahn..." />
+					<LisbethTravel Area="North Shroud" Position="406.4227, -4.498047, -89.40662"/>
+					<RunCode name="UpgradeAnimus"/>
+				</While>				
+			</If>
+			<!-- Sphere Scroll: Artemis Bow -->
+			<If condition="HasAtLeast(7877,1)">		
+				<While condition="SphereCompletion(7877) &lt; 100">
+					<RunCode name="MeldMateria"/>
+					<WaitTimer WaitTime="60" />
+				</While>
+				<While condition="SphereCompletion(7877) == 100">
+					<Log Message="Sphere Scroll: Artemis Bow complete, traveling to Jalzahn..." />
+					<LisbethTravel Area="North Shroud" Position="406.4227, -4.498047, -89.40662"/>
+					<RunCode name="UpgradeAnimus"/>
+				</While>					
+			</If>
+			<!-- Sphere Scroll: Thyrus -->
+			<If condition="HasAtLeast(7878,1)">		
+				<While condition="SphereCompletion(7878) &lt; 100">
+					<RunCode name="MeldMateria"/>
+					<WaitTimer WaitTime="60" />
+				</While>
+				<While condition="SphereCompletion(7878) == 100">
+					<Log Message="Sphere Scroll: Thyrus complete, traveling to Jalzahn..." />
+					<LisbethTravel Area="North Shroud" Position="406.4227, -4.498047, -89.40662"/>
+					<RunCode name="UpgradeAnimus"/>
+				</While>					
+			</If>			
+			<!-- Sphere Scroll: Stardust Rod -->
+			<If condition="HasAtLeast(7879,1)">		
+				<While condition="SphereCompletion(7879) &lt; 100">
+					<RunCode name="MeldMateria"/>
+					<WaitTimer WaitTime="60" />
+				</While>
+				<While condition="SphereCompletion(7879) == 100">
+					<Log Message="Sphere Scroll: Stardust Rod complete, traveling to Jalzahn..." />
+					<LisbethTravel Area="North Shroud" Position="406.4227, -4.498047, -89.40662"/>
+					<RunCode name="UpgradeAnimus"/>
+				</While>					
+			</If>
+			<!-- Sphere Scroll: The Veil of Wiyu -->
+			<If condition="HasAtLeast(7880,1)">			
+				<While condition="SphereCompletion(7880) &lt; 100">
+					<RunCode name="MeldMateria"/>
+					<WaitTimer WaitTime="60" />
+				</While>
+				<While condition="SphereCompletion(7880) == 100">
+					<Log Message="Sphere Scroll: The Veil of Wiyu complete, traveling to Jalzahn..." />
+					<LisbethTravel Area="North Shroud" Position="406.4227, -4.498047, -89.40662"/>
+					<RunCode name="UpgradeAnimus"/>
+				</While>				
+			</If>
+			<!-- Sphere Scroll: Omnilex	-->
+			<If condition="HasAtLeast(7881,1)">			
+				<While condition="SphereCompletion(7881) &lt; 100">
+					<RunCode name="MeldMateria"/>
+					<WaitTimer WaitTime="60" />
+				</While>
+				<While condition="SphereCompletion(7881) == 100">
+					<Log Message="Sphere Scroll: Omnilex complete, traveling to Jalzahn..." />
+					<LisbethTravel Area="North Shroud" Position="406.4227, -4.498047, -89.40662"/>
+					<RunCode name="UpgradeAnimus"/>
+				</While>				
+			</If>
+			<!-- Sphere Scroll: Holy Shield	-->
+			<If condition="HasAtLeast(7882,1)">			
+				<While condition="SphereCompletion(7882) &lt; 100">
+					<RunCode name="MeldMateria"/>
+					<WaitTimer WaitTime="60" />
+				</While>
+				<While condition="SphereCompletion(7882) == 100">
+					<Log Message="Sphere Scroll: Holy Shield complete, traveling to Jalzahn..." />
+					<LisbethTravel Area="North Shroud" Position="406.4227, -4.498047, -89.40662"/>
+					<RunCode name="UpgradeAnimus"/>
+				</While>				
+			</If>
+			<!-- Sphere Scroll: Yoshimitsu	-->
+			<If condition="HasAtLeast(9255,1)">			
+				<While condition="SphereCompletion(9255) &lt; 100">
+					<RunCode name="MeldMateria"/>
+					<WaitTimer WaitTime="60" />
+				</While>
+				<While condition="SphereCompletion(9255) == 100">
+					<Log Message="Sphere Scroll: Yoshimitsu complete, traveling to Jalzahn..." />
+					<LisbethTravel Area="North Shroud" Position="406.4227, -4.498047, -89.40662"/>
+					<RunCode name="UpgradeAnimus"/>
+				</While>				
+			</If>
+
+		<LLoadProfile Path="../Start.xml"/>		
+		
+	</Order>
+	<CodeChunks>
+		<CodeChunk Name="NeedPoetics">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please farm 75 Tomestone of Poetics for Superior Enchanted Ink.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(60000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="MeldMateria">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please complete your Sphere Scroll by melding ANY 75 materia to the scroll.\n Then start the profile again.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(60000);
+		  ]]>
+		</CodeChunk>		
+		<CodeChunk Name="BuySphereScroll">
+			<![CDATA[ 
+			Dictionary<ClassJobType, uint[]> Slots = new Dictionary<ClassJobType, uint[]>
+			{
+				{ClassJobType.Paladin, new uint[] {0, 1}},
+				{ClassJobType.Monk, new uint[] {2}},
+				{ClassJobType.Warrior, new uint[] {3}},
+				{ClassJobType.Dragoon, new uint[] {4}},
+				{ClassJobType.Bard, new uint[] {5}},
+				{ClassJobType.Ninja, new uint[] {6}},
+				{ClassJobType.WhiteMage, new uint[] {7}},
+				{ClassJobType.BlackMage, new uint[] {8}},
+				{ClassJobType.Summoner, new uint[] {9}},
+				{ClassJobType.Scholar, new uint[] {10}},
+			};				
+			
+			foreach (var slot in Slots[Core.Me.CurrentJob])
+			{
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+				ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1009151).Interact();			
+			
+				await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting 'Sphere Scrolls'.");
+					ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Sphere Scrolls window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+					await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting 'Obtain a sphere scroll.");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Obtain a sphere scroll window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+				}
+					await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting sphere scroll.");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(slot);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Selecting sphere scroll window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+				}
+					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting Yes.");
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();									
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Select Yes/No Window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+				}
+			}	
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="UpgradeAnimus">
+           <![CDATA[ 
+				Dictionary<ClassJobType, uint[]> Slots = new Dictionary<ClassJobType, uint[]>
+				{
+					{ClassJobType.Paladin, new uint[] {0, 1}},
+					{ClassJobType.Monk, new uint[] {2}},
+					{ClassJobType.Warrior, new uint[] {3}},
+					{ClassJobType.Dragoon, new uint[] {4}},
+					{ClassJobType.Bard, new uint[] {5}},
+					{ClassJobType.Ninja, new uint[] {6}},
+					{ClassJobType.WhiteMage, new uint[] {7}},
+					{ClassJobType.BlackMage, new uint[] {8}},
+					{ClassJobType.Summoner, new uint[] {9}},
+					{ClassJobType.Scholar, new uint[] {10}},
+				};
+
+				foreach (var slot in Slots[Core.Me.CurrentJob])
+				{
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1008948).Interact();
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Selecting 'Relic Weapon Animus Enhancement'.");
+						SelectIconString.ClickLineContains("Relic Weapon Animus Enhancement");
+					}
+					else
+					{
+						Logging.WriteDiagnostic("Relic Weapon Animus Enhancement window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");
+					}
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+
+					await Coroutine.Wait(5000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Choosing weapon animus.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(slot);
+					}
+					else
+					{
+						Logging.WriteDiagnostic("Weapon select window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");
+					}
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+					
+					await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("RelicSphereUpgrade")!= null);
+					if (RaptureAtkUnitManager.GetWindowByName("RelicSphereUpgrade") != null)
+					{
+						RaptureAtkUnitManager.GetWindowByName("RelicSphereUpgrade").SendAction(1,3,0);
+						await Coroutine.Wait(10000, ()=> QuestLogManager.InCutscene);
+						if (QuestLogManager.InCutscene)
+						{
+							while (QuestLogManager.InCutscene)
+							{
+								while (Talk.DialogOpen)
+								{
+									Talk.Next();
+									await Buddy.Coroutines.Coroutine.Sleep(2000);
+								}
+								await Buddy.Coroutines.Coroutine.Sleep(2000);
+							}
+						}						
+					}					
+					else
+					{
+						Logging.WriteDiagnostic("Upgrade Relic window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");											
+					}					
+				}					
+            ]]>	
+		</CodeChunk>				
+	</CodeChunks>		
+ </Profile> 

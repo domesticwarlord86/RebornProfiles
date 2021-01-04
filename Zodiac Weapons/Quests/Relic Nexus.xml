@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Relic Nexus
+  Authors: Zamphire
+  Code Credit: ZZI, Kayla
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY garuda "0">
+<!ENTITY ifrit "1">
+<!ENTITY sastasha "0">   		
+]>
+
+<Profile>
+  <Name>Relic Nexus</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+	<Order>
+		<!-- Mmmmmm, Soulglazed Relics -->
+		<If Condition="not HasQuest(65742) and not IsQuestCompleted(65742)">
+		  <LisbethTravel Area="North Shroud" Position="406.5041, -4.498047, -89.74722"/>
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7876">
+						<Log Message="Equipping Artemis Bow Novus..." />
+						<EquipWeapon ItemID="7876"/>
+						<WaitTimer WaitTime="3" />					
+					</While>					
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7869">
+						<Log Message="Equipping Stardust Rod Novus..." />
+						<EquipWeapon ItemID="7869"/>
+						<WaitTimer WaitTime="3" />					
+					</While>						
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Dragoon))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7866">
+						<Log Message="Equipping Gae Bolg Novus..." />
+						<EquipWeapon ItemID="7866"/>
+						<WaitTimer WaitTime="3" />
+					</While>				
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Monk))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7864">
+						<Log Message="Equipping Sphairai Novus..." />
+						<EquipWeapon ItemID="7864"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9253">
+						<Log Message="Equipping Yoshimitsu Novus..." />
+						<EquipWeapon ItemID="9253"/>
+						<WaitTimer WaitTime="3" />
+					</While>				
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7863">
+						<Log Message="Equipping Curtana Novus..." />
+						<EquipWeapon ItemID="7863"/>
+						<WaitTimer WaitTime="3" />
+					</While>	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7872">						
+						<Log Message="Equipping Holy Shield Novus..." />
+						<EquipWeapon ItemID="7872"/>
+						<WaitTimer WaitTime="3" />
+					</While>				
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))">	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7870">
+						<Log Message="Equipping The Veil of the Wiyu Novus..." />
+						<EquipWeapon ItemID="7870"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Scholar))">	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7871">
+						<Log Message="Equipping Omnilex Novus..." />
+						<EquipWeapon ItemID="7871"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 		
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7865">
+						<Log Message="Equipping Bravura Novus..." />
+						<EquipWeapon ItemID="7865"/>					
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))">	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7868">
+						<Log Message="Equipping Thyrus Novus..." />
+						<EquipWeapon ItemID="7868"/>					
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+		  <If Condition="IsQuestAcceptQualified(65742)">
+			<PickupQuest QuestId="65742" NpcId="1008948"/>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(65742) == 1">
+		  <GetTo ZoneId="154" XYZ="440.8398, -0.937443, -64.02361"/>
+		  <TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="65742" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(65742) == 2">
+		  <GetTo ZoneId="154" XYZ="406.4768, -4.498047, -88.84937"/>
+		  <TalkTo NpcId="1008948" XYZ="405.1117, -4.498068, -89.15851" QuestId="65742" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(65742) == 255">
+		  <GetTo ZoneId="154" XYZ="406.4768, -4.498047, -88.84937"/>
+		  <TurnIn QuestId="65742" NpcId="1008948" XYZ="405.1117, -4.498068, -89.15851"/>	
+		</If>
+		
+		
+
+	<!-- Light Farm -->
+		<If condition="IsQuestCompleted(65742)">
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7867">
+						<Log Message="Equipping Artemis Bow Novus..." />
+						<EquipWeapon ItemID="7867"/>
+						<WaitTimer WaitTime="3" />					
+					</While>					
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7869">
+						<Log Message="Equipping Stardust Rod Novus..." />
+						<EquipWeapon ItemID="7869"/>
+						<WaitTimer WaitTime="3" />					
+					</While>						
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Dragoon))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7866">
+						<Log Message="Equipping Gae Bolg Novus..." />
+						<EquipWeapon ItemID="7866"/>
+						<WaitTimer WaitTime="3" />
+					</While>				
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Monk))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7864">
+						<Log Message="Equipping Sphairai Novus..." />
+						<EquipWeapon ItemID="7864"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9253">
+						<Log Message="Equipping Yoshimitsu Novus..." />
+						<EquipWeapon ItemID="9253"/>
+						<WaitTimer WaitTime="3" />
+					</While>				
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7863">
+						<Log Message="Equipping Curtana Novus..." />
+						<EquipWeapon ItemID="7863"/>
+						<WaitTimer WaitTime="3" />
+					</While>	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7872">						
+						<Log Message="Equipping Holy Shield Novus..." />
+						<EquipWeapon ItemID="7872"/>
+						<WaitTimer WaitTime="3" />
+					</While>				
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))">	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7870">
+						<Log Message="Equipping The Veil of the Wiyu Novus..." />
+						<EquipWeapon ItemID="7870"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Scholar))">	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7871">
+						<Log Message="Equipping Omnilex Novus..." />
+						<EquipWeapon ItemID="7871"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 		
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7865">
+						<Log Message="Equipping Bravura Novus..." />
+						<EquipWeapon ItemID="7865"/>					
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))">	
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7868">
+						<Log Message="Equipping Thyrus Novus..." />
+						<EquipWeapon ItemID="7868"/>					
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+			
+	<!-- SoulGlaze Your Weapon -->
+			<If Condition="NovusLightLevel() == 0">
+				<LisbethTravel Area="North Shroud" Position="406.5041, -4.498047, -89.74722"/>				
+				<RunCode name="SoulGlazed"/>
+				<If Condition="ClassName == ((ClassJobType.Paladin))">
+					<RunCode name="SoulGlazedPLD"/>
+				</If>
+			</If>
+			
+			<While Condition="NovusLightLevel() == 2000">
+				<BotSettings AutoEquip="1" />		
+				<LisbethTravel Area="North Shroud" Position="408.0551, -4.836707, -87.85005"/>
+				<While condition="1 == 1">
+					<RunCode name="UpgradeNovus"/>
+				</While>
+				<BotSettings AutoEquip="0" />		
+			</While>
+			
+			<If Condition="NovusLightLevel() &lt; 2000">	
+				<If Condition="&garuda; == 1">
+					<LLoadProfile Path="../Dungeons/The Howling Eye (Extreme) - SoulGlazed.xml"/>
+				</If>
+				<If Condition="&ifrit; == 1">	
+					<LLoadProfile Path="../Dungeons/The Bowl of Embers - SoulGlazed.xml"/>
+				</If>
+				<If Condition="&sastasha; == 1">	
+					<LLoadProfile Path="../Dungeons/Sastasha - SoulGlazed.xml"/>
+				</If>				
+			</If>			
+		</If>
+		
+	<LLoadProfile Path="../Start.xml"/>	
+	
+		
+	</Order>
+	<CodeChunks>
+		<CodeChunk Name="SoulGlazed">
+		  <![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+				ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1008948).Interact();			  
+		  
+				await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting 'Relic Weapon Novus Soulglazing'.");
+					SelectIconString.ClickLineContains("Relic Weapon Novus Soulglazing");
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Relic Weapon Novus Soulglazing window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}		  
+		  
+				await Coroutine.Wait(10000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+				}		  
+		  
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing weapon to souglaze.");
+					SelectString.ClickLineContains(InventoryManager.EquippedItems.First().Name);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Weapon select window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}		  
+		  
+				await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting Yes.");
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();				
+				}		  
+				else
+				{
+					Logging.WriteDiagnostic("Select Yes/No Window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+		  
+				await Coroutine.Wait(10000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+				}		  					
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="SoulGlazedPLD">
+		  <![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+				ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1008948).Interact();			  
+		  
+				await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting 'Relic Weapon Novus Soulglazing'.");
+					SelectIconString.ClickLineContains("Relic Weapon Novus Soulglazing");
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Relic Weapon Novus Soulglazing window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}		  
+		  
+				await Coroutine.Wait(10000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+				}		  
+		  
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing weapon to souglaze.");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Weapon select window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}		  
+		  
+				await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting Yes.");
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();									
+				}		  
+				else
+				{
+					Logging.WriteDiagnostic("Select Yes/No Window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+						await Coroutine.Wait(10000, ()=> QuestLogManager.InCutscene);
+						if (QuestLogManager.InCutscene)
+						{
+							while (QuestLogManager.InCutscene)
+							{
+								while (Talk.DialogOpen)
+								{
+									Talk.Next();
+									await Buddy.Coroutines.Coroutine.Sleep(1000);
+								}
+								await Buddy.Coroutines.Coroutine.Sleep(1000);
+							}
+						}					
+				}
+		  
+				await Coroutine.Wait(10000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+				}		  					
+		  ]]>
+		</CodeChunk>
+  		<CodeChunk Name="UpgradeNovus">		
+            <![CDATA[ 
+				Dictionary<ClassJobType, uint[]> Slots = new Dictionary<ClassJobType, uint[]>
+				{
+					{ClassJobType.Paladin, new uint[] {0, 1}},
+					{ClassJobType.Monk, new uint[] {2}},
+					{ClassJobType.Warrior, new uint[] {3}},
+					{ClassJobType.Dragoon, new uint[] {4}},
+					{ClassJobType.Bard, new uint[] {5}},
+					{ClassJobType.Ninja, new uint[] {6}},
+					{ClassJobType.WhiteMage, new uint[] {7}},
+					{ClassJobType.BlackMage, new uint[] {8}},
+					{ClassJobType.Summoner, new uint[] {9}},
+					{ClassJobType.Scholar, new uint[] {10}},
+				};
+
+				foreach (var slot in Slots[Core.Me.CurrentJob])
+				{
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1008948).Interact();
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Selecting 'Relic Weapon Novus Enhancement'.");
+						SelectIconString.ClickLineContains("Relic Weapon Novus Enhancement");
+					}
+					else
+					{
+						Logging.WriteDiagnostic("Relic Weapon Novus Enhancement window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");
+					}
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+
+					await Coroutine.Wait(5000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Choosing weapon animus.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(slot);
+					}
+					else
+					{
+						Logging.WriteDiagnostic("Weapon select window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");
+					}
+
+					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+					{
+						Logging.WriteDiagnostic("Selecting Yes.");
+						ff14bot.RemoteWindows.SelectYesno.ClickYes();
+						await Coroutine.Wait(10000, ()=> QuestLogManager.InCutscene);
+						if (QuestLogManager.InCutscene)
+						{
+							while (QuestLogManager.InCutscene)
+							{
+								while (Talk.DialogOpen)
+								{
+									Talk.Next();
+									await Buddy.Coroutines.Coroutine.Sleep(1000);
+								}
+								await Buddy.Coroutines.Coroutine.Sleep(1000);
+							}
+						}					
+					}
+				}					
+            ]]>	
+		</CodeChunk>		
+		<CodeChunk Name="LightComplete">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please upgrade your relic at Jalzhan.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>			
+	</CodeChunks>
+</Profile>	

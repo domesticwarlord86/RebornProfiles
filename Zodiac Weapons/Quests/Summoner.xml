@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Summoner Relic Weapon
+  Version: 1.0
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm
+-->
+
+
+
+<Profile>
+  <Name>Summoner Relic Weapon</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+  
+	<Log Message="Starting Summoner Zodiac Questing Version 1.0" />
+	
+	<!-- Obtain Base Relic: The Veil of Wiyu -->
+	<If condition="not IsQuestCompleted(66662)">
+		<Log Message="The Veil of Wiyu not yet obtained" />
+		<LLoadProfile Path="A Relic Reborn.xml"/>
+	</If>
+	
+	<!-- Buy Zenith weapons -->
+	<!-- If Has Completed A Relic Reborn (The Veil of Wiyu) and has The Veil of Wiyu -->
+	<While Condition="IsQuestCompleted(66662) and HasAtLeast(2213,1)">	
+		<Log Message="The Veil of Wiyu finished, upgrading to The Veil of Wiyu Zenith!" />
+		<If Condition="not HasAtLeast(6268,3)"> <!-- Not HasAtLeast 3 Thavnairian Mist -->
+			<If Condition="HasAtLeast(28,60)"> <!-- HasAtLeast 60 Poetics -->
+				<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+				<!-- Buy Thavnairian Mist -->
+				<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+			</If>	
+			<While Condition="not HasAtLeast(28,60)">
+				<RunCode name="NeedPoetics"/>
+				<WaitTimer WaitTime="10" />
+			</While>
+		</If>
+		<If Condition="HasAtLeast(6268,3)"> <!-- HasAtLeast 3 Thavnairian Mist -->
+			<Log Message="Exchanging The Veil of Wiyu with Furnace" />
+			<LisbethTravel ZoneId="154" XYZ="449.7941, -0.3727861, -70.40031"/>
+			<BuyShopExchangeItem NpcId="2002555" ItemId="6264" Count="1"/>
+		</If>			
+	</While>							 
+
+	<!-- Obtain The Veil of Wiyu Atma -->
+	<If Condition="HasAtLeast(6264,1)">
+		<Log Message="Starting Atma Farm..." />
+		<LLoadProfile Path="Atma Farm.xml"/>
+	</If>	
+	
+	<!-- Obtain The Veil of Wiyu Animus -->
+	<If Condition="HasAtLeast(7831,1)">
+		<Log Message="Starting Animus Book Farm..." />
+		<LLoadProfile Path="../Animus/Animus Book Farm.xml"/>
+	</If>
+		
+	<!-- Obtain The Veil of Wiyu Novus -->
+	<If condition="HasAtLeast(7841,1)">
+		<Log Message="Starting The Veil of Wiyu Novus Questing..." />
+		<If condition="HasAtLeast(2001306,1)">
+			<RunCode name="DiscardSkyearth"/>
+		</If>			
+		<LLoadProfile Path="Relic Novus.xml"/>
+	</If>
+		
+	<!-- Obtain The Veil of Wiyu Nexus -->
+	<If condition="HasAtLeast(7870,1)">
+		<Log Message="Starting The Veil of Wiyu Nexus Questing..." />
+		<LLoadProfile Path="Relic Nexus.xml"/>
+	</If>
+
+	<!-- Obtain Apocalypse Rod -->
+	<If condition="HasAtLeast(8656,1)">
+		<Log Message="Starting Apocalypse Questing..." />
+		<LLoadProfile Path="Zodiac Braves.xml"/>
+	</If>
+		
+	<!-- Zodiac Apocalypse Zeta -->	
+	<If condition="HasAtLeast(9498,1)">
+		<Log Message="Starting Apocalypse Zeta Questing..." />
+		<LLoadProfile Path="Zodiac Zeta.xml"/>
+	</If>
+	
+  </Order>
+	<CodeChunks>
+		<CodeChunk Name="NeedPoetics">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please farm more Tomestone of Poetics.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="DiscardSkyearth">
+		  <![CDATA[ 
+            BagSlot toDiscard = InventoryManager.FilledInventoryAndArmory.First(x => x.RawItemId == 2001306);
+            if (toDiscard != null && toDiscard.IsFilled) LlamaLibrary.Extensions.BagSlotExtensions.Discard(toDiscard);
+		  ]]>
+		</CodeChunk>		
+	</CodeChunks>   
+</Profile>

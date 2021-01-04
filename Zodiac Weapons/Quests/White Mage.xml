@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: White Mage Relic Weapon
+  Version: 1.0  
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY alexandrite "0"> 		
+]>
+
+<Profile>
+  <Name>White Mage Relic Weapon</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<Log Message="Starting White Mage Zodiac Questing Version 1.0" />
+	
+	<!-- Obtain Base Relic: Thyrus -->
+	<If condition="not IsQuestCompleted(66660)">
+		<Log Message="Thyrus not yet obtained" />
+		<LLoadProfile Path="A Relic Reborn.xml"/>
+	</If>
+	
+	<!-- Buy Zenith weapons -->
+	<!-- If Has Completed A Relic Reborn (Thyrus) and has Thyrus -->
+	<While Condition="IsQuestCompleted(66660) and HasAtLeast(2052,1)">	
+		<Log Message="Thyrus finished, upgrading to Thyrus Zenith!" />
+		<If Condition="not HasAtLeast(6268,3)"> <!-- Not HasAtLeast 3 Thavnairian Mist -->
+			<If Condition="HasAtLeast(28,60)"> <!-- HasAtLeast 60 Poetics -->
+				<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+				<!-- Buy Thavnairian Mist -->
+				<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+			</If>	
+			<While Condition="not HasAtLeast(28,60)">
+				<RunCode name="NeedPoetics"/>
+				<WaitTimer WaitTime="10" />
+			</While>
+		</If>
+		<If Condition="HasAtLeast(6268,3)"> <!-- HasAtLeast 3 Thavnairian Mist -->
+			<Log Message="Exchanging Thyrus with Furnace" />
+			<LisbethTravel ZoneId="154" XYZ="449.7941, -0.3727861, -70.40031"/>
+		<BuyShopExchangeItem NpcId="2002555" ItemId="6262" Count="1"/>
+		</If>			
+	</While>							 
+
+	<!-- Obtain Thyrus Atma -->
+	<If Condition="HasAtLeast(6262,1)">
+		<Log Message="Starting Atma Farm..." />
+		<LLoadProfile Path="Atma Farm.xml"/>
+	</If>	
+	
+	<!-- Obtain Thyrus Animus -->
+	<If Condition="HasAtLeast(7829,1)">
+		<Log Message="Starting Animus Book Farm..." />
+		<LLoadProfile Path="../Animus/Animus Book Farm.xml"/>
+	</If>
+		
+	<!-- Obtain Thyrus Novus -->
+	<If condition="HasAtLeast(7839,1)">
+		<Log Message="Starting Thyrus Novus Questing..." />
+		<If condition="HasAtLeast(2001306,1)">
+			<RunCode name="DiscardSkyearth"/>
+		</If>			
+		<LLoadProfile Path="Relic Novus.xml"/>
+	</If>
+		
+	<!-- Obtain Thyrus Nexus -->
+	<If condition="HasAtLeast(7868,1)">
+		<Log Message="Starting Thyrus Nexus Questing..." />
+		<LLoadProfile Path="Relic Nexus.xml"/>
+	</If>
+
+	<!-- Obtain Nirvana Rod -->
+	<If condition="HasAtLeast(8654,1)">
+		<Log Message="Starting Nirvana Questing..." />
+		<LLoadProfile Path="Zodiac Braves.xml"/>
+	</If>
+		
+	<!-- Zodiac Nirvana Zeta -->	
+	<If condition="HasAtLeast(9496,1)">
+		<Log Message="Starting Nirvana Zeta Questing..." />
+		<LLoadProfile Path="Zodiac Zeta.xml"/>
+	</If>
+			
+  </Order>
+	<CodeChunks>
+		<CodeChunk Name="NeedPoetics">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please farm more Tomestone of Poetics.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk> 
+		<CodeChunk Name="DiscardSkyearth">
+		  <![CDATA[ 
+            BagSlot toDiscard = InventoryManager.FilledInventoryAndArmory.First(x => x.RawItemId == 2001306);
+            if (toDiscard != null && toDiscard.IsFilled) LlamaLibrary.Extensions.BagSlotExtensions.Discard(toDiscard);
+		  ]]>
+		</CodeChunk>			
+	</CodeChunks>  
+</Profile>

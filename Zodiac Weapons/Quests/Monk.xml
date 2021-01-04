@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Monk Relic Weapon
+  Version: 1.0
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm
+-->
+
+<Profile>
+  <Name>Monk Relic Weapon</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<Log Message="Starting Monk Zodiac Questing Version 1.0" />
+
+	<!-- Obtain Base relic: Sphairai -->
+	<If condition="not IsQuestCompleted(66657)">
+		<Log Message="Sphairai not yet obtained" />
+		<LLoadProfile Path="A Relic Reborn.xml"/>
+	</If>
+	
+	
+	<!-- Buy Zenith weapons -->
+	<!-- If Has Completed A Relic Reborn (The Sphairai) and has Sphairai -->
+	<While Condition="IsQuestCompleted(66657) and HasAtLeast(1746,1)">	
+		<Log Message="Sphairai finished, upgrading to Sphairai Zenith!" />
+		<If Condition="not HasAtLeast(6268,3)"> <!-- Not HasAtLeast 3 Thavnairian Mist -->
+			<If Condition="HasAtLeast(28,60)"> <!-- HasAtLeast 60 Poetics -->
+				<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+				<!-- Buy Thavnairian Mist -->
+				<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+			</If>	
+			<While Condition="not HasAtLeast(28,60)">
+				<RunCode name="NeedPoetics"/>
+				<WaitTimer WaitTime="10" />
+			</While>
+		</If>
+		<If Condition="HasAtLeast(6268,3)"> <!-- HasAtLeast 3 Thavnairian Mist -->
+			<Log Message="Exchanging Sphairai with Furnace" />
+			<LisbethTravel ZoneId="154" XYZ="449.7941, -0.3727861, -70.40031"/>
+			<BuyShopExchangeItem NpcId="2002555" ItemId="6258" Count="1"/>
+		</If>			
+	</While>								 
+
+	<!-- Obtain Sphairai Atma -->
+	<If Condition="HasAtLeast(6258,1)">
+		<Log Message="Starting Atma Farm..." />
+		<LLoadProfile Path="Atma Farm.xml"/>
+	</If>	
+	
+	<!-- Obtain Sphairai Animus -->
+	<If Condition="HasAtLeast(7825,1)">
+		<Log Message="Starting Animus Book Farm..." />
+		<LLoadProfile Path="../Animus/Animus Book Farm.xml"/>
+	</If>
+		
+	<!-- Obtain Sphairai Novus -->
+	<If condition="HasAtLeast(7835,1)">
+		<Log Message="Starting Sphairai Novus Questing..." />
+		<If condition="HasAtLeast(2001306,1)">
+			<RunCode name="DiscardSkyearth"/>
+		</If>		
+		<LLoadProfile Path="Relic Novus.xml"/>
+	</If>
+		
+	<!-- Obtain Sphairai Nexus -->
+	<If condition="HasAtLeast(7864,1)">
+		<Log Message="Starting Sphairai Nexus Questing..." />
+		<LLoadProfile Path="Relic Nexus.xml"/>
+	</If>
+
+	<!-- Obtain Kaiser Knuckles -->
+	<If condition="HasAtLeast(8650,1)">
+		<Log Message="Starting Kaiser Knuckles Questing..." />
+		<LLoadProfile Path="Zodiac Braves.xml"/>
+	</If>
+		
+	<!-- Zodiac Kaiser Knuckles Zeta -->	
+	<If condition="HasAtLeast(9492,1)">
+		<Log Message="Starting Kaiser Knuckles Zeta Questing..." />
+		<LLoadProfile Path="Zodiac Zeta.xml"/>
+	</If>
+
+  </Order>
+	<CodeChunks>
+		<CodeChunk Name="NeedPoetics">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please farm more Tomestone of Poetics.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="DiscardSkyearth">
+		  <![CDATA[ 
+            BagSlot toDiscard = InventoryManager.FilledInventoryAndArmory.First(x => x.RawItemId == 2001306);
+            if (toDiscard != null && toDiscard.IsFilled) LlamaLibrary.Extensions.BagSlotExtensions.Discard(toDiscard);
+		  ]]>
+		</CodeChunk>		
+	</CodeChunks>   
+</Profile>

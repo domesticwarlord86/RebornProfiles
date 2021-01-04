@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Scholar Relic Weapon
+  Version: 1.0
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm
+-->
+
+<Profile>
+  <Name>Scholar Relic Weapon</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <Log Message="Starting Scholar Zodiac Questing Version 1.0" />
+	
+	<!-- Obtain Base Relic: Omnilex -->
+	<If condition="not IsQuestCompleted(66663)">
+		<Log Message="Omnilex not yet obtained" />
+		<LLoadProfile Path="A Relic Reborn.xml"/>
+	</If>
+		
+	<!-- Buy Zenith weapons -->
+	<!-- If Has Completed A Relic Reborn (Omnilex) and has Omnilex -->
+	<While Condition="IsQuestCompleted(66663) and HasAtLeast(2214,1)">	
+		<Log Message="Omnilex finished, upgrading to Omnilex Zenith!" />
+		<If Condition="not HasAtLeast(6268,3)"> <!-- Not HasAtLeast 3 Thavnairian Mist -->
+			<If Condition="HasAtLeast(28,60)"> <!-- HasAtLeast 60 Poetics -->
+				<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+				<!-- Buy Thavnairian Mist -->
+				<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+			</If>	
+			<While Condition="not HasAtLeast(28,60)">
+				<RunCode name="NeedPoetics"/>
+				<WaitTimer WaitTime="10" />
+			</While>
+		</If>
+		<If Condition="HasAtLeast(6268,3)"> <!-- HasAtLeast 3 Thavnairian Mist -->
+			<Log Message="Exchanging Omnilex with Furnace" />
+			<LisbethTravel ZoneId="154" XYZ="449.7941, -0.3727861, -70.40031"/>
+			<BuyShopExchangeItem NpcId="2002555" ItemId="6265" Count="1"/>
+		</If>			
+	</While>							 
+
+	<!-- Obtain Omnilex Atma -->
+	<If Condition="HasAtLeast(6265,1)">
+		<Log Message="Starting Atma Farm..." />
+		<LLoadProfile Path="Atma Farm.xml"/>
+	</If>	
+	
+	<!-- Obtain Omnilex Animus -->
+	<If Condition="HasAtLeast(7832,1)">
+		<Log Message="Starting Animus Book Farm..." />
+		<LLoadProfile Path="../Animus/Animus Book Farm.xml"/>
+	</If>
+		
+	<!-- Obtain Omnilex Novus -->
+	<If condition="HasAtLeast(7842,1)">
+		<Log Message="Starting Omnilex Novus Questing..." />
+		<If condition="HasAtLeast(2001306,1)">
+			<RunCode name="DiscardSkyearth"/>
+		</If>			
+		<LLoadProfile Path="Relic Novus.xml"/>
+	</If>
+		
+	<!-- Obtain Omnilex Nexus -->
+	<If condition="HasAtLeast(7871,1)">
+		<Log Message="Starting Omnilex Nexus Questing..." />
+		<LLoadProfile Path="Relic Nexus.xml"/>
+	</If>
+
+	<!-- Obtain Last Resort Rod -->
+	<If condition="HasAtLeast(8657,1)">
+		<Log Message="Starting Last Resort Questing..." />
+		<LLoadProfile Path="Zodiac Braves.xml"/>
+	</If>
+		
+	<!-- Zodiac Last Resort Zeta -->	
+	<If condition="HasAtLeast(9499,1)">
+		<Log Message="Starting Last Resort Zeta Questing..." />
+		<LLoadProfile Path="Zodiac Zeta.xml"/>
+	</If>
+
+  </Order>
+	<CodeChunks>
+		<CodeChunk Name="NeedPoetics">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please farm more Tomestone of Poetics.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="DiscardSkyearth">
+		  <![CDATA[ 
+            BagSlot toDiscard = InventoryManager.FilledInventoryAndArmory.First(x => x.RawItemId == 2001306);
+            if (toDiscard != null && toDiscard.IsFilled) LlamaLibrary.Extensions.BagSlotExtensions.Discard(toDiscard);
+		  ]]>
+		</CodeChunk>		
+	</CodeChunks>  
+</Profile>
