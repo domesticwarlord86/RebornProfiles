@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Howling Eye (Hard)
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Howling Eye (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+ 	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="61" trial="true"/>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<Grind GrindRef="Garuda" While="not GameObjectManager.GetObjectByNPCId(1644).CurrentHealth == 0"/> <!-- Kill Garuda -->
+		<If Condition="&openchest; == 1">
+			<LLOpenChest />
+		</If>
+		<While condition="DutyManager.InInstance">	
+			<WaitTimer WaitTime="10" />
+			<LLLeaveDuty/>
+		</While>
+	</If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+ </Order>
+  <GrindAreas>
+	<GrindArea name="Garuda">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="1.1442,-2.033097,-18" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Garuda" Id="1644" Weight="1" />
+			<TargetMob Name="Chirada" Id="1646" Weight="2" />
+			<TargetMob Name="Suparna" Id="1645" Weight="2" />					
+        </TargetMobs>
+	</GrindArea>
+  </GrindAreas>		
+  <CodeChunks>
+  </CodeChunks>  
+</Profile>    

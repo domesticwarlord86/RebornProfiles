@@ -1,0 +1,1778 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: A Relic Reborn	
+  Authors: Zamphire
+    Version: 1.0
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm
+-->
+
+<Profile>
+  <Name>A Relic Reborn</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+  
+	<!-- A Relic Reborn (Artimus Bow) -->
+	<If Condition="ClassName == ((ClassJobType.Bard))"> 	
+		<If Condition="not HasQuest(66661) and not IsQuestCompleted(66661)">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<If Condition="IsQuestAcceptQualified(66661)">
+				<PickupQuest QuestId="66661" NpcId="1003075"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(66661) == 1">
+			<LisbethTravel Area="Coerthas Central Highlands" Position="709.3498, 287.6392, 39.36601"/>
+			<UseObject NpcIds="2002497" XYZ="697.6882, 287.4646, 38.4679"  Radius="25"  QuestId="66661" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 2">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover timeworn Artemis Bow -->
+			<HandOver ItemId="2000994" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66661" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 3">
+			<While Condition="not HasAtLeast(2201,1)">
+				<RunCode name="NeedBaseWeapon"/>
+			</While>
+			<If Condition="HasAtLeast(2201,1)">			
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<HandOver StepId="3" ItemId="2201" QuestId="66661" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>				 
+		<If Condition="GetQuestStep(66661) == 4">
+			<!-- Check if the duty A Relic Reborn: The Chimera is unlocked -->
+			<If condition="not IsDutyAvailable(74)">
+				<LisbethTravel ZoneId="155" XYZ="531.1261, 350.3369, -710.7814"/>
+				<UseObject NpcIds="2003993" XYZ="532.5856, 350.6066, -710.9941"  Radius="25"  UseTimes="1"/> 
+			</If> 
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Chimera.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 5">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover pinch of alumina salts BRD -->
+			<HandOver ItemId="2001003" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66661" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 6">
+			<If Condition="not HasAtLeast(6267,1)">
+				<If Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</If>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="not HasAtLeast(6268,3)">
+				<If Condition="not HasAtLeast(28,60)">
+					<RunCode name="NeedPoetics"/>
+				</If>			
+				<If Condition="HasAtLeast(28,60)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Thavnairian Mist -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+				</If>	
+			</If>	
+			<LisbethTravel ZoneId="156" XYZ="26.15508, 29, -823.166"/>
+			<TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66661" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 7">
+			<If Condition="not ClassName == ClassJobType.Bard">	
+				<ChangeClass Job="Bard" />
+			</If>
+			<LLoadProfile Path="../Dungeons/Amdapor Keep.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 8">
+			<LisbethTravel Area="Mor Dhona" Position="25.60284, 29, -823.7947"/>
+			<!-- Handover Amdapor glyph BRD -->
+			<HandOver ItemId="2001012" NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66661" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 9">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover copy of Bow of the Gods -->
+			<HandOver ItemId="2001021" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66661" StepId="9"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 10">
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 1944">
+				<Log Message="Equipping Unfinished Artemis Bow" />
+				<EquipWeapon ItemID="1944"/>				
+				<WaitTimer WaitTime="3" />
+			</While>
+			<LisbethTravel Area="Coerthas Central Highlands" Position="503.5236, 303.2323, -191.0779"/>
+			<Grind grindRef="RelicRebornArtemis" while="GetQuestStep(66661) == 10"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 11">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66661" StepId="11"/>	
+		</If>
+		<If Condition="GetQuestStep(66661) == 12">		
+			<!-- If does not have access to A Relic Reborn: the Hydra -->
+			<If condition="not IsDutyAvailable(75)">
+				<LisbethTravel Area="Eastern Thanalan" Position="-332.8589, -22.36031, 435.9552"/>
+				<UseObject NpcIds="2003994" XYZ="-336.8429, -22.38501, 435.5992"  Radius="25" UseTimes="1"/>
+			</If>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 1944">
+				<Log Message="Equipping Unfinished Artemis Bow" />
+				<EquipWeapon ItemID="1944"/>
+				<WaitTimer WaitTime="3" />
+			</While>			
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Hydra.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 13">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66661" StepId="13"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 14">
+			<AutoEquip />
+			<!-- Turn in Unfinished Artemis Bow -->			
+			<HandOver ItemId="1944" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66661" StepId="14"/>	
+		</If>
+		<If Condition="GetQuestStep(66661) == 15">
+			<If Condition="not ClassName == ClassJobType.Bard">	
+				<ChangeClass Job="Bard" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Bowl of Embers (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66661) == 16">
+			<If Condition="not ClassName == ClassJobType.Bard">	
+				<ChangeClass Job="Bard" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Howling Eye (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66661) == 17">
+			<If Condition="not ClassName == ClassJobType.Bard">	
+				<ChangeClass Job="Bard" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Navel (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(66661) == 18">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handin white-hot ember, howling gale, and hyperfused ore BRD -->		
+			<HandOver ItemIds="2001030,2001039,2001048" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66661" StepId="18"/>			
+		</If>
+		<If Condition="GetQuestStep(66661) == 255">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="HasAtLeast(6267,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<TurnIn ItemId="6267" QuestId="66661" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>	
+	</If>
+	
+	<!-- A Relic Reborn (Stardust Rod) -->	
+	<If Condition="ClassName == ((ClassJobType.BlackMage))">
+		<If Condition="not HasQuest(66659) and not IsQuestCompleted(66659)">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<ChangeClass Job="BlackMage" />
+			<If Condition="IsQuestAcceptQualified(66659)">
+				<PickupQuest QuestId="66659" NpcId="1003075"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(66659) == 1">
+			<LisbethTravel ZoneId="180" XYZ="224.9637,24.12439,-651.3314"/>
+			<UseObject NpcIds="2002495" XYZ="224.9637,24.12439,-651.3314"  Radius="25"  QuestId="66659" StepId="1"/>
+		</If>  
+		<If Condition="GetQuestStep(66659) == 2">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover timeworn Stardust Rod --> 
+			<HandOver ItemId="2000992" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66659" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(66659) == 3 and not HasAtLeast(2102,1)">
+			<RunCode name="NoSanguine"/>	
+		</If>
+		<If Condition="GetQuestStep(66659) == 3">
+			<While Condition="not HasAtLeast(2102,1)">
+				<RunCode name="NeedBaseWeapon"/>	
+			</While>		
+			<If Condition="HasAtLeast(2102,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<!-- Turn in Sanguine Scepter -->
+				<HandOver StepId="3" QuestId="66659" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>				 
+		<If Condition="GetQuestStep(66659) == 4">
+			<!-- Check if the duty A Relic Reborn: The Chimera is unlocked -->
+			<If condition="not IsDutyAvailable(74)">
+				<LisbethTravel Area="Eastern Thanalan" Position="-334.8839, -22.49158, 429.6669"/>
+				<UseObject NpcIds="2003993" XYZ="532.5856, 350.6066, -710.9941"  Radius="25"  UseTimes="1"/>
+			</If> 
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Chimera.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66659) == 5">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover pinch of alumina salts BLM -->
+			<HandOver ItemId="2001001" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66659" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(66659) == 6">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="not HasAtLeast(6268,3)">
+				<While Condition="not HasAtLeast(28,60)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,60)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Thavnairian Mist -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+				</If>	
+			</If>
+			<LisbethTravel ZoneId="156" XYZ="26.15508, 29, -823.166"/>
+			<TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66659" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(66659) == 7">
+			<If Condition="not ClassName == ClassJobType.BlackMage">	
+				<ChangeClass Job="BlackMage" />
+			</If>
+			<LLoadProfile Path="../Dungeons/Amdapor Keep.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66659) == 8">
+			<LisbethTravel ZoneId="156" XYZ="25.67217, 29, -823.6172"/>
+			<!-- Handover Amdapor glyph BLM -->
+			<HandOver ItemId="2001010" NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66659" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(66659) == 9">	
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover copy of On Verdant Pond -->
+			<HandOver ItemId="2001019" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66659" StepId="9"/>
+		</If>
+		<If Condition="GetQuestStep(66659) == 10">
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 2135">
+				<Log Message="Equipping Unfinished Stardust Rod" />
+				<EquipWeapon ItemID="2135"/>				
+				<WaitTimer WaitTime="3" />
+			</While>
+			<LisbethTravel ZoneId="180" XYZ="74.54537, 54.23363, -535.9759" />													
+			<Grind grindRef="RelicRebornStardust" while="GetQuestStep(66659) == 10"/>			
+		</If>
+		<If Condition="GetQuestStep(66659) == 11">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66659" StepId="11"/>	
+		</If>
+		<If Condition="GetQuestStep(66659) == 12">		
+			<!-- If does not have access to A Relic Reborn: the Hydra -->
+			<If condition="not IsDutyAvailable(75)">
+				<LisbethTravel Area="Eastern Thanalan" Position="-332.8589, -22.36031, 435.9552"/>
+				<UseObject NpcIds="2003994" XYZ="-336.8429, -22.38501, 435.5992"  Radius="25" UseTimes="1"/>
+			</If>			
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 2135">
+				<Log Message="Equipping Unfinished Stardust Rod" />
+				<EquipWeapon ItemID="2135"/>
+				<WaitTimer WaitTime="3" />
+			</While>			
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Hydra.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66659) == 13">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66659" StepId="13"/>
+		</If>
+		<If Condition="GetQuestStep(66659) == 14">
+			<AutoEquip />
+			<!-- Turn in Unfinished Stardust Rod -->
+			<HandOver ItemId="2135" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66659" StepId="14"/>	
+		</If>
+		<If Condition="GetQuestStep(66659) == 15">
+			<If Condition="not ClassName == ClassJobType.BlackMage">	
+				<ChangeClass Job="BlackMage" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Bowl of Embers (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66659) == 16">
+			<If Condition="not ClassName == ClassJobType.BlackMage">	
+				<ChangeClass Job="BlackMage" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Howling Eye (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66659) == 17">
+			<If Condition="not ClassName == ClassJobType.BlackMage">	
+				<ChangeClass Job="BlackMage" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Navel (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(66659) == 18">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handin white-hot ember, howling gale, and hyperfused ore BLM -->				
+			<HandOver ItemIds="2001028,2001037,2001046" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66659" StepId="18"/>			
+		</If>
+		<If Condition="GetQuestStep(66659) == 255">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="HasAtLeast(6267,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<TurnIn ItemId="6267" QuestId="66659" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>			
+	</If>
+	
+	<!-- A Relic Reborn (Gae Bolg) -->
+	<If Condition="ClassName == ((ClassJobType.Dragoon))"> 	
+		<If Condition="not HasQuest(66658) and not IsQuestCompleted(66658)">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<If Condition="IsQuestAcceptQualified(66658)">
+				<PickupQuest QuestId="66658" NpcId="1003075"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(66658) == 1">
+			<LisbethTravel Area="Coerthas Central Highlands" Position="640.0771, 286.305, 140.4273"/>
+			<UseObject NpcIds="2002494" XYZ="638.2086, 286.427, 140.4897"  Radius="25"  QuestId="66658" StepId="1"/>
+		</If>  
+		<If Condition="GetQuestStep(66658) == 2">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover timeworn Gae Bolg -->
+			<HandOver ItemId="2000991" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66658" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(66658) == 3">
+			<While Condition="not HasAtLeast(1879,1)">		
+				<RunCode name="NeedBaseWeapon"/>
+			</While>	
+			<If Condition="HasAtLeast(1879,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<HandOver ItemId="2202" StepId="3" QuestId="66658" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>	
+			</If>
+		</If>	
+		<If Condition="GetQuestStep(66658) == 4">
+			<!-- Check if the duty A Relic Reborn: The Chimera is unlocked -->
+			<If condition="not IsDutyAvailable(74)">
+				<LisbethTravel ZoneId="155" XYZ="531.1261, 350.3369, -710.7814"/>
+				<UseObject NpcIds="2003993" XYZ="532.5856, 350.6066, -710.9941"  Radius="25"  UseTimes="1"/> 
+			</If> 
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Chimera.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66658) == 5">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover pinch of alumina salts DRG -->
+			<HandOver ItemId="2001000" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66658" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(66658) == 6">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="not HasAtLeast(6268,3)">
+				<While Condition="not HasAtLeast(28,60)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,60)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Thavnairian Mist -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+				</If>	
+			</If>
+		  <LisbethTravel ZoneId="156" XYZ="26.15508, 29, -823.166"/>
+		  <TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66658" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(66658) == 7">
+			<If Condition="not ClassName == ClassJobType.Dragoon">	
+				<ChangeClass Job="Dragoon" />
+			</If>
+			<LLoadProfile Path="../Dungeons/Amdapor Keep.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66658) == 8">
+		  <LisbethTravel ZoneId="156" XYZ="25.67217, 29, -823.6172"/>
+		  <!-- Handover Amdapor glyph DRG -->
+		  <HandOver ItemId="2001009" NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66658" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(66658) == 9">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover copy of The Book of Reinette -->
+			<HandOver ItemId="2001018" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66658" StepId="9"/>
+		</If>
+		<If Condition="GetQuestStep(66658) == 10">
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 1874">
+				<Log Message="Equipping Unfinished Gae Bolg" />
+				<EquipWeapon ItemID="1874"/>				
+				<WaitTimer WaitTime="3" />
+			</While>
+			<LisbethTravel Area="Coerthas Central Highlands" Position="515.0824, 302.8028, -181.5978"/>
+			<Grind grindRef="RelicRebornGae" postCombatDelay="1" while="GetQuestStep(66658) == 10"/>
+		</If>
+		<If Condition="GetQuestStep(66658) == 11">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66658" StepId="11"/>	
+		</If>
+		<If Condition="GetQuestStep(66658) == 12">		
+			<!-- If does not have access to A Relic Reborn: the Hydra -->
+			<If condition="not IsDutyAvailable(75)">
+				<LisbethTravel Area="Eastern Thanalan" Position="-332.8589, -22.36031, 435.9552"/>
+				<UseObject NpcIds="2003994" XYZ="-336.8429, -22.38501, 435.5992"  Radius="25" UseTimes="1"/>
+			</If>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 1874">
+				<Log Message="Equipping Unfinished Gae Bolg" />
+				<EquipWeapon ItemID="1874"/>
+				<WaitTimer WaitTime="3" />
+			</While>			
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Hydra.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66658) == 13">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66658" StepId="13"/>
+		</If>
+		<If Condition="GetQuestStep(66658) == 14">
+			<AutoEquip />
+			<!-- Turn in Unfinished Gae Bolg -->
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<HandOver ItemId="1874" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66658" StepId="14"/>						
+		</If>
+		<If Condition="GetQuestStep(66658) == 15">
+			<If Condition="not ClassName == ClassJobType.Dragoon">	
+				<ChangeClass Job="Dragoon" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Bowl of Embers (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66658) == 16">
+			<If Condition="not ClassName == ClassJobType.Dragoon">	
+				<ChangeClass Job="Dragoon" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Howling Eye (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66658) == 17">
+			<If Condition="not ClassName == ClassJobType.Dragoon">	
+				<ChangeClass Job="Dragoon" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Navel (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(66658) == 18">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handin white-hot ember, howling gales, and hyperfused ore DRG -->			
+			<HandOver ItemIds="2001027,2001036,2001045" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66658" StepId="18"/>			
+		</If>
+		<If Condition="GetQuestStep(66658) == 255">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="HasAtLeast(6267,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<TurnIn ItemId="6267" QuestId="66658" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>	
+	</If>
+	
+	<!-- A Relic Reborn (Sphairai) -->
+	<If Condition="ClassName == ((ClassJobType.Monk))">	
+		<If Condition="not HasQuest(66657) and not IsQuestCompleted(66657)">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<If Condition="IsQuestAcceptQualified(66657)">
+				<PickupQuest QuestId="66657" NpcId="1003075"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(66657) == 1">
+		  <LisbethTravel Area="Southern Thanalan" Position="551.4755, 7.599624, -170.2551"/>
+		  <UseObject NpcIds="2002493" XYZ="553.6736, 7.583679, -172.1676" Radius="25"  QuestId="66657" StepId="1"/>
+		</If>  
+		<If Condition="GetQuestStep(66657) == 2">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover pair of timeworn Sphairai --> 
+			<HandOver ItemId="2000990" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66657" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(66657) == 3 ">
+			<While Condition="not HasAtLeast(1740,1)">		
+				<RunCode name="NeedBaseWeapon"/>	
+			</While>
+			<If Condition="HasAtLeast(1740,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<HandOver StepId="3" ItemId="1740" QuestId="66657" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>		
+		</If>				 
+		<If Condition="GetQuestStep(66657) == 4">
+			<!-- Check if the duty A Relic Reborn: The Chimera is unlocked -->
+			<If condition="not IsDutyAvailable(74)">
+				<LisbethTravel ZoneId="155" XYZ="531.1261, 350.3369, -710.7814"/>
+				<UseObject NpcIds="2003993" XYZ="532.5856, 350.6066, -710.9941"  Radius="25"  UseTimes="1"/> 
+			</If> 
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Chimera.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66657) == 5">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover pinch of alumina salts MNK -->
+			<HandOver ItemId="2000999" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66657" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(66657) == 6">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="not HasAtLeast(6268,3)">
+				<While Condition="not HasAtLeast(28,60)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,60)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Thavnairian Mist -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+				</If>	
+			</If>
+			<LisbethTravel ZoneId="156" XYZ="26.15508, 29, -823.166"/>
+			<TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66657" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(66657) == 7">
+			<If Condition="not ClassName == ClassJobType.Monk">	
+				<ChangeClass Job="Monk" />
+			</If>
+			<LLoadProfile Path="../Dungeons/Amdapor Keep.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66657) == 8">
+		  <LisbethTravel ZoneId="156" XYZ="25.67217, 29, -823.6172"/>
+		  <!-- Handover Amdapor glyph MNK -->
+		  <HandOver ItemId="2001008" NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66657" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(66657) == 9">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover copy of Enter the Coeurl -->
+			<HandOver ItemId="2001017" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66657" StepId="9"/>
+		</If>
+		<If Condition="GetQuestStep(66657) == 10">
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 1735">
+				<Log Message="Equipping Unfinished Sphairai" />
+				<EquipWeapon ItemID="1735"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+			<LisbethTravel Area="Southern Thanalan" Position="238.0863, 8, -18.49473"/>
+			<Grind grindRef="RelicRebornSphairai" postCombatDelay="1" while="GetQuestStep(66657) == 10"/>
+		</If>
+		<If Condition="GetQuestStep(66657) == 11">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66657" StepId="11"/>	
+		</If>
+		<If Condition="GetQuestStep(66657) == 12">		
+			<!-- If does not have access to A Relic Reborn: the Hydra -->
+			<If condition="not IsDutyAvailable(75)">
+				<LisbethTravel Area="Eastern Thanalan" Position="-332.8589, -22.36031, 435.9552"/>
+				<UseObject NpcIds="2003994" XYZ="-336.8429, -22.38501, 435.5992"  Radius="25" UseTimes="1"/>
+			</If>			
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 1735">
+				<Log Message="Equipping Unfinished Sphairai" />
+				<EquipWeapon ItemID="1735"/>
+				<WaitTimer WaitTime="3" />
+			</While>			
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Hydra.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66657) == 13">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66657" StepId="13"/>
+		</If>
+		<If Condition="GetQuestStep(66657) == 14">
+			<AutoEquip />	
+			<!-- Turn in Unfinished Sphairai -->
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<HandOver ItemId="1735" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66657" StepId="14"/>	
+		</If>
+		<If Condition="GetQuestStep(66657) == 15">
+			<If Condition="not ClassName == ClassJobType.Monk">	
+				<ChangeClass Job="Monk" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Bowl of Embers (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66657) == 16">
+			<If Condition="not ClassName == ClassJobType.Monk">	
+				<ChangeClass Job="Monk" />
+			</If>	
+			<LLoadProfile Path="../Dungeons/The Howling Eye (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66657) == 17">
+			<If Condition="not ClassName == ClassJobType.Monk">	
+				<ChangeClass Job="Monk" />
+			</If>	
+			<LLoadProfile Path="../Dungeons/The Navel (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(66657) == 18">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<!-- Handin white-hot ember, howling gale, and hyperfused ore MNK -->			
+			<HandOver ItemIds="2001025,2001034,2001043" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66657" StepId="18"/>			
+		</If>
+		<If Condition="GetQuestStep(66657) == 255">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="HasAtLeast(6267,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<TurnIn ItemId="6267" QuestId="66657" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>	
+	</If>
+
+	<!-- A Relic Reborn (Yoshimitsu) -->
+	<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+		<If Condition="not HasQuest(67115) and not IsQuestCompleted(67115)">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<If Condition="IsQuestAcceptQualified(67115)">
+				<PickupQuest QuestId="67115" NpcId="1003075"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(67115) == 1">
+			<LisbethTravel Area="Western La Noscea" Position="-432.3331, -31.83323, -308.6303"/>
+			<UseObject NpcIds="2003951" XYZ="-433.5851, -31.50995, -307.1794"  Radius="25"  QuestId="67115" StepId="1"/>
+		</If>  
+		<If Condition="GetQuestStep(67115) == 2">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover timeworn Yoshimitsu -->
+			<HandOver ItemId="2001451" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="67115" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(67115) == 3">
+			<While Condition="not HasAtLeast(9224,1)">
+				<RunCode name="NeedBaseWeapon"/>	
+			</While>
+			<If Condition="HasAtLeast(9224,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<HandOver ItemId="9224" StepId="3" QuestId="67115" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>	
+			</If>
+		</If>	
+		<If Condition="GetQuestStep(67115) == 4">
+			<!-- Check if the duty A Relic Reborn: The Chimera is unlocked -->
+			<If condition="not IsDutyAvailable(74)">
+				<LisbethTravel ZoneId="155" XYZ="531.1261, 350.3369, -710.7814"/>
+				<UseObject NpcIds="2003993" XYZ="532.5856, 350.6066, -710.9941"  Radius="25"  UseTimes="1"/> 
+			</If> 
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Chimera.xml"/>
+		</If>
+		<If Condition="GetQuestStep(67115) == 5">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover pinch of alumina salts NIN -->
+			<HandOver ItemId="2001452" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="67115" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(67115) == 6">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="not HasAtLeast(6268,3)">
+				<While Condition="not HasAtLeast(28,60)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,60)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Thavnairian Mist -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+				</If>	
+			</If>
+			<LisbethTravel ZoneId="156" XYZ="26.15508, 29, -823.166"/>
+			<TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="67115" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(67115) == 7">
+			<If Condition="not ClassName == ClassJobType.Ninja">	
+				<ChangeClass Job="Ninja" />
+			</If>
+			<LLoadProfile Path="../Dungeons/Amdapor Keep.xml"/>
+		</If>
+		<If Condition="GetQuestStep(67115) == 8">
+			<LisbethTravel ZoneId="156" XYZ="25.67217, 29, -823.6172"/>
+			<!-- Handover Amdapor glyph NIN -->
+			<HandOver ItemId="2001453" NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="67115" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(67115) == 9">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover copy of Shonin-Ki -->
+			<HandOver ItemId="2001454" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="67115" StepId="9"/>
+		</If>
+		<If Condition="GetQuestStep(67115) == 10">
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7887">
+				<Log Message="Equipping Unfinished Yoshimitsu" />
+				<EquipWeapon ItemID="7887"/>				
+				<WaitTimer WaitTime="3" />
+			</While>
+			<LisbethTravel Area="Western La Noscea" Position="-283.4978, -41.99191, -334.3423"/>
+			<Grind grindRef="RelicRebornYoshi" postCombatDelay="1" while="GetQuestStep(67115) == 10"/>
+		</If>
+		<If Condition="GetQuestStep(67115) == 11">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="67115" StepId="11"/>	
+		</If>
+		<If Condition="GetQuestStep(67115) == 12">		
+			<!-- If does not have access to A Relic Reborn: the Hydra -->
+			<If condition="not IsDutyAvailable(75)">
+				<LisbethTravel Area="Eastern Thanalan" Position="-332.8589, -22.36031, 435.9552"/>
+				<UseObject NpcIds="2003994" XYZ="-336.8429, -22.38501, 435.5992"  Radius="25" UseTimes="1"/>
+			</If>
+			<If Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7887">
+				<Log Message="Equipping Unfinished Yoshimitsu" />
+				<EquipWeapon ItemID="7887"/>
+				<WaitTimer WaitTime="3" />
+			</If>			
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Hydra.xml"/>
+		</If>
+		<If Condition="GetQuestStep(67115) == 13">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="67115" StepId="13"/>
+		</If>
+		<If Condition="GetQuestStep(67115) == 14">
+			<AutoEquip />	
+			<!-- Turn in Unfinished Yoshimitsu -->
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<HandOver ItemId="7887" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="67115" StepId="14"/>						
+		</If>
+		<If Condition="GetQuestStep(67115) == 15">
+			<If Condition="not ClassName == ClassJobType.Ninja">	
+				<ChangeClass Job="Ninja" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Bowl of Embers (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(67115) == 16">
+			<If Condition="not ClassName == ClassJobType.Ninja">	
+				<ChangeClass Job="Ninja" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Howling Eye (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(67115) == 17">
+			<If Condition="not ClassName == ClassJobType.Ninja">	
+				<ChangeClass Job="Ninja" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Navel (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(67115) == 18">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handin white-hot ember, howling gales, and hyperfused ore NIN -->			
+			<HandOver ItemIds="2001455,2001456,2001457" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="67115" StepId="18"/>			
+		</If>
+		<If Condition="GetQuestStep(67115) == 255">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="HasAtLeast(6267,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<TurnIn ItemId="6267" QuestId="67115" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>
+	</If>
+	
+	<!-- A Relic Reborn (Curtana) -->	
+	<If Condition="ClassName == ((ClassJobType.Paladin))">	
+		<If Condition="not HasQuest(66656) and not IsQuestCompleted(66656)">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<If Condition="IsQuestAcceptQualified(66656)">
+				<PickupQuest QuestId="66656" NpcId="1003075"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(66656) == 1">
+			<LisbethTravel Area="Southern Thanalan" Position="484.9235, 7.690742, -149.2108"/>
+			<UseObject NpcIds="2002492" XYZ="483.8483, 9.262146, -162.9817" Radius="25"  QuestId="66656" StepId="1"/>
+		</If>  
+		<If Condition="GetQuestStep(66656) == 2">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handove timeworn Curtana -->
+			<HandOver ItemId="2000989" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66656" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(66656) == 3">
+			<If Condition="not HasAtLeast(1670,1)">		
+				<RunCode name="NeedBaseWeapon"/>
+			</If>	
+			<If Condition="HasAtLeast(1670,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<HandOver ItemId="1670" StepId="3" QuestId="66656" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>			
+		</If>				 
+		<If Condition="GetQuestStep(66656) == 4">
+			<!-- Check if the duty A Relic Reborn: The Chimera is unlocked -->
+			<If condition="not IsDutyAvailable(74)">
+				<LisbethTravel ZoneId="155" XYZ="531.1261, 350.3369, -710.7814"/>
+				<UseObject NpcIds="2003993" XYZ="532.5856, 350.6066, -710.9941"  Radius="25"  UseTimes="1"/> 
+			</If> 
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Chimera.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66656) == 5">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover pinch of alumina salts PLD -->
+			<HandOver ItemId="2000998" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66656" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(66656) == 6">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="not HasAtLeast(6268,3)">
+				<While Condition="not HasAtLeast(28,60)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,60)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Thavnairian Mist -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+				</If>	
+			</If>	
+			<LisbethTravel ZoneId="156" XYZ="26.15508, 29, -823.166"/>
+			<TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66656" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(66656) == 7">
+			<If Condition="not ClassName == ClassJobType.Paladin">	
+				<ChangeClass Job="Paladin" />
+			</If>
+			<LLoadProfile Path="../Dungeons/Amdapor Keep.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66656) == 8">
+			<LisbethTravel ZoneId="156" XYZ="25.67217, 29, -823.6172"/>
+			<!-- Handover Amdapor glyph PLD -->
+			<HandOver ItemId="2001007" NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66656" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(66656) == 9">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover copy of The Song of Tristram -->
+			<HandOver ItemId="2001016" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66656" StepId="9"/>
+		</If>
+		<If Condition="GetQuestStep(66656) == 10">
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 1665">
+				<Log Message="Equipping Unfinished Curtana" />
+				<EquipWeapon ItemID="1665"/>	
+				<WaitTimer WaitTime="3" />
+			</While>
+			<LisbethTravel Area="Southern Thanalan" Position="243.888, 8, -29.45466"/>
+			<Grind grindRef="RelicRebornCurtana" postCombatDelay="1" while="GetQuestStep(66656) == 10"/>
+		</If>
+		<If Condition="GetQuestStep(66656) == 11">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66656" StepId="11"/>	
+		</If>
+		<If Condition="GetQuestStep(66656) == 12">		
+			<!-- If does not have access to A Relic Reborn: the Hydra -->
+			<If condition="not IsDutyAvailable(75)">
+				<LisbethTravel Area="Eastern Thanalan" Position="-332.8589, -22.36031, 435.9552"/>
+				<UseObject NpcIds="2003994" XYZ="-336.8429, -22.38501, 435.5992"  Radius="25" UseTimes="1"/>
+			</If>		
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 1665">
+				<Log Message="Equipping Unfinished Curtana" />
+				<EquipWeapon ItemID="1665"/>	
+				<WaitTimer WaitTime="3" />
+			</While>			
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Hydra.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66656) == 13">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66656" StepId="13"/>
+		</If>
+		<If Condition="GetQuestStep(66656) == 14">
+			<AutoEquip />
+			<!-- Turn in Unfinished Curtana -->
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<HandOver ItemId="1665" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66656" StepId="14"/>	
+		</If>
+		<If Condition="GetQuestStep(66656) == 15">
+			<If Condition="not ClassName == ClassJobType.Paladin">	
+				<ChangeClass Job="Paladin" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Bowl of Embers (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66656) == 16">
+			<If Condition="not ClassName == ClassJobType.Paladin">	
+				<ChangeClass Job="Paladin" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Howling Eye (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66656) == 17">
+			<If Condition="not ClassName == ClassJobType.Paladin">	
+				<ChangeClass Job="Paladin" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Navel (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(66656) == 18">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<!-- Handin white-hot ember, howling gale, and hyperfused ore PLD -->				
+			<HandOver ItemIds="2001025,2001034,2001043" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66656" StepId="18"/>			
+		</If>
+		<If Condition="GetQuestStep(66656) == 255">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="HasAtLeast(6267,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+				<TurnIn ItemId="6267" QuestId="66656" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>	
+	</If>
+	
+	
+	<If Condition="ClassName == ((ClassJobType.Scholar))">	
+		<!-- A Relic Reborn (Omnilex) -->
+		<If Condition="not HasQuest(66663) and not IsQuestCompleted(66663)">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>		
+			<If Condition="IsQuestAcceptQualified(66663)">
+				<PickupQuest QuestId="66663" NpcId="1003075"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(66663) == 1">
+			<LisbethTravel ZoneId="138" XYZ="-319.494, -37.20483, -281.2711"/>
+			<UseObject NpcIds="2002499" XYZ="-319.173, -36.63696, -278.7366"  Radius="25"  QuestId="66663" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 2">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<!-- Handove timeworn Omnilex -->										 
+			<HandOver ItemId="2000996" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66663" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 3">
+			<While Condition="not HasAtLeast(2201,1)">		
+				<RunCode name="NeedBaseWeapon"/>	
+			</While>	
+			<If Condition="HasAtLeast(2201,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+				<HandOver StepId="3" ItemId="2201" QuestId="66663" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>	
+			</If>	
+		</If>				 
+		<If Condition="GetQuestStep(66663) == 4">
+			<!-- Check if the duty A Relic Reborn: The Chimera is unlocked -->
+			<If condition="not IsDutyAvailable(74)">
+				<LisbethTravel ZoneId="155" XYZ="531.1261, 350.3369, -710.7814"/>
+				<UseObject NpcIds="2003993" XYZ="532.5856, 350.6066, -710.9941"  Radius="25"  UseTimes="1"/> 
+			</If> 
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Chimera.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 5">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<!-- Handover pinch of alumina salts SMN -->
+			<HandOver ItemId="2001005" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66663" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 6">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="not HasAtLeast(6268,3)">
+				<While Condition="not HasAtLeast(28,60)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,60)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Thavnairian Mist -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+				</If>	
+			</If>	
+			<LisbethTravel ZoneId="156" XYZ="26.15508, 29, -823.166"/>
+			<TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66663" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 7">
+			<If Condition="not ClassName == ClassJobType.Scholar">	
+				<ChangeClass Job="Scholar" />
+			</If>
+			<LLoadProfile Path="../Dungeons/Amdapor Keep.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 8">
+			<LisbethTravel ZoneId="156" XYZ="25.67217, 29, -823.6172"/>
+			<!-- Handover Amdapor glyph SCH -->
+			<HandOver ItemId="2001014" NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66663" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 9">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<!-- Handover copy of War of the Magi -->
+			<HandOver ItemId="2001023" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66663" StepId="9"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 10">
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 2192">
+				<Log Message="Equipping Unfinished Omnilex..." />
+				<EquipWeapon ItemID="2192"/>				
+				<WaitTimer WaitTime="3" />
+			</While>
+			<LisbethTravel ZoneId="138" XYZ="-286.3168, -41.89627, -337.8728"/>
+			<Grind grindRef="RelicRebornOmnilex" while="GetQuestStep(66663) == 10"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 11">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>		
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66663" StepId="11"/>	
+		</If>
+		<If Condition="GetQuestStep(66663) == 12">		
+			<!-- If does not have access to A Relic Reborn: the Hydra -->
+			<If condition="not IsDutyAvailable(75)">
+				<LisbethTravel Area="Eastern Thanalan" Position="-332.8589, -22.36031, 435.9552"/>
+				<UseObject NpcIds="2003994" XYZ="-336.8429, -22.38501, 435.5992"  Radius="25" UseTimes="1"/>
+			</If>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 2192">
+				<RunCode Name="UnfinishedOmnilex" />
+				<WaitTimer WaitTime="3" />
+			</While>			
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Hydra.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 13">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>		
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66663" StepId="13"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 14">
+			<AutoEquip />
+			<!-- Turn in Unfinished Omnliex -->
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<HandOver ItemId="2192" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66663" StepId="14"/>	
+		</If>
+		<If Condition="GetQuestStep(66663) == 15">
+			<If Condition="not ClassName == ClassJobType.Scholar">	
+				<ChangeClass Job="Scholar" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Bowl of Embers (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66663) == 16">
+			<If Condition="not ClassName == ClassJobType.Scholar">	
+				<ChangeClass Job="Scholar" />
+			</If>	
+			<LLoadProfile Path="../Dungeons/The Howling Eye (Hard).xml"/>
+		</If>		
+		<If Condition="GetQuestStep(66663) == 17">
+			<If Condition="not ClassName == ClassJobType.Scholar">	
+				<ChangeClass Job="Scholar" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Navel (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(66663) == 18">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<!-- Handin white-hot ember, howling gale, and hyperfused ore SCH -->		
+			<HandOver ItemIds="2001032,2001041,2001050" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66663" StepId="18"/>			
+		</If>
+		<If Condition="GetQuestStep(66663) == 255">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="HasAtLeast(6267,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+				<TurnIn ItemId="6267" QuestId="66663" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>	
+	</If>
+	
+	
+	<If Condition="ClassName == ((ClassJobType.Summoner))">
+		<!-- A Relic Reborn (The Veil of Wiyu) -->
+		<If Condition="not HasQuest(66662) and not IsQuestCompleted(66662)">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<If Condition="IsQuestAcceptQualified(66662)">
+				<PickupQuest QuestId="66662" NpcId="1003075"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(66662) == 1">
+			<LisbethTravel Area="East Shroud" Position="119.9538, -21.49602, -297.8482"/>
+			<UseObject NpcIds="2002498" XYZ="116.0448,-21.43903,-294.9112"  Radius="25"  QuestId="66662" StepId="1"/>
+		</If>  
+		<If Condition="GetQuestStep(66662) == 2">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<!-- Handove timeworn Veil of Wiyu -->
+			<HandOver ItemId="2000995" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66662" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(66662) == 3">
+			<While Condition="not HasAtLeast(2202,1)">
+				<RunCode name="NeedBaseWeapon"/>
+			</While>	
+			<If Condition="HasAtLeast(2202,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+				<!-- Turn in Erudite's Picatrix of Casting -->
+				<HandOver ItemId="2202" StepId="3" QuestId="66662" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>				 
+		<If Condition="GetQuestStep(66662) == 4">
+			<!-- Check if the duty A Relic Reborn: The Chimera is unlocked -->
+			<If condition="not IsDutyAvailable(74)">
+				<LisbethTravel ZoneId="155" XYZ="531.1261, 350.3369, -710.7814"/>
+				<UseObject NpcIds="2003993" XYZ="532.5856, 350.6066, -710.9941"  Radius="25"  UseTimes="1"/> 
+			</If> 
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Chimera.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66662) == 5">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<!-- Handover pinch of alumina salts SCH -->
+			<HandOver ItemId="2001004" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66662" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(66662) == 6">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="not HasAtLeast(6268,3)">
+				<While Condition="not HasAtLeast(28,60)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,60)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Thavnairian Mist -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+				</If>	
+			</If>
+			<LisbethTravel ZoneId="156" XYZ="26.15508, 29, -823.166"/>
+			<TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66662" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(66662) == 7">
+			<If Condition="not ClassName == ClassJobType.Summoner">	
+				<ChangeClass Job="Summoner" />
+			</If>
+			<LLoadProfile Path="../Dungeons/Amdapor Keep.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66662) == 8">
+			<LisbethTravel ZoneId="156" XYZ="25.67217, 29, -823.6172"/>
+			<!-- Handover Amdapor glyph SMN -->
+			<HandOver ItemId="2001013" NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66662" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(66662) == 9">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<!-- Handover copy of Under the Veil -->
+			<HandOver ItemId="2001022" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66662" StepId="9"/>
+		</If>
+		<If Condition="GetQuestStep(66662) == 10">
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 2191">
+				<Log Message="Equipping Unfinished Veil of the Wiyu Animus..." />
+				<EquipWeapon ItemID="2191"/>				
+				<WaitTimer WaitTime="3" />
+			</While>
+			<LisbethTravel Area="East Shroud" Position="389.8321, -18.24365, -379.2444"/>
+			<Grind grindRef="RelicRebornVeil" postCombatDelay="1" while="GetQuestStep(66662) == 10"/>
+		</If>
+		<If Condition="GetQuestStep(66662) == 11">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>		
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66662" StepId="11"/>	
+		</If>
+		<If Condition="GetQuestStep(66662) == 12">		
+			<!-- If does not have access to A Relic Reborn: the Hydra -->
+			<If condition="not IsDutyAvailable(75)">
+				<LisbethTravel Area="Eastern Thanalan" Position="-332.8589, -22.36031, 435.9552"/>
+				<UseObject NpcIds="2003994" XYZ="-336.8429, -22.38501, 435.5992"  Radius="25" UseTimes="1"/>
+			</If>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 2191">
+				<Log Message="Equipping Unfinished Veil of the Wiyu Animus..." />
+				<EquipWeapon ItemID="2191"/>				
+				<WaitTimer WaitTime="3" />
+			</While>		
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Hydra.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66662) == 13">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66662" StepId="13"/>
+		</If>
+		<If Condition="GetQuestStep(66662) == 14">
+			<ChangeClass Job="Summoner" />
+			<!-- Turn in Unfinished Veil of the Wiyu -->
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>		
+			<HandOver ItemId="2191" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66662" StepId="14"/>						
+		</If>
+		<If Condition="GetQuestStep(66662) == 15">
+			<If Condition="not ClassName == ClassJobType.Summoner">	
+				<ChangeClass Job="Summoner" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Bowl of Embers (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66662) == 16">
+			<If Condition="not ClassName == ClassJobType.Summoner">	
+				<ChangeClass Job="Summoner" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Howling Eye (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66662) == 17">
+			<If Condition="not ClassName == ClassJobType.Summoner">	
+				<ChangeClass Job="Summoner" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Navel (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(66662) == 18">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<!-- Handin white-hot ember, howling gale, and hyperfused ore SCH -->			
+			<HandOver ItemIds="2001031,2001040,2001049" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66662" StepId="18"/>			
+		</If>
+		<If Condition="GetQuestStep(66662) == 255">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="HasAtLeast(6267,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+				<TurnIn ItemId="6267" QuestId="66662" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>		
+	</If>
+	
+	<!-- A Relic Reborn (Bravura) -->
+	<If Condition="ClassName == ((ClassJobType.Warrior))">		
+		<If Condition="not HasQuest(66655) and not IsQuestCompleted(66655)">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<If Condition="IsQuestAcceptQualified(66655)">
+				<PickupQuest QuestId="66655" NpcId="1003075"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(66655) == 1">
+			<LisbethTravel Area="Outer La Noscea" Position="159.8774, 21.42216, -702.3598"/>
+			<UseObject NpcIds="2002491" XYZ="160.0519, 22.75116, -694.0261" Radius="25"  QuestId="66655" StepId="1"/>
+		</If>  
+		<If Condition="GetQuestStep(66655) == 2">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handove timeworn Bravura -->
+			<HandOver ItemId="2000989" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66655" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(66655) == 3 and HasAtLeast(1810,1)">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<HandOver StepId="3" ItemId="1810" QuestId="66655" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>	
+		</If>		
+		<If Condition="GetQuestStep(66655) == 3">
+			<If Condition="not HasAtLeast(1810,1)">
+				<RunCode name="NeedBaseWeapon"/>
+			</If>
+			<If Condition="HasAtLeast(1810,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+				<!-- Turn in Barbarian's Bardiche -->
+				<HandOver ItemId="1810" StepId="3" QuestId="66655" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>
+		</If>		
+		<If Condition="GetQuestStep(66655) == 4">
+			<!-- Check if the duty A Relic Reborn: The Chimera is unlocked -->
+			<If condition="not IsDutyAvailable(74)">
+				<LisbethTravel ZoneId="155" XYZ="531.1261, 350.3369, -710.7814"/>
+				<UseObject NpcIds="2003993" XYZ="532.5856, 350.6066, -710.9941"  Radius="25"  UseTimes="1"/> 
+			</If> 
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Chimera.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66655) == 5">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover pinch of alumina salts WAR -->
+			<HandOver ItemId="2000997" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66655" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(66655) == 6">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="not HasAtLeast(6268,3)">
+				<While Condition="not HasAtLeast(28,60)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,60)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Thavnairian Mist -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+				</If>	
+			</If>			
+			<LisbethTravel Area="Mor Dhona" Position="25.60284, 29, -823.7947"/>
+			<TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66655" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(66655) == 7">
+			<If Condition="not ClassName == ClassJobType.Warrior">	
+				<ChangeClass Job="Warrior" />
+			</If>
+			<LLoadProfile Path="../Dungeons/Amdapor Keep.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66655) == 8">
+			<LisbethTravel Area="Mor Dhona" Position="25.60284, 29, -823.7947"/>
+			<!-- Handover Amdapor glyph WAR -->
+			<HandOver ItemId="2001006" NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66655" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(66655) == 9">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover copy of The Warrior Within -->
+			<HandOver ItemId="2001015" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66655" StepId="9"/>
+		</If>
+		<If Condition="GetQuestStep(66655) == 10">
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 1805">
+				<Log Message="Equipping Unfinished Bravura..." />
+				<EquipWeapon ItemID="1805"/>>					
+				<WaitTimer WaitTime="3" />
+			</While>
+			<LisbethTravel Area="Outer La Noscea" Position="113.715, 27.02575, -595.6255"/>
+			<Grind grindRef="RelicRebornBravura" postCombatDelay="1" while="GetQuestStep(66655) == 10"/>
+		</If>
+		<If Condition="GetQuestStep(66655) == 11">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66655" StepId="11"/>	
+		</If>
+		<If Condition="GetQuestStep(66655) == 12">		
+			<!-- If does not have access to A Relic Reborn: the Hydra -->
+			<If condition="not IsDutyAvailable(75)">
+				<LisbethTravel Area="Eastern Thanalan" Position="-332.8589, -22.36031, 435.9552"/>
+				<UseObject NpcIds="2003994" XYZ="-336.8429, -22.38501, 435.5992"  Radius="25" UseTimes="1"/>
+			</If>		
+			<If Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 1805">
+				<Log Message="Equipping Unfinished Bravura..." />
+				<EquipWeapon ItemID="1805"/>>
+				<WaitTimer WaitTime="3" />
+			</If>			
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Hydra.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66655) == 13">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66655" StepId="13"/>
+		</If>
+		<If Condition="GetQuestStep(66655) == 14">
+			<AutoEquip />
+			<!-- Turn in Unfinished Bravura -->	
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<HandOver ItemId="1805" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66655" StepId="14"/>	
+		</If>
+		<If Condition="GetQuestStep(66655) == 15">
+			<If Condition="not ClassName == ClassJobType.Warrior">	
+				<ChangeClass Job="Warrior" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Bowl of Embers (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66655) == 16">
+			<If Condition="not ClassName == ClassJobType.Warrior">	
+				<ChangeClass Job="Warrior" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Howling Eye (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66655) == 17">
+			<If Condition="not ClassName == ClassJobType.Warrior">	
+				<ChangeClass Job="Warrior" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Navel (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(66655) == 18">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handin white-hot ember, howling gale, and hyperfused ore WAR -->				
+			<HandOver ItemIds="2001024,2001033,2001042" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66655" StepId="18"/>			
+		</If>
+		<If Condition="GetQuestStep(66655) == 255">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="HasAtLeast(6267,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<TurnIn ItemId="6267" QuestId="66655" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>		
+		</If>
+	</If>
+
+	<!-- A Relic Reborn (Thyrus) -->
+	<If Condition="ClassName == ((ClassJobType.WhiteMage))">
+		<If Condition="not HasQuest(66660) and not IsQuestCompleted(66660)">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<If Condition="IsQuestAcceptQualified(66660)">
+				<PickupQuest QuestId="66660" NpcId="1003075"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(66660) == 1">
+			<LisbethTravel Area="Outer La Noscea" Position="157.9357, 24.1721, -753.2645"/>
+			<UseObject NpcIds="2002496" XYZ="149.9808, 25.3147, -755.6115" Radius="25"  QuestId="66660" StepId="1"/>
+		</If>  
+		<If Condition="GetQuestStep(66660) == 2">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover timeworn Thyrus --> 
+			<HandOver ItemId="2000993" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66660" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(66660) == 3">
+			<If Condition="not HasAtLeast(2049,1)">
+				<RunCode name="NeedBaseWeapon"/>	
+			</If>
+			<If Condition="HasAtLeast(2049,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<!-- Turn in Madman's Whispering Rod -->
+				<HandOver StepId="3" ItemId="2049" QuestId="66660" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>		
+		</If>				 
+		<If Condition="GetQuestStep(66660) == 4">
+			<!-- Check if the duty A Relic Reborn: The Chimera is unlocked -->
+			<If condition="not IsDutyAvailable(74)">
+				<LisbethTravel ZoneId="155" XYZ="531.1261, 350.3369, -710.7814"/>
+				<UseObject NpcIds="2003993" XYZ="532.5856, 350.6066, -710.9941"  Radius="25"  UseTimes="1"/> 
+			</If> 
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Chimera.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66660) == 5">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover pinch of alumina salts WHM -->
+			<HandOver ItemId="2001002" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66660" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(66660) == 6">
+			<If Condition="not HasAtLeast(6267,1)">
+				<While Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+			</If>
+			<If Condition="not HasAtLeast(6268,3)">
+				<While Condition="not HasAtLeast(28,60)">
+					<RunCode name="NeedPoetics"/>
+				</While>			
+				<If Condition="HasAtLeast(28,60)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Thavnairian Mist -->
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+				</If>	
+			</If>		
+			<LisbethTravel ZoneId="156" XYZ="26.15508, 29, -823.166"/>
+			<TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66660" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(66660) == 7">
+			<If Condition="not ClassName == ClassJobType.WhiteMage">	
+				<ChangeClass Job="WhiteMage" />
+			</If>
+			<LLoadProfile Path="../Dungeons/Amdapor Keep.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66660) == 8">
+			<LisbethTravel ZoneId="156" XYZ="25.67217, 29, -823.6172"/>
+			<!-- Handover Amdapor glyph WHM -->
+			<HandOver ItemId="2001011" NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66660" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(66660) == 9">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handover copy of Interview with the Padjal -->
+			<HandOver ItemId="2001020" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66660" StepId="9"/>
+		</If>
+		<If Condition="GetQuestStep(66660) == 10">
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 2046">
+				<Log Message="Equipping Unfinished Thyrus..." />
+				<EquipWeapon ItemID="2046"/>>				
+				<WaitTimer WaitTime="3" />
+			</While>
+			<LisbethTravel ZoneId="180" XYZ="74.54537, 54.23363, -535.9759" />	
+			<Grind grindRef="RelicRebornThyrus" postCombatDelay="1" while="GetQuestStep(66660) == 10"/>
+		</If>
+		<If Condition="GetQuestStep(66660) == 11">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66660" StepId="11"/>	
+		</If>
+		<If Condition="GetQuestStep(66660) == 12">		
+			<!-- If does not have access to A Relic Reborn: the Hydra -->
+			<If condition="not IsDutyAvailable(75)">
+				<LisbethTravel Area="Eastern Thanalan" Position="-332.8589, -22.36031, 435.9552"/>
+				<UseObject NpcIds="2003994" XYZ="-336.8429, -22.38501, 435.5992"  Radius="25" UseTimes="1"/>
+			</If>		
+			<If Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 2046">
+				<Log Message="Equipping Unfinished Thyrus..." />
+				<EquipWeapon ItemID="2046"/>>
+				<WaitTimer WaitTime="3" />
+			</If>			
+			<LLoadProfile Path="../Dungeons/A Relic Reborn the Hydra.xml"/>
+		</If>
+		<If Condition="GetQuestStep(66660) == 13">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>	
+			<TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66660" StepId="13"/>
+		</If>
+		<If Condition="GetQuestStep(66660) == 14">
+			<AutoEquip />
+			<!-- Turn in Unfinished Thyrus -->
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<HandOver ItemId="2046" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66660" StepId="14"/>	
+		</If>
+		<If Condition="GetQuestStep(66660) == 15">
+			<If Condition="not ClassName == ClassJobType.Summoner">	
+				<ChangeClass Job="WhiteMage" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Bowl of Embers (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66660) == 16">
+			<If Condition="not ClassName == ClassJobType.Summoner">	
+				<ChangeClass Job="WhiteMage" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Howling Eye (Hard).xml"/>	
+		</If>
+		<If Condition="GetQuestStep(66660) == 17">
+			<If Condition="not ClassName == ClassJobType.Summoner">	
+				<ChangeClass Job="WhiteMage" />
+			</If>
+			<LLoadProfile Path="../Dungeons/The Navel (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(66660) == 18">
+			<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+			<!-- Handin white-hot ember, howling gale, and hyperfused ore WHM -->			
+			<HandOver ItemIds="2001025,2001034,2001043" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66660" StepId="18"/>			
+		</If>
+		<If Condition="GetQuestStep(66660) == 255">
+			<If Condition="not HasAtLeast(6267,1)">
+				<If Condition="HasAtLeast(28,15)">
+					<LisbethTravel ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+					<!-- Buy Radz-at-Han Quenching Oil -->										   
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6267" SelectString="2" Count="1"/>
+				</If>	
+				<If Condition="not HasAtLeast(28,15)">
+					<RunCode name="NeedPoetics"/>
+				</If>
+			</If>
+			<If Condition="HasAtLeast(6267,1)">
+				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+				<TurnIn ItemId="6267" QuestId="66660" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+			</If>	
+		</If>
+	</If>
+
+	<LLoadProfile Path="../Start.xml"/>		
+		
+  </Order>
+  <GrindAreas>
+	<GrindArea name="RelicRebornStardust">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="83.35999,41.08832,-571.6793" />
+			<Hotspot Radius="200" XYZ="19.97242, 24.5698, -616.7052" />
+			<Hotspot Radius="200" XYZ="14.42631, 22.65992, -656.0297" />
+			<Hotspot Radius="200" XYZ="79.60114, 23.52864, -710.6172" />
+			<Hotspot Radius="200" XYZ="65.52055, 23.82773, -715.8804" />
+			<Hotspot Radius="200" XYZ="25.91615, 21.49989, -774.8596" />
+			<Hotspot Radius="200" XYZ="116.4779, 22.83719, -779.9639" />
+			<Hotspot Radius="200" XYZ="116.4779, 22.83719, -779.9639" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="U'Ghamaro Bedesman" Id="1834" Weight="1" />
+			<TargetMob Name="U'Ghamaro Quarryman" Id="1833" Weight="1" />
+			<TargetMob Name="U'Ghamaro Priest" Id="1835" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="RelicRebornArtemis">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="661.8245, 286.1187, 39.83744" />
+			<Hotspot Radius="200" XYZ="626.8751, 286.5411, 111.1779" />
+			<Hotspot Radius="200" XYZ="568.1786, 287.6046, 112.8423" />
+			<Hotspot Radius="200" XYZ="655.6165, 302.7704, -34.64154" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Natalan Boldwing" Id="1843" Weight="1" />
+			<TargetMob Name="Natalan Windtalon" Id="1842" Weight="1" />
+			<TargetMob Name="Natalan Fogcaller" Id="1845" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="RelicRebornGae">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="646.0118, 289.5695, 14.69111" />
+			<Hotspot Radius="200" XYZ="709.4556, 286.4642, 81.95009" />
+			<Hotspot Radius="200" XYZ="611.1263, 284.8232, 163.3602" />
+			<Hotspot Radius="200" XYZ="563.7203, 291.0807, 94.17103" />
+			<Hotspot Radius="200" XYZ="652.6025, 303.0003, -34.80959" />
+			<Hotspot Radius="200" XYZ="542.7427, 302.5898, -159.7233" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Natalan Swiftbeak" Id="1844" Weight="1" />
+			<TargetMob Name="Natalan Fogcaller" Id="1845" Weight="1" />
+			<TargetMob Name="Natalan Boldwing" Id="1843" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="RelicRebornGae">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="646.0118, 289.5695, 14.69111" />
+			<Hotspot Radius="200" XYZ="709.4556, 286.4642, 81.95009" />
+			<Hotspot Radius="200" XYZ="611.1263, 284.8232, 163.3602" />
+			<Hotspot Radius="200" XYZ="563.7203, 291.0807, 94.17103" />
+			<Hotspot Radius="200" XYZ="652.6025, 303.0003, -34.80959" />
+			<Hotspot Radius="200" XYZ="542.7427, 302.5898, -159.7233" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Natalan Swiftbeak" Id="1844" Weight="1" />
+			<TargetMob Name="Natalan Fogcaller" Id="1845" Weight="1" />
+			<TargetMob Name="Natalan Boldwing" Id="1843" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="RelicRebornSphairai">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="21.97161, 2.423156, 6.95867" />
+			<Hotspot Radius="200" XYZ="86.32533, 10.80192, 7.834653" />
+			<Hotspot Radius="200" XYZ="179.8415, 6.914117, -27.78893" />
+			<Hotspot Radius="200" XYZ="275.8323, 8, -31.03652" />
+			<Hotspot Radius="200" XYZ="406.8845, 12.85353, -100.6003" />
+			<Hotspot Radius="200" XYZ="492.5307, 7.61186, -151.9724" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Zahar'ak Archer" Id="1838" Weight="1" />
+			<TargetMob Name="Zahar'ak Pugilist" Id="1839" Weight="1" />
+			<TargetMob Name="Zahar'ak Lancer" Id="1837" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="RelicRebornYoshi">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-286.3168, -41.89627, -337.8728" />
+			<Hotspot Radius="200" XYZ="-319.6255,-39.39238,-300.051" />
+			<Hotspot Radius="200" XYZ="-353.6025, -35.2425, -400.7782" />
+			<Hotspot Radius="200" XYZ="-420.8513, -33.8206, -342.9218" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Sapsa Shelfspine" Id="1829" Weight="1" />
+			<TargetMob Name="Sapsa Shelftooth" Id="1830" Weight="1" />
+			<TargetMob Name="Sapsa Shelfclaw" Id="1828" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="RelicRebornCurtana">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="86.32533, 10.80192, 7.834653" />
+			<Hotspot Radius="200" XYZ="179.8415, 6.914117, -27.78893" />
+			<Hotspot Radius="200" XYZ="275.8323, 8, -31.03652" />
+			<Hotspot Radius="200" XYZ="406.8845, 12.85353, -100.6003" />
+			<Hotspot Radius="200" XYZ="492.5307, 7.61186, -151.9724" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Zahar'ak Thaumaturge" Id="1840" Weight="1" />
+			<TargetMob Name="Zahar'ak Pugilist" Id="1839" Weight="1" />
+			<TargetMob Name="Zahar'ak Lancer" Id="1837" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="RelicRebornOmnilex">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-286.3168, -41.89627, -337.8728" />
+			<Hotspot Radius="200" XYZ="-319.6255,-39.39238,-300.051" />
+			<Hotspot Radius="200" XYZ="-353.6025, -35.2425, -400.7782" />
+			<Hotspot Radius="200" XYZ="-420.8513, -33.8206, -342.9218" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Sapsa Shelfspine" Id="1829" Weight="1" />
+			<TargetMob Name="Sapsa Shelftooth" Id="1830" Weight="1" />
+			<TargetMob Name="Sapsa Shelfclaw" Id="1828" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="RelicRebornVeil">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="371.2078, -26.65695, -402.7397" />
+			<Hotspot Radius="200" XYZ="423.3865, -28.26196, -409.3227" />
+			<Hotspot Radius="200" XYZ="424.8548, -28.15821, -473.5313" />
+			<Hotspot Radius="200" XYZ="360.6288, -28.13311, -494.4661" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Sylpheed Snarl" Id="69" Weight="1" />
+			<TargetMob Name="Sylpheed Sigh" Id="68" Weight="1" />
+			<TargetMob Name="385.1223,-34,-419.1501" Id="67" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="RelicRebornBravura">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="83.35999,41.08832,-571.6793" />
+			<Hotspot Radius="200" XYZ="19.97242, 24.5698, -616.7052" />
+			<Hotspot Radius="200" XYZ="14.42631, 22.65992, -656.0297" />
+			<Hotspot Radius="200" XYZ="79.60114, 23.52864, -710.6172" />
+			<Hotspot Radius="200" XYZ="25.91615, 21.49989, -774.8596" />
+			<Hotspot Radius="200" XYZ="116.4779, 22.83719, -779.9639" />
+			<Hotspot Radius="200" XYZ="116.4779, 22.83719, -779.9639" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="U'Ghamaro Bedesman" Id="1834" Weight="1" />
+			<TargetMob Name="U'Ghamaro Quarryman" Id="1833" Weight="1" />
+			<TargetMob Name="U'Ghamaro Roundsman" Id="1832" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="RelicRebornThyrus">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="83.35999,41.08832,-571.6793" />
+			<Hotspot Radius="200" XYZ="19.97242, 24.5698, -616.7052" />
+			<Hotspot Radius="200" XYZ="14.42631, 22.65992, -656.0297" />
+			<Hotspot Radius="200" XYZ="79.60114, 23.52864, -710.6172" />
+			<Hotspot Radius="200" XYZ="25.91615, 21.49989, -774.8596" />
+			<Hotspot Radius="200" XYZ="65.52055, 23.82773, -715.8804" />
+			<Hotspot Radius="200" XYZ="116.4779, 22.83719, -779.9639" />
+			<Hotspot Radius="200" XYZ="116.4779, 22.83719, -779.9639" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="U'Ghamaro Bedesman" Id="1834" Weight="1" />
+			<TargetMob Name="U'Ghamaro Quarryman" Id="1833" Weight="1" />
+			<TargetMob Name="U'Ghamaro Priest" Id="1835" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="NeedPoetics">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please farm more Tomestone of Poetics.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>  
+		<CodeChunk Name="NeedBaseWeapon">
+			<![CDATA[ 
+				Dictionary<ClassJobType, uint[]> Toasts = new Dictionary<ClassJobType, uint[]>
+				{
+					{ClassJobType.Bard, new uint[] {1949, 5666}},
+					{ClassJobType.BlackMage, new uint[] {2102, 5676}},
+					{ClassJobType.Dragoon, new uint[] {1879, 5671}},		
+					{ClassJobType.Monk, new uint[] {1740, 5671}},		
+					{ClassJobType.Ninja, new uint[] {9224, 5666}},					
+					{ClassJobType.Paladin, new uint[] {1670, 5681}},
+					{ClassJobType.Scholar, new uint[] {2201, 5721}},					
+					{ClassJobType.Summoner, new uint[] {2201, 5676}},
+					{ClassJobType.Warrior, new uint[] {1810, 5681}},
+					{ClassJobType.WhiteMage, new uint[] {2049, 5721}},
+				};
+            var info = Toasts[Core.Me.CurrentJob];
+            Core.OverlayManager.AddToast(() => string.Format("Please have {0} melded with {1} X2.", DataManager.GetItem(info[0]).CurrentLocaleName, DataManager.GetItem(info[1]).CurrentLocaleName), TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));				
+			]]>
+		</CodeChunk>		
+  </CodeChunks>
+</Profile>
+	

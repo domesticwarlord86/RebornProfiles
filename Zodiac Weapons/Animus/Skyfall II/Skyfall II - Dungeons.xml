@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfall II - Dungeons
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfall II - Dungeons</Name>  
+	<Order>
+		
+		<!-- Book of Skyfall II Dungeon Task 1 - The Thousand Maws of Toto-Rak -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed">
+			<Log Message="Moving to Skyfall II - The Thousand Maws of Toto-Rak" />
+			<LLoadProfile Path="../../Dungeons/The Thousand Maws of Toto-Rak.xml"/>
+		</If>
+
+		<!-- Book of Skyfall II Dungeon Task 2 - Amdapor Keep -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask2Completed">
+			<Log Message="Moving to Skyfall II - Amdapor Keep" />
+			<LLoadProfile Path="../../Dungeons/Amdapor Keep.xml"/>
+		</If>
+
+		<!-- Book of Skyfall II Dungeon Task 3 - Haukke Manor (Hard) -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask3Completed">
+			<Log Message="Moving to Skyfall II - Haukke Manor (Hard)" />
+			<LLoadProfile Path="../../Dungeons/Haukke Manor (Hard).xml"/>
+		</If>		
+		
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+</Profile>	

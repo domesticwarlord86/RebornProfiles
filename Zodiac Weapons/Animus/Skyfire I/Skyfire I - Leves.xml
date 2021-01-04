@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfire I - Leves
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfire I - Leves</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Skyfire I Leve Task 1 - Necrologos: Pale Oblation -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed">
+			<Log Message="Moving to Skyfire I - Nothern Thanalan - Camp Bluefrog 'Necrologos: Pale Oblation'" />
+			<LLoadProfile Path="../../GuildLeves/Camp Bluefog/Necrologos Pale Oblation.xml"/>
+		</If>
+
+		<!-- Book of Skyfire I Leve Task 2 - An Imp Mobile -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask2Completed">
+			<Log Message="Moving to Skyfire I - Coerthas Central Highlands - Whitebrim Front 'An Imp Mobile'" />
+			<LLoadProfile Path="../../GuildLeves/Whitebrim/An Imp Mobile.xml"/>
+		</If>
+
+		<!-- Book of Skyfire I Leve Task 3 - The Awry Savages -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+			<Log Message="Moving to Skyfire I - Mor Dhona - Saint Coinarch's Find 'The Awry Savages'" />
+			<LLoadProfile Path="../../GuildLeves/Sain Coinach's Find/The Awry Salvages.xml"/>
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+</Profile>	

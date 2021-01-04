@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Halatali
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Halatali</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="7"/>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<!-- Clear the Hall of the Cesti 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Clear the Hall of the Cesti 0/1" />
+			<BotSettings AutoEquip="1" />	
+			<MoveTo XYZ="136.3633, -1.641945, -6.24647"/>
+			<MoveTo XYZ="124.9414, -1.557076, 13.21165" usemesh="false"/>
+			<MoveTo XYZ="15.73978, 0.9251912, 102.9684"/>
+			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(1194).CurrentHealth == 0"/> <!-- Fight First Boss -->
+			<MoveTo XYZ="26.29976, 0.9276656, 126.539" distance="1"/>		
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<RunCode name="Hall_Jump"/>
+			<MoveTo XYZ="32.96885,3.815735,131.1792" distance="2" usemesh="false" />
+			<RunCode name="AetherialFlow1"/>
+		</If>
+		
+		<!-- Activate the chain winches 0/5 -->
+		<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+			<Log Message="Activate the chain winches 0/5" />
+			<MoveTo XYZ="74.51806,-10.9883,-107.0677" />
+			<UseObject NpcId="2001624" XYZ="74.51806,-10.9883,-107.0677" Radius="25" condition="GetInstanceTodo(1) == 0"/> <!-- Activate first Chain Winch -->
+		</If>		
+
+		<!-- Activate the chain winches 1/5 -->
+		<If Condition="GetInstanceTodo(1) == 1 and GetInstanceTodo(0) == 1">
+			<Log Message="Activate the chain winches 1/5" />
+			<MoveTo XYZ="42.15417,-10.94164,-84.66408" />
+			<UseObject NpcId="2001625" XYZ="42.15417,-10.94164,-84.66408" Radius="25" condition="GetInstanceTodo(1) == 1"/> <!-- Activate second Chain Winch -->
+		</If>
+
+		<!-- Activate the chain winches 2/5 -->
+		<If Condition="GetInstanceTodo(1) == 2 and GetInstanceTodo(0) == 1">
+			<Log Message="Activate the chain winches 2/5" />
+			<MoveTo XYZ="17.51502,-10.95732,-190.0231" />
+			<UseObject NpcId="2001626" XYZ="17.51502,-10.95732,-190.0231" Radius="25" condition="GetInstanceTodo(1) == 2"/> <!-- Activate third Chain Winch -->
+		</If>
+		
+		<!-- Activate the chain winches 3/5 -->
+		<If Condition="GetInstanceTodo(1) == 3 and GetInstanceTodo(0) == 1">
+			<Log Message="Activate the chain winches 3/5" />
+			<MoveTo XYZ="-39.12749,-11.06655,-129.0975" />
+			<UseObject NpcId="2001627" XYZ="-39.12749,-11.06655,-129.0975" Radius="25" condition="GetInstanceTodo(1) == 3"/> <!-- Activate fourth Chain Winch -->
+		</If>
+
+		<!-- Activate the chain winches 4/5 -->
+		<If Condition="GetInstanceTodo(1) == 4 and GetInstanceTodo(0) == 1">
+			<Log Message="Activate the chain winches 4/5" />
+			<MoveTo XYZ="-82.47455,-10.95254,-113.1372" />
+			<UseObject NpcId="2001628" XYZ="-82.47455,-10.95254,-113.1372" Radius="25" condition="GetInstanceTodo(1) == 4"/> <!-- Activate fifth Chain Winch -->
+		</If>
+
+		<!-- Clear the Hall of Secutores 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 5">
+			<Log Message="Clear the Hall of Secutores 0/1" />
+			<MoveTo XYZ="-183.4071, -13.84949, -106.4521"/>
+			<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(1196).CurrentHealth == 0"/> <!-- Fight second Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<MoveTo XYZ="-177.9965,-14.69446,-133.0435" />
+			<RunCode name="AetherialFlow2"/>
+		</If>
+
+		<!-- Clear Tangata 0/1 -->
+		<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+			<Log Message="Clear Tangata 0/1" />
+			<MoveTo XYZ="-172.2497,12.55991,12.74213" />
+			<UseObject NpcId="2001623" XYZ="-172.2497,12.55991,12.74213" Radius="25" condition="GameObjectManager.GetObjectByNPCId(2001623).IsTargetable"/> <!-- Open Ludus Door -->			
+			<BotSettings AutoEquip="0" />	
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
+						<Log Message="Equipping Artemis Bow Atma" />
+						<EquipWeapon ItemID="7828"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7830">
+						<Log Message="Equipping Stardust Rod Atma" />
+						<EquipWeapon ItemID="7830"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7827">
+						<Log Message="Equipping Gae Bolg Atma" />
+						<EquipWeapon ItemID="7827"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7825">
+						<Log Message="Equipping Sphairai Atma" />
+						<EquipWeapon ItemID="7825"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9251">
+						<Log Message="Equipping Yoshimitsu Atma" />
+						<EquipWeapon ItemID="9251"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7824">
+						<Log Message="Equipping Curtana Atma" />
+						<EquipWeapon ItemID="7824"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7833">
+						<Log Message="Equipping Holy Shield Atma" />
+						<EquipWeapon ItemID="7833"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7832">
+						<Log Message="Equipping Omnilex Atma" />
+						<EquipWeapon ItemID="7832"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7831">
+						<Log Message="Equipping Veil of Wiyu Atma" />
+						<EquipWeapon ItemID="7831"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7826">
+						<Log Message="Equipping Bravura Atma" />
+						<EquipWeapon ItemID="7826"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7829">
+						<Log Message="Equipping Thyrus Atma" />
+						<EquipWeapon ItemID="7829"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+			<MoveTo XYZ="-235.5623, 17.22563, 16.8393" usemesh="false"/>
+			<Grind GrindRef="FinalBoss" While="GetInstanceTodo(3) == 0"/> <!-- Fight final Boss -->
+		</If>
+		<If Condition="&openchest; == 1">
+			<LLOpenChest />
+		</If>
+		<While condition="DutyManager.InInstance">	
+			<WaitTimer WaitTime="10" />
+			<LLLeaveDuty/>
+		</While>					
+	</If>
+	
+	<LLoadProfile Path="../Start.xml"/>	
+				
+
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="21.62897,1.304748,135.9669" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1194" Weight="1" /> <!-- Firemane -->
+        </TargetMobs>
+	</GrindArea>	
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-179.7016,-15.30659,-135.8186" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1196" Weight="1" /> <!-- Thunderclap Guivre -->	
+			<TargetMob Id="117" Weight="10" /> <!-- Lightning Sprite -->		
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-271.1314,17.22563,19.9572" />
+        </Hotspots>
+        <TargetMobs>
+        <TargetMob Id="1197" Weight="1"/> <!-- Tangata -->	
+        <TargetMob Id="116" Weight="1000"/> <!-- Fire Sprite -->			
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>		
+	<CodeChunk Name="AetherialFlow1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001619).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="AetherialFlow2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001647).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }
+      ]]>
+	</CodeChunk>	
+	<CodeChunk Name="Hall_Jump">
+		<![CDATA[
+			await Coroutine.Sleep(1000);
+			ff14bot.Managers.MovementManager.SetFacing(0.991708f);
+			ff14bot.Managers.MovementManager.MoveForwardStart();
+			await Coroutine.Sleep(1000);
+			ff14bot.Managers.MovementManager.Jump();
+			await Coroutine.Sleep(500);
+			ff14bot.Managers.MovementManager.Jump();
+			await Coroutine.Sleep(500);
+			ff14bot.Managers.MovementManager.Jump();
+			await Coroutine.Sleep(500);
+			ff14bot.Managers.MovementManager.Jump();
+			await Coroutine.Sleep(500);
+			ff14bot.Managers.MovementManager.MoveStop();
+			await Coroutine.Sleep(1000);
+		]]>
+	</CodeChunk>	
+	<CodeChunk Name="ExitDuty">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001610).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="LeaveDuty">
+		<![CDATA[
+			ff14bot.Managers.DutyManager.LeaveActiveDuty();
+			await Coroutine.Wait(20000, () => CommonBehaviors.IsLoading);
+			if (CommonBehaviors.IsLoading)
+			{
+				await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+			}
+		]]>
+	</CodeChunk>	
+	<CodeChunk Name="ChangeZone">
+		<![CDATA[
+			MovementManager.SetFacing(3.190046f);
+			MovementManager.MoveForwardStart();
+			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }
+			MovementManager.MoveStop();
+		]]>
+	</CodeChunk>	
+  </CodeChunks>
+</Profile>

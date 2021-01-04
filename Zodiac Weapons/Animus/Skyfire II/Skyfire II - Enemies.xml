@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfire II - Enemies
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfire II - Enemies</Name>  
+	<Order>
+
+		<!-- Book of Skyfire II Kill Task 1 - Raging Harrier  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask1Completed">
+			<Log Message="Moving to Skyfire II Kill Task 1 - Raging Harrier" />
+			<LisbethTravel Area="Mor Dhona" Position="-227.0259, -4.048429, -301.5592"/>
+			<Grind grindRef="raging_harrier" while="not ZodiacManager.CurrentBook.KillTask1Completed"/>
+		</If>
+
+		<!-- Book of Skyfire II Kill Task 2 - Sylpheed Sigh  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask2Completed">
+			<Log Message="Moving to Skyfire II Kill Task 2 - Sylpheed Sigh" />
+			<LisbethTravel Area="East Shroud" Position="367.3162, -26.90956, -399.1715"/>
+			<Grind grindRef="sylpheed_sigh" while="not ZodiacManager.CurrentBook.KillTask2Completed"/>
+		</If>
+
+		<!-- Book of Skyfire II Kill Task 3 - Biast  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask3Completed">
+			<Log Message="Moving to Skyfire II Kill Task 3 - Biast" />
+			<LisbethTravel Area="Coerthas Central Highlands" Position="-381.1835, 239.0962, 370.6928"/>
+			<Grind grindRef="biast" while="not ZodiacManager.CurrentBook.KillTask3Completed"/>
+		</If>
+
+		<!-- Book of Skyfire II Kill Task 4 - Shoaltooth Sahagin  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask4Completed">
+			<Log Message="Moving to Skyfire II Kill Task 4 - Shoaltooth Sahagin" />
+			<LisbethTravel Area="Western La Noscea" Position="-182.4838, -42.42295, -269.1765"/>
+			<Grind grindRef="shoaltooth_sahagin" while="not ZodiacManager.CurrentBook.KillTask4Completed" />
+		</If>		
+	
+		<!-- Book of Skyfire II Kill Task 5 - Tempered Gladiator  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask5Completed">
+			<Log Message="Moving to Skyfire II Kill Task 5 - Tempered Gladiator" />
+			<LisbethTravel Area="Southern Thanalan" Position="-4.16819, 8.360384, -92.10616"/>
+			<Grind grindRef="tempered_gladiator" while="not ZodiacManager.CurrentBook.KillTask5Completed"/>
+		</If>
+		
+		<!-- Book of Skyfire II Kill Task 6 - Dullahan  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask6Completed">
+			<Log Message="Moving to Skyfire II Kill Task 6 - Dullahan" />
+			<LisbethTravel Area="North Shroud" Position="66.31128, 6.925154, -86.75264"/>
+			<Grind grindRef="dullahan" while="not ZodiacManager.CurrentBook.KillTask6Completed"/>
+		</If>
+
+		<!-- Book of Skyfire II Kill Task 7 - Shelfscale Reaver  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask7Completed">
+			<Log Message="Moving to Skyfire II Kill Task 7 - Shelfscale Reaver" />
+			<LisbethTravel Area="Western La Noscea" Position="-377.0648, -39.90769, -218.3152"/>
+			<Grind grindRef="shelfscale_reaver" while="not ZodiacManager.CurrentBook.KillTask7Completed" />
+		</If>
+
+		<!-- Book of Skyfire II Kill Task 8 - Zahar'ak Archer  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask8Completed">
+			<Log Message="Moving to Skyfire II Kill Task 8 - Zahar'ak Archer" />
+			<LisbethTravel Area="Southern Thanalan" Position="472.7139, 9.887727, -140.1137"/>
+			<Grind grindRef="zaharak_archer" while="not ZodiacManager.CurrentBook.KillTask8Completed"/>
+		</If>		
+		
+		<!-- Book of Skyfire II Kill Task 9 - U'Ghamaro Golem  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask9Completed">
+			<Log Message="Moving to Skyfire II Kill Task 9 - U'Ghamaro Golem" />
+			<LisbethTravel Area="Outer La Noscea" Position="290.6886, 21.53372, -713.575"/>
+			<Grind grindRef="ughamaro_golem" while="not ZodiacManager.CurrentBook.KillTask9Completed"/>
+		</If>
+
+		<!-- Book of Skyfire II Kill Task 10 - Natalan Boldwing  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask10Completed">
+			<Log Message="Moving to Skyfire II Kill Task 10 - Natalan Boldwing" />
+			<LisbethTravel Area="Coerthas Central Highlands" Position="492.5438, 303.7798, -207.8961"/>
+			<Grind grindRef="natalan_boldwing" while="not ZodiacManager.CurrentBook.KillTask10Completed"/>
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+	<GrindAreas>
+		<!-- Kill Task 1 -->
+		<GrindArea name="raging_harrier"> 
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-225.0232, -3.818664, -299.8137" name="raging_harrier" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="651"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 2 -->	
+		<GrindArea name="sylpheed_sigh">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="367.3162, -26.90956, -399.1715" name="sylpheed_sigh" />
+				<Hotspot Radius="500" XYZ="334.7604, -27.64189, -460.9011" name="sylpheed_sigh" />
+				<Hotspot Radius="500" XYZ="400.9423, -27.76131, -494.3886" name="sylpheed_sigh" />
+				<Hotspot Radius="500" XYZ="428.4693, -28.3173, -421.0958" name="sylpheed_sigh" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="68"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 3 -->	
+		<GrindArea name="biast">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-384.1367, 239.2375, 370.6691" name="biast" />
+				<Hotspot Radius="500" XYZ="-474.2264, 237.1896, 388.277" name="biast" />
+				<Hotspot Radius="500" XYZ="-521.6495, 238.8871, 337.5859" name="biast" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="788"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 4 -->
+		<GrindArea name="shoaltooth_sahagin">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-147.0817,-41.02129,-291.0353" name="shoaltooth_sahagin" />
+				<Hotspot Radius="500" XYZ="-143.3645,-41.10281,-243.1658" name="shoaltooth_sahagin" />
+				<Hotspot Radius="500" XYZ="-212.726,-42.29426,-279.4385" name="shoaltooth_sahagin" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="2526"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 5 -->		
+		<GrindArea name="tempered_gladiator">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-4.847409, 8.448655, -94.75109" name="tempered_gladiator" />
+				<Hotspot Radius="500" XYZ="40.3839,23.51146,-138.5349" name="tempered_gladiator" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="337"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 6 -->
+		<GrindArea name="dullahan">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="66.31128, 6.925154, -86.75264" name="dullahan" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="29"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 7 -->
+		<GrindArea name="shelfscale_reaver">
+			<Hotspots>
+				<Hotspot Radius="100" XYZ="-377.0648, -39.90769, -218.3152" name="shelfscale_reaver" />
+				<Hotspot Radius="100" XYZ="-413.9829, -28.40369, -246.5856" name="shelfscale_reaver" />
+				<Hotspot Radius="100" XYZ="-431.2047, -40.8239, -217.1198" name="shelfscale_reaver" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="347"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 8 -->
+		<GrindArea name="zaharak_archer">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="472.7139, 9.887727, -140.1137" name="zaharak_archer" />
+				<Hotspot Radius="500" XYZ="549.3248, 7.59962, -85.24644" name="zaharak_archer" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1838"  /> 
+			</TargetMobs>
+
+		</GrindArea>
+		<!-- Kill Task 9 -->	
+		<GrindArea name="ughamaro_golem">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="290.6886, 21.53372, -713.575" name="ughamaro_golem" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="2522"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 10 -->
+		<GrindArea name="natalan_boldwing">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="495.3212, 303.8207, -207.1652" name="natalan_boldwing" />
+				<Hotspot Radius="500" XYZ="580.3884, 302.3094, -118.5142" name="natalan_boldwing" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1843"  /> 
+			</TargetMobs>
+		</GrindArea>		
+	</GrindAreas>
+</Profile>	

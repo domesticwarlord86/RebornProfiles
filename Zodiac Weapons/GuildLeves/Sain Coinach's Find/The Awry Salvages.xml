@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Whitebrim Leves
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Whitebrim Leves</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(868)">
+				<LisbethTravel Area="Mor Dhona" Position="461.1251, -4.846787, -472.2902"/>
+				<ExPickupGuildLeve leveIds="868" leveType="Order" npcId="1007070" npcLocation="464.5914,-4.057395,-467.4297" Timeout="5" /> <!-- The Awry Salvages -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(868)">
+					<ExPickupGuildLeve leveIds="869" leveType="Order" npcId="1007070" npcLocation="464.5914,-4.057395,-467.4297" Timeout="5" /> <!-- Amateur Hour -->				
+				</If>
+			</If>	
+
+			<!-- Amateur Hour -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(869)">
+				<LisbethTravel Area="Mor Dhona" Position="125.8319, -11.72157, -473.2422"/>
+				<InitiateLeve LeveId="869"/> <!-- Amateur Hour -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="AmateurHour" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007070" NpcLocation="464.5914,-4.057395,-467.42973"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+
+			<!-- The Awry Salvages -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(868)">
+				<LisbethTravel Area="Mor Dhona" Position="143.9428, -15.46075, -470.8612"/>
+				<InitiateLeve LeveId="868"/> <!-- The Awry Salvages -->	
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="TheAwrySalvages" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007070" NpcLocation="464.5914,-4.057395,-467.42973"/>
+				<LLoadProfile Path="../../Start.xml"/>					
+			</If>			
+		
+
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="AmateurHour">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="121.6689, -10.02974, -475.5452" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Downcast Hippocerf" Id="1762" Weight="1" />
+			<TargetMob Name="Dusty Devilet" Id="1788" Weight="2" />
+			<TargetMob Name="Lightning Sprite" Id="117" Weight="1" />
+			<TargetMob Name="Foul River Hapalit" Id="1770" Weight="1" />			
+        </TargetMobs>		
+	</GrindArea>
+ 	<GrindArea name="TheAwrySalvages">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="141.1448, -14.39411, -475.5962" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Beggar Bhikkhu" Id="1772" Weight="1" />
+			<TargetMob Name="Hippogryph Pup" Id="1775" Weight="1" />
+			<TargetMob Name="Beggar Bonze" Id="1766" Weight="1" />			
+        </TargetMobs>		
+	</GrindArea>
+  </GrindAreas>	
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }			
+
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

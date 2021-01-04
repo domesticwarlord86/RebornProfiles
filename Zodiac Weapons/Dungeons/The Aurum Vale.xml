@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Aurum Vale
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Aurum Vale</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="5"/>
+	</If> 
+	<If condition="DutyManager.InInstance">
+		<!-- Breach the Lock 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Breach the Lock 0/1" />
+			<BotSettings AutoEquip="1" />	
+			<MoveTo XYZ="55.0162, -9.150264, 3.192619"/> 
+			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(1534).CurrentHealth == 0"/> <!-- Fight First Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>			
+		</If>
+		
+		<!-- Defeat the morbol bed keeper 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+			<Log Message="Defeat the morbol bed keeper 0/1" />
+			<MoveTo XYZ="-34.71429,-17.24663,-72.34308" />
+			<Grind GrindRef="Bedkeeper1" While="GetInstanceTodo(1) == 0"/> <!-- Clear the first bed keeper -->			
+		</If>
+		
+		<!-- Clear the Coincounter's Chest 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+			<Log Message="Clear the Coincounter's Chest 0/1" />
+			<MoveTo XYZ="-129.4953, -30.09197, -135.3869"/>
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(2) == 0"/> <!-- Fight second boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>			
+		</If>		
+		
+		<!-- Defeat the morbol bed keepers 0/2 -->
+		<If Condition="GetInstanceTodo(3) &lt; 2 and GetInstanceTodo(2) == 1">
+			<Log Message="Defeat the morbol bed keepers 0/2" />
+			<MoveTo XYZ="-336.795, -32.25722, -143.1539"/>
+			<Grind GrindRef="Bedkeeper2" While="GetInstanceTodo(3) &lt; 2"/> <!-- Clear the bed keepers -->		
+		</If>
+
+		<!-- Defeat the Miser's Mistress 0/1 -->
+		<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 2">
+			<Log Message="Defeat the Miser's Mistress 0/1" />
+			<BotSettings AutoEquip="0" />
+			<If Condition="not GetQuestStep(65894) == 2">	
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
+						<Log Message="Equipping Artemis Bow Atma" />
+						<EquipWeapon ItemID="7828"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7830">
+						<Log Message="Equipping Stardust Rod Atma" />
+						<EquipWeapon ItemID="7830"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7827">
+						<Log Message="Equipping Gae Bolg Atma" />
+						<EquipWeapon ItemID="7827"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7825">
+						<Log Message="Equipping Sphairai Atma" />
+						<EquipWeapon ItemID="7825"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9251">
+						<Log Message="Equipping Yoshimitsu Atma" />
+						<EquipWeapon ItemID="9251"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7824">
+						<Log Message="Equipping Curtana Atma" />
+						<EquipWeapon ItemID="7824"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7833">
+						<Log Message="Equipping Holy Shield Atma" />
+						<EquipWeapon ItemID="7833"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7832">
+						<Log Message="Equipping Omnilex Atma" />
+						<EquipWeapon ItemID="7832"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7831">
+						<Log Message="Equipping Veil of Wiyu Atma" />
+						<EquipWeapon ItemID="7831"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7826">
+						<Log Message="Equipping Bravura Atma" />
+						<EquipWeapon ItemID="7826"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7829">
+						<Log Message="Equipping Thyrus Atma" />
+						<EquipWeapon ItemID="7829"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+			</If>	
+			<MoveTo XYZ="-381.8662, -32.93637, -135.8353"/>
+			<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(1532).CurrentHealth == 0"/> <!-- Fight final boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>		
+		</If>					
+	</If>
+	
+	<LLoadProfile Path="../Start.xml"/>		
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="27.51196,-9.256966,2.822876" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1534" Weight="1" /> <!-- Locksmith -->
+        </TargetMobs>
+	</GrindArea>
+    <GrindArea name="Bedkeeper1">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-32.02882, -17.23334, -66.66665" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1535" Weight="1"/> <!-- Morbol Seedling -->
+        <TargetMob Id="1538" Weight="1000"/> <!-- Goldvine -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Bedkeeper2">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-336.795, -32.25722, -143.1539" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1536" Weight="1"/> <!-- Morbol Fruit -->
+        <TargetMob Id="1535" Weight="1"/> <!-- Morbol Seedling -->
+        <TargetMob Id="1538" Weight="1000"/> <!-- Goldvine -->
+      </TargetMobs>
+    </GrindArea>	
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-169.1768,-29.73806,-141.8632" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1533" Weight="1" /> <!-- Coincounter -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-411.4595,-33.2965,-126.8483" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1532" Weight="1" />	<!-- Miser's Mistress -->
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>

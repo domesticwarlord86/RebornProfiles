@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Netherfire I - FATEs
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Netherfire I - FATEs</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Netherfire I FATE Task 1 - Another Notch on the Torch -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+			<LisbethTravel Area="Mor Dhona" Position="488.1862, -1.112274, -791.9831"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+				<Log Message="Waiting on FATE 'Another Notch on the Torch'" />
+				<LLFate FateId="521" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask1Completed"/> <!-- Another Notch on the Torch -->
+			</While>	
+		</If>
+
+		<!-- Book of Netherfire I FATE Task 2 - Everthing's Better -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+			<LisbethTravel Area="East Shroud" Position="106.4527, -27.47261, -348.3219"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+				<Log Message="Waiting on FATE 'Everthing's Better'" />
+				<LLFate FateId="620" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask2Completed"/> <!-- Everthing's Better -->
+			</While>	
+		</If>
+
+		<!-- Book of Netherfire I FATE Task 3 - Return to Cinder -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+			<LisbethTravel Area="Southern Thanalan" Position="162.4769, 14.11975, 254.5353"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+				<Log Message="Waiting on FATE 'Return to Cinder'" />
+				<LLFate FateId="430" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask3Completed"/> <!-- Return to Cinder -->
+			</While>	
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+</Profile>	

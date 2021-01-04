@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skywind II - Enemies
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skywind II - Enemies</Name>  
+	<Order>
+
+		<!-- Book of Skywind II Kill Task 1 - Gigas Shramana-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask1Completed">
+			<Log Message="Moving to Skywind II Kill Task 1 - Gigas Shramana" />
+			<LisbethTravel Area="Mor Dhona" Position="363.386, -14.93666, -423.5487"/>
+			<Grind grindRef="gigas_shramana" while="not ZodiacManager.CurrentBook.KillTask1Completed" />
+		</If>
+
+		<!-- Book of Skywind II Kill Task 2 - 5th Cohort Signifier-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask2Completed">
+			<Log Message="Moving to Skywind II Kill Task 2 - 5th Cohort Signifier" />
+			<LisbethTravel Area="Mor Dhona" Position="-457.2331, -10.28314, -444.9821"/>
+			<Grind grindRef="5th_cohort_signifier" while="not ZodiacManager.CurrentBook.KillTask2Completed" />
+		</If>
+
+		<!-- Book of Skywind II Kill Task 3 - Dreamtoad-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask3Completed">
+			<Log Message="Moving to Skywind II Kill Task 3 - Dreamtoad" />
+			<LisbethTravel Area="East Shroud" Position="286.0382, -13.19181, -163.871"/>
+			<Grind grindRef="dreamtoad" while="not ZodiacManager.CurrentBook.KillTask3Completed" />
+		</If>
+
+		<!-- Book of Skywind II Kill Task 4 - Watchwolf-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask4Completed">
+			<Log Message="Moving to Skywind II Kill Task 4 - Watchwolf" />
+			<LisbethTravel Area="North Shroud" Position="-98.66889, -8.684878, -73.95322"/>
+			<Grind grindRef="watchwolf" while="not ZodiacManager.CurrentBook.KillTask4Completed" />
+		</If>		
+	
+		<!-- Book of Skywind II Kill Task 5 - Amalj'aa Archer-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask5Completed">
+			<Log Message="Moving to Skywind II Kill Task 5 - Amalj'aa Archer" />
+			<LisbethTravel Area="Southern Thanalan" Position="-110.7043, 28.10657, 124.6532"/>
+			<Grind grindRef="amalj'aa_archer" while="not ZodiacManager.CurrentBook.KillTask5Completed" />
+		</If>
+		
+		<!-- Book of Skywind II Kill Task 6 - 4th Cohort Signifier-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask6Completed">
+			<Log Message="Moving to Skywind II Kill Task 6 - 4th Cohort Signifier" />
+			<LisbethTravel Area="Western Thanalan" Position="-456.1289, 50.15857, -737.3234"/>
+			<Grind grindRef="4th_cohort_signifier" while="not ZodiacManager.CurrentBook.KillTask6Completed" />
+		</If>
+
+		<!-- Book of Skywind II Kill Task 7 - Zahar'ak Battle Drake-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask7Completed">
+			<Log Message="Moving to Skywind II Kill Task 7 - Zahar'ak Battle Drake" />
+			<LisbethTravel Area="Southern Thanalan" Position="412.234, 12.44755, -112.0392"/>
+			<Grind grindRef="battle_drake" while="not ZodiacManager.CurrentBook.KillTask7Completed" />
+		</If>
+
+		<!-- Book of Skywind II Kill Task 8 - Sapsa Shelftooth-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask8Completed">
+			<Log Message="Moving to Skywind II Kill Task 8 - Sapsa Shelftooth" />
+			<LisbethTravel Area="Western La Noscea" Position="-282.1476, -41.97404, -339.291"/>
+			<Grind grindRef="sapsa_shelftooth" while="not ZodiacManager.CurrentBook.KillTask8Completed" />
+		</If>		
+		
+		<!-- Book of Skywind II Kill Task 9 - Natalan Fogcaller-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask9Completed">
+			<Log Message="Moving to Skywind II Kill Task 9 - Natalan Fogcaller" />
+			<LisbethTravel Area="Coerthas Central Highlands" Position="492.625, 303.7766, -207.8897"/>
+			<Grind grindRef="natalan_fogcaller" while="not ZodiacManager.CurrentBook.KillTask9Completed" />
+		</If>
+
+		<!-- Book of Skywind II Kill Task 10 - Elite Priest-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask10Completed">
+			<Log Message="Moving to Skywind II Kill Task 10 - Elite Priest" />
+			<LisbethTravel Area="Outer La Noscea" Position="157.1465, 21.44108, -704.7137"/>
+			<Grind grindRef="elite_priest" while="not ZodiacManager.CurrentBook.KillTask10Completed" />
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+	<GrindAreas>
+		<!-- Kill Task 1 -->
+		<GrindArea name="gigas_shramana">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="376.6994, -13.0511, -434.3163" name="gigas_shramana" />
+				<Hotspot Radius="500" XYZ="451.7365, -17.84913, -352.9317" name="gigas_shramana" />
+				<Hotspot Radius="500" XYZ="524.7977, 1.787488, -456.0649" name="gigas_shramana" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="647"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 2 -->	
+		<GrindArea name="5th_cohort_signifier">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-457.2331, -10.28314, -444.9821" name="5th_cohort_signifier" />
+				<Hotspot Radius="500" XYZ="-530.9775, -3.216821, -317.3578" name="5th_cohort_signifier" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1813"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 3 -->	
+		<GrindArea name="dreamtoad">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="290.1808, -13.57023, -162.3801" name="dreamtoad" />
+				<Hotspot Radius="500" XYZ="350.4452, -20.20578, -157.8497" name="dreamtoad" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="164"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 4 -->
+		<GrindArea name="watchwolf">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-98.66889, -8.684878, -73.95322" name="watchwolf" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="174"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 5 -->		
+		<GrindArea name="amalj'aa_archer">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-118.8084, 27.85757, 129.4553" name="amalj'aa_archer" />
+				<Hotspot Radius="500" XYZ="-34.03758, 7.732121, 114.6106" name="amalj'aa_archer" />
+				<Hotspot Radius="500" XYZ="-43.33559, 8.346612, 51.78639" name="amalj'aa_archer" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="249"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 6 -->
+		<GrindArea name="4th_cohort_signifier">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-456.1289, 50.15857, -737.3234" name="4th_cohort_signifier" />
+				<Hotspot Radius="500" XYZ="-504.102, 50.60016, -722.8835" name="4th_cohort_signifier" />
+				<Hotspot Radius="500" XYZ="-567.0826, 53.10291, -775.9277" name="4th_cohort_signifier" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1819"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 7 -->
+		<GrindArea name="battle_drake">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="412.234, 12.44755, -112.0392" name="battle_drake" />
+				<Hotspot Radius="500" XYZ="446.8281, 18.44247, -85.96755" name="battle_drake" />
+				<Hotspot Radius="500" XYZ="517.1555, 7.618184, -133.0024" name="battle_drake" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1841"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 8 -->
+		<GrindArea name="sapsa_shelftooth">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-282.1476, -41.97404, -339.291" name="sapsa_shelftooth" />
+				<Hotspot Radius="500" XYZ="-323.2424, -40.05368, -311.5841" name="sapsa_shelftooth" />
+				<Hotspot Radius="500" XYZ="-351.6188, -39.1079, -369.6454" name="sapsa_shelftooth" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1830"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 9 -->	
+		<GrindArea name="natalan_fogcaller">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="495.3212, 303.8207, -207.1652" name="natalan_fogcaller" />
+				<Hotspot Radius="500" XYZ="557.2281, 303.2425, -155.5381" name="natalan_fogcaller" />
+				<Hotspot Radius="500" XYZ="643.2401, 303.0797, -44.47956" name="natalan_fogcaller" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1845"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 10 -->
+		<GrindArea name="elite_priest">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="168.7409, 21.90005, -696.0637" name="elite_priest" />
+				<Hotspot Radius="500" XYZ="261.0716, 21.52234, -809.1052" name="elite_priest" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="2520"  /> 
+			</TargetMobs>
+		</GrindArea>		
+	</GrindAreas>
+</Profile>	

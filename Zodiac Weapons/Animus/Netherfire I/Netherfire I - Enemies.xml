@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Netherfire I - Enemies
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Netherfire I - Enemies</Name>  
+	<Order>
+
+		<!-- Book of Netherfire I Kill Task 1 - Wild Hog -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask1Completed">
+			<Log Message="Moving to Netherfire I Kill Task 1 - Wild Hog" />
+			<LisbethTravel Area="South Shroud" Position="371.4368, 1.432168, 155.7033"/>
+			<Grind grindRef="wild_hog" while="not ZodiacManager.CurrentBook.KillTask1Completed" />
+		</If>
+
+		<!-- Book of Netherfire I Kill Task 2 - Hexing Harrier -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask2Completed">
+			<Log Message="Moving to Netherfire I Kill Task 2 - Hexing Harrier" />
+			<LisbethTravel Area="Mor Dhona" Position="-228.0124, -3.759467, -288.2885"/>
+			<Grind grindRef="hexing_harrier" while="not ZodiacManager.CurrentBook.KillTask2Completed" />
+		</If>
+		
+		<!-- Book of Netherfire I Kill Task 6 - Gigas Bonze -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask6Completed">
+			<Log Message="Moving to Netherfire I Kill Task 6 - Gigas Bonze" />
+			<LisbethTravel Area="Mor Dhona" Position="394.6808, -17.17175, -351.4547"/>
+			<Grind grindRef="gigas_bonze" while="not ZodiacManager.CurrentBook.KillTask6Completed" />
+		</If>		
+
+		<!-- Book of Netherfire I Kill Task 3 - Sylpheed Screech -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask3Completed">
+			<Log Message="Moving to Netherfire I Kill Task 3 - Sylpheed Screech" />
+			<LisbethTravel Area="East Shroud" Position="539.2633, -23.55505, -348.9465"/>
+			<Grind grindRef="sylpheed_screech" while="not ZodiacManager.CurrentBook.KillTask3Completed" />
+		</If>
+
+		<!-- Book of Netherfire I Kill Task 4 - Giant Lugger -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask4Completed">
+			<Log Message="Moving to Netherfire I Kill Task 4 - Giant Lugger" />
+			<LisbethTravel Area="Coerthas Central Highlands" Position="-460.671, 274.56, 246.3981"/>
+			<Grind grindRef="giant_lugger" while="not ZodiacManager.CurrentBook.KillTask4Completed" />
+		</If>		
+	
+		<!-- Book of Netherfire I Kill Task 5 - Tempered Orator -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask5Completed">
+			<Log Message="Moving to Netherfire I Kill Task 5 - Tempered Orator" />
+			<LisbethTravel Area="Southern Thanalan" Position="40.10219, 23.51146, -139.0551"/>
+			<Grind grindRef="tempered_orator" while="not ZodiacManager.CurrentBook.KillTask5Completed" />
+		</If>
+		
+
+		<!-- Book of Netherfire I Kill Task 7 - U'Ghamaro Roundsman -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask7Completed">
+			<Log Message="Moving to Netherfire I Kill Task 7 - U'Ghamaro Roundsman" />
+			<LisbethTravel Area="Outer La Noscea" Position="112.9802, 27.784, -592.8032"/>
+			<Grind grindRef="ughamaro_roundsman" while="not ZodiacManager.CurrentBook.KillTask7Completed" />
+		</If>
+
+		<!-- Book of Netherfire I Kill Task 8 - Shelfclaw Reaver -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask8Completed">
+			<Log Message="Moving to Netherfire I Kill Task 8 - Shelfclaw Reaver" />
+			<LisbethTravel Area="Western La Noscea" Position="-377.0648, -39.90769, -218.3152"/>
+			<Grind grindRef="shelfclaw_reaver" while="not ZodiacManager.CurrentBook.KillTask8Completed" />
+		</If>		
+		
+		<!-- Book of Netherfire I Kill Task 9 - Zahar'ak Fortuneteller -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask9Completed">
+			<Log Message="Moving to Netherfire I Kill Task 9 - Zahar'ak Fortuneteller" />
+			<LisbethTravel Area="Southern Thanalan" Position="348.2596, 8.996616, -34.89609"/>
+			<Grind grindRef="zaharak_fortuneteller" while="not ZodiacManager.CurrentBook.KillTask9Completed" />
+		</If>
+
+		<!-- Book of Netherfire I Kill Task 10 - 2nd Cohort Laquearii -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask10Completed">
+			<Log Message="Moving to Netherfire I Kill Task 10 - 2nd Cohort Laquearii" />
+			<LisbethTravel Area="Eastern La Noscea (Raincatcher Gully)" Position="202.7437, 73.31578, -18.8802"/>
+			<Grind grindRef="2nd_cohort_laquearii" while="not ZodiacManager.CurrentBook.KillTask10Completed" />
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+	<GrindAreas>
+		<!-- Kill Task 1 -->
+		<GrindArea name="wild_hog">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="371.4368, 1.432168, 155.7033" name="wild_hog" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="15"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 2 -->	
+		<GrindArea name="hexing_harrier">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-228.0124, -3.759467, -288.2885" name="hexing_harrier" />
+				<Hotspot Radius="500" XYZ="-221.3158, 19.01825, -220.2989" name="hexing_harrier" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="652"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 3 -->	
+		<GrindArea name="sylpheed_screech">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="539.2633, -23.55505, -348.9465" name="sylpheed_screech" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="67"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 4 -->
+		<GrindArea name="giant_lugger">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-472.8304, 275.3853, 236.0151" name="giant_lugger" />
+				<Hotspot Radius="500" XYZ="-353.811,248.176,293.0189" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="786"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 5 -->		
+		<GrindArea name="tempered_orator">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="41.28931, 23.51147, -141.3734" name="tempered_orator" />
+				<Hotspot Radius="500" XYZ="-4.302516, 8.026252, -87.06852" name="tempered_orator" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="339"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 6 -->
+		<GrindArea name="gigas_bonze">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="395.9183, -17.14769, -350.0159" name="gigas_bonze" />
+				<Hotspot Radius="500" XYZ="355.889, -5.684522, -466.8147" name="gigas_bonze" />
+				<Hotspot Radius="500" XYZ="515.3716, -9.512436, -381.3398" name="gigas_bonze" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="646"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 7 -->
+		<GrindArea name="ughamaro_roundsman">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="108.2132, 29.0041, -598.1495" name="ughamaro_roundsman" />
+				<Hotspot Radius="500" XYZ="49.02795, 24.16388, -584.048" name="ughamaro_roundsman" />
+				<Hotspot Radius="500" XYZ="109.9272, 23.94968, -718.5968" name="ughamaro_roundsman" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1832"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 8 -->
+		<GrindArea name="shelfclaw_reaver">
+			<Hotspots>
+				<Hotspot Radius="100" XYZ="-377.0648, -39.90769, -218.3152" name="shelfscale_reaver" />
+				<Hotspot Radius="100" XYZ="-413.9829, -28.40369, -246.5856" name="shelfscale_reaver" />
+				<Hotspot Radius="100" XYZ="-431.2047, -40.8239, -217.1198" name="shelfscale_reaver" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="345"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 9 -->	
+		<GrindArea name="zaharak_fortuneteller">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="348.2596, 8.996616, -34.89609" name="zaharak_fortuneteller" />
+				<Hotspot Radius="500" XYZ="440.8418, 16.24607, -117.7856" name="zaharak_fortuneteller" />
+				<Hotspot Radius="500" XYZ="509.3958, 7.59962, -136.9221" name="zaharak_fortuneteller" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="2303"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 10 -->
+		<GrindArea name="2nd_cohort_laquearii">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="202.7437, 73.31578, -18.8802" name="2nd_cohort_laquearii" />
+				<Hotspot Radius="500" XYZ="296.7188, 76.47149, -17.10773" name="2nd_cohort_laquearii" />
+				<Hotspot Radius="500" XYZ="457.5581, 76.17845, -85.13828" name="2nd_cohort_laquearii" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1822"  />
+			</TargetMobs>
+		</GrindArea>		
+	</GrindAreas>
+</Profile>	

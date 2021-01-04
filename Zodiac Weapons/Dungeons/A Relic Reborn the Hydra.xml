@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: A Relic Reborn: the Hydra
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+<Profile>
+  <Name>A Relic Reborn: the Hydra</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+ 	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="75" trial="true"/>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<Grind GrindRef="Hydra" While="not GameObjectManager.GetObjectByNPCId(2161).CurrentHealth == 0"/> <!-- Kill Hydra -->
+		<While condition="DutyManager.InInstance">	
+			<WaitTimer WaitTime="10" />
+			<LLLeaveDuty/>
+		</While>
+	</If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="Hydra">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-274.1956,17.22563,18.91162" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Hydra" Id="2161" Weight="1" />
+			<TargetMob Name="Wyvern" Id="656" Weight="2" />			
+        </TargetMobs>
+	</GrindArea>
+  </GrindAreas>		
+  <CodeChunks>
+  </CodeChunks>  
+</Profile>  

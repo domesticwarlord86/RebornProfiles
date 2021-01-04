@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: If You Put It That Way Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>If You Put It That Way Leve</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(860)">
+				<LisbethTravel Area="Coerthas Central Highlands" Position="-466.4981, 211, -232.1504"/>
+				<ExPickupGuildLeve leveIds="860" leveType="Immortal" npcId="1007069" npcLocation="-476.2188,211,-233.4173" Timeout="5" /> <!-- If You Put It That Way -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(860)">
+					<ExPickupGuildLeve leveIds="858" leveType="Immortal" npcId="1007069" npcLocation="-476.2188,211,-233.4173" Timeout="5" /> <!-- You Dropped Something -->				
+				</If>
+			</If>	
+
+			<!-- If You Put It That Way -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(860)">
+				<LisbethTravel Area="Coerthas Central Highlands" Position="-404.871, 226.0574, -148.1656"/>
+				<InitiateLeve LeveId="860"/> <!-- If You Put It That Way -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="IfYouPutItThatWay" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007069" NpcLocation="-476.2188,211,-233.4173"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+			
+			<!-- You Dropped Something -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(858)">
+				<LisbethTravel Area="Coerthas Central Highlands" Position="-380.1317, 223.5466, -172.0834"/>
+				<InitiateLeve LeveId="858"/> <!-- You Dropped Something -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="YouDroppedSomething" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />
+				<RunCode Name="CloseTimer"/>
+				<ExTurnInGuildLeve NpcId="1007069" NpcLocation="-476.2188,211,-233.4173"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>			
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="IfYouPutItThatWay">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-402.698, 225.8024, -153.2489" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Frost Aevis" Id="2233" Weight="1" />
+        </TargetMobs>		
+	</GrindArea>
+   	<GrindArea name="YouDroppedSomething">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-378.7407, 224.1126, -178.207" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Giant Ripper" Id="1630" Weight="1" />
+			<TargetMob Name="Downcast Hippocerf" Id="1762" Weight="1" />
+			<TargetMob Name="Giant Drubber" Id="1631" Weight="1" />	
+        </TargetMobs>		
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }	
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

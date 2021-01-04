@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfall II - FATEs
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfall II - FATEs</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Skyfall II FATE Task 1 - Breaching North Tidegate -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+			<LisbethTravel Area="Western La Noscea" Position="-21.49667, -14.01646, -94.32803"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+				<Log Message="Waiting on FATE 'Breaching North Tidegate'" />
+				<LLFate FateIds="569,568" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask1Completed"/> <!-- Breaching North Tidegate -->
+			</While>	
+		</If>
+
+		<!-- Book of Skyfall II FATE Task 2 - Black and Nburu -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+			<LisbethTravel Area="Mor Dhona" Position="-302.8999, -17.14841, -366.7635"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+				<Log Message="Waiting on FATE 'Black and Nburu'" />
+				<LLFate FateId="516" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask2Completed"/> <!-- Black and Nburu -->	
+			</While>	
+		</If>
+
+		<!-- Book of Skyfall II FATE Task 3 - Breaking Dawn -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+			<LisbethTravel Area="East Shroud" Position="541.1946, -23.89933, -360.2263"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+				<Log Message="Waiting on FATE 'Breaking Dawn'" />
+				<LLFate FateId="616" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask3Completed"/> <!-- Breaking Dawn -->
+			</While>	
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+</Profile>	

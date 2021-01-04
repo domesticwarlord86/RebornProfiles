@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfire I - Dungeons
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfire I - Dungeons</Name>  
+	<Order>
+		
+		<!-- Book of Skyfire I Dungeon Task 1 - Cutters Cry -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed">
+			<Log Message="Moving to Skyfire I - Tam Tara Deepcroft" />
+			<LLoadProfile Path="../../Dungeons/Tam Tara Deepcroft.xml"/>
+		</If>
+
+		<!-- Book of Skyfire I Dungeon Task 2 - The Stone Vigil -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask2Completed">
+			<Log Message="Moving to Skyfire I - The Stone Vigil" />
+			<LLoadProfile Path="../../Dungeons/The Stone Vigil.xml"/>
+		</If>
+
+		<!-- Book of Skyfire I Dungeon Task 3 - The Lost City of Amdapor -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask3Completed">
+			<Log Message="Moving to Skyfire I - The Lost City of Amdapor" />
+			<LLoadProfile Path="../../Dungeons/The Lost City of Amdapor.xml"/>
+		</If>		
+		
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+</Profile>	

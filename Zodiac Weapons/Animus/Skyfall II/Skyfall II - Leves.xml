@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfall II - Leves
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfall II - Leves</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Skyfall II Leve Task 1 - Someone's in the Doghouse -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed">
+			<Log Message="Moving to Skyfall II - Nothern Thanalan - Camp Bluefrog 'Someone's in the Doghouse'" />
+			<LLoadProfile Path="../../GuildLeves/Camp Bluefog/Someone's in the Doghouse.xml"/>
+		</If>
+
+		<!-- Book of Skyfall II Leve Task 2 - The Area's a Bit Sketchy -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask2Completed">
+			<Log Message="Moving to Skyfall II - Coerthas Central Highlands - Whitebrim Front 'The Area's a Bit Sketchy'" />
+			<LLoadProfile Path="../../GuildLeves/Whitebrim/The Area's a Bit Sketchy.xml"/>
+		</If>
+
+		<!-- Book of Skyfall II Leve Task 3 - Get off Our Lakes -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+			<Log Message="Moving to Skyfall II - Mor Dhona - Saint Coinarch's Find 'Get off Our Lakes'" />
+			<LLoadProfile Path="../../GuildLeves/Sain Coinach's Find/Get off Our Lakes.xml"/>
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+</Profile>	

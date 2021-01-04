@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfall II - Enemies
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfall II - Enemies</Name>  
+	<Order>
+
+		<!-- Book of Skyfall II Kill Task 1 - Iron Tortoise-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask1Completed">
+			<Log Message="Moving to Skyfall II Kill Task 1 - Iron Tortoise" />
+			<LisbethTravel Area="Southern Thanalan" Position="-56.52783, -2.473068, -9.141386"/>
+			<Grind grindRef="Iron Tortoise" while="not ZodiacManager.CurrentBook.KillTask1Completed" />
+		</If>
+
+		<!-- Book of Skyfall II Kill Task 2 - 5th Cohort Hoplomachus -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask2Completed">
+			<Log Message="Moving to Skyfall II Kill Task 2 - 5th Cohort Hoplomachus" />
+			<LisbethTravel Area="Mor Dhona" Position="-456.2664, -10.54829, -457.3391"/>
+			<Grind grindRef="5th Cohort Hoplomachus" while="not ZodiacManager.CurrentBook.KillTask2Completed" />
+		</If>
+		
+		<!-- Book of Skyfall II Kill Task 9 - -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask9Completed">
+			<Log Message="Moving to Skyfall II Kill Task 9 - " />
+			<LisbethTravel Area="Mor Dhona" Position="595.0859, -3.377753, -286.8719"/>
+			<Grind grindRef="Gigas Bhikkhu" while="not ZodiacManager.CurrentBook.KillTask9Completed" />
+		</If>		
+
+		<!-- Book of Skyfall II Kill Task 3 - Ked-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask3Completed">
+			<Log Message="Moving to Skyfall II Kill Task 3 - Ked" />
+			<LisbethTravel Area="South Shroud" Position="558.3313, 21.73308, 119.4443"/>
+			<Grind grindRef="Ked" while="not ZodiacManager.CurrentBook.KillTask3Completed" />
+		</If>
+
+		<!-- Book of Skyfall II Kill Task 4 - U'Ghamaro Bedesman -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask4Completed">
+			<Log Message="Moving to Skyfall II Kill Task 4 - U'Ghamaro Bedesman" />
+			<LisbethTravel Area="Outer La Noscea" Position="78.22432, 41.50338, -567.502"/>
+			<Grind grindRef="U'Ghamaro Bedesman" while="not ZodiacManager.CurrentBook.KillTask4Completed" />
+		</If>		
+	
+		<!-- Book of Skyfall II Kill Task 5 - Shelfeye Reaver-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask5Completed">
+			<Log Message="Moving to Skyfall II Kill Task 5 - Shelfeye Reaver" />
+			<LisbethTravel Area="Western La Noscea" Position="-377.0648, -39.90769, -218.3152"/>
+			<Grind grindRef="Shelfeye Reaver" while="not ZodiacManager.CurrentBook.KillTask5Completed" />
+		</If>
+		
+		<!-- Book of Skyfall II Kill Task 6 - 4th Cohort Laquearus-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask6Completed">
+			<Log Message="Moving to Skyfall II Kill Task 6 - 4th Cohort Laquearus" />
+			<LisbethTravel Area="Western Thanalan" Position="-402.5327, 49.89294, -743.7753"/>
+			<Grind grindRef="4th Cohort Laquearus" while="not ZodiacManager.CurrentBook.KillTask6Completed" />
+		</If>
+
+		<!-- Book of Skyfall II Kill Task 7 - Sylph Bonnet-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask7Completed">
+			<Log Message="Moving to Skyfall II Kill Task 7 - Sylph Bonnet" />
+			<LisbethTravel Area="East Shroud" Position="231.1364, -21.74941, -399.9596"/>
+			<Grind grindRef="Sylph Bonnet" while="not ZodiacManager.CurrentBook.KillTask7Completed" />
+		</If>
+
+		<!-- Book of Skyfall II Kill Task 8 - Natalan Watchwolf-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask8Completed">
+			<Log Message="Moving to Skyfall II Kill Task 8 - Natalan Watchwolf" />
+			<LisbethTravel Area="Coerthas Central Highlands" Position="503.2696, 303.6259, -214.6955"/>
+			<Grind grindRef="Natalan Watchwolf" while="not ZodiacManager.CurrentBook.KillTask8Completed" />
+		</If>		
+		
+
+		<!-- Book of Skyfall II Kill Task 10 - -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask10Completed">
+			<Log Message="Moving to Skyfall II Kill Task 10 - " />
+			<LisbethTravel Area="Western La Noscea" Position="-348.916, -39.49893, -356.902"/>
+			<Grind grindRef="Sapsa Shelfscales" while="not ZodiacManager.CurrentBook.KillTask10Completed" />
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+	<GrindAreas>
+		<!-- Kill Task 1 -->
+		<GrindArea name="Iron Tortoise">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-56.52783, -2.473068, -9.141386" name="Iron Tortoise" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="243"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 2 -->	
+		<GrindArea name="5th Cohort Hoplomachus">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-456.2664, -10.54829, -457.3391" name="5th Cohort Hoplomachus" />
+				<Hotspot Radius="500" XYZ="-527.8886, -2.424912, -287.5059" name="5th Cohort Hoplomachus" />
+				<Hotspot Radius="500" XYZ="-462.9996, -3.996367, -251.6268" name="5th Cohort Hoplomachus" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1809"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 3 -->	
+		<GrindArea name="Ked">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="558.3313, 21.73308, 119.4443" name="Ked" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="8"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 4 -->
+		<GrindArea name="U'Ghamaro Bedesman">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="78.22432, 41.50338, -567.502" name="U'Ghamaro Bedesman" />
+				<Hotspot Radius="500" XYZ="60.74911, 23.60174, -721.2594" name="U'Ghamaro Bedesman" />
+				<Hotspot Radius="500" XYZ="22.2567, 21.49701, -777.5057" name="U'Ghamaro Bedesman" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1834"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 5 -->		
+		<GrindArea name="Shelfeye Reaver">
+			<Hotspots>
+				<Hotspot Radius="100" XYZ="-377.0648, -39.90769, -218.3152"/>
+				<Hotspot Radius="100" XYZ="-413.9829, -28.40369, -246.5856"/>
+				<Hotspot Radius="100" XYZ="-431.2047, -40.8239, -217.1198" />>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="559"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 6 -->
+		<GrindArea name="4th Cohort Laquearus">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-402.5327, 49.89294, -743.7753" name="4th Cohort Laquearus" />
+				<Hotspot Radius="500" XYZ="-500.5098, 51.03782, -744.3143" name="4th Cohort Laquearus" />
+				<Hotspot Radius="500" XYZ="-573.0441, 53.31379, -742.7264" name="4th Cohort Laquearus" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1816"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 7 -->
+		<GrindArea name="Sylph Bonnet">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="230.6563, -21.62398, -402.8146" name="Sylph Bonnet" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="166"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 8 -->
+		<GrindArea name="Natalan Watchwolf">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="503.2696, 303.6259, -214.6955" name="Natalan Watchwolf" />
+				<Hotspot Radius="500" XYZ="632.6604, 301.4704, -75.60146" name="Natalan Watchwolf" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1846"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 9 -->	
+		<GrindArea name="Gigas Bhikkhu">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="595.5713, -3.328342, -284.3858" name="Gigas Bhikkhu" />
+			</Hotspots>
+		<TargetMobs>
+				<TargetMob id="649"  />
+		</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 10 -->
+		<GrindArea name="Sapsa Shelfscales">
+		<Hotspots>
+			<Hotspot Radius="500" XYZ="-320.7009, -40.01609, -309.6794" name="Sapsa Shelfscales" />
+			<Hotspot Radius="500" XYZ="-355.9449, -35.2425, -406.4182" name="Sapsa Shelfscales" />
+			<Hotspot Radius="500" XYZ="-434.6565, -33.37057, -350.888" name="Sapsa Shelfscales" />
+		</Hotspots>
+		<TargetMobs>
+			<TargetMob id="1827"  />
+		</TargetMobs>
+		</GrindArea>		
+	</GrindAreas>
+</Profile>	

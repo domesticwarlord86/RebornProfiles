@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: One Big Problem Solved Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>One Big Problem Solved Leve</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(863)">
+				<LisbethTravel Area="Mor Dhona" Position="461.1251, -4.846787, -472.2902"/>
+				<ExPickupGuildLeve leveIds="863" leveType="Maelstrom" npcId="1007070" npcLocation="464.5914,-4.057395,-467.4297" Timeout="5" /> <!-- One Big Problem Solved -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(863)">
+					<ExPickupGuildLeve leveIds="865" leveType="Maelstrom" npcId="1007070" npcLocation="464.5914,-4.057395,-467.4297" Timeout="5" /> <!-- Go Home to Mama -->				
+				</If>
+			</If>	
+
+			<!-- One Big Problem Solved -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(863)">
+				<LisbethTravel Area="Mor Dhona" Position="98.70152, -4.766572, -495.116"/>
+				<InitiateLeve LeveId="863"/> <!-- One Big Problem Solved -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="OneBigPorblemSolved" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007070" NpcLocation="464.5914,-4.057395,-467.42973"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+
+			<!-- Go Home to Mama -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(865)">
+				<LisbethTravel Area="Mor Dhona" Position="95.41457, -3.943151, -542.1063"/>
+				<InitiateLeve LeveId="865"/> <!-- Go Home to Mama -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="GoHometoMama" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007070" NpcLocation="464.5914,-4.057395,-467.42973"/>
+				<LLoadProfile Path="../../Start.xml"/>					
+			</If>			
+		
+
+
+	</Order>
+  <GrindAreas> 
+    <GrindArea name="OneBigPorblemSolved">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="104.0646, -5.058966, -492.6745" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1772" Weight="1"/> <!-- Beggar Bhikkhu -->
+        <TargetMob Id="1767" Weight="1"/> <!-- Beggar Shramana -->
+        <TargetMob Id="1766" Weight="1"/> <!-- Beggar Bonze -->
+        <TargetMob Id="1771" Weight="1"/> <!-- Beggar Sozu -->		
+      </TargetMobs>
+    </GrindArea>
+ 	<GrindArea name="GoHometoMama">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="100.3533, -3.846652, -545.5336" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Magitek Packer" Id="2237" Weight="1" />
+			<TargetMob Name="Imperial Secutor" Id="2235" Weight="1" />
+			<TargetMob Name="Imperial Hoplomachus" Id="2234" Weight="1" />
+			<TargetMob Name="Imperial Signifer" Id="2236" Weight="1" />	
+        </TargetMobs>		
+	</GrindArea>
+  </GrindAreas>	
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }			
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

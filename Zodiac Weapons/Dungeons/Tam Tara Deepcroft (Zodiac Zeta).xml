@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Tam-Tara Deepcroft
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+<Profile>
+  <Name>The Tam-Tara Deepcroft</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<While condition="not ZodiacMahatmaIsDone()">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="2"/>
+		</If>
+		<If condition="DutyManager.InInstance">
+			<!-- Cultist orbs destroyed 0/4 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Cultist orbs destroyed 0/4" />
+				<RunCode name="DisableSideStep"/>	
+				<BotSettings AutoEquip="1" />			
+				<MoveTo XYZ="-5.470666, 29.90929, -16.37786" /> <!-- Move to first boss room -->
+				<While Condition="GetInstanceTodo(0) == 0">
+					<MoveTo XYZ="-8.080134, 30.82913, -16.51366" distance="2"/> <!-- Move to first orb -->			
+					<RunCode name="CultistOrb1"/>
+				</While>	
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>
+				<MoveTo XYZ="-4.338048, 29.54992, -16.72049" usemesh="false" />	
+			</If>
+			
+			<!-- Cultist orbs destroyed 1/4 -->	
+			<If Condition="GetInstanceTodo(0) == 1">
+				<Log Message="Cultist orbs destroyed 1/4" />
+				<While Condition="GetInstanceTodo(0) == 1">			
+					<MoveTo XYZ="-22.78436,25.5263,20.48222" distance="2"/> <!-- Move to second Cultist orb -->
+					<RunCode name="CultistOrb2"/>
+				</While>	
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>
+				<MoveTo XYZ="-20.4999, 23.41024, 24.06461" usemesh="false" />				
+			</If>
+			
+			<!-- Cultist rosary 0/1 -->	
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 2">
+				<Log Message="Cultist rosary 0/1" />
+				<While Condition="GetInstanceTodo(1) == 0">
+					<MoveTo XYZ="-180.8298, 13.61397, -7.697925" distance="2"/> <!-- Move to cultist rosary -->
+					<RunCode name="CultistRosary"/>
+				</While>
+			</If>
+			
+			<!-- Sealed barrier broken 0/1 -->	
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Sealed barrier broken 0/1" />
+				<While Condition="GetInstanceTodo(2) == 0">					
+					<MoveTo XYZ="-103.6168, 13.859, 15.76518" distance="2"/> <!-- Move to sealed barrier -->
+					<RunCode name="SealedBarrier"/>
+				</While>	
+			</If>
+			
+			<!-- Cultist orbs destroyed 2/4 -->	
+			<If Condition="GetInstanceTodo(0) == 2 and GetInstanceTodo(2) == 1">
+				<Log Message="Cultist orbs destroyed 2/4" />
+				<MoveTo XYZ="-95.11863, 13.859, 10.65544"/> <!-- Move into final orb room -->
+				<While Condition="GetInstanceTodo(0) == 2">				
+					<MoveTo XYZ="-94.79001, 14.90759, 3.811112" distance="2"/> <!-- Move to cultist orb 3/4 -->
+					<RunCode name="CultistOrb3"/>
+				</While>			
+			</If>
+			
+			<!-- Cultist orbs destroyed 3/4 -->	
+			<If Condition="GetInstanceTodo(0) == 3 and GetInstanceTodo(2) == 1">
+				<Log Message="Cultist orbs destroyed 3/4" />
+				<While Condition="GetInstanceTodo(0) == 3">				
+					<MoveTo XYZ="-89.50608, 14.89957, 13.94871" distance="2"/> <!-- Move to cultist orb 4/4 -->
+					<RunCode name="CultistOrb4"/>
+				</While>	
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>			
+			</If>
+			
+			<!-- Defeat Galvanth the Dominator -->	
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(0) == 4">
+				<Log Message="Defeat Galvanth the Dominator" />			
+				<MoveTo XYZ="-65.55235, 14.04922, -5.441873"/> <!-- Move into bosses room -->
+				<BotSettings AutoEquip="0" />	
+					<If Condition="ClassName == ((ClassJobType.Bard))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9495">
+							<Log Message="Equipping Yoichi Bow" />
+							<EquipWeapon ItemID="9495"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9497">
+							<Log Message="Equipping Lilith Rod" />
+							<EquipWeapon ItemID="9497"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9494">
+							<Log Message="Equipping Longinus" />
+							<EquipWeapon ItemID="9494"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>	
+					<If Condition="ClassName == ((ClassJobType.Monk))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9492">
+							<Log Message="Equipping Kaiser Knuckles" />
+							<EquipWeapon ItemID="9492"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9501">
+							<Log Message="Equipping Sasuke's Blades" />
+							<EquipWeapon ItemID="9501"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9491">
+							<Log Message="Equipping Excalibur" />
+							<EquipWeapon ItemID="9491"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 9500">
+							<Log Message="Equipping Aegis Shield" />
+							<EquipWeapon ItemID="9500"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>			
+					<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9499">
+							<Log Message="Equipping Last Resort" />
+							<EquipWeapon ItemID="9499"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9498">
+							<Log Message="Equipping Apocalypse" />
+							<EquipWeapon ItemID="9498"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>	
+					<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9493">
+							<Log Message="Equipping Ragnarok" />
+							<EquipWeapon ItemID="9493"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9496">
+							<Log Message="Equipping Nirvana" />
+							<EquipWeapon ItemID="9496"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>				
+				<Grind grindRef="Galvanth" While="GameObjectManager.GetObjectByNPCId(73)"/> <!-- Fight Galvanth the Dominator -->		
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>			
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<RunCode name="EnableSideStep"/>
+					<LLLeaveDuty/>
+				</While>	
+			</If>			
+		</If>
+	</While>	
+	<If condition="ZodiacMahatmaIsDone()">
+		<LLoadProfile Path="../Start.xml"/>	
+	</If>	
+
+  </Order>
+  <GrindAreas>
+	<GrindArea name="Galvanth">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="48.82916,14.04632,-13.91929" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Galvanth the Dominator" Id="73" Weight="1" />
+			<TargetMob Name="Inconspicuous Imp" Id="456" Weight="1000" />		
+        </TargetMobs>
+	</GrindArea>
+  </GrindAreas>		
+  <CodeChunks>
+  	<CodeChunk Name="CultistOrb1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000061).Interact();
+			await Coroutine.Sleep(3000);
+      ]]>	  
+	</CodeChunk>
+  	<CodeChunk Name="CultistOrb2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000062).Interact();
+			await Coroutine.Sleep(3000);
+      ]]>	 	  
+	</CodeChunk>
+  	<CodeChunk Name="CultistRosary">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000057).Interact();
+			await Coroutine.Sleep(3000);
+      ]]>	 	  
+	</CodeChunk>
+  	<CodeChunk Name="SealedBarrier">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000060).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>	 	  
+	</CodeChunk>
+  	<CodeChunk Name="CultistOrb3">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000067).Interact();
+			await Coroutine.Sleep(3000);
+      ]]>	 	  
+	</CodeChunk>
+  	<CodeChunk Name="CultistOrb4">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000063).Interact();
+			await Coroutine.Sleep(3000);
+      ]]>	 	  
+	</CodeChunk>		
+	<CodeChunk Name="EnableSideStep">
+		<![CDATA[
+			foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep"))
+			{
+			try
+			{
+				if (plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = true;  }
+			}
+			catch (Exception ex) {  }
+			}
+		]]>
+	</CodeChunk>
+	<CodeChunk Name="DisableSideStep">
+		<![CDATA[
+			foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep"))
+			{
+			try
+			{
+				if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+			}
+			catch (Exception ex) {  }
+			}
+		]]>
+	</CodeChunk> 		
+  </CodeChunks>  
+</Profile>  

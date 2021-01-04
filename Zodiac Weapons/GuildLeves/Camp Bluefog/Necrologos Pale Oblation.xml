@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Necrologos: Pale Oblation Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Necrologos: Pale Oblation Leve</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<Log Message="Loaded Necrologos: Pale Oblation Leve Version 1.0" />
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(644)">
+				<GetTo ZoneId="147" XYZ="33.91326, 4.68145, 399.2563"/>
+				<ExPickupGuildLeve leveIds="644" leveType="Battlecraft" npcId="1002398" npcLocation="33.91326, 4.68145, 399.2563" Timeout="5" /> <!-- Necrologos: Pale Oblation -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(644)">
+					<ExPickupGuildLeve leveIds="646" leveType="Battlecraft" npcId="1002398" npcLocation="33.91326, 4.68145, 399.2563" Timeout="5" /> <!-- Circling the Ceruleum -->
+				</If>	
+			</If>	
+
+			<!-- Necrologos: Pale Oblation -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(644)">
+				<GetTo ZoneId="147" XYZ="45.68184, 7.582094, 344.8144"/>
+				<InitiateLeve LeveId="644"/> 
+				<While condition="DirectorManager.ActiveDirector.GetTodoArgs(1).Item1 &lt; DirectorManager.ActiveDirector.GetTodoArgs(1).Item2">
+					<UseObject Radius="500" InCombat="true" XYZ="5.107096, 2.950484, 312.0914" NpcIds="2001098" UseTimes="1"/>
+					<WaitTimer WaitTime="5" />
+				</While>
+				<WaitTimer WaitTime="7" />	
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1002398" NpcLocation="33.91326, 4.68145, 399.2563"/>
+				<LLoadProfile Path="../../Start.xml"/>
+			</If>
+	
+			<!-- Circling the Ceruleum -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(646)">
+				<GetTo ZoneId="147" XYZ="45.68184, 7.582094, 344.8144"/>
+				<InitiateLeve LeveId="646"/> <!-- Circling the Ceruleum -->
+				<WaitTimer WaitTime="2" />
+				<UseObject InCombat="True" Radius="500" XYZ="5.107096, 2.950484, 312.0914" NpcIds="2001104" condition="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/>	
+				<RunCode Name="CloseTimer"/>
+				<ExTurnInGuildLeve NpcId="1002398" NpcLocation="33.91326, 4.68145, 399.2563"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="VoidSlave">
+        <Hotspots>
+			<Hotspot Radius="500" XYZ="5.107096, 2.950484, 312.0914" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Void Slave" Id="1737" Weight="1" />
+			<TargetMob Name="Fernehalwes" Id="1008" Weight="1000" />		
+        </TargetMobs>		
+	</GrindArea> 
+  </GrindAreas>
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }	
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

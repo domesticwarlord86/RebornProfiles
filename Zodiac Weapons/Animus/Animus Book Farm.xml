@@ -1,0 +1,1046 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Animus Book Farm
+  Version: 1.0
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm
+-->
+
+<Profile>
+  <Name>Animus Book Farm</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+	<Order>
+
+		<!-- Start Animus Book Farm -->
+		<If Condition="ClassName == ((ClassJobType.Bard))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
+				<Log Message="Equipping Artemis Bow Atma" />
+				<EquipWeapon ItemID="7828"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7830">
+				<Log Message="Equipping Stardust Rod Atma" />
+				<EquipWeapon ItemID="7830"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7827">
+				<Log Message="Equipping Gae Bolg Atma" />
+				<EquipWeapon ItemID="7827"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>	
+		<If Condition="ClassName == ((ClassJobType.Monk))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7825">
+				<Log Message="Equipping Sphairai Atma" />
+				<EquipWeapon ItemID="7825"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9251">
+				<Log Message="Equipping Yoshimitsu Atma" />
+				<EquipWeapon ItemID="9251"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7824">
+				<Log Message="Equipping Curtana Atma" />
+				<EquipWeapon ItemID="7824"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7833">
+				<Log Message="Equipping Holy Shield Atma" />
+				<EquipWeapon ItemID="7833"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>			
+		<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7832">
+				<Log Message="Equipping Omnilex Atma" />
+				<EquipWeapon ItemID="7832"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7831">
+				<Log Message="Equipping Veil of Wiyu Atma" />
+				<EquipWeapon ItemID="7831"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>	
+		<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7826">
+				<Log Message="Equipping Bravura Atma" />
+				<EquipWeapon ItemID="7826"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7829">
+				<Log Message="Equipping Thyrus Atma" />
+				<EquipWeapon ItemID="7829"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+
+		<!-- Trials of the Braves -->
+		<!-- If has Artemis Bow Atma -->					  
+		<If Condition="not HasQuest(66972) and not IsQuestCompleted(66972)">
+			<LisbethTravel Area="North Shroud" Position="440.463, -0.9374608, -64.74161"/>			  
+			<If Condition="IsQuestAcceptQualified(66972)">
+				<PickupQuest QuestId="66972" NpcId="1008948"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(66972) == 1">
+			<LisbethTravel ZoneId="156" XYZ="25.59451, 29, -822.5854"/>
+			<TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66972" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(66972) == 255">
+			<LisbethTravel ZoneId="156" XYZ="69.80656, 33.06655, -706.0764"/>
+			<TurnIn QuestId="66972" NpcId="1006976" XYZ="71.94617, 33.06656, -706.2944"/>
+		</If>	
+		
+			<!-- Purchase first book -->
+			<If Condition="not HasAtLeast(2001298,1) and not HasAtLeast(2001299,1) and not HasAtLeast(2001300,1) and not HasAtLeast(2001301,1) and not HasAtLeast(2001301,1) and not HasAtLeast(2001302,1) and not HasAtLeast(2001303,1) and not HasAtLeast(2001304,1) and not HasAtLeast(2001305,1) and not HasAtLeast(2001306,1)">					
+				<!-- Purchase Skyfire I -->
+				<Log Message="Moving to purchase Skyfire I" />		
+				<LisbethTravel Area="Mor Dhona" Position="71.13229, 33.06656, -707.7657"/>
+				<RunCode name="BuyFireBooks"/>
+			</If>
+
+		<!-- Skyfire I -->		
+			<If Condition="HasAtLeast(2001298,1)">
+							
+			<!-- Skyfire I Enemies -->
+				<If condition="not ZodiacManager.CurrentBook.KillTask1Completed or not ZodiacManager.CurrentBook.KillTask2Completed or not ZodiacManager.CurrentBook.KillTask3Completed or not ZodiacManager.CurrentBook.KillTask4Completed or not ZodiacManager.CurrentBook.KillTask5Completed or not ZodiacManager.CurrentBook.KillTask6Completed or not ZodiacManager.CurrentBook.KillTask7Completed or not ZodiacManager.CurrentBook.KillTask8Completed or not ZodiacManager.CurrentBook.KillTask9Completed or not ZodiacManager.CurrentBook.KillTask10Completed">
+					<Log Message="Skyfire I Enemies not complete, fixing that." />	
+					<LLoadProfile Path="../Animus/Skyfire I/Skyfire I - Enemies.xml"/>					
+				</If>
+				
+			<!-- Skyfire I Dungeons -->
+				<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed or not ZodiacManager.CurrentBook.DungeonTask2Completed or not ZodiacManager.CurrentBook.DungeonTask3Completed">				
+					<Log Message="Skyfire I Dungeons not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfire I/Skyfire I - Dungeons.xml"/>
+				</If>
+				
+			<!-- Skyfire I Fates -->
+				<If condition="not ZodiacManager.CurrentBook.FateTask1Completed or not ZodiacManager.CurrentBook.FateTask2Completed or not ZodiacManager.CurrentBook.FateTask3Completed">				
+					<Log Message="Skyfire I FATEs not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfire I/Skyfire I - Fates.xml"/>								  				  						
+				</If>
+
+			<!-- Skyfire I Guildleves -->
+				<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed or not ZodiacManager.CurrentBook.GuildleveTask2Completed or not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+					<Log Message="Skyfire I Leves not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfire I/Skyfire I - Leves.xml"/>	
+				</If>
+
+				<!-- Book completed -->
+				<If condition="HasAtLeast(2001298,1) and ZodiacManager.CurrentBook.KillTask1Completed and ZodiacManager.CurrentBook.KillTask2Completed and ZodiacManager.CurrentBook.KillTask3Completed and ZodiacManager.CurrentBook.KillTask4Completed and ZodiacManager.CurrentBook.KillTask5Completed and ZodiacManager.CurrentBook.KillTask6Completed and ZodiacManager.CurrentBook.KillTask7Completed and ZodiacManager.CurrentBook.KillTask8Completed and ZodiacManager.CurrentBook.KillTask9Completed and ZodiacManager.CurrentBook.KillTask10Completed and ZodiacManager.CurrentBook.DungeonTask1Completed and ZodiacManager.CurrentBook.DungeonTask2Completed and ZodiacManager.CurrentBook.DungeonTask3Completed and ZodiacManager.CurrentBook.FateTask1Completed and ZodiacManager.CurrentBook.FateTask2Completed and ZodiacManager.CurrentBook.FateTask3Completed and ZodiacManager.CurrentBook.GuildleveTask1Completed and ZodiacManager.CurrentBook.GuildleveTask2Completed and ZodiacManager.CurrentBook.GuildleveTask3Completed">				
+					<LisbethTravel Area="Mor Dhona" Position="71.13229, 33.06656, -707.7657"/>
+					<Dismount/>
+					<While Condition="not HasAtLeast(28,100)">
+						<RunCode name="NeedPoetics"/>
+					</While>					
+					<RunCode name="BuyFireBooks"/>				
+				</If>
+			</If>
+							
+		<!-- Skyfire II -->
+			<If Condition="HasAtLeast(2001299,1)">
+			
+			<!-- Skyfire II Enemies -->
+				<If condition="not ZodiacManager.CurrentBook.KillTask1Completed or not ZodiacManager.CurrentBook.KillTask2Completed or not ZodiacManager.CurrentBook.KillTask3Completed or not ZodiacManager.CurrentBook.KillTask4Completed or not ZodiacManager.CurrentBook.KillTask5Completed or not ZodiacManager.CurrentBook.KillTask6Completed or not ZodiacManager.CurrentBook.KillTask7Completed or not ZodiacManager.CurrentBook.KillTask8Completed or not ZodiacManager.CurrentBook.KillTask9Completed or not ZodiacManager.CurrentBook.KillTask10Completed">
+					<Log Message="Skyfire II Enemies not complete, fixing that." />	
+					<LLoadProfile Path="../Animus/Skyfire II/Skyfire II - Enemies.xml"/>					
+				</If>
+
+			<!-- Skyfire II Dungeons -->
+				<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed or not ZodiacManager.CurrentBook.DungeonTask2Completed or not ZodiacManager.CurrentBook.DungeonTask3Completed">				
+					<Log Message="Skyfire II Dungeons not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfire II/Skyfire II - Dungeons.xml"/>
+				</If>
+
+			<!-- Skyfire II Fates -->
+				<If condition="not ZodiacManager.CurrentBook.FateTask1Completed or not ZodiacManager.CurrentBook.FateTask2Completed or not ZodiacManager.CurrentBook.FateTask3Completed">				
+					<Log Message="Skyfire II FATEs not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfire II/Skyfire II - Fates.xml"/>								  				  						
+				</If>
+
+			<!-- Skyfire II Guildleves -->
+				<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed or not ZodiacManager.CurrentBook.GuildleveTask2Completed or not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+					<Log Message="Skyfire II Leves not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfire II/Skyfire II - Leves.xml"/>	
+				</If>
+
+			<!-- Book completed -->
+				<If condition="HasAtLeast(2001299,1) and ZodiacManager.CurrentBook.KillTask1Completed and ZodiacManager.CurrentBook.KillTask2Completed and ZodiacManager.CurrentBook.KillTask3Completed and ZodiacManager.CurrentBook.KillTask4Completed and ZodiacManager.CurrentBook.KillTask5Completed and ZodiacManager.CurrentBook.KillTask6Completed and ZodiacManager.CurrentBook.KillTask7Completed and ZodiacManager.CurrentBook.KillTask8Completed and ZodiacManager.CurrentBook.KillTask9Completed and ZodiacManager.CurrentBook.KillTask10Completed and ZodiacManager.CurrentBook.DungeonTask1Completed and ZodiacManager.CurrentBook.DungeonTask2Completed and ZodiacManager.CurrentBook.DungeonTask3Completed and ZodiacManager.CurrentBook.FateTask1Completed and ZodiacManager.CurrentBook.FateTask2Completed and ZodiacManager.CurrentBook.FateTask3Completed and ZodiacManager.CurrentBook.GuildleveTask1Completed and ZodiacManager.CurrentBook.GuildleveTask2Completed and ZodiacManager.CurrentBook.GuildleveTask3Completed">									
+					<Log Message="Skyfire II completed. Buying Netherfire I" />
+					<LisbethTravel Area="Mor Dhona" Position="71.13229, 33.06656, -707.7657"/>
+					<Dismount/>
+					<While Condition="not HasAtLeast(28,100)">
+						<RunCode name="NeedPoetics"/>
+					</While>					
+					<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyShieldFireBooks"/>
+					</If>
+					<If Condition="not ClassName == ((ClassJobType.Paladin))">	
+						<RunCode name="BuyFireBooks"/>
+					</If>		
+				</If>
+			</If>
+						
+		<!-- Netherfire I -->
+			<If Condition="HasAtLeast(2001300,1)">
+			
+			<!-- Netherfire I Enemies -->
+				<If condition="not ZodiacManager.CurrentBook.KillTask1Completed or not ZodiacManager.CurrentBook.KillTask2Completed or not ZodiacManager.CurrentBook.KillTask3Completed or not ZodiacManager.CurrentBook.KillTask4Completed or not ZodiacManager.CurrentBook.KillTask5Completed or not ZodiacManager.CurrentBook.KillTask6Completed or not ZodiacManager.CurrentBook.KillTask7Completed or not ZodiacManager.CurrentBook.KillTask8Completed or not ZodiacManager.CurrentBook.KillTask9Completed or not ZodiacManager.CurrentBook.KillTask10Completed">
+					<Log Message="Netherfire I Enemies not complete, fixing that." />	
+					<LLoadProfile Path="../Animus/Netherfire I/Netherfire I - Enemies.xml"/>					
+				</If>
+
+			<!-- Netherfire I Dungeons -->
+				<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed or not ZodiacManager.CurrentBook.DungeonTask2Completed or not ZodiacManager.CurrentBook.DungeonTask3Completed">				
+					<Log Message="Netherfire I Dungeons not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Netherfire I/Netherfire I - Dungeons.xml"/>
+				</If>
+				
+			<!-- Netherfire I Fates -->
+				<If condition="not ZodiacManager.CurrentBook.FateTask1Completed or not ZodiacManager.CurrentBook.FateTask2Completed or not ZodiacManager.CurrentBook.FateTask3Completed">				
+					<Log Message="Netherfire I FATEs not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Netherfire I/Netherfire I - Fates.xml"/>								  				  						
+				</If>
+				
+			<!-- Netherfire I Guildleves -->
+				<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed or not ZodiacManager.CurrentBook.GuildleveTask2Completed or not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+					<Log Message="Netherfire I Leves not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Netherfire I/Netherfire I - Leves.xml"/>	
+				</If>
+
+			<!-- Book completed -->
+				<If condition="HasAtLeast(2001300,1) and ZodiacManager.CurrentBook.KillTask1Completed and ZodiacManager.CurrentBook.KillTask2Completed and ZodiacManager.CurrentBook.KillTask3Completed and ZodiacManager.CurrentBook.KillTask4Completed and ZodiacManager.CurrentBook.KillTask5Completed and ZodiacManager.CurrentBook.KillTask6Completed and ZodiacManager.CurrentBook.KillTask7Completed and ZodiacManager.CurrentBook.KillTask8Completed and ZodiacManager.CurrentBook.KillTask9Completed and ZodiacManager.CurrentBook.KillTask10Completed and ZodiacManager.CurrentBook.DungeonTask1Completed and ZodiacManager.CurrentBook.DungeonTask2Completed and ZodiacManager.CurrentBook.DungeonTask3Completed and ZodiacManager.CurrentBook.FateTask1Completed and ZodiacManager.CurrentBook.FateTask2Completed and ZodiacManager.CurrentBook.FateTask3Completed and ZodiacManager.CurrentBook.GuildleveTask1Completed and ZodiacManager.CurrentBook.GuildleveTask2Completed and ZodiacManager.CurrentBook.GuildleveTask3Completed">				
+					<Log Message="Netherfire I completed. Buying Skyfall I" />
+					<LisbethTravel Area="Mor Dhona" Position="71.13229, 33.06656, -707.7657"/>
+					<Dismount/>
+					<While Condition="not HasAtLeast(28,100)">
+						<RunCode name="NeedPoetics"/>
+					</While>					
+					<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyPaladinFallBooks"/>
+					</If>					
+					<If Condition="not ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyFallBooks"/>
+					</If>			
+				</If>
+			</If>
+						
+		<!-- Skyfall I -->	
+			<If Condition="HasAtLeast(2001301,1)">
+			
+			<!-- Skyfall I Enemies -->
+				<If condition="not ZodiacManager.CurrentBook.KillTask1Completed or not ZodiacManager.CurrentBook.KillTask2Completed or not ZodiacManager.CurrentBook.KillTask3Completed or not ZodiacManager.CurrentBook.KillTask4Completed or not ZodiacManager.CurrentBook.KillTask5Completed or not ZodiacManager.CurrentBook.KillTask6Completed or not ZodiacManager.CurrentBook.KillTask7Completed or not ZodiacManager.CurrentBook.KillTask8Completed or not ZodiacManager.CurrentBook.KillTask9Completed or not ZodiacManager.CurrentBook.KillTask10Completed">
+					<Log Message="Skyfall I Enemies not complete, fixing that." />	
+					<LLoadProfile Path="../Animus/Skyfall I/Skyfall I - Enemies.xml"/>					
+				</If>
+
+			<!-- Skyfall I Dungeons -->
+				<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed or not ZodiacManager.CurrentBook.DungeonTask2Completed or not ZodiacManager.CurrentBook.DungeonTask3Completed">				
+					<Log Message="Skyfall I Dungeons not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfall I/Skyfall I - Dungeons.xml"/>
+				</If>
+
+			<!-- Skyfall I Fates -->
+				<If condition="not ZodiacManager.CurrentBook.FateTask1Completed or not ZodiacManager.CurrentBook.FateTask2Completed or not ZodiacManager.CurrentBook.FateTask3Completed">				
+					<Log Message="Skyfall I FATEs not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfall I/Skyfall I - Fates.xml"/>								  				  						
+				</If>
+			
+			<!-- Skyfall I Guildleves -->
+				<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed or not ZodiacManager.CurrentBook.GuildleveTask2Completed or not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+					<Log Message="Skyfall I Leves not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfall I/Skyfall I - Leves.xml"/>	
+				</If>
+
+				<!-- Book completed -->
+				<If condition="HasAtLeast(2001301,1) and ZodiacManager.CurrentBook.KillTask1Completed and ZodiacManager.CurrentBook.KillTask2Completed and ZodiacManager.CurrentBook.KillTask3Completed and ZodiacManager.CurrentBook.KillTask4Completed and ZodiacManager.CurrentBook.KillTask5Completed and ZodiacManager.CurrentBook.KillTask6Completed and ZodiacManager.CurrentBook.KillTask7Completed and ZodiacManager.CurrentBook.KillTask8Completed and ZodiacManager.CurrentBook.KillTask9Completed and ZodiacManager.CurrentBook.KillTask10Completed and ZodiacManager.CurrentBook.DungeonTask1Completed and ZodiacManager.CurrentBook.DungeonTask2Completed and ZodiacManager.CurrentBook.DungeonTask3Completed and ZodiacManager.CurrentBook.FateTask1Completed and ZodiacManager.CurrentBook.FateTask2Completed and ZodiacManager.CurrentBook.FateTask3Completed and ZodiacManager.CurrentBook.GuildleveTask1Completed and ZodiacManager.CurrentBook.GuildleveTask2Completed and ZodiacManager.CurrentBook.GuildleveTask3Completed">				
+					<Log Message="Skyfall I completed. Buying Skyfall II" />
+					<LisbethTravel Area="Mor Dhona" Position="71.13229, 33.06656, -707.7657"/>
+					<Dismount/>
+					<While Condition="not HasAtLeast(28,100)">
+						<RunCode name="NeedPoetics"/>
+					</While>					
+					<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyPaladinFallBooks"/>
+					</If>					
+					<If Condition="not ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyFallBooks"/>
+					</If>					
+				</If>
+			</If>
+
+		<!-- Skyfall II -->	
+			<If Condition="HasAtLeast(2001302,1)">
+			<!-- Skyfall II Enemies -->
+				<If condition="not ZodiacManager.CurrentBook.KillTask1Completed or not ZodiacManager.CurrentBook.KillTask2Completed or not ZodiacManager.CurrentBook.KillTask3Completed or not ZodiacManager.CurrentBook.KillTask4Completed or not ZodiacManager.CurrentBook.KillTask5Completed or not ZodiacManager.CurrentBook.KillTask6Completed or not ZodiacManager.CurrentBook.KillTask7Completed or not ZodiacManager.CurrentBook.KillTask8Completed or not ZodiacManager.CurrentBook.KillTask9Completed or not ZodiacManager.CurrentBook.KillTask10Completed">
+					<Log Message="Skyfall II Enemies not complete, fixing that." />	
+					<LLoadProfile Path="../Animus/Skyfall II/Skyfall II - Enemies.xml"/>					
+				</If>
+
+			<!-- Skyfall II Dungeons -->
+				<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed or not ZodiacManager.CurrentBook.DungeonTask2Completed or not ZodiacManager.CurrentBook.DungeonTask3Completed">				
+					<Log Message="Skyfall II Dungeons not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfall II/Skyfall II - Dungeons.xml"/>
+				</If>
+
+			<!-- Skyfall II Fates -->
+				<If condition="not ZodiacManager.CurrentBook.FateTask1Completed or not ZodiacManager.CurrentBook.FateTask2Completed or not ZodiacManager.CurrentBook.FateTask3Completed">				
+					<Log Message="Skyfall II FATEs not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfall II/Skyfall II - Fates.xml"/>								  				  						
+				</If>
+				
+			<!-- Skyfall II Guildleves -->
+				<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed or not ZodiacManager.CurrentBook.GuildleveTask2Completed or not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+					<Log Message="Skyfall II Leves not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyfall II/Skyfall II - Leves.xml"/>	
+				</If>
+
+				<!-- Book completed -->
+				<If condition="HasAtLeast(2001302,1) and ZodiacManager.CurrentBook.KillTask1Completed and ZodiacManager.CurrentBook.KillTask2Completed and ZodiacManager.CurrentBook.KillTask3Completed and ZodiacManager.CurrentBook.KillTask4Completed and ZodiacManager.CurrentBook.KillTask5Completed and ZodiacManager.CurrentBook.KillTask6Completed and ZodiacManager.CurrentBook.KillTask7Completed and ZodiacManager.CurrentBook.KillTask8Completed and ZodiacManager.CurrentBook.KillTask9Completed and ZodiacManager.CurrentBook.KillTask10Completed and ZodiacManager.CurrentBook.DungeonTask1Completed and ZodiacManager.CurrentBook.DungeonTask2Completed and ZodiacManager.CurrentBook.DungeonTask3Completed and ZodiacManager.CurrentBook.FateTask1Completed and ZodiacManager.CurrentBook.FateTask2Completed and ZodiacManager.CurrentBook.FateTask3Completed and ZodiacManager.CurrentBook.GuildleveTask1Completed and ZodiacManager.CurrentBook.GuildleveTask2Completed and ZodiacManager.CurrentBook.GuildleveTask3Completed">				
+					<Log Message="Skyfall II completed. Buying Netherfall I" />
+					<LisbethTravel Area="Mor Dhona" Position="71.13229, 33.06656, -707.7657"/>
+					<Dismount/>
+					<While Condition="not HasAtLeast(28,100)">
+						<RunCode name="NeedPoetics"/>
+					</While>					
+					<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyShieldFallBooks"/>
+					</If>					
+					<If Condition="not ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyFallBooks"/>
+					</If>						
+				</If>
+			</If>
+
+		<!-- Netherfall I -->	
+			<If Condition="HasAtLeast(2001303,1)">
+				
+			<!-- Netherfall I Enemies -->
+				<If condition="not ZodiacManager.CurrentBook.KillTask1Completed or not ZodiacManager.CurrentBook.KillTask2Completed or not ZodiacManager.CurrentBook.KillTask3Completed or not ZodiacManager.CurrentBook.KillTask4Completed or not ZodiacManager.CurrentBook.KillTask5Completed or not ZodiacManager.CurrentBook.KillTask6Completed or not ZodiacManager.CurrentBook.KillTask7Completed or not ZodiacManager.CurrentBook.KillTask8Completed or not ZodiacManager.CurrentBook.KillTask9Completed or not ZodiacManager.CurrentBook.KillTask10Completed">
+					<Log Message="Netherfall I Enemies not complete, fixing that." />	
+					<LLoadProfile Path="../Animus/Netherfall I/Netherfall I - Enemies.xml"/>
+				</If>
+
+			<!-- Netherfall I Dungeons -->	
+				<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed or not ZodiacManager.CurrentBook.DungeonTask2Completed or not ZodiacManager.CurrentBook.DungeonTask3Completed">				
+					<Log Message="Netherfall I Dungeons not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Netherfall I/Netherfall I - Dungeons.xml"/>
+				</If>
+
+			<!-- Netherfall I Fates -->
+				<If condition="not ZodiacManager.CurrentBook.FateTask1Completed or not ZodiacManager.CurrentBook.FateTask2Completed or not ZodiacManager.CurrentBook.FateTask3Completed">				
+					<Log Message="Netherfall I FATEs not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Netherfall I/Netherfall I - Fates.xml"/>								  				  						
+				</If>
+				
+			<!-- Netherfall I Guildleves -->
+				<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed or not ZodiacManager.CurrentBook.GuildleveTask2Completed or not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+					<Log Message="Netherfall I Leves not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Netherfall I/Netherfall I - Leves.xml"/>	
+				</If>
+
+			<!-- Book completed -->
+				<If condition="HasAtLeast(2001303,1) and ZodiacManager.CurrentBook.KillTask1Completed and ZodiacManager.CurrentBook.KillTask2Completed and ZodiacManager.CurrentBook.KillTask3Completed and ZodiacManager.CurrentBook.KillTask4Completed and ZodiacManager.CurrentBook.KillTask5Completed and ZodiacManager.CurrentBook.KillTask6Completed and ZodiacManager.CurrentBook.KillTask7Completed and ZodiacManager.CurrentBook.KillTask8Completed and ZodiacManager.CurrentBook.KillTask9Completed and ZodiacManager.CurrentBook.KillTask10Completed and ZodiacManager.CurrentBook.DungeonTask1Completed and ZodiacManager.CurrentBook.DungeonTask2Completed and ZodiacManager.CurrentBook.DungeonTask3Completed and ZodiacManager.CurrentBook.FateTask1Completed and ZodiacManager.CurrentBook.FateTask2Completed and ZodiacManager.CurrentBook.FateTask3Completed and ZodiacManager.CurrentBook.GuildleveTask1Completed and ZodiacManager.CurrentBook.GuildleveTask2Completed and ZodiacManager.CurrentBook.GuildleveTask3Completed">				
+					<Log Message="Netherfall I completed. Buying Netherfall I" />
+					<LisbethTravel Area="Mor Dhona" Position="71.13229, 33.06656, -707.7657"/>
+					<Dismount/>
+					<While Condition="not HasAtLeast(28,100)">
+						<RunCode name="NeedPoetics"/>
+					</While>					
+					<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyPaladinWindBooks"/>
+					</If>					
+					<If Condition="not ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyWindBooks"/>
+					</If>	
+				</If>
+			</If>
+
+		<!-- Skywind I -->	
+			<If Condition="HasAtLeast(2001304,1)">
+			
+			<!-- Skywind I Enemies -->
+				<If condition="not ZodiacManager.CurrentBook.KillTask1Completed or not ZodiacManager.CurrentBook.KillTask2Completed or not ZodiacManager.CurrentBook.KillTask3Completed or not ZodiacManager.CurrentBook.KillTask4Completed or not ZodiacManager.CurrentBook.KillTask5Completed or not ZodiacManager.CurrentBook.KillTask6Completed or not ZodiacManager.CurrentBook.KillTask7Completed or not ZodiacManager.CurrentBook.KillTask8Completed or not ZodiacManager.CurrentBook.KillTask9Completed or not ZodiacManager.CurrentBook.KillTask10Completed">
+					<Log Message="Skywind I Enemies not complete, fixing that." />	
+					<LLoadProfile Path="../Animus/Skywind I/Skywind I - Enemies.xml"/>
+				</If>
+				
+			<!-- Skywind I Dungeons -->
+				<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed or not ZodiacManager.CurrentBook.DungeonTask2Completed or not ZodiacManager.CurrentBook.DungeonTask3Completed">				
+					<Log Message="Skywind I Dungeons not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skywind I/Skywind I - Dungeons.xml"/>
+				</If>
+
+			<!-- Skywind I Fates -->
+				<If condition="not ZodiacManager.CurrentBook.FateTask1Completed or not ZodiacManager.CurrentBook.FateTask2Completed or not ZodiacManager.CurrentBook.FateTask3Completed">				
+					<Log Message="Skywind I FATEs not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skywind I/Skywind I - Fates.xml"/>								  				  						
+				</If>
+				
+			<!-- Skywind I Guildleves -->
+				<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed or not ZodiacManager.CurrentBook.GuildleveTask2Completed or not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+					<Log Message="Skywind I Leves not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skywind I/Skywind I - Leves.xml"/>	
+				</If>
+
+			<!-- Book completed -->
+				<If condition="HasAtLeast(2001304,1) and ZodiacManager.CurrentBook.KillTask1Completed and ZodiacManager.CurrentBook.KillTask2Completed and ZodiacManager.CurrentBook.KillTask3Completed and ZodiacManager.CurrentBook.KillTask4Completed and ZodiacManager.CurrentBook.KillTask5Completed and ZodiacManager.CurrentBook.KillTask6Completed and ZodiacManager.CurrentBook.KillTask7Completed and ZodiacManager.CurrentBook.KillTask8Completed and ZodiacManager.CurrentBook.KillTask9Completed and ZodiacManager.CurrentBook.KillTask10Completed and ZodiacManager.CurrentBook.DungeonTask1Completed and ZodiacManager.CurrentBook.DungeonTask2Completed and ZodiacManager.CurrentBook.DungeonTask3Completed and ZodiacManager.CurrentBook.FateTask1Completed and ZodiacManager.CurrentBook.FateTask2Completed and ZodiacManager.CurrentBook.FateTask3Completed and ZodiacManager.CurrentBook.GuildleveTask1Completed and ZodiacManager.CurrentBook.GuildleveTask2Completed and ZodiacManager.CurrentBook.GuildleveTask3Completed">				
+					<Log Message="Skywind I completed. Buying Skyearth I" />
+					<LisbethTravel Area="Mor Dhona" Position="71.13229, 33.06656, -707.7657"/>
+					<Dismount/>	
+					<While Condition="not HasAtLeast(28,100)">
+						<RunCode name="NeedPoetics"/>
+					</While>					
+					<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyPaladinWindBooks"/>
+					</If>					
+					<If Condition="not ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyWindBooks"/>
+					</If>
+				</If>
+			</If>
+
+		<!-- Skywind II -->	
+			<If Condition="HasAtLeast(2001305,1)">
+			
+			<!-- Skywind II Enemies -->
+				<If condition="not ZodiacManager.CurrentBook.KillTask1Completed or not ZodiacManager.CurrentBook.KillTask2Completed or not ZodiacManager.CurrentBook.KillTask3Completed or not ZodiacManager.CurrentBook.KillTask4Completed or not ZodiacManager.CurrentBook.KillTask5Completed or not ZodiacManager.CurrentBook.KillTask6Completed or not ZodiacManager.CurrentBook.KillTask7Completed or not ZodiacManager.CurrentBook.KillTask8Completed or not ZodiacManager.CurrentBook.KillTask9Completed or not ZodiacManager.CurrentBook.KillTask10Completed">
+					<Log Message="Skywind II Enemies not complete, fixing that." />	
+					<LLoadProfile Path="../Animus/Skywind II/Skywind II - Enemies.xml"/>
+				</If>
+				
+			<!-- Skywind II Dungeons -->
+				<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed or not ZodiacManager.CurrentBook.DungeonTask2Completed or not ZodiacManager.CurrentBook.DungeonTask3Completed">				
+					<Log Message="Skywind II Dungeons not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skywind II/Skywind II - Dungeons.xml"/>
+				</If>
+
+			<!-- Skywind II Fates -->
+				<If condition="not ZodiacManager.CurrentBook.FateTask1Completed or not ZodiacManager.CurrentBook.FateTask2Completed or not ZodiacManager.CurrentBook.FateTask3Completed">				
+					<Log Message="Skywind II FATEs not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skywind II/Skywind II - Fates.xml"/>								  				  						
+				</If>
+			
+			<!-- Skywind II Guildleves -->
+				<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed or not ZodiacManager.CurrentBook.GuildleveTask2Completed or not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+					<Log Message="Skywind II Leves not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skywind II/Skywind II - Leves.xml"/>	
+				</If>
+
+			<!-- Book completed -->
+				<If condition="HasAtLeast(2001305,1) and ZodiacManager.CurrentBook.KillTask1Completed and ZodiacManager.CurrentBook.KillTask2Completed and ZodiacManager.CurrentBook.KillTask3Completed and ZodiacManager.CurrentBook.KillTask4Completed and ZodiacManager.CurrentBook.KillTask5Completed and ZodiacManager.CurrentBook.KillTask6Completed and ZodiacManager.CurrentBook.KillTask7Completed and ZodiacManager.CurrentBook.KillTask8Completed and ZodiacManager.CurrentBook.KillTask9Completed and ZodiacManager.CurrentBook.KillTask10Completed and ZodiacManager.CurrentBook.DungeonTask1Completed and ZodiacManager.CurrentBook.DungeonTask2Completed and ZodiacManager.CurrentBook.DungeonTask3Completed and ZodiacManager.CurrentBook.FateTask1Completed and ZodiacManager.CurrentBook.FateTask2Completed and ZodiacManager.CurrentBook.FateTask3Completed and ZodiacManager.CurrentBook.GuildleveTask1Completed and ZodiacManager.CurrentBook.GuildleveTask2Completed and ZodiacManager.CurrentBook.GuildleveTask3Completed">				
+					<Log Message="Skywind I completed. Buying Skyearth I" />
+					<LisbethTravel Area="Mor Dhona" Position="71.13229, 33.06656, -707.7657"/>
+					<Dismount/>	
+					<While Condition="not HasAtLeast(28,100)">
+						<RunCode name="NeedPoetics"/>
+					</While>					
+					<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyPaladinEarthBooks"/>
+					</If>					
+					<If Condition="not ClassName == ((ClassJobType.Paladin))"> 
+						<RunCode name="BuyEarthBooks"/>
+					</If>
+				</If>
+			</If>
+			
+		<!-- Skyearth I -->	
+			<If Condition="HasAtLeast(2001306,1)">
+			<!-- Skyearth I Enemies -->
+				<If condition="not ZodiacManager.CurrentBook.KillTask1Completed or not ZodiacManager.CurrentBook.KillTask2Completed or not ZodiacManager.CurrentBook.KillTask3Completed or not ZodiacManager.CurrentBook.KillTask4Completed or not ZodiacManager.CurrentBook.KillTask5Completed or not ZodiacManager.CurrentBook.KillTask6Completed or not ZodiacManager.CurrentBook.KillTask7Completed or not ZodiacManager.CurrentBook.KillTask8Completed or not ZodiacManager.CurrentBook.KillTask9Completed or not ZodiacManager.CurrentBook.KillTask10Completed">
+					<Log Message="Skyearth I Enemies not complete, fixing that." />	
+					<LLoadProfile Path="../Animus/Skyearth I/Skyearth I - Enemies.xml"/>
+				</If>
+
+			<!-- Skyearth I Dungeons -->
+				<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed or not ZodiacManager.CurrentBook.DungeonTask2Completed or not ZodiacManager.CurrentBook.DungeonTask3Completed">				
+					<Log Message="Skyearth I Dungeons not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyearth I/Skyearth I - Dungeons.xml"/>
+				</If>
+
+			<!-- Skyearth I Fates -->
+				<If condition="not ZodiacManager.CurrentBook.FateTask1Completed or not ZodiacManager.CurrentBook.FateTask2Completed or not ZodiacManager.CurrentBook.FateTask3Completed">				
+					<Log Message="Skyearth I FATEs not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyearth I/Skyearth I - Fates.xml"/>								  				  						
+				</If>
+				
+			<!-- Skyearth I Guildleves -->
+				<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed or not ZodiacManager.CurrentBook.GuildleveTask2Completed or not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+					<Log Message="Skyearth I Leves not complete, fixing that." />
+					<LLoadProfile Path="../Animus/Skyearth I/Skyearth I - Leves.xml"/>	
+				</If>
+
+				<!-- Book completed -->
+				<If condition="HasAtLeast(2001306,1) and ZodiacManager.CurrentBook.KillTask1Completed and ZodiacManager.CurrentBook.KillTask2Completed and ZodiacManager.CurrentBook.KillTask3Completed and ZodiacManager.CurrentBook.KillTask4Completed and ZodiacManager.CurrentBook.KillTask5Completed and ZodiacManager.CurrentBook.KillTask6Completed and ZodiacManager.CurrentBook.KillTask7Completed and ZodiacManager.CurrentBook.KillTask8Completed and ZodiacManager.CurrentBook.KillTask9Completed and ZodiacManager.CurrentBook.KillTask10Completed and ZodiacManager.CurrentBook.DungeonTask1Completed and ZodiacManager.CurrentBook.DungeonTask2Completed and ZodiacManager.CurrentBook.DungeonTask3Completed and ZodiacManager.CurrentBook.FateTask1Completed and ZodiacManager.CurrentBook.FateTask2Completed and ZodiacManager.CurrentBook.FateTask3Completed and ZodiacManager.CurrentBook.GuildleveTask1Completed and ZodiacManager.CurrentBook.GuildleveTask2Completed and ZodiacManager.CurrentBook.GuildleveTask3Completed">				
+					<Log Message="All books completed. Heading to Jalzahn to upgrade Atma." />
+					<AutoEquip />					
+					<LisbethTravel ZoneId="154" XYZ="405.1117,-4.498068,-89.15851" distance="2"/>					
+					<RunCode name="UpgradeAnima"/>
+					<LLoadProfile Path="../Start.xml"/>	
+				</If>
+			</If>			
+
+			
+  </Order>
+ 	<CodeChunks>
+		<CodeChunk Name="NeedPoetics">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please farm more Tomestone of Poetics.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>  	
+        <CodeChunk Name="BuyFireBooks">
+            <![CDATA[ 
+			
+				var npcId = GameObjectManager.GetObjectByNPCId(1006976);
+
+				if (!npcId.IsWithinInteractRange)
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
+					while (_target.Distance2D(Core.Me.Location) >= 4)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
+					Navigator.PlayerMover.MoveStop();
+				}
+
+				npcId.Interact();			
+
+				await Coroutine.Wait(5000, () => SelectIconString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing 'Trials of the Braves Exchange.'");
+					ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Trials of the Braves Exchange window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}	
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}
+
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing 'The Books of Fire.'");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("The Books of Fire window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+
+				await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting Yes.");
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Select Yes/No window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}
+            ]]>
+        </CodeChunk>
+        <CodeChunk Name="BuyShieldFireBooks">
+            <![CDATA[ 			
+                await Buddy.Coroutines.Coroutine.Sleep(500);
+                ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1006976).Interact();
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+                    ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				await Buddy.Coroutines.Coroutine.Sleep(1000);	
+                if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+                {
+                    Talk.Next();
+                }
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectString.IsOpen)
+                    ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectString.IsOpen)
+                    ff14bot.RemoteWindows.SelectString.ClickSlot(0);					
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                 if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+                    ff14bot.RemoteWindows.SelectYesno.ClickYes();
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+                while (Talk.DialogOpen)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }				
+            ]]>
+        </CodeChunk>
+        <CodeChunk Name="BuyShieldFallBooks">
+            <![CDATA[ 
+                await Buddy.Coroutines.Coroutine.Sleep(500);
+                ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1006976).Interact();
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+                    ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				await Buddy.Coroutines.Coroutine.Sleep(1000);	
+                if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+                {
+                    Talk.Next();
+                }
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectString.IsOpen)
+                    ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectString.IsOpen)
+                    ff14bot.RemoteWindows.SelectString.ClickSlot(1);					
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                 if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+                    ff14bot.RemoteWindows.SelectYesno.ClickYes();
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+                while (Talk.DialogOpen)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }				
+            ]]>
+        </CodeChunk>		
+        <CodeChunk Name="BuyFallBooks">
+            <![CDATA[ 
+			
+				var npcId = GameObjectManager.GetObjectByNPCId(1006976);
+
+				if (!npcId.IsWithinInteractRange)
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
+					while (_target.Distance2D(Core.Me.Location) >= 4)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
+					Navigator.PlayerMover.MoveStop();
+				}
+
+				npcId.Interact();			
+
+				await Coroutine.Wait(5000, () => SelectIconString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing 'Trials of the Braves Exchange.'");
+					ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Trials of the Braves Exchange window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}	
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}
+
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing 'The Books of Fall.'");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("The Books of Fall window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+
+				await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting Yes.");
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Select Yes/No window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}			
+            ]]>
+        </CodeChunk>
+        <CodeChunk Name="BuyPaladinFallBooks">
+            <![CDATA[ 
+                await Buddy.Coroutines.Coroutine.Sleep(500);
+                ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1006976).Interact();
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+                    ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				await Buddy.Coroutines.Coroutine.Sleep(1000);	
+                if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+                {
+                    Talk.Next();
+                }
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectString.IsOpen)
+                    ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectString.IsOpen)
+                    ff14bot.RemoteWindows.SelectString.ClickSlot(1);					
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                 if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+                    ff14bot.RemoteWindows.SelectYesno.ClickYes();
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+                while (Talk.DialogOpen)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }			
+            ]]>
+        </CodeChunk>			
+        <CodeChunk Name="BuyWindBooks">
+            <![CDATA[
+			
+				var npcId = GameObjectManager.GetObjectByNPCId(1006976);
+
+				if (!npcId.IsWithinInteractRange)
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
+					while (_target.Distance2D(Core.Me.Location) >= 4)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
+					Navigator.PlayerMover.MoveStop();
+				}
+
+				npcId.Interact();			
+
+				await Coroutine.Wait(5000, () => SelectIconString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing 'Trials of the Braves Exchange.'");
+					ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Trials of the Braves Exchange window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}	
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}
+
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing 'The Books of Wind.'");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(2);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("The Books of Wind window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+
+				await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting Yes.");
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Select Yes/No window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}	
+            ]]>
+        </CodeChunk>
+        <CodeChunk Name="BuyPaladinWindBooks">
+            <![CDATA[ 
+                await Buddy.Coroutines.Coroutine.Sleep(500);
+                ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1006976).Interact();
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+                    ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				await Buddy.Coroutines.Coroutine.Sleep(1000);	
+                if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+                {
+                    Talk.Next();
+                }
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectString.IsOpen)
+                    ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectString.IsOpen)
+                    ff14bot.RemoteWindows.SelectString.ClickSlot(2);					
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                 if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+                    ff14bot.RemoteWindows.SelectYesno.ClickYes();
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+                while (Talk.DialogOpen)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }			
+            ]]>
+        </CodeChunk>			
+        <CodeChunk Name="BuyEarthBooks">
+            <![CDATA[ 
+			
+				var npcId = GameObjectManager.GetObjectByNPCId(1006976);
+
+				if (!npcId.IsWithinInteractRange)
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
+					while (_target.Distance2D(Core.Me.Location) >= 4)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
+					Navigator.PlayerMover.MoveStop();
+				}
+
+				npcId.Interact();			
+
+				await Coroutine.Wait(5000, () => SelectIconString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing 'Trials of the Braves Exchange.'");
+					ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Trials of the Braves Exchange window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}	
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}
+
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing 'The Books of Earth.'");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(3);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("The Books of Earth window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+
+				await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting Yes.");
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Select Yes/No window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}					
+            ]]>
+        </CodeChunk>
+        <CodeChunk Name="BuyPaladinEarthBooks">
+            <![CDATA[ 
+                await Buddy.Coroutines.Coroutine.Sleep(500);
+                ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1006976).Interact();
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+                    ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				await Buddy.Coroutines.Coroutine.Sleep(1000);	
+                if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+                {
+                    Talk.Next();
+                }
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectString.IsOpen)
+                    ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (ff14bot.RemoteWindows.SelectString.IsOpen)
+                    ff14bot.RemoteWindows.SelectString.ClickSlot(3);					
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                 if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+                    ff14bot.RemoteWindows.SelectYesno.ClickYes();
+                await Buddy.Coroutines.Coroutine.Sleep(1000);
+                if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+                while (Talk.DialogOpen)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }				
+            ]]>
+        </CodeChunk>		
+  		<CodeChunk Name="UpgradeAnima">		
+            <![CDATA[ 
+				Dictionary<ClassJobType, uint[]> Slots = new Dictionary<ClassJobType, uint[]>
+				{
+					{ClassJobType.Paladin, new uint[] {0, 1}},
+					{ClassJobType.Monk, new uint[] {2}},
+					{ClassJobType.Warrior, new uint[] {3}},
+					{ClassJobType.Dragoon, new uint[] {4}},
+					{ClassJobType.Bard, new uint[] {5}},
+					{ClassJobType.Ninja, new uint[] {6}},
+					{ClassJobType.WhiteMage, new uint[] {7}},
+					{ClassJobType.BlackMage, new uint[] {8}},
+					{ClassJobType.Summoner, new uint[] {9}},
+					{ClassJobType.Scholar, new uint[] {10}},
+				};
+
+				foreach (var slot in Slots[Core.Me.CurrentJob])
+				{
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1008948).Interact();
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Selecting 'Relic Weapon Atma Enhancement'.");
+						SelectIconString.ClickLineContains("Relic Weapon Atma Enhancement");
+					}
+					else
+					{
+						Logging.WriteDiagnostic("Relic Weapon Atma Enhancement window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");
+					}
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(2000);
+					}
+
+					await Coroutine.Wait(5000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Choosing weapon animus.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(slot);
+					}
+					else
+					{
+						Logging.WriteDiagnostic("Weapon select window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");
+					}
+
+					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+					{
+						Logging.WriteDiagnostic("Selecting Yes.");
+						ff14bot.RemoteWindows.SelectYesno.ClickYes();
+						await Coroutine.Wait(10000, ()=> QuestLogManager.InCutscene);
+						if (QuestLogManager.InCutscene)
+						{
+							while (QuestLogManager.InCutscene)
+							{
+								while (Talk.DialogOpen)
+								{
+									Talk.Next();
+									await Buddy.Coroutines.Coroutine.Sleep(1000);
+								}
+								await Buddy.Coroutines.Coroutine.Sleep(1000);
+							}
+						}					
+					}
+				}					
+            ]]>	
+		</CodeChunk>				
+  </CodeChunks> 
+</Profile>			

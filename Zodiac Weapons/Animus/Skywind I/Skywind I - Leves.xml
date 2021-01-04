@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skywind I - Leves
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skywind I - Leves</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Skywind I Leve Task 1 - Subduing the Subprime -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed">
+			<Log Message="Moving to Skywind I - Nothern Thanalan - Camp Bluefrog 'Subduing the Subprime'" />
+			<LLoadProfile Path="../../GuildLeves/Camp Bluefog/Subduing the Subprime.xml"/>
+		</If>
+
+		<!-- Book of Skywind I Leve Task 2 - The Area's a Bit Sketchy -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask2Completed">
+			<Log Message="Moving to Skywind I - Mor Dhona - Saint Coinarch's Find  'Big, Bad Idea'" />
+			<LLoadProfile Path="../../GuildLeves/Sain Coinach's Find/Big, Bad Idea.xml"/>
+		</If>
+
+		<!-- Book of Skywind I Leve Task 3 - Someone's Got a Big Mouth -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+			<Log Message="Moving to Skywind I - Coerthas Central Highlands - Whitebrim Front 'Someone's Got a Big Mouth'" />
+			<LLoadProfile Path="../../GuildLeves/Whitebrim/Someone's Got a Big Mouth.xml"/>
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+</Profile>	

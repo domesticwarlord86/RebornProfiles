@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Tam-Tara Deepcroft
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Tam-Tara Deepcroft</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- [Unlock The Tam-Tara Deepcroft (Hard)] Corpse Groom -->
+    <If Condition="not HasQuest(67060) and not IsQuestCompleted(67060)">
+      <GetTo ZoneId="130" XYZ="51.80443, 4.099995, -151.1039"/>
+      <If Condition="IsQuestAcceptQualified(67060)">
+        <PickupQuest QuestId="67060" NpcId="1009366" XYZ="52.75037, 4.099995, -152.9107"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67060) and not IsQuestCompleted(67060) and GetQuestStep(67060) == 1">
+      <LisbethTravel Area="Eastern Thanalan" Position="-411.9761, -30.94185, 37.88881"/>
+      <UseObject NpcId="2004329" XYZ="-409.0792, -30.47229, 36.75891" QuestId="67060" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67060) and not IsQuestCompleted(67060) and GetQuestStep(67060) == 2">
+      <LisbethTravel Area="Central Shroud" Position="-110.2082, -39.8921, 337.0283"/>
+      <TalkTo NpcId="1001173" XYZ="-113.2372, -39.73311, 338.6434" QuestId="67060" StepId="2"/>
+    </If>
+	
+ 	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="24"/>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<!-- Clear the interring chamber 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Clear the interring chamber 0/1" />
+			<BotSettings AutoEquip="1" />	
+			<MoveTo XYZ="23.0666, 16.28374, 78.035" />
+			<Grind GrindRef="FirstBoss" while="GetInstanceTodo(0) == 0"/>
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>			
+		</If>
+		
+		<!-- Clear the Tomb of King Galvanth the Dominator 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+			<Log Message="Clear the Tomb of King Galvanth the Dominator 0/1" />
+			<MoveTo XYZ="78.67669,17.79322,150.2489" />
+			<UseObject NpcID="2004090" XYZ="78.67669,17.79322,150.2489" Radius="25" condition="GameObjectManager.GetObjectByNPCId(2004090).IsTargetable"/>
+			<MoveTo XYZ="72.42445,18.38708,48.38635" />
+			<UseObject NpcID="2004091" XYZ="72.42445,18.38708,48.38635" Radius="25" condition="GameObjectManager.GetObjectByNPCId(2004091).IsTargetable"/>
+			<MoveTo XYZ="146.6849,17.99036,69.56287" />
+			<UseObject NpcID="2004092" XYZ="146.6849,17.99036,69.56287" Radius="25" condition="GameObjectManager.GetObjectByNPCId(2004092).IsTargetable"/>
+			<MoveTo XYZ="87.85692, 22.101, -40.73944" />
+			<Grind GrindRef="SecondBoss" while="GetInstanceTodo(1) == 0"/>
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<MoveTo XYZ="96.4095,22.1,-49.50657" distance="2"/>	
+			<RunCode name="AetherialFlow1"/>	
+		</If>
+
+		<!-- Clear Eternal Calm 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+			<Log Message="Clear Eternal Calm 0/1" />		
+			<MoveTo XYZ="-85.52901, 15.04425, 5.172858" />
+			<MoveTo XYZ="-64.02912, 14.055, -6.091171" usemesh="false" />
+			<Grind GrindRef="FinalBoss" while="GetInstanceTodo(2) == 0"/>
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>			
+		</If>
+	</If>
+	
+	<!-- Turn In Unlock Quest -->
+	<If Condition="HasQuest(67060) and not IsQuestCompleted(67060) and GetQuestStep(67060) == 255">
+	  <GetTo ZoneId="148" XYZ="-95.1187, -40.04695, 322.5074"/>
+	  <TurnIn QuestId="67060" NpcId="1009367" XYZ="-94.52972, -40.05186, 324.5747"/>
+	</If>			
+		
+	<LLoadProfile Path="../Start.xml"/>		
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="39.78007,16.28374,98.56228" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2852" Weight="1" />	<!-- Liavinne  -->	
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="87.9071,22.101,-44.26648" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2855" Weight="1" />	<!-- Spare Body  -->	
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-48.11482,14.055,-10.61427" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2860" Weight="1" />	<!-- Avere Bravearm  -->	
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>		
+  <CodeChunks>
+ 	<CodeChunk Name="AetherialFlow1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004095).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }
+      ]]>
+	</CodeChunk>
+  </CodeChunks>  
+</Profile>  

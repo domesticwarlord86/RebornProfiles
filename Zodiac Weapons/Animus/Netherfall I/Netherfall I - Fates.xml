@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Netherfall I - FATEs
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Netherfall I - FATEs</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Netherfall I FATE Task 1 - Rude Awakening -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+			<LisbethTravel Area="North Shroud" Position="64.49603, 6.874514, -80.28871"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+				<Log Message="Waiting on FATE 'Rude Awakening'" />
+				<LLFate FateId="632" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask1Completed"/> <!-- Rude Awakening -->
+			</While>	
+		</If>
+
+		<!-- Book of Netherfall I FATE Task 2 - The Ceruleum Road -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+			<LisbethTravel Area="Northern Thanalan" Position="21.60414, 3.991567, 397.9374"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+				<Log Message="Waiting on FATE 'The Ceruleum Road'" />
+				<LisbethTravel Area="Northern Thanalan" Position="21.60414, 3.991567, 397.9374"/>
+					<If condition="GameObjectManager.GetObjectByNPCId(1718)">
+						<RunCode name="StartRoad"/>
+					</If>
+				<LLFate FateId="642" MinLevel="1" Timeout="60" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask2Completed" UseFlight="false" BlacklistIds="641,638"/> <!-- The Ceruleum Road -->
+			</While>
+		</If>
+
+		<!-- Book of Netherfall I FATE Task 3 - The Four Winds -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+			<LisbethTravel Area="Coerthas Central Highlands" Position="656.0725, 300.6156, -21.86666"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+				<Log Message="Waiting on FATE 'The Four Winds'" />
+				<LLFate FateId="499" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask3Completed"/> <!-- The Four Winds -->	
+			</While>	
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+	<CodeChunks>
+		<CodeChunk Name="CeruleumRoad">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please complete Ceruleum Road FATE manually. Starts from Wary Merchant.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(60000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="StartRoad">
+			<![CDATA[ 
+				var x = GameObjectManager.GetObjectByNPCId(1718);
+				var pos = new Vector3(x.Location.X, x.Location.Y, x.Location.Z);
+				Navigator.PlayerMover.MoveTowards(pos);
+				await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 3f);
+				Navigator.PlayerMover.MoveStop();
+				await Coroutine.Sleep(1000);
+				ff14bot.Managers.GameObjectManager.GetObjectByNPCId(x.NpcId).Interact();				
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+                while (Talk.DialogOpen)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }
+                while (Talk.DialogOpen)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }						
+				await Buddy.Coroutines.Coroutine.Sleep(1000);				
+                if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				await Buddy.Coroutines.Coroutine.Sleep(1000);	
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }						
+			]]>
+		</CodeChunk>			
+	</CodeChunks>
+</Profile>	

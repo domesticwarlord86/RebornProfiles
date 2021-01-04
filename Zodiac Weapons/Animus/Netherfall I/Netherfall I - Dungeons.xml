@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Netherfall I - Dungeons
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Netherfall I - Dungeons</Name>  
+	<Order>
+		
+		<!-- Book of Netherfall I Dungeon Task 1 - Cutters Cry -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed">
+			<Log Message="Moving to Netherfall I - Cutter's Cry" />
+			<LLoadProfile Path="../../Dungeons/Cutter's Cry.xml"/>
+		</If>
+
+		<!-- Book of Netherfall I Dungeon Task 2 - Pharos Sirius -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask2Completed">
+			<Log Message="Moving to Netherfall I - Pharos Sirius" />
+			<LLoadProfile Path="../../Dungeons/Pharos Sirius.xml"/>
+		</If>
+
+		<!-- Book of Netherfall I Dungeon Task 3 - The Lost City of Amdapor -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask3Completed">
+			<Log Message="Moving to Netherfall I - The Lost City of Amdapor" />
+			<LLoadProfile Path="../../Dungeons/The Lost City of Amdapor.xml"/>
+		</If>		
+		
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+</Profile>	

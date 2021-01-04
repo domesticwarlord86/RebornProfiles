@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Sastasha
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Sastasha</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<While Condition="NovusLightLevel() &lt; 2000">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="4"/>
+		</If> <!-- Flame and Fruit -->
+		<If condition="DutyManager.InInstance">
+			<!-- Activate the coral trigger 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Activate the coral trigger 0/1" />
+				<BotSettings AutoEquip="1" />	
+				<MoveTo XYZ="75.8698,35.10142,-32.53721" distance="2"/> <!-- Move To Blue Coral -->
+				<If condition="not GameObjectManager.GetObjectByNPCId(2000216).IsTargetable">
+					<RunCode name="BlueCoral"/>
+				</If>
+				<If condition="not GameObjectManager.GetObjectByNPCId(2000216).IsTargetable">
+					<MoveTo XYZ="64.98816,33.67282,-56.69056" distance="2"/>
+					<RunCode name="GreenCoral"/>
+				</If>
+				<If condition="not GameObjectManager.GetObjectByNPCId(2000216).IsTargetable">
+					<MoveTo XYZ="88.76937,31.13569,-40.86964" distance="3"/>
+					<RunCode name="RedCoral"/>
+				</If>			
+				<UseObject NpcId="2000216" XYZ="62.90795,33.96952,-31.17228" Radius="25" condition="not GameObjectManager.GetObjectByNPCId(1204)"/>
+				<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(1204).CurrentHealth == 0"/> <!-- Fight First Boss -->
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+				<While condition="GameObjectManager.GetObjectByNPCId(2000216).IsTargetable">
+					<UseObject NpcId="2000216" XYZ="62.90795,33.96952,-31.17228" Radius="25" condition="GameObjectManager.GetObjectByNPCId(2000216).IsTargetable"/>			
+				</While>
+			</If>
+			
+			<!-- Discover the pirate captain 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Discover the pirate captain 0/1" />
+				<MoveTo XYZ="-5.280043, 22.8478, 36.63774"/>
+				<Grind GrindRef="SecondBoss" While="GameObjectManager.GetObjectByNPCId(2000225).IsVisible"/> <!-- Fight second Boss -->			
+			</If>
+			
+			<!-- Obtain the Waverider Gate key 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Obtain the Waverider Gate key 0/1" />
+				<MoveTo XYZ="-97.06197, 13.84801, 147.9231" />
+				<UseObject NpcId="2000250" XYZ="-95.04467,20.51307,172.0396" Radius="200" condition="not HasAtLeast(2000512,1)"/> <!-- Pickup Captain's Quarters Key -->				
+				<MoveTo XYZ="-95.04467,20.51307,172.0396" />
+				<While condition="GameObjectManager.GetObjectByNPCId(2000227).IsTargetable">
+					<MoveTo XYZ="-95.04467,20.51307,172.0396" />
+					<RunCode name="CaptainsQuarters"/>
+				</While>
+				<MoveTo XYZ="-95.02753,20.012,194.5923" />
+				<UseObject NpcId="2000255" XYZ="-95.11745,20.012,190.557" Radius="100" condition="not HasAtLeast(2000513,1)"/>	<!-- Pickup Waverider Gate Key -->		
+			</If>		
+			
+			<!-- Defeat Denn the Orcatoothed 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Defeat Denn the Orcatoothed 0/1" />
+				<MoveTo XYZ="-130.6,16,156.8" />
+				<While condition="GameObjectManager.GetObjectByNPCId(2000231).IsTargetable">
+					<MoveTo XYZ="-130.6,16,156.8" />
+					<RunCode name="WaveriderGate"/>
+				</While>			
+				<MoveTo XYZ="-165.2793, 7.402772, 225.4319"/>
+				<Grind GrindRef="SecondBoss2" While="GameObjectManager.GetObjectByNPCId(2000236).IsVisible"/> <!-- Fight second Boss again... -->
+				<MoveTo XYZ="-301.4477, 5.576687, 285.9107"/>	
+				<BotSettings AutoEquip="0" />	
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7867">
+						<Log Message="Equipping Artemis Bow Novus" />
+						<RunCode Name="ArtemisNovus" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8655">
+						<Log Message="Equipping Stardust Rod Novus" />
+						<RunCode Name="StardustNovus" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7866">
+						<Log Message="Equipping Gae Bolg Novus" />
+						<RunCode Name="GaeBolgNovus" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7864">
+						<Log Message="Equipping Sphairai Novus" />
+						<RunCode Name="SphairaiNovus" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9253">
+						<Log Message="Equipping Yoshimitsu Novus" />
+						<RunCode Name="YoshimitsuNovus" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7863">
+						<Log Message="Equipping Curtana Novus" />
+						<RunCode Name="CurtanaNovus" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7872">
+						<Log Message="Equipping Holy Shield Novus" />
+						<RunCode Name="HolyShieldNovus" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7871">
+						<Log Message="Equipping Omnilex Novus" />
+						<RunCode Name="OmnilexNovus" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7870">
+						<Log Message="Equipping Viel of Wiyu Novus" />
+						<RunCode Name="VeilNovus" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7865">
+						<Log Message="Equipping Bravura Atma" />
+						<RunCode Name="BravuraNovus" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7868">
+						<Log Message="Equipping Thyrus Atma" />
+						<RunCode Name="ThyrusNovus" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>		
+				<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(1206).CurrentHealth == 0"/> <!-- Fight Final Boss -->	
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="10" />
+					<LLLeaveDuty/>
+				</While>
+				<If Condition="NovusLightLevel() &lt; 2000">
+					<RunCode name="LightLevel"/>
+				</If>					
+			</If>						
+		</If>
+	</While> 
+	
+	<If Condition="NovusLightLevel() == 2000">
+		<RunCode name="LightLevel"/>
+		<LLoadProfile Path="../Start.xml"/>
+	</If>
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="66.72766,31.72176,-38.01025" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1204" Weight="1" /> <!-- Chopper -->
+        </TargetMobs>
+	</GrindArea>		
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-31.51084,23.7394,58.97142" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1382" Weight="2" /> <!-- Captain Madison -->
+			<TargetMob Id="342" Weight="1" /> <!-- Shallowtail Reaver -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="SecondBoss2">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-185.7579,6.681291,247.7682" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1382" Weight="2" /> <!-- Captain Madison -->
+			<TargetMob Id="342" Weight="1" /> <!-- Shallowtail Reaver -->
+        </TargetMobs>
+	</GrindArea>	
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-334.2874,5.576687,318.569" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1206" Weight="1" />	<!-- Denn the Orcatoothed -->
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+	<CodeChunk Name="BlueCoral">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000213).Interact();
+			await Coroutine.Sleep(1000);
+            ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="GreenCoral">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000215).Interact();
+			await Coroutine.Sleep(1000);
+            ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+ 	<CodeChunk Name="RedCoral">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000214).Interact();
+			await Coroutine.Sleep(1000);
+            ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+ 	<CodeChunk Name="CaptainsQuarters">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000227).Interact();
+			await Coroutine.Sleep(1000);
+            ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+ 	<CodeChunk Name="WaveriderGate">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000231).Interact();
+			await Coroutine.Sleep(1000);
+            ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>	
+ 		<CodeChunk Name="LightLevel">
+		  <![CDATA[ 
+			ff14bot.Helpers.Logging.Write(string.Format("Current Novus LightLevel: {0}", (InventoryManager.EquippedItems.First().SpiritBond * 100)));
+			await Coroutine.Sleep(5000);
+		  ]]>
+		</CodeChunk> 
+ 		<CodeChunk Name="OmnilexNovus">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 7871)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+		</CodeChunk>		
+  		<CodeChunk Name="VeilNovus">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 7870)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+		</CodeChunk>
+  		<CodeChunk Name="StardustNovus">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 8655)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+		</CodeChunk>	
+  		<CodeChunk Name="BravuraNovus">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 7865)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+		</CodeChunk>
+  		<CodeChunk Name="CurtanaNovus">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 7863)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>		
+		</CodeChunk>
+  		<CodeChunk Name="HolyShieldNovus">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 7872)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>		
+		</CodeChunk>	
+  		<CodeChunk Name="ArtemisNovus">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 7867)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+		</CodeChunk>	
+  		<CodeChunk Name="GaeBolgNovus">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 7866)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+		</CodeChunk>	
+  		<CodeChunk Name="SphairaiNovus">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 7864)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+		</CodeChunk>
+  		<CodeChunk Name="YoshimitsuNovus">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 9253)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+		</CodeChunk>		
+  		<CodeChunk Name="ThyrusNovus">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 7868)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+		</CodeChunk>	
+  </CodeChunks>
+</Profile>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfire I - Enemies
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfire I - Enemies</Name>  
+	<Order>
+
+		<!-- Book of Skyfire I Kill Task 1 - Daring Harrier  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask1Completed">
+			<Log Message="Moving to Skyfire I Kill Task 1 - Daring Harrier" />
+			<LisbethTravel Area="Mor Dhona" Position="-227.1997, -4.063313, -301.7137"/>
+			<Grind grindRef="daring_harrier" while="not ZodiacManager.CurrentBook.KillTask1Completed" />
+		</If>
+		
+		<!-- Book of Skyfire I Kill Task 4 - 5th Cohort Vanguard  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask4Completed">
+			<Log Message="Moving to Skyfire I Kill Task 4 - 5th Cohort Vanguard" />
+			<LisbethTravel Area="Mor Dhona" Position="-559.3, -3.146109, -351.7"/>
+			<Grind grindRef="5th_cohort_vanguard" while="not ZodiacManager.CurrentBook.KillTask4Completed" />
+		</If>		
+
+		<!-- Book of Skyfire I Kill Task 2 - Giant Logger  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask2Completed">
+			<Log Message="Moving to Skyfire I Kill Task 2 - Giant Logger" />
+			<LisbethTravel Area="Coerthas Central Highlands" Position="-473.0542, 276.0642, 233.3405"/>
+			<Grind grindRef="giant_logger" while="not ZodiacManager.CurrentBook.KillTask2Completed" />
+		</If>
+
+		<!-- Book of Skyfire I Kill Task 3 - Shoalspine Sahagin  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask3Completed">
+			<Log Message="Moving to Skyfire I Kill Task 3 - Shoalspine Sahagin" />
+			<LisbethTravel Area="Western La Noscea" Position="-206.0953, -42.0848, -239.8467"/>
+			<Grind grindRef="shoalspine_sahagin" while="not ZodiacManager.CurrentBook.KillTask3Completed" />
+		</If>
+		
+	
+		<!-- Book of Skyfire I Kill Task 5 - Synthetic Doblyn  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask5Completed">
+			<Log Message="Moving to Skyfire I Kill Task 5 - Synthetic Doblyn" />
+			<LisbethTravel Area="Outer La Noscea" Position="109.4875, 23.91594, -715.1216"/>
+			<Grind grindRef="synthetic_doblyn" while="not ZodiacManager.CurrentBook.KillTask5Completed" />
+		</If>
+		
+		<!-- Book of Skyfire I Kill Task 6 - 4th Cohort Hoplomachi  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask6Completed">
+			<Log Message="Moving to Skyfire I Kill Task 6 - 4th Cohort Hoplomachi" />
+			<LisbethTravel Area="Western Thanalan" Position="-498.4164, 50.98945, -746.5322"/>
+			<Grind grindRef="4th_cohort_hoplomachi" while="not ZodiacManager.CurrentBook.KillTask6Completed" />
+		</If>
+
+		<!-- Book of Skyfire I Kill Task 7 - Zanr'ak Pugilist  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask7Completed">
+			<Log Message="Moving to Skyfire I Kill Task 7 - Zanr'ak Pugilist" />
+			<LisbethTravel Area="Southern Thanalan" Position="-178.9906, 40, 153.9457"/>
+			<Grind grindRef="zanrak_pugilist" while="not ZodiacManager.CurrentBook.KillTask7Completed" />
+		</If>
+
+		<!-- Book of Skyfire I Kill Task 8 - Milkroot Cluster  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask8Completed">
+			<Log Message="Moving to Skyfire I Kill Task 8 - Milkroot Cluster" />
+			<LisbethTravel Area="East Shroud" Position="119.6483, -28.93971, -233.3251"/>
+			<Grind grindRef="milkroot_cluster" while="not ZodiacManager.CurrentBook.KillTask8Completed" />
+		</If>		
+		
+		<!-- Book of Skyfire I Kill Task 9 - Basilisk  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask9Completed">
+			<Log Message="Moving to Skyfire I Kill Task 9 - Basilisk" />
+			<LisbethTravel Area="Northern Thanalan" Position="-22.92793, 12.49097, 251.8611"/>
+			<Grind grindRef="basilisk" while="not ZodiacManager.CurrentBook.KillTask9Completed" />
+		</If>
+
+		<!-- Book of Skyfire I Kill Task 10 - 2nd Cohort Hoplomachi  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask10Completed">
+			<Log Message="Moving to Skyfire I Kill Task 10 - 2nd Cohort Hoplomachi" />
+			<LisbethTravel Area="Eastern La Noscea (Raincatcher Gully)" Position="210.5027, 73.61314, -15.33077"/>
+			<Grind grindRef="2nd_cohort_hoplomachi" while="not ZodiacManager.CurrentBook.KillTask10Completed" />
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+	<GrindAreas>
+		<GrindArea name="daring_harrier"> <!-- Kill Task 1 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-225.0232, -3.818664, -299.8137" />
+				<Hotspot Radius="500" XYZ="-202.7963, 26.82085, -204.7632" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="650"  /> 
+			</TargetMobs>
+		</GrindArea>	
+		<GrindArea name="giant_logger"> <!-- Kill Task 2 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-472.8304,275.3853, 236.0151" />
+				<Hotspot Radius="500" XYZ="-398.6384, 302.9339, 192.3537" />
+				<Hotspot Radius="500" XYZ="-360.0799, 271.8206, 254.4776" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="785"  /> 
+			</TargetMobs>
+		</GrindArea>	
+		<GrindArea name="shoalspine_sahagin"> <!-- Kill Task 3 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-205.0121, -41.99041, -242.3697" name="shoalspine_sahagin" />
+				<Hotspot Radius="500" XYZ="-213.78, -42.06208, -306.0026" name="shoalspine_sahagin" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="2523"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="5th_cohort_vanguard"> <!-- Kill Task 4 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-546.3675, -3.710563, -392.4852"/>
+				<Hotspot Radius="500" XYZ="-490.4448, -3.216822, -265.3788"/>
+				<Hotspot Radius="500" XYZ="-547.0346, -3.767937, -398.7435"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1814"  />
+			</TargetMobs>
+		</GrindArea>		
+		<GrindArea name="synthetic_doblyn"> <!-- Kill Task 5 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="168.7409, 21.90005, -696.0637" name="synthetic_doblyn" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1836"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="4th_cohort_hoplomachi"> <!-- Kill Task 6 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-500.4765, 51.02969, -748.5467"/>
+				<Hotspot Radius="500" XYZ="-611.7562, 57.82459, -787.7922"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1815"  />
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="zanrak_pugilist"> <!-- Kill Task 7 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-181.85, 40, 153.8542"/>
+				<Hotspot Radius="500" XYZ="-82.92239, 45.81123, 191.8739"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1880"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="milkroot_cluster"> <!-- Kill Task 8 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="121.6553, -29.05345, -231.3836" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="165"  /> 
+			</TargetMobs>
+		</GrindArea>		
+		<GrindArea name="basilisk"> <!-- Kill Task 9 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-25.75546, 12.3262, 252.0661" />
+				<Hotspot Radius="500" XYZ="24.79675, 9.765413, 261.9567" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="304"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="2nd_cohort_hoplomachi"> <!-- Kill Task 10 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="213.1258, 73.71436, -16.3947" name="2nd_cohort_hoplomachi" />
+				<Hotspot Radius="500" XYZ="407.4036, 76.45202, -35.83283" name="2nd_cohort_hoplomachi" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1821"  />
+			</TargetMobs>
+		</GrindArea>		
+	</GrindAreas>
+</Profile>	

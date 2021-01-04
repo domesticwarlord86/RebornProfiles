@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Copperbell Mines (Hard)
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Copperbell Mines (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+     <!-- [Copperbell Mines (Hard)] Out of Sight, Out of Mine -->
+    <If Condition="not HasQuest(66752) and not IsQuestCompleted(66752)">
+      <GetTo ZoneId="156" XYZ="26.82062, 21.25273, -636.9411"/>
+      <If Condition="IsQuestAcceptQualified(66752)">
+        <PickupQuest QuestId="66752" NpcId="1005524" XYZ="27.29834, 21.2714, -635.9808"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66752) and not IsQuestCompleted(66752) and GetQuestStep(66752) == 255">
+      <LisbethTravel Area="Western Thanalan" Position="324.6464, 62.9999, -228.8189"/>
+      <TurnIn QuestId="66752" NpcId="1002285" XYZ="326.4667, 63, -231.6473"/>
+    </If> 
+	
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="18"/>
+	</If>
+	<If Condition="IsOnMap(349)">
+		<!-- Clear the Screaming Dark 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Clear the Screaming Dark 0/1" />
+			<BotSettings AutoEquip="1" />	
+			<MoveTo XYZ="-181.9118, 23.99999, -207.8887"/>
+			<RunCode name="LiftLever"/>
+			<WaitTimer WaitTime="11" />
+			<MoveTo XYZ="-171.2285, -7.608466, -208.3708" usemesh="false"/>
+			<MoveTo XYZ="-48.88982,-2.795422,-203.9574" distance="3"/> <!-- Collapsed Rock 1 -->
+			<Grind GrindRef="CollapsedRock" While="not GameObjectManager.GetObjectByNPCId(2268).CurrentHealth == 0"/> <!-- Clear Collapsed Rock -->			
+			<MoveTo XYZ="60.513, -9.245893, -91.37416"/>			
+			<MoveTo XYZ="77.15265, -12, -91.16539" usemesh="false"/>			
+			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(2282).CurrentHealth == 0"/> <!-- Fight First Boss -->			
+		</If>
+		<!-- Clear the Crying Dark 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0">
+			<Log Message="Clear the Crying Dark 0/1" />
+			<MoveTo XYZ="78.71497, -12, -78.03615" usemesh="false"/>
+			<MoveTo XYZ="94.99336, -12.11506, -78.41409" usemesh="false"/>
+			<MoveTo XYZ="92.90975, -12.10495, -66.24419" usemesh="false"/>
+			<MoveTo XYZ="77.45716, -12.10495, -60.91584" usemesh="false"/>
+			<MoveTo XYZ="75.27923, -12, -48.8298" usemesh="false"/>
+			<MoveTo XYZ="62.11007, -12, -47.82242" usemesh="false"/>
+			<If Condition="&openchest; == 1">
+				<RunCode name="OpenChest" />
+			</If>
+			<MoveTo XYZ="63.42701, -9.924997, -32.56057" usemesh="false"/>
+			<MoveTo XYZ="58.37302, -9.425433, -1.363082"/>
+			<MoveTo XYZ="58.93507, -38.71896, 23.52768" usemesh="false"/>					
+			<MoveTo XYZ="60.42382, -38.56236, 49.22792"/>
+			<Grind GrindRef="CollapsedRock2" While="not GameObjectManager.GetObjectByNPCId(2293).CurrentHealth == 0"/> <!-- Clear Collapsed Rock -->
+			<MoveTo XYZ="34.97526, -37.87014, 90.38844"/>
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(1) == 0"/> <!-- Fight Second Boss -->
+			<If Condition="&openchest; == 1">
+				<RunCode name="OpenChest" />
+			</If>			
+		</If>
+		<!-- Defeat Ouranos 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0">
+			<Log Message="Defeat Ouranos 0/1" />
+			<MoveTo XYZ="-81.23553, -38.51034, 106.9896"/>
+			<MoveTo XYZ="-94.35246, -59.32168, 38.16587"/>
+			<BotSettings AutoEquip="0" />
+			<If Condition="not GetQuestStep(65895) == 3">	
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
+						<Log Message="Equipping Artemis Bow Atma" />
+						<EquipWeapon ItemID="7828"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7830">
+						<Log Message="Equipping Stardust Rod Atma" />
+						<EquipWeapon ItemID="7830"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7827">
+						<Log Message="Equipping Gae Bolg Atma" />
+						<EquipWeapon ItemID="7827"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7825">
+						<Log Message="Equipping Sphairai Atma" />
+						<EquipWeapon ItemID="7825"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9251">
+						<Log Message="Equipping Yoshimitsu Atma" />
+						<EquipWeapon ItemID="9251"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7824">
+						<Log Message="Equipping Curtana Atma" />
+						<EquipWeapon ItemID="7824"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7833">
+						<Log Message="Equipping Holy Shield Atma" />
+						<EquipWeapon ItemID="7833"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7832">
+						<Log Message="Equipping Omnilex Atma" />
+						<EquipWeapon ItemID="7832"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7831">
+						<Log Message="Equipping Veil of Wiyu Atma" />
+						<EquipWeapon ItemID="7831"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7826">
+						<Log Message="Equipping Bravura Atma" />
+						<EquipWeapon ItemID="7826"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7829">
+						<Log Message="Equipping Thyrus Atma" />
+						<EquipWeapon ItemID="7829"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+			</If>		
+			<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(2289).CurrentHealth == 0"/> <!-- Fight Final Boss -->
+			<If Condition="&openchest; == 1">
+				<RunCode name="OpenChest" />
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>			
+		</If>			
+	</If>
+	
+	<LLoadProfile Path="../Start.xml"/>	
+	
+  </Order>
+  <GrindAreas>
+ 	<GrindArea name="CollapsedRock">
+        <Hotspots>
+			<Hotspot Radius="20" XYZ="-48.88982,-2.795422,-203.9574" />
+			<Hotspot Radius="20" XYZ="-11.59982,-6.595779,-219.0302" />
+			<Hotspot Radius="20" XYZ="17.4218,-6.633428,-207.7603" />
+			<Hotspot Radius="20" XYZ="17.29538,-6.631176,-184.2548" />
+			<Hotspot Radius="20" XYZ="25.55969,-9.524173,-140.6966" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2293" Weight="1000" />	<!-- Collapsed Rock -->
+			<TargetMob Id="2270" Weight="1" />	<!-- Hecatoncheir Stonehoarder -->
+			<TargetMob Id="2268" Weight="1" />	<!-- Hecatoncheir Quakequeller -->
+			<TargetMob Id="2274" Weight="1" />	<!-- Errant Revenant -->				
+        </TargetMobs>
+	</GrindArea>
+ 	<GrindArea name="CollapsedRock2">
+        <Hotspots>
+			<Hotspot Radius="20" XYZ="59.31177,-38.58973,55.77173" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2293" Weight="1000" />	<!-- Collapsed Rock -->				
+        </TargetMobs>
+	</GrindArea>	
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="75.45625,-12,-90.97627" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2282" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="27.63177,-37.90479,111.8184" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2285" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="50" XYZ="-99.32104,-58.10757,4.440308" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2289" Weight="1" />		
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+ 	<CodeChunk Name="LiftLever">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2002902).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+  </CodeChunks>
+</Profile>

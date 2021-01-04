@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: The Bloodhounds of Coerthas Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>The Bloodhounds of Coerthas Leve</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(855)">
+				<LisbethTravel Area="Coerthas Central Highlands" Position="-466.4981, 211, -232.1504"/>
+				<ExPickupGuildLeve leveIds="855" leveType="Order" npcId="1007069" npcLocation="-476.2188,211,-233.4173" Timeout="5" /> <!-- The Bloodhounds of Coerthas -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(855)">
+					<ExPickupGuildLeve leveIds="854" leveType="Order" npcId="1007069" npcLocation="-476.2188,211,-233.4173" Timeout="5" /> <!-- Talk to My Voidsent -->				
+				</If>
+			</If>	
+
+			<!-- The Bloodhounds of Coerthas -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(855)">
+				<LisbethTravel Area="Coerthas Central Highlands" Position="-463.2503, 204.6006, -349.9669"/>
+				<InitiateLeve LeveId="855"/> <!-- The Bloodhounds of Coerthas -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="TheBloodhoundsofCoerthas" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007069" NpcLocation="-476.2188,211,-233.4173"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+			
+			<!-- Talk to My Voidsent -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(854)">
+				<LisbethTravel Area="Coerthas Central Highlands" Position="-500.8627, 207.7958, -169.4488"/>
+				<InitiateLeve LeveId="854"/> <!-- Talk to My Voidsent -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="TalktoMyVoidsent" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />
+				<RunCode Name="CloseTimer"/>
+				<ExTurnInGuildLeve NpcId="1007069" NpcLocation="-476.2188,211,-233.4173"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>			
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="TheBloodhoundsofCoerthas">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-466.9695, 205.2967, -352.9378" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Snowshoe Mouse" Id="1763" Weight="1" />
+			<TargetMob Name="Dragonfly Chaser" Id="1638" Weight="1" />
+			<TargetMob Name="Blood Bateleur" Id="1789" Weight="1" />
+			<TargetMob Name="Red Aevis" Id="1756" Weight="1" />	
+        </TargetMobs>		
+	</GrindArea>
+   	<GrindArea name="TalktoMyVoidsent">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-501.2252, 208.2493, -167.8926" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Bezul Huizan the Screamer" Id="2231" Weight="1" />			
+        </TargetMobs>		
+	</GrindArea>
+  </GrindAreas>		
+  <CodeChunks>	
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }	
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

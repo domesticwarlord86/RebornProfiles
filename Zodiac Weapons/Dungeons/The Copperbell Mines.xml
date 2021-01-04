@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Copperbell Mines
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Copperbell Mines</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="3"/>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<!-- Clear shaft B4 of rubble 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0">
+			<Log Message="Clear shaft B4 of rubble 0/1" />
+			<BotSettings AutoEquip="1" />	
+			<MoveTo XYZ="-205.4989,23.81927,-208.5367"/>		
+			<UseObject InCombat="True" NpcIds="2000159" XYZ="-220.1309, 23.80412, -208.2452" Radius="50" condition="not HasAtLeast(2000441,1)"/>
+			<MoveTo XYZ="-205.4989,23.81927,-208.5367"/>
+			<While condition="GameObjectManager.GetObjectByNPCId(2000160).IsTargetable">
+				<RunCode name="SealedBlastingDoor1"/>
+			</While>	
+			<MoveTo XYZ="-181.9118, 23.99999, -208.0539"/>
+			<RunCode name="LifeLever1"/>
+			<WaitTimer WaitTime="13" />
+			<MoveTo XYZ="-145.0382, -9.442417, -208.1714" usemesh="false"/>
+			<MoveTo XYZ="-20.34212, -8.936714, -158.5612"/>
+			<UseObject NpcIds="2000169" XYZ="-20.82861,-8.071711,-161.6389" Radius="50" condition="GetInstanceTodo(0) == 0"/>
+			<MoveTo XYZ="53.10145,-3.845266,-153.8264"/>
+			<UseObject NpcIds="2000172" XYZ="53.10145,-3.845266,-153.8264" Radius="50" condition="GetInstanceTodo(0) == 1"/>
+			<MoveTo XYZ="43.8211,-8.8478,-128.3291"/>
+			<While condition="GetInstanceTodo(0) == 2">
+				<RunCode name="PowderChamber1"/>
+			</While>
+			<MoveTo XYZ="41.37429,-9.249741,-135.2388"/>
+			<While condition="GetInstanceTodo(1) == 0">
+				<RunCode name="BlastingDevice1"/>
+			</While>			
+		</If>
+		
+		<!-- Clear shaft E1 of rubble 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0">
+			<Log Message="Clear shaft E1 of rubble 0/1" />
+			<MoveTo XYZ="43.65644, -9.942099, -107.0623" usemesh="false"/>
+			<MoveTo XYZ="51.90644, -9.245893, -87.23203"/>
+			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(2000178).IsVisible"/> <!-- Fight First Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<UseObject NpcIds="2000178" XYZ="42.90398,-9.979086,-69.08659" Radius="50" condition="not HasAtLeast(2000441,1)"/>
+			<MoveTo XYZ="43.37675,-9.10968,-58.13428"/>	
+			<RunCode name="SealedBlastingDoor2"/>
+			<MoveTo XYZ="58.22326, -8.250008, 8.088243"/>
+			<RunCode name="LifeLever2"/>
+			<WaitTimer WaitTime="13" />
+			<MoveTo XYZ="59.8905, -38.59576, 40.56261" usemesh="false"/>
+			<Grind GrindRef="ClearShaftE1" While="NumAttackableEnemies(70, Array[int]([1342,984,1303])) &gt; 0"/> <!-- Get key to drop -->
+			<UseObject NpcIds="2000179,2001531" XYZ="59.8905, -38.59576, 40.56261" Radius="100" condition="GetInstanceTodo(0) &lt; 2"/> <!-- Right side Firesand -->			
+			<MoveTo XYZ="58.85282,-37.77425,55.07696" />
+			<While condition="GetInstanceTodo(0) == 2">
+				<RunCode name="PowderChamber2"/>
+			</While>
+			<MoveTo XYZ="56.72637,-37.99974,47.99045" />
+			<While condition="GetInstanceTodo(2) == 0">
+				<RunCode name="BlastingDevice2"/>
+			</While>
+		</If>
+
+		<!-- Arrive in shaft E2 0/1 -->
+		<If Condition="GetInstanceTodo(3) == 0">
+			<MoveTo XYZ="57.51021, -38.87397, 66.95765" usemesh="false" />		
+			<MoveTo XYZ="38.06453,-38.71266,60.51177" />
+			<UseObject NpcIds="2001532" XYZ="38.06453,-38.71266,60.51177" Radius="20" condition="GetInstanceTodo(0) == 0"/>
+			<MoveTo XYZ="35.85096, -37.8271, 90.57168"/>
+			<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(2001533).IsVisible"/> <!-- Fight Second Boss -->
+			<UseObject NpcIds="2001533" XYZ="31.75593,-37.93879,114.6466" Radius="100" condition="GetInstanceTodo(0) == 1"/>
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>			
+			<MoveTo XYZ="6.485046,-37.17156,113.6339" />
+			<While condition="GetInstanceTodo(0) == 2">
+				<RunCode name="PowderChamber3"/>
+			</While>
+			<MoveTo XYZ="10.16271,-36.84641,106.697" />	
+			<While condition="GameObjectManager.GetObjectByNPCId(2001534).IsVisible">
+				<RunCode name="BlastingDevice3"/>
+			</While>			
+		</If>
+
+		<!-- Defeat Gyges the Great 0/1 -->
+		<If Condition="GetInstanceTodo(4) == 0">
+			<MoveTo XYZ="-92.62537, -59.29224, 41.44617"/>
+			<BotSettings AutoEquip="0" />	
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
+						<Log Message="Equipping Artemis Bow Atma" />
+						<EquipWeapon ItemID="7828"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7830">
+						<Log Message="Equipping Stardust Rod Atma" />
+						<EquipWeapon ItemID="7830"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7827">
+						<Log Message="Equipping Gae Bolg Atma" />
+						<EquipWeapon ItemID="7827"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7825">
+						<Log Message="Equipping Sphairai Atma" />
+						<EquipWeapon ItemID="7825"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9251">
+						<Log Message="Equipping Yoshimitsu Atma" />
+						<EquipWeapon ItemID="9251"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7824">
+						<Log Message="Equipping Curtana Atma" />
+						<EquipWeapon ItemID="7824"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7833">
+						<Log Message="Equipping Holy Shield Atma" />
+						<EquipWeapon ItemID="7833"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7832">
+						<Log Message="Equipping Omnilex Atma" />
+						<EquipWeapon ItemID="7832"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7831">
+						<Log Message="Equipping Veil of Wiyu Atma" />
+						<EquipWeapon ItemID="7831"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7826">
+						<Log Message="Equipping Bravura Atma" />
+						<EquipWeapon ItemID="7826"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7829">
+						<Log Message="Equipping Thyrus Atma" />
+						<EquipWeapon ItemID="7829"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>									
+			<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(101).CurrentHealth == 0"/> <!-- Fight final Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>				
+		</If>				
+	</If>
+	
+	<LLoadProfile Path="../Start.xml"/>		
+	
+  </Order>
+  <GrindAreas>
+     <GrindArea name="FirstKey">
+      <Hotspots>
+        <Hotspot Radius="20" XYZ="-222.6816, 23.82822, -206.699" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="631" Weight="1"/> <!-- Spriggan Copper Copper -->
+        <TargetMob Id="629" Weight="1"/> <!-- Copperbell Coblyn -->
+      </TargetMobs>
+    </GrindArea> 
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="51.90644, -9.245893, -87.23203" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="716" Weight="1"/> <!-- Spriggan Sifter -->
+			<TargetMob Id="983" Weight="1"/> <!-- Flambeau  -->
+			<TargetMob Id="548" Weight="2"/> <!-- Kottos -->
+        </TargetMobs>
+	</GrindArea>
+    <GrindArea name="ClearShaftE1">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="59.8905, -38.59576, 40.56261"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="984" Weight="1"/> <!-- Errant Soul -->
+        <TargetMob Id="1303" Weight="1"/> <!-- Blasting Cap -->
+        <TargetMob Id="631" Weight="1"/> <!-- Spriggan Copper Copper -->
+      </TargetMobs>
+    </GrindArea>	
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="25.22314,-37.92662,112.1691" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="554" Weight="1" /> <!-- Ichorous Ire   -->				
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-102.4949,-58.50376,15.31488" />
+        </Hotspots>
+        <TargetMobs>
+        <TargetMob Id="101" Weight="1"/> <!-- Gyges the Great -->		
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>		
+	<CodeChunk Name="SealedBlastingDoor1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000160).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(5000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="SealedBlastingDoor2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000173).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(5000);
+      ]]>
+	</CodeChunk>	
+	<CodeChunk Name="LifeLever1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000163).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(5000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="LifeLever2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000175).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(5000);
+      ]]>
+	</CodeChunk>	
+	<CodeChunk Name="PowderChamber1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001536).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(5000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="PowderChamber2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001537).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(5000);
+      ]]>
+	</CodeChunk>
+		<CodeChunk Name="PowderChamber3">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001538).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(5000);
+      ]]>
+	</CodeChunk>	
+	<CodeChunk Name="BlastingDevice1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000170).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(5000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="BlastingDevice2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000180).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(5000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="BlastingDevice3">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001534).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(5000);
+      ]]>
+	</CodeChunk>	
+	<CodeChunk Name="ExitDuty">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000139).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+  </CodeChunks>
+</Profile>

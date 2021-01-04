@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: A Relic Reborn: the Chimera
+  Authors: Zamphire
+-->
+<Profile>
+  <Name>A Relic Reborn: the Chimera</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="74" trial="true"/>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<Grind GrindRef="Chimera" while="not GameObjectManager.GetObjectByNPCId(2162).CurrentHealth == 0"/> <!-- Defeat Dhorme Chimera -->
+		<While condition="DutyManager.InInstance">	
+			<WaitTimer WaitTime="10" />
+			<LLLeaveDuty/>
+		</While>
+	</If>
+	
+	<LLoadProfile Path="../Start.xml"/>
+  
+  </Order>
+  <GrindAreas>
+    <GrindArea name="Chimera">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="530.1001, 348.5776, -734.2508" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2162" Weight="1000"/> <!-- Dhorme Chimera -->
+      </TargetMobs>
+    </GrindArea>  
+  </GrindAreas>
+</Profile>	

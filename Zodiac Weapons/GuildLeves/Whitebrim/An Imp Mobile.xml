@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Whitebrim Leves
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Whitebrim Leves</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(849)">
+				<LisbethTravel Area="Coerthas Central Highlands" Position="-466.4981, 211, -232.1504"/>
+				<ExPickupGuildLeve leveIds="849" leveType="Maelstrom" npcId="1007069" npcLocation="-476.2188,211,-233.4173" Timeout="5" /> <!-- An Imp Mobile -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(849)">
+					<ExPickupGuildLeve leveIds="850" leveType="Maelstrom" npcId="1007069" npcLocation="-476.2188,211,-233.4173" Timeout="5" /> <!-- Papal Dispensation -->				
+				</If>
+			</If>	
+
+			<!-- An Imp Mobile -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(849)">
+				<LisbethTravel Area="Coerthas Central Highlands" Position="-601.9395, 209.717, -346.7201"/>
+				<InitiateLeve LeveId="849"/> <!-- An Imp Mobile -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="AnImpMobile" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007069" NpcLocation="-476.2188,211,-233.4173"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+			
+			<!-- Papal Dispensation -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(850)">
+				<LisbethTravel Area="Coerthas Central Highlands" Position="-411.6314, 224.8277, -150.528"/>
+				<InitiateLeve LeveId="850"/> <!-- Papal Dispensation -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="PapalDispensation" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />
+				<RunCode Name="CloseTimer"/>
+				<ExTurnInGuildLeve NpcId="1007069" NpcLocation="-476.2188,211,-233.4173"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>			
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="BlizzardBiast">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-418.7997, 223.8091, -151.5482" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Blizzard Biast" Id="1761" Weight="1" />					
+        </TargetMobs>		
+	</GrindArea>
+ 	<GrindArea name="AnImpMobile">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-602.0076, 209.7236, -346.7596" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Dragonfly Chaser" Id="1638" Weight="1" />
+			<TargetMob Name="Wandering Wisp" Id="491" Weight="1" />
+			<TargetMob Name="Blood Bateleur" Id="1789" Weight="1" />			
+			<TargetMob Name="Dusty Devilet" Id="1788" Weight="2" />	
+        </TargetMobs>		
+	</GrindArea>	
+   	<GrindArea name="PapalDispensation">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-418.7997, 223.8091, -151.5482" />
+			<Hotspot Radius="200" XYZ="-377.2767, 235.8493, -138.9979" />
+			<Hotspot Radius="200" XYZ="-510.3351, 204.583, -182.5681" />
+			<Hotspot Radius="200" XYZ="-484.0184, 229.971, -116.6584" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Blood Bateleur" Id="1789" Weight="1" />
+			<TargetMob Name="Blizzard Biast" Id="23" Weight="1" />
+			<TargetMob Name="Blizzard Biast" Id="1761" Weight="1" />
+			<TargetMob Name="Downcast Hippocerf" Id="1762" Weight="1" />
+			<TargetMob Name="Snowshoe Mouse" Id="1763" Weight="1" />			
+        </TargetMobs>		
+	</GrindArea>
+  </GrindAreas>	
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }	
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>
