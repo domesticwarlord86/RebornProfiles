@@ -7,10 +7,10 @@
   <Name>Queue Bozjan Southern Front</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
-		<If Condition="not IsOnMap(920)">	
-			<If Condition="not IsOnMap(759)">
+		<If Condition="not IsOnMap(915)">	
+			<While Condition="not IsOnMap(759)">
 				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
-			</If>
+			</While>				
 			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
 			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 		</If>
