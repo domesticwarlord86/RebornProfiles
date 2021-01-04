@@ -1,4 +1,4 @@
-# Zodiac Relic Weapons
+# Anima Relic Weapons
 
 This profile set is designed to obtain your level 60 Anima weapon with as little interaction from the user as possible.
 
@@ -21,30 +21,32 @@ I'm in the process of changing over all the movement in this profile to be handl
 ### Animated Weapons
 - [x] An Unexpected Proposal
 - [x] Soul Without Life
-- [x] Toughening Up
-- [ ] Coming into Its Own *See below for details
 
 ### Awoken Weapons
-
+- [x] Toughening Up
 
 ### Anima Weapons
-
+- [ ] Coming into Its Own *See below for details
 
 ### Hyperconductive Weapons
-
-
+- [ ] Finding Your Voice
 
 ### Reconditioned Weapons
-
+- [ ] A Dream Fulfilled
 
 ### Sharpened Weapons
-
+- [ ] Future Proof
+- [ ] Cut from a Different Cloth
+- [ ] Seeing Inspiration
 
 ### Complete Weapons
-
+- [ ] Born Again Anima
+- [ ] Some Assembly Required
+- [ ] Body and Soul
 
 ### Lux Weapons
-
+- [ ] Words of Wisdom
+- [ ] Best Friends Forever
 
 ## Known Issues
 
