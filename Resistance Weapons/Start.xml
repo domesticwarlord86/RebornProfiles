@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Resistance Weapons
+  Authors: DomesticWarlord
+-->
+
+<!DOCTYPE Profile [
+<!-- Class Settings -->
+<!ENTITY ast "0"> 	
+<!ENTITY brd "0"> 		
+<!ENTITY blm "0">
+<!ENTITY dnc "0"> 
+<!ENTITY drg "0"> 
+<!ENTITY drk "0"> 
+<!ENTITY mch "0"> 	
+<!ENTITY mnk "0"> 
+<!ENTITY nin "0">
+<!ENTITY rdm "0">  		
+<!ENTITY pld "0"> 
+<!ENTITY sam "0"> 		
+<!ENTITY sch "0"> 
+<!ENTITY smn "1"> 
+<!ENTITY war "0"> 
+<!ENTITY whm "0"> 
+]>
+
+<Profile>
+  <Name>Resistance Weapons</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<!-- Check if Resistance Weapons Are Unlocked -->
+	<If Condition="not IsQuestCompleted(69380)">
+		<LLoadProfile Path="Quests/Resistance Relics Unlock.xml"/>
+	</If>  
+  
+	<!-- Astrologian Starter -->
+	<If Condition="&ast; == 1">
+		<If Condition="not ClassName == ClassJobType.Astrologian">	
+			<ChangeClass Job="Astrologian" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.Astrologian">
+			<!-- Augmented Solstice -->
+			<If Condition="HasAtLeast(30240,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Solstice Recollection -->
+			<If Condition="HasAtLeast(30779,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30797,1)">
+				<LLToast message="Congratulations! You're all done with Astrologian."/>
+			</If>		
+			<!-- Solstice -->
+			<If Condition="not HasAtLeast(30240,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Bard Starter -->
+	<If Condition="&brd; == 1">
+		<If Condition="not ClassName == ClassJobType.Bard">	
+			<ChangeClass Job="Bard" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.Bard">
+			<!-- Augmented Brilliance -->
+			<If Condition="HasAtLeast(30232,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Brilliance Recollection -->
+			<If Condition="HasAtLeast(30771,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30789,1)">
+				<LLToast message="Congratulations! You're all done with Bard."/>
+			</If>		
+			<!-- Brilliance -->
+			<If Condition="not HasAtLeast(30232,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Black Mage Starter -->
+	<If Condition="&blm; == 1">
+		<If Condition="not ClassName == ClassJobType.BlackMage">	
+			<ChangeClass Job="BlackMage" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.BlackMage">
+			<!-- Augmented Soulscourge -->
+			<If Condition="HasAtLeast(30237,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Soulscourge Recollection -->
+			<If Condition="HasAtLeast(30776,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30794,1)">
+				<LLToast message="Congratulations! You're all done with Black Mage."/>
+			</If>		
+			<!-- Soulscourge -->
+			<If Condition="not HasAtLeast(30237,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Dancer Starter -->
+	<If Condition="&dnc; == 1">
+		<If Condition="not ClassName == ClassJobType.Dancer">	
+			<ChangeClass Job="Dancer" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.Dancer">
+			<!-- Augmented Enchufla -->
+			<If Condition="HasAtLeast(30244,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Enchufla Recollection -->
+			<If Condition="HasAtLeast(30783,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30801,1)">
+				<LLToast message="Congratulations! You're all done with Dancer."/>
+			</If>		
+			<!-- Enchufla -->
+			<If Condition="not HasAtLeast(30244,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Dark Knight Starter -->
+	<If Condition="&drk; == 1">
+		<If Condition="not ClassName == ClassJobType.DarkKnight">	
+			<ChangeClass Job="DarkKnight" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.DarkKnight">
+			<!-- Augmented Woeborn -->
+			<If Condition="HasAtLeast(30234,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Woeborn Recollection -->
+			<If Condition="HasAtLeast(30773,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30791,1)">
+				<LLToast message="Congratulations! You're all done with Dragoon."/>
+			</If>		
+			<!-- Woeborn -->
+			<If Condition="not HasAtLeast(30234,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Dragoon Starter -->
+	<If Condition="&drg; == 1">
+		<If Condition="not ClassName == ClassJobType.Dragoon">	
+			<ChangeClass Job="Dragoon" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.Dragoon">
+			<!-- Augmented Dreizack -->
+			<If Condition="HasAtLeast(30234,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Dreizack Recollection -->
+			<If Condition="HasAtLeast(30770,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30788,1)">
+				<LLToast message="Congratulations! You're all done with Dark Knight."/>
+			</If>		
+			<!-- Dreizack -->
+			<If Condition="not HasAtLeast(30234,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>				
+	</If>
+	
+	<!-- Machinist Starter -->
+	<If Condition="&mch; == 1">
+		<If Condition="not ClassName == ClassJobType.Machinist">	
+			<ChangeClass Job="Machinist" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.Machinist">
+			<!-- Augmented Lawman -->
+			<If Condition="HasAtLeast(30235,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Lawman Recollection -->
+			<If Condition="HasAtLeast(30774,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30792,1)">
+				<LLToast message="Congratulations! You're all done with Machinist."/>
+			</If>		
+			<!-- Lawman -->
+			<If Condition="not HasAtLeast(30235,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Monk Starter -->
+	<If Condition="&mnk; == 1">
+		<If Condition="not ClassName == ClassJobType.Monk">	
+			<ChangeClass Job="Monk" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.Monk">
+			<!-- Augmented Samsara -->
+			<If Condition="HasAtLeast(30229,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Samsara Recollection -->
+			<If Condition="HasAtLeast(30768,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30786,1)">
+				<LLToast message="Congratulations! You're all done with Monk."/>
+			</If>		
+			<!-- Samsara -->
+			<If Condition="not HasAtLeast(30229,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Ninja Starter -->
+	<If Condition="&nin; == 1">
+		<If Condition="not ClassName == ClassJobType.Ninja">	
+			<ChangeClass Job="Ninja" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.Ninja">
+			<!-- Augmented Honeshirazu -->
+			<If Condition="HasAtLeast(30233,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Honeshirazu Recollection -->
+			<If Condition="HasAtLeast(30772,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30790,1)">
+				<LLToast message="Congratulations! You're all done with Ninja."/>
+			</If>			
+			<!-- Honeshirazu -->
+			<If Condition="not HasAtLeast(30233,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Red Mage Starter -->
+	<If Condition="&rdm; == 1">
+		<If Condition="not ClassName == ClassJobType.RedMage">	
+			<ChangeClass Job="RedMage" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.RedMage">
+			<!-- Augmented Talekeeper -->
+			<If Condition="HasAtLeast(30242,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Talekeeper Recollection -->
+			<If Condition="HasAtLeast(30781,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30799,1)">
+				<LLToast message="Congratulations! You're all done with Red Mage."/>
+			</If>		
+			<!-- Talekeeper -->
+			<If Condition="not HasAtLeast(30242,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Paladin Starter -->
+	<If Condition="&pld; == 1">
+		<If Condition="not ClassName == ClassJobType.Paladin">	
+			<ChangeClass Job="Paladin" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>	
+		<While Condition="ClassName == ClassJobType.Paladin">
+			<!-- Augmented Honorbound -->
+			<If Condition="HasAtLeast(30228,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Honorbound Recollection -->
+			<If Condition="HasAtLeast(30767,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30785,1)">
+				<LLToast message="Congratulations! You're all done with Paladin."/>
+			</If>			
+			<!-- Honorbound -->
+			<If Condition="not HasAtLeast(30228,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Samurai Starter -->
+	<If Condition="&sam; == 1">
+		<If Condition="not ClassName == ClassJobType.Samurai">	
+			<ChangeClass Job="Samurai" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.Samurai">
+			<!-- Augmented Hoshikiri -->
+			<If Condition="HasAtLeast(30241,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Hoshikiri Recollection -->
+			<If Condition="HasAtLeast(30780,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30798,1)">
+				<LLToast message="Congratulations! You're all done with Samurai."/>
+			</If>		
+			<!-- Hoshikiri -->
+			<If Condition="not HasAtLeast(30241,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Scholar Starter -->
+	<If Condition="&sch; == 1">
+		<If Condition="not ClassName == ClassJobType.Scholar">	
+			<ChangeClass Job="Scholar" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.Scholar">
+			<!-- Augmented Akademos -->
+			<If Condition="HasAtLeast(30239,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Akademos Recollection -->
+			<If Condition="HasAtLeast(30778,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30796,1)">
+				<LLToast message="Congratulations! You're all done with Scholar."/>
+			</If>		
+			<!-- Akademos -->
+			<If Condition="not HasAtLeast(30239,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Summoner Starter -->
+	<If Condition="&smn; == 1">
+		<If Condition="not ClassName == ClassJobType.Summoner">	
+			<ChangeClass Job="Summoner" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>	
+		<While Condition="ClassName == ClassJobType.Summoner">
+			<!-- Augmented Espiritus -->
+			<If Condition="HasAtLeast(30238,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Espiritus Recollection -->
+			<If Condition="HasAtLeast(30777,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30795,1)">
+				<LLToast message="Congratulations! You're all done with Summoner."/>
+			</If>		
+			<!-- Espiritus -->
+			<If Condition="not HasAtLeast(30238,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Warrior Starter -->
+	<If Condition="&war; == 1">
+		<If Condition="not ClassName == ClassJobType.Warrior">	
+			<ChangeClass Job="Warrior" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.Warrior">
+			<!-- Augmented Skullrender -->
+			<If Condition="HasAtLeast(30230,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Skullrender Recollection -->
+			<If Condition="HasAtLeast(30769,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30787,1)">
+				<LLToast message="Congratulations! You're all done with Warrior."/>
+			</If>			
+			<!-- Skullrender -->
+			<If Condition="not HasAtLeast(30230,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+	
+	<!-- Change To White Mage -->
+	<If Condition="&whm; == 1">
+		<If Condition="not ClassName == ClassJobType.WhiteMage">	
+			<ChangeClass Job="WhiteMage" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>
+		<!-- White Mage Starter -->
+		<While Condition="ClassName == ClassJobType.WhiteMage">
+			<!-- Augmented Ingrimm -->
+			<If Condition="HasAtLeast(30236,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Ingrimm Recollection -->
+			<If Condition="HasAtLeast(30775,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30793,1)">
+				<LLToast message="Congratulations! You're all done with White Mage."/>
+			</If>		
+			<!-- Ingrimm -->
+			<If Condition="not HasAtLeast(30236,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>		
+	</If>
+  </Order>
+</Profile>  

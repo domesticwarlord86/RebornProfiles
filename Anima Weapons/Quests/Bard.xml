@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Bard Anima Relic
+  Authors: Zamphire
+-->
+
+<Profile>
+  <Name>Bard Anima Relic</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- An Unexpected Proposal -->
+    <If Condition="not HasQuest(67747) and not IsQuestCompleted(67747)">
+      <GetTo ZoneId="478" XYZ="-19.46973, 211.2449, -29.91484"/>
+      <If Condition="IsQuestAcceptQualified(67747)">
+        <PickupQuest QuestId="67747" NpcId="1013713"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67747) == 255">
+      <GetTo ZoneId="402" XYZ="-755.2632, -182.9606, -552.7043"/>
+      <TurnIn QuestId="67747" NpcId="1016135" XYZ="-754.696, -182.9606, -550.7744"/>
+    </If>
+
+	<!-- Upgrade Gandiva: Obtain Hyperconductive Gandiva -->
+	<If condition="HasAtLeast(13227,1)">
+		<LLoadProfile Path="Finding Your Voice.xml"/>
+	</If>
+
+	<!-- Upgrade Animated Berimbau: Obtain Berimbau Awoken -->
+	<If condition="HasAtLeast(13615,1)">
+		<LLoadProfile Path="Toughening Up.xml"/>
+	</If>
+
+	<!-- Upgrade Berimbau Awoken: Obtain Gandiva -->
+	<If condition="HasAtLeast(13601,1)">
+		<LLoadProfile Path="Coming into Its Own.xml"/>
+	</If>		
+
+	<!-- Obtain first Anima Relic: Animated Berimbau -->
+	<If condition="not HasAtLeast(13615,1) and not HasAtLeast(13601,1) and not HasAtLeast(13615,1) and not HasAtLeast(13227,1)">
+		<LLoadProfile Path="Soul Without Life.xml"/>
+	</If>
+ 
+	
+	
+	
+  </Order>
+  <CodeChunks>		
+  </CodeChunks>
+</Profile>	

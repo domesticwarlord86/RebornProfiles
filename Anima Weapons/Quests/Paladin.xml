@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Paladin Anima Relic
+  Authors: Zamphire
+-->
+
+<Profile>
+  <Name>Paladin Anima Relic</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- An Unexpected Proposal -->
+    <If Condition="not HasQuest(67747) and not IsQuestCompleted(67747)">
+      <GetTo ZoneId="478" XYZ="-19.46973, 211.2449, -29.91484"/>
+      <If Condition="IsQuestAcceptQualified(67747)">
+        <PickupQuest QuestId="67747" NpcId="1013713"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67747) == 255">
+      <GetTo ZoneId="402" XYZ="-755.2632, -182.9606, -552.7043"/>
+      <TurnIn QuestId="67747" NpcId="1016135" XYZ="-754.696, -182.9606, -550.7744"/>
+    </If>
+
+	<!-- Obtain Hauteclaire Awoken -->
+	<If condition="HasAtLeast(13616,1)">
+		<LLoadProfile Path="Toughening Up.xml"/>
+	</If>
+
+	<!-- Obtain Animated Hauteclaire -->
+	<If condition="not HasAtLeast(13616,1)">
+		<LLoadProfile Path="Soul Without Life.xml"/>
+	</If>
+ 
+	
+	
+	
+  </Order>
+  <CodeChunks>		
+  </CodeChunks>
+</Profile>	

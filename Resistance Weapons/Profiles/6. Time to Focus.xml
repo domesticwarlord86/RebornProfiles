@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Time to Focus
+  Authors:
+-->
+<Profile>
+  <Name>Time to Focus</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- Time to Focus -->
+    <If Condition="not HasQuest(69482) and not IsQuestCompleted(69482)">
+		<If Condition="not IsOnMap(920)">	
+			<If Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</If>
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+			<RunCode name="EnterBozjan"/>
+		</If>
+      <MoveTo XYZ="-206.4861, 5, 817.5731"/>
+      <If Condition="IsQuestAcceptQualified(69482)">
+        <LLPickupQuest QuestId="69482" NpcId="1034461"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69482) == 1">
+      <MoveTo XYZ="-118.4563, 42, 358.8546"/>
+      <UseObject NpcId="2011143" XYZ="-118.6695, 41.97754, 356.5881" QuestId="69482" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69482) == 2">
+      <MoveTo XYZ="-137.3431, 30.82641, 234.4176"/>
+      <UseObject NpcId="2011144" XYZ="-137.1939, 30.83838, 233.7224" QuestId="69482" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69482) == 3">
+      <MoveTo XYZ="-137.3431, 30.82641, 234.4176"/>
+      <UseObject NpcId="2010479" XYZ="-137.1634, 30.83838, 233.7224" QuestId="69482" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69482) == 4">
+      <MoveTo XYZ="-210.3424, 5, 819.2032"/>
+      <LLTalkTo NpcId="1034462" XYZ="-211.0781, 5, 816.3423" QuestId="69482" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69482) == 255">
+      <MoveTo XYZ="-206.6894, 5, 817.9982"/>
+      <LLTurnIn QuestId="69482" NpcId="1034004" XYZ="-207.2633, 5, 816.495"/>
+      <LLSmallTalk/>
+    </If>	
+  </Order>
+</Profile>

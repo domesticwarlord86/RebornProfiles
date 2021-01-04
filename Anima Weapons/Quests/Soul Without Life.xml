@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Soul without Life
+  Authors: Zamphire
+-->
+
+<Profile>
+  <Name>Soul without Life</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!--  Soul without Life -->
+    <If Condition="not HasQuest(67748)">
+      <GetTo ZoneId="402" XYZ="-755.2632, -182.9606, -552.7043"/>
+      <If Condition="IsQuestAcceptQualified(67748)">
+        <RunCode name="StartSoulWithoutLife"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67748) == 1">
+      <LisbethTravel Zone="156" Subzone="1392" Position="25.72632, 29, -823.7853"/>
+      <TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="67748" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67748) == 2">
+      <LisbethTravel Zone="156" Subzone="411" Position="58.11817, 50, -777.8286"/>
+      <TalkTo NpcId="1016289" XYZ="57.99951, 50, -779.9039" QuestId="67748" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67748) == 255">
+	  <If condition="HasAtLeast(13575,1) and HasAtLeast(13576,1)">
+		<LisbethTravel Zone="402" Subzone="2131" Position="-755.4983, -182.9606, -553.4251"/>
+		<TurnIn ItemIds="13576,13575" QuestId="67748" NpcId="1016135" XYZ="-754.696, -182.9606, -550.7744"/>	  
+	  </If>	
+	  <If condition="not HasAtLeast(13569,1) and not HasAtLeast(13570,1) 
+					and not HasAtLeast(13571,1) and not HasAtLeast(13572,1) 
+					and not HasAtLeast(13573,1) and not HasAtLeast(13574,1)">
+		<LLoadProfile Path="Luminous Crystal Farm.xml"/>
+	  </If>	
+	  <If condition="GetQuestStep(67748) == 255 and HasAtLeast(13569,1)  
+					and HasAtLeast(13572,1) and HasAtLeast(13574,1)">	  
+		<LisbethTravel Area="Mor Dhona" Position="58.50985, 50, -778.5431"/>
+		<BuyShopExchangeItem NpcId= "1016289" ItemId="13576" SelectString="1" Count="1" Dialog="true"/>
+	  </If>	
+	  <If condition="GetQuestStep(67748) == 255 and HasAtLeast(13570,1)  
+					and HasAtLeast(13571,1) and HasAtLeast(13573,1)">	  
+		<LisbethTravel Area="Mor Dhona" Position="58.50985, 50, -778.5431"/>
+		<BuyShopExchangeItem NpcId= "1016289" ItemId="13575" SelectString="1" Count="1" Dialog="true"/>
+	  </If>
+	  <If condition="HasAtLeast(13575,1) and HasAtLeast(13576,1)">
+		<LisbethTravel Zone="402" Subzone="2131" Position="-755.4983, -182.9606, -553.4251"/>
+		<TurnIn ItemIds="13576,13575" QuestId="67748" NpcId="1016135" XYZ="-754.696, -182.9606, -550.7744"/>	  
+	  </If>	  
+	</If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <CodeChunks>
+	<CodeChunk Name="BuyAstralandUmbral">
+		<![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please buy Astral Nodule and Umbral Nodule from Sydony.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		]]>
+	</CodeChunk>
+		<CodeChunk Name="StartSoulWithoutLife">
+            <![CDATA[ 
+				uint Slot = (uint)(LlamaLibrary.ScriptConditions.Helpers.ZodiacCompletedMahatma());
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+
+				ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1016135).Interact();
+
+				await Coroutine.Wait(5000, () => SelectIconString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+
+				if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting Anima Weapon Recreation.");
+					ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Anima Weapon Recreation window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}				
+
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Quest selection open, choosing Soul without Life.");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					await Coroutine.Wait(5000, () => !SelectString.IsOpen);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Soul without Life window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}				
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}
+
+
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing start quest as current job.");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Job choice window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+
+
+				await Coroutine.Wait(5000, () => JournalAccept.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.JournalAccept.IsOpen)
+				{
+					Logging.WriteDiagnostic("Quest offer is open, accepting.");
+					ff14bot.RemoteWindows.JournalAccept.Accept();
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Quest offer window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}				
+		
+            ]]>	
+		</CodeChunk>		
+  </CodeChunks>
+</Profile>  

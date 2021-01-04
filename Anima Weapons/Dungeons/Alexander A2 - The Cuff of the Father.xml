@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Alexander - The Cuff of the Father
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "1">
+]>
+
+<Profile>
+  <Name>Alexander - The Cuff of the Father</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<While condition="not HasAtLeast(13583,30)">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="113"/>
+		</If>
+		
+		<If condition="DutyManager.InInstance">
+		
+			<!-- Clear Serviceway #542 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Clear Serviceway #542  0/1" />
+				<BotSettings AutoEquip="1" />
+				<MoveTo XYZ="-20.99944,28.89005,120.3797" />
+				<UseObject NpcId="2005048" XYZ="-20.99944,28.89005,120.3797" Radius="25" UseTimes="1"/>
+				<MoveTo XYZ="-16.43596, 21.62825, 90.69268" />	
+			</If>
+
+			<!-- Clear Serviceway #539 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Clear Serviceway #539 0/1" />
+				<MoveTo XYZ="10.20849, 11.97813, 36.53996" />
+				<MoveTo XYZ="-3.188284, -17.98726, 38.78687" usemesh="false" />
+				<UseObject NpcId="2005427" XYZ="-5.00019,-15.98528,39.10553" Radius="25" UseTimes="1"/>
+				<MoveTo XYZ="0.1321309, -28, -58.76824" />
+			</If>	
+
+			<!-- Slay the Gordian goblins 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Slay the Gordian goblins 0/1" />
+				<Grind GrindRef="FinalBoss" while="not GetInstanceTodo(3) == 1"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="0.0994176, -28, -93.28584" />
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>			
+			</If>
+		</If>
+		
+	</While>
+  </Order>
+  <GrindAreas>	
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="-0.03923361, -28, -78.23736" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3757" Weight="100"/> <!-- Gordian Soldier -->
+		<TargetMob Id="3754" Weight="100"/> <!-- Gordian Hardhelm -->		
+        <TargetMob Id="2667" Weight="1"/> <!-- Bomb -->
+        <TargetMob Id="3760" Weight="100"/> <!-- Magitek Gobwidow G-IX -->
+        <TargetMob Id="3758" Weight="100"/> <!-- Boomtype Magitek Gobwalker G-VII -->		
+        <TargetMob Id="3759" Weight="1000"/> <!-- Jagd Doll -->
+        <TargetMob Id="3755" Weight="100"/> <!-- Gordian Hardmind -->		
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Ninja Anima Relic
+  Authors:
+-->
+
+<Profile>
+  <Name>Ninja Anima Relic</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- An Unexpected Proposal -->
+    <If Condition="not HasQuest(67747) and not IsQuestCompleted(67747)">
+      <GetTo ZoneId="478" XYZ="-19.46973, 211.2449, -29.91484"/>
+      <If Condition="IsQuestAcceptQualified(67747)">
+        <PickupQuest QuestId="67747" NpcId="1013713"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67747) == 255">
+      <GetTo ZoneId="402" XYZ="-755.2632, -182.9606, -552.7043"/>
+      <TurnIn QuestId="67747" NpcId="1016135" XYZ="-754.696, -182.9606, -550.7744"/>
+    </If>
+	
+    <!--  Soul without Life -->
+    <If Condition="not HasQuest(67748) and not IsQuestCompleted(67748)">
+      <GetTo ZoneId="402" XYZ="-755.2632, -182.9606, -552.7043"/>
+      <If Condition="IsQuestAcceptQualified(67748)">
+        <PickupQuest QuestId="67748" NpcId="1016135"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67748) == 1">
+      <LisbethTravel Zone="156" Subzone="1392" Position="25.72632, 29, -823.7853"/>
+      <TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="67748" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67748) == 2">
+      <LisbethTravel Zone="156" Subzone="411" Position="58.11817, 50, -777.8286"/>
+      <TalkTo NpcId="1016289" XYZ="57.99951, 50, -779.9039" QuestId="67748" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67748) == 255">	
+	  <If condition="HasAtLeast(13575,1) and HasAtLeast(13576,1)">
+		<LisbethTravel Zone="402" Subzone="2131" Position="-755.4983, -182.9606, -553.4251"/>
+		<TurnIn ItemIds="13576,13575" QuestId="67748" NpcId="1016135" XYZ="-754.696, -182.9606, -550.7744"/>	  
+	  </If>	
+	  <If condition="GetQuestStep(67748) == 255 and HasAtLeast(13569,1) and HasAtLeast(13570,1) and HasAtLeast(13571,1) and HasAtLeast(13572,1) and HasAtLeast(13573,1) and HasAtLeast(13574,1)">
+		<LisbethTravel Area="Mor Dhona" Position="58.50985, 50, -778.5431"/>
+		<!-- <BuyShopExchangeCurrency NpcId= "1016289" ItemId="13575" SelectString="1" Count="1"/> -->
+		<While condition="not HasAtLeast(13575,1) or not HasAtLeast(13576,1)">
+		  <RunCode name="BuyAstralandUmbral"/>
+		</While>
+	  </If>
+	  <If condition="GetQuestStep(67748) == 255 and not HasAtLeast(13569,1) and not HasAtLeast(13570,1) and not HasAtLeast(13571,1) and not HasAtLeast(13572,1) and not HasAtLeast(13573,1) and not HasAtLeast(13574,1)">
+		<LLoadProfile Path="Luminous Crystal Farm.xml"/>
+	  </If>
+    </If>
+	
+	<If condition="HasAtLeast(13615,1)">
+			<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13616">
+					<Log Message="Equipping Animated Yukimitsu" />
+					<RunCode Name="AnimatedYukimitsu" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+		<!--  Toughening Up -->
+		<If Condition="not HasQuest(67749) and not IsQuestCompleted(67749)">
+			<LisbethTravel Area="Azys Lla (Alpha Quadrant)" Position="-753.8531, -182.9606, -552.8411"/>
+			<If Condition="IsQuestAcceptQualified(67749)">
+				<PickupQuest QuestId="67749" NpcId="1016135"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(67749) == 1">
+			<LLoadProfile Path="../Dungeons/Snowcloak.xml"/>
+		</If>
+		<If Condition="GetQuestStep(67749) == 2">
+			<LLoadProfile Path="../Dungeons/Sastasha (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(67749) == 3">
+			<LLoadProfile Path="../Dungeons/The Sunken Temple of Qarn (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(67749) == 4">
+			<LisbethTravel Zone="146" Subzone="254" Position="176.4762, 12.57165, -451.4933"/>
+			<TalkTo NpcId="1016517" XYZ="175.0363, 12.35368, -451.8959" QuestId="67749" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(67749) == 5">
+			<LLoadProfile Path="../Dungeons/Keeper of the Lake.xml"/>
+		</If>
+		<If Condition="GetQuestStep(67749) == 6">
+			<LLoadProfile Path="../Dungeons/The Wanderer's Palace (Hard).xml"/>
+		</If>
+		<If Condition="GetQuestStep(67749) == 7">
+			<LLoadProfile Path="../Dungeons/Amadapor Keep (Hard).xml"/>
+		</If>		
+		<If Condition="GetQuestStep(67749) == 8">
+		  <LisbethTravel Zone="153" Subzone="128" Position="124.4174, 24.53529, 176.1044"/>
+		  <TalkTo NpcId="1016518" XYZ="126.3295, 24.77428, 178.3932" QuestId="67749" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(67749) == 9">
+			<LLoadProfile Path="../Dungeons/The Dusk Vigil.xml"/>
+		</If>
+		<If Condition="GetQuestStep(67749) == 10">
+			<LLoadProfile Path="../Dungeons/Sohm Al.xml"/>
+		</If>
+		<If Condition="GetQuestStep(67749) == 11">
+			<LLoadProfile Path="../Dungeons/The Aery.xml"/>
+		</If>		
+	</If>
+  </Order>
+  <CodeChunks>
+	<CodeChunk Name="BuyAstralandUmbral">
+		<![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please buy Astral Nodule and Umbral Nodule from Sydony.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		]]>
+	</CodeChunk>
+	<CodeChunk Name="CompleteAmdaporKeepHard.">
+		<![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please complete Amdapor Keep (Hard).", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		]]>
+	</CodeChunk>	
+ 	<CodeChunk Name="AnimatedYukimitsu">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13616)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>	
+  </CodeChunks>
+</Profile>	

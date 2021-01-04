@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Anima Relic Weapons
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, zzi, Antony_256
+  
+  All jobs must be level 80 with decent gear to run this reliably. Make sure you have enough space in
+  Main Hand (and Off Hand for PLD) armory to be able to swap weapons 2-3 times.
+-->
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY ast "0"> 	
+<!ENTITY brd "1"> 		
+<!ENTITY blm "0"> 		
+<!ENTITY drg "0"> 
+<!ENTITY mch "0"> 	
+<!ENTITY mnk "0"> 
+<!ENTITY nin "0"> 		
+<!ENTITY pld "0"> 		
+<!ENTITY sch "0"> 
+<!ENTITY smn "0"> 
+<!ENTITY war "0"> 
+<!ENTITY whm "0"> 
+]>
+
+<!--
+	For the 3rd step of the Animated weapons you will need to obtain Enchanted Rubber, Fast-drying Carboncoat, Divine Water, and Fast-acting Allagan Catalyst.
+	
+	You can learn how to obtain these via https://ffxiv.consolegameswiki.com/wiki/Anima_Weapons/Quest#Coming_into_Its_Own
+	
+	I do have a profile to run A1: Alexander Fists of the Father, but tanks and healers can't beat it due to orderbot not doing mechanics.
+	You can also run the various dailies using Sodimm's daily quest profiles.
+	
+	Once you obtain the four items start the profile over to continue.
+
+
+-->
+
+<Profile>
+  <Name>Start Relic Weapon</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<RunCode Name="Disable_Flight"/>	
+	<!-- Load Paladin -->
+	<If Condition="&pld; == 1">
+		<If Condition="not ClassName == ClassJobType.Paladin">	
+			<ChangeClass Job="Paladin" />
+		</If>	
+		<LLoadProfile Path="Quests/Paladin.xml"/>
+	</If>
+	<!-- Load Monk -->
+	<If Condition="&mnk; == 1">
+		<If Condition="not ClassName == ClassJobType.Monk">	
+			<ChangeClass Job="Monk" />
+		</If>	
+		<LLoadProfile Path="Quests/Monk.xml"/>
+	</If>
+	<!-- Load Warrior -->
+	<If Condition="&war; == 1">
+		<If Condition="not ClassName == ClassJobType.Warrior">	
+			<ChangeClass Job="Warrior" />
+		</If>	
+		<LLoadProfile Path="Quests/Warrior.xml"/>
+	</If>
+	<!-- Load Dragoon -->
+	<If Condition="&drg; == 1">
+		<If Condition="not ClassName == ClassJobType.Dragoon">	
+			<ChangeClass Job="Dragoon" />
+		</If>	
+		<LLoadProfile Path="Quests/Dragoon.xml"/>
+	</If>	
+	<!-- Load Bard -->
+	<If Condition="&brd; == 1">
+		<If Condition="not ClassName == ClassJobType.Bard">	
+			<ChangeClass Job="Bard" />
+		</If>	
+		<LLoadProfile Path="Quests/Bard.xml"/>
+	</If>
+	<!-- Load Black Mage -->
+	<If Condition="&blm; == 1">
+		<If Condition="not ClassName == ClassJobType.BlackMage">	
+			<ChangeClass Job="BlackMage" />
+		</If>	
+		<LLoadProfile Path="Quests/Black Mage.xml"/>
+	</If>
+	<!-- Load Summoner -->
+	<If Condition="&smn; == 1">
+		<If Condition="not ClassName == ClassJobType.Summoner">	
+			<ChangeClass Job="Summoner" />
+		</If>	
+		<LLoadProfile Path="Quests/Summoner.xml"/>
+	</If>
+	<!-- Load Scholar -->
+	<If Condition="&sch; == 1">
+		<If Condition="not ClassName == ClassJobType.Scholar">	
+			<ChangeClass Job="Scholar" />
+		</If>	
+		<LLoadProfile Path="Quests/Scholar.xml"/>
+	</If>
+	<!-- Load White Mage -->
+	<If Condition="&whm; == 1">
+		<If Condition="not ClassName == ClassJobType.WhiteMage">	
+			<ChangeClass Job="WhiteMage" />
+		</If>	
+		<LLoadProfile Path="Quests/White Mage.xml"/>
+	</If>
+	<!-- Load Ninja -->
+	<If Condition="&nin; == 1">
+		<If Condition="not ClassName == ClassJobType.Ninja">	
+			<ChangeClass Job="Ninja" />
+		</If>	
+		<LLoadProfile Path="Quests/Ninja.xml"/>
+	</If>
+	<!-- Load Astrologian -->
+	<If Condition="&ast; == 1">
+		<If Condition="not ClassName == ClassJobType.Ninja">	
+			<ChangeClass Job="Astrologian" />
+		</If>	
+		<LLoadProfile Path="Quests/Astrologian.xml"/>
+	</If>
+	<!-- Load Machinist -->
+	<If Condition="&mch; == 1">
+		<If Condition="not ClassName == ClassJobType.Machinist">	
+			<ChangeClass Job="Machinist" />
+		</If>	
+		<LLoadProfile Path="Quests/Machinist.xml"/>
+	</If>	
+  </Order>
+  <CodeChunks>
+		<CodeChunk Name="Disable_Flight">
+		<![CDATA[
+			foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
+			{
+			try
+			{
+				if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+			}
+			catch (Exception ex) {  }
+			}
+		]]>
+		</CodeChunk>
+   </CodeChunks>	
+</Profile>

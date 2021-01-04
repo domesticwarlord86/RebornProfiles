@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Luminous Crystal Farm
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy
+-->
+
+<Profile>
+  <Name>Luminous Crystal Farm</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+    <Order>
+		<!-- Luminous Crystal Farm farm -->
+
+		<!-- Farm Luminous Ice Crystal in Coerthas Western Highlands -->
+		<If Condition="not HasAtLeast(13569,1)">				
+		  <If Condition="not IsOnMap(397 )">
+			<TeleportTo AetheryteId="71"/>
+		  </If>
+          <While Condition="not HasAtLeast(13569,1)">
+			<Log Message="Farming Luminous Ice Crystal in Coerthas Western Highlands..." />
+            <LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(13569,1)"/>
+          </While>		  
+		 </If>
+
+        <!-- Farm Luminous Wind Crystal in The Sea of Clouds -->
+		<While Condition="not HasAtLeast(13570,1)">		  
+		  <If Condition="not IsOnMap(401)">
+			<TeleportTo AetheryteId="72"/>
+		  </If>			          
+          <While Condition="not HasAtLeast(13570,1)">
+			<Log Message="Farming Luminous Wind Crystal in The Sea of Clouds..." />
+            <LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(13570,1)"/>
+          </While>
+        </While>
+
+		<!-- Farm Luminous Fire Crystal in Azys Lla -->
+        <While Condition="not HasAtLeast(13571,1)">				
+		  <If Condition="not IsOnMap(402)">
+			<TeleportTo AetheryteId="74"/>
+		  </If>				             
+          <While Condition="not HasAtLeast(13571,1)">
+			<Log Message="Farming Luminous Fire Crystal in Azys Lla..." />
+            <LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(13571,1)"/>
+          </While>
+        </While>
+			
+		<!-- Farm Luminous Earth Crystal in The Dravanian Forelands -->
+        <While Condition="not HasAtLeast(13572,1)">				
+		  <If Condition="not IsOnMap(398)">
+			<TeleportTo AetheryteId="76"/>
+		  </If>				             
+          <While Condition="not HasAtLeast(13572,1)">
+			<Log Message="Farming Luminous Earth Crystal in The Dravanian Forelands..." />
+            <LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(13572,1)"/>
+          </While>
+        </While>
+		
+		<!-- Farm Luminous Lighning Crystal in The Churning Mists -->
+        <While Condition="not HasAtLeast(13573,1)">				
+		  <If Condition="not IsOnMap(400)">
+			<TeleportTo AetheryteId="78"/>
+		  </If>				             
+          <While Condition="not HasAtLeast(13573,1)">
+			<Log Message="Farming Luminous Lighning Crystal in The Churning Mists..." />
+            <LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(13573,1)" BlacklistIds="747"/>
+          </While>
+        </While>
+
+		<!-- Farm Luminous Water Crystal in The Dravanian Hinterlands -->
+        <While Condition="not HasAtLeast(13574,1)">				
+		  <If Condition="not IsOnMap(399)">
+			<GetTo ZoneId="399" XYZ="-530.3414, 152.8567, -486.4518"/>
+		  </If>				             
+          <While Condition="not HasAtLeast(13574,1)">
+			<Log Message="Farming Luminous Water Crystal in The Dravanian Hinterlands..." />
+            <LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(13574,1)"/>
+          </While>
+        </While>		
+			
+	  <If condition="HasAtLeast(13569,1) and HasAtLeast(13570,1) and HasAtLeast(13571,1) and HasAtLeast(13572,1) and HasAtLeast(13573,1) and HasAtLeast(13574,1)">
+			<LLoadProfile Path="../Start.xml"/>
+	  </If>			
+
+  </Order>
+	<CodeChunks>
+	</CodeChunks>
+</Profile>	

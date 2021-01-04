@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Eureka Leveling
+  Authors:
+-->
+<Profile>
+  <Name>Eureka Leveling</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<While Condition="not IsOnMap(732)">
+		<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+		<RunCode name="EnterAnemos"/>
+	</While>
+ 	<While Condition="IsOnMap(732)">
+		<While Condition="Core.Me.ElementalLevel == 1">
+			<MoveTo XYZ="-46.92359, -23.02174, 499.6845"/>
+			<Grind GrindRef="Squib" while="Core.Me.ElementalLevel == 1 and IsOnMap(732)"/>	
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>
+		<While Condition="Core.Me.ElementalLevel == 2">
+			<MoveTo XYZ="-7.693017, -21.95444, 498.9984"/>
+			<Grind GrindRef="Sea Pugil" while="Core.Me.ElementalLevel == 2 and IsOnMap(732)"/>
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>
+		<While Condition="Core.Me.ElementalLevel == 3">
+			<MoveTo XYZ="20.46947, -16.84892, 459.7936"/>
+			<Grind GrindRef="Level3" while="Core.Me.ElementalLevel == 3 and IsOnMap(732)"/>
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>
+		<While Condition="Core.Me.ElementalLevel == 4">
+			<MoveTo XYZ="-432.1336, 20.21152, 290.2159" />
+			<Grind GrindRef="Vesper Bat" while="Core.Me.ElementalLevel == 4 and IsOnMap(732)"/>
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 7">
+			<NoCombatMoveTo XYZ="-391.1138, 84.86238, 2.259108"/>
+			<Grind GrindRef="Flowering Sabotender" while="Core.Me.ElementalLevel &lt; 7 and IsOnMap(732)"/>
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>		
+		<While Condition="Core.Me.ElementalLevel &lt; 9">
+			<NoCombatMoveTo XYZ="198.1079,62.37432,263.8438" />
+			<Grind GrindRef="Anemos Harpeia" while="Core.Me.ElementalLevel &lt; 9 and IsOnMap(732)"/>	
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 11">
+			<NoCombatMoveTo XYZ="203.6079, 37.11633, 23.76505" />
+			<Grind GrindRef="Val Bear" while="Core.Me.ElementalLevel &lt; 11 and IsOnMap(732)"/>
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 12">
+			<NoCombatMoveTo XYZ="203.6079, 37.11633, 23.76505" />
+			<Grind GrindRef="Pneumaflayer" while="Core.Me.ElementalLevel &lt; 12 and IsOnMap(732)"/>
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 13">
+			<NoCombatMoveTo XYZ="-335.4391,64.92942,-306.3859" />
+			<Grind GrindRef="Abraxas" while="Core.Me.ElementalLevel &lt; 13 and IsOnMap(732)"/>	
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 15">
+			<NoCombatMoveTo XYZ="-483.4977, 64.83803, -355.5995" />
+			<Grind GrindRef="Stalker Ziz" while="Core.Me.ElementalLevel &lt; 15 and IsOnMap(732)"/>	
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 17">
+			<NoCombatMoveTo XYZ="159.4795, 34.13159, -174.8837" />
+			<Grind GrindRef="Khor Claw" while="Core.Me.ElementalLevel &lt; 17 and IsOnMap(732)"/>
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 18">
+			<NoCombatMoveTo XYZ="25.43777,30.26774,-347.7161" />
+			<Grind GrindRef="Henbane" while="Core.Me.ElementalLevel &lt; 18 and IsOnMap(732)"/>	
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 20">
+			<NoCombatMoveTo XYZ="262.6284, 33.02279, -351.3528" />
+			<Grind GrindRef="Monoeye" while="Core.Me.ElementalLevel &lt; 20 and IsOnMap(732)"/>	
+			<While Condition="not IsOnMap(732)">
+				<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+				<RunCode name="EnterAnemos"/>
+			</While>			
+		</While>		
+	</While>
+	
+  </Order>
+	<GrindAreas>  
+		<GrindArea name="Squib">
+		  <Hotspots>
+			<Hotspot Radius="90" XYZ="-44.46634, -23.09671, 507.1814" name="Name"/>
+		  </Hotspots>
+		  <TargetMobs>
+			<TargetMob Id="6817" Weight="1"/> <!-- Squib -->
+		  </TargetMobs>
+		</GrindArea>
+    <GrindArea name="Sea Pugil">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-7.693017, -21.95444, 498.9984" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6811" Weight="1"/> <!-- Sea Pugil -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Level3">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="20.04474, -17.01819, 460.6419" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6807" Weight="1"/> <!-- Seaboard Angler -->
+        <TargetMob Id="7038" Weight="1"/> <!-- Lentic -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Vesper Bat">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-432.1336, 20.21152, 290.2159" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7041" Weight="1"/> <!-- Vesper Bat -->
+      </TargetMobs>
+    </GrindArea>
+	<GrindArea name="Flowering Sabotender">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-363.4174, 80.25558, 46.99099" />
+			<Hotspot Radius="200" XYZ="-418.8442, 68.79828, 44.29456" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="6816" Weight="1" /> <!-- Flowering Sabotender -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Anemos Harpeia">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="198.1079,62.37432,263.8438" />
+			<Hotspot Radius="200" XYZ="221.4293, 62.51618, 241.0196" />
+			<Hotspot Radius="200" XYZ="163.8652, 62.4369, 274.9811" />
+			<Hotspot Radius="200" XYZ="227.1915,61.07412,302.0828" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="6822" Weight="1" /> <!-- Anemos Harpeia -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Val Bear">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="134.4471,35.30595,16.73914" />
+			<Hotspot Radius="200" XYZ="215.137,38.22984,36.17908"/>
+			<Hotspot Radius="200" XYZ="332.7493,40.15518,72.33429" />
+			<Hotspot Radius="200" XYZ="233.2983,37.28926,97.08272" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="6826" Weight="1" /> <!-- Val Bear -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Pneumaflayer">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="92.0271,36.39403,67.4906" />
+			<Hotspot Radius="200" XYZ="79.55467,36.60243,15.08381"/>
+			<Hotspot Radius="200" XYZ="34.56165,40.57367,54.55103" />
+			<Hotspot Radius="200" XYZ="50.21741,35.22273,153.6736" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="6827" Weight="1" /> <!-- Pneumaflayer -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Abraxas">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-309.1021,63.63382,-305.1652" />
+			<Hotspot Radius="200" XYZ="-309.1021,63.63382,-305.1652"/>
+			<Hotspot Radius="200" XYZ="-319.9969,74.37066,-255.1766" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="6831" Weight="1" /> <!-- Abraxas -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Stalker Ziz">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-447.8676,62.84487,-327.9012" />
+			<Hotspot Radius="200" XYZ="-380.8195,69.30863,-272.9382"/>
+			<Hotspot Radius="200" XYZ="-454.8257,62.5,-426.1082" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="6835" Weight="1" /> <!-- Stalker Ziz -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Khor Claw">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="192.6675,37.08435,-130.1375" />
+			<Hotspot Radius="200" XYZ="139.7654,36.55098,-161.7548"/>
+			<Hotspot Radius="200" XYZ="249.0603,30.27087,-152.4679" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="6837" Weight="1" /> <!-- Khor Claw -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Henbane">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="49.66809,31.95196,-339.4675" />
+			<Hotspot Radius="200" XYZ="-11.91736,33.21018,-358.2056"/>
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="6840" Weight="1" /> <!-- Henbane -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Monoeye">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="262.6284, 33.02279, -351.3528" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="6843" Weight="1" /> <!-- Monoeye -->
+        </TargetMobs>
+	</GrindArea>	
+	</GrindAreas>	
+	<CodeChunks>
+		<CodeChunk Name="LevelSync">
+			<![CDATA[
+				ff14bot.RemoteWindows.ToDoList.LevelSync();
+			]]>			
+		</CodeChunk>			
+		<CodeChunk Name="EnterAnemos">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1024517);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Eureka Anemos.");
+						SelectString.ClickLineContains("Anemos");;
+					}					
+							
+					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+						{
+							Logging.WriteDiagnostic("Selecting Yes.");
+							ff14bot.RemoteWindows.SelectYesno.ClickYes();	
+						}
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>		
+	</CodeChunks>  
+</Profile>  

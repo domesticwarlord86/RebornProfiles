@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors:
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- A Sober Proposal -->
+    <If Condition="not HasQuest(69505) and not IsQuestCompleted(69505)">
+		<If Condition="not IsOnMap(915)">	
+		  <LisbethTravel Area="Yanxia (Namai)" Position="-492.9766, 1.301181, 542.1513"/>
+		  <UseTransport NpcId="1024794" InteractDistance="3.0" XYZ="-493.9803,1.301181,542.9006"/>
+		  <GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+		  <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>	
+      <If Condition="IsQuestAcceptQualified(69505)">
+        <LLPickupQuest QuestId="69505" NpcId="1034885"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69505) == 255">
+      <MoveTo XYZ="4.473837, 3.019101, -55.19067"/>
+      <LLTurnIn QuestId="69505" NpcId="1032879" XYZ="5.996765, 2.960186, -53.6355"/>
+      <LLSmallTalk/>
+    </If>	
+  </Order>
+</Profile>  

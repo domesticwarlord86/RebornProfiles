@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Resistance Is (Not) Futile
+  Authors: DomesticWarlord
+-->
+<Profile>
+  <Name>Resistance Is (Not) Futile</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<!-- Resistance Is (Not) Futile -->
+    <If Condition="not HasQuest(69381)">	
+		<If Condition="not IsOnMap(915)">	
+			<If Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</If>
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>	  	
+		<MoveTo XYZ="2.502354, 3.161222, -57.83289"/>
+		<If condition="not IsQuestCompleted(69381)">
+			<While Condition="not HasQuest(69381)">
+				<RunCode name="FirstObtainResistanceWeapon"/>
+			</While>	
+		</If>
+		<If condition="IsQuestCompleted(69381)">
+			<While Condition="not HasQuest(69381)">
+				<RunCode name="NotFirstObtainResistanceWeapon"/>
+			</While>	
+		</If>	
+	</If>		
+    <While Condition="GetQuestStep(69381) == 255">
+	  <If condition="GetQuestStep(69381) == 255 and not HasAtLeast(30273,4)">
+		<While condition="not HasAtLeast(28,1000)">
+			<LLToast message="Please farm 1000 Tomestone of Poetics."/>
+			<WaitTimer WaitTime="26" />
+		</While>
+		<If condition="HasAtLeast(28,1000)">
+			<LisbethTravel ZoneId="156" XYZ="62.21764, 31.28805, -737.5814"/>
+			<Dismount/>
+			<BuyShopExchangeCurrency NpcId= "1008119" ItemId="30273" SelectString="2" Count="4"/>
+		</If>		
+	  </If>	
+	  <If condition="GetQuestStep(69381) == 255 and HasAtLeast(30273,4)">
+		<If Condition="not IsOnMap(915)">	
+			<If Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</If>
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>
+		<MoveTo XYZ="2.502354, 3.161222, -57.83289"/>	
+		<TurnIn QuestId="69381" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>
+	  </If>
+	
+    </While> 
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <CodeChunks>
+	<CodeChunk Name="NotFirstObtainResistanceWeapon">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();			
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Resistance Weapon Forging'.");
+						SelectIconString.ClickLineContains("Forging");
+					}					
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Resistance Is (Not) Futile'.");
+						SelectString.ClickLineContains("Futile");
+					}
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Current Class.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+					}
+					
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();						
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+			]]>			
+	</CodeChunk>
+	<CodeChunk Name="FirstObtainResistanceWeapon">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();			
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Resistance Is (Not) Futile'.");
+						SelectIconString.ClickLineContains("Futile");
+					}					
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Current Class.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+					}
+					
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();						
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+			]]>			
+	</CodeChunk>	
+  </CodeChunks>  
+</Profile>  

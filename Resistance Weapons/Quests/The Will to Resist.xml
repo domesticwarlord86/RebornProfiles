@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Will to Resist
+  Authors: DomesticWarlord
+  
+  This profile will farm memories on random mobs in Bozjan. This will work but it's really slow.
+  You're much better off getting a cluster group in Bozjan, they drop like mad there.
+-->
+<Profile>
+  <Name>The Will to Resist</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<!-- The Will to Resist -->
+    <If Condition="not HasQuest(69507)">	
+		<If Condition="not IsOnMap(915)">	
+			<If Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</If>
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>	  	
+		<MoveTo XYZ="2.502354, 3.161222, -57.83289"/>
+		<If condition="not IsQuestCompleted(69507)">
+			<While Condition="not HasQuest(69507)">
+				<RunCode name="FirstTheWilltoResist"/>
+			</While>	
+		</If>
+		<If condition="IsQuestCompleted(69507)">
+			<While Condition="not HasQuest(69507)">
+				<RunCode name="NotFirstTheWilltoResist"/>
+			</While>	
+		</If>	
+	</If>
+    <If Condition="GetQuestStep(69507) == 255">
+		<While Condition="not HasAtLeast(31576,6)">
+			<While Condition="IsOnMap(920) and not HasAtLeast(31576,6)">
+				<MoveTo XYZ="-116.2034, 17.37287, 768.9075" />
+				<LLToast message="Farming Memories on mobs is slow. Look for a cluster group."/>
+				<Grind GrindRef="BozjanFarm" while="not HasAtLeast(31576,6) and IsOnMap(920)"/>	  
+			</While>	
+			<If Condition="not IsOnMap(920)">	
+				<If Condition="not IsOnMap(915)">
+					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+					<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+					<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>					
+				</If>
+				<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+				<RunCode name="EnterBozjan"/>				
+			</If>
+		</While>
+		<If Condition="HasAtLeast(31576,6)">
+			<If condition="DutyManager.InInstance">
+				<LLLeaveDuty/>
+			</If>	
+			<If Condition="not IsOnMap(915)">	
+			  <If Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			    <GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			    <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>				
+			  </If>
+			</If>
+			<MoveTo XYZ="2.502354, 3.161222, -57.83289"/>
+			<TurnIn QuestId="69507" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>		
+		</If>	
+	</If>
+
+	
+  </Order>
+  <GrindAreas>
+ 	<GrindArea name="BozjanFarm">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-131.5786,18.67635,747.7682" />
+			<Hotspot Radius="200" XYZ="-120.6531,17.52943,811.2764" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="9520" Weight="1" /> <!-- Bozjan Nepenthes -->
+        </TargetMobs>
+	</GrindArea>
+    <GrindArea name="GrindArea">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="-36.24023,17.72308,670.5881" name="Name"/>
+		<Hotspot Radius="200" XYZ="91.44727,24.29755,672.3887" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="9517" Weight="1"/> <!-- 4th Legion Slasher -->
+        <TargetMob Id="9519" Weight="1"/> <!-- 4th Legion Nimrod -->
+        <TargetMob Id="9522" Weight="1"/> <!-- 4th Legion Death Claw -->
+        <TargetMob Id="9523" Weight="1"/> <!-- 4th Legion Roader -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>	
+  <CodeChunks>  
+	<CodeChunk Name="FirstTheWilltoResist">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();			
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'The Will to Resist'.");
+						SelectIconString.ClickLineContains("Resist");
+					}					
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+						
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Current Class.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+					}
+					
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();						
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}					
+			]]>			
+	</CodeChunk>
+	<CodeChunk Name="NotFirstTheWilltoResist">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Resistance Weapon Forging'.");
+						SelectIconString.ClickLineContains("Forging");
+					}					
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'The Will to Resist'.");
+						SelectString.ClickLineContains("Resist");
+					}						
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Current Class.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+					}
+					
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();						
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}	
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}					
+			]]>			
+	</CodeChunk>
+		<CodeChunk Name="EnterBozjan">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032080);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Enter the Bozjan southern front.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					}					
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>			
+  </CodeChunks>  
+</Profile>  

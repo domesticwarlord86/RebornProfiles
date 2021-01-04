@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Fire in the Forge
+  Authors: Zamphire
+-->
+<Profile>
+  <Name>Fire in the Forge</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!--  Fire in the Forge -->
+    <If Condition="not HasQuest(69380) and not IsQuestCompleted(69380)">
+		<If Condition="not IsOnMap(915)">	
+		  <LisbethTravel Area="Yanxia (Namai)" Position="-492.9766, 1.301181, 542.1513"/>
+		  <UseTransport NpcId="1024794" InteractDistance="3.0" XYZ="-493.9803,1.301181,542.9006"/>
+		  <GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+		  <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>
+      <If Condition="IsQuestAcceptQualified(69380)">
+	    <MoveTo ZoneId="915" XYZ="9.81843, 2.87424, -50.29003"/>
+        <LLPickupQuest QuestId="69380" NpcId="1032903"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69380) == 1">
+      <LisbethTravel Zone="628" Subzone="2908" Position="-1.198636, 1.192093E-07, -68.28706"/>
+      <UseObject NpcId="2011033" XYZ="-1.388611, -0.01531982, -68.83344" QuestId="69380" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(69380) == 255">
+		<If Condition="not IsOnMap(915)">	
+		  <LisbethTravel Area="Yanxia (Namai)" Position="-492.9766, 1.301181, 542.1513"/>
+		  <UseTransport NpcId="1024794" InteractDistance="3.0" XYZ="-493.9803,1.301181,542.9006"/>
+		  <GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+		  <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>
+      <MoveTo ZoneId="915" XYZ="9.81843, 2.87424, -50.29003"/>
+      <LLTurnIn ItemId="2002994" QuestId="69380" NpcId="1032903" XYZ="9.048584, 2.969442, -52.99463"/>	
+    </If>	
+  </Order>
+</Profile>	

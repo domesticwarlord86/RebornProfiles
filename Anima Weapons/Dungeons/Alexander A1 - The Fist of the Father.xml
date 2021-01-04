@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Alexander - The Fist of the Father
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "1">
+]>
+
+<Profile>
+  <Name>Alexander - The Fist of the Father</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<While condition="not HasAtLeast(13581,30)">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="112"/>
+		</If>
+		
+		<If condition="DutyManager.InInstance">
+		
+			<!-- Clear Engine Room #262 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Clear Engine Room #262 0/1" />
+				<BotSettings AutoEquip="1" />
+				<MoveTo XYZ="-5.779995, -1.301059, -6.571419" />
+				<MoveTo XYZ="0.02018939, 8.000002, -43.64269" />
+			</If>
+
+			<!-- Clear Machinery Bay 44 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Clear Machinery Bay 44 0/1" />
+				<Grind GrindRef="FirstBoss" while="not GameObjectManager.GetObjectByNPCId(3745).CurrentHealth == 0"/>
+				<MoveTo XYZ="0.1712963, 12, -105.5036" />
+				<MoveTo XYZ="-0.01531982, -23.87941, -148.0889" usemesh="false"/>
+			</If>	
+
+			<!-- Defeat the oppressor 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Defeat the oppressor 0/1" />
+				<Grind GrindRef="FinalBoss" while="not GameObjectManager.GetObjectByNPCId(3747).CurrentHealth == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-0.02664606, -23.93055, -176.5239" />
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="10" />
+					<LLLeaveDuty/>
+				</While>			
+			</If>
+		</If>
+		
+	</While>
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="0,8.000002,-62" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3745" Weight="1"/> <!-- Faust -->
+      </TargetMobs>
+    </GrindArea>	
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="0,-23.90534,-173.5" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="3747" Weight="1" /> <!-- Oppressor   -->	
+			<TargetMob Id="3748" Weight="1000" /> <!-- Oppressor 0.5   -->			
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>
