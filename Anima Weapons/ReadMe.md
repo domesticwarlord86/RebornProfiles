@@ -22,7 +22,7 @@ I'm in the process of changing over all the movement in this profile to be handl
 - [x] An Unexpected Proposal
 - [x] Soul Without Life
 - [x] Toughening Up
-- [] Coming into Its Own *See below for details
+- [ ] Coming into Its Own *See below for details
 
 ### Awoken Weapons
 
@@ -58,4 +58,6 @@ I'm in the process of changing over all the movement in this profile to be handl
 	You can also run the various dailies using Sodimm's daily quest profiles.
 	
 	Once you obtain the four items start the profile over to continue.
+
+
 
