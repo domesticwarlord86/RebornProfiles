@@ -1,12 +1,14 @@
 # Erueka Notorious Monster Farming
 
 These profiles are designed to pop Notorious Monsters (Eureka's name for Fates) and kill them in an effort to help you gain the materials necessary to earn your Erueka relic weapons.
+
 These profiles are meant more to be an assistant rather than a complete AFK profile. You're going to want to keep track of what NMs have been killed so you know when they're available to be killed again.
+
 I recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned again.
 
 ## Setup
 
-Before you start, open the profile and setting a NM to 1. This will cause the bot to target the mobs that spawn that NM until the NM spawns and will then fight the NM. 
+Before you start, open the profile and set a NM to 1. This will cause the bot to target the mobs that spawn that NM until the NM spawns and will then fight the NM. 
 The profile will go down the list targetting from top to bottom anything set to 1. It will not detect if any fates have spawned in the zone.
 So if you have to stop the profile it will start back at the top when you start it again. To avoid that, set anything you kill to 0.
 
