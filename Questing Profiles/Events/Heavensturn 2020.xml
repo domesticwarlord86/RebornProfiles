@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Heavensturn 2020
+  Authors: DomesticWarlord
+-->
+<Profile>
+  <Name>Heavensturn 2020</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Steering Clear of Trouble -->
+    <If Condition="not HasQuest(69274) and not IsQuestCompleted(69274)">
+      <LisbethTravel Zone="128" Subzone="737" Position="15.83004, 45.656, 132.1576"/>
+      <If Condition="IsQuestAcceptQualified(69274)">
+        <LLPickupQuest QuestId="69274" NpcId="1031942"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69274) == 1">
+		<LisbethTravel Area="Middle La Noscea" Position="152.9133, 56.6789, 223.8953"/>
+		<While Condition="GetQuestStep(69274) == 1">
+		  <LLFate FateId="1537" MinLevel="1" MaxLevel="80" while="GetQuestStep(69274) == 1"/> <!-- The Mochi that Ate Vylbrand -->
+		</While>		
+    </If>
+    <If Condition="GetQuestStep(69274) == 255">
+      <LisbethTravel Zone="128" Subzone="737" Position="16.06788, 45.656, 132.7502"/>
+      <LLTurnIn QuestId="69274" NpcId="1031942" XYZ="16.9527, 45.65599, 134.5083"/>
+      <LLSmallTalk/>
+    </If>
+	
+    <!-- Bully for Mochi -->
+    <If Condition="not HasQuest(69287) and not IsQuestCompleted(69287)">
+      <LisbethTravel Zone="128" Subzone="737" Position="16.06788, 45.656, 132.7502"/>
+      <If Condition="IsQuestAcceptQualified(69287)">
+        <LLPickupQuest QuestId="69287" NpcId="1031942"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69287) == 1">
+		<If Condition="GetQuestStep(69287) == 1 and GetQuestById(69287).GetTodoArgs(2, 0).Item1 == 0">
+		  <LisbethTravel Zone="128" Subzone="0" Position="-8.748218, 44.49997, 112.9306"/>
+		  <UseObject NpcId="2010886" XYZ="-9.414856, 44.47998, 111.5281" QuestId="69287" StepId="1" UseTimes="1"/>
+		  <LLSmallTalk/>
+		</If> 
+		<If Condition="GetQuestStep(69287) == 1 and GetQuestById(69287).GetTodoArgs(2, 0).Item1 == 1">
+		  <LisbethTravel Zone="128" Subzone="0" Position="-46.51538, 39.99995, 150.6576"/>
+		  <UseObject NpcId="2010887" XYZ="-46.15863, 39.9939, 151.1405" QuestId="69287" StepId="1" UseTimes="1"/>
+		  <LLSmallTalk/>
+		</If>
+		<If Condition="GetQuestStep(69287) == 1 and GetQuestById(69287).GetTodoArgs(2, 0).Item1 == 2">
+		  <LisbethTravel Zone="128" Subzone="0" Position="1.401075, 44.24991, -60.39906"/>
+		  <UseObject NpcId="2010885" XYZ="2.090454, 43.9917, -61.96692" QuestId="69287" StepId="1" UseTimes="1"/>
+		  <LLSmallTalk/>
+		</If>
+		<If Condition="GetQuestStep(69287) == 1 and GetQuestById(69287).GetTodoArgs(2, 0).Item1 == 3">
+		  <LisbethTravel Zone="128" Subzone="0" Position="11.42519, 40, 79.32603"/>
+		  <UseObject NpcId="2010845" XYZ="12.25293, 39.9939, 79.60632" QuestId="69287" StepId="1" UseTimes="1"/>
+		  <LLSmallTalk/>
+		</If>		
+    </If>
+    <If Condition="GetQuestStep(69287) == 255">
+      <LisbethTravel Zone="128" Subzone="737" Position="15.35216, 45.656, 131.83"/>
+      <LLTurnIn QuestId="69287" NpcId="1031942" XYZ="16.9527, 45.65599, 134.5083"/>
+      <LLSmallTalk/>
+    </If>
+
+	<!-- Farm Heavensturn Tickets -->
+    <If Condition="IsQuestCompleted(69274) and IsQuestCompleted(69287)">
+		<If condition="not HasAtLeast(28651,10)">
+			<LisbethTravel Area="Middle La Noscea" Position="152.9133, 56.6789, 223.8953"/>
+			<While condition="not HasAtLeast(28651,10)">
+				<LLFate FateId="1537" MinLevel="1" MaxLevel="80" while="not HasAtLeast(28651,10)"/> <!-- The Mochi that Ate Vylbrand -->
+			</While>
+		</If>
+		<If condition="HasAtLeast(28651,10)">
+			<LisbethTravel Area="Limsa Lominsa (Upper Decks)" Position="6.199194, 44.5, 121.8062"/>			
+			<BuyShopExchangeItem NpcId="1031951" ItemId="28557" Count="1"/>
+			<WaitTimer WaitTime="3" />
+			<BuyShopExchangeItem NpcId="1031951" ItemId="28157" Count="1"/>
+		</If>
+	</If>	
+  </Order>
+</Profile>  

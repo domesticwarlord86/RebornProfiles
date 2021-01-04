@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Starlight 2020	
+  Authors: Zamphire
+-->
+<Profile>
+  <Name>Starlight Celebration 2020</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+	<CodeChunks>  
+		<CodeChunk Name="TurnInQuest">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please manually turn in quest and select the next advent box slot.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(60000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="TurnSnowmen">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please turn all three snowmen Clockwise twice.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(60000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="TurnSnowmen">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please turn all three snowmen Clockwise twice.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(60000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="DressSnowmen">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Put Red Knit Hat and Red Scarf on Smiling Snowman.\n Put Black Silk Hat and Green Scarf on Beaming Snowman.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(60000);
+		  ]]>
+		</CodeChunk>				
+	</CodeChunks>   
+  <Order>
+    <!-- A Festive Fiasco -->
+    <If Condition="not HasQuest(69553) and not IsQuestCompleted(69553)">
+      <GetTo ZoneId="133" XYZ="-48.40633, 6.499994, -90.71182"/>
+      <If Condition="IsQuestAcceptQualified(69553)">
+        <LLPickupQuest QuestId="69553" NpcId="1035473"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69553) == 1">
+      <GetTo ZoneId="133" XYZ="-130.983, 7.834574, -114.7578"/>
+      <LLTalkTo NpcId="1035480" XYZ="-130.5105, 8.550215, -112.4743" QuestId="69553" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69553) == 2">
+		<If Condition="GetQuestStep(69553) == 2 and GetQuestById(69553).GetTodoArgs(2, 0).Item1 == 0">
+		  <GetTo ZoneId="133" XYZ="-156.4268, 6.954965, -79.74381"/>
+		  <UseObject UseTimes="1" NpcId="2011311" XYZ="-154.1924, 6.973328, -80.76605" QuestId="69553" StepId="2"/>
+		</If> 
+		<If Condition="GetQuestStep(69553) == 2 and GetQuestById(69553).GetTodoArgs(2, 0).Item1 == 1">
+			<GetTo ZoneId="133" XYZ="-155.2619, 4.093092, -40.59893"/>
+			<UseObject UseTimes="1" NpcId="2011312" XYZ="-155.5353, 3.982544, -38.22394" QuestId="69553" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69553) == 2 and GetQuestById(69553).GetTodoArgs(2, 0).Item1 == 2">
+			<GetTo ZoneId="133" XYZ="-168.712, 3.986873, -15.30723"/>
+			<UseObject UseTimes="1" NpcId="2011313" XYZ="-169.1768, 3.952026, -14.05359" QuestId="69553" StepId="2"/>
+		</If>		
+    </If>
+    <If Condition="GetQuestStep(69553) == 3">
+      <GetTo ZoneId="133" XYZ="-131.7904, 7.683974, -114.4734"/>
+      <LLHandOver ItemId="2003053" NpcId="1035480" XYZ="-130.5105, 8.550215, -112.4743" QuestId="69553" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69553) == 255">
+      <GetTo ZoneId="133" XYZ="-48.6704, 6.499992, -91.35535"/>
+      <RunCode name="TurnInQuest"/>
+	  <!-- <LLTurnIn QuestId="69553" NpcId="1035480" XYZ="-48.6704, 6.499992, -91.35535"/> -->
+    </If>
+
+    <!-- Starlight Slapdashery -->
+    <If Condition="IsQuestCompleted(69553) and not HasQuest(69554) and not IsQuestCompleted(69554)">
+      <GetTo ZoneId="133" XYZ="-48.01739, 6.499993, -90.58827"/>
+      <If Condition="IsQuestAcceptQualified(69554)">
+        <LLPickupQuest QuestId="69554" NpcId="1035473"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69554) == 1">
+      <GetTo ZoneId="133" XYZ="-44.40435, 7.049451, -123.86"/>
+      <LLTalkTo NpcId="1035483" XYZ="-42.83215, 6.985489, -123.8575" QuestId="69554" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69554) == 2">
+      <GetTo ZoneId="133" XYZ="131.0372, 13.11355, -96.93713"/>
+      <LLTalkTo NpcId="1035484" XYZ="132.0363, 13.16346, -95.84198" QuestId="69554" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69554) == 3">
+	  <GetTo ZoneId="133" XYZ="131.0372, 13.11355, -96.93713"/>
+	  <RunCode name="TurnSnowmen"/>
+<!--
+Strange-seeming Snowman 0x18B26F237B0-2011317
+<MoveTo XYZ="142.0461,13.80933,-99.25995" /> Clockwise 0, clockwise 0, nothing 2.	
+	
+Strange-seeming Snowman 0x18B26F23B30-2011318
+<MoveTo XYZ="142.748,13.90094,-92.42395" />  Clockwise 0, clockwise 0, nothing 2.	
+
+Strange-seeming Snowman 0x18B26F235F0-2011319
+<MoveTo XYZ="137.2244,13.8399,-89.64679" />	Clockwise 0, clockwise 0 -->
+	</If>
+    <If Condition="GetQuestStep(69554) == 4">
+      <GetTo ZoneId="133" XYZ="131.7468, 13.13965, -94.96373"/>
+      <LLTalkTo NpcId="1035484" XYZ="132.0363, 13.16346, -95.84198" QuestId="69554" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69554) == 255">
+      <GetTo ZoneId="133" XYZ="-51.96695, 6.499994, -90.49537"/>
+	  <RunCode name="TurnInQuest"/>
+      <!-- <LLTurnIn QuestId="69554" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/> -->
+    </If>
+
+    <!-- The True Spirit of Starlight -->
+    <If Condition="IsQuestCompleted(69554) and not HasQuest(69555) and not IsQuestCompleted(69555)">
+      <GetTo ZoneId="133" XYZ="-48.7004, 6.499995, -90.64429"/>
+      <If Condition="IsQuestAcceptQualified(69555)">
+        <LLPickupQuest QuestId="69555" NpcId="1035473"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69555) == 1">
+      <GetTo ZoneId="132" XYZ="-82.51868, -3.308192, 41.23987"/>
+      <LLTalkTo NpcId="1035485" XYZ="-83.60425, -3.308192, 39.07837" QuestId="69555" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69555) == 2">
+      <GetTo ZoneId="132" XYZ="-11.25412, -3.25, 46.41671"/>
+      <LLTalkTo NpcId="1035486" XYZ="-9.720032, -3.25, 46.49414" QuestId="69555" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69555) == 3">
+      <GetTo ZoneId="132" XYZ="-81.9865, -3.308192, 40.04992"/>
+      <LLTalkTo NpcId="1035485" XYZ="-83.60425, -3.308192, 39.07837" QuestId="69555" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69555) == 4">
+      <GetTo ZoneId="133" XYZ="-46.97409, 6.859739, -125.4202"/>
+      <LLTalkTo NpcId="1035488" XYZ="-42.89313, 7.039436, -123.1861" QuestId="69555" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69555) == 255">
+      <GetTo ZoneId="133" XYZ="-49.62709, 6.499992, -91.86739"/>
+	  <RunCode name="TurnInQuest"/>
+      <!-- <LLTurnIn QuestId="69555" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/> -->
+    </If>
+
+    <!-- One Happy Family -->
+    <If Condition="IsQuestCompleted(69555) and not HasQuest(69556) and not IsQuestCompleted(69556)">
+      <GetTo ZoneId="133" XYZ="-49.59564, 6.499988, -92.57008"/>
+      <If Condition="IsQuestAcceptQualified(69556)">
+        <LLPickupQuest QuestId="69556" NpcId="1035473"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69556) == 1">
+      <GetTo ZoneId="133" XYZ="18.12287, 13.31888, -293.3836"/>
+      <LLTalkTo NpcId="1035489" XYZ="16.00671, 13.25015, -293.2327" QuestId="69556" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69556) == 2">
+      <If Condition="GetQuestStep(69556) == 2 and GetQuestById(69556).GetTodoArgs(2, 0).Item1 == 0">
+		<GetTo ZoneId="133" XYZ="27.35596, 16.29348, -335.3549"/>
+		<UseItem UseTimes="1" ItemId="2003054" NpcId="2011320" XYZ="26.0166, 16.83069, -335.7748" QuestId="69556" StepId="2"/>
+	  </If>
+      <If Condition="GetQuestStep(69556) == 2 and GetQuestById(69556).GetTodoArgs(2, 0).Item1 == 1">
+		<GetTo ZoneId="133" XYZ="29.14943, 17.56634, -352.6117"/>
+		<UseItem UseTimes="1" ItemId="2003054" NpcId="2011321" XYZ="28.91589, 18.05139, -352.9565" QuestId="69556" StepId="2"/>
+      </If>
+	  <If Condition="GetQuestStep(69556) == 2 and GetQuestById(69556).GetTodoArgs(2, 0).Item1 == 2">
+		<GetTo ZoneId="133" XYZ="35.02187, 17.54108, -351.2849"/>
+		<UseItem UseTimes="1" ItemId="2003054" NpcId="2011322" XYZ="34.71423, 17.86829, -352.4682" QuestId="69556" StepId="2"/>
+      </If>
+    </If>	  
+    <If Condition="GetQuestStep(69556) == 3">
+      <GetTo ZoneId="133" XYZ="135.0907, 11.48119, -228.7061"/>
+      <LLTalkTo NpcId="1035493" XYZ="137.377, 11.66934, -225.7878" QuestId="69556" StepId="3"/>
+    </If>      
+    <If Condition="GetQuestStep(69556) == 4">
+      <GetTo ZoneId="133" XYZ="-45.52906, 7.021198, -123.9632"/>
+      <LLTalkTo NpcId="1035495" XYZ="-42.25226, 7.045933, -122.2095" QuestId="69556" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69556) == 255">
+      <GetTo ZoneId="133" XYZ="-48.80632, 6.499989, -91.96474"/>
+	  <RunCode name="TurnInQuest"/>
+      <!--<LLTurnIn QuestId="69556" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/>-->
+    </If>
+
+    <!-- Wish Upon a Starlight -->
+    <If Condition="IsQuestCompleted(69556) and not HasQuest(69557) and not IsQuestCompleted(69557)">
+      <GetTo ZoneId="133" XYZ="-48.80632, 6.499989, -91.96474"/>
+      <If Condition="IsQuestAcceptQualified(69557)">
+        <LLPickupQuest QuestId="69557" NpcId="1035473"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69557) == 1">
+      <GetTo ZoneId="133" XYZ="-270.3423, -3.576279E-07, -197.4769"/>
+      <LLTalkTo NpcId="1035496" XYZ="-272.0837, -2.235174E-07, -197.8638" QuestId="69557" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69557) == 2">
+      <GetTo ZoneId="133" XYZ="-235.7942, 8, -149.007"/>
+      <LLTalkTo NpcId="1035501" XYZ="-234.577, 8, -149.3401" QuestId="69557" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69557) == 3">
+      <GetTo ZoneId="133" XYZ="-270.7275, -2.384186E-07, -195.9653"/>
+      <LLHandOver ItemId="2003055" NpcId="1035496" XYZ="-272.0837, -2.235174E-07, -197.8638" QuestId="69557" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69557) == 255">
+      <GetTo ZoneId="133" XYZ="-48.77381, 6.499993, -91.25424"/>
+	  <RunCode name="TurnInQuest"/>
+      <!--<LLTurnIn QuestId="69557" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/>-->
+    </If>
+
+    <!-- Annihilation -->
+    <If Condition="IsQuestCompleted(69557) and not HasQuest(69558) and not IsQuestCompleted(69558)">
+      <GetTo ZoneId="133" XYZ="-48.71584, 6.499991, -91.58701"/>
+      <If Condition="IsQuestAcceptQualified(69558)">
+        <LLPickupQuest QuestId="69558" NpcId="1035473"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69558) == 1">
+      <RunCode name="DressSnowmen"/>
+    </If>
+    <If Condition="GetQuestStep(69558) == 255">
+      <GetTo ZoneId="133" XYZ="-43.41718, 6.910172, -125.1378"/>
+      <LLTurnIn QuestId="69558" NpcId="1035502" XYZ="-41.88605, 6.803435, -125.597"/>
+    </If>	
+  </Order>
+</Profile>
