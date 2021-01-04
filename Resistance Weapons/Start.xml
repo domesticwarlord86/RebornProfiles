@@ -12,6 +12,7 @@
 <!ENTITY dnc "0"> 
 <!ENTITY drg "0"> 
 <!ENTITY drk "0"> 
+<!ENTITY gnb "0"> 
 <!ENTITY mch "0"> 	
 <!ENTITY mnk "0"> 
 <!ENTITY nin "0">
@@ -19,7 +20,7 @@
 <!ENTITY pld "0"> 
 <!ENTITY sam "0"> 		
 <!ENTITY sch "0"> 
-<!ENTITY smn "1"> 
+<!ENTITY smn "0"> 
 <!ENTITY war "0"> 
 <!ENTITY whm "0"> 
 ]>
@@ -189,6 +190,32 @@
 			</If>		
 		</While>				
 	</If>
+	
+	<!-- Gunbreaker Starter -->
+	<If Condition="&gnb; == 1">
+		<If Condition="not ClassName == ClassJobType.Gunbreaker">	
+			<ChangeClass Job="Gunbreaker" Force="True"/>
+			<WaitTimer WaitTime="3" />
+		</If>		
+		<While Condition="ClassName == ClassJobType.Gunbreaker">
+			<!-- Augmented Crownsblade -->
+			<If Condition="HasAtLeast(30243,1)">
+				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
+			</If>
+			<!-- Crownsblade Recollection -->
+			<If Condition="HasAtLeast(30782,1)">
+				<LLoadProfile Path="Quests/The Will to Resist.xml"/>
+			</If>
+			<!-- All done -->
+			<If Condition="HasAtLeast(30800,1)">
+				<LLToast message="Congratulations! You're all done with Gunbreaker."/>
+			</If>		
+			<!-- Crownsblade -->
+			<If Condition="not HasAtLeast(30243,1)">
+				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
+			</If>		
+		</While>				
+	</If>	
 	
 	<!-- Machinist Starter -->
 	<If Condition="&mch; == 1">
