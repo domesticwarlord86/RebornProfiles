@@ -28,7 +28,7 @@
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY AnnounceFates "1">
+<!ENTITY AnnounceFates "0">
 <!ENTITY StopBot "1">
  
 <!-- Profile Settings -->
@@ -321,12 +321,12 @@
 		
 		<!-- When You Ride Alone 1343 - The White Rider-->
 		<If Condition="&TheWhiteRider; == 1">
-			<While condition="not (IsTimeBetween(19,23) or IsTimeBetween(0,5))">
+			<While condition="not (IsTimeBetween(19,24) or IsTimeBetween(0,5))">
 				<NoCombatMoveTo XYZ="-88.01479, 41.93786, -410.5361" />
 				<Log Message="Waiting for Night fall..." />
 				<WaitWhile condition="not (IsTimeBetween(19,23) or IsTimeBetween(0,5))"/>
 			</While>		
-			<While condition="(IsTimeBetween(19,23) or IsTimeBetween(0,5))">
+			<While condition="(IsTimeBetween(19,24) or IsTimeBetween(0,5))">
 				<While condition="not IsFateActive(1343)">
 					<NoCombatMoveTo XYZ="-88.01479, 41.93786, -410.5361" />	
 					<Grind GrindRef="Duskfall Dullahan" while="not IsFateActive(1343)"/>
@@ -407,17 +407,17 @@
 			</While>	
 		</If>
 
-		<!--  - Fafnir-->
+		<!-- Wind and Honey - Fafnir-->
 		<If Condition="&Fafnir; == 1">
-			<While condition="not (IsTimeBetween(19,23) or IsTimeBetween(0,5))">
+			<While condition="not (IsTimeBetween(19,24) or IsTimeBetween(0,5))">
 				<NoCombatMoveTo XYZ="698.7631, 40.17636, -3.008595" />
 				<Log Message="Waiting for Night fall..." />
-				<WaitWhile condition="not (IsTimeBetween(19,23) or IsTimeBetween(0,5))"/>
+				<WaitWhile condition="not (IsTimeBetween(19,24) or IsTimeBetween(0,5))"/>
 			</While>		
-			<While condition="(IsTimeBetween(19,23) or IsTimeBetween(0,5))">
-				<While condition="not IsFateActive(1343)">
+			<While condition="(IsTimeBetween(19,24) or IsTimeBetween(0,5))">
+				<While condition="not IsFateActive(1331)">
 					<NoCombatMoveTo XYZ="698.7631, 40.17636, -3.008595" />
-					<Grind GrindRef="Fossil Dragon" while="not IsFateActive(1343)"/>
+					<Grind GrindRef="Fossil Dragon" while="not IsFateActive(1331)"/>
 					<If Condition="&AnnounceFates; == 1">
 						<LLSendChat Shout="Fafnir spawned &lt;pos&gt;"/>
 					</If>
@@ -426,10 +426,10 @@
 						<StopBot/>
 					</If>					
 				</While>
-				<While condition="IsFateActive(1343)">
+				<While condition="IsFateActive(1331)">
 					<NoCombatMoveTo XYZ="698.7631, 40.17636, -3.008595" />	
 					<RunCode name="LevelSync"/>
-					<LLFate FateId="1343" MinLevel="1" MaxLevel="80" while="IsFateActive(1343)"/>					
+					<LLFate FateId="1331" MinLevel="1" MaxLevel="80" while="IsFateActive(1331)"/>					
 				</While>			
 			</While>
 		</If>
