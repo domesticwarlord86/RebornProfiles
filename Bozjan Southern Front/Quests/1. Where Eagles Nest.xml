@@ -46,6 +46,8 @@
 		<RunCode name="EnterBozjan"/>
 	  </If>	
 	  <If Condition="IsOnMap(920)">
+		<MoveTo XYZ="-201.9532,5.020142,846.952" />
+		<RunCode name="LearnUtyasAegis"/>
 		<MoveTo ZoneId="920" XYZ="-215.457, 5, 832.8793"/>
 		<LLTalkTo NpcId="1034001" XYZ="-216.4492, 4.999997, 830.8689" QuestId="69477" StepId="2"/>	  
 	  </If>	
@@ -67,6 +69,35 @@
 	
   </Order>
     <CodeChunks>
+		<CodeChunk Name="LearnUtyasAegis">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(2011160);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+					}
+					
+			]]>			
+		</CodeChunk>	
 		<CodeChunk Name="EnterBozjan">
 			<![CDATA[
 				var npcId = GameObjectManager.GetObjectByNPCId(1032080);

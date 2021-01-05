@@ -17,17 +17,17 @@
 				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
 				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 			</If>	  
-		<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+		<NoCombatMoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
 		<RunCode name="EnterBozjan"/>
 	  </If>		
-      <MoveTo XYZ="-184.769, 5, 814.8079"/>
+      <NoCombatMoveTo XYZ="-184.769, 5, 814.8079"/>
       <If Condition="IsQuestAcceptQualified(69484)">
         <LLPickupQuest QuestId="69484" NpcId="1034006"/>
         <LLSmallTalk/>
       </If>
     </If>
     <If Condition="GetQuestStep(69484) == 255">
-      <MoveTo XYZ="-228.976, 35.97115, 530.2501"/>
+      <NoCombatMoveTo XYZ="-228.976, 35.97115, 530.2501"/>
       <LLTurnIn QuestId="69484" NpcId="1034009" XYZ="-231.1895, 35.95686, 531.9142"/>
       <LLSmallTalk/>
     </If>
@@ -44,10 +44,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.MoveTowards(_target);
+							Navigator.PlayerMover.NoCombatMoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.MoveTowards(_target);
+									Navigator.PlayerMover.NoCombatMoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();

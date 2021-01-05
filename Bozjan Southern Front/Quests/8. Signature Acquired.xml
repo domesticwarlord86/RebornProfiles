@@ -17,10 +17,10 @@
 				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
 				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 			</If>	  
-		<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+		<NoCombatMoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
 		<RunCode name="EnterBozjan"/>
 	  </If>		
-      <MoveTo XYZ="-210.045, 5, 817.7379"/>
+      <NoCombatMoveTo XYZ="-210.045, 5, 817.7379"/>
       <If Condition="IsQuestAcceptQualified(69485)">
         <LLPickupQuest QuestId="69485" NpcId="1034462"/>
         <LLSmallTalk/>
@@ -28,21 +28,21 @@
     </If>
     <If Condition="GetQuestStep(69485) == 1">
       <RunCode name="AetheryteSteva"/>
-	  <MoveTo XYZ="1.102384, 12.85732, 239.9422" />
+	  <NoCombatMoveTo XYZ="1.102384, 12.85732, 239.9422" />
 	  <Grind GrindRef="GrindArea" while="GetQuestStep(69485) == 1"/>
     </If>
     <If Condition="GetQuestStep(69485) == 2">
-      <MoveTo XYZ="1.60769, 12.85732, 238.4418"/>
+      <NoCombatMoveTo XYZ="1.60769, 12.85732, 238.4418"/>
       <LLTalkTo NpcId="1034010" XYZ="1.785278, 12.85732, 239.4293" QuestId="69485" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69485) == 3">
       <NoCombatMoveTo XYZ="169.7871,2.945007,192.2789" />
 	  <RunCode name="AetheryteAegis"/>
-      <MoveTo XYZ="-215.314, 5, 832.5221"/>
+      <NoCombatMoveTo XYZ="-215.314, 5, 832.5221"/>
       <LLTalkTo NpcId="1034001" XYZ="-216.4492, 4.999997, 830.8689" QuestId="69485" StepId="3"/>	  
     </If>
     <If Condition="GetQuestStep(69485) == 255">
-      <MoveTo XYZ="-215.314, 5, 832.5221"/>
+      <NoCombatMoveTo XYZ="-215.314, 5, 832.5221"/>
       <LLTurnIn QuestId="69485" NpcId="1034001" XYZ="-216.4492, 4.999997, 830.8689"/>
       <LLSmallTalk/>
     </If>
@@ -70,10 +70,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.MoveTowards(_target);
+							Navigator.PlayerMover.NoCombatMoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.MoveTowards(_target);
+									Navigator.PlayerMover.NoCombatMoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();
@@ -111,10 +111,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.MoveTowards(_target);
+							Navigator.PlayerMover.NoCombatMoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.MoveTowards(_target);
+									Navigator.PlayerMover.NoCombatMoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();
@@ -145,10 +145,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.MoveTowards(_target);
+							Navigator.PlayerMover.NoCombatMoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.MoveTowards(_target);
+									Navigator.PlayerMover.NoCombatMoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();

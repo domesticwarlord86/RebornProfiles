@@ -15,10 +15,10 @@
 			</If>
 			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
 			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
-			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+			<NoCombatMoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
 			<RunCode name="EnterBozjan"/>
 		</If>
-      <MoveTo XYZ="-214.3429, 5, 833.5445"/>
+      <NoCombatMoveTo XYZ="-214.3429, 5, 833.5445"/>
       <If Condition="IsQuestAcceptQualified(69487)">
         <LLPickupQuest QuestId="69487" NpcId="1034001"/>
         <LLSmallTalk/>
@@ -41,10 +41,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.MoveTowards(_target);
+							Navigator.PlayerMover.NoCombatMoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.MoveTowards(_target);
+									Navigator.PlayerMover.NoCombatMoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();

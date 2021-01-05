@@ -16,21 +16,21 @@
 			</If>
 			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
 			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
-			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+			<NoCombatMoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
 			<RunCode name="EnterBozjan"/>
 		</If>	
-      <MoveTo ZoneId="920" XYZ="-184.2033, 5, 813.766"/>
+      <NoCombatMoveTo ZoneId="920" XYZ="-184.2033, 5, 813.766"/>
       <If Condition="IsQuestAcceptQualified(69480)">
         <LLPickupQuest QuestId="69480" NpcId="1034006"/>
       </If>
     </If>
     <If Condition="GetQuestStep(69480) == 255">
 	  <If Condition="not HasAtLeast(30886,1)">
-	    <MoveTo XYZ="-123.8415, 16.28486, 771.697" />
+	    <NoCombatMoveTo XYZ="-123.8415, 16.28486, 771.697" />
 		<Grind GrindRef="Bozjan Nepenthes" while="not HasAtLeast(30886,1)"/>
 	  </If>	
       <If Condition="HasAtLeast(30886,1)">
-		  <MoveTo ZoneId="920" XYZ="-185.3395, 5, 812.8176"/>
+		  <NoCombatMoveTo ZoneId="920" XYZ="-185.3395, 5, 812.8176"/>
 		  <TurnIn QuestId="69480" NpcId="1034006" XYZ="-182.7268, 5, 813.2295"/>
 	  </If>	  	
     </If>
@@ -58,10 +58,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.MoveTowards(_target);
+							Navigator.PlayerMover.NoCombatMoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.MoveTowards(_target);
+									Navigator.PlayerMover.NoCombatMoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();
@@ -99,10 +99,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.MoveTowards(_target);
+							Navigator.PlayerMover.NoCombatMoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.MoveTowards(_target);
+									Navigator.PlayerMover.NoCombatMoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();

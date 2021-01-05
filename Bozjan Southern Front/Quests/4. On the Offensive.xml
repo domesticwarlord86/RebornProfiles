@@ -17,18 +17,18 @@
 				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
 				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 			</If>	
-			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+			<NoCombatMoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
 			<RunCode name="EnterBozjan"/>
 		</If>	
-      <MoveTo ZoneId="920" XYZ="-184.2033, 5, 813.766"/>	
+      <NoCombatMoveTo ZoneId="920" XYZ="-184.2033, 5, 813.766"/>	
       <If Condition="IsQuestAcceptQualified(69481)">
         <LLPickupQuest QuestId="69481" NpcId="1034006"/>
       </If>
 	</If>  
     <If Condition="GetQuestStep(69481) == 255">
-      <NoCombatMoveTo XYZ="494.9031, 34.79501, 568.0817"/>
+      <NoCombatNoCombatMoveTo XYZ="494.9031, 34.79501, 568.0817"/>
       <LLTurnIn QuestId="69481" NpcId="1034008" XYZ="495.8114, 34.9, 566.0944"/>
-	  <NoCombatMoveTo XYZ="487.611, 34.9, 533.3499" />
+	  <NoCombatNoCombatMoveTo XYZ="487.611, 34.9, 533.3499" />
 	  <RunCode name="LearnOlanasStand"/>
     </If>	
 	
@@ -44,10 +44,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.MoveTowards(_target);
+							Navigator.PlayerMover.NoCombatMoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.MoveTowards(_target);
+									Navigator.PlayerMover.NoCombatMoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();
@@ -73,10 +73,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.MoveTowards(_target);
+							Navigator.PlayerMover.NoCombatMoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.MoveTowards(_target);
+									Navigator.PlayerMover.NoCombatMoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();
