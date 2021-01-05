@@ -40,15 +40,15 @@
 <!ENTITY Number "0"> 
 <!ENTITY Jahannam "0">
 <!ENTITY Amemet "0">
-<!ENTITY Caym "0">
+<!ENTITY Caym "1">
 <!ENTITY Bombadeel "0">    		
 <!ENTITY Serket "0"> 		
 <!ENTITY JudgmentalJulika "0"> 
 <!ENTITY TheWhiteRider "0"> 
-<!ENTITY Polyphemus "0"> 
-<!ENTITY SimurghsStrider "0">
-<!ENTITY KingHazmat "0">
-<!ENTITY Fafnir "0">
+<!ENTITY Polyphemus "1"> 
+<!ENTITY SimurghsStrider "1">
+<!ENTITY KingHazmat "1">
+<!ENTITY Fafnir "1">
 <!ENTITY Amarok "0">
 <!ENTITY Lamashtu "0">
 <!ENTITY Pazuzu "0">
@@ -159,7 +159,7 @@
 				</If>				
 			</While>
 			<While condition="IsFateActive(1344)">
-				<NoCombatMoveTo XYZ="203.6079, 37.11633, 23.76505" />	
+				<NoCombatMoveTo XYZ="230.3155, 37.57598, 83.42776" />	
 				<RunCode name="LevelSync"/>
 				<LLFate FateId="1344" MinLevel="1" MaxLevel="80" while="IsFateActive(1344)"/>					
 			</While>	
@@ -226,7 +226,7 @@
 				</If>				
 			</While>
 			<While condition="IsFateActive(1334)">
-				<NoCombatMoveTo XYZ="-335.4391,64.92942,-306.3859" />	
+				<NoCombatMoveTo XYZ="-349.7575, 67.83452, -287.6657" />	
 				<RunCode name="LevelSync"/>
 				<LLFate FateId="1334" MinLevel="1" MaxLevel="80" while="IsFateActive(1334)"/>					
 			</While>	
@@ -246,7 +246,7 @@
 				</If>				
 			</While>
 			<While condition="IsFateActive(1335)">
-				<NoCombatMoveTo XYZ="-483.4977, 64.83803, -355.5995" />	
+				<NoCombatMoveTo XYZ="-439.2465, 63.15067, -399.555" />	
 				<RunCode name="LevelSync"/>
 				<LLFate FateId="1335" MinLevel="1" MaxLevel="80" while="IsFateActive(1335)"/>					
 			</While>	
