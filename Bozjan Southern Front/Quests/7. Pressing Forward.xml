@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Pressing Forward
+  Authors:
+-->
+<Profile>
+  <Name>Pressing Forward</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- Pressing Forward -->
+    <If Condition="not HasQuest(69484) and not IsQuestCompleted(69484)">
+	  <If Condition="not IsOnMap(920)">
+			<If Condition="not IsOnMap(915)">	
+				<While Condition="not IsOnMap(759)">
+					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+				</While>				
+				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+			</If>	  
+		<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+		<RunCode name="EnterBozjan"/>
+	  </If>		
+      <MoveTo XYZ="-184.769, 5, 814.8079"/>
+      <If Condition="IsQuestAcceptQualified(69484)">
+        <LLPickupQuest QuestId="69484" NpcId="1034006"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69484) == 255">
+      <MoveTo XYZ="-228.976, 35.97115, 530.2501"/>
+      <LLTurnIn QuestId="69484" NpcId="1034009" XYZ="-231.1895, 35.95686, 531.9142"/>
+      <LLSmallTalk/>
+    </If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+    <CodeChunks>
+		<CodeChunk Name="EnterBozjan">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032080);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Enter the Bozjan southern front.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					}					
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>		
+	</CodeChunks>  
+</Profile>

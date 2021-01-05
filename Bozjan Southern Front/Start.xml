@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Bozjan Southern Front
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Bozjan Southern Front</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<If Condition="not IsOnMap(920)">  
+		<LLoadProfile Path="Profiles/Queue Bozjan.xml"/>
+	</If>
+	
+	<If Condition="IsOnMap(920)">  
+		<LLoadProfile Path="Profiles/Bozjan Leveling.xml"/>
+	</If>	
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

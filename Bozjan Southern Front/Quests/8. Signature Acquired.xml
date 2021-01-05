@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Signature Acquired
+  Authors:
+-->
+<Profile>
+  <Name>Signature Acquired</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- Signature Acquired -->
+    <If Condition="not HasQuest(69485) and not IsQuestCompleted(69485)">
+	  <If Condition="not IsOnMap(920)">
+			<If Condition="not IsOnMap(915)">	
+				<While Condition="not IsOnMap(759)">
+					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+				</While>				
+				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+			</If>	  
+		<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+		<RunCode name="EnterBozjan"/>
+	  </If>		
+      <MoveTo XYZ="-210.045, 5, 817.7379"/>
+      <If Condition="IsQuestAcceptQualified(69485)">
+        <LLPickupQuest QuestId="69485" NpcId="1034462"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69485) == 1">
+      <RunCode name="AetheryteSteva"/>
+	  <MoveTo XYZ="1.102384, 12.85732, 239.9422" />
+	  <Grind GrindRef="GrindArea" while="GetQuestStep(69485) == 1"/>
+    </If>
+    <If Condition="GetQuestStep(69485) == 2">
+      <MoveTo XYZ="1.60769, 12.85732, 238.4418"/>
+      <LLTalkTo NpcId="1034010" XYZ="1.785278, 12.85732, 239.4293" QuestId="69485" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69485) == 3">
+      <NoCombatMoveTo XYZ="169.7871,2.945007,192.2789" />
+	  <RunCode name="AetheryteAegis"/>
+      <MoveTo XYZ="-215.314, 5, 832.5221"/>
+      <LLTalkTo NpcId="1034001" XYZ="-216.4492, 4.999997, 830.8689" QuestId="69485" StepId="3"/>	  
+    </If>
+    <If Condition="GetQuestStep(69485) == 255">
+      <MoveTo XYZ="-215.314, 5, 832.5221"/>
+      <LLTurnIn QuestId="69485" NpcId="1034001" XYZ="-216.4492, 4.999997, 830.8689"/>
+      <LLSmallTalk/>
+    </If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+   <GrindArea name="GrindArea">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="1.649255, 12.85731, 237.8731" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="9580" Weight="1"/> <!-- 4th Legion Imaginifer -->
+        <TargetMob Id="9579" Weight="1"/> <!-- 4th Legion Veles -->
+      </TargetMobs>
+    </GrindArea> 
+  </GrindAreas>
+    <CodeChunks>
+		<CodeChunk Name="EnterBozjan">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032080);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Enter the Bozjan southern front.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					}					
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="AetheryteSteva">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(2011160);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Camp Steva'.");
+						SelectString.ClickLineContains("Steva");;
+					}
+
+					await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+						if (CommonBehaviors.IsLoading)
+							{
+								await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							}					
+		
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="AetheryteAegis">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(2011142);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Utya's Aegis'.");
+						SelectString.ClickLineContains("Aegis");;
+					}
+
+					await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+						if (CommonBehaviors.IsLoading)
+							{
+								await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							}					
+		
+			]]>			
+		</CodeChunk>		
+	</CodeChunks>  
+</Profile>	  

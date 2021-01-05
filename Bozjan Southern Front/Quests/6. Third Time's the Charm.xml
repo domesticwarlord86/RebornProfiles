@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Third Time's the Charm
+  Authors:
+-->
+<Profile>
+  <Name>Third Time's the Charm</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- Third Time's the Charm -->
+    <If Condition="not HasQuest(69483) and not IsQuestCompleted(69483)">
+		<If Condition="not IsOnMap(920)">	
+			<If Condition="not IsOnMap(915)">	
+				<While Condition="not IsOnMap(759)">
+					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+				</While>				
+				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+			</If>
+			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+			<RunCode name="EnterBozjan"/>
+		</If>
+      <MoveTo XYZ="-206.6147, 5, 818.0152"/>
+      <If Condition="IsQuestAcceptQualified(69483)">
+        <LLPickupQuest QuestId="69483" NpcId="1034004"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69483) == 1">
+      <MoveTo XYZ="662.1132, 73.53539, 80.90607"/>
+      <UseObject NpcId="2011147" XYZ="661.5548, 73.5332, 79.85046" QuestId="69483" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69483) == 2">
+      <MoveTo XYZ="-209.9126, 5, 817.7576"/>
+      <LLTalkTo NpcId="1034462" XYZ="-211.0781, 5, 816.3423" QuestId="69483" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69483) == 255">
+      <MoveTo XYZ="-208.3565, 5, 817.5992"/>
+      <LLTurnIn QuestId="69483" NpcId="1034004" XYZ="-207.2633, 5, 816.495"/>
+      <LLSmallTalk/>
+    </If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+</Profile>
