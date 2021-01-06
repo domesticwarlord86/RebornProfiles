@@ -12,7 +12,7 @@
 <!ENTITY dnc "0"> 
 <!ENTITY drg "0"> 
 <!ENTITY drk "0"> 
-<!ENTITY gnb "0"> 
+<!ENTITY gnb "1"> 
 <!ENTITY mch "0"> 	
 <!ENTITY mnk "0"> 
 <!ENTITY nin "0">
@@ -37,6 +37,7 @@
   
 	<!-- Astrologian Starter -->
 	<If Condition="&ast; == 1">
+		<Log Message="Starting Astrologian Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Astrologian">	
 			<ChangeClass Job="Astrologian" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -63,6 +64,7 @@
 	
 	<!-- Bard Starter -->
 	<If Condition="&brd; == 1">
+		<Log Message="Starting Bard Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Bard">	
 			<ChangeClass Job="Bard" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -89,6 +91,7 @@
 	
 	<!-- Black Mage Starter -->
 	<If Condition="&blm; == 1">
+		<Log Message="Starting Black Mage Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.BlackMage">	
 			<ChangeClass Job="BlackMage" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -115,6 +118,7 @@
 	
 	<!-- Dancer Starter -->
 	<If Condition="&dnc; == 1">
+		<Log Message="Starting Dancer Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Dancer">	
 			<ChangeClass Job="Dancer" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -141,6 +145,7 @@
 	
 	<!-- Dark Knight Starter -->
 	<If Condition="&drk; == 1">
+		<Log Message="Starting Dark Knight Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.DarkKnight">	
 			<ChangeClass Job="DarkKnight" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -167,6 +172,7 @@
 	
 	<!-- Dragoon Starter -->
 	<If Condition="&drg; == 1">
+		<Log Message="Starting Dragoon Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Dragoon">	
 			<ChangeClass Job="Dragoon" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -193,6 +199,7 @@
 	
 	<!-- Gunbreaker Starter -->
 	<If Condition="&gnb; == 1">
+		<Log Message="Starting Gunbreaker Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Gunbreaker">	
 			<ChangeClass Job="Gunbreaker" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -219,6 +226,7 @@
 	
 	<!-- Machinist Starter -->
 	<If Condition="&mch; == 1">
+		<Log Message="Starting Machinist Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Machinist">	
 			<ChangeClass Job="Machinist" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -245,6 +253,7 @@
 	
 	<!-- Monk Starter -->
 	<If Condition="&mnk; == 1">
+		<Log Message="Starting Monk Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Monk">	
 			<ChangeClass Job="Monk" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -271,6 +280,7 @@
 	
 	<!-- Ninja Starter -->
 	<If Condition="&nin; == 1">
+		<Log Message="Starting Ninja Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Ninja">	
 			<ChangeClass Job="Ninja" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -297,6 +307,7 @@
 	
 	<!-- Red Mage Starter -->
 	<If Condition="&rdm; == 1">
+		<Log Message="Starting Red Mage Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.RedMage">	
 			<ChangeClass Job="RedMage" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -323,6 +334,7 @@
 	
 	<!-- Paladin Starter -->
 	<If Condition="&pld; == 1">
+		<Log Message="Starting Paladin Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Paladin">	
 			<ChangeClass Job="Paladin" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -349,6 +361,7 @@
 	
 	<!-- Samurai Starter -->
 	<If Condition="&sam; == 1">
+		<Log Message="Starting Samurai Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Samurai">	
 			<ChangeClass Job="Samurai" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -375,6 +388,7 @@
 	
 	<!-- Scholar Starter -->
 	<If Condition="&sch; == 1">
+		<Log Message="Starting Scholar Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Scholar">	
 			<ChangeClass Job="Scholar" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -401,6 +415,7 @@
 	
 	<!-- Summoner Starter -->
 	<If Condition="&smn; == 1">
+		<Log Message="Starting Summoner Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Summoner">	
 			<ChangeClass Job="Summoner" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -427,6 +442,7 @@
 	
 	<!-- Warrior Starter -->
 	<If Condition="&war; == 1">
+		<Log Message="Starting Warrior Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.Warrior">	
 			<ChangeClass Job="Warrior" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -453,6 +469,7 @@
 	
 	<!-- Change To White Mage -->
 	<If Condition="&whm; == 1">
+		<Log Message="Starting White Mage Resistance Weapons..." />
 		<If Condition="not ClassName == ClassJobType.WhiteMage">	
 			<ChangeClass Job="WhiteMage" Force="True"/>
 			<WaitTimer WaitTime="3" />
@@ -477,5 +494,8 @@
 			</If>		
 		</While>		
 	</If>
+	
+	<LLToast message="Please open the Start.xml profile and set a class to 1 and save it."/>
+	
   </Order>
 </Profile>  
