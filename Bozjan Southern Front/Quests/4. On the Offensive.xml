@@ -44,10 +44,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.NoCombatMoveTowards(_target);
+							Navigator.PlayerMover.MoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.NoCombatMoveTowards(_target);
+									Navigator.PlayerMover.MoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();
@@ -73,10 +73,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.NoCombatMoveTowards(_target);
+							Navigator.PlayerMover.MoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.NoCombatMoveTowards(_target);
+									Navigator.PlayerMover.MoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();

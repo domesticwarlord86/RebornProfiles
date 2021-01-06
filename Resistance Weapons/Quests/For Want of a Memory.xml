@@ -13,6 +13,8 @@
   <Name>For Want of a Memory</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
+  
+	<RunCode name="Disable_Flight"/>
 
     <!--  For Want of a Memory -->
     <If Condition="not HasQuest(69506)">
@@ -265,6 +267,18 @@
 					}
 					
 			]]>			
+		</CodeChunk>
+  		<CodeChunk Name="Disable_Flight">
+		<![CDATA[
+			foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
+			{
+			try
+			{
+				if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+			}
+			catch (Exception ex) {  }
+			}
+		]]>
 		</CodeChunk>		
 	</CodeChunks>   
 </Profile>  

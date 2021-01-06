@@ -30,6 +30,8 @@
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
   
+	<RunCode name="Disable_Flight"/>
+  
 	<!-- Check if Resistance Weapons Are Unlocked -->
 	<If Condition="not IsQuestCompleted(69380)">
 		<LLoadProfile Path="Quests/Resistance Relics Unlock.xml"/>
@@ -498,4 +500,18 @@
 	<LLToast message="Please open the Start.xml profile and set a class to 1 and save it."/>
 	
   </Order>
+  <CodeChunks>
+  		<CodeChunk Name="Disable_Flight">
+		<![CDATA[
+			foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
+			{
+			try
+			{
+				if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+			}
+			catch (Exception ex) {  }
+			}
+		]]>
+		</CodeChunk>
+  </CodeChunks>
 </Profile>  

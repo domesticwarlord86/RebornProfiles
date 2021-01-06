@@ -30,12 +30,74 @@
       <NoCombatMoveTo XYZ="-228.976, 35.97115, 530.2501"/>
       <LLTurnIn QuestId="69484" NpcId="1034009" XYZ="-231.1895, 35.95686, 531.9142"/>
       <LLSmallTalk/>
+	  <MoveTo XYZ="-257.9538,35.93494,534.3556" />
+	  <RunCode name="LearnLunyaStand"/>
+	  <MoveTo XYZ="169.7871,2.945007,192.2789" />
+	  <RunCode name="LearnCampSteva"/>
     </If>
 
 	<LLoadProfile Path="../Start.xml"/>
 	
   </Order>
     <CodeChunks>
+		<CodeChunk Name="LearnLunyaStand">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(2011163);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+					}
+					
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="LearnCampSteva">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(2011142);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+					}
+					
+			]]>			
+		</CodeChunk>		
 		<CodeChunk Name="EnterBozjan">
 			<![CDATA[
 				var npcId = GameObjectManager.GetObjectByNPCId(1032080);
@@ -44,10 +106,10 @@
 
 						{
 							var _target = npcId.Location;
-							Navigator.PlayerMover.NoCombatMoveTowards(_target);
+							Navigator.PlayerMover.MoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.NoCombatMoveTowards(_target);
+									Navigator.PlayerMover.MoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();

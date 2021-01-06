@@ -26,7 +26,7 @@
     </If>
     <While Condition="GetQuestStep(69487) == 1">
 	  <LLToast message="Please complete 'The Battle of Castrum Lacus Litore' manually."/>
-	  <WaitTimer WaitTime="26" />
+	  <LLoadProfile Path="../Start.xml"/>
     </While>
 
 	<LLoadProfile Path="../Start.xml"/>
@@ -44,7 +44,7 @@
 							Navigator.PlayerMover.NoCombatMoveTowards(_target);
 							while (_target.Distance2D(Core.Me.Location) >= 4)
 								{
-									Navigator.PlayerMover.NoCombatMoveTowards(_target);
+									Navigator.PlayerMover.MoveTowards(_target);
 									await Coroutine.Sleep(100);
 								}
 									Navigator.PlayerMover.MoveStop();

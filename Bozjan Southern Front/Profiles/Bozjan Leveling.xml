@@ -47,6 +47,8 @@
   <Name>Bozjan Leveling</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
+	
+	<RunCode name="Disable_Flight"/>
   
 	<While Condition="IsOnMap(920)">
 	
@@ -162,12 +164,10 @@
 		</If>
 
 		<!-- Complete 'The Lady of Blades' if not done -->
-		<!--
-		<If condition="Core.Me.ElementalLevel &gt; 9 and not IsQuestCompleted(69487)">
+		<If condition="Core.Me.ElementalLevel &gt; 9 and not IsQuestCompleted(69487) and not GetQuestStep(69487) == 1">
 			<Log Message="Loading 'The Lady of Blades'..." />
 			<LLoadProfile Path="../Quests/10. The Lady of Blades.xml"/>
 		</If>
-		-->
 
 		<!-- Grind to Rank 15 -->
 		<If condition="Core.Me.ElementalLevel &lt; 15 and CurrentMettle() &lt; NextResistanceRank()">	
@@ -243,6 +243,18 @@
 					await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
 				}
 		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="Disable_Flight">
+		<![CDATA[
+			foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
+			{
+			try
+			{
+				if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+			}
+			catch (Exception ex) {  }
+			}
+		]]>
 		</CodeChunk>		
   </CodeChunks>
 </Profile>  

@@ -7,6 +7,12 @@
   <Name>Bozjan Southern Front</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
+  
+	<RunCode name="Disable_Flight"/>
+  
+	<If Condition="not IsQuestCompleted(69380)">  
+		<LLoadProfile Path="Quests/Resistance Relics Unlock.xml"/>
+	</If>  
 
 	<If Condition="not IsOnMap(920)">  
 		<LLoadProfile Path="Profiles/Queue Bozjan.xml"/>
@@ -15,10 +21,24 @@
 	<If Condition="IsOnMap(920)">  
 		<LLoadProfile Path="Profiles/Bozjan Leveling.xml"/>
 	</If>	
+	
+	
   
   </Order>
   <GrindAreas>
   </GrindAreas>
   <CodeChunks>
+		<CodeChunk Name="Disable_Flight">
+		<![CDATA[
+			foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
+			{
+			try
+			{
+				if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+			}
+			catch (Exception ex) {  }
+			}
+		]]>
+		</CodeChunk>  
   </CodeChunks>
 </Profile>  
