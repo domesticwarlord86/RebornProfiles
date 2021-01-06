@@ -41,13 +41,13 @@
 	
 
 		<!-- Tortured Memory of the Dying -->
-		<If Condition="not HasAtLeast(31573,60)">
+		<If Condition="not HasAtLeast(31573,20)">
 			<Log Message="Farming Tortured Memory of the Dying in Coerthas Western Highlands..." />
-			<While Condition="HasQuest(69506) and not HasAtLeast(31573,60)">
+			<While Condition="HasQuest(69506) and not HasAtLeast(31573,20)">
 				<While Condition="not IsOnMap(397)">
 					<TeleportTo AetheryteId="71"/> <!-- Coerthas Western Highlands -->
 				</While>		
-				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31573,60) and IsOnMap(397)" BlacklistId="793,807"/>
+				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31573,20) and IsOnMap(397)" BlacklistId="793,807"/>
 			</While>	
 			<If Condition="&CleanInventory; == 1">
 				<!-- Deepeye Tears, Yeti Fang, Gelato Flesh, Dragon Fang, Yak Milk, Archaeornis Skin, Pudding Flesh, Icetrap Leaf, Hippogryph Sinew, Hippogryph Skin, Garlean Steel Plate, Ogre Horn -->
@@ -56,13 +56,13 @@
 		</If>
 		
 		<!-- Sorrowful Memory of the Dying -->
-		<If Condition="not HasAtLeast(31574,60)">
+		<If Condition="not HasAtLeast(31574,20)">
 			<Log Message="Farming Sorrowful Memory of the Dying in Dravanian Forelands..." />
-			<While Condition="HasQuest(69506) and not HasAtLeast(31574,60)">		
+			<While Condition="HasQuest(69506) and not HasAtLeast(31574,20)">		
 				<While Condition="not IsOnMap(398)">
 					<TeleportTo AetheryteId="76"/> <!-- Dravanian Forelands -->
 				</While>		
-				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31574,60) and IsOnMap(398)" BlacklistId="821,838,902"/>
+				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31574,20) and IsOnMap(398)" BlacklistId="821,838,902"/>
 			</While>	
 			<If Condition="&CleanInventory; == 1">
 				<!-- Dragon Skin, Dragon Blood, Dragon Fang, Bear Fat, Dragon Scale, Wolf Fang -->
@@ -71,13 +71,13 @@
 		</If>
 
 		<!-- Harrowing Memory of the Dying -->
-		<If Condition="not HasAtLeast(31575,60)">	
+		<If Condition="not HasAtLeast(31575,20)">	
 			<Log Message="Farming Harrowing Memory of the Dying in Azys Lla..." />
-			<While Condition="HasQuest(69506) and not HasAtLeast(31575,60)">		
+			<While Condition="HasQuest(69506) and not HasAtLeast(31575,20)">		
 				<If Condition="not IsOnMap(402)">
 					<TeleportTo AetheryteId="74"/> <!-- Azys Lla -->
 				</If>		
-				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31575,60) and IsOnMap(402)" />
+				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31575,20) and IsOnMap(402)" />
 			</While>		
 			<If Condition="&CleanInventory; == 1">
 				<!-- Chimera Mane, Amphiptere Skin -->
@@ -88,7 +88,7 @@
 
 	
 
-	<If Condition="HasQuest(69506) and HasAtLeast(31574,60) and HasAtLeast(31573,60) and HasAtLeast(31575,60)">
+	<If Condition="HasQuest(69506) and HasAtLeast(31574,20) and HasAtLeast(31573,20) and HasAtLeast(31575,20)">
 		<Log Message="Obtained all memories. Headed to turn them in." />
 		<If Condition="not IsOnMap(915)">	
 			<If Condition="not IsOnMap(759)">
