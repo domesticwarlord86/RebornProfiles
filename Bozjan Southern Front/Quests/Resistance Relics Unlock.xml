@@ -313,7 +313,7 @@
       </If>
     </If>
     <If Condition="GetQuestStep(69370) == 1">
-      <LisbethTravel ZoneId="628" XYZ="148.499, 14.77572, 93.98687"/>
+      <GetTo ZoneId="628" XYZ="148.499, 14.77572, 93.98687"/>
       <UseTransport NpcId="1019070" InteractDistance="3.0" XYZ="151.2017, 14.77572, 95.78088"/>
       <TalkTo NpcId="1020622" XYZ="0.04577637, 0, -2.304138" QuestId="69370" StepId="1"/>
     </If>
@@ -341,7 +341,7 @@
 		  <LisbethTravel Area="Yanxia (Namai)" Position="-492.9766, 1.301181, 542.1513"/>
 		  <UseTransport NpcId="1024794" InteractDistance="3.0" XYZ="-493.9803,1.301181,542.9006"/>
 		</If>
-      <LisbethTravel ZoneId="759" XYZ="125.9431, -4.178713, 96.66299"/>
+      <GetTo ZoneId="759" XYZ="125.9431, -4.178713, 96.66299"/>
       <LLTalkTo NpcId="1032869" XYZ="127.2754, -4.178713, 98.68005" QuestId="69371" StepId="1"/>	
     </If>
     <If Condition="GetQuestStep(69371) == 2">
@@ -393,7 +393,7 @@
 		</If>
       <If Condition="IsQuestAcceptQualified(69380)">
 	    <MoveTo ZoneId="915" XYZ="9.81843, 2.87424, -50.29003"/>
-        <LLPickupQuest QuestId="69380" NpcId="1032903"/>
+        <RunCode name="FireintheForge"/>
       </If>
     </If>
     <If Condition="GetQuestStep(69380) == 1">
@@ -402,16 +402,17 @@
     </If>	
     <If Condition="GetQuestStep(69380) == 255">
 		<If Condition="not IsOnMap(915)">	
-		  <LisbethTravel Area="Yanxia (Namai)" Position="-492.9766, 1.301181, 542.1513"/>
-		  <UseTransport NpcId="1024794" InteractDistance="3.0" XYZ="-493.9803,1.301181,542.9006"/>
-		  <LisbethTravel ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
-		  <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+			<While Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</While>				
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 		</If>
       <MoveTo ZoneId="915" XYZ="9.81843, 2.87424, -50.29003"/>
       <LLTurnIn ItemId="2002994" QuestId="69380" NpcId="1032903" XYZ="9.048584, 2.969442, -52.99463"/>	
     </If>	
 	
-	<LLoadProfile Path="../Start.xml"/>
+	<LLoadProfile Path="1. Where Eagles Nest.xml"/>
 	
   </Order>
   <CodeChunks>
@@ -421,6 +422,73 @@
         await Coroutine.Sleep(26000);
       ]]>
     </CodeChunk>
+	<CodeChunk Name="FireintheForge">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032903);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}					
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing current class.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+					}					
+					
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();						
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (!SelectString.IsOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}				
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Oh gods, you don't mean..?'.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+					}
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(3000);
+					}
+
+				await Buddy.Coroutines.Coroutine.Sleep(10000);		
+			]]>			
+	</CodeChunk>	
   </CodeChunks>
 </Profile>
 

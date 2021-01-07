@@ -26,7 +26,7 @@
       </If>
     </If>
     <If Condition="GetQuestStep(69479) == 1">
-		<MoveTo XYZ="-68.6456, 18, 715.2679" />
+		<MoveTo XYZ="-53.84216, 16.91385, 737.631" />
 		<Grind GrindRef="Slashers and Nimrods" while="GetQuestStep(69479) == 1"/>  
     </If>
     <If Condition="GetQuestStep(69479) == 255">

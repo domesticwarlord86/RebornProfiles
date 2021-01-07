@@ -47,10 +47,11 @@
   <Name>Bozjan Leveling</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
-	
+  
 	<RunCode name="Disable_Flight"/>
   
 	<While Condition="IsOnMap(920)">
+		<Log Message="Starting Bozjan Leveling..." />
 	
 		<!-- Rank up if ready -->
 		<If condition="CurrentMettle() &gt; NextResistanceRank()">
