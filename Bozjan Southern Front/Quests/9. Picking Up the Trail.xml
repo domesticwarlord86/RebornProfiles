@@ -9,18 +9,7 @@
   <Order>
     <!-- Picking Up the Trail -->
     <If Condition="not HasQuest(69486) and not IsQuestCompleted(69486)">
-	  <If Condition="not IsOnMap(920)">
-			<If Condition="not IsOnMap(915)">	
-				<While Condition="not IsOnMap(759)">
-					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
-				</While>				
-				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
-				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
-			</If>	  
-		<NoCombatMoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
-		<RunCode name="EnterBozjan"/>
-	  </If>	
-      <NoCombatMoveTo XYZ="-209.9232, 5, 819.7579"/>
+      <LisbethTravel ZoneId="920" XYZ="-209.9232, 5, 819.7579"/>
       <If Condition="IsQuestAcceptQualified(69486)">
         <LLPickupQuest QuestId="69486" NpcId="1034464"/>
         <LLSmallTalk/>
@@ -28,24 +17,20 @@
     </If> 
     <If Condition="GetQuestStep(69486) == 1">
 		<If Condition="GetQuestById(69486).GetTodoArgs(1, 0).Item1 == 0">
-		  <NoCombatNoCombatMoveTo XYZ="499.4144, 2.111758, 885.6027"/>
+		  <LisbethTravel ZoneId="920" XYZ="499.4144, 2.111758, 885.6027"/>
 		  <UseObject NpcId="2011149" XYZ="500.0839, 1.998901, 886.778" QuestId="69486" StepId="1" UseTimes="1"/>
 		</If> 
 		<If Condition="GetQuestById(69486).GetTodoArgs(2, 0).Item1 == 0">
-			<NoCombatMoveTo XYZ="487.4612, 34.90435, 532.7179"/>
-			<RunCode name="AetheryteSteva"/>
-			<NNoCombatMoveTo XYZ="214.6945, 3.237701, 271.3306"/>
+			<LisbethTravel ZoneId="920" XYZ="214.6945, 3.237701, 271.3306"/>
 			<UseObject NpcId="2011150" XYZ="217.4563, 3.097534, 271.4121" QuestId="69486" StepId="1" UseTimes="1"/>			
 		</If>	
     </If>
     <If Condition="GetQuestStep(69486) == 2">
-      <NoCombatMoveTo XYZ="167.7048, 2.921999, 191.8022" />
-	  <RunCode name="AetheryteAegis"/>
-      <MoveTo XYZ="-212.4263, 5, 816.5759"/>
+      <LisbethTravel ZoneId="920" XYZ="-212.4263, 5, 816.5759"/>
       <LLTalkTo NpcId="1034005" XYZ="-213.0617, 5, 814.847" QuestId="69486" StepId="2"/>	  
     </If>	
     <If Condition="GetQuestStep(69486) == 255">
-      <NoCombatMoveTo XYZ="-212.4263, 5, 816.5759"/>
+      <LisbethTravel ZoneId="920" XYZ="-212.4263, 5, 816.5759"/>
       <LLTurnIn QuestId="69486" NpcId="1034005" XYZ="-213.0617, 5, 814.847"/>
       <LLSmallTalk/>
     </If>

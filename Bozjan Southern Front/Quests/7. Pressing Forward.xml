@@ -9,25 +9,14 @@
   <Order>
     <!-- Pressing Forward -->
     <If Condition="not HasQuest(69484) and not IsQuestCompleted(69484)">
-	  <If Condition="not IsOnMap(920)">
-			<If Condition="not IsOnMap(915)">	
-				<While Condition="not IsOnMap(759)">
-					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
-				</While>				
-				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
-				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
-			</If>	  
-		<NoCombatMoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
-		<RunCode name="EnterBozjan"/>
-	  </If>		
-      <NoCombatMoveTo XYZ="-184.769, 5, 814.8079"/>
+      <LisbethTravel ZoneId="920" XYZ="-184.769, 5, 814.8079"/>
       <If Condition="IsQuestAcceptQualified(69484)">
         <LLPickupQuest QuestId="69484" NpcId="1034006"/>
         <LLSmallTalk/>
       </If>
     </If>
     <If Condition="GetQuestStep(69484) == 255">
-      <NoCombatMoveTo XYZ="-228.976, 35.97115, 530.2501"/>
+      <LisbethTravel ZoneId="920" XYZ="-228.976, 35.97115, 530.2501"/>
       <LLTurnIn QuestId="69484" NpcId="1034009" XYZ="-231.1895, 35.95686, 531.9142"/>
       <LLSmallTalk/>
 	  <MoveTo XYZ="-257.9538,35.93494,534.3556" />

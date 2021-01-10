@@ -20,13 +20,13 @@
 			Red (Chocobo) Alert										1608
 			Unicorn Flakes											1609
 			Parts and Recreation									1610 *Blacklist (Gather)
-			The Element of Supplies									1611
+			The Element of Supplies									1611 *Blacklist Too dangerous traveling to it
 			Heavy Boots of Lead										1612
 			No Camping Allowed										1613
 			Scavengers of Human Sorrow								1614
 			Help Wanted												1615
 			Pyromancer Supreme										1616	
-			  
+			 
 			3rd area fates
 			Waste the Rainbow										1617
 			The Wild Bunch											1618
@@ -78,10 +78,10 @@
 		</If>		
 		
 		<!-- Grind to Rank 2 to make next quest available -->
-		<If condition="Core.Me.ElementalLevel == 1 and CurrentMettle() &lt; NextResistanceRank()">
+		<While condition="Core.Me.ElementalLevel == 1 and CurrentMettle() &lt; NextResistanceRank()">
 			<Log Message="Doing Fates to grind Mettle to Rank 2..." />
-			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle &lt; NextResistanceRank" UseFlight="false" BlacklistIDs="1600,1607,1608,1609,1610,1611,1612,1613,1614,1615,1616,1617,1618,1619,1620,1621,1622,1623,1624,1625,1626,1627,1628"/>
-		</If>
+			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle &lt; NextResistanceRank" MinProgress="5"  FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>
+		</While>
 		
 		<!-- Complete 'Lost No Longer' if not done -->
 		<If condition="Core.Me.ElementalLevel &gt; 1 and not IsQuestCompleted(69480)">
@@ -90,13 +90,10 @@
 		</If>
 		
 		<!-- Grind to Rank 5 to make next quest available -->
-		<If condition="Core.Me.ElementalLevel &lt; 5 and CurrentMettle() &lt; NextResistanceRank()">	
+		<While condition="IsQuestCompleted(69480) and Core.Me.ElementalLevel &lt; 5 and CurrentMettle() &lt; NextResistanceRank()">	
 			<Log Message="Doing Fates to grind Mettle to Rank 5..." />
-			<!--
-			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" UseFlight="false" FateIds="1597,1598,1599,1600,1601,1602,1603,1604,1605,1606"/>
-			-->
-			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" UseFlight="false" BlacklistIDs="1600,1607,1608,1609,1610,1611,1612,1613,1614,1615,1616,1617,1618,1619,1620,1621,1622,1623,1624,1625,1626,1627,1628"/>
-		</If>		
+			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" MinProgress="5"  FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>
+		</While>		
 		
 		<!-- Complete 'On the Offensive' if not done -->
 		<If condition="Core.Me.ElementalLevel &gt; 4 and not IsQuestCompleted(69481)">
@@ -105,10 +102,10 @@
 		</If>
 
 		<!-- Grind to Rank 6 to make next quest available -->
-		<If condition="Core.Me.ElementalLevel &lt; 6 and CurrentMettle() &lt; NextResistanceRank()">	
+		<While condition="IsQuestCompleted(69481) and Core.Me.ElementalLevel &lt; 6 and CurrentMettle() &lt; NextResistanceRank()">	
 			<Log Message="Doing Fates to grind Mettle to Rank 6..." />
-			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" UseFlight="false" BlacklistIDs="1600,1610,1617,1618,1619,1620,1621,1622,1623,1624,1625,1626,1627,1628"/>
-		</If>		
+			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" MinProgress="5" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1613,1615,1616"/>
+		</While>		
 
 		<!-- Complete 'Time to Focus' if not done -->
 		<If condition="Core.Me.ElementalLevel &gt; 5 and not IsQuestCompleted(69482)">
@@ -117,10 +114,10 @@
 		</If>
 		
 		<!-- Grind to Rank 7 to make next quest available -->
-		<If condition="Core.Me.ElementalLevel &lt; 7 and CurrentMettle() &lt; NextResistanceRank()">	
+		<While condition="IsQuestCompleted(69482) and Core.Me.ElementalLevel &lt; 7 and CurrentMettle() &lt; NextResistanceRank()">	
 			<Log Message="Doing Fates to grind Mettle to Rank 7..." />
-			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" UseFlight="false" BlacklistIDs="1600,1610,1617,1618,1619,1620,1621,1622,1623,1624,1625,1626,1627,1628"/>
-		</If>
+			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" MinProgress="5"  FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1613,1615,1616"/>
+		</While>
 		
 		<!-- Complete 'Third Time's the Charm' if not done -->
 		<If condition="Core.Me.ElementalLevel &gt; 6 and not IsQuestCompleted(69483)">
@@ -129,10 +126,10 @@
 		</If>
 
 		<!-- Grind to Rank 8 to make next quest available -->
-		<If condition="Core.Me.ElementalLevel &lt; 8 and CurrentMettle() &lt; NextResistanceRank()">	
+		<While condition="IsQuestCompleted(69483) and Core.Me.ElementalLevel &lt; 8 and CurrentMettle() &lt; NextResistanceRank()">	
 			<Log Message="Doing Fates to grind Mettle to Rank 8..." />
-			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" UseFlight="false" BlacklistIDs="1600,1610,1617,1618,1619,1620,1621,1622,1623,1624,1625,1626,1627,1628"/>
-		</If>
+			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" MinProgress="5"  FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1613,1615,1616"/>
+		</While>
 
 		<!-- Complete 'Pressing Forward' if not done -->
 		<If condition="Core.Me.ElementalLevel &gt; 7 and not IsQuestCompleted(69484)">
@@ -141,10 +138,10 @@
 		</If>
 
 		<!-- Grind to Rank 9 to make next quest available -->
-		<If condition="Core.Me.ElementalLevel &lt; 9 and CurrentMettle() &lt; NextResistanceRank()">	
+		<While condition="IsQuestCompleted(69484) and Core.Me.ElementalLevel &lt; 9 and CurrentMettle() &lt; NextResistanceRank()">	
 			<Log Message="Doing Fates to grind Mettle to Rank 9..." />
-			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" UseFlight="false" BlacklistIDs="1600,1610,1623"/>
-		</If>
+			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" MinProgress="5"  FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1613,1615,1616,1617,1618,1619,1620,1621,1622,1624,1625,1627,1626,1628"/>
+		</While>
 
 		<!-- Complete 'Signature Acquired' if not done -->
 		<If condition="Core.Me.ElementalLevel &gt; 8 and not IsQuestCompleted(69485)">
@@ -159,10 +156,10 @@
 		</If>		
 
 		<!-- Grind to Rank 10 to make next quest available -->
-		<If condition="Core.Me.ElementalLevel &lt; 10 and CurrentMettle() &lt; NextResistanceRank()">	
+		<While condition="IsQuestCompleted(69486) and Core.Me.ElementalLevel &lt; 10 and CurrentMettle() &lt; NextResistanceRank()">	
 			<Log Message="Doing Fates to grind Mettle to Rank 10..." />
-			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" UseFlight="false" BlacklistIDs="1600,1610,1623"/>
-		</If>
+			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" MinProgress="5"  FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1613,1615,1616,1617,1618,1619,1620,1621,1622,1624,1625,1627,1626,1628"/>
+		</While>
 
 		<!-- Complete 'The Lady of Blades' if not done -->
 		<If condition="Core.Me.ElementalLevel &gt; 9 and not IsQuestCompleted(69487) and not GetQuestStep(69487) == 1">
@@ -171,21 +168,70 @@
 		</If>
 
 		<!-- Grind to Rank 15 -->
-		<If condition="Core.Me.ElementalLevel &lt; 15 and CurrentMettle() &lt; NextResistanceRank()">	
+		<While condition="Core.Me.ElementalLevel &gt; 9 and Core.Me.ElementalLevel &lt; 15 and CurrentMettle() &lt; NextResistanceRank()">	
 			<Log Message="Doing Fates to grind Mettle to Rank 15..." />
-			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" UseFlight="false" BlacklistIDs="1600,1610,1623"/>
-		</If>		
+			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank()" MinProgress="5"  FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1613,1615,1616,1617,1618,1619,1620,1621,1622,1624,1625,1627,1626,1628"/>
+		</While>		
 		
 	</While>
 	
 	<If Condition="not IsOnMap(920)">  
-		<LLoadProfile Path="Queue Bozjan.xml"/>
+		<If Condition="not IsOnMap(915)">	
+			<While Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</While>				
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>
+		<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+		<RunCode name="EnterBozjan"/>
 	</If>
   
   </Order>
   <GrindAreas>
   </GrindAreas>
   <CodeChunks>
+		<CodeChunk Name="EnterBozjan">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032080);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Enter the Bozjan southern front.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					}					
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>  
 		<CodeChunk Name="RankUp">
 			<![CDATA[
 				var npcId = GameObjectManager.GetObjectByNPCId(1033961);

@@ -32,6 +32,8 @@
     <If Condition="GetQuestStep(69479) == 255">
       <MoveTo ZoneId="920" XYZ="-185.2452, 5, 813.149"/>
       <LLTurnIn NpcId="1034006" XYZ="-182.7268, 5, 813.2295" QuestId="69479" StepId="255"/>
+	  <NoCombatMoveTo ZoneId="920" XYZ="-196.5356, 5, 873.1154"/>
+	  <RunCode name="RankUp"/>	  
     </If>
 
 	<LLoadProfile Path="../Start.xml"/>
@@ -88,6 +90,52 @@
 								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
 							   }									
 						}			
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="RankUp">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1033961);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+					
+					await Coroutine.Wait(5000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}				
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Enter the Bozjan southern front.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					}					
+
+					await Coroutine.Wait(5000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+				
 			]]>			
 		</CodeChunk>		
 	</CodeChunks>

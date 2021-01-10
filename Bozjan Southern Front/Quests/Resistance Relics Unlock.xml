@@ -412,7 +412,9 @@
       <LLTurnIn ItemId="2002994" QuestId="69380" NpcId="1032903" XYZ="9.048584, 2.969442, -52.99463"/>	
     </If>	
 	
-	<LLoadProfile Path="1. Where Eagles Nest.xml"/>
+	<If Condition="IsQuestCompleted(69380)">
+		<LLoadProfile Path="1. Where Eagles Nest.xml"/>
+	</If>	
 	
   </Order>
   <CodeChunks>

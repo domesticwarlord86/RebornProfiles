@@ -17,8 +17,6 @@
 		<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
 		<RunCode name="EnterBozjan"/>
 		
-		<LLoadProfile Path="../Start.xml"/>
-		
   </Order>
     <CodeChunks>
 		<CodeChunk Name="EnterBozjan">

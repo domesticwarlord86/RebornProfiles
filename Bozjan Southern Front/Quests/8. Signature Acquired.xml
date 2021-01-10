@@ -9,40 +9,26 @@
   <Order>
     <!-- Signature Acquired -->
     <If Condition="not HasQuest(69485) and not IsQuestCompleted(69485)">
-	  <If Condition="not IsOnMap(920)">
-			<If Condition="not IsOnMap(915)">	
-				<While Condition="not IsOnMap(759)">
-					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
-				</While>				
-				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
-				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
-			</If>	  
-		<NoCombatMoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
-		<RunCode name="EnterBozjan"/>
-	  </If>		
-      <NoCombatMoveTo XYZ="-210.045, 5, 817.7379"/>
+      <LisbethTravel ZoneId="920" XYZ="-210.045, 5, 817.7379"/>
       <If Condition="IsQuestAcceptQualified(69485)">
         <LLPickupQuest QuestId="69485" NpcId="1034462"/>
         <LLSmallTalk/>
       </If>
     </If>
     <If Condition="GetQuestStep(69485) == 1">
-      <RunCode name="AetheryteSteva"/>
-	  <NoCombatMoveTo XYZ="1.102384, 12.85732, 239.9422" />
+	  <LisbethTravel ZoneId="920" XYZ="1.102384, 12.85732, 239.9422" />
 	  <Grind GrindRef="GrindArea" while="GetQuestStep(69485) == 1"/>
     </If>
     <If Condition="GetQuestStep(69485) == 2">
-      <NoCombatMoveTo XYZ="1.60769, 12.85732, 238.4418"/>
+      <LisbethTravel ZoneId="920" XYZ="1.60769, 12.85732, 238.4418"/>
       <LLTalkTo NpcId="1034010" XYZ="1.785278, 12.85732, 239.4293" QuestId="69485" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69485) == 3">
-      <NoCombatMoveTo XYZ="169.7871,2.945007,192.2789" />
-	  <RunCode name="AetheryteAegis"/>
-      <NoCombatMoveTo XYZ="-215.314, 5, 832.5221"/>
+      <LisbethTravel ZoneId="920" XYZ="-215.314, 5, 832.5221"/>
       <LLTalkTo NpcId="1034001" XYZ="-216.4492, 4.999997, 830.8689" QuestId="69485" StepId="3"/>	  
     </If>
     <If Condition="GetQuestStep(69485) == 255">
-      <NoCombatMoveTo XYZ="-215.314, 5, 832.5221"/>
+      <LisbethTravel ZoneId="920" XYZ="-215.314, 5, 832.5221"/>
       <LLTurnIn QuestId="69485" NpcId="1034001" XYZ="-216.4492, 4.999997, 830.8689"/>
       <LLSmallTalk/>
     </If>
