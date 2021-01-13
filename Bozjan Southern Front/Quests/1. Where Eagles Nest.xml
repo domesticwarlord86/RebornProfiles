@@ -63,6 +63,7 @@
     <If Condition="GetQuestStep(69477) == 255">
       <MoveTo ZoneId="920" XYZ="-206.3452, 5, 817.8428"/>
       <LLTurnIn QuestId="69477" NpcId="1034004" XYZ="-207.2633, 5, 816.495"/>
+	  <MoveTo XYZ="-194.9791, 5, 807.6998" />
 	  <LLTalkTo NpcId="1032428" XYZ="-207.2633, 5, 816.4338" UseTimes="1"/>
     </If>
 	

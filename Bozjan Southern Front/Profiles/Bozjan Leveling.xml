@@ -141,7 +141,7 @@
 			<!-- Grind to Rank 9 to make next quest available -->
 			<While condition="IsQuestCompleted(69484) and Core.Me.ElementalLevel &lt; 9 and CurrentMettle() &lt; NextResistanceRank()">	
 				<Log Message="Doing Fates to grind Mettle to Rank 9..." />
-				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1615,1616,1617,1618,1622"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1615,1616,1617,1618,1622,1624,1628"/>
 			</While>
 
 			<!-- Complete 'Signature Acquired' if not done -->
@@ -159,7 +159,7 @@
 			<!-- Grind to Rank 10 to make next quest available -->
 			<While condition="IsQuestCompleted(69486) and Core.Me.ElementalLevel &lt; 10 and CurrentMettle() &lt; NextResistanceRank()">	
 				<Log Message="Doing Fates to grind Mettle to Rank 10..." />
-				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1615,1616,1617,1618,1622"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1615,1616,1617,1618,1622,1624,1628"/>
 			</While>
 
 			<!-- Complete 'The Lady of Blades' if not done -->
@@ -171,7 +171,7 @@
 			<!-- Grind to Rank 15 -->
 			<While condition="Core.Me.ElementalLevel &gt; 9 and Core.Me.ElementalLevel &lt; 15 and CurrentMettle() &lt; NextResistanceRank()">	
 				<Log Message="Doing Fates to grind Mettle to Rank 15..." />
-				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,16121615,1616,1617,1618,1622"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,16121615,1616,1617,1618,1622,1624,1628"/>
 			</While>
 
 		</While>
