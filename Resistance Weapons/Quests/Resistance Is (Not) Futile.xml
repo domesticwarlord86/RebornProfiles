@@ -139,8 +139,9 @@
 					while (Talk.DialogOpen)
 					{
 						Talk.Next();
-						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
 					}
 			]]>			
 	</CodeChunk>
@@ -203,8 +204,9 @@
 					while (Talk.DialogOpen)
 					{
 						Talk.Next();
-						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
 					}
 			]]>			
 	</CodeChunk>	

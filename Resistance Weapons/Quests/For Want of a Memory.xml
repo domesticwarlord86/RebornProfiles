@@ -146,9 +146,10 @@
 					while (Talk.DialogOpen)
 					{
 						Talk.Next();
-						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
-					}
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}	
 					
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
@@ -166,29 +167,11 @@
 					while (Talk.DialogOpen)
 					{
 						Talk.Next();
-						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
 					}
 
-					await Coroutine.Wait(10000, () => Talk.DialogOpen);
-					await Buddy.Coroutines.Coroutine.Sleep(500);
-					while (Talk.DialogOpen)
-					{
-						Talk.Next();
-						Logging.WriteDiagnostic("Waiting for more text...");
-						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
-					}
-
-					await Coroutine.Wait(10000, () => Talk.DialogOpen);
-					await Buddy.Coroutines.Coroutine.Sleep(500);
-					while (Talk.DialogOpen)
-					{
-						Talk.Next();
-						Logging.WriteDiagnostic("Waiting for more text...");
-						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
-					}
 					
 			]]>			
 		</CodeChunk>	
@@ -238,8 +221,9 @@
 					while (Talk.DialogOpen)
 					{
 						Talk.Next();
-						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
 					}
 					
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
@@ -258,28 +242,9 @@
 					while (Talk.DialogOpen)
 					{
 						Talk.Next();
-						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
-					}
-
-					await Coroutine.Wait(10000, () => Talk.DialogOpen);
-					await Buddy.Coroutines.Coroutine.Sleep(500);
-					while (Talk.DialogOpen)
-					{
-						Talk.Next();
-						Logging.WriteDiagnostic("Waiting for more text...");
-						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
-					}
-
-					await Coroutine.Wait(10000, () => Talk.DialogOpen);
-					await Buddy.Coroutines.Coroutine.Sleep(500);
-					while (Talk.DialogOpen)
-					{
-						Talk.Next();
-						Logging.WriteDiagnostic("Waiting for more text...");
-						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
 					}
 					
 			]]>			
