@@ -127,6 +127,14 @@
 					npcId.Interact();			
 
 					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}	
+	
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
 						Logging.WriteDiagnostic("Choosing 'For Want of a Memory'.");
@@ -201,9 +209,17 @@
 									Navigator.PlayerMover.MoveStop();
 								}
 
-					npcId.Interact();			
+					npcId.Interact();	
 
 					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}					
+					
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
 						Logging.WriteDiagnostic("Choosing 'Resistance Weapon Forging'.");

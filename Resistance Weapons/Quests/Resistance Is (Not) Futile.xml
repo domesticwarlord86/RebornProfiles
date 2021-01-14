@@ -7,6 +7,21 @@
   <Name>Resistance Is (Not) Futile</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
+  
+    <!-- A Sober Proposal -->
+    <If Condition="not HasQuest(69505) and not IsQuestCompleted(69505)">
+      <LisbethTravel Zone="915" Subzone="0" Position="-25.48248, -0.6, -33.38734"/>
+      <If Condition="IsQuestAcceptQualified(69505)">
+        <LLPickupQuest QuestId="69505" NpcId="1034885"/>
+        <LLSmallTalk/>
+      </If>
+    </If>  
+    <If Condition="GetQuestStep(69505) == 255">
+      <MoveTo XYZ="5.376861, 3.047925, -55.09902"/>
+      <LLTurnIn QuestId="69505" NpcId="1032879" XYZ="5.996765, 2.960186, -53.6355"/>
+      <LLSmallTalk/>
+    </If>
+	
 	<!-- Resistance Is (Not) Futile -->
     <If Condition="not HasQuest(69381)">	
 		<If Condition="not IsOnMap(915)">	
@@ -75,9 +90,17 @@
 									Navigator.PlayerMover.MoveStop();
 								}
 
-					npcId.Interact();			
+					npcId.Interact();						
 
 					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}					
+					
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
 						Logging.WriteDiagnostic("Choosing 'Resistance Weapon Forging'.");
@@ -138,9 +161,17 @@
 									Navigator.PlayerMover.MoveStop();
 								}
 
-					npcId.Interact();			
+					npcId.Interact();						
 
 					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}
+					
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
 						Logging.WriteDiagnostic("Choosing 'Resistance Is (Not) Futile'.");

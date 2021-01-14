@@ -12,7 +12,7 @@
 <!ENTITY dnc "0"> 
 <!ENTITY drg "0"> 
 <!ENTITY drk "0"> 
-<!ENTITY gnb "1"> 
+<!ENTITY gnb "0"> 
 <!ENTITY mch "0"> 	
 <!ENTITY mnk "0"> 
 <!ENTITY nin "0">
@@ -163,7 +163,7 @@
 			</If>
 			<!-- All done -->
 			<If Condition="HasAtLeast(30791,1)">
-				<LLToast message="Congratulations! You're all done with Dragoon."/>
+				<LLToast message="Congratulations! You're all done with Dark Knight."/>
 			</If>		
 			<!-- Woeborn -->
 			<If Condition="not HasAtLeast(30234,1)">
