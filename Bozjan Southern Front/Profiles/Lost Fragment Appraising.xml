@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Queue Eureka Anemos
+  Profile: Lost Fragment Appraising
   Authors: DomesticWarlord86, Kayla
 -->
 <Profile>
-  <Name>Queue Eureka Anemos</Name>
+  <Name>Lost Fragment Appraising</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
   
 	<If Condition="IsOnMap(920)">
-		<NoCombatMoveTo ZoneId="920" XYZ="-181.9944,5,859.2813" />
+		<Log Message="We're in Bozja, headed to Resistance Appraiser..." />
+		<LisbethTravel ZoneId="920" XYZ="-181.9944,5,859.2813" />
 		<RunCode name="AppraiseFragments"/>		
-	</If>
+	</If>	
 	<If Condition="not IsOnMap(920)">
+		<Log Message="We're not in Bozja, headed to Gangos Resistance Appraiser..." />
 		<If Condition="not IsOnMap(915)">	
 			<While Condition="not IsOnMap(759)">
 				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
@@ -20,9 +22,8 @@
 			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
 			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 		</If>
-		<MoveTo XYZ="-37.18628,-0.2999554,-34.62274" />
-		<RunCode name="AppraiseFragments915"/>
-	</If>
+		<RunCode name="AppraiseFragments"/>	
+	</If>	
 	
   </Order>
 	<CodeChunks>		
@@ -48,7 +49,9 @@
 					{30894, 10},
 					{30895, 11}
 				};
-				var npcId = GameObjectManager.GetObjectByNPCId(1032389);
+				uint[] appraiserIds = { 1032389,1035606 };
+				var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && appraiserIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+
 
 				if (!npcId.IsWithinInteractRange)
 
@@ -66,99 +69,13 @@
 				npcId.Interact();
 
 				await Coroutine.Wait(10000, () => SelectString.IsOpen);
-				await Buddy.Coroutines.Coroutine.Sleep(500);
-				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				
+				if (!SelectString.IsOpen)
 				{
-					Logging.WriteDiagnostic("Choosing 'Appraise forgotten fragments'.");
-					ff14bot.RemoteWindows.SelectString.ClickSlot(0);
-				}					
-											
-				await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("ItemInspectionList")!= null);
-				await Buddy.Coroutines.Coroutine.Sleep(500);
-				//Start
-				if (RaptureAtkUnitManager.GetWindowByName("ItemInspectionList") != null)
-				{
-					foreach (var slot in Slots.Keys)
-					{
-						if (InventoryManager.FilledSlots.Any(i => i.RawItemId == slot))
-						{
-							Logging.WriteDiagnostic(string.Format("Selecting Fragment: {0}", DataManager.GetItem(slot).CurrentLocaleName));
-							RaptureAtkUnitManager.GetWindowByName("ItemInspectionList").SendAction(2, 3, 0, 3, Slots[slot]);
-
-
-							await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
-							await Buddy.Coroutines.Coroutine.Sleep(500);
-							if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
-							{
-								Logging.WriteDiagnostic("Selecting Yes.");
-								ff14bot.RemoteWindows.SelectYesno.ClickYes();
-							}
-
-							await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("ItemInspectionResult") != null);
-							await Buddy.Coroutines.Coroutine.Sleep(500);
-							while (RaptureAtkUnitManager.GetWindowByName("ItemInspectionResult") != null)
-							{
-								if (InventoryManager.FilledSlots.Any(i => i.RawItemId == slot))
-								{
-									Logging.WriteDiagnostic("Appraising next Fragment.");
-									RaptureAtkUnitManager.GetWindowByName("ItemInspectionResult").SendAction(1, 3, 0);
-									await Buddy.Coroutines.Coroutine.Sleep(1000);
-								}
-								else
-								{
-									{
-										Logging.WriteDiagnostic("Out of boxes. Closing");
-										RaptureAtkUnitManager.GetWindowByName("ItemInspectionResult").SendAction(1, 3, 1);
-										await Buddy.Coroutines.Coroutine.Sleep(500);
-										await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("ItemInspectionList")!= null);
-									}
-								}
-							}
-						}
-					}
-				}
-
-				if (RaptureAtkUnitManager.GetWindowByName("ItemInspectionList") != null)
-				{
-					RaptureAtkUnitManager.GetWindowByName("ItemInspectionList").SendAction(1,3,0xFFFFFFFF);
-				}					
-			]]>			
-		</CodeChunk>
-		<CodeChunk Name="AppraiseFragments915">
-			<![CDATA[
-				Dictionary<uint, ulong> Slots = new Dictionary<uint, ulong>
-				{
-					{30884, 0},
-					{30885, 1},
-					{30886, 2},
-					{30887, 3},
-					{30888, 4},
-					{30889, 5},
-					{30890, 6},
-					{30891, 7},
-					{30892, 8},
-					{30893, 9},
-					{30894, 10},
-					{30895, 11}
-				};
-				var npcId = GameObjectManager.GetObjectByNPCId(1035606);
-
-				if (!npcId.IsWithinInteractRange)
-
-				{
-					var _target = npcId.Location;
-					Navigator.PlayerMover.MoveTowards(_target);
-					while (_target.Distance2D(Core.Me.Location) >= 4)
-					{
-						Navigator.PlayerMover.MoveTowards(_target);
-						await Coroutine.Sleep(100);
-					}
-					Navigator.PlayerMover.MoveStop();
-				}
-
-				npcId.Interact();
-
-				await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					npcId.Interact();
+						await Coroutine.Wait(10000, () => SelectString.IsOpen);
+				}				
+			
 				await Buddy.Coroutines.Coroutine.Sleep(500);
 				if (ff14bot.RemoteWindows.SelectString.IsOpen)
 				{

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Bozjan Fate Farm Whole Zone
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Bozjan Fate Farm Whole Zone</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  	<While Condition="IsOnMap(920)">
+			<Log Message="Starting Bozjan Leveling..." />
+			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,16121615,1616,1617,1618,1622,1624,1628"/>		
+			<LLFate MinLevel="0" MaxLevel="81" while="Core.Me.ElementalLevel == 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,16121615,1616,1617,1618,1622,1624,1628"/>		
+
+			<!-- Rank up if ready -->
+			<If condition="CurrentMettle() &gt; NextResistanceRank() and Core.Me.ElementalLevel &lt; 15">
+			  <Log Message="We have enough Mettle to rank up, doing so..." />
+				<If condition="ActionManager.IsReturnReady">
+					<Log Message="Return is ready, let's take the easy way back..." />
+					<RunCode name="Return"/>
+				</If>		  
+			  <LisbethTravel ZoneId="920" XYZ="-196.5356, 5, 873.1154"/>
+			  <RunCode name="RankUp"/>
+			  <LLSmallTalk/>
+			</If>				
+	</While>	
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="RankUp">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1033961);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+					
+					await Coroutine.Wait(5000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}				
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Enter the Bozjan southern front.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					}					
+
+					await Coroutine.Wait(5000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(500, () => !Talk.DialogOpen);
+						await Coroutine.Wait(500, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}	
+				
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="Return">
+			<![CDATA[
+				ActionManager.DoAction(ActionType.General, 8, Core.Me);
+				await Coroutine.Sleep(1000);
+				ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				await Coroutine.Sleep(4000);
+				await Coroutine.Wait(20000, () => CommonBehaviors.IsLoading);
+				if (CommonBehaviors.IsLoading)
+				{
+					await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+				}
+		  ]]>
+		</CodeChunk>		
+  </CodeChunks>
+</Profile>  

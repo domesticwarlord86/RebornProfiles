@@ -41,7 +41,7 @@
 			Of Steel and Flame										1626
 			The War Against the Machines							1628
 			 
-  
+		Went ahead turned off all the fates except the first zone. It's generally faster to just farm the bottom zone then worry about traveling and dying.
 -->
 <Profile>
   <Name>Bozjan Leveling</Name>
@@ -55,7 +55,7 @@
 		
 		<While condition="Character.IsAlive">
 			<!-- Rank up if ready -->
-			<If condition="CurrentMettle() &gt; NextResistanceRank()">
+			<If condition="CurrentMettle() &gt; NextResistanceRank() and Core.Me.ElementalLevel &lt; 15">
 			  <Log Message="We have enough Mettle to rank up, doing so..." />
 				<If condition="ActionManager.IsReturnReady">
 					<Log Message="Return is ready, let's take the easy way back..." />
@@ -81,7 +81,7 @@
 			<!-- Grind to Rank 2 to make next quest available -->
 			<While condition="Core.Me.ElementalLevel == 1 and CurrentMettle() &lt; NextResistanceRank()">
 				<Log Message="Doing Fates to grind Mettle to Rank 2..." />
-				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle &lt; NextResistanceRank and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>	
 			</While>
 			
 			<!-- Complete 'Lost No Longer' if not done -->
@@ -93,7 +93,7 @@
 			<!-- Grind to Rank 5 to make next quest available -->
 			<While condition="IsQuestCompleted(69480) and Core.Me.ElementalLevel &lt; 5 and CurrentMettle() &lt; NextResistanceRank()">	
 				<Log Message="Doing Fates to grind Mettle to Rank 5..." />
-				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>	
 			</While>		
 			
 			<!-- Complete 'On the Offensive' if not done -->
@@ -105,7 +105,7 @@
 			<!-- Grind to Rank 6 to make next quest available -->
 			<While condition="IsQuestCompleted(69481) and Core.Me.ElementalLevel &lt; 6 and CurrentMettle() &lt; NextResistanceRank()">	
 				<Log Message="Doing Fates to grind Mettle to Rank 6..." />
-				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1615,1616,1618"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>	
 			</While>		
 
 			<!-- Complete 'Time to Focus' if not done -->
@@ -117,7 +117,7 @@
 			<!-- Grind to Rank 7 to make next quest available -->
 			<While condition="IsQuestCompleted(69482) and Core.Me.ElementalLevel &lt; 7 and CurrentMettle() &lt; NextResistanceRank()">	
 				<Log Message="Doing Fates to grind Mettle to Rank 7..." />
-				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1615,1616"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>	
 			</While>
 			
 			<!-- Complete 'Third Time's the Charm' if not done -->
@@ -129,7 +129,7 @@
 			<!-- Grind to Rank 8 to make next quest available -->
 			<While condition="IsQuestCompleted(69483) and Core.Me.ElementalLevel &lt; 8 and CurrentMettle() &lt; NextResistanceRank()">	
 				<Log Message="Doing Fates to grind Mettle to Rank 8..." />
-				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1615,1616"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>	
 			</While>
 
 			<!-- Complete 'Pressing Forward' if not done -->
@@ -141,7 +141,7 @@
 			<!-- Grind to Rank 9 to make next quest available -->
 			<While condition="IsQuestCompleted(69484) and Core.Me.ElementalLevel &lt; 9 and CurrentMettle() &lt; NextResistanceRank()">	
 				<Log Message="Doing Fates to grind Mettle to Rank 9..." />
-				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1615,1616,1617,1618,1622,1624,1628"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>	
 			</While>
 
 			<!-- Complete 'Signature Acquired' if not done -->
@@ -159,7 +159,7 @@
 			<!-- Grind to Rank 10 to make next quest available -->
 			<While condition="IsQuestCompleted(69486) and Core.Me.ElementalLevel &lt; 10 and CurrentMettle() &lt; NextResistanceRank()">	
 				<Log Message="Doing Fates to grind Mettle to Rank 10..." />
-				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1615,1616,1617,1618,1622,1624,1628"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>	
 			</While>
 
 			<!-- Complete 'The Lady of Blades' if not done -->
@@ -171,8 +171,15 @@
 			<!-- Grind to Rank 15 -->
 			<While condition="Core.Me.ElementalLevel &gt; 9 and Core.Me.ElementalLevel &lt; 15 and CurrentMettle() &lt; NextResistanceRank()">	
 				<Log Message="Doing Fates to grind Mettle to Rank 15..." />
-				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,16121615,1616,1617,1618,1622,1624,1628"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>	
 			</While>
+		
+			<!-- Grind fates after 15 -->
+			<While condition="Core.Me.ElementalLevel == 15">	
+				<Log Message="Doing Fates to grind Coins at rank 15..." />
+				<LLToast message="Finally rank 15. Continuing to grind fates for Boza Coins"/>
+				<LLFate MinLevel="0" MaxLevel="81" while="Core.Me.ElementalLevel == 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>	
+			</While>		
 
 		</While>
 
@@ -276,12 +283,13 @@
 
 					await Coroutine.Wait(5000, () => Talk.DialogOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
-					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					while (Talk.DialogOpen)
 					{
 						Talk.Next();
-						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
-					}
+						await Coroutine.Wait(500, () => !Talk.DialogOpen);
+						await Coroutine.Wait(500, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}	
 				
 			]]>			
 		</CodeChunk>

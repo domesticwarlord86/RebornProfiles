@@ -7,15 +7,31 @@
   <Name>Queue Bozjan Southern Front</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
-		<If Condition="not IsOnMap(915)">	
-			<While Condition="not IsOnMap(759)">
-				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
-			</While>				
-			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
-			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
-		</If>
-		<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
-		<RunCode name="EnterBozjan"/>
+	  <While condition="not PartyManager.IsInParty or PartyManager.IsPartyLeader ">
+		<Log Message="I'm party leader, entering Bozja..." />
+			<If Condition="not IsOnMap(915)">	
+				<While Condition="not IsOnMap(759)">
+					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+				</While>				
+				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+			</If>
+			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+			<RunCode name="EnterBozjan"/>
+	  </While>
+
+	  <If condition="not PartyManager.IsPartyLeader ">
+		<Log Message="I'm not party leader, waiting for Bozja queue..." />
+			<If Condition="not IsOnMap(915)">	
+				<While Condition="not IsOnMap(759)">
+					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+				</While>				
+				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+			</If>
+			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+			<RunCode name="EnterBozjanPartyMemeber"/>			
+	  </If>		
 		
   </Order>
     <CodeChunks>
@@ -60,5 +76,22 @@
 						}			
 			]]>			
 		</CodeChunk>
+		<CodeChunk Name="EnterBozjan">
+			<![CDATA[
+					await Coroutine.Wait(-1, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>		
 	</CodeChunks>		
 </Profile>	
