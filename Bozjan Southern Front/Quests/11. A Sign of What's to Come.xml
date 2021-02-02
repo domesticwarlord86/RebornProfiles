@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: A Sign of What's to Come
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>A Sign of What's to Come</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- A Sign of What's to Come -->
+    <If Condition="not HasQuest(69561) and not IsQuestCompleted(69561)">
+	  <If Condition="not IsOnMap(915)">
+		<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+	  </If>	
+      <LisbethTravel Zone="915" Subzone="0" Position="14.73423, 0.01715678, -16.83397"/>
+      <If Condition="IsQuestAcceptQualified(69561)">
+        <LLPickupQuest QuestId="69561" NpcId="1032881"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69561) == 1">
+      <LisbethTravel Zone="915" Subzone="0" Position="20.46681, 0.09970947, -15.11946"/>
+      <LLTalkTo NpcId="1032880" XYZ="22.35443, 0.09971012, -14.69446" QuestId="69561" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69561) == 2">
+      <LisbethTravel Zone="920" Subzone="3529" Position="-205.7149, 5, 835.9313"/>
+      <LLTalkTo NpcId="1035592" XYZ="-204.6388, 5, 834.3175" QuestId="69561" StepId="2"/>		
+    </If>
+    <If Condition="GetQuestStep(69561) == 3">
+	  <LisbethTravel Area="Bozjan Southern Front" Position="533.6655, 42.00194, 367.4863"/>
+	  <MoveTo XYZ="532.0552, 48.51569, 329.1582" usemesh="false" />
+      <LisbethTravel Zone="920" Subzone="3537" Position="527.3263, 48.45167, 317.1978"/>
+      <LLTalkTo NpcId="1035595" XYZ="527.8248, 48.45736, 315.4497" QuestId="69561" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69561) == 255">
+      <LisbethTravel Zone="915" Subzone="0" Position="21.64733, 0.09970994, -14.98282"/>
+      <LLTurnIn QuestId="69561" NpcId="1032880" XYZ="22.35443, 0.09971012, -14.69446"/>
+      <LLSmallTalk/>
+    </If>	
+ 
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
