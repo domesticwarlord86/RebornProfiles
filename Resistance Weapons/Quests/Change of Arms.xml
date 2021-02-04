@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Change of Arms
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- In the Queen's Image -->
+    <If Condition="not HasQuest(69573) and not IsQuestCompleted(69573)">
+      <LisbethTravel Zone="915" Subzone="0" Position="5.196827, 3.118057, -56.00948"/>
+      <If Condition="IsQuestAcceptQualified(69573)">
+        <LLPickupQuest QuestId="69573" NpcId="1032879"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69573) == 255">
+      <LisbethTravel Zone="915" Subzone="0" Position="2.824108, 3.194337, -58.06374"/>
+      <LLTurnIn QuestId="69573" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>
+      <LLSmallTalk/>
+    </If>  
+   
+    <!--  Change of Arms -->
+    <If Condition="not HasQuest(69574)">
+		<If Condition="not IsOnMap(915)">	
+			<While Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</While>				
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>	  	
+      <MoveTo XYZ="2.502354, 3.161222, -57.83289"/>
+      <If Condition="IsQuestAcceptQualified(69574)">
+		<If condition="not IsQuestCompleted(69574)">
+			<While Condition="not HasQuest(69574)">
+				<RunCode name="FirstTimeChangeofArms"/>
+			</While>	
+		</If>
+		<If condition="IsQuestCompleted(69574)">
+			<While Condition="not HasQuest(69574)">
+				<RunCode name="NotFirstTimeChangeofArms"/>
+			</While>	
+		</If>		
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69574) == 255">
+	  <While condition="not HasAtLeast(32956,15)">
+		  <LLToast message="Please collect 15 Loathsome Memories of the Dying."/>
+		  <LLToast message="These come from Critical Engagments and Crystal Tower raids."/>
+		  <WaitTimer WaitTime="26" />
+	  </While>
+    </If>	
+	
+  </Order>
+  <GrindAreas> 
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="FirstTimeChangeofArms">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();			
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}	
+	
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Change of Arms'.");
+						ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+					}					
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}	
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing current class.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+					}
+
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();					
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+						await Coroutine.Sleep(3000);
+					}
+
+					
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="NotFirstTimeChangeofArms">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();	
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}					
+					
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Resistance Weapon Forging'.");
+						SelectIconString.ClickLineContains("Forging");
+					}					
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Change of Arms'.");
+						SelectString.ClickLineContains("Arms");
+					}					
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing current class.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+					}
+
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();					
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+						await Coroutine.Sleep(3000);
+					}
+					
+			]]>			
+		</CodeChunk>		
+  </CodeChunks>
+</Profile>  
