@@ -6,6 +6,7 @@ Don't hesitate to ask questions in my discord channel through the discord link b
 
 ## Discord Links
 [LLamaLibrary & DoH80-DoL80](https://discord.gg/GRczqQj)
+
 You can also DM at DomesticWarlord#8512.
 
 ## Looking to Donate? ♡
