@@ -401,6 +401,7 @@ Modified: DomesticWarlord86
       <!-- Bloom3 -->
       <TalkTo NpcId="2003304" XYZ="302.8763, -5.386536, 60.71558" InteractDistance="2.0" QuestId="66798"/>
       <WaitWhile Condition="HasQuest(66798) and GetQuestStep(66798) == 2 and GetQuestById(66798).QuestI8E == 32"/>
+	  <WaitWhile condition="Core.Me.HasAura(416)"/>
       <RunCode Name="EnableMount"/>
     </If>
     <If Condition="HasQuest(66798) and GetQuestStep(66798) == 2 and GetQuestById(66798).QuestI8E == 48">
@@ -417,6 +418,7 @@ Modified: DomesticWarlord86
       <TalkTo NpcId="2003077" XYZ="315.9685, -6.851379, -16.70868" InteractDistance="2.0" QuestId="66798"/>
       <RunCode Name="EnableMount"/>
       <WaitWhile Condition="HasQuest(66798) and GetQuestStep(66798) == 2 and GetQuestById(66798).QuestI8E == 48"/>
+	  <WaitWhile condition="Core.Me.HasAura(416)"/>
     </If>
     <If Condition="HasQuest(66798) and GetQuestStep(66798) == 2 and GetQuestById(66798).QuestI8E == 64">
       <RunCode Name="DisableMount"/>
@@ -435,6 +437,7 @@ Modified: DomesticWarlord86
       <!-- Bloom5 -->
       <TalkTo NpcId="2003076" XYZ="-19.15009, 19.33313, -11.49011" InteractDistance="2.0" QuestId="66798"/>
       <WaitWhile Condition="HasQuest(66798) and GetQuestStep(66798) == 2 and GetQuestById(66798).QuestI8E == 64"/>
+	  <WaitWhile condition="Core.Me.HasAura(416)"/>
       <RunCode Name="EnableMount"/>
     </If>
     <If Condition="HasQuest(66798) and GetQuestStep(66798) == 2 and GetQuestById(66798).QuestI8E == 80">

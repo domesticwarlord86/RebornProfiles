@@ -7,7 +7,12 @@ Authors:  Sodimm.
   <Name>[OrderBot] Sahagin Dailies.</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
-  
+ 
+      <If Condition="ClassName != ((ClassJobType.Paladin) or (ClassJobType.Warrior) or (ClassJobType.DarkKnight) or (ClassJobType.Gunbreaker) or (ClassJobType.Whitemage) or (ClassJobType.Scholar) or (ClassJobType.Astrologian) or (ClassJobType.Monk) or (ClassJobType.Dragoon) or (ClassJobType.Ninja) or (ClassJobType.Samurai) or (ClassJobType.Bard) or (ClassJobType.Machinist) or (ClassJobType.Dancer) or (ClassJobType.Blackmage) or (ClassJobType.Summoner) or (ClassJobType.Redmage))">
+        <LogMessage Message="Not already on a DoW/M class, swapping."/>
+        <RunCode name="SwitchDoWMJob"/>
+      </If>
+ 
 	<!-- Unlock Quests -->
   
     <!-- They Came from the Deep -->
@@ -72,6 +77,7 @@ Authors:  Sodimm.
   
     <!-- Register Dailies -->
     <RegisterDailies QuestIds="66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935,66936,66937,66938,66939,66940,66941,66942,66943,66944,66945"/>
+
     
 	<!-- Pick Ups -->
     <If Condition="not HasAtLeastOneQuest(Array[int]([66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935,66936,66937,66938,66939,66940,66941,66942,66943,66944,66945]))">
@@ -527,7 +533,7 @@ Authors:  Sodimm.
       <Grind GrindRef="66920" While="HasQuest(66920) and GetQuestStep(66920) == 1"/>
     </If>
     <If Condition="HasQuest(66920) and GetQuestStep(66920) == 2">
-        <LisbethTravel ZoneId="138" XYZ="-239.2767, -42.13019, 15.2132"/>
+        <LisbethTravel Area="Western La Noscea" Position="-237.2961, -41.4765, 19.6162"/>
         <UseTransport NpcId="1005946" XYZ="-239.2767, -42.13019, 15.2132" QuestId="66920"/>
       <UseItem ItemId="2001267" NpcIds="2003840,2003841,2003842,2003843,2003844" QuestId="66920" StepId="2">
         <HotSpots>
@@ -1082,5 +1088,16 @@ Authors:  Sodimm.
           await Coroutine.Sleep(500);
         }
       ]]></CodeChunk>
+    <CodeChunk Name="SwitchDoWMJob">
+      <![CDATA[
+        var Combat = Enumerable.Range(8, 11).Append(0).Append(36);
+        var gearSets = GearsetManager.GearSets.Where(i => i.InUse && !Combat.Contains((int)i.Class)).ToList().OrderByDescending(i=> i.Gear.First().Item.ItemLevel);
+        if (gearSets.Any())
+        {
+          gearSets.First().Activate();
+          await Coroutine.Sleep(2000);
+        }
+            ]]>
+    </CodeChunk>	  
   </CodeChunks>
 </Profile>

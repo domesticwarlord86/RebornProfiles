@@ -12,6 +12,11 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
   
+	<!-- Check for gloves -->
+	<If condition="not HasAtLeast(8568,1) and IsQuestCompleted(67023)">
+	  <LLToast message="You will need you Ehcatle Wristgloves in your armory/inventory to do these quests."/>
+	</If>
+	
 	<!-- Unlock Quests -->
 	
     <!-- A Bad Bladder -->
@@ -47,6 +52,10 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 
     <!--  Reaching for Cloud Nine -->
     <If Condition="IsQuestCompleted(67022) and not HasQuest(67023) and not IsQuestCompleted(67023)">
+      <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
+        <LogMessage Message="Not already on a crafter class, swapping."/>
+        <RunCode Name="SwitchDoHJob"/>
+      </If>	
       <LisbethTravel Zone="154" Subzone="1385" Position="152.3006, -18.1403, 98.62043"/>
       <If Condition="IsQuestAcceptQualified(67023)">
         <LLPickupQuest QuestId="67023" NpcId="1009199"/>
@@ -101,21 +110,169 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <LisbethTravel Zone="154" Subzone="1385" Position="152.1349, -18.1403, 98.8922"/>
       <LLTurnIn QuestId="67023" NpcId="1009199" XYZ="149.4315, -18.1403, 99.22937"/>
       <LLSmallTalk/>
-    </If>		
-  
+    </If>	
+	
     <!-- Register Dailies -->
-	<RegisterDailies QuestIds="&dailyIds;"/>
+	<RegisterDailies QuestIds="&dailyIds;"/> 
     
 	<!-- Pick Ups -->
     <If Condition="not HasAtLeastOneQuest(Array[int]([67030,67031,67032,67033,67034,67035,67036,67037,67038,67039,67040,67041,67042,67043,67044,67045,67046,67047,67048,67049,67050,67051,67052,67053,67054,67055,67056,67057,67058,67059,67102,67103,67104]))">
-      
-      <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
-        <LogMessage Message="Not already on a crafter class, swapping."/>
-        <RunCode Name="SwitchDoHJob"/>
+
+		<LisbethTravel Area="North Shroud" Position="160.4249, -8.806292, 80.62713"/>
+		<If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
+		  <LogMessage Message="Not already on a crafter class, swapping."/>
+		  <RunCode Name="SwitchDoHJob"/>
+		</If>
+
+		<!-- Reputation quests -->
+		
+		<!--  A Designer Job -->
+		<If Condition="IsQuestCompleted(67023) and not HasQuest(67024) and not IsQuestCompleted(67024)">
+		  <If Condition="IsQuestAcceptQualified(67024)">
+			<LLPickupQuest QuestId="67024" NpcId="1009199"/>
+			<LLSmallTalk/>
+		  </If>
+		</If>	
+		<If Condition="GetQuestStep(67024) == 1">
+		  <LisbethTravel Zone="154" Subzone="85" Position="118.8112, -31.528, 301.4005"/>
+		  <LLTalkTo NpcId="1009600" XYZ="121.0803, -31.67817, 301.0757" QuestId="67024" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(67024) == 2">
+		  <LisbethTravel Zone="154" Subzone="85" Position="118.8112, -31.528, 301.4005"/>
+		  <LLTalkTo NpcId="1009600" XYZ="121.0803, -31.67817, 301.0757" QuestId="67024" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(67024) == 3">
+		  <LisbethTravel Zone="154" Subzone="136" Position="363.5286, -5.614082, 345.5943"/>
+		  <LLHandOver ItemId="2001365" NpcId="1009217" XYZ="363.7292, -5.616498, 347.219" QuestId="67024" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(67024) == 255">
+			<If condition="not HqHasAtLeast(8130,1)">
+			  <If condition="not Core.Me.HasAura(548)">
+				<LisbethTravel Zone="154" Subzone="136" Position="364.5977, -5.637067, 345.085"/>
+				<LLTalkTo NpcId="1009217" XYZ="363.7292, -5.616498, 347.219" QuestId="67024" StepId="255"/>	  
+			  </If>
+			  <If Condition="ClassName == ClassJobType.Carpenter">
+				<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8130,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
+			  </If>
+			  <If Condition="ClassName == ClassJobType.Blacksmith">
+				<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8130,'Amount':1,'Enabled':true,'Type':'Blacksmith','Hq':true}]"/>
+			  </If>
+			  <If Condition="ClassName == ClassJobType.Armorer">
+				<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8130,'Amount':1,'Enabled':true,'Type':'Armorer','Hq':true}]"/>
+			  </If>
+			  <If Condition="ClassName == ClassJobType.Goldsmith">
+				<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8130,'Amount':1,'Enabled':true,'Type':'Goldsmith','Hq':true}]"/>
+			  </If>
+			  <If Condition="ClassName == ClassJobType.Leatherworker">
+				<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8130,'Amount':1,'Enabled':true,'Type':'Leatherworker','Hq':true}]"/>
+			  </If>
+			  <If Condition="ClassName == ClassJobType.Weaver">
+				<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8130,'Amount':1,'Enabled':true,'Type':'Weaver','Hq':true}]"/>
+			  </If>
+			  <If Condition="ClassName == ClassJobType.Alchemist">
+				<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8130,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':true}]"/>
+			  </If>
+			  <If Condition="ClassName == ClassJobType.Culinarian">
+				<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8130,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
+			  </If>
+			</If>
+			<If Condition="HqHasAtLeast(8130,1)">
+			  <LisbethTravel Zone="154" Subzone="1385" Position="152.0988, -18.1403, 98.56183"/>
+			  <LLTurnIn ItemId="8130" QuestId="67024" NpcId="1009199" XYZ="149.4315, -18.1403, 99.22937"/>
+			  <LLSmallTalk/>
+			</If>		
+		</If>
+
+    <!--  The Boy from Gridania -->
+    <If Condition="not HasQuest(67025) and not IsQuestCompleted(67025)">
+      <LisbethTravel Zone="154" Subzone="1385" Position="152.3674, -18.1403, 99.09499"/>
+      <If Condition="IsQuestAcceptQualified(67025)">
+        <LLPickupQuest QuestId="67025" NpcId="1009204"/>
+        <LLSmallTalk/>
       </If>
-      
-	  <LisbethTravel Area="North Shroud" Position="160.4249, -8.806292, 80.62713"/>
-	  
+    </If>
+    <If Condition="GetQuestStep(67025) == 1">
+      <GetTo ZoneId="132" XYZ="25.20556, -19, 105.5969"/>
+      <LLTalkTo NpcId="1000107" XYZ="27.14575, -19, 106.6758" QuestId="67025" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67025) == 2">
+      <GetTo ZoneId="132" XYZ="195.6844, 0.004051328, 57.94854"/>
+      <LLTalkTo NpcId="1000195" XYZ="197.4364, 0.002604693, 57.1145" QuestId="67025" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67025) == 3">
+      <GetTo ZoneId="132" XYZ="191.8239, -5.960464E-08, 45.93721"/>
+      <LLHandOver ItemId="2001367" NpcId="1009607" XYZ="191.0582, 0, 46.34167" QuestId="67025" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(67025) == 4">
+      <LisbethTravel Zone="154" Subzone="141" Position="-4.461407, -40.94998, 179.4905"/>
+      <LLHandOver ItemId="2001366" NpcId="1009218" XYZ="-4.104736, -40.94998, 176.8368" QuestId="67025" StepId="4"/>
+    </If>
+    <While Condition="GetQuestStep(67025) == 255 and not HqHasAtLeast(8131,1)">	
+          <If Condition="ClassName == ClassJobType.Carpenter">
+            <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8131,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true,'AmountMode':'Restock'}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Blacksmith">
+            <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8131,'Amount':1,'Enabled':true,'Type':'Blacksmith','Hq':true,'AmountMode':'Restock'}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Armorer">
+            <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8131,'Amount':1,'Enabled':true,'Type':'Armorer','Hq':true,'AmountMode':'Restock'}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Goldsmith">
+            <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8131,'Amount':1,'Enabled':true,'Type':'Goldsmith','Hq':true,'AmountMode':'Restock'}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Leatherworker">
+            <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8131,'Amount':1,'Enabled':true,'Type':'Leatherworker','Hq':true,'AmountMode':'Restock'}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Weaver">
+            <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8131,'Amount':1,'Enabled':true,'Type':'Weaver','Hq':true,'AmountMode':'Restock'}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Alchemist">
+            <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8131,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':true,'AmountMode':'Restock'}]"/>
+          </If>
+          <If Condition="ClassName == ClassJobType.Culinarian">
+            <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8131,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true,'AmountMode':'Restock'}]"/>
+          </If>
+		<If Condition="CraftingLog.IsOpen and HqHasAtLeast(8131,1)">
+		  <StopCrafting/>
+		</If>		  
+    </While>
+    <If Condition="GetQuestStep(67025) == 255">
+      <LisbethTravel Zone="154" Subzone="1385" Position="153.1217, -18.41936, 99.60103"/>
+      <LLTurnIn ItemId="8131" QuestId="67025" NpcId="1009204" XYZ="151.9341, -18.41936, 100.7247"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!--  Lathe to the Party -->
+    <If Condition="not HasQuest(67026) and not IsQuestCompleted(67026)">
+      <LisbethTravel Zone="154" Subzone="1385" Position="151.5603, -18.1403, 98.28554"/>
+      <If Condition="IsQuestAcceptQualified(67026)">
+        <LLPickupQuest QuestId="67026" NpcId="1009199"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67026) == 1">
+      <LisbethTravel Zone="154" Subzone="1385" Position="151.9004, -18.1403, 98.84014"/>
+      <LLTalkTo NpcId="1009204" XYZ="151.9341, -18.41936, 100.7247" QuestId="67026" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67026) == 2">
+      <GetTo ZoneId="132" XYZ="26.8054, -8.047071, 134.6023"/>
+      <LLTalkTo NpcId="1009610" XYZ="25.98608, -8.047036, 135.4238" QuestId="67026" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67026) == 3">
+      <GetTo ZoneId="154" XYZ="-26.63077, -40.70508, 174.6992"/>
+      <LLTalkTo NpcId="1002804" XYZ="-26.2608, -40.70508, 172.7473" QuestId="67026" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(67026) == 4">
+      <GetTo ZoneId="154" XYZ="-36.34106, -40.94954, 161.7501"/>
+      <UseObject NpcId="2004543" XYZ="-35.99609, -40.57379, 160.6317" QuestId="67026" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(67026) == 255">
+      <LisbethTravel Zone="154" Subzone="1385" Position="151.4947, -18.1403, 98.32321"/>
+      <LLTurnIn ItemId="2001368" QuestId="67026" NpcId="1009199" XYZ="149.4315, -18.1403, 99.22937"/>
+      <LLSmallTalk/>
+    </If>	
+
+    	  
 	  <!-- Rank 6 -->
 	  
       <!-- West For Fishing -->
@@ -301,11 +458,6 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 	
     <!-- Rank 6 Quests -->
 	
-      <If Condition="ClassName != ((ClassJobType.Paladin) or (ClassJobType.Warrior) or (ClassJobType.DarkKnight) or (ClassJobType.Gunbreaker) or (ClassJobType.WhiteMage) or (ClassJobType.Scholar) or (ClassJobType.Astrologian) or (ClassJobType.Monk) or (ClassJobType.Dragoon) or (ClassJobType.Ninja) or (ClassJobType.Samurai) or (ClassJobType.Bard) or (ClassJobType.Machinist) or (ClassJobType.Dancer) or (ClassJobType.BlackMage) or (ClassJobType.Summoner) or (ClassJobType.RedMage))">
-        <LogMessage Message="Not already on a DoW/M class, swapping."/>
-        <RunCode name="SwitchDoWMJob"/>
-      </If>
-	
     <!-- A High Wind in Ishgard -->
     <If Condition="HasQuest(67059) and GetQuestStep(67059) == 1">
       <LisbethTravel ZoneId="154" XYZ="152.2728, -18.41936, 100.4052"/>
@@ -368,6 +520,9 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 	
     <!-- West for Fishing -->
     <If Condition="HasQuest(67056) and GetQuestStep(67056) == 1">
+	  <If condition="not HasAtLeast(2586,10)">
+		<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':2586,'Amount':10,'Enabled':true,'Type':'Purchase'}]"/>
+	  </If>	
       <LisbethTravel ZoneId="155" XYZ="303.5594, 301.962, -258.2455"/>
       <RunCode Name="Dismount"/>
 		<If Condition="not ClassName == ClassJobType.Fisher">	
@@ -444,7 +599,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     </If>
 	
     <!-- Escape Flyer Component -->
-    <While Condition="GetQuestStep(67056) == 255 and not HqHasAtLeast(8120,1)">
+    <While Condition="GetQuestStep(67056) == 255 and not HqHasAtLeast(8120,1)">	
           <If Condition="ClassName == ClassJobType.Carpenter">
             <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8120,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
           </If>
@@ -575,6 +730,10 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 	
     <!-- Isolator Component -->
     <While Condition="GetQuestStep(67059) == 255 and not HqHasAtLeast(8123,3)">
+  		  <If Condition="not Core.Me.HasAura(553)">
+		    <LisbethTravel Zone="155" Subzone="388" Position="202.7147, 302, -255.8322"/>
+		    <RunCode name="DetailingII"/>
+		  </If>	
           <If Condition="ClassName == ClassJobType.Carpenter">
             <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8123,'Amount':3,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
           </If>
@@ -616,6 +775,10 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 	
     <!-- Hyperconductor Component -->
     <While Condition="GetQuestStep(67102) == 255 and not HqHasAtLeast(8125,2)">
+  		  <If Condition="not Core.Me.HasAura(553)">
+		    <LisbethTravel Zone="155" Subzone="388" Position="202.7147, 302, -255.8322"/>
+		    <RunCode name="DetailingII"/>
+		  </If>		
           <If Condition="ClassName == ClassJobType.Carpenter">
             <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8125,'Amount':2,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
           </If>
@@ -663,6 +826,10 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 	
     <!-- Auxiliary Aerodynamo Component -->
     <While Condition="GetQuestStep(67103) == 255 and not HqHasAtLeast(8126,1)">
+  		  <If Condition="not Core.Me.HasAura(554)">
+		    <LisbethTravel Zone="155" Subzone="388" Position="202.7147, 302, -255.8322"/>
+		    <RunCode name="FinishingII"/>
+		  </If>	
           <If Condition="ClassName == ClassJobType.Carpenter">
             <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8126,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
           </If>
@@ -704,6 +871,10 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 	
     <!-- Decorative Plating Component -->
     <While Condition="GetQuestStep(67104) == 255 and not HqHasAtLeast(8127,2)">
+  		  <If Condition="not Core.Me.HasAura(554)">
+		    <LisbethTravel Zone="155" Subzone="388" Position="202.7147, 302, -255.8322"/>
+		    <RunCode name="FinishingII"/>
+		  </If>		
           <If Condition="ClassName == ClassJobType.Carpenter">
             <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8127,'Amount':2,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
           </If>
@@ -770,9 +941,9 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <TalkTo NpcId="1009220" XYZ="41.06635, 29, -798.4753" QuestId="67055" StepId="1"/>
     </If>
     <If Condition="HasQuest(67055) and GetQuestStep(67055) == 2">
-      <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
-        <LogMessage Message="Not already on a crafter class, swapping."/>
-        <RunCode Name="SwitchDoHJob"/>
+      <If Condition="ClassName != ((ClassJobType.Paladin) or (ClassJobType.Warrior) or (ClassJobType.DarkKnight) or (ClassJobType.Gunbreaker) or (ClassJobType.WhiteMage) or (ClassJobType.Scholar) or (ClassJobType.Astrologian) or (ClassJobType.Monk) or (ClassJobType.Dragoon) or (ClassJobType.Ninja) or (ClassJobType.Samurai) or (ClassJobType.Bard) or (ClassJobType.Machinist) or (ClassJobType.Dancer) or (ClassJobType.BlackMage) or (ClassJobType.Summoner) or (ClassJobType.RedMage))">
+        <LogMessage Message="Not already on a DoW/M class, swapping."/>
+        <RunCode name="SwitchDoWMJob"/>
       </If>
       <LisbethTravel ZoneId="156" XYZ="-134.609, -1.227495, -638.0457"/>
       <UseObject NpcIds="1009669,1009640,1009670" QuestId="67055" StepId="2">
@@ -786,6 +957,9 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 	
     <!-- Crazy Like The Pox -->
     <If Condition="HasQuest(67045) and GetQuestStep(67045) == 2">
+	  <If condition="not HasAtLeast(2586,10)">
+		<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':2586,'Amount':10,'Enabled':true,'Type':'Purchase'}]"/>
+	  </If>	
       <RunCode name="SwitchDoHJob"/>
       <LisbethTravel ZoneId="156" XYZ="-374.701, -17.14841, -416.918"/>
       <WaitWhile Condition="Core.Player.InCombat"/>
@@ -794,7 +968,6 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 		<ChangeClass Job="Fisher" Force="True"/>
 		<WaitTimer WaitTime="3" />
 	  </If>
-      <SoSendChat DoAction="Stealth"/>
       <Fish Mooch="0" Bait="Moth Pupa" Condition="GetQuestStepGtLt(67045,1,3)">
         <FishSpots>
           <FishSpot XYZ="-374.701, -17.14841, -416.918" Heading="3.816963"/>
@@ -1026,13 +1199,19 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 
     <!-- Tanks For Nothing -->
     <If Condition="HasQuest(67049) and GetQuestStep(67049) == 3">
-      <LisbethTravel ZoneId="156" XYZ="38.20673, 29, -798.4677"/>
+      <LisbethTravel Area="Mor Dhona" Position="26.05198, 29.49983, -764.8007"/>
       <RunCode name="SwitchDoHJob"/>
       <HandOver ItemIds="2001419,2001420" NpcId="1009220" XYZ="41.06635, 29, -798.4753" QuestId="67049" StepId="3"/>
     </If>
 	
     <!-- Ceruleum Tank Component -->
     <While Condition="GetQuestStep(67049) == 255 and not HqHasAtLeast(8117,1)">
+		  <!-- Detailing -->
+  		  <If Condition="not Core.Me.HasAura(551)">
+		    <LisbethTravel Area="Mor Dhona" Position="25.87372, 28.99997, -761.806"/>
+			<GetTo ZoneId="156" XYZ="38.4926, 29, -798.2023" />
+		    <RunCode name="Detailing"/>
+		  </If>			
           <If Condition="ClassName == ClassJobType.Carpenter">
             <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8117,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
           </If>
@@ -1071,6 +1250,12 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 	
     <!-- Steering Mechanism Component -->
     <While Condition="GetQuestStep(67055) == 255 and not HqHasAtLeast(8118,2)">
+		  <!-- Detailing -->
+  		  <If Condition="not Core.Me.HasAura(551)">
+		    <LisbethTravel Area="Mor Dhona" Position="25.87372, 28.99997, -761.806"/>
+			<GetTo ZoneId="156" XYZ="38.4926, 29, -798.2023" />
+		    <RunCode name="Detailing"/>
+		  </If>	
           <If Condition="ClassName == ClassJobType.Carpenter">
             <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8118,'Amount':2,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
           </If>
@@ -1233,6 +1418,14 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 	
     <!-- Heat Vent Component -->
     <While Condition="GetQuestStep(67039) == 255 and not HqHasAtLeast(8110,4)">
+   		  <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
+		    <LogMessage Message="Not already on a crafter class, swapping."/>
+			<RunCode Name="SwitchDoHJob"/>
+		  </If>	
+  		  <If Condition="not Core.Me.HasAura(551)">
+			<LisbethTravel Area="North Shroud" Position="446.029, -0.9374138, -67.87682"/>
+			<LLTalkTo NpcId="1008945" XYZ="445.4565, -0.9374095, -67.36859" UseTimes="1"/>
+		  </If>	
           <If Condition="ClassName == ClassJobType.Carpenter">
             <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8110,'Amount':4,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
           </If>
@@ -1515,8 +1708,10 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       <TalkTo NpcId="1009219" XYZ="249.4246, 222, 365.9561" QuestId="67054" StepId="1"/>
     </If>
     <If Condition="HasQuest(67054) and GetQuestStep(67054) == 2">
-      <LisbethTravel ZoneId="155" XYZ="204.5166, 293.33, 418.5701"/>
+	  <LisbethTravel Area="Coerthas Central Highlands" Position="244.8037, 222.007, 352.4557"/>
+      <GetTo ZoneId="155" XYZ="204.5166, 293.33, 418.5701"/>
       <HandOver ItemId="2001408" NpcId="1006378" XYZ="204.5166, 293.33, 418.5701" QuestId="67054" StepId="2"/>
+	  <GetTo ZoneId="155" XYZ="187.0559, 234.3627, 403.0905" />
     </If>
 	
     <!-- Simply The Biast -->
@@ -1531,6 +1726,9 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 	
     <!-- And Thanks for all the Fish -->
     <If Condition="HasQuest(67050) and GetQuestStep(67050) == 1">
+	  <If condition="not HasAtLeast(2586,10)">
+		<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':2586,'Amount':10,'Enabled':true,'Type':'Purchase'}]"/>
+	  </If>
       <LisbethTravel ZoneId="155" XYZ="-56.94362, 197.8425, 488.5516"/>
       <RunCode Name="Dismount"/>
 	  <If Condition="not ClassName == ClassJobType.Fisher">	
@@ -1589,7 +1787,8 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 
     <!-- An Empty Sack Can Not Hang Downright -->
     <If Condition="HasQuest(67051) and GetQuestStep(67051) == 2">
-      <LisbethTravel ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
+	  <LisbethTravel Area="Coerthas Central Highlands" Position="243.9117, 221.9521, 351.3064"/>
+      <GetTo ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
       <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
         <LogMessage Message="Not already on a crafter class, swapping."/>
         <RunCode Name="SwitchDoHJob"/>
@@ -1630,7 +1829,8 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 
     <!-- Hot Cross Buns -->
     <If Condition="HasQuest(67052) and GetQuestStep(67052) == 2">
-      <LisbethTravel ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
+	  <LisbethTravel Area="Coerthas Central Highlands" Position="243.9117, 221.9521, 351.3064"/>
+      <GetTo ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
       <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
         <LogMessage Message="Not already on a crafter class, swapping."/>
         <RunCode Name="SwitchDoHJob"/>
@@ -1671,7 +1871,8 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 
     <!-- Simply The Biast -->
     <If Condition="HasQuest(67053) and GetQuestStep(67053) == 2">
-      <LisbethTravel ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
+	  <LisbethTravel Area="Coerthas Central Highlands" Position="243.9117, 221.9521, 351.3064"/>
+      <GetTo ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
       <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
         <LogMessage Message="Not already on a crafter class, swapping."/>
         <RunCode Name="SwitchDoHJob"/>
@@ -1799,7 +2000,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <LogMessage Message="Not already on a DoW/M class, swapping."/>
         <RunCode name="SwitchDoWMJob"/>
       </If>
-      <LisbethTravel ZoneId="154" XYZ="-408.2403, 64.44772, -243.6947"/>
+      <LisbethTravel Area="Central Shroud" Position="-407.7225, 64.55655, -244.1456"/>
       <SoEmoteNpc Emote="say High as Honor" NpcId="1009634" XYZ="-408.2403, 64.44772, -243.6947" QuestId="67043" UseTimes="1" BlacklistAfter="True"/>
       <TalkTo NpcId="1009634" XYZ="-408.2403, 64.44772, -243.6947" QuestId="67043" StepId="1"/>
     </If>
@@ -1857,6 +2058,11 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 	
     <!-- Rigging Component -->
     <While Condition="GetQuestStep(67041) == 255 and not HqHasAtLeast(8096,2)">
+		  <!-- Detailing -->
+  		  <If Condition="not Core.Me.HasAura(551)">
+		    <LisbethTravel Area="North Shroud" Position="-4.375552, -40.94998, 178.775"/>
+		    <RunCode name="Detailing"/>
+		  </If>		
           <If Condition="ClassName == ClassJobType.Carpenter">
             <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8096,'Amount':2,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
           </If>
@@ -2475,12 +2681,161 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
           await Coroutine.Sleep(2000);
         }
             ]]>
-    </CodeChunk>	
+    </CodeChunk>
+		<CodeChunk Name="DetailingII">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1009221);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}
+					
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing current quest.");
+						if (ConditionParser.HasQuest(67059))
+							SelectIconString.ClickLineContains(("Ishgard"));
+						else if (ConditionParser.HasQuest(67102))
+							SelectIconString.ClickLineContains(("Ectoplasm"));
+					}					
+
+					await Coroutine.Wait(5000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(500, () => !Talk.DialogOpen);
+						await Coroutine.Wait(500, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}			
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="Detailing">
+			<![CDATA[
+				uint[] facilityIds = { 1009220,1008945,1009218 };
+				var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && facilityIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}
+					
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing current quest.");
+						if (ConditionParser.HasQuest(67049))
+							SelectIconString.ClickLineContains(("Tanks"));						
+						if (ConditionParser.HasQuest(67055))
+							SelectIconString.ClickLineContains(("Steer"));
+						if (ConditionParser.HasQuest(67039))
+							SelectIconString.ClickLineContains(("Hells"));
+						if (ConditionParser.HasQuest(67041))
+							SelectIconString.ClickLineContains(("Rigging"));							
+					}					
+
+					await Coroutine.Wait(5000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(500, () => !Talk.DialogOpen);
+						await Coroutine.Wait(500, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}			
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="FinishingII">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1009221);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}
+					
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing current quest.");
+						if (ConditionParser.HasQuest(67103))
+							SelectIconString.ClickLineContains(("Emergency"));
+						else if (ConditionParser.HasQuest(67104))
+							SelectIconString.ClickLineContains(("Squawkin"));
+					}					
+
+					await Coroutine.Wait(5000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(500, () => !Talk.DialogOpen);
+						await Coroutine.Wait(500, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}			
+			]]>			
+		</CodeChunk>		
   </CodeChunks>
   <GrindAreas>
     <GrindArea name="67102">
       <Hotspots>
-        <HotSpot Radius="45" XYZ="681.8679, 299.0426, -344.1425"/>
+        <HotSpot Radius="200" XYZ="681.8679, 299.0426, -344.1425"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="2918"/>
@@ -2490,7 +2845,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     </GrindArea>
     <GrindArea name="67053">
       <Hotspots>
-        <HotSpot Radius="25" XYZ="-240.1584, 226.7403, 410.9974"/>
+        <HotSpot Radius="200" XYZ="-240.1584, 226.7403, 410.9974"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="788"/>
@@ -2500,7 +2855,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     </GrindArea>
     <GrindArea name="67048">
       <Hotspots>
-        <HotSpot Radius="100" XYZ="-366.4447, -17.14841, -407.6499"/>
+        <HotSpot Radius="200" XYZ="-366.4447, -17.14841, -407.6499"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="237"/>
@@ -2510,7 +2865,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     </GrindArea>
     <GrindArea name="67042">
       <Hotspots>
-        <HotSpot Radius="40" XYZ="-195.2547, -63.12574, 363.3565"/>
+        <HotSpot Radius="200" XYZ="-195.2547, -63.12574, 363.3565"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="30"/>
@@ -2520,7 +2875,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
     </GrindArea>
     <GrindArea name="67039">
       <Hotspots>
-        <HotSpot Radius="25" XYZ="115.3613, 6.780309, -59.51439"/>
+        <HotSpot Radius="200" XYZ="115.3613, 6.780309, -59.51439"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="29"/>
