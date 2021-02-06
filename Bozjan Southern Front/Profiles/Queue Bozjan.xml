@@ -76,7 +76,7 @@
 						}			
 			]]>			
 		</CodeChunk>
-		<CodeChunk Name="EnterBozjan">
+		<CodeChunk Name="EnterBozjanPartyMemeber">
 			<![CDATA[
 					await Coroutine.Wait(-1, () => ContentsFinderConfirm.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);

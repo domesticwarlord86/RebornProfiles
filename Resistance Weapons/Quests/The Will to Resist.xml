@@ -252,18 +252,10 @@
 					npcId.Interact();
 
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
-					
-					if (!SelectString.IsOpen)
-					{
-						npcId.Interact();
-
-						await Coroutine.Wait(10000, () => SelectString.IsOpen);
-					}					
-					
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
 						Logging.WriteDiagnostic("Choosing Enter the Bozjan southern front.");
-						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						SelectString.ClickLineContains("southern");
 					}					
 
 					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
