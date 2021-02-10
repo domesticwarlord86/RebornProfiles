@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Valentiones & Little Ladies Day 2021
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Valentiones & Little Ladies Day 2021</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- A Delivery of Love -->
+    <If Condition="not HasQuest(69532) and not IsQuestCompleted(69532)">
+      <LisbethTravel Zone="133" Subzone="580" Position="-49.50475, 6.499995, -91.85413"/>
+      <If Condition="IsQuestAcceptQualified(69532)">
+        <LLPickupQuest QuestId="69532" NpcId="1035151"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69532) == 1">
+      <LisbethTravel Zone="134" Subzone="162" Position="-157.087, 51.70177, -107.7961"/>
+      <LLTalkTo NpcId="1035164" XYZ="-158.587, 51.70868, -107.4388" QuestId="69532" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69532) == 2">
+      <LisbethTravel Zone="134" Subzone="162" Position="-79.3494, 44.44341, -330.128"/>
+      <UseObject NpcId="2011278" XYZ="-78.96552, 44.41895, -330.7089" QuestId="69532" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69532) == 3">
+      <LisbethTravel Zone="134" Subzone="162" Position="-158.1308, 51.71457, -108.6568"/>
+      <LLHandOver ItemId="2003048" NpcId="1035164" XYZ="-158.587, 51.70868, -107.4388" QuestId="69532" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69532) == 255">
+      <LisbethTravel Zone="152" Subzone="155" Position="-603.2881, 7.943819, 97.76591"/>
+      <LLTurnIn NpcId="1035166" XYZ="-604.8524, 7.944, 97.24573" QuestId="69532" StepId="255"/>
+    </If>
+
+    <!-- Little Lady Adventurer -->
+    <If Condition="IsQuestCompleted(69532) and not HasQuest(69533) and not IsQuestCompleted(69533)">
+      <LisbethTravel Zone="152" Subzone="155" Position="-602.2407, 7.943656, 96.90913"/>
+      <If Condition="IsQuestAcceptQualified(69533)">
+        <LLPickupQuest QuestId="69533" NpcId="1035244"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69533) == 1">
+      <LisbethTravel Zone="132" Subzone="549" Position="23.30481, -19.00003, 101.8581"/>
+      <UseObject NpcId="2011279" XYZ="22.75116, -19.02808, 101.1825" QuestId="69533" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69533) == 2">
+	  <TeleportTo AetheryteId="9" Force="True"/>	
+      <LisbethTravel Zone="130" XYZ="-29.46154, 8, -105.0474"/>
+      <LLTalkTo NpcId="1035156" XYZ="-28.12244, 8, -104.6006" QuestId="69533" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69533) == 3">
+      <LisbethTravel Zone="130" XYZ="-29.46154, 8, -105.0474"/>
+      <LLTalkTo NpcId="1035156" XYZ="-28.12244, 8, -104.6006" QuestId="69533" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69533) == 4">
+      <LisbethTravel Zone="131" Subzone="0" Position="-84.3565, 40, 107.187"/>
+	  <UseTransport NpcId="1035275" InteractDistance="3.0" XYZ="-83.11597, 40, 109.0256"/>
+      <MoveTo XYZ="6.022512, 0.003999949, 5.885189"/>
+      <LLTalkTo NpcId="1035172" XYZ="5.020142, 0.003999993, 5.111694" QuestId="69533" StepId="4"/>	  
+      <TeleportTo AetheryteId="9" Force="True"/>	  
+    </If>
+    <If Condition="GetQuestStep(69533) == 5">
+      <MoveTo XYZ="-28.09937, 8, -105.4991"/>
+      <LLTalkTo NpcId="1035156" XYZ="-28.12244, 8, -104.6006" QuestId="69533" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69533) == 6">
+      <MoveTo XYZ="-34.85958, 8, -102.7691"/>
+      <LLTalkTo NpcId="1035184" XYZ="-36.30127, 7.999999, -101.5793" QuestId="69533" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(69533) == 255">
+      <LisbethTravel Zone="133" Subzone="580" Position="-49.50475, 6.499995, -91.85413"/>
+      <LLTurnIn QuestId="69533" NpcId="1035151" XYZ="-50.03442, 6.499998, -90.10455"/>
+      <LLSmallTalk/>
+    </If>	
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
