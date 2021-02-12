@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Resistance Remembers
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>The Resistance Remembers</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- The Resistance Remembers -->
+    <If Condition="not HasQuest(69575) and not IsQuestCompleted(69575)">
+		<If Condition="not IsOnMap(915)">	
+			<While Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</While>				
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>	
+      <LisbethTravel Zone="915" Subzone="0" Position="4.197684, 2.980416, -54.86144"/>
+      <If Condition="IsQuestAcceptQualified(69575)">
+        <LLPickupQuest QuestId="69575" NpcId="1032879"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69575) == 255"> 
+      <While Condition="not HasAtLeast(32957,18)"> <!-- Haunting Memory of the Dying -->
+		<If Condition="not IsOnMap(621)">
+		  <TeleportTo AetheryteId="102"/>
+		</If>
+		<LLFate MinLevel="1" MaxLevel="81" while="not HasAtLeast(32957,18)"/>
+	  </While>
+      <While Condition="not HasAtLeast(32958,18)"> <!-- Vexatious Memory of the Dying -->
+		<If Condition="not IsOnMap(622)">
+		  <TeleportTo AetheryteId="109"/>
+		</If>
+		<LLFate MinLevel="1" MaxLevel="81" while="not HasAtLeast(32958,18)" BlacklistIds="1267,1243,1308"/>
+	  </While>	  
+      <If Condition="HasAtLeast(32957,18) and HasAtLeast(32958,18)">
+		<If Condition="not IsOnMap(915)">	
+			<While Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</While>				
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>	  
+		  <LisbethTravel Zone="915" Subzone="0" Position="-7.498815, 3.461973, -64.31144"/>
+		  <LLTurnIn ItemIds="32957,32958" QuestId="69575" NpcId="1035623" XYZ="-8.835022, 3.643881, -65.81219"/>
+		  <LLSmallTalk/>
+	  </If>	  
+    </If>
+	
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

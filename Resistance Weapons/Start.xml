@@ -56,9 +56,13 @@
 			<!-- Law's Order Astrometer -->
 			<If Condition="HasAtLeast(30797,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
-			</If>				
+			</If>
+			<!-- Augmented Law's Order Astrometer -->
+			<If Condition="HasAtLeast(32663,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32663,1)">
+			<While Condition="HasAtLeast(32681,1)">
 				<LLToast message="Congratulations! You're all done with Astrologian."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -88,9 +92,13 @@
 			<!-- Law's Order Composite Bow -->
 			<If Condition="HasAtLeast(30789,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
+			</If>
+			<!-- Augmented Law's Order Composite Bow -->
+			<If Condition="HasAtLeast(32655,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32655,1)">
+			<While Condition="HasAtLeast(32673,1)">
 				<LLToast message="Congratulations! You're all done with Bard."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -120,9 +128,13 @@
 			<!-- Law's Order Rod -->
 			<If Condition="HasAtLeast(30794,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
-			</If>			
+			</If>
+			<!-- Augmented Law's Order Rod -->
+			<If Condition="HasAtLeast(32660,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
+			</If>				
 			<!-- All done -->
-			<While Condition="HasAtLeast(32660,1)">
+			<While Condition="HasAtLeast(32678,1)">
 				<LLToast message="Congratulations! You're all done with Black Mage."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -152,9 +164,13 @@
 			<!-- Law's Order Chakrams -->
 			<If Condition="HasAtLeast(30801,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
+			</If>
+			<!-- Augmented Law's Order Chakrams -->
+			<If Condition="HasAtLeast(32667,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32667,1)">
+			<While Condition="HasAtLeast(32685,1)">
 				<LLToast message="Congratulations! You're all done with Dancer."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -184,9 +200,13 @@
 			<!-- Law's Order Zweihander -->
 			<If Condition="HasAtLeast(30791,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
+			</If>
+			<!-- Augmented Law's Order Zweihander -->
+			<If Condition="HasAtLeast(32657,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32657,1)">
+			<While Condition="HasAtLeast(32675,1)">
 				<LLToast message="Congratulations! You're all done with Dark Knight."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -206,7 +226,7 @@
 		</If>		
 		<While Condition="ClassName == ClassJobType.Dragoon">
 			<!-- Augmented Dreizack -->
-			<If Condition="HasAtLeast(30234,1)">
+			<If Condition="HasAtLeast(30231,1)">
 				<LLoadProfile Path="Quests/For Want of a Memory.xml"/>
 			</If>
 			<!-- Dreizack Recollection -->
@@ -216,14 +236,18 @@
 			<!-- Law's Order Spear -->
 			<If Condition="HasAtLeast(30788,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
+			</If>
+			<!-- Augmented Law's Order Spear -->
+			<If Condition="HasAtLeast(32654,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32654,1)">
+			<While Condition="HasAtLeast(32672,1)">
 				<LLToast message="Congratulations! You're all done with Dark Knight."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
 			<!-- Dreizack -->
-			<If Condition="not HasAtLeast(30234,1)">
+			<If Condition="not HasAtLeast(30231,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
 			</If>		
 		</While>				
@@ -248,9 +272,13 @@
 			<!-- Law's Order Manatrigger -->
 			<If Condition="HasAtLeast(30800,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
+			</If>
+			<!-- Augmented Law's Order Manatrigger -->
+			<If Condition="HasAtLeast(32666,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32666,1)">
+			<While Condition="HasAtLeast(32684,1)">
 				<LLToast message="Congratulations! You're all done with Gunbreaker."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -280,9 +308,13 @@
 			<!-- Law's Order Revolver -->
 			<If Condition="HasAtLeast(30792,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
+			</If>
+			<!-- Augmented Law's Order Revolver -->
+			<If Condition="HasAtLeast(32658,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32658,1)">
+			<While Condition="HasAtLeast(32676,1)">
 				<LLToast message="Congratulations! You're all done with Machinist."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -312,9 +344,13 @@
 			<!-- Law's Order Knuckles -->
 			<If Condition="HasAtLeast(30786,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
-			</If>				
+			</If>
+			<!-- Augmented Law's Order Knuckles -->
+			<If Condition="HasAtLeast(32652,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32652,1)">
+			<While Condition="HasAtLeast(32670,1)">
 				<LLToast message="Congratulations! You're all done with Monk."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -344,9 +380,13 @@
 			<!-- Law's Order Knives -->
 			<If Condition="HasAtLeast(30790,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
+			</If>
+			<!-- Augmented Law's Order Knives -->
+			<If Condition="HasAtLeast(32656,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32656,1)">
+			<While Condition="HasAtLeast(32674,1)">
 				<LLToast message="Congratulations! You're all done with Ninja."/>
 				<WaitTimer WaitTime="26" />
 			</While>			
@@ -376,9 +416,13 @@
 			<!-- Law's Order Rapier -->
 			<If Condition="HasAtLeast(30799,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
+			</If>
+			<!-- Augmented Law's Order Rapier -->
+			<If Condition="HasAtLeast(32665,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32665,1)">
+			<While Condition="HasAtLeast(32683,1)">
 				<LLToast message="Congratulations! You're all done with Red Mage."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -408,9 +452,13 @@
 			<!-- Law's Order Bastard Sword -->
 			<If Condition="HasAtLeast(30785,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
+			</If>
+			<!-- Augmented Law's Order Bastard Sword -->
+			<If Condition="HasAtLeast(32651,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32651,1)">
+			<While Condition="HasAtLeast(32669,1)">
 				<LLToast message="Congratulations! You're all done with Paladin."/>
 				<WaitTimer WaitTime="26" />
 			</While>			
@@ -440,9 +488,13 @@
 			<!-- Law's Order Samurai Blade -->
 			<If Condition="HasAtLeast(30798,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
-			</If>			
+			</If>
+			<!-- Augmented Law's Order Samurai Blade -->
+			<If Condition="HasAtLeast(32664,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
+			</If>				
 			<!-- All done -->
-			<While Condition="HasAtLeast(32664,1)">
+			<While Condition="HasAtLeast(32682,1)">
 				<LLToast message="Congratulations! You're all done with Samurai."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -472,9 +524,13 @@
 			<!-- Law's Order Codex -->
 			<If Condition="HasAtLeast(30796,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
+			</If>
+			<!-- Augmented Law's Order Codex -->
+			<If Condition="HasAtLeast(32662,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32662,1)">
+			<While Condition="HasAtLeast(32680,1)">
 				<LLToast message="Congratulations! You're all done with Scholar."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -504,9 +560,13 @@
 			<!-- Law's Order Index -->
 			<If Condition="HasAtLeast(30795,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
+			</If>
+			<!-- Augmented Law's Order Index -->
+			<If Condition="HasAtLeast(32661,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32661,1)">
+			<While Condition="HasAtLeast(32679,1)">
 				<LLToast message="Congratulations! You're all done with Summoner."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
@@ -536,9 +596,13 @@
 			<!-- Law's Order Labrys -->
 			<If Condition="HasAtLeast(30787,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
-			</If>			
+			</If>
+			<!-- Augmented Law's Order Labrys -->
+			<If Condition="HasAtLeast(32653,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
+			</If>				
 			<!-- All done -->
-			<While Condition="HasAtLeast(32653,1)">
+			<While Condition="HasAtLeast(32671,1)">
 				<LLToast message="Congratulations! You're all done with Warrior."/>
 				<WaitTimer WaitTime="26" />
 			</While>			
@@ -569,9 +633,13 @@
 			<!-- Law's Order Cane -->
 			<If Condition="HasAtLeast(30793,1)">
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
-			</If>				
+			</If>
+			<!-- Augmented Law's Order Cane -->
+			<If Condition="HasAtLeast(32653,1)">
+				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32653,1)">
+			<While Condition="HasAtLeast(32677,1)">
 				<LLToast message="Congratulations! You're all done with White Mage."/>
 				<WaitTimer WaitTime="26" />
 			</While>		
