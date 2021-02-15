@@ -635,7 +635,7 @@
 				<LLoadProfile Path="Quests/Change of Arms.xml"/>
 			</If>
 			<!-- Augmented Law's Order Cane -->
-			<If Condition="HasAtLeast(32653,1)">
+			<If Condition="HasAtLeast(32659,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
 			<!-- All done -->
