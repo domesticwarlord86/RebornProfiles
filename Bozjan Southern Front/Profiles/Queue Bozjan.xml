@@ -7,7 +7,7 @@
   <Name>Queue Bozjan Southern Front</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
-	  <While condition="not PartyManager.IsInParty or PartyManager.IsPartyLeader ">
+	  <If condition="not PartyManager.IsInParty or PartyManager.IsPartyLeader">
 		<Log Message="I'm party leader, entering Bozja..." />
 			<If Condition="not IsOnMap(915)">	
 				<While Condition="not IsOnMap(759)">
@@ -18,9 +18,9 @@
 			</If>
 			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
 			<RunCode name="EnterBozjan"/>
-	  </While>
+	  </If>
 
-	  <If condition="not PartyManager.IsPartyLeader ">
+	  <If condition="not PartyManager.IsPartyLeader and PartyManager.IsInParty">
 		<Log Message="I'm not party leader, waiting for Bozja queue..." />
 			<If Condition="not IsOnMap(915)">	
 				<While Condition="not IsOnMap(759)">
@@ -57,9 +57,23 @@
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
-						Logging.WriteDiagnostic("Choosing Enter the Bozjan southern front.");
-						SelectString.ClickLineContains("southern");
-					}					
+						if (ConditionParser.IsQuestCompleted(69562))
+						{
+							Logging.WriteDiagnostic("Selecting 'The Bozjan Southern Front'.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+							await Coroutine.Wait(10000, () => SelectString.IsOpen);
+							await Buddy.Coroutines.Coroutine.Sleep(500);
+							{
+								Logging.WriteDiagnostic("Selecting 'Enter the Bozjan southern front'.");
+								ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+							}							
+						}
+						else if (!ConditionParser.IsQuestCompleted(69562))
+						{
+							Logging.WriteDiagnostic("Selecting 'Enter the Bozjan southern front'.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						}						
+					}										
 
 					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);

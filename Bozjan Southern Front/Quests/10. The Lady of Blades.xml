@@ -46,9 +46,23 @@
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
-						Logging.WriteDiagnostic("Choosing Enter the Bozjan southern front.");
-						SelectString.ClickLineContains("southern");
-					}					
+						if (ConditionParser.IsQuestCompleted(69562))
+						{
+							Logging.WriteDiagnostic("Selecting 'The Bozjan Southern Front'.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+							await Coroutine.Wait(10000, () => SelectString.IsOpen);
+							await Buddy.Coroutines.Coroutine.Sleep(500);
+							{
+								Logging.WriteDiagnostic("Selecting 'Enter the Bozjan southern front'.");
+								ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+							}							
+						}
+						else if (!ConditionParser.IsQuestCompleted(69562))
+						{
+							Logging.WriteDiagnostic("Selecting 'Enter the Bozjan southern front'.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						}						
+					}										
 
 					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
@@ -64,6 +78,6 @@
 							   }									
 						}			
 			]]>			
-		</CodeChunk> 
+		</CodeChunk>
 	</CodeChunks>	
 </Profile>  
