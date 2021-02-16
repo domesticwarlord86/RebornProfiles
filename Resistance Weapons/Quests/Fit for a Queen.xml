@@ -12,9 +12,9 @@
     <If Condition="not HasQuest(69562) and not IsQuestCompleted(69562)">
 	  <If Condition="not IsOnMap(915)">
 		<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
-	  </If>
-	  <GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
-	  <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+	    <GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+	    <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+	  </If>	
       <LisbethTravel Zone="915" Subzone="0" Position="20.58227, 0.09970956, -15.167"/>
       <If Condition="IsQuestAcceptQualified(69562)">
         <LLPickupQuest QuestId="69562" NpcId="1032880"/>
@@ -22,13 +22,28 @@
       </If>
     </If>
     <While Condition="GetQuestStep(69562) == 1">
-	  <LLToast message="Please complete the solo duty manually."/>
-	  <WaitTimer WaitTime="26" /> 
+	  <LisbethTravel Area="Gangos" Position="-20.32073, -0.550788, -26.23587"/>
+	  <While Condition="GetQuestStep(69562) == 1">
+		<LLToast message="Please complete the solo duty manually."/>
+		<WaitTimer WaitTime="26" /> 
+	  </While>	
     </While>	
     <While Condition="GetQuestStep(69562) == 3">
 	  <LLToast message="Please queue for Delubrum Reginae by talking to Mikoto."/>
 	  <WaitTimer WaitTime="26" />       
     </While>
+    <If Condition="GetQuestStep(69562) == 255">
+	  <If Condition="not IsOnMap(915)">
+		<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+	    <GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+	    <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+	  </If>	
+      <LisbethTravel Zone="915" Subzone="0" Position="15.83466, 0.02431321, -17.38521"/>
+      <LLTurnIn QuestId="69562" NpcId="1032881" XYZ="16.70856, 0.03045718, -17.92938"/>
+      <LLSmallTalk/>
+    </If>
+
+	<LLoadProfile Path="../Start.xml"/>
 	
   </Order>
   <GrindAreas>

@@ -28,7 +28,7 @@
 		<If Condition="not IsOnMap(621)">
 		  <TeleportTo AetheryteId="102"/>
 		</If>
-		<LLFate MinLevel="1" MaxLevel="81" while="not HasAtLeast(32957,18)"/>
+		<LLFate MinLevel="1" MaxLevel="81" while="not HasAtLeast(32957,18)" BlacklistIds="1277,1303"/>
 	  </While>
       <While Condition="not HasAtLeast(32958,18)"> <!-- Vexatious Memory of the Dying -->
 		<If Condition="not IsOnMap(622)">

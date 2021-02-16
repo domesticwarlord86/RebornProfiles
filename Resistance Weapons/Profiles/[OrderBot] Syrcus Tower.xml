@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
   Profile: [OrderBot] Syrcus Tower
-  Authors: Antony_256, DomesticWarlord86
+  Authors: Antony_256, DomesticWarlord86, NeonNeo
 -->
 <Profile>
 	<Name>[OrderBot] Syrcus Tower</Name>
-	<Author>Antony_256, DomesticWarlord86</Author>
+	<Author>Antony_256, DomesticWarlord86, NeonNeo</Author>
 	<Order>
 	<RunCode name="PluginLoad"/>
 		<While condition="not HasAtLeast(32956,15)">
