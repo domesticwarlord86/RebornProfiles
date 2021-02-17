@@ -5,7 +5,7 @@ Inisde you will find various profiles to be used wit RebornBuddy's OrderBot to d
 Don't hesitate to ask questions in my discord channel through the discord link below.
 
 ## Discord Links
-[LLamaLibrary & DoH80-DoL80](https://discord.gg/GRczqQj)
+[LLamaLibrary & DoH80-DoL80](https://discord.gg/aFZRBhAYPJ)
 
 You can also DM at DomesticWarlord#8512.
 
