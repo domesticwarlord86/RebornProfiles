@@ -2,6 +2,17 @@
 <!--
   Profile: [OrderBot] Syrcus Tower
   Authors: Antony_256, DomesticWarlord86, NeonNeo
+  
+  This profile is very experimental. The profile itself runs well enough but alone it doesn't handle any mechanics.
+  That's where Osiris, Sidestep, and DungeonAssist come into play.
+  https://github.com/BurnUnit83/DungeonAssist.git
+  https://github.com/domesticwarlord86/Osiris.git
+  Both of these are plugins that go in your Plugin folder. Again they are VERY experimental and very much should not be ran unattended.
+  Osiris should handle waiting for raises. Overriding the default OrderBot behavior of releasing on death.
+  DungeonAssist should come in and handle Curtain Call and Levitation platforms for mechanics. Should.
+  Don't use this profile if you aren't willing to possibly look like a bot. 
+  Botting around other people is extremly risky.
+  You really probably shouldn't use this profile at all.
 -->
 <Profile>
 	<Name>[OrderBot] Syrcus Tower</Name>

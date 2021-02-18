@@ -124,7 +124,7 @@
 							await Buddy.Coroutines.Coroutine.Sleep(500);
 							{
 								Logging.WriteDiagnostic("Choosing 'Change of Arms'.");
-								SelectIconString.ClickLineContains(("Change of Arms"));
+								SelectString.ClickLineContains(("Change of Arms"));
 							}							
 						}
 					}									

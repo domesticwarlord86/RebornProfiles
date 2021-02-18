@@ -35,6 +35,37 @@
 		<WaitTimer WaitTime="26" />
 	  </While>
 	  <If Condition="HasAtLeast(32959,15)">
+		<!-- Accomdate having the relic equipped -->
+		<If Condition="ClassName == ClassJobType.Bard">	
+			<ChangeClass Job="Bard" Force="True"/>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32655">
+				<Log Message="Law's Order weapon equipped, going to purchase differnt weapon." />
+				<LisbethTravel Area="Central Shroud" Position="16.39847, -8.011558, -13.21636"/>
+				<BuyItem NpcId="1000220" ItemId="1893" ItemCount="1" DialogOption="0" XYZ="16.18976,-8.010209,-15.64056"/>
+				<EquipWeapon ItemID="1893"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>		
+		<If Condition="ClassName == ClassJobType.Dragoon">	
+			<ChangeClass Job="Dragoon" Force="True"/>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32654">
+				<Log Message="Law's Order weapon equipped, going to purchase differnt weapon." />
+				<LisbethTravel Area="Central Shroud" Position="16.39847, -8.011558, -13.21636"/>
+				<BuyItem NpcId="1000220" ItemId="1822" ItemCount="1" DialogOption="0" XYZ="16.18976,-8.010209,-15.64056"/>
+				<EquipWeapon ItemID="1822"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>		
+		<If Condition="ClassName == ClassJobType.WhiteMage">	
+			<ChangeClass Job="WhiteMage" Force="True"/>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32659">
+				<Log Message="Law's Order weapon equipped, going to purchase differnt weapon." />
+				<LisbethTravel Area="Central Shroud" Position="16.39847, -8.011558, -13.21636"/>
+				<BuyItem NpcId="1000220" ItemId="1997" ItemCount="1" DialogOption="0" XYZ="16.18976,-8.010209,-15.64056"/>
+				<EquipWeapon ItemID="1997"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>	
 		<If Condition="not IsOnMap(915)">	
 			<While Condition="not IsOnMap(759)">
 				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
@@ -42,9 +73,11 @@
 			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
 			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 		</If>	  
-		<LisbethTravel Zone="915" Subzone="0" Position="0.4522509, 3.071334, -57.42433"/>
-		<LLTurnIn ItemId="32959" QuestId="69576" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>
-		<LLSmallTalk/>
+        <LisbethTravel Zone="915" Subzone="0" Position="-7.906094, 3.498878, -64.64737"/>
+        <While Condition="GetQuestStep(69576) == 255 and HasAtLeast(32959,15)">
+          <LLToast message="Please turn in 'A New Path of Resistance' and choose your weapon stats."/>
+		  <WaitTimer WaitTime="26" />
+		</While>
 	  </If>
     </If>	
 	
@@ -98,7 +131,7 @@
 							await Buddy.Coroutines.Coroutine.Sleep(500);
 							{
 								Logging.WriteDiagnostic("Choosing 'New Path of Resistance'.");
-								SelectIconString.ClickLineContains(("New Path of Resistance"));
+								SelectString.ClickLineContains(("Path"));
 							}							
 						}
 					}									
