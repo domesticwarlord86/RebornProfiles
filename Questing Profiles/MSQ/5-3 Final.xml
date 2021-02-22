@@ -103,15 +103,15 @@
     </If>
     <If Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 0">
       <FlyTo ZoneId="813" XYZ="686.146, 6.878385, 496.3295" land="True"/>
-      <SoUseItem ItemId="2003001" InCombat="True" NpcIds="2011079" XYZ="685.5725, 6.881775, 497.1235"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 0"/>
+      <LLUseItem ItemId="2003001" InCombat="True" NpcIds="2011079" XYZ="685.5725, 6.881775, 497.1235"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 0"/>
     </If>
     <If Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 1">
       <FlyTo ZoneId="813" XYZ="753.6814, 16.05424, 276.0833" land="True"/>
-      <SoUseItem ItemId="2003001" InCombat="True" NpcIds="2011078" XYZ="754.4517, 15.88458, 273.8842"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 1"/>  
+      <LLUseItem ItemId="2003001" InCombat="True" NpcIds="2011078" XYZ="754.4517, 15.88458, 273.8842"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 1"/>  
     </If>
 	<If Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 2">
 	  <FlyTo XYZ="495.4756, 10.2998, 290.547" land="True"/> 
-	  <SoUseItem ItemId="2003001" InCombat="True" NpcIds="2011076" XYZ="495.4756, 10.2998, 290.547"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 2"/>	
+	  <LLUseItem ItemId="2003001" InCombat="True" NpcIds="2011076" XYZ="495.4756, 10.2998, 290.547"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 2"/>	
 	</If>
     <If Condition="GetQuestStep(69308) == 3">
       <LisbethTravel ZoneId="813" XYZ="765.5645, 25.74815, 417.2639"/>
