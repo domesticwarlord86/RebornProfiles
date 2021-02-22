@@ -5,7 +5,7 @@
 -->
 <Profile>
   <Name>MSQ 5.4</Name>
-  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <BehaviorDirectory></BehaviorDirectory>
    <CodeChunks>
 		<CodeChunk Name="Announce_Manual_Completion">
 			  <![CDATA[

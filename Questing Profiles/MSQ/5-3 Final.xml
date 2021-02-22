@@ -5,7 +5,7 @@
 -->
 <Profile>
   <Name>5.3 MSQ</Name>
-  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <BehaviorDirectory></BehaviorDirectory>
    <CodeChunks>
 		<CodeChunk Name="MoveTo1033811"><![CDATA[ 
             Vector3[] _navPoints = new[]
@@ -186,7 +186,7 @@
     </If>
 	<If Condition="GetQuestStep(69311) == 1">
 		<LisbethTravel ZoneId="814" XYZ="-495.079, 8.986954, 604.2725" />
-		<SoTalkTo InteractDistance="3.0" QuestId="69311" StepId="1" NpcId="1033827" XYZ="-495.079, 8.986954, 604.2725" />
+		<LLTalkTo InteractDistance="3.0" QuestId="69311" StepId="1" NpcId="1033827" XYZ="-495.079, 8.986954, 604.2725" />
 	</If>
     <If Condition="GetQuestStep(69311) == 3">
 		<RunCode Name="Announce_Manual_Completion"/>
@@ -316,7 +316,7 @@
     </If>
     <If Condition="GetQuestStep(69316) == 2">
 	  <FlyTo XYZ="449.2618, 87.34377, -693.7781" Land="True"/>
-      <SoHandOver ItemId="2003004" NpcId="1027690" XYZ="452.9945, 87.48281, -691.9814" QuestId="69316" StepId="2"/>
+      <LLHandOver ItemId="2003004" NpcId="1027690" XYZ="452.9945, 87.48281, -691.9814" QuestId="69316" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69316) == 255">
       <FlyTo XYZ="-634.3483, 35.86156, -232.9583" Land="True"/>
@@ -343,7 +343,7 @@
     </If>
     <If Condition="GetQuestStep(69317) == 4">
       <LisbethTravel ZoneId="819" XYZ="-39.49377, 4.583, 3.593437"/>
-      <SoTalkTo NpcId="1033881" XYZ="-37.43042, 4.583, 3.982544" QuestId="69317" StepId="4"/>
+      <LLTalkTo NpcId="1033881" XYZ="-37.43042, 4.583, 3.982544" QuestId="69317" StepId="4"/>
     </If>
     <If Condition="GetQuestStep(69317) == 255">
       <LisbethTravel ZoneId="819" XYZ="24.23129, 0, 1.027337"/>
