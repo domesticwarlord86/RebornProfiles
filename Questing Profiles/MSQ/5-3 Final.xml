@@ -101,25 +101,34 @@
       <LisbethTravel ZoneId="813" XYZ="762.5529, 25.87214, 417.0964"/>
       <TalkTo NpcId="1033807" XYZ="761.2573, 25.95656, 417.9902" QuestId="69308" StepId="1"/>
     </If>
-    <If Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 0">
-      <FlyTo ZoneId="813" XYZ="686.146, 6.878385, 496.3295" land="True"/>
-      <LLUseItem ItemId="2003001" InCombat="True" NpcIds="2011079" XYZ="685.5725, 6.881775, 497.1235"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 0"/>
+    <If Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).GetTodoArgs(2, 0).Item1 == 0">
+      <LisbethTravel ZoneId="813" XYZ="686.146, 6.878385, 496.3295" land="True"/>
+      <LLUseItem ItemId="2003001" InCombat="True" NpcIds="2011079" XYZ="685.5725, 6.881775, 497.1235"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).GetTodoArgs(2, 0).Item1 == 0"/>
     </If>
-    <If Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 1">
-      <FlyTo ZoneId="813" XYZ="753.6814, 16.05424, 276.0833" land="True"/>
-      <LLUseItem ItemId="2003001" InCombat="True" NpcIds="2011078" XYZ="754.4517, 15.88458, 273.8842"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 1"/>  
+    <If Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).GetTodoArgs(2, 0).Item1 == 1">
+      <LisbethTravel ZoneId="813" XYZ="753.6814, 16.05424, 276.0833" land="True"/>
+      <LLUseItem ItemId="2003001" InCombat="True" NpcIds="2011078" XYZ="754.4517, 15.88458, 273.8842"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).GetTodoArgs(2, 0).Item1 == 1"/>  
     </If>
-	<If Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 2">
-	  <FlyTo XYZ="495.4756, 10.2998, 290.547" land="True"/> 
-	  <LLUseItem ItemId="2003001" InCombat="True" NpcIds="2011076" XYZ="495.4756, 10.2998, 290.547"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).LisbethTraveldoArgs(2, 0).Item1 == 2"/>	
+	<If Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).GetTodoArgs(2, 0).Item1 == 2">
+	  <LisbethTravel XYZ="495.4756, 10.2998, 290.547" land="True"/> 
+	  <LLUseItem ItemId="2003001" InCombat="True" NpcIds="2011076" XYZ="495.4756, 10.2998, 290.547"  Radius="25"  QuestId="69308" StepId="2" Condition="GetQuestStep(69308) == 2 and GetQuestById(69308).GetTodoArgs(2, 0).Item1 == 2"/>	
 	</If>
     <If Condition="GetQuestStep(69308) == 3">
       <LisbethTravel ZoneId="813" XYZ="765.5645, 25.74815, 417.2639"/>
       <TalkTo NpcId="1033808" XYZ="763.9734, 25.8747, 419.5162" QuestId="69308" StepId="3"/>
     </If>
     <If Condition="GetQuestStep(69308) == 4">
-      <LisbethTravel ZoneId="819" XYZ="-195.1976, 0, -81.9381"/>
-	  <RunCode Name="MoveTo1033811"/>
+      <LisbethTravel Area="The Crystarium" Position="-194.7508, 1.192093E-07, -81.48191"/>
+	  <MoveTo XYZ="-194.7508, 1.192093E-07, -81.48191" usemesh="false" />
+	  <MoveTo XYZ="-213.5775, 8.898435, -83.63236" usemesh="false" distance="1" />
+	  <MoveTo XYZ="-212.237, 8.898595, -90.18911" usemesh="false" distance="1" />
+	  <MoveTo XYZ="-195.5652, 17.75976, -87.82063" usemesh="false" distance="1" />	  
+	  <MoveTo XYZ="-196.8331, 17.75959, -80.30481" usemesh="false" distance="1" />
+	  <MoveTo XYZ="-213.6313, 26.65714, -82.99244" usemesh="false" distance="1" />
+	  <MoveTo XYZ="-212.1664, 26.65728, -90.73178" usemesh="false" distance="1" />
+	  <MoveTo XYZ="-193.5049, 35.58688, -86.63007" usemesh="false" distance="1" />
+	  <MoveTo XYZ="-199.4171, 36.05074, -80.12728" usemesh="false" distance="1" />
+	  <MoveTo XYZ="-221.6893, 38.61477, -86.58945" usemesh="false" distance="1" />
       <UseObject NpcIds="2011107" XYZ="-223.1328, 38.59009, -86.80859"  Radius="25"  QuestId="69308" StepId="4"/>
     </If>
     <If Condition="GetQuestStep(69308) == 255">
@@ -180,9 +189,9 @@
 		<If Condition="not IsOnMap(819)">
 			<LisbethTravel ZoneId="819" XYZ="44.30539, 0, 1.387627" />
 		</If>	
-      <If Condition="IsQuestAcceptQualified(69311)">
+      <While Condition="IsQuestAcceptQualified(69311) and not HasQuest(69311)">
         <PickupQuest NpcId="1033823" QuestId="69310" />
-      </If>
+      </While>
     </If>
 	<If Condition="GetQuestStep(69311) == 1">
 		<LisbethTravel ZoneId="814" XYZ="-495.079, 8.986954, 604.2725" />
@@ -244,9 +253,10 @@
     <If Condition="GetQuestStep(69313) == 2">
       <TalkTo NpcId="1033830" XYZ="23.81927, 82.05, 16.34241" QuestId="69313" StepId="2"/>
     </If>
-	<If Condition="GetQuestStep(69313) == 3">
-		<RunCode Name="Announce_Manual_Completion"/>	
-	</If>
+	<While Condition="GetQuestStep(69313) == 3">
+		<LLToast message="Please complete the next step manually."/>
+		<WaitTimer WaitTime="26" />	
+	</While>
     <If Condition="GetQuestStep(69313) == 5">
       <LisbethTravel ZoneId="813" XYZ="289.5783, 10.08115, 151.0817"/>
       <TalkTo NpcId="1033850" XYZ="291.493, 9.905236, 153.2157" QuestId="69313" StepId="5"/>
@@ -263,7 +273,7 @@
     <If Condition="IsQuestCompleted(69313) and not HasQuest(69314) and not IsQuestCompleted(69314)">
 		<LisbethTravel ZoneId="819" XYZ="59.98315, -3.054738E-07, 1.602173" />
 		<If Condition="IsQuestAcceptQualified(69314)">
-			<PickupQuest NpcId="1033854" QuestId="69314" />
+			<LLPickupQuest NpcId="1033854" QuestId="69314" />
 		</If>
     </If>
 	<If Condition="GetQuestStep(69314) == 2">
@@ -284,20 +294,21 @@
       <TalkTo NpcId="1034902" XYZ="51.28552, -2.607703E-07, -1.480164" QuestId="69315" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69315) == 2">
-      <LisbethTravel ZoneId="819" XYZ="386.962, -28.36043, 322.2568" Land="True"/>
+	  <If Condition="not IsOnMap(819)">
+		<TeleportTo AetheryteId="161"/>
+	  </If>	
+      <MoveTo XYZ="385.0558, -28.36043, 320.9923"/>
       <TalkTo NpcId="1033864" XYZ="384.6035, -28.36043, 322.5604" QuestId="69315" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69315) == 3">
-      <LisbethTravel ZoneId="819" XYZ="251.7905, -46.62462, 336.0335" Land="True"/>
+      <LisbethTravel Area="Amh Araeng (East)" Position="254.7562, -46.41436, 336.2607"/>
       <TalkTo NpcId="1033865" XYZ="251.8501, -46.66753, 336.9039" QuestId="69315" StepId="3"/>
     </If>
     <If Condition="GetQuestStep(69315) == 4">
       <TalkTo NpcId="1033867" XYZ="253.2844, -46.5711, 337.0259" QuestId="69315" StepId="4"/>
     </If>
 	<If Condition="GetQuestStep(69315) == 5">
-		<If Condition="not IsOnMap(820)">
-			<TeleportTo Name="Eulmore" AetheryteId="134"/>
-		</If>			
+	  <WaitWhile condition="GetQuestStep(69315) == 5"/>
 	</If>   
 	<If Condition="GetQuestStep(69315) == 255">
       <FlyTo XYZ="19.3978, 82.78207, 46.4575" Land="True"/>
@@ -311,20 +322,24 @@
       </If>
     </If>
     <If Condition="GetQuestStep(69316) == 1">
-      <FlyTo XYZ="-633.0059, 35.86156, -232.8412" Land="True"/>
+      <LisbethTravel Area="Il Mheg" Position="-606.1713, 35.82938, -225.5331"/>
+	  <GetTo ZoneId="816" XYZ="-634.4613, 35.86156, -232.931"/>
       <TalkTo NpcId="1033872" XYZ="-634.2717, 35.86156, -234.2108" QuestId="69316" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69316) == 2">
-	  <FlyTo XYZ="449.2618, 87.34377, -693.7781" Land="True"/>
+	  <GetTo ZoneId="816" XYZ="-607.9974, 36.24231, -225.3704" />
+	  <LisbethTravel ZoneId="816" XYZ="449.2618, 87.34377, -693.7781" Land="True"/>
       <LLHandOver ItemId="2003004" NpcId="1027690" XYZ="452.9945, 87.48281, -691.9814" QuestId="69316" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69316) == 255">
-      <FlyTo XYZ="-634.3483, 35.86156, -232.9583" Land="True"/>
+      <LisbethTravel Area="Il Mheg" Position="-606.1713, 35.82938, -225.5331"/>
+	  <GetTo ZoneId="816" XYZ="-634.4613, 35.86156, -232.931"/>
       <TurnIn QuestId="69316" NpcId="1033872" XYZ="-634.2717, 35.86156, -234.2108"/>
     </If>
     <!-- Unto the Morrow -->
     <If Condition="IsQuestCompleted(69316) and not HasQuest(69317) and not IsQuestCompleted(69317)">
-			<LisbethTravel ZoneId="816" XYZ="-634.2717, 35.86156, -234.2108" />
+		  <LisbethTravel Area="Il Mheg" Position="-606.1713, 35.82938, -225.5331"/>
+		  <GetTo ZoneId="816" XYZ="-634.4613, 35.86156, -232.931"/>
 		<If Condition="IsQuestAcceptQualified(69317)">
 			<PickupQuest QuestId="69317" NpcId="1033872"/>
 		</If>
@@ -361,7 +376,8 @@
 		  <LisbethTravel ZoneId="819" XYZ="117.9979, 14.64903, 7.156433" />	
 		  <UseTransport NpcId="1030533" InteractDistance="3.0" XYZ="117.9979, 14.64903, 7.156433"/>
 		</If>
-		<TalkTo InteractDistance="3.0" QuestId="69318" StepId="1" NpcId="1033888" XYZ="1.358032, 1.490116E-08, -5.081299" />		
+		<LLTalkTo InteractDistance="3.0" QuestId="69318" StepId="1" NpcId="1033888" XYZ="1.358032, 1.490116E-08, -5.081299" />	
+		<LLSmallTalk/>	
 	</If>	
     <If Condition="GetQuestStep(69318) == 255">
 		<If Condition="not IsOnMap(351)">
