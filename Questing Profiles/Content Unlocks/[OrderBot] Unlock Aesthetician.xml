@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: [OrderBot] Unlock Aesthetician
+  Authors: Zamphire
+-->
+<Profile>
+  <Name>[OrderBot] Unlock Aesthetician</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <!-- Beauty Is Only Scalp Deep -->
+    <If Condition="not HasQuest(66746) and not IsQuestCompleted(66746)">
+      <GetTo ZoneId="128" XYZ="-1.959761, 39.51757, -8.413172"/>
+      <If Condition="IsQuestAcceptQualified(66746)">
+        <PickupQuest QuestId="66746" NpcId="1003601"/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66746) == 1">
+      <GetTo ZoneId="128" XYZ="-46.48435, 40, 62.19214"/>
+      <TalkTo NpcId="1005516" XYZ="-46.0365, 40, 63.76746" QuestId="66746" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66746) == 2">
+	  <SoEmoteNpc Emote="doubt" NpcId="1005515" XYZ="-44.44952,40,61.81433" QuestId="66746" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(66746) == 3">
+		  <GetTo ZoneId="128" XYZ="-31.55294, 41.49998, 206.789"/>
+		  <TalkTo NpcId="1001000" XYZ="-32.02869, 41.49999, 208.3923" QuestId="66746"/>
+		  <GetTo ZoneId="132" XYZ="-45.28629, -1.250019, 58.18472"/>
+		  <TalkTo NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984" QuestId="66746"/>
+		  <GetTo ZoneId="131" XYZ="-99.32906, 40.2, 122.1173"/>
+		  <TalkTo NpcId="1002299" XYZ="-98.8938, 40.19999, 120.8362" QuestId="66746"/>	
+    </If>
+    <If Condition="GetQuestStep(66746) == 255">
+      <GetTo ZoneId="128" XYZ="-45.78346, 40, 61.8456"/>
+      <TurnIn ItemIds="2001110,2001111,2001112" QuestId="66746" NpcId="1005515" XYZ="-44.44952, 40, 61.81433"/>
+    </If>	
+  </Order>
+</Profile>

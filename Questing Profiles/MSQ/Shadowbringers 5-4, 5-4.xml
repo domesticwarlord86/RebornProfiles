@@ -8,6 +8,15 @@
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
   
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>	
+  
 	<!-- Check if previous MSQs are done -->
 	<If Condition="not IsQuestCompleted(69306)">
 	  <LLToast message="Please complete 'Echoes of the Fallen Star' first before running this profile."/>
