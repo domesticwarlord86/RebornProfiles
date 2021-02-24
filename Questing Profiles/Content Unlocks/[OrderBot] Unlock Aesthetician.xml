@@ -5,7 +5,7 @@
 -->
 <Profile>
   <Name>[OrderBot] Unlock Aesthetician</Name>
-  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <BehaviorDirectory></BehaviorDirectory>
   <Order>
     <!-- Beauty Is Only Scalp Deep -->
     <If Condition="not HasQuest(66746) and not IsQuestCompleted(66746)">

@@ -5,26 +5,21 @@
 -->
 <Profile>
   <Name>[OrderBot] Unlock YoRHa Dark Apocalypse (Nier Automata)</Name>
-  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+  <BehaviorDirectory></BehaviorDirectory>
   <GrindAreas>
-  	<GrindArea name="ScandalinKomra">
-        <Hotspots>
-			<Hotspot Radius="20" XYZ="214.4044,315.5227,-23.97198" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Name="Gogg Beardripper" Id="9158" Weight="1" />
-        </TargetMobs>
-	</GrindArea>
+    <GrindArea name="Scandal">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="215.2788, 315.5594, -23.00609" name="Scandal"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="9158" Weight="1"/> <!-- Gogg Beardripper -->
+      </TargetMobs>
+    </GrindArea>
   </GrindAreas>
   <CodeChunks>
-      <CodeChunk Name="Announce_Manual_Completion">
-      <![CDATA[ 
-        Core.OverlayManager.AddToast(() => "Please complete the next Quest Objective manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-        await Coroutine.Sleep(26000);
-      ]]>
-    </CodeChunk>
   </CodeChunks>
   <Order>
+  
     <!--  Word about Komra -->
     <If Condition="not HasQuest(69207) and not IsQuestCompleted(69207)">
       <GetTo ZoneId="814" XYZ="-425.1612, 417.1944, -635.2766"/>
@@ -33,38 +28,42 @@
       </If>
     </If>
     <If Condition="GetQuestStep(69207) == 1">
-      <FlyTo ZoneId="814" XYZ="728.6226, 285.4259, -88.95432" land="true"/>
-      <SoTalkTo NpcId="1031578" XYZ="737.4838, 285.0224, -84.97754" QuestId="69207" StepId="1"/>
+      <LisbethTravel Zone="814" Subzone="3111" Position="735.7645, 285.1003, -85.49284"/>
+      <LLTalkTo NpcId="1031578" XYZ="737.4838, 285.0224, -84.97754" QuestId="69207" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69207) == 2">
-      <GetTo ZoneId="814" XYZ="735.3651, 285.1055, -83.61774"/>
-      <SoTalkTo NpcId="1031579" XYZ="735.8969, 285.082, -82.35297" QuestId="69207" StepId="2"/>
+      <LisbethTravel ZoneId="814" Subzone="3111" XYZ="735.3651, 285.1055, -83.61774"/>
+      <LLTalkTo NpcId="1031579" XYZ="735.8969, 285.082, -82.35297" QuestId="69207" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69207) == 3">
-      <FlyTo ZoneId="814" XYZ="662.2574, 297.478, -154.8861" land="true"/>
+	  <If condition="not IsOnMap(814)">
+		<LisbethTravel ZoneId="814" Subzone="3111" XYZ="662.2574, 297.478, -154.8861" land="true"/>
+	  </If>	
       <TalkTo NpcId="1031580" XYZ="665.217, 297.478, -159.7773" QuestId="69207" StepId="3"/>
     </If>
     <If Condition="GetQuestStep(69207) == 4">
-      <FlyTo ZoneId="814" XYZ="632.4481, 325.6842, -221.4693"/>
+      <LisbethTravel ZoneId="814" Subzone="3111" XYZ="632.4481, 325.6842, -221.4693"/>
       <UseObject NpcIds="2010753" XYZ="631.9523, 325.8259, -228.687"  Radius="25"  QuestId="69207" StepId="4"/>
     </If>
     <If Condition="GetQuestStep(69207) == 5">
-      <FlyTo ZoneId="814" XYZ="662.2574, 297.478, -154.8861" land="true"/>
-      <SoHandOver ItemId="2002900" NpcId="1031580" XYZ="665.217, 297.478, -159.7773" QuestId="69207" StepId="5"/>
+      <LisbethTravel ZoneId="814" Subzone="3111" XYZ="662.2574, 297.478, -154.8861" land="true"/>
+      <LLHandOver ItemId="2002900" NpcId="1031580" XYZ="665.217, 297.478, -159.7773" QuestId="69207" StepId="5"/>
     </If>
     <If Condition="GetQuestStep(69207) == 6">
-	  <FlyTo ZoneId="814" XYZ="566.7762, 296.0455, -191.693" land="true"/>
-      <GetTo ZoneId="814" XYZ="544.034, 295.7422, -218.2871"/>
+	  <LisbethTravel ZoneId="814" Subzone="3111" XYZ="566.7762, 296.0455, -191.693" land="true"/>
+      <GetTo ZoneId="814" Subzone="3111" XYZ="544.034, 295.7422, -218.2871"/>
       <UseObject NpcIds="2010754" XYZ="542.9313, 296.1927, -217.0291"  Radius="25"  QuestId="69207" StepId="6"/>
     </If>
     <If Condition="GetQuestStep(69207) == 7">
-      <FlyTo XYZ="733.5266, 285.1869, -83.4668" Land="True"/>
-      <SoHandOver ItemId="2002901" NpcId="1031579" XYZ="735.8969, 285.082, -82.35297" QuestId="69207" StepId="7"/>
+	  <MoveTo ZoneId="814" Subzone="3111" XYZ="544.034, 295.7422, -218.2871"/>
+      <LisbethTravel ZoneId="814" Subzone="3111" XYZ="733.5266, 285.1869, -83.4668" Land="True"/>
+      <LLHandOver ItemId="2002901" NpcId="1031579" XYZ="735.8969, 285.082, -82.35297" QuestId="69207" StepId="7"/>
     </If>
     <If Condition="GetQuestStep(69207) == 255">
-      <FlyTo XYZ="-426.1015, 417.1574, -634.4852" Land="True"/>
+      <LisbethTravel ZoneId="814" Subzone="3111" XYZ="-426.1015, 417.1574, -634.4852" Land="True"/>
 	  <TurnIn QuestId="69207" NpcId="1031577" ItemId="2002023" XYZ="-425.5894, 417.2138, -636.7438" />
     </If>
+	
     <!-- A Scandal in Komra -->
     <If Condition="not HasQuest(69253) and not IsQuestCompleted(69253)">
       <FlyTo XYZ="-426.6484, 417.1701, -633.8298" Land="True"/>
@@ -74,7 +73,7 @@
     </If>
     <!-- A Scandal in Komra -->
     <If Condition="not HasQuest(69253) and not IsQuestCompleted(69253)">
-      <GetTo ZoneId="814" XYZ="-426.6484, 417.1701, -633.8298"/>
+      <LisbethTravel ZoneId="814" XYZ="-426.6484, 417.1701, -633.8298"/>
       <If Condition="IsQuestAcceptQualified(69253)">
         <PickupQuest QuestId="69253" NpcId="1031577"/>
       </If>
@@ -101,31 +100,32 @@
     </If>
     <If Condition="GetQuestStep(69253) == 6">
       <FlyTo XYZ="734.0939, 285.1775, -87.07256" Land="True"/>
-      <SoEmoteNpc Emote="doubt" NpcId="1031578" XYZ="737.4838, 285.0224, -84.97754" QuestId="69253" StepId="6"/>
+      <LLEmoteNpc Emote="doubt" NpcId="1031578" XYZ="737.4838, 285.0224, -84.97754" QuestId="69253" StepId="6"/>
     </If>
     <If Condition="GetQuestStep(69253) == 7">
       <FlyTo XYZ="214.4597, 315.5062, -24.06619" Land="True"/>
       <TalkTo NpcId="1031829" XYZ="215.2896, 315.8589, -17.34955" QuestId="69253" StepId="7"/>
     </If>
 	<If Condition="GetQuestStep(69253) == 8">
-	   <GetTo ZoneId="814" XYZ="215.4184, 315.6801, -21.94857" />
-	   <Grind grindRef="ScandalinKomra" PostCombatDelay="3.0"  While="HasQuest(69253) and not IsQuestCompleted(69253) and GetQuestStep(69253) == 8"/>
+	   <GetTo ZoneId="814" XYZ="215.2788, 315.5594, -23.00609" distance="1"/>
+	   <Grind grindRef="Scandal" While="GetQuestStep(69253) == 8"/>
 	</If>	
     <If Condition="GetQuestStep(69253) == 9">
+	  <GetTo ZoneId="814" XYZ="215.2788, 315.5594, -23.00609" distance="1"/>	
       <FlyTo XYZ="233.4953, 309.3784, -117.8682" Land="True"/>
       <TalkTo NpcId="1031828" XYZ="236.408, 309.0188, -118.2422" QuestId="69253" StepId="9"/>
     </If>
     <If Condition="GetQuestStep(69253) == 10">
-      <GetTo XYZ="233.4953, 309.3784, -117.8682" Land="True"/>
-      <UseObject NpcIds="2010844" XYZ="238.178, 308.5221, -120.1953"  Radius="25"  QuestId="69253" StepId="10"/>
+      <LisbethTravel Zone="814" Subzone="3072" Position="236.6864, 308.4676, -121.1541"/>
+      <UseObject NpcId="2010844" XYZ="238.178, 308.5221, -120.1953" QuestId="69253" StepId="10"/>
     </If>
     <If Condition="GetQuestStep(69253) == 255">
       <FlyTo XYZ="657.4515, 297.478, -156.8557" Land="True"/>
       <TurnIn QuestId="69253" NpcId="1031586" XYZ="663.569, 297.478, -162.2493"/>
     </If>
     <!-- On the Threshold -->
-    <If Condition="not HasQuest(69254) and not IsQuestCompleted(69254)">
-      <GetTo ZoneId="814" XYZ="662.5077, 297.478, -161.1797"/>
+    <If Condition="IsQuestCompleted(69253) and not HasQuest(69254) and not IsQuestCompleted(69254)">
+      <LisbethTravel ZoneId="814" XYZ="662.5077, 297.478, -161.1797"/>
       <If Condition="IsQuestAcceptQualified(69254)">
         <PickupQuest QuestId="69254" NpcId="1031586"/>
       </If>
@@ -135,16 +135,17 @@
       <TalkTo NpcId="1032079" XYZ="737.1174, 285.0313, -84.06195" QuestId="69254" StepId="1"/>
     </If>
 	<If Condition="GetQuestStep(69254) == 2">
-		<GetTo ZoneId="814" XYZ="738.3076, 285.603, -82.87183" />   
+		<LisbethTravel ZoneId="814" XYZ="738.3076, 285.603, -82.87183" />   
 		<UseObject NpcIds="2010855" XYZ="738.3076, 285.603, -82.87183"  Radius="25"  QuestId="69254" StepId="2"/>
 	</If>    
 	<If Condition="GetQuestStep(69254) == 3">
       <MoveTo XYZ="-0.6118543, 0, -85.93404" usemesh="false"/>
       <TalkTo NpcId="1031837" XYZ="-1.815857, 0, -90.013" QuestId="69254" StepId="3"/>
     </If>
-	<If Condition="GetQuestStep(69254) == 4">
-		<RunCode name="Announce_Manual_Completion"/>   
-	</If>
+	<While Condition="GetQuestStep(69254) == 4">
+		<LLToast message="Please run the Copied Factory raid manually."/>
+		<WaitTimer WaitTime="26" />
+	</While>
     <If Condition="GetQuestStep(69254) == 6">
       <MoveTo XYZ="-6.080052, 0.03972113, -66.7966" usemesh="false"/>
       <TalkTo NpcId="1032021" XYZ="-8.255188, 0.02999778, -66.66675" QuestId="69254" StepId="6"/>
@@ -153,7 +154,7 @@
       <TurnIn QuestId="69254" NpcId="1032020" XYZ="-9.353821, 0.03739892, -66.88031"/>
     </If>
     <!-- An Academic Dispute -->
-    <If Condition="not HasQuest(69255) and not IsQuestCompleted(69255)">
+    <If Condition="IsQuestCompleted(69254) and not HasQuest(69255) and not IsQuestCompleted(69255)">
       <If Condition="IsQuestAcceptQualified(69255)">
         <PickupQuest QuestId="69255" NpcId="1032020"/>
       </If>
@@ -163,7 +164,7 @@
       <TurnIn QuestId="69255" NpcId="1032228" XYZ="-499.4736, 484.0032, 244.1901"/>
     </If>
     <!-- Tails, You Lose -->
-    <If Condition="not HasQuest(69256) and not IsQuestCompleted(69256)">
+    <If Condition="IsQuestCompleted(69255) and not HasQuest(69256) and not IsQuestCompleted(69256)">
       <If Condition="IsQuestAcceptQualified(69256)">
         <PickupQuest QuestId="69256" NpcId="1032228"/>
       </If>
@@ -183,6 +184,4 @@
 		<TalkTo InteractDistance="3.0" QuestId="69256" StepId="2" NpcId="1032025" XYZ="-573.6935, 352.9942, -264.0879" />	
 	</If>	
   </Order>
-  <GrindAreas/>
-  <CodeChunks/>
 </Profile>
