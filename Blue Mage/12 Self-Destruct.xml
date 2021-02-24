@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Glide Bomb</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="GlideBomb">
+				<minLevel>6</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="20" xyz="283.3844, 62.01922, -186.6836" />
+					<Hotspot radius="20" xyz="302.1716, 62.38456, -233.7776" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="8135"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11408)">
+					<If condition="not IsOnMap(140)">
+							<GetTo ZoneId="140" XYZ="299.3622, 62.36291, -222.2432" />
+					</If>
+						<Grind grindRef="GlideBomb" postCombatDelay="1" while="not ActionManager.HasSpell(11408)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

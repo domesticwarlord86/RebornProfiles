@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+	<Name>Blue Leading the Blue</Name>
+	<KillRadius>10</KillRadius>
+	<Order>
+
+	<!-- Blue Leading the Blue -->
+	<If Condition="not IsQuestCompleted(68729)">	
+
+		<If Condition="IsQuestAcceptQualified(68729)">
+			<GetTo ZoneId="135" XYZ="-105.9129, 1.572371, 750.0571" />
+			<PickupQuest NpcId="1026932" QuestId="68729" />
+		</If>
+
+
+		<If Condition="GetQuestStep(68729) &lt; 255">
+			 <TalkTo InteractDistance="3.0" QuestId="68729" StepId="1" NpcId="1026934" XYZ="-108.0491, 1.502605, 749.1415" />
+
+			<RunCode Name="CastWaterCannon" />   
+			<WaitWhile Condition="GetQuestStep(68729) != 255" />
+		</If>
+
+		<If Condition="GetQuestStep(68729) == 255">
+			<GetTo ZoneId="131" XYZ="64.46936, 14.005, 88.70068" />
+			<TurnIn QuestId="68729" NpcId="1026937" ItemId="2002646" XYZ="65.7511, 14.005, 90.44019" />
+		</If> 
+	</If> 
+	
+	</Order>
+	
+	<CodeChunks>
+		<CodeChunk Name="CastWaterCannon">
+			<![CDATA[ SpellData data;
+				ActionManager.DoAction(11385, GameObjectManager.GetObjectByNPCId(1026934));
+			]]>
+		</CodeChunk>
+	</CodeChunks>
+
+</Profile>

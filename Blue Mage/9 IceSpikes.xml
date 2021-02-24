@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Ice Spikes</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="TricksterImp">
+				<minLevel>6</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="50" xyz="308.1357, 15.39803, 160.7998" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="21"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11418)">
+					<If condition="not IsOnMap(148)">
+							<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
+					</If>
+						<Grind grindRef="TricksterImp" postCombatDelay="1" while="not ActionManager.HasSpell(11418)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

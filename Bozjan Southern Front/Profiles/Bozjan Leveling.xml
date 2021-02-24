@@ -177,7 +177,7 @@
 			<!-- Grind fates after 15 -->
 			<While condition="Core.Me.ElementalLevel == 15">	
 				<Log Message="Doing Fates to grind Coins at rank 15..." />
-				<LLToast message="Finally rank 15. Continuing to grind fates for Boza Coins"/>
+				<LLToast message="Finally rank 15. Continuing to grind fates for Bozja Coins"/>
 				<LLFate MinLevel="0" MaxLevel="81" while="Core.Me.ElementalLevel == 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606"/>	
 			</While>		
 

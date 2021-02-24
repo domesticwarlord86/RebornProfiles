@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Blood Drain</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="Chigoe">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="155.276627,-8.3465 , -1.386267" name="Chigoe"/>
+						<Hotspot radius="50" xyz="155.276627,-8.3465 , -1.386267" name="Chigoe"/>
+						<Hotspot radius="50" xyz="189.8699,-8.031561 , -65.34033" name="Chigoe"/>
+						<Hotspot radius="50" xyz="223.131485,-7.31481934 , -64.824234" name="Chigoe"/>
+						<Hotspot radius="50" xyz="208.234726,-10.1238089 , -14.7747068" name="Chigoe"/>
+						<Hotspot radius="50" xyz="126.771683,-7.558451 , 57.15136" name="Chigoe"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="43"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11395)">
+					<If condition="not IsOnMap(148)">
+							<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
+					</If>
+						<NoCombatMoveTo xyz="155.276627,-8.3465 , -1.386267" name="Chigoe"/>
+						<Grind grindRef="Chigoe" postCombatDelay="1" while="not ActionManager.HasSpell(11395)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

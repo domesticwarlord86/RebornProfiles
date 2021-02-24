@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Faze</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="QiqirnShellsweeper">
+				<minLevel>6</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="20" xyz="-208.3453, 21.35069, -94.65025" />
+					<Hotspot radius="20" xyz="-203.8867, 26.5247, -124.8176" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="266"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11403)">
+					<If condition="not IsOnMap(141)">
+						 <TeleportTo name="Summerford Farms" aetheryteId="53" force="true"/>
+					</If>
+						<NoCombatMoveTo xyz="-194.4272, 21.1615, -103.4405" name="QiqirnShellsweeper"/>
+						<Grind grindRef="QiqirnShellsweeper" postCombatDelay="1" while="not ActionManager.HasSpell(11403)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

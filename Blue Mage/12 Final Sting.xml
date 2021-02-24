@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Final Sting</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="KillerWespe">
+				<minLevel>10</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="20" xyz="-284.9595, 23.06275, -400.7565" />
+					<Hotspot radius="20" xyz="-317.4186, 14.61667, -324.6917" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="8134"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11407)">
+					<If condition="not IsOnMap(134)">
+							<GetTo ZoneId="134" XYZ="-284.9595, 23.06275, -400.7565" />
+					</If>
+						<Grind grindRef="KillerWespe" postCombatDelay="1" while="not ActionManager.HasSpell(11407)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

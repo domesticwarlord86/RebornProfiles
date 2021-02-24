@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Electrogenesis</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="Conodont">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="225.2717, -147.8377, 562.2714" name="Conodont"/>
+						<Hotspot radius="50" xyz="170.7249, -147.8377, 502.3552" name="Conodont"/>
+						<Hotspot radius="50" xyz="234.382, -118.3452, 419.7973" name="Conodont"/>
+						<Hotspot radius="50" xyz="462.9529, -130.3736, 600.7796" name="Conodont"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3496"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(18298)">
+					<If condition="not IsOnMap(401)">
+							<GetTo ZoneId="401" XYZ="225.2717, -147.8377, 562.2714" />
+					</If>
+						<NoCombatMoveTo xyz="225.2717, -147.8377, 562.2714" name="Conodont"/>
+						<Grind grindRef="Conodont" postCombatDelay="1" while="not ActionManager.HasSpell(18298)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+  <Name>Bad Breath</Name>
+  <KillRadius>50</KillRadius>
+  <GrindAreas>
+    <GrindArea Name="Stroper">
+      <MinLevel>10</MinLevel>
+      <MaxLevel>80</MaxLevel>
+      <Hotspots>
+        <HotSpot XYZ="-435.1415, 49, -2.487305" Name="Stroper" Radius="50" />
+        <HotSpot XYZ="-430.5904, 49, -3.780617" Name="Stroper" Radius="50" />
+        <HotSpot XYZ="-434.4459, 49, -9.303102" Name="Stroper" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob id="238" />
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <Order>
+    <If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+      <If condition="not ActionManager.HasSpell(11388)">
+        <If condition="not IsOnMap(148)">
+          <TeleportTo name="Bentbranch Meadows" aetheryteId="3" force="true" />
+        </If>
+        <Grind grindRef="Stroper" postCombatDelay="1" while="not ActionManager.HasSpell(11388)" />
+      </If>
+    </If>
+  </Order>
+</Profile>

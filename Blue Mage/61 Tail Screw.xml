@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+  <Name>Tail Screw</Name>
+  <KillRadius>50</KillRadius>
+  <GrindAreas>
+    <GrindArea Name="Crag_Claw">
+      <MinLevel>60</MinLevel>
+      <MaxLevel>80</MaxLevel>
+      <Hotspots>
+        <HotSpot XYZ="276.4915, 114.3593, -700.7811" Name="Crag_Claw" Radius="50" />
+        <HotSpot XYZ="180.9404, 114.3518, -594.231" Name="Crag_Claw" Radius="50" />
+        <HotSpot XYZ="89.00069, 114.3518, -473.4281" Name="Crag_Claw" Radius="50" />
+        <HotSpot XYZ="74.65177, 114.3518, -512.8128" Name="Crag_Claw" Radius="50" />
+        <HotSpot XYZ="81.42716, 114.3518, -507.0699" Name="Crag_Claw" Radius="50" />
+        <HotSpot XYZ="214.4813, 114.3786, -506.0175" Name="Crag_Claw" Radius="50" />
+        <HotSpot XYZ="170.3764, 114.3518, -595.2869" Name="Crag_Claw" Radius="50" />
+        <HotSpot XYZ="322.612, 114.3621, -677.7244" Name="Crag_Claw" Radius="50" />
+        <HotSpot XYZ="207.29, 114.3786, -502.6752" Name="Crag_Claw" Radius="50" />
+        <HotSpot XYZ="103.4602, 114.3518, -593.4549" Name="Crag_Claw" Radius="50" />
+        <HotSpot XYZ="249.9816, 114.3518, -669.885" Name="Crag_Claw" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob id="5705" />
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <Order>
+    <If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+      <If condition="not ActionManager.HasSpell(11413)">
+        <If condition="not IsOnMap(620)">
+          <TeleportTo name="Ala Gannha" aetheryteId="100" force="true" />
+        </If>
+        <Grind grindRef="Crag_Claw" postCombatDelay="1" while="not ActionManager.HasSpell(11413)" />
+      </If>
+    </If>
+  </Order>
+</Profile>

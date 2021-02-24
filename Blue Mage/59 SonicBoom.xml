@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Sonic Boom</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="Anzu">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="181.9077, -16.89004, -741.333" name="Anzu"/>
+						<Hotspot radius="50" xyz="143.9126, -18.36139, -806.3395" name="Anzu"/>
+						<Hotspot radius="50" xyz="14.20118, 8.826632, -797.5383" name="Anzu"/>
+						<Hotspot radius="50" xyz="14.20118, 8.826632, -797.5383" name="Anzu"/>
+						<Hotspot radius="50" xyz="-74.62778, 9.183143, -814.659" name="Anzu"/>=
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3526"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(18308)">
+					<If condition="not IsOnMap(401)">
+							<GetTo ZoneId="401" XYZ="181.9077, -16.89004, -741.333" />
+					</If>
+						<NoCombatMoveTo xyz="181.9077, -16.89004, -741.333" name="Anzu"/>
+						<Grind grindRef="Anzu" postCombatDelay="1" while="not ActionManager.HasSpell(18308)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

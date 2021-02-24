@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+	<Name>Blue Collar Work</Name>
+	<KillRadius>10</KillRadius>
+	<GrindAreas>
+		<GrindArea Name="Bee">
+			<Hotspots>
+				<Hotspot XYZ="163.5919, 3.707886, 657.0991" Name="Man-Eating Hornet" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="7902" /> <!-- Defiant Mage -->
+			</TargetMobs>
+			<MinLevel>1</MinLevel>
+			<MaxLevel>80</MaxLevel>
+		</GrindArea>
+	</GrindAreas>
+	<Order>
+
+	<!-- Blue Collar Work -->
+	<If Condition="not IsQuestCompleted(68730)">	
+
+		<If Condition="IsQuestAcceptQualified(68730)">
+			<GetTo ZoneId="131" XYZ="63.12659, 14.005, 89.86035" />		
+			<PickupQuest NpcId="1026852" QuestId="68730" />
+		</If>
+
+		<If Condition="GetQuestStep(68730) == 1">
+				<GetTo ZoneId="141" XYZ="101.274, 7.353617, 600.2135" />
+				<TalkTo InteractDistance="3.0" QuestId="68730" StepId="1" NpcId="1026938" XYZ="101.274, 7.353617, 600.2135" />
+		</If>
+
+		<If Condition="GetQuestStep(68730) == 2">
+				<GetTo ZoneId="141" XYZ="163.5919, 3.707886, 657.0991" />
+				<UseObject NpcIds="2009670" XYZ="163.5919, 3.707886, 657.0991"  Radius="25"  QuestId="68730" StepId="2"/>
+				<Grind grindRef="Bee" while="HasQuest(68730) and GetQuestStep(66132) == 2" />	
+		</If>
+
+		<If Condition="GetQuestStep(68730) == 3">
+				<GetTo ZoneId="141" XYZ="101.274, 7.353617, 600.2135" />
+				<TalkTo InteractDistance="3.0" QuestId="68730" StepId="3" NpcId="1026938" XYZ="101.274, 7.353617, 600.2135" />	
+	
+		</If>
+
+		<If Condition="GetQuestStep(68730) == 255">
+			<GetTo ZoneId="131" XYZ="63.12659, 14.005, 89.86035" />
+			<TurnIn QuestId="68730" NpcId="1026852" ItemId="2002646" XYZ="63.12659, 14.005, 89.86035" />
+		</If> 
+	</If> 
+	
+	</Order>
+	
+	<CodeChunks>
+		<CodeChunk Name="CastWaterCannon">
+			<![CDATA[ SpellData data;
+				ActionManager.DoAction(11385, GameObjectManager.GetObjectByNPCId(1026934));
+			]]>
+		</CodeChunk>
+	</CodeChunks>
+
+</Profile>

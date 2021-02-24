@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Toad Oil</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="GigglingGigantoad">
+				<minLevel>10</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="100" xyz="-352.8664, 15.03115, -736.3968" />
+					<Hotspot radius="100" xyz="-309.7302, 15.06769, -765.5164" />
+					<Hotspot radius="100" xyz="-298.6631, 14.9163, -710.6555" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="8136"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11410)">
+					<If condition="not IsOnMap(140)">
+						<GetTo ZoneId="140" XYZ="-352.8664, 15.03115, -736.3968" />
+					</If>
+						<Grind grindRef="GigglingGigantoad" postCombatDelay="1" while="not ActionManager.HasSpell(11410)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

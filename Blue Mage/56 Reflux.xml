@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Reflux</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="CloudWyvern">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="81.64323, 27.38359, 284.709" name="CloudWyvern"/>
+						<Hotspot radius="50" xyz="186.3084, 26.03486, 239.0924" name="CloudWyvern"/>
+						<Hotspot radius="50" xyz="58.50281, -2.33513, 342.1459" name="CloudWyvern"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="9248"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(18319)">
+					<If condition="not IsOnMap(400)">
+							<GetTo ZoneId="400" XYZ="81.64323, 27.38359, 284.709" />
+					</If>
+						<NoCombatMoveTo xyz="81.64323, 27.38359, 284.709" name="CloudWyvern"/>
+						<Grind grindRef="CloudWyvern" postCombatDelay="1" while="not ActionManager.HasSpell(18319)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

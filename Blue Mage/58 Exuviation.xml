@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Exuviation</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="AbalathianWamoura">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="-644.0805, -58.41392, -274.7453" name="AbalathianWamoura"/>
+						<Hotspot radius="50" xyz="-652.777, -58.71192, -224.46265" name="AbalathianWamoura"/>
+						<Hotspot radius="50" xyz="-598.8316, -59.39291, -209.4249" name="AbalathianWamoura"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="9249"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(18318)">
+					<If condition="not IsOnMap(401)">
+							<GetTo ZoneId="401" XYZ="-644.0805, -58.41392, -274.7453" />
+					</If>
+						<NoCombatMoveTo xyz="-644.0805, -58.41392, -274.7453" name="AbalathianWamoura"/>
+						<Grind grindRef="AbalathianWamoura" postCombatDelay="1" while="not ActionManager.HasSpell(18318)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

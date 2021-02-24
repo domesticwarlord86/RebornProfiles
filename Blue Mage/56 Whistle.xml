@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Northerlies</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="SlateYeti">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="72.98383, 229.4418, 509.0287" name="SlateYeti"/>
+						<Hotspot radius="50" xyz="92.89478, 218.7926, 455.8756" name="SlateYeti"/>
+						<Hotspot radius="50" xyz="37.20513, 215.1026, 449.0064" name="SlateYeti"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3505"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(18297)">
+					<If condition="not IsOnMap(397)">
+							<GetTo ZoneId="397" XYZ="72.98383, 229.4418, 509.0287" />
+					</If>
+						<NoCombatMoveTo xyz="72.98383, 229.4418, 509.0287" name="SlateYeti"/>
+						<Grind grindRef="SlateYeti" postCombatDelay="1" while="not ActionManager.HasSpell(18297)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

@@ -9,7 +9,7 @@
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
  	<If condition="not DutyManager.InInstance">
-		<LLJoinDuty DutyId="75" trial="true"/>
+		<LLJoinDuty DutyId="75" trial="true" Undersized="True"/>
 	</If>
 	<If condition="DutyManager.InInstance">
 		<Grind GrindRef="Hydra" While="not GameObjectManager.GetObjectByNPCId(2161).CurrentHealth == 0"/> <!-- Kill Hydra -->

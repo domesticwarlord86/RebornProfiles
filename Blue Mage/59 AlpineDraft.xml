@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Alpine Draft</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="Griffin">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="675.473, -98.51501, -691.1071" name="Griffin"/>
+						<Hotspot radius="50" xyz="711.8482, -98.29584, -655.9969" name="Griffin"/>
+						<Hotspot radius="50" xyz="762.14, -98.28464, -665.3104" name="Griffin"/>
+						<Hotspot radius="50" xyz="732.7796, -98.34306, -704.1835" name="Griffin"/>=
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3526"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(18295)">
+					<If condition="not IsOnMap(401)">
+							<GetTo ZoneId="401" XYZ="675.473, -98.51501, -691.1071" />
+					</If>
+						<NoCombatMoveTo xyz="675.473, -98.51501, -691.1071" name="Griffin"/>
+						<Grind grindRef="Griffin" postCombatDelay="1" while="not ActionManager.HasSpell(18295)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

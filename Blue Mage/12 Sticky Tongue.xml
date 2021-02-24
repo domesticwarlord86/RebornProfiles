@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Sticky Tongue</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="ToxicToad">
+				<minLevel>10</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="20" xyz="252.7046, -19.71835, -131.7899" />
+					<Hotspot radius="20" xyz="286.568, -19.71835, -91.05569" />
+					<Hotspot radius="20" xyz="308.8073, -19.71835, -156.1197" />
+					<Hotspot radius="20" xyz="360.3628, -19.71835, -112.9145" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="216"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11412)">
+					<If condition="not IsOnMap(141)">
+							<GetTo ZoneId="141" XYZ="276.5776, -19.71835, -125.6576" />
+					</If>
+						<Grind grindRef="ToxicToad" postCombatDelay="1" while="not ActionManager.HasSpell(11412)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

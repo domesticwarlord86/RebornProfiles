@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>1000 Needles</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="SabotenderBailaor">
+				<minLevel>10</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="50" xyz="-256.085754,17.70092,-284.663879" />
+					<Hotspot radius="50" xyz="-319.0323, 14.89054, -318.3571" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="8137"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11397)">
+					<If condition="not IsOnMap(146)">
+							<TeleportTo name="Little Ala Mhigo" aetheryteId="19" force="true"/>
+					</If>
+						<Grind grindRef="SabotenderBailaor" postCombatDelay="1" while="not ActionManager.HasSpell(11397)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

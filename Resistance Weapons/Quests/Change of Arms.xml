@@ -60,19 +60,41 @@
 			<EquipWeapon ItemID="20397"/>
 			<WaitTimer WaitTime="3" />
           </While>		  
-		</If>	
+		</If>
+		<If Condition="ClassName == ClassJobType.Paladin">	
+			<ChangeClass Job="Paladin" Force="True"/>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 30785">
+				<Log Message="Recollection weapon equipped, going to purchase differnt weapon." />
+				<LisbethTravel Area="Central Thanalan" Position="-10.65622, -2.04808, -150.1143"/>
+				<BuyItem NpcId="1001563" ItemIds="1602,2219" ItemCount="1,1" DialogOption="0" XYZ="-8.346741,-2.04808,-149.3401"/>
+				<EquipWeapon ItemID="1602"/>
+				<WaitTimer WaitTime="3" />
+				<EquipWeapon ItemID="2219"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>		
 		<If Condition="not IsOnMap(915)">	
 			<While Condition="not IsOnMap(759)">
 				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
 			</While>				
 			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
 			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
-		</If>
+		</If>		
         <LisbethTravel Zone="915" Subzone="0" Position="0.4522509, 3.071334, -57.42433"/>
         <LLTurnIn ItemId="32956" QuestId="69574" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>
         <LLSmallTalk/>	
 	  </If>
     </If>
+	
+	<If Condition="ClassName == ClassJobType.Paladin">
+		<If Condition="HasItem(32651)">
+			<EquipWeapon ItemID="32651"/>
+			<WaitTimer WaitTime="3" />
+			<EquipWeapon ItemID="32668"/>
+			<AutoEquip UpdateGearSet="true"/>
+			<LLSellItem ItemIds="1602,2219"/>
+		</If>
+	</If>	
 
 	<LLoadProfile Path="../Start.xml"/>	
 	

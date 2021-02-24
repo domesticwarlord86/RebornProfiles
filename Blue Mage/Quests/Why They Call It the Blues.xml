@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+	<Name>Why They Call It the Blues</Name>
+	<KillRadius>20</KillRadius>
+	<GrindAreas>
+		<GrindArea Name="Bee">
+			<Hotspots>
+				<Hotspot XYZ="144.057, 9.960853, 385.782" Name="Monstrous Mole" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="7903" /> <!-- Monstrous Mole -->
+			</TargetMobs>
+			<MinLevel>1</MinLevel>
+			<MaxLevel>80</MaxLevel>
+		</GrindArea>
+	</GrindAreas>
+	<Order>
+
+		<!-- Why They Call It the Blues -->
+		<If Condition="not IsQuestCompleted(68731)">	
+
+			<If Condition="IsQuestAcceptQualified(68731)">
+				<GetTo ZoneId="131" XYZ="63.12659, 14.005, 89.86035" />	
+				<PickupQuest NpcId="1026852" QuestId="68731" />
+			</If>
+
+			<If Condition="GetQuestStep(68731) == 1">
+					<GetTo ZoneId="141" XYZ="105.0278, 4.033358, 451.0719" />
+					<TalkTo InteractDistance="3.0" QuestId="68731" StepId="1" NpcId="1026941" XYZ="105.0278, 4.033358, 451.0719" />
+			</If>
+
+			<If Condition="GetQuestStep(68731) == 2">
+					<GetTo ZoneId="141" XYZ="145.5253, 9.567322, 391.1039" />
+					<UseObject NpcIds="2009671" XYZ="145.5253, 9.567322, 391.1039"  Radius="25"  QuestId="68731" StepId="2"/>
+					<Grind grindRef="Bee" while="HasQuest(68731) and GetQuestStep(68731) == 2" />	
+			</If>
+
+			<If Condition="GetQuestStep(68731) == 3">
+					<GetTo ZoneId="141" XYZ="105.0278, 4.033358, 451.0719" />
+					<TalkTo InteractDistance="3.0" QuestId="68731" StepId="3" NpcId="1026941" XYZ="105.0278, 4.033358, 451.0719" />
+			</If>
+
+			<If Condition="GetQuestStep(68731) == 255">
+				<GetTo ZoneId="131" XYZ="63.12659, 14.005, 89.86035" />
+				<TurnIn QuestId="68731" NpcId="1026852" ItemId="2002646" XYZ="63.12659, 14.005, 89.86035" />
+			</If> 
+		</If> 
+	
+	</Order>
+	
+	<CodeChunks>
+		<CodeChunk Name="CastWaterCannon">
+			<![CDATA[ SpellData data;
+				ActionManager.DoAction(11385, GameObjectManager.GetObjectByNPCId(1026934));
+			]]>
+		</CodeChunk>
+	</CodeChunks>
+
+</Profile>

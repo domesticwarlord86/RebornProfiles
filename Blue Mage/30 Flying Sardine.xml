@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+  <Name>Flying Sardine</Name>
+  <KillRadius>50</KillRadius>
+  <GrindAreas>
+    <GrindArea Name="Apkallu">
+      <MinLevel>10</MinLevel>
+      <MaxLevel>80</MaxLevel>
+      <Hotspots>
+        <HotSpot XYZ="284.6243, 43.35668, 748.2975" Name="Apkallu" Radius="50" />
+        <HotSpot XYZ="291.3194, 43.08569, 746.3515" Name="Apkallu" Radius="50" />
+        <HotSpot XYZ="302.5991, 37.54708, 707.2749" Name="Apkallu" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob id="341" />
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <Order>
+    <If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+      <If condition="not ActionManager.HasSpell(11423)">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo name="Costa del Sol" aetheryteId="11" force="true" />
+        </If>
+        <Grind grindRef="Apkallu" postCombatDelay="1" while="not ActionManager.HasSpell(11423)" />
+      </If>
+    </If>
+  </Order>
+</Profile>

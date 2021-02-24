@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Frog Legs</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="Poroggo">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="-465.044, 136.8297, 616.6205" name="Poroggo"/>
+						<Hotspot radius="50" xyz="-580.0626, 136.8297, 568.4573" name="Poroggo"/>
+						<Hotspot radius="50" xyz="-645.0812, 136.8297, 650.0936" name="Poroggo"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3607"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(18307)">
+					<If condition="not IsOnMap(399)">
+							<GetTo ZoneId="399" XYZ="-465.044, 136.8297, 616.6205" />
+					</If>
+						<NoCombatMoveTo xyz="-465.044, 136.8297, 616.6205" name="Poroggo"/>
+						<Grind grindRef="Poroggo" postCombatDelay="1" while="not ActionManager.HasSpell(18307)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

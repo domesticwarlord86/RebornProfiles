@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Acorn Bomb</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="TreantSapling">
+				<minLevel>10</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="50" xyz="394.453949,17.85671,86.986427" />
+					<Hotspot radius="50" xyz="276.3174, -4.681472, 50.38378" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="128"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11392)">
+					<If condition="not IsOnMap(148)">
+							<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
+					</If>
+						<Grind grindRef="TreantSapling" postCombatDelay="1" while="not ActionManager.HasSpell(11392)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

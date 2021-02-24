@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+	<Name>Scream Blue Murder</Name>
+	<KillRadius>20</KillRadius>
+	<GrindAreas>
+		<GrindArea Name="Bee">
+			<Hotspots>
+				<Hotspot XYZ="359.6398, 83.01369, 92.24072" Name="Suspicious Fellow" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5915" /> <!-- Suspicious Fellow -->
+			</TargetMobs>
+			<MinLevel>1</MinLevel>
+			<MaxLevel>80</MaxLevel>
+		</GrindArea>
+	</GrindAreas>
+	<Order>
+
+		<!-- Scream Blue Murder -->
+		<If Condition="not IsQuestCompleted(68732)">	
+
+			<!-- Scream Blue Murder -->
+			<If Condition="IsQuestAcceptQualified(68732)">
+				<GetTo ZoneId="131" XYZ="63.12659, 14.005, 89.86035" />	
+				<PickupQuest NpcId="1026852" QuestId="68732" />
+			</If>
+
+			<If Condition="GetQuestStep(68732) == 1">
+					<GetTo ZoneId="131" XYZ="-108.4154, 41, 76.06616" />
+					<TalkTo InteractDistance="3.0" QuestId="68732" StepId="1" NpcId="1026945" XYZ="-108.4154, 41, 76.06616" />
+			</If>
+
+			<If Condition="GetQuestStep(68732) == 2">
+					<GetTo ZoneId="140" XYZ="392.6909, 87.19347, 98.10022" />
+					<TalkTo InteractDistance="3.0" QuestId="68732" StepId="2" NpcId="1026946" XYZ="392.6909, 87.19347, 98.10022" />
+			</If>
+
+			<If Condition="GetQuestStep(68732) == 3">
+					<GetTo ZoneId="140" XYZ="359.6398, 83.01369, 92.24072" />
+					<Grind grindRef="Bee" while="HasQuest(68732) and GetQuestStep(68732) == 3" />	
+			</If>
+
+			<If Condition="GetQuestStep(68732) == 4">
+					<GetTo ZoneId="140" XYZ="359.6398, 83.01369, 92.24072" />
+					<TalkTo InteractDistance="3.0" QuestId="68732" StepId="4" NpcId="1026948" XYZ="359.6398, 83.01369, 92.24072" />
+			</If>
+
+			<If Condition="GetQuestStep(68732) == 255">
+				<GetTo ZoneId="131" XYZ="63.12659, 14.005, 89.86035" />
+				<TurnIn QuestId="68732" NpcId="1026852" ItemId="2002646" XYZ="63.12659, 14.005, 89.86035" />
+			</If> 
+		</If> 
+	
+	</Order>
+	
+	<CodeChunks>
+		<CodeChunk Name="CastWaterCannon">
+			<![CDATA[ SpellData data;
+				ActionManager.DoAction(11385, GameObjectManager.GetObjectByNPCId(1026934));
+			]]>
+		</CodeChunk>
+	</CodeChunks>
+
+</Profile>

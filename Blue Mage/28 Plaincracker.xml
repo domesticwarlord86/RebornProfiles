@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+  <Name>Plaincracker</Name>
+  <KillRadius>50</KillRadius>
+  <GrindAreas>
+    <GrindArea Name="Clay_Golem">
+      <MinLevel>10</MinLevel>
+      <MaxLevel>80</MaxLevel>
+      <Hotspots>
+        <HotSpot XYZ="-186.389, -57.37035, 334.5541" Name="Clay_Golem" Radius="50" />
+        <HotSpot XYZ="-171.0995, -58.4395, 347.6766" Name="Clay_Golem" Radius="50" />
+        <HotSpot XYZ="-176.6199, -59.55023, 349.6567" Name="Clay_Golem" Radius="50" />
+        <HotSpot XYZ="-182.8489, -61.2231, 355.3063" Name="Clay_Golem" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob id="30" />
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <Order>
+    <If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+      <If condition="not ActionManager.HasSpell(11391)">
+        <If condition="not IsOnMap(154)">
+          <TeleportTo name="Fallgourd Float" aetheryteId="7" force="true" />
+        </If>
+        <Grind grindRef="Clay_Golem" postCombatDelay="1" while="not ActionManager.HasSpell(11391)" />
+      </If>
+    </If>
+  </Order>
+</Profile>

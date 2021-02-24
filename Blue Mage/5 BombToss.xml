@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Bomb Toss</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="GoblinFisher">
+				<minLevel>4</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="50" xyz="93.66135 , 48.53702 , 11.90981" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="367"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11396)">
+					<If condition="not IsOnMap(134)">
+						 <TeleportTo name="Summerford Farms" aetheryteId="52" force="true"/>
+					</If>
+						<NoCombatMoveTo xyz="92.23995, 50.82322, -15.37223" name="GoblinFisher"/>
+						<Grind grindRef="GoblinFisher" postCombatDelay="1" while="not ActionManager.HasSpell(11396)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

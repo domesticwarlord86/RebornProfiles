@@ -1,0 +1,1467 @@
+<?xml version="1.0"?>
+<!--
+Profile:  [Orderbot] BLU Level & Quest & Spells
+Authors:  Zamphire, Kayla
+Version:  0.1
+Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to be learned manually. Restart the profile after learning.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY buygear "0"> 		
+]> 
+
+<Profile>
+    <Name>LevelFarm</Name>
+    <KillRadius>50</KillRadius>
+	<CodeChunks>
+		<CodeChunk Name="BLUWeapon">
+			<![CDATA[ 
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+				
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 22746)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+		]]>
+		</CodeChunk>
+		<CodeChunk Name="BLUHat">
+			<![CDATA[ 
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Head];
+				
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 24582)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+		]]>
+		</CodeChunk>
+		<CodeChunk Name="BLUTrousers">
+			<![CDATA[ 
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Legs];
+				
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 24585)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+		]]>
+		</CodeChunk>
+		<CodeChunk Name="BLUGloves">
+			<![CDATA[ 
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Hands];
+				
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 24584)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+		]]>
+		</CodeChunk>
+		<CodeChunk Name="BLUCoat">
+			<![CDATA[ 
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Body];
+				
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 24583)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+		]]>
+		</CodeChunk>
+		<CodeChunk Name="BLUBoots">
+			<![CDATA[ 
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Feet];
+				
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 24586)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+		]]>
+		</CodeChunk>		
+        <CodeChunk Name="CastWaterCannon">
+            <![CDATA[ SpellData data;
+                ActionManager.DoAction(11385, GameObjectManager.GetObjectByNPCId(1026934));
+                await Coroutine.Sleep(5000);
+            ]]>
+        </CodeChunk>
+		<CodeChunk Name="UseCoffer">
+		<![CDATA[ 
+            BagSlot coffer = InventoryManager.FilledSlots.FirstOrDefault(i => i.RawItemId == 24587);
+            if (coffer != default(BagSlot))
+            {
+                coffer.UseItem();
+                await Coroutine.Sleep(5000);
+            }
+		]]>
+		</CodeChunk>
+		<CodeChunk Name="UseOffGaurd">
+		<![CDATA[ 
+            BagSlot coffer = InventoryManager.FilledSlots.FirstOrDefault(i => i.RawItemId == 23310);
+            if (coffer != default(BagSlot))
+            {
+                coffer.UseItem();
+                await Coroutine.Sleep(5000);
+            }
+		]]>
+		</CodeChunk>
+		<CodeChunk Name="UseWhiteWind">
+		<![CDATA[ 
+            BagSlot coffer = InventoryManager.FilledSlots.FirstOrDefault(i => i.RawItemId == 25012);
+            if (coffer != default(BagSlot))
+            {
+                coffer.UseItem();
+                await Coroutine.Sleep(5000);
+            }
+		]]>		
+		</CodeChunk>
+		<CodeChunk Name="UseMightyGuard">
+		<![CDATA[ 
+            BagSlot coffer = InventoryManager.FilledSlots.FirstOrDefault(i => i.RawItemId == 23312);
+            if (coffer != default(BagSlot))
+            {
+                coffer.UseItem();
+                await Coroutine.Sleep(5000);
+            }
+		]]>		
+		</CodeChunk>		
+		<CodeChunk Name="SelectYes">
+		<![CDATA[ 
+			if (SelectYesno.IsOpen)
+			{
+				SelectYesno.Yes();
+			} ]]>
+		</CodeChunk>
+		<CodeChunk Name="ManualFinalSting"><![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please manually learn Final Sting from Killer Wespe.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="ManualSelfDestruct"><![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please manually learn Self Destruct from Glide Bomb.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="ManualAcornBomb"><![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please manually learn Acorn Bomb from Treant Sapling.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="Manual1000Needles"><![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please manually learn 1000 Needles from Sabotender Bailaor.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="DisableSideStep">
+			<![CDATA[
+				foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep"))
+				{
+				try
+				{
+					if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+				}
+				catch (Exception ex) {  }
+				}
+			]]>
+		</CodeChunk>		
+	</CodeChunks>	
+	<Order>	
+		<BotSettings AutoEquip="1" />
+		<RunCode name="DisableSideStep"/>
+	<!-- Out of the Blue -->
+		<If Condition="not IsQuestCompleted(68728)">
+			<LogMessage Message="Starting Quest Out of the Blue" />
+			<If Condition="(IsQuestAcceptQualified(68728)) and not (HasQuest(68728)) and not (IsQuestCompleted(68728))">
+				<LisbethTravel ZoneId="129" XYZ="-64.34735,18.00033,-11.03229" />		
+				<PickupQuest NpcId="1026928" QuestId="68728" />
+			</If>
+			<If Condition="HasQuest(68728) and not IsQuestCompleted(68728) and GetQuestStep(68728) == 1">
+				<LisbethTravel ZoneId="134" XYZ="-70.61781, 43.73735, -5.539877" />
+				<TalkTo InteractDistance="3.0" QuestId="68728" StepId="1" NpcId="1026929" XYZ="-69.87109,43.83883,-5.661133" />
+			</If>
+			<If Condition="HasQuest(68728) and not IsQuestCompleted(68728) and GetQuestStep(68728) == 2">
+				<LisbethTravel ZoneId="134" XYZ="171.5807, 62.87119, 274.4058" />
+				<TalkTo InteractDistance="3.0" QuestId="68728" StepId="2" NpcId="1026936" XYZ="170.8552,62.7655,275.2574" />			
+			</If>
+			<If Condition="HasQuest(68728) and not IsQuestCompleted(68728) and GetQuestStep(68728) == 3">
+				<LisbethTravel ZoneId="135" XYZ="155.4043, 12.12584, 649.518" />
+				<TalkTo InteractDistance="3.0" QuestId="68728" StepId="3" NpcId="1028430" XYZ="156.6338,12.12639,649.3781" />
+			</If>
+			<If Condition="HasQuest(68728) and not IsQuestCompleted(68728) and GetQuestStep(68728) == 4">
+				<LisbethTravel ZoneId="135" XYZ="-83.89848, 2.537577, 728.1419" />
+				<TalkTo InteractDistance="3.0" QuestId="68728" StepId="4" NpcId="1026930" XYZ="-85.40479,2.542797,728.542" />
+			</If>
+			<If Condition="HasQuest(68728) and not IsQuestCompleted(68728) and GetQuestStep(68728) == 255">
+				<LisbethTravel ZoneId="135" XYZ="-105.8387, 1.619957, 748.5795" />
+				<TurnIn QuestId="68728" NpcId="1026932" XYZ="-105.9129,1.572371,750.0571" />
+			</If>	
+			<If Condition="HasItem(24587)">
+				<RunCode Name="UseCoffer"/>
+				<WaitTimer WaitTime="3" />
+				<RunCode Name="BLUWeapon" />
+				<WaitTimer WaitTime="1" />
+				<RunCode Name="BLUHat" />
+				<WaitTimer WaitTime="1" />
+				<RunCode Name="BLUTrousers" />
+				<WaitTimer WaitTime="1" />	
+				<RunCode Name="BLUCoat" />
+				<WaitTimer WaitTime="1" />	
+				<RunCode Name="BLUBoots" />
+				<WaitTimer WaitTime="1" />
+				<RunCode Name="BLUGloves" />
+				<WaitTimer WaitTime="1" />					
+			</If>			
+		</If>	
+	
+	<!-- Blue Leading the Blue -->
+		<If Condition="not IsQuestCompleted(68729)">	
+			<LogMessage Message="Starting Quest Blue Leading the Blue" />
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 22746">
+				<RunCode Name="BLUWeapon" />
+				<WaitTimer WaitTime="3" />
+			</While>	
+			<If Condition="(IsQuestAcceptQualified(68729)) and not (HasQuest(68729)) and not (IsQuestCompleted(68729))">
+				<LisbethTravel ZoneId="135" XYZ="-105.9129, 1.572371, 750.0571" />
+				<PickupQuest NpcId="1026932" QuestId="68729" />
+			</If>
+			<If Condition="GetQuestStep(68729) &lt; 255">
+				<TalkTo InteractDistance="3.0" QuestId="68729" StepId="1" NpcId="1026934" XYZ="-108.0491, 1.502605, 749.1415" />
+				<SetBluActive Spells="11385"/> <!-- Water cannon -->
+				<WaitTimer WaitTime="2" />	
+				<RunCode Name="CastWaterCannon" />			
+				<WaitTimer WaitTime="5" />	
+				<WaitWhile Condition="GetQuestStep(68729) != 255" />
+			</If>
+			<If Condition="GetQuestStep(68729) == 255">
+				<LisbethTravel ZoneId="131" XYZ="64.46936, 14.005, 88.70068" />
+				<LLTurnIn QuestId="68729" NpcId="1026937" ItemId="2002646" XYZ="65.7511, 14.005, 90.44019" DialogOption="0"/>
+			</If> 
+		</If> 	
+		
+	<!-- Grind to 3 -->
+		<If Condition="(Core.Player.ClassLevel &gt; 1) and (Core.Player.ClassLevel &lt; 3) and IsQuestCompleted(68729)">
+			<LogMessage Message="Starting Grind to Level 3" />
+			<If condition="not IsOnMap(134)">
+				<LisbethTravel ZoneId="134" XYZ="40.61074, 45.31433, 79.40243" />
+			</If>
+				<LogMessage Message="Starting Grind to level 5" />
+				<Grind grindRef="MiddleLa3" postCombatDelay="1" While="Core.Player.ClassLevel &lt; 3"/>		
+		</If>
+		
+	<!-- Learn Bomb Toss Lvl. 5 Goblin Fisher & Grind to 6 -->
+		<If condition="not HasBlueSpell(11396) and Core.Player.ClassLevel &gt; 2 and IsQuestCompleted(68729)">
+			<LogMessage Message="Starting Learn Bomb Toss and Grind To Level 6"/>
+			<If condition="not IsOnMap(134)">
+				 <TeleportTo name="Summerford Farms" aetheryteId="52" force="true"/>
+			</If>
+				<NoCombatMoveTo xyz="92.23995, 50.82322, -15.37223" name="GoblinFisher"/>
+				<Grind grindRef="GoblinFisher" postCombatDelay="1" while="not (HasBlueSpell(11396)) or (Core.Player.ClassLevel &lt; 6)"/>
+		</If>
+		
+	<!-- Learn Ice Spikes Lvl. 9 Trickster Imps-->	
+		<If condition="not HasBlueSpell(11418) and IsQuestCompleted(68729)">
+			<LogMessage Message="Starting Learn Ice Spikes" />
+			<If condition="not IsOnMap(148)">
+					<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
+			</If>
+				<Grind grindRef="TricksterImp" postCombatDelay="1" while="not HasBlueSpell(11418)"/>
+		</If>
+
+	<!-- Learn Faze -->
+		<If condition="not HasBlueSpell(11403) and IsQuestCompleted(68729)">
+			<LogMessage Message="Starting Learn Faze"/>
+			<If condition="not IsOnMap(141)">
+				 <TeleportTo name="Summerford Farms" aetheryteId="53" force="true"/>
+			</If>
+				<NoCombatMoveTo xyz="-194.4272, 21.1615, -103.4405" name="QiqirnShellsweeper"/>
+				<Grind grindRef="QiqirnShellsweeper" postCombatDelay="1" while="not HasBlueSpell(11403)"/>
+		</If>		
+				
+	<!-- Learn Blood Drain Lvl.9 Chigoe-->
+		<If condition="not (HasBlueSpell(11395)) and (Core.Player.ClassLevel &gt; 5) and IsQuestCompleted(68729)">
+			<LogMessage Message="Starting Learn Blood Drain" />
+			<If condition="not IsOnMap(148)">
+				<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
+			</If>
+				<LogMessage Message="Starting Learn Blood Drain" />
+				<NoCombatMoveTo xyz="155.276627,-8.3465 , -1.386267" name="Chigoe"/>
+				<Grind grindRef="Chigoe" postCombatDelay="1" while="not HasBlueSpell(11395)"/>
+				<Grind grindRef="Chigoe" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 11"/>	
+				<SetBluActive Spells="11385,11395"/> <!-- Set Water Cannon 11385, Blood Drain 11395 -->
+		</If>
+		
+	<!-- Buy Off-Gaurd Totem -->	
+		<If condition="not HasBlueSpell(11411) and HasBlueSpell(11395) and HasBlueSpell(11403) and HasBlueSpell(11418) and HasBlueSpell(11396) and HasBlueSpell(11385)">
+			<LogMessage Message="Buying Off-Gaurd Totem" />
+			<If condition="not IsOnMap(131)">
+				<LisbethTravel ZoneId="131" XYZ="66.453,14.005,87.41882"/>
+			</If>
+				<LisbethTravel ZoneId="131" XYZ="66.453,14.005,87.41882"/>
+				<BuyBluTotem ItemId="23310" SelectString="0" NpcId="1026925"/>
+				<WaitTimer WaitTime="3" />
+				<RunCode Name="UseOffGaurd" />
+				<SetBluActive Spells="11385,11395,11406"/> <!-- Set Water Cannon 11385, Blood Drain 11395, White Wind 11406 -->
+		</If>
+
+	<!-- Buy White Whind Totem -->	
+		<If condition="not HasBlueSpell(11406) and HasBlueSpell(11392) and HasBlueSpell(11412) and HasBlueSpell(11408) and HasBlueSpell(11395) and HasBlueSpell(11411) and HasBlueSpell(11407) and HasBlueSpell(11403) and HasBlueSpell(11418) and HasBlueSpell(11396) and HasBlueSpell(11385)">
+			<LogMessage Message="Buying White Wind Totem" />
+			<If condition="not IsOnMap(131)">
+				<LisbethTravel ZoneId="131" XYZ="66.453,14.005,87.41882"/>
+			</If>
+				<LisbethTravel ZoneId="131" XYZ="66.453,14.005,87.41882"/>
+				<BuyBluTotem ItemId="25012" SelectString="0" NpcId="1026925"/>
+				<WaitTimer WaitTime="3" />
+				<BuyBluTotem ItemId="23312" SelectString="0" NpcId="1026925"/>
+				<WaitTimer WaitTime="3" />
+				<RunCode Name="UseWhiteWind" />
+				<WaitTimer WaitTime="3" />
+				<RunCode Name="UseMightyGuard" />
+				<SetBluActive Spells="11385,11395,11406"/> <!-- Set Water Cannon 11385, Blood Drain 11395, White Wind 11406 -->
+		</If>
+		
+		
+	<!-- Grind to 11 if needed -->	
+		<If Condition="(HasBlueSpell(11395)) and (Core.Player.ClassLevel &lt; 11) and IsQuestCompleted(68729)">
+			<LogMessage Message="Starting Grind to Level 11" />
+			<If condition="not IsOnMap(148)">
+				<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
+			</If>
+				<LogMessage Message="Starting Grind to 10" />
+				<NoCombatMoveTo xyz="155.276627,-8.3465 , -1.386267" name="Chigoe"/>
+				<Grind grindRef="Chigoe" postCombatDelay="1" While="Core.Player.ClassLevel &lt; 11"/>		
+		</If>
+
+	<!-- Blue Collar Work -->
+		<If Condition="not (IsQuestCompleted(68730)) and (Core.Player.ClassLevel &gt; 9)">
+			<LogMessage Message="Starting Blue Collar Work" />
+			<If Condition="IsQuestAcceptQualified(68730)">
+				<LisbethTravel ZoneId="131" XYZ="63.12659, 14.005, 89.86035" />		
+				<PickupQuest NpcId="1026852" QuestId="68730" />
+			</If>
+
+			<If Condition="GetQuestStep(68730) == 1">
+					<LisbethTravel ZoneId="141" XYZ="101.274, 7.353617, 600.2135" />
+					<TalkTo InteractDistance="3.0" QuestId="68730" StepId="1" NpcId="1026938" XYZ="101.274, 7.353617, 600.2135" />
+			</If>
+
+			<If Condition="GetQuestStep(68730) == 2">
+					<LisbethTravel ZoneId="141" XYZ="163.5919, 3.707886, 657.0991" />
+					<UseObject NpcIds="2009670" XYZ="163.5919, 3.707886, 657.0991"  Radius="25"  QuestId="68730" StepId="2"/>
+					<Grind grindRef="Bee" While="HasQuest(68730) and GetQuestStep(66132) == 2" />	
+			</If>
+
+			<If Condition="GetQuestStep(68730) == 3">
+					<LisbethTravel ZoneId="141" XYZ="101.274, 7.353617, 600.2135" />
+					<TalkTo InteractDistance="3.0" QuestId="68730" StepId="3" NpcId="1026938" XYZ="101.274, 7.353617, 600.2135" />	
+		
+			</If>
+
+			<If Condition="GetQuestStep(68730) == 255">
+				<LisbethTravel ZoneId="131" XYZ="63.12659, 14.005, 89.86035" />
+				<TurnIn QuestId="68730" NpcId="1026852" ItemId="2002646" XYZ="63.12659, 14.005, 89.86035" />
+			</If> 
+		</If> 
+		
+	<!-- Buying Right Side Gear -->	
+		<If Condition="&buygear; == 1">
+			<If condition="(Core.Player.ClassLevel &gt; 14) and (Core.Player.ClassLevel &lt; 20)">
+				<BotSettings AutoEquip="1" />
+				<If condition="not HasAtLeast(4421,2)">
+					<If condition="not IsOnMap(129)">
+						<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+					</If>
+					<BuyItem ItemIds="4421" ItemCounts="2" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/> <!-- Bone Ring -->
+					<WaitTimer WaitTime="3" />
+				</If>			
+				<If condition="not HasItem(4091)">
+					<If condition="not IsOnMap(129)">
+						<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+					</If>
+					<BuyItem ItemIds="4091" ItemCounts="1" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/> <!-- Copper Wristlets -->
+					<WaitTimer WaitTime="3" />
+				</If>	
+				<If condition="not HasItem(4306)">
+					<If condition="not IsOnMap(129)">
+						<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+					</If>
+					<BuyItem ItemIds="4306" ItemCounts="1" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/> <!-- Bone Necklace -->
+					<WaitTimer WaitTime="3" />
+				</If>
+				<If condition="not HasItem(4198)">
+					<If condition="not IsOnMap(129)">
+						<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+					</If>
+					<BuyItem ItemIds="4198" ItemCounts="1" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/> <!-- Copper Ear Cuffs -->
+					<WaitTimer WaitTime="3" />
+				</If>			
+		<!-- Buying New Left Side Gear -->
+				<If condition="not HasItem(3024)">
+					<If condition="not IsOnMap(152)">
+						<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
+					</If>
+					<NoCombatMoveTo xyz="16.03717,-4.596201,220.5081"/>
+					<BuyItem ItemIds="3024" ItemCounts="1" DialogOption="2" NpcId="1000579" XYZ="16.03717,-4.596201,220.5081"/> <!-- Cotton Cowl -->
+					<WaitTimer WaitTime="3" />
+				</If>
+				<If condition="not HasItem(3327)">
+					<If condition="not IsOnMap(152)">
+						<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
+					</If>			
+					<NoCombatMoveTo xyz="16.03717,-4.596201,220.5081"/>
+					<BuyItem ItemIds="3327" ItemCounts="1" DialogOption="2" NpcId="1000579" XYZ="16.03717,-4.596201,220.5081"/> <!-- Cotton Tights -->
+					<WaitTimer WaitTime="3" />
+				</If>
+				<If condition="not HasItem(3777)">
+					<If condition="not IsOnMap(152)">
+						<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
+					</If>			
+					<NoCombatMoveTo xyz="16.03717,-4.596201,220.5081"/>
+					<BuyItem ItemIds="3777" ItemCounts="1" DialogOption="2" NpcId="1000579" XYZ="16.03717,-4.596201,220.5081"/> <!-- Hard Leather Boots -->
+					<WaitTimer WaitTime="3" />
+				</If>
+			</If>
+		</If>	
+
+	<!-- Learn Final Sting Lvl. 13 Killer Wespe-->
+		<If condition="not (HasBlueSpell(11407)) and (Core.Player.ClassLevel &gt; 12)">
+			<BotSettings AutoEquip="1" />
+			<LogMessage Message="Starting Learn Final Sting" />
+			<If condition="not IsOnMap(134)">
+				<TeleportTo name="Summerford Farms" aetheryteId="52" force="true"/>
+			</If>			
+			<NoCombatMoveTo xyz="-284.9595, 23.06275, -400.7565" name="KillerWespe"/>
+			<RunCode Name="ManualFinalSting"/>
+			<!--<Grind grindRef="KillerWespe" postCombatDelay="1" while="not HasBlueSpell(11407) and Core.Player.ClassLevel &lt; 14"/>-->
+		</If>		
+
+	<!-- Learn Self-Destruct Lvl.13 Glide Bomb -->
+		<If condition="not (HasBlueSpell(11408)) and (Core.Player.ClassLevel &gt; 12)">
+			<LogMessage Message="Starting Learn Self-Destruct" />
+			<If condition="not IsOnMap(140)">
+					<LisbethTravel ZoneId="140" XYZ="299.3622, 62.36291, -222.2432" />
+			</If>
+				<NoCombatMoveTo xyz="299.3622, 62.36291, -222.2432" name="GlideBomb"/>
+				<RunCode Name="ManualSelfDestruct"/>
+				<!--<Grind grindRef="GlideBomb" postCombatDelay="1" while="not HasBlueSpell(11408)"/>-->
+		</If>
+		
+	<!-- Learn Sticky Tongue & Grind To Level 15 -->	
+		<If condition="not HasBlueSpell(11412) and Core.Player.ClassLevel &gt; 10">
+			<LogMessage Message="Starting Learn Sticky Tongue" />
+			<If condition="not IsOnMap(141)">
+					<LisbethTravel ZoneId="141" XYZ="276.5776, -19.71835, -125.6576" />
+			</If>
+				<Grind grindRef="ToxicToad" postCombatDelay="1" while="not HasBlueSpell(11412)"/>
+				<SetBluActive Spells="11385,11395,11412,11406"/>
+				<Grind grindRef="ToxicToad" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 15"/>
+				<SetBluActive Spells="11385,11395,11412,11406"/> <!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, White Wind 11406 -->
+		</If>
+
+	<!-- Grind to 15 if needed -->	
+		<If Condition="(HasBlueSpell(11412)) and (Core.Player.ClassLevel &lt; 15) and IsQuestCompleted(68729)">
+			<LogMessage Message="Starting Grind to Level 15" />
+			<If condition="not IsOnMap(141)">
+					<LisbethTravel ZoneId="141" XYZ="276.5776, -19.71835, -125.6576" />
+			</If>
+				<Grind grindRef="ToxicToad" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 15"/>
+		</If>	
+		
+	<!-- Learn Acorn Bomb -->
+		<If condition="not HasBlueSpell(11392) and (Core.Player.ClassLevel &gt; 14)">
+			<LogMessage Message="Starting Learn Acorn Bomb" />
+			<If condition="not IsOnMap(148)">
+					<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
+			</If>
+				<NoCombatMoveTo xyz="394.453949,17.85671,86.986427" name="TreantSapling"/>
+				<RunCode Name="ManualAcornBomb"/>
+				<!--<Grind grindRef="TreantSapling" postCombatDelay="1" while="not HasBlueSpell(11392) and Core.Player.ClassLevel &lt; 17"/>-->
+		</If>
+		
+	<!-- Grind to 19 -->	
+		<If Condition="Core.Player.ClassLevel &lt; 19 and IsQuestCompleted(68729)">
+			<LogMessage Message="Starting Grind to Level 19" />
+			<If condition="not IsOnMap(152)">
+					<LisbethTravel ZoneId="152" XYZ="-54.22462, 10.97906, 432.0752" />
+			</If>
+				<Grind grindRef="Lemur" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 19"/>
+							
+		</If>	
+		
+	<!-- Learn Bristle -->
+		<If condition="not (HasBlueSpell(11393)) and (Core.Player.ClassLevel &gt; 18)">
+			<LogMessage Message="Starting Learn Bristle" />
+			<BotSettings AutoEquip="1" />
+			<If Condition="&buygear; == 1">
+		<!-- Buying Right Side Gear -->		
+				<If condition="not HasAtLeast(4433,2)">
+					<If condition="not IsOnMap(129)">
+						<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+					</If>
+					<BuyItem ItemIds="4433" ItemCounts="2" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/>
+					<WaitTimer WaitTime="3" />
+				</If>			
+				<If condition="not HasItem(4311)">
+					<If condition="not IsOnMap(129)">
+						<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+					</If>
+					<BuyItem ItemIds="4311" ItemCounts="1" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/>
+					<WaitTimer WaitTime="3" />
+				</If>	
+				<If condition="not HasItem(4094)">
+					<If condition="not IsOnMap(129)">
+						<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+					</If>
+					<BuyItem ItemIds="4094" ItemCounts="1" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/>
+					<WaitTimer WaitTime="3" />
+				</If>
+				<If condition="not HasItem(4094)">
+					<If condition="not IsOnMap(129)">
+						<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+					</If>
+					<BuyItem ItemIds="4094" ItemCounts="1" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/>
+					<WaitTimer WaitTime="3" />
+				</If>			
+		<!-- Buying New Left Side Gear -->
+				<If condition="not HasItem(3036)">
+					<If condition="not IsOnMap(152)">
+						<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
+					</If>
+					<BuyItem ItemIds="3036" ItemCounts="1" DialogOption="2" NpcId="1000222" XYZ="-213.9468,2.324794,300.4348"/>
+					<WaitTimer WaitTime="3" />
+				</If>
+				<If condition="not HasItem(3547)">
+					<If condition="not IsOnMap(152)">
+						<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
+					</If>			
+					<BuyItem ItemIds="3547" ItemCounts="1" DialogOption="2" NpcId="1000222" XYZ="-213.9468,2.324794,300.4348"/>
+					<WaitTimer WaitTime="3" />
+				</If>
+				<If condition="not HasItem(3974)">
+					<If condition="not IsOnMap(152)">
+						<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
+					</If>			
+					<BuyItem ItemIds="3974" ItemCounts="1" DialogOption="2" NpcId="1000222" XYZ="-213.9468,2.324794,300.4348"/>
+					<WaitTimer WaitTime="3" />
+				</If>
+				<If condition="not HasItem(3327)">
+					<If condition="not IsOnMap(152)">
+						<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
+					</If>			
+					<BuyItem ItemIds="3327" ItemCounts="1" DialogOption="2" NpcId="1000222" XYZ="-213.9468,2.324794,300.4348"/>
+					<WaitTimer WaitTime="3" />
+				</If>
+				<If condition="not HasItem(3788)">
+					<If condition="not IsOnMap(152)">
+						<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
+					</If>			
+					<BuyItem ItemIds="3788" ItemCounts="1" DialogOption="2" NpcId="1000222" XYZ="-213.9468,2.324794,300.4348"/>
+					<WaitTimer WaitTime="3" />
+				</If>
+				<If condition="not HasItem(2675)">
+					<If condition="not IsOnMap(152)">
+						<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
+					</If>			
+					<BuyItem ItemIds="2675" ItemCounts="1" DialogOption="2" NpcId="1000222" XYZ="-213.9468,2.324794,300.4348"/>
+					<WaitTimer WaitTime="3" />
+				</If>
+			</If>	
+				<If condition="not IsOnMap(152)">
+					<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
+				</If>			
+				<Grind grindRef="WildBoar" postCombatDelay="1" while="not HasBlueSpell(11393)"/>
+				<Grind grindRef="WildBoar" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 21"/>				
+		</If>
+		
+	<!-- Learn Toad Oil -->
+		<If condition="not HasBlueSpell(11410) and Core.Player.ClassLevel &gt; 18">
+			<LogMessage Message="Starting Learn Toad Oil" />
+			<If condition="not IsOnMap(140)">
+				<LisbethTravel ZoneId="140" XYZ="-352.8664, 15.03115, -736.3968" />
+			</If>
+				<Grind grindRef="GigglingGigantoad" postCombatDelay="1" while="not HasBlueSpell(11410) or Core.Player.ClassLevel &lt; 22"/>
+				<SetBluActive Spells="11385,11395,11412,11410,11406"/> <!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, White Wind 11406 -->	
+			
+		</If>
+		
+	<!-- Learn 1000 Needles -->	
+		<If condition="not HasBlueSpell(11397) and Core.Player.ClassLevel &gt; 20">
+			<LogMessage Message="Starting Learn 1000 Needles"/>
+			<If condition="not IsOnMap(146)">
+					<TeleportTo name="Little Ala Mhigo" aetheryteId="19" force="true"/>
+			</If>
+				<NoCombatMoveTo xyz="-256.085754,17.70092,-284.663879" name="SabotenderBailaor"/>
+				<RunCode Name="Manual1000Needles"/>
+				<!--<Grind grindRef="SabotenderBailaor" postCombatDelay="1" while="not HasBlueSpell(11397)"/>-->
+
+		</If>
+		
+	<!-- Grind to 27 -->
+		<If Condition="Core.Player.ClassLevel &gt; 20 and Core.Player.ClassLevel &lt; 27">
+			<LogMessage Message="Starting Grind to Level 27" />
+			<If condition="not IsOnMap(153)">
+					<LisbethTravel ZoneId="153" XYZ="99.97995, 7.887495, -64.79594" />
+			</If>
+				<SetBluActive Spells="11385,11395,11412,11410,11397,11406"/>	<!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, 1000 Needles 11397 -->		
+				<Grind grindRef="Antelope" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 27"/>
+							
+		</If>		
+
+	<!-- Learn Plaincracker & Grind to 29 -->
+		 <If condition="not (HasBlueSpell(11391)) and (Core.Player.ClassLevel &gt; 23)">
+			<LogMessage Message="Starting Learn Plaincracker"/>
+			<SetBluActive Spells="11385,11395,11412,11410,11406,11403,11396" Clear="true"/> <!-- Turn off 1000 Needles -->
+			<If condition="not IsOnMap(154)">
+			  <TeleportTo name="Fallgourd Float" aetheryteId="7" force="true" />
+			</If>
+				<NoCombatMoveTo xyz="-186.389, -57.37035, 334.5541" name="Clay_Golem"/>
+				<Grind grindRef="Clay_Golem" postCombatDelay="1" while="not HasBlueSpell(11391)" />
+				<SetBluActive Spells="11385,11395,11412,11410,11397,11406"/>	<!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, 1000 Needles 11397 -->		
+				<Grind grindRef="Clay_Golem" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 29" />
+		 </If>
+
+	<!-- Learn Flying Sardine -->
+		<If condition="not (HasBlueSpell(11423)) and (Core.Player.ClassLevel &gt; 26)">
+			<LogMessage Message="Starting Learn Flying Sardine"/>
+			<SetBluActive Spells="11385,11395,11412,11410,11406,11403,11396" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<LisbethTravel ZoneId="137" XYZ="284.6243, 43.35668, 748.2975" />
+			<Grind grindRef="Apkallu" postCombatDelay="1" while="not HasBlueSpell(11423)" />
+			<SetBluActive Spells="11385,11395,11412,11410,11397,11406"/>	<!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, 1000 Needles 11397 -->		
+			<Grind grindRef="Apkallu" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 31" />
+		</If>
+		
+	<!-- Grind to 31 if needed -->
+		<If condition="(Core.Player.ClassLevel &gt; 26) and (Core.Player.ClassLevel &lt; 31)">
+			<LogMessage Message="Starting Grind to 31"/>
+			<LisbethTravel ZoneId="137" XYZ="284.6243, 43.35668, 748.2975" />
+			<SetBluActive Spells="11385,11395,11412,11410,11397,11406"/>	<!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, 1000 Needles 11397 -->		
+			<Grind grindRef="Apkallu" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 31" />
+		</If>		
+	
+	<!-- Learn Bad Breath -->
+		<If condition="not (HasBlueSpell(11388)) and (Core.Player.ClassLevel &gt; 30)">
+			<SetBluActive Spells="11385,11395,11412,11410,11406,11403,11396" Clear="true"/>  <!-- Turn off 1000 Needles -->			
+			<LogMessage Message="Starting Learn Bad Breath"/>
+			<If condition="not IsOnMap(148)">
+				<TeleportTo name="Bentbranch Meadows" aetheryteId="3" force="true" />
+			</If>
+			<NoCombatMoveTo xyz="-435.1415, 49, -2.487305" name="Clay_Golem"/>
+			<Grind grindRef="Stroper" postCombatDelay="1" while="not HasBlueSpell(11388)" />
+			<SetBluActive Spells="11385,11395,11412,11410,11397,11406"/>	<!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, 1000 Needles 11397 -->		
+		</If>
+		 
+		<If Condition="&buygear; == 1"> 
+	<!-- Buy New Lvl 29 Right Side Gear -->	 
+			<If condition="(not HasAtLeast(4454,2)) and (Core.Player.ClassLevel &gt; 28) and (Core.Player.ClassLevel &lt; 50)">
+				<BotSettings AutoEquip="1" />
+				<If condition="not IsOnMap(129)">
+					<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+				</If>
+				<BuyItem ItemIds="4454" ItemCounts="2" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/> <!-- Horn Ring -->
+				<WaitTimer WaitTime="3" />
+			</If>			
+			<If condition="(not HasItem(4103)) and (Core.Player.ClassLevel &gt; 28) and (Core.Player.ClassLevel &lt; 50)">
+				<BotSettings AutoEquip="1" />
+				<If condition="not IsOnMap(129)">
+					<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+				</If>
+				<BuyItem ItemIds="4103" ItemCounts="1" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/> <!-- Silver Wristlets -->
+				<WaitTimer WaitTime="3" />
+			</If>	
+			<If condition="(not HasItem(4317)) and (Core.Player.ClassLevel &gt; 28) and (Core.Player.ClassLevel &lt; 50)">
+				<BotSettings AutoEquip="1" />
+				<If condition="not IsOnMap(129)">
+					<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+				</If>
+				<BuyItem ItemIds="4317" ItemCounts="1" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/> <!-- Horn Necklace -->
+				<WaitTimer WaitTime="3" />
+			</If>
+			<If condition="(not HasItem(4216)) and (Core.Player.ClassLevel &gt; 28) and (Core.Player.ClassLevel &lt; 50)">
+				<BotSettings AutoEquip="1" />
+				<If condition="not IsOnMap(129)">
+					<LisbethTravel ZoneId="129" XYZ="-134.7867, 18.2, 14.60635" />
+				</If>
+				<BuyItem ItemIds="4216" ItemCounts="1" DialogOption="0" NpcId="1001202" XYZ="-136.1868,18.2,12.28351"/> <!-- Danburite Earrings -->
+				<WaitTimer WaitTime="3" />
+			</If>
+
+	<!-- Buy New Lvl 29 Left Side Gear -->	 
+			<If condition="(not HasItem(3090)) and (Core.Player.ClassLevel &gt; 28) and (Core.Player.ClassLevel &lt; 50)">
+				<BotSettings AutoEquip="1" />
+				<If condition="not IsOnMap(154)">
+					<LisbethTravel ZoneId="154" XYZ="9.817115, -44.7334, 223.0513" />
+				</If>
+				<BuyItem ItemIds="3090" ItemCounts="1" DialogOption="0" NpcId="1002377" XYZ="11.06268,-44.73346,221.5762"/> <!-- Velveteen Cowl -->
+				<WaitTimer WaitTime="3" />
+			</If>		
+			<If condition="(not HasItem(3581)) and (Core.Player.ClassLevel &gt; 28) and (Core.Player.ClassLevel &lt; 50)">
+				<BotSettings AutoEquip="1" />
+				<If condition="not IsOnMap(154)">
+					<LisbethTravel ZoneId="154" XYZ="9.817115, -44.7334, 223.0513" />
+				</If>
+				<BuyItem ItemIds="3581" ItemCounts="1" DialogOption="0" NpcId="1002377" XYZ="11.06268,-44.73346,221.5762"/> <!-- Goatskin Ringbands -->
+				<WaitTimer WaitTime="3" />
+			</If>		
+			<If condition="(not HasItem(4001)) and (Core.Player.ClassLevel &gt; 28) and (Core.Player.ClassLevel &lt; 50)">
+				<BotSettings AutoEquip="1" />
+				<If condition="not IsOnMap(154)">
+					<LisbethTravel ZoneId="154" XYZ="9.817115, -44.7334, 223.0513" />
+				</If>
+				<BuyItem ItemIds="4001" ItemCounts="1" DialogOption="0" NpcId="1002377" XYZ="11.06268,-44.73346,221.5762"/> <!-- Velveteen Rope Belt -->
+				<WaitTimer WaitTime="3" />
+			</If>		
+			<If condition="(not HasItem(3355)) and (Core.Player.ClassLevel &gt; 28) and (Core.Player.ClassLevel &lt; 50)">
+				<BotSettings AutoEquip="1" />
+				<If condition="not IsOnMap(154)">
+					<LisbethTravel ZoneId="154" XYZ="9.817115, -44.7334, 223.0513" />
+				</If>
+				<BuyItem ItemIds="3355" ItemCounts="1" DialogOption="0" NpcId="1002377" XYZ="11.06268,-44.73346,221.5762"/> <!-- Velveteen Tights -->
+				<WaitTimer WaitTime="3" />
+			</If>		
+			<If condition="(not HasItem(3821)) and (Core.Player.ClassLevel &gt; 28) and (Core.Player.ClassLevel &lt; 50)">
+				<BotSettings AutoEquip="1" />
+				<If condition="not IsOnMap(154)">
+					<LisbethTravel ZoneId="154" XYZ="9.817115, -44.7334, 223.0513" />
+				</If>
+				<BuyItem ItemIds="3821" ItemCounts="1" DialogOption="0" NpcId="1002377" XYZ="11.06268,-44.73346,221.5762"/> <!-- Goatskin Boots -->
+				<WaitTimer WaitTime="3" />
+			</If>
+		</If>	
+		 
+	<!-- Grind to 45 -->
+		<If Condition="(Core.Player.ClassLevel &gt;= 29) and (Core.Player.ClassLevel &lt; 33)">	
+			<LogMessage Message="Starting Grind to 45"/>
+			<BotSettings AutoEquip="1" />
+			<SetBluActive Spells="11385,11395,11412,11410,11397,11406"/> <!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, 1000 Needles 11397, White Wind 11406 -->
+			<If condition="not IsOnMap(137)">
+				<LisbethTravel ZoneId="137" XYZ="-140.8507, 44.96326, 181.646" />
+			</If>
+				<NoCombatMoveTo xyz="-140.8507, 44.96326, 181.646" name="EasternLaNoscea3033"/>
+				<Grind grindRef="EasternLaNoscea3033" postCombatDelay="1" Condition="Core.Player.ClassLevel &lt; 33"/>		
+		</If>
+		<If Condition="(Core.Player.ClassLevel &gt; 32) and (Core.Player.ClassLevel &lt; 34)">				
+			<If condition="not IsOnMap(137)">
+				<LisbethTravel ZoneId="137" XYZ="-202.4171, 49.80733, 594.4215" />
+			</If>
+				<BotSettings AutoEquip="1" />
+				<NoCombatMoveTo xyz="-202.4171, 49.80733, 594.4215" name="EasternLaNoscea34"/>
+				<Grind grindRef="EasternLaNoscea34" postCombatDelay="1" Condition="Core.Player.ClassLevel &lt; 34"/>		
+		</If>
+		<If Condition="(Core.Player.ClassLevel &gt; 33) and (Core.Player.ClassLevel &lt; 38)">				
+			<If condition="not IsOnMap(155)">
+				<LisbethTravel ZoneId="155" XYZ="358.5911, 314.8157, -402.1956" />
+			</If>
+				<BotSettings AutoEquip="1" />
+				<NoCombatMoveTo xyz="358.5911, 314.8157, -402.1956" name="CentralCoerthas37"/>
+				<Grind grindRef="CentralCoerthas37" postCombatDelay="1" Condition="Core.Player.ClassLevel &lt; 38"/>		
+		</If>
+		<If Condition="(Core.Player.ClassLevel &gt; 37) and (Core.Player.ClassLevel &lt; 39)">				
+			<If condition="not IsOnMap(155)">
+				<LisbethTravel ZoneId="155" XYZ="123.6318, 288.5168, -233.6251" />
+			</If>
+				<BotSettings AutoEquip="1" />
+				<NoCombatMoveTo xyz="123.6318, 288.5168, -233.6251" name="CentralCoerthas39"/>
+				<Grind grindRef="CentralCoerthas39" postCombatDelay="1" Condition="Core.Player.ClassLevel &lt; 39"/>		
+		</If>
+		<If Condition="(Core.Player.ClassLevel &gt; 38) and (Core.Player.ClassLevel &lt; 41)">				
+			<If condition="not IsOnMap(155)">
+				<LisbethTravel ZoneId="155" XYZ="-558.7783, 204.1571, -320.1446" />
+			</If>
+				<BotSettings AutoEquip="1" />
+				<NoCombatMoveTo xyz="-558.7783, 204.1571, -320.1446" name="CentralCoerthas41"/>
+				<Grind grindRef="CentralCoerthas41" postCombatDelay="1" Condition="Core.Player.ClassLevel &lt; 41"/>		
+		</If>
+		
+	<!-- Learn Pecular Light -->
+		<If condition="not HasBlueSpell(11421) and Core.Player.ClassLevel &gt; 40">
+			<LogMessage Message="Starting Learn Pecular Light"/>
+			<If condition="not IsOnMap(156)">
+				<TeleportTo name="Revenant's Toll" aetheryteId="24" force="true" />
+			</If>
+			<NoCombatMoveTo xyz="-464.3265, -9.696238, -534.2192" name="Lentic_Mudpuppy"/>
+			<Grind grindRef="Lentic_Mudpuppy" postCombatDelay="1" while="not HasBlueSpell(11421)" />
+		</If>		
+
+	<!-- Turn off 1000 Needles If Has Abyssal Transfixion -->		
+		<If condition="HasBlueSpell(18300)">
+			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411 -->	
+		</If>	
+
+	<!-- Turn off 1000 Needles above 50 -->		
+		<If condition="Core.Player.ClassLevel &gt; 49">
+			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411, White Wind 11406 -->	
+		</If>			
+		
+	<!-- Grind to 50 -->	
+		<If Condition="(Core.Player.ClassLevel &gt; 40) and (Core.Player.ClassLevel &lt; 47)">	
+			<LogMessage Message="Starting Grind to 47"/>
+			<If condition="not IsOnMap(152)">
+				<LisbethTravel ZoneId="152" XYZ="286.695, -12.7683, -142.6935" />
+			</If>
+			
+				<BotSettings AutoEquip="1" />
+				<NoCombatMoveTo xyz="286.695, -12.7683, -142.6935" name="Larkscall46"/>
+				<Grind grindRef="Larkscall46" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 47"/>		
+		</If>
+		<If Condition="(Core.Player.ClassLevel &gt; 46) and (Core.Player.ClassLevel &lt; 50)">
+			<LogMessage Message="Starting Grind To 50"/>
+			<If condition="not IsOnMap(138)">
+				<TeleportTo name="Aleport" aetheryteId="14" force="true"/>
+			</If>
+				<BotSettings AutoEquip="1" />
+				<LisbethTravel ZoneId="138" XYZ="-347.2093, -39.91124, -307.5996"/>		
+				<Grind grindRef="Sapsa50" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 50"/>		
+		</If>		
+
+	<!-- Learn Drill Cannons -->
+		<If condition="not HasBlueSpell(11398) and Core.Player.ClassLevel &gt; 49">
+			<LogMessage Message="Starting Learn Drill Cannons"/>
+			<LisbethTravel ZoneId="147" XYZ="-246.2222, 81.75178, -225.6007" />
+			<Grind grindRef="Vanguard" postCombatDelay="1" while="not HasBlueSpell(11398)"/>
+		</If>
+
+	<!-- Learn Abyssal Transfixion -->
+	<!--
+		<If condition="not HasBlueSpell(1830) and Core.Player.ClassLevel &gt; 49">
+			<LogMessage Message="Starting Learn Abyssal Transfixion"/>
+			<If condition="not IsOnMap(156)">
+				<LisbethTravel ZoneId="156" XYZ="417.0544, -5.971292, -446.3466" />
+			</If>
+				<NoCombatMoveTo xyz="417.0544, -5.971292, -446.3466"/>
+				
+		</If>	-->
+
+	<!-- Learn Electrogenesis -->
+		<If condition="not HasBlueSpell(18298) and Core.Player.ClassLevel &gt; 49">
+			<LogMessage Message="Starting Learn Electrogenesis"/>
+			<LisbethTravel ZoneId="401" XYZ="225.2717, -147.8377, 562.2714" />
+			<Grind grindRef="Conodont" postCombatDelay="1" while="not HasBlueSpell(18298)"/>
+		</If>
+
+	<!-- Learn Chirp -->
+		<If condition="not HasBlueSpell(18301) and Core.Player.ClassLevel &gt; 49">
+			<LogMessage Message="Starting Learn Chip"/>
+			<LisbethTravel ZoneId="401" XYZ="-123.0217, -165.98, 644.0829" />
+			<Grind grindRef="Paissa" postCombatDelay="1" while="not HasBlueSpell(18301)"/>
+		</If>		
+		
+	<!-- Grind to 60 -->	
+		<If Condition="(Core.Player.ClassLevel &gt; 49) and (Core.Player.ClassLevel &lt; 52)">	
+			<LogMessage Message="Starting grind to 52"/>
+			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411 -->
+			<BotSettings AutoEquip="1" />
+			<LisbethTravel ZoneId="398" xyz="719.0096, -49.74113, 62.89742"/>
+			<Grind grindRef="ChocoboForest52" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 52"/>		
+		</If>
+		
+		<If Condition="(Core.Player.ClassLevel &gt; 51) and (Core.Player.ClassLevel &lt; 56)">
+			<LogMessage Message="Starting grind to 56"/>
+			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411 -->
+			<BotSettings AutoEquip="1" />
+			<LisbethTravel ZoneId="400" xyz="429.4695, 24.61826, 379.8786"/>
+			<Grind grindRef="Churning56" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 56"/>		
+		</If>
+		
+	<!-- Learn Whistle -->	
+		<If condition="not HasBlueSpell(18309) and Core.Player.ClassLevel &gt; 53">
+			<LogMessage Message="Starting learn Whistle"/>
+			<LisbethTravel ZoneId="401" xyz="-279.887, -186.5992, 495.6214"/>
+			<Grind grindRef="Dhalmel" postCombatDelay="1" while="not HasBlueSpell(18309)"/>
+		</If>
+				
+	<!-- Learn Northerlies -->
+		<If condition="not (HasBlueSpell(18297)) and (Core.Player.ClassLevel &gt; 53)">
+			<LogMessage Message="Starting learn Northerlies"/>
+			<LisbethTravel ZoneId="397" xyz="72.98383, 229.4418, 509.0287"/>
+			<Grind grindRef="SlateYeti" postCombatDelay="1" while="not HasBlueSpell(18297)"/>
+		</If>
+
+	<!-- Learn Reflux -->
+		<If condition="not (HasBlueSpell(18319)) and (Core.Player.ClassLevel &gt; 53)">
+			<LogMessage Message="Starting learn Reflux"/>
+			<LisbethTravel ZoneId="400" xyz="81.64323, 27.38359, 284.709"/>
+			<Grind grindRef="CloudWyvern" postCombatDelay="1" while="not HasBlueSpell(18319)"/>
+		</If>
+		
+		<If Condition="(Core.Player.ClassLevel &gt; 55) and (Core.Player.ClassLevel &lt; 60)">	
+			<LogMessage Message="Starting grind to 60"/>
+			<LisbethTravel ZoneId="402" xyz="-405.4079, -137.8361, -547.9728"/>
+			<Grind grindRef="Azys60" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 60"/>		
+		</If>
+			
+		
+	<!-- Learn Tail Screw -->
+		<If condition="not (HasBlueSpell(11413)) and (Core.Player.ClassLevel &gt; 59)">
+			<LogMessage Message="Starting learn Tail Screw"/>
+			<LisbethTravel ZoneId="620" xyz="276.4915, 114.3593, -700.7811" name="Crag_Claw"/>
+			<Grind grindRef="Crag_Claw" postCombatDelay="1" while="not HasBlueSpell(11413)" />
+		</If>
+		
+	<!-- Learn Alpine Draft -->	
+		<If condition="not (HasBlueSpell(18295)) and (Core.Player.ClassLevel &gt; 59)">
+			<LogMessage Message="Starting learn Alpine Draft"/>
+			<LisbethTravel ZoneId="401" xyz="675.473, -98.51501, -691.1071" name="Griffin"/>
+			<Grind grindRef="Griffin" postCombatDelay="1" while="not HasBlueSpell(18295)"/>
+		</If>
+
+	<!-- Learn Sonic Boom -->		
+		<If condition="not (HasBlueSpell(18308)) and (Core.Player.ClassLevel &gt; 59)">
+			<LogMessage Message="Starting learn Sonic Boom"/>
+			<LisbethTravel ZoneId="401" xyz="181.9077, -16.89004, -741.333" name="Anzu"/>
+			<Grind grindRef="Anzu" postCombatDelay="1" while="not HasBlueSpell(18308)"/>
+		</If>		
+	
+	<!-- Learn Frog Legs -->
+		<If condition="not (HasBlueSpell(18307)) and (Core.Player.ClassLevel &gt; 59)">
+			<LogMessage Message="Starting learn Frog Legs"/>
+			<LisbethTravel ZoneId="399" XYZ="-428.6801, 138.1145, 504.5106" />
+			<Grind grindRef="Poroggo" postCombatDelay="1" while="not HasBlueSpell(18307)"/>
+		</If>	
+
+	</Order>	
+	
+	<GrindAreas>
+		<GrindArea name="MiddleLa3">
+				<minLevel>1</minLevel>
+				<maxLevel>3</maxLevel>
+				<Hotspots>
+						<Hotspot radius="30" xyz="40.61074, 45.31433, 79.40243"/>
+						<Hotspot radius="30" xyz="95.31729, 46.0087, 116.9528"/>
+						<Hotspot radius="30" xyz="154.0298, 47.74591, 101.2117"/>
+						<Hotspot radius="30" xyz="97.00613, 48.14698, 65.34518"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="49"/>
+				</TargetMobs>				
+		</GrindArea>
+		<GrindArea Name="Bee">
+			<Hotspots>
+				<Hotspot XYZ="163.5919, 3.707886, 657.0991" Name="Man-Eating Hornet" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="7902" /> <!-- Defiant Mage -->
+			</TargetMobs>
+			<MinLevel>1</MinLevel>
+			<MaxLevel>80</MaxLevel>
+		</GrindArea>
+		<GrindArea name="EasternLaNoscea3033">
+				<minLevel>30</minLevel>
+				<maxLevel>33</maxLevel>
+				<Hotspots>
+						<Hotspot radius="20" xyz="-72.18569, 41.79808, 194.1356"/>
+						<Hotspot radius="20" xyz="-104.3057, 42.16659, 191.9379"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="684"/>
+				</TargetMobs>				
+		</GrindArea>
+		<GrindArea name="EasternLaNoscea34">
+				<minLevel>30</minLevel>
+				<maxLevel>34</maxLevel>
+				<Hotspots>
+						<Hotspot radius="20" xyz="-265.3622, 43.22486, 333.2134"/>
+						<Hotspot radius="20" xyz="-212.5168, 40.77112, 381.7881"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="353"/>
+					<TargetMob id="396"/>
+				</TargetMobs>				
+		</GrindArea>		
+		<GrindArea name="CentralCoerthas36">
+				<minLevel>33</minLevel>
+				<maxLevel>36</maxLevel>
+				<Hotspots>
+						<Hotspot radius="20" xyz="316.9397, 255.2276, 157.7228"/>
+						<Hotspot radius="20" xyz="334.7948, 247.969, 187.1634"/>
+						<Hotspot radius="20" xyz="321.2389, 255.7294, 126.696"/>
+						<Hotspot radius="20" xyz="284.9682, 267.969, 43.96436"/>
+						<Hotspot radius="20" xyz="186.801, 271.4636, -0.005676523"/>
+						<Hotspot radius="20" xyz="244.8056, 267.7375, 40.34867"/>
+						<Hotspot radius="20" xyz="219.2095, 250.5724, 150.2773"/>						
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="784"/>
+				</TargetMobs>				
+		</GrindArea>
+		<GrindArea name="CentralCoerthas37">
+				<minLevel>33</minLevel>
+				<maxLevel>37</maxLevel>
+				<Hotspots>
+						<Hotspot radius="20" xyz="358.5911, 314.8157, -402.1956"/>	
+						<Hotspot radius="20" xyz="340.5214, 309.8361, -401.3917"/>	
+						<Hotspot radius="20" xyz="317.1004, 307.1559, -422.4363"/>	
+						<Hotspot radius="20" xyz="366.606, 310.81, -379.3147"/>								
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="795"/>
+					<TargetMob id="114"/>
+				</TargetMobs>				
+		</GrindArea>
+		<GrindArea name="CentralCoerthas39">
+				<minLevel>33</minLevel>
+				<maxLevel>39</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="68.14494, 288.442, -214.454"/>
+						<Hotspot radius="50" xyz="71.13267, 288.3787, -168.6021"/>
+						<Hotspot radius="50" xyz="106.6422, 287.9982, -174.9863"/>
+						<Hotspot radius="50" xyz="123.6318, 288.5168, -233.6251"/>					
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="1611"/>
+					<TargetMob id="114"/>
+				</TargetMobs>				
+		</GrindArea>
+		<GrindArea name="CentralCoerthas41">
+				<minLevel>33</minLevel>
+				<maxLevel>41</maxLevel>
+				<Hotspots>
+						<Hotspot radius="20" xyz="-558.7783, 204.1571, -320.1446"/>	
+						<Hotspot radius="20" xyz="-595.9399, 205.5325, -382.0274"/>
+						<Hotspot radius="20" xyz="-667.6842, 205.6773, -485.7935"/>
+						<Hotspot radius="20" xyz="-524.1785, 207.0528, -345.8755"/>
+						<Hotspot radius="20" xyz="-520.5657, 194.3734, -410.9328"/>
+						<Hotspot radius="20" xyz="-625.6431, 216.918, -338.3777"/>
+						<Hotspot radius="20" xyz="-627.5033, 216.142, -343.9944"/>
+						<Hotspot radius="20" xyz="-658.5814, 208.925, -456.2572"/>								
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="637"/>
+					<TargetMob id="114"/>
+				</TargetMobs>				
+		</GrindArea>
+		<GrindArea name="Larkscall46">
+				<minLevel>41</minLevel>
+				<maxLevel>46</maxLevel>
+				<Hotspots>
+						<Hotspot radius="20" xyz="286.695, -12.7683, -142.6935"/>
+						<Hotspot radius="20" xyz="301.5771, -15.57807, -162.4957"/>
+						<Hotspot radius="20" xyz="342.8094, -19.96478, -159.3831"/>
+						<Hotspot radius="20" xyz="335.4152, -18.16909, -192.2231"/>							
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="164"/>
+					<TargetMob id="67"/>
+				</TargetMobs>				
+		</GrindArea>		
+		<GrindArea name="Sapsa50">
+				<minLevel>47</minLevel>
+				<maxLevel>50</maxLevel>
+				<Hotspots>
+						<Hotspot radius="20" xyz="-347.2093, -39.91124, -307.5996"/>
+						<Hotspot radius="20" xyz="-382.084, -36.20697, -290.1694"/>						
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="1831"/>
+				</TargetMobs>				
+		</GrindArea>
+		<GrindArea name="ChocoboForest52">
+				<minLevel>50</minLevel>
+				<maxLevel>52</maxLevel>
+				<Hotspots>
+						<Hotspot radius="20" xyz="742.4263, -48.91931, 76.20999"/>
+						<Hotspot radius="20" xyz="719.5503, -48.30646, 34.29776"/>	
+						<Hotspot radius="20" xyz="713.7133, -48.36623, 118.5442"/>	
+						<Hotspot radius="20" xyz="792.0062, -39.17931, 160.0574"/>
+						<Hotspot radius="20" xyz="818.7001, -44.58519, 86.61452"/>	
+						<Hotspot radius="20" xyz="818.7001, -44.58519, 86.61452"/>							
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3564"/>
+				</TargetMobs>				
+		</GrindArea>
+		<GrindArea name="Churning56">
+				<minLevel>52</minLevel>
+				<maxLevel>56</maxLevel>
+				<Hotspots>
+						<Hotspot radius="20" xyz="475.1234, 30.9666, 486.71232"/>	
+						<Hotspot radius="20" xyz="429.4695, 24.61826, 379.8786"/>
+						<Hotspot radius="20" xyz="452.8698, 25.00438, 404.204"/>
+						<Hotspot radius="20" xyz="454.1161, 31.46082, 468.9143"/>
+						<Hotspot radius="20" xyz="556.2917, 22.42743, 468.1553"/>
+						<Hotspot radius="20" xyz="498.5197, 25.53487, 525.312"/>
+						<Hotspot radius="20" xyz="474.9007, 22.65306, 542.7852"/>
+						<Hotspot radius="20" xyz="434.8992, 18.5222, 348.1834"/>
+						<Hotspot radius="20" xyz="392.8686, 13.41206, 353.1941"/>							
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3627"/>
+				</TargetMobs>				
+		</GrindArea>
+		<GrindArea name="Azys60">
+				<minLevel>56</minLevel>
+				<maxLevel>60</maxLevel>
+				<Hotspots>
+						<Hotspot radius="20" xyz="-414.5446, -138.598, -530.39548"/>
+						<Hotspot radius="20" xyz="-389.7701, -137.0618, -494.7206"/>
+						<Hotspot radius="20" xyz="-357.8241, -130.9618, -417.1807"/>
+						<Hotspot radius="20" xyz="-458.1078, -141.858, -519.437"/>
+						<Hotspot radius="20" xyz="-461.3429, -145.9916, -556.4429"/>
+						<Hotspot radius="20" xyz="-479.1433, -144.7368, -537.5362"/>	
+						<Hotspot radius="20" xyz="-512.3438, -145.9239, -535.7449"/>							
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3533"/>
+				</TargetMobs>				
+		</GrindArea>
+		 <GrindArea name="Chigoe">
+					<minLevel>1</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+							<Hotspot radius="20" xyz="117.1889, -8.464161, 54.03397" name="Chigoe"/>
+							<Hotspot radius="20" xyz="133.886, -7.727089, 28.36793" name="Chigoe"/>
+							<Hotspot radius="20" xyz="150.7088, -8.139192, 2.409709" name="Chigoe"/>
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="43"/>
+					</TargetMobs>
+			</GrindArea>
+		 <GrindArea name="GoblinFisher">
+					<minLevel>4</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="50" xyz="93.66135 , 48.53702 , 11.90981" />
+						<Hotspot radius="50" xyz="136.5175, 52.22298, 6.808611" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="367"/>
+					</TargetMobs>
+			</GrindArea>
+		 <GrindArea name="TricksterImp">
+					<minLevel>6</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="10" xyz="308.1357, 15.39803, 160.7998" />
+						<Hotspot radius="10" xyz="309.1777, 15.14835, 160.7118" />
+						<Hotspot radius="10" xyz="284.4947, 21.9908, 191.0103" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="21"/>
+					</TargetMobs>
+			</GrindArea>
+		 <GrindArea name="QiqirnShellsweeper">
+					<minLevel>6</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="20" xyz="-208.3453, 21.35069, -94.65025" />
+						<Hotspot radius="20" xyz="-203.8867, 26.5247, -124.8176" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="266"/>
+					</TargetMobs>
+			</GrindArea>			
+		 <GrindArea name="KillerWespe">
+					<minLevel>10</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="10" xyz="-267.5086, 23.17273, -385.7798" />
+						<Hotspot radius="10" xyz="-303.3898, 22.35569, -409.9923" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="8134"/>
+					</TargetMobs>
+			</GrindArea>
+		 <GrindArea name="GlideBomb">
+					<minLevel>6</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="20" xyz="283.3844, 62.01922, -186.6836" />
+						<Hotspot radius="20" xyz="302.1716, 62.38456, -233.7776" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="8135"/>
+					</TargetMobs>
+			</GrindArea>
+		 <GrindArea name="ToxicToad">
+					<minLevel>10</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="20" xyz="252.7046, -19.71835, -131.7899" />
+						<Hotspot radius="20" xyz="286.568, -19.71835, -91.05569" />
+						<Hotspot radius="20" xyz="337.8901, -19.71835, -139.0054" />
+						<Hotspot radius="20" xyz="315.7753, -19.71835, -175.9376" />
+						<Hotspot radius="20" xyz="265.6427, -19.71835, -80.86269" />
+						<Hotspot radius="20" xyz="308.8073, -19.71835, -156.1197" />
+						<Hotspot radius="20" xyz="360.3628, -19.71835, -112.9145" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="216"/>
+					</TargetMobs>
+			</GrindArea>
+		 <GrindArea name="WildBoar">
+					<minLevel>10</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="20" xyz="-340.268463,6.489924,59.973782" />
+						<Hotspot radius="20" xyz="-262.7883, 5.049257, 104.5922" />
+						<Hotspot radius="20" xyz="-231.0644, 2.776139, 112.24" />
+						<Hotspot radius="20" xyz="-213.1568, 6.067046, 85.96837" />
+						<Hotspot radius="20" xyz="-228.5443, 11.68737, 16.3631" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="16"/>
+					</TargetMobs>
+			</GrindArea>
+		 <GrindArea name="TreantSapling">
+					<minLevel>10</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="20" xyz="394.453949,17.85671,86.986427" />
+						<Hotspot radius="20" xyz="276.3174, -4.681472, 50.38378" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="128"/>
+					</TargetMobs>
+			</GrindArea>
+		 <GrindArea name="Lemur">
+					<minLevel>10</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="10" xyz="-54.22462, 10.97906, 432.0752" />
+						<Hotspot radius="10" xyz="-34.69994, 7.93297, 412.8487" />
+						<Hotspot radius="10" xyz="-5.995076, 1.984847, 366.8778" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="6"/>
+					</TargetMobs>
+			</GrindArea>
+		 <GrindArea name="GigglingGigantoad">
+					<minLevel>10</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="20" xyz="-352.8664, 15.03115, -736.3968" />
+						<Hotspot radius="20" xyz="-309.7302, 15.06769, -765.5164" />
+						<Hotspot radius="20" xyz="-298.6631, 14.9163, -710.6555" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="8136"/>
+					</TargetMobs>
+			</GrindArea>
+		 <GrindArea name="SabotenderBailaor">
+					<minLevel>10</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="20" xyz="-256.085754,17.70092,-284.663879" />
+						<Hotspot radius="20" xyz="-319.0323, 14.89054, -318.3571" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="8137"/>
+					</TargetMobs>
+			</GrindArea>
+		 <GrindArea name="Antelope">
+					<minLevel>10</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+						<Hotspot radius="20" xyz="-4.4976, 7.111712, -74.43323" />
+						<Hotspot radius="20" xyz="26.83834, 5.902388, -92.94619" />
+						<Hotspot radius="20" xyz="99.97995, 7.887495, -64.79594" />
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="4"/>
+					</TargetMobs>
+			</GrindArea>			
+		<GrindArea Name="Clay_Golem">
+			<MinLevel>10</MinLevel>
+			<MaxLevel>80</MaxLevel>
+				<Hotspots>
+					<HotSpot XYZ="-186.389, -57.37035, 334.5541" Name="Clay_Golem" Radius="20" />
+					<HotSpot XYZ="-171.0995, -58.4395, 347.6766" Name="Clay_Golem" Radius="20" />
+					<HotSpot XYZ="-176.6199, -59.55023, 349.6567" Name="Clay_Golem" Radius="20" />
+					<HotSpot XYZ="-182.8489, -61.2231, 355.3063" Name="Clay_Golem" Radius="20" />
+					<HotSpot XYZ="-104.6363, -50.89231, 377.2344" Name="Clay_Golem" Radius="20" />
+					<HotSpot XYZ="-95.50831, -52.05646, 361.0228" Name="Clay_Golem" Radius="20" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="30" />
+				</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Apkallu">
+			<MinLevel>10</MinLevel>
+			<MaxLevel>80</MaxLevel>
+				<Hotspots>
+					<HotSpot XYZ="284.6243, 43.35668, 748.2975" Name="Apkallu" Radius="20" />
+					<HotSpot XYZ="291.3194, 43.08569, 746.3515" Name="Apkallu" Radius="20" />
+					<HotSpot XYZ="302.5991, 37.54708, 707.2749" Name="Apkallu" Radius="20" />
+					<HotSpot XYZ="327.0269, 32.20087, 705.4518" Name="Apkallu" Radius="20" />
+					<HotSpot XYZ="354.4865, 30.27857, 728.2473" Name="Apkallu" Radius="20" />
+					<HotSpot XYZ="387.0031, 24.89272, 703.5333" Name="Apkallu" Radius="20" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="341" />
+				</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Stroper">
+			<MinLevel>10</MinLevel>
+			<MaxLevel>80</MaxLevel>
+				<Hotspots>
+					<HotSpot XYZ="-435.1415, 49, -2.487305" Name="Stroper" Radius="20" />
+					<HotSpot XYZ="-430.5904, 49, -3.780617" Name="Stroper" Radius="20" />
+					<HotSpot XYZ="-434.4459, 49, -9.303102" Name="Stroper" Radius="20" />
+					<HotSpot XYZ="-397.7585, 49, 9.344634" Name="Stroper" Radius="20" />
+					<HotSpot XYZ="-439.8039, 49, 41.5076" Name="Stroper" Radius="20" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="238" />
+				</TargetMobs>
+		</GrindArea>	
+	    <GrindArea Name="Lentic_Mudpuppy">
+			<MinLevel>10</MinLevel>
+			<MaxLevel>80</MaxLevel>
+				<Hotspots>
+					<HotSpot XYZ="-464.3265, -9.696238, -534.2192" Name="Lentic_Mudpuppy" Radius="50" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="8139" />
+				</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Vanguard">
+				<minLevel>10</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="20" xyz="-267.8544, 85.53808, -212.8197" />
+					<Hotspot radius="20" xyz="-248.4603, 85.36793, -290.2782" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="8138"/>
+				</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Crag_Claw">
+				<MinLevel>60</MinLevel>
+				<MaxLevel>80</MaxLevel>
+				<Hotspots>
+					<HotSpot XYZ="276.4915, 114.3593, -700.7811" Name="Crag_Claw" Radius="20" />
+					<HotSpot XYZ="180.9404, 114.3518, -594.231" Name="Crag_Claw" Radius="20" />
+					<HotSpot XYZ="89.00069, 114.3518, -473.4281" Name="Crag_Claw" Radius="20" />
+					<HotSpot XYZ="74.65177, 114.3518, -512.8128" Name="Crag_Claw" Radius="20" />
+					<HotSpot XYZ="81.42716, 114.3518, -507.0699" Name="Crag_Claw" Radius="20" />
+					<HotSpot XYZ="214.4813, 114.3786, -506.0175" Name="Crag_Claw" Radius="20" />
+					<HotSpot XYZ="170.3764, 114.3518, -595.2869" Name="Crag_Claw" Radius="20" />
+					<HotSpot XYZ="322.612, 114.3621, -677.7244" Name="Crag_Claw" Radius="20" />
+					<HotSpot XYZ="207.29, 114.3786, -502.6752" Name="Crag_Claw" Radius="20" />
+					<HotSpot XYZ="103.4602, 114.3518, -593.4549" Name="Crag_Claw" Radius="20" />
+					<HotSpot XYZ="249.9816, 114.3518, -669.885" Name="Crag_Claw" Radius="20" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="5705" />
+				</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Griffin">
+					<minLevel>1</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+							<Hotspot radius="50" xyz="675.473, -98.51501, -691.1071" name="Griffin"/>
+							<Hotspot radius="50" xyz="711.8482, -98.29584, -655.9969" name="Griffin"/>
+							<Hotspot radius="50" xyz="762.14, -98.28464, -665.3104" name="Griffin"/>
+							<Hotspot radius="50" xyz="732.7796, -98.34306, -704.1835" name="Griffin"/>=
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="3526"/>
+					</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Anzu">
+					<minLevel>1</minLevel>
+					<maxLevel>80</maxLevel>
+					<Hotspots>
+							<Hotspot radius="100" xyz="181.9077, -16.89004, -741.333" name="Anzu"/>
+							<Hotspot radius="100" xyz="143.9126, -18.36139, -806.3395" name="Anzu"/>
+							<Hotspot radius="100" xyz="14.20118, 8.826632, -797.5383" name="Anzu"/>
+							<Hotspot radius="100" xyz="-74.62778, 9.183143, -814.659" name="Anzu"/>=
+					</Hotspots>
+					<TargetMobs>
+						<TargetMob id="3524"/>
+					</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Conodont">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="225.2717, -147.8377, 562.2714" name="Conodont"/>
+						<Hotspot radius="50" xyz="170.7249, -147.8377, 502.3552" name="Conodont"/>
+						<Hotspot radius="50" xyz="234.382, -118.3452, 419.7973" name="Conodont"/>
+						<Hotspot radius="50" xyz="462.9529, -130.3736, 600.7796" name="Conodont"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3496"/>
+				</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Paissa">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="-123.0217, -165.98, 644.0829" name="Paissa"/>
+						<Hotspot radius="50" xyz="-178.9114, -165.98, 609.827" name="Paissa"/>
+						<Hotspot radius="50" xyz="-169.5581, -166.1744, 644.021" name="Paissa"/>
+						<Hotspot radius="50" xyz="-30.09707, -136.98, 532.7123" name="Paissa"/>
+						<Hotspot radius="50" xyz="-66.93037, -136.98, 494.3249" name="Paissa"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3499"/>
+				</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Dhalmel">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="-279.887, -186.5992, 495.6214" name="Dhalmel"/>
+						<Hotspot radius="50" xyz="-312.7411, -195.3486, 429.859" name="Dhalmel"/>
+						<Hotspot radius="50" xyz="-198.1482, -186.5992, 454.5667" name="Dhalmel"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3505"/>
+				</TargetMobs>
+		</GrindArea>
+		<GrindArea name="SlateYeti">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="72.98383, 229.4418, 509.0287" name="SlateYeti"/>
+						<Hotspot radius="50" xyz="92.89478, 218.7926, 455.8756" name="SlateYeti"/>
+						<Hotspot radius="50" xyz="37.20513, 215.1026, 449.0064" name="SlateYeti"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3490"/>
+				</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Poroggo">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="-465.044, 136.8297, 616.6205" name="Poroggo"/>
+						<Hotspot radius="50" xyz="-580.0626, 136.8297, 568.4573" name="Poroggo"/>
+						<Hotspot radius="50" xyz="-645.0812, 136.8297, 650.0936" name="Poroggo"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3607"/>
+				</TargetMobs>
+		</GrindArea>
+		<GrindArea name="CloudWyvern">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="81.64323, 27.38359, 284.709" name="CloudWyvern"/>
+						<Hotspot radius="50" xyz="186.3084, 26.03486, 239.0924" name="CloudWyvern"/>
+						<Hotspot radius="50" xyz="58.50281, -2.33513, 342.1459" name="CloudWyvern"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="9248"/>
+				</TargetMobs>
+		</GrindArea>		
+	</GrindAreas>	
+</Profile>

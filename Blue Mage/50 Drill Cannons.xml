@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Drill Cannons</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="Vanguard">
+				<minLevel>10</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="100" xyz="-246.2222, 81.75178, -225.6007" />
+
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="8138"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11398)">
+					<If condition="not IsOnMap(147)">
+						<GetTo ZoneId="140" XYZ="-246.2222, 81.75178, -225.6007" />
+					</If>
+						<Grind grindRef="Vanguard" postCombatDelay="1" while="not ActionManager.HasSpell(11398)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

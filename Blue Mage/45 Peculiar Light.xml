@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+  <Name>Peculiar Light</Name>
+  <KillRadius>50</KillRadius>
+  <GrindAreas>
+    <GrindArea Name="Lentic_Mudpuppy">
+      <MinLevel>10</MinLevel>
+      <MaxLevel>80</MaxLevel>
+      <Hotspots>
+        <HotSpot XYZ="-464.3265, -9.696238, -534.2192" Name="Lentic_Mudpuppy" Radius="50" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob id="8139" />
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <Order>
+    <If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+      <If condition="not ActionManager.HasSpell(11421)">
+        <If condition="not IsOnMap(156)">
+          <TeleportTo name="Revenant's Toll" aetheryteId="24" force="true" />
+        </If>
+        <Grind grindRef="Lentic_Mudpuppy" postCombatDelay="1" while="not ActionManager.HasSpell(11421)" />
+      </If>
+    </If>
+  </Order>
+</Profile>

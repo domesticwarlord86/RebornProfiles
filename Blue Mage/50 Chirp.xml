@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Chirp</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="Paissa">
+				<minLevel>1</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+						<Hotspot radius="50" xyz="-123.0217, -165.98, 644.0829" name="Paissa"/>
+						<Hotspot radius="50" xyz="-178.9114, -165.98, 609.827" name="Paissa"/>
+						<Hotspot radius="50" xyz="-169.5581, -166.1744, 644.021" name="Paissa"/>
+						<Hotspot radius="50" xyz="-30.09707, -136.98, 532.7123" name="Paissa"/>
+						<Hotspot radius="50" xyz="-66.93037, -136.98, 494.3249" name="Paissa"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="3499"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(18301)">
+					<If condition="not IsOnMap(401)">
+							<GetTo ZoneId="401" XYZ="-123.0217, -165.98, 644.0829" />
+					</If>
+						<NoCombatMoveTo xyz="-123.0217, -165.98, 644.0829" name="Paissa"/>
+						<Grind grindRef="Paissa" postCombatDelay="1" while="not ActionManager.HasSpell(18301)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>

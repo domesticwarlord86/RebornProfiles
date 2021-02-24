@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+	<Name>Out of the Blue</Name>
+	<KillRadius>10</KillRadius>
+	<Order>
+
+	<!-- Out of the Blue -->
+	<If Condition="not IsQuestCompleted(68728)">	
+		<If Condition="(IsQuestAcceptQualified(68728)) and not (HasQuest(68728))">
+			<GetTo ZoneId="129" XYZ="-64.34735,18.00033,-11.03229" />		
+			<PickupQuest NpcId="1026928" QuestId="68728" />
+		</If>
+		<If Condition="HasQuest(68728) and not IsQuestCompleted(68728) and GetQuestStep(68728) == 1">
+			<GetTo ZoneId="134" XYZ="-70.61781, 43.73735, -5.539877" />
+			<TalkTo InteractDistance="3.0" QuestId="68728" StepId="1" NpcId="1026929" XYZ="-69.87109,43.83883,-5.661133" />
+		</If>
+		<If Condition="HasQuest(68728) and not IsQuestCompleted(68728) and GetQuestStep(68728) == 2">
+			<GetTo ZoneId="134" XYZ="171.5807, 62.87119, 274.4058" />
+			<TalkTo InteractDistance="3.0" QuestId="68728" StepId="2" NpcId="1026936" XYZ="170.8552,62.7655,275.2574" />			
+		</If>
+		<If Condition="HasQuest(68728) and not IsQuestCompleted(68728) and GetQuestStep(68728) == 3">
+			<GetTo ZoneId="135" XYZ="155.4043, 12.12584, 649.518" />
+			<TalkTo InteractDistance="3.0" QuestId="68728" StepId="3" NpcId="1028430" XYZ="156.6338,12.12639,649.3781" />
+		</If>
+		<If Condition="HasQuest(68728) and not IsQuestCompleted(68728) and GetQuestStep(68728) == 4">
+			<GetTo ZoneId="135" XYZ="-83.89848, 2.537577, 728.1419" />
+			<TalkTo InteractDistance="3.0" QuestId="68728" StepId="4" NpcId="1026930" XYZ="-85.40479,2.542797,728.542" />
+		</If>
+		<If Condition="HasQuest(68728) and not IsQuestCompleted(68728) and GetQuestStep(68728) == 255">
+			<GetTo ZoneId="135" XYZ="-105.8387, 1.619957, 748.5795" />
+			<TurnIn QuestId="68728" NpcId="1026932" XYZ="-105.9129,1.572371,750.0571" />
+		</If>	
+	</If>
+	</Order>
+</Profile>

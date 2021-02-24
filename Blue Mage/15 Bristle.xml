@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Profile>
+    <Name>Bristle</Name>
+    <KillRadius>50</KillRadius>
+	<GrindAreas> 
+	 <GrindArea name="WildBoar">
+				<minLevel>10</minLevel>
+				<maxLevel>80</maxLevel>
+				<Hotspots>
+					<Hotspot radius="50" xyz="-340.268463,6.489924,59.973782" />
+					<Hotspot radius="50" xyz="-262.7883, 5.049257, 104.5922" />
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob id="16"/>
+				</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+
+	<Order>
+			<If condition="Core.Me.CurrentJob == ClassJobType.BlueMage">
+				<If condition="not ActionManager.HasSpell(11393)">
+					<If condition="not IsOnMap(152)">
+							<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
+					</If>
+						<Grind grindRef="WildBoar" postCombatDelay="1" while="not ActionManager.HasSpell(11393)"/>
+				</If>
+			</If>
+	</Order>				
+</Profile>
