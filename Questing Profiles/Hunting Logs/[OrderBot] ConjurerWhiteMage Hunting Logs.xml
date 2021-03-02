@@ -1,0 +1,885 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Conjurer/WhiteMage Hunting Logs
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Conjurer/WhiteMage Hunting Logs</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Conjurer/WhiteMage Hunting Logs -->	
+	<If condition="Core.Me.CurrentJob != ClassJobType.Conjurer and Core.Me.CurrentJob != ClassJobType.WhiteMage">
+		<ChangeClass Job="Conjurer" />
+		<ChangeClass Job="WhiteMage" />	
+	</If>
+	<If condition="Core.Me.CurrentJob == ClassJobType.Conjurer or Core.Me.CurrentJob == ClassJobType.WhiteMage">
+	
+		<!-- Rank 1 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Conjurer, 1)">
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 0, 0)">
+        <LisbethTravel ZoneId="148" xyz="82.45746, 11.482, -239.4292" name="Conjurer_1_0"/>
+        <Grind grindRef="Conjurer_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 1, 0)">
+        <LisbethTravel ZoneId="148" xyz="54.06433, 5.534256, -218.9905" name="Conjurer_1_1"/>
+        <Grind grindRef="Conjurer_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 2, 0)">
+        <LisbethTravel ZoneId="148" xyz="120.5706, 0.647573, -169.7976" name="Conjurer_1_2"/>
+        <Grind grindRef="Conjurer_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 3, 0)">
+        <LisbethTravel ZoneId="154" xyz="226.9634, -27.85979, 342.9897" name="Conjurer_1_3"/>
+        <Grind grindRef="Conjurer_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 4, 0)">
+        <LisbethTravel ZoneId="148" xyz="203.7139, -8.653679, -32.52829" name="Conjurer_1_4"/>
+        <Grind grindRef="Conjurer_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 5, 0)">
+        <LisbethTravel ZoneId="148" xyz="203.7139, -8.653679, -32.52829" name="Conjurer_1_5"/>
+        <Grind grindRef="Conjurer_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 6, 0)">
+        <LisbethTravel ZoneId="154" xyz="279.7798, -14.28025, 103.8638" name="Conjurer_1_6"/>
+        <Grind grindRef="Conjurer_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 7, 0)">
+        <LisbethTravel ZoneId="148" xyz="328.9543, -6.246077, -91.59382" name="Conjurer_1_7"/>
+        <Grind grindRef="Conjurer_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 8, 0)">
+        <LisbethTravel ZoneId="148" xyz="320.88, 7.298048, 125.9735" name="Conjurer_1_8"/>
+        <Grind grindRef="Conjurer_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 9, 0)">
+        <LisbethTravel ZoneId="152" xyz="-474.8969, 6.471003, 102.8514" name="Conjurer_1_9"/>
+        <Grind grindRef="Conjurer_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Conjurer, 9, 0)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 2 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Conjurer, 2)">
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 0, 0)">
+        <LisbethTravel ZoneId="152" xyz="-463.9826, 4.173842, 232.9398" name="Conjurer_2_0"/>
+        <Grind grindRef="Conjurer_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 0)">
+        <LisbethTravel ZoneId="148" xyz="246.0932, -30.34545, 403.0329" name="Conjurer_2_1"/>
+        <Grind grindRef="Conjurer_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 1)">
+        <LisbethTravel ZoneId="152" xyz="-391.869, 9.165998, 308.7953" name="Conjurer_2_2"/>
+        <Grind grindRef="Conjurer_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 1, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 2, 0)">
+        <LisbethTravel ZoneId="148" xyz="-64.2096, -39.85896, 312.2948" name="Conjurer_2_3"/>
+        <Grind grindRef="Conjurer_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 3, 0)">
+        <LisbethTravel ZoneId="152" xyz="-379.6286, -0.1591827, 221.3451" name="Conjurer_2_4"/>
+        <Grind grindRef="Conjurer_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 4, 0)">
+        <LisbethTravel ZoneId="152" xyz="-306.4555, 4.365113, 331.4698" name="Conjurer_2_5"/>
+        <Grind grindRef="Conjurer_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 5, 0)">
+        <LisbethTravel ZoneId="152" xyz="-144.1982, 4.481786, 370.3617" name="Conjurer_2_6"/>
+        <Grind grindRef="Conjurer_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 6, 0)">
+        <LisbethTravel ZoneId="152" xyz="-129.0268, -6.018359, 299.0834" name="Conjurer_2_7"/>
+        <Grind grindRef="Conjurer_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 7, 0)">
+        <LisbethTravel ZoneId="152" xyz="-95.50292, 11.03478, 430.7531" name="Conjurer_2_8"/>
+        <Grind grindRef="Conjurer_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 8, 0)">
+        <LisbethTravel ZoneId="153" xyz="-304.5961, 23.41519, -193.5119" name="Conjurer_2_9"/>
+        <Grind grindRef="Conjurer_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 9, 0)">
+        <LisbethTravel ZoneId="152" xyz="-145.3074, -1.420919, 168.7406" name="Conjurer_2_10"/>
+        <Grind grindRef="Conjurer_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Conjurer, 9, 0)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 3 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Conjurer, 3)">
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 0, 0)">
+        <LisbethTravel ZoneId="139" xyz="-359.7675, -0.6754072, 158.7382"/>
+        <Grind grindRef="Conjurer_3_0" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 1, 0)">
+        <LisbethTravel ZoneId="152" xyz="-198.7925, 4.902349, 98.83768" name="Conjurer_3_1"/>
+        <Grind grindRef="Conjurer_3_1" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 1, 1)">
+        <LisbethTravel ZoneId="140" xyz="-380.9785, 24.15264, -525.3304" name="Conjurer_3_2"/>
+        <Grind grindRef="Conjurer_3_2" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 1, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 1, 2)">
+        <LisbethTravel ZoneId="140" xyz="-312.1755, 15.0064, -707.5076" name="Conjurer_3_3"/>
+        <Grind grindRef="Conjurer_3_3" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 1, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 2, 0)">
+        <LisbethTravel ZoneId="153" xyz="-85.29664, -0.224, 60.80035" name="Conjurer_3_4"/>
+        <Grind grindRef="Conjurer_3_4" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 3, 0)">
+        <LisbethTravel ZoneId="152" xyz="-287.7212, 12.12707, -34.03314" name="Conjurer_3_5"/>
+        <Grind grindRef="Conjurer_3_5" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 4, 0)">
+        <LisbethTravel ZoneId="153" xyz="87.61182, 8.177754, -72.55713" name="Conjurer_3_6"/>
+        <Grind grindRef="Conjurer_3_6" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 5, 0)">
+        <LisbethTravel ZoneId="146" xyz="-299.1121, 17.14765, -302.602" name="Conjurer_3_7"/>
+        <Grind grindRef="Conjurer_3_7" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 6, 0)">
+        <LisbethTravel ZoneId="145" xyz="110.73, -9.882174, 120.7076" name="Conjurer_3_8"/>
+        <Grind grindRef="Conjurer_3_8" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 7, 0)">
+        <LisbethTravel ZoneId="153" xyz="297.9075, 4.137659, -22.07993" name="Conjurer_3_9"/>
+        <Grind grindRef="Conjurer_3_9" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 8, 0)">
+        <LisbethTravel ZoneId="148" xyz="-294.3489, 59.47368, -150.8057" name="Conjurer_3_10"/>
+        <Grind grindRef="Conjurer_3_10" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 9, 0)">
+        <LisbethTravel ZoneId="137" xyz="410.9877, 15.23924, 676.7095" name="Conjurer_3_11"/>
+        <Grind grindRef="Conjurer_3_11" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Conjurer, 9, 0)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 4 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Conjurer, 4)">
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 0, 0)">
+        <LisbethTravel ZoneId="148" xyz="-392.8199, 57.73466, -96.75714" name="Conjurer_4_0"/>
+        <Grind grindRef="Conjurer_4_0" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 1, 0)">
+        <LisbethTravel ZoneId="153" xyz="-172.0711, -0.4234993, 472.1714" name="Conjurer_4_1"/>
+        <Grind grindRef="Conjurer_4_1" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 1, 1)">
+        <LisbethTravel ZoneId="139" xyz="595.996, -2.640057, 188.8912" name="Conjurer_4_2"/>
+        <Grind grindRef="Conjurer_4_2" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 1, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 1, 2)">
+        <LisbethTravel ZoneId="137" xyz="-93.75156, 33.80431, 226.0181" name="Conjurer_4_3"/>
+        <Grind grindRef="Conjurer_4_3" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 1, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 1, 3)">
+        <LisbethTravel ZoneId="146" xyz="-225.2421, 2.956992, 660.3145" name="Conjurer_4_4"/>
+        <Grind grindRef="Conjurer_4_4" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 1, 3)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 2, 0)">
+        <LisbethTravel ZoneId="148" xyz="-475.0179, 46.76543, -61.07553" name="Conjurer_4_5"/>
+        <Grind grindRef="Conjurer_4_5" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 3, 0)">
+        <LisbethTravel ZoneId="137" xyz="521.7017, 8.804245, 270.3921" name="Conjurer_4_6"/>
+        <Grind grindRef="Conjurer_4_6" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 4, 0)">
+        <LisbethTravel ZoneId="155" xyz="166.9768, 293.9123, -103.0227" name="Conjurer_4_7"/>
+        <Grind grindRef="Conjurer_4_7" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 5, 0)">
+        <LisbethTravel ZoneId="153" xyz="224.8714, 5.992352, 36.25676" name="Conjurer_4_8"/>
+        <Grind grindRef="Conjurer_4_8" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 6, 0)">
+        <LisbethTravel ZoneId="154" xyz="91.48916, -28.14907, 204.611" name="Conjurer_4_9"/>
+        <Grind grindRef="Conjurer_4_9" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 7, 0)">
+        <LisbethTravel ZoneId="155" xyz="270.5271, 355.6094, -545.2422" name="Conjurer_4_10"/>
+        <Grind grindRef="Conjurer_4_10" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 8, 0)">
+        <LisbethTravel ZoneId="153" xyz="84.76396, 21.90088, 177.8921" name="Conjurer_4_11"/>
+        <Grind grindRef="Conjurer_4_11" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 9, 0)">
+        <LisbethTravel ZoneId="155" xyz="-558.8902, 204.9697, -340.4431" name="Conjurer_4_12"/>
+        <Grind grindRef="Conjurer_4_12" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Conjurer, 9, 0)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 5 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Conjurer, 5)">
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 0, 0)">
+        <LisbethTravel ZoneId="145" xyz="393.1204, 7.885529, 127.6649" name="Conjurer_5_0"/>
+        <Grind grindRef="Conjurer_5_0" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 1, 0)">
+        <LisbethTravel ZoneId="180" xyz="-2.148571, 49.57911, -348.3792" name="Conjurer_5_1"/>
+        <Grind grindRef="Conjurer_5_1" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 1, 1)">
+        <LisbethTravel ZoneId="155" xyz="-476.1835, 228.4839, -121.6641" name="Conjurer_5_2"/>
+        <Grind grindRef="Conjurer_5_2" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 1, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 1, 2)">
+        <LisbethTravel ZoneId="138" xyz="-461.8138, -38.06499, 720.3731"/>
+        <Grind grindRef="Conjurer_5_3" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 1, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 1, 3)">
+        <LisbethTravel ZoneId="138" name="Ferry Skipper" xyz="-284.1149, -41.42301, 691.4664"/>
+        <Grind grindRef="Conjurer_5_4" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 1, 3)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 2, 0)">
+        <LisbethTravel ZoneId="152" xyz="379.8846, -2.393452, -33.82244" name="Conjurer_5_5"/>
+        <Grind grindRef="Conjurer_5_5" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 3, 0)">
+        <LisbethTravel ZoneId="153" xyz="367.8673, -5.148543, 67.47323" name="Conjurer_5_6"/>
+        <Grind grindRef="Conjurer_5_6" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 4, 0)">
+        <LisbethTravel ZoneId="155" xyz="-249.2081, 224.763, 520.3425" name="Conjurer_5_7"/>
+        <Grind grindRef="Conjurer_5_7" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 5, 0)">
+        <LisbethTravel ZoneId="156" xyz="-482.918, -3.216821, -259.2998" name="Conjurer_5_8"/>
+        <Grind grindRef="Conjurer_5_8" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 6, 0)">
+        <LisbethTravel ZoneId="138" xyz="-344.3694, -38.99733, -223.9678" name="Conjurer_5_9"/>
+        <Grind grindRef="Conjurer_5_9" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 7, 0)">
+        <LisbethTravel ZoneId="152" xyz="251.8537, -23.50415, -394.4146" name="Conjurer_5_10"/>
+        <Grind grindRef="Conjurer_5_10" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 8, 0)">
+        <LisbethTravel ZoneId="147" xyz="150.9621, 34.95453, 10.96959" name="Conjurer_5_11"/>
+        <Grind grindRef="Conjurer_5_11" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 9, 0)">
+        <LisbethTravel ZoneId="137" xyz="388.651, 76.50455, -26.1419" name="Conjurer_5_12"/>
+        <Grind grindRef="Conjurer_5_12" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Conjurer, 9, 0)"/>
+      </If>
+    </If>
+		
+			<!-- Complete -->
+			<While condition="HuntRankCompleted(ClassJobType.Conjurer, 5)">
+				<LLToast message="Conjurer/Whitemage hunt log complete!"/>
+				<WaitTimer WaitTime="26" />
+			</While>		
+  </If>  
+  </Order>
+  <GrindAreas>
+        <GrindArea name="Conjurer_1_0">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="82.45746, 11.482, -239.4292" name="Conjurer_1_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="49"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_1_1">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="54.06433, 5.534256, -218.9905" name="Conjurer_1_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="37"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_1_2">
+            <minLevel>3</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="120.5706, 0.647573, -169.7976" name="Conjurer_1_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="47"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_1_3">
+            <minLevel>3</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="226.9634, -27.85979, 342.9897" name="Conjurer_1_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="9"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_1_4">
+            <minLevel>9</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="203.7139, -8.653679, -32.52829" name="Conjurer_1_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="43"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_1_5">
+            <minLevel>5</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="203.7139, -8.653679, -32.52829" name="Conjurer_1_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="56"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_1_6">
+            <minLevel>5</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="279.7798, -14.28025, 103.8638" name="Conjurer_1_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="118"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_1_7">
+            <minLevel>6</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="328.9543, -6.246077, -91.59382" name="Conjurer_1_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="32"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_1_8">
+            <minLevel>8</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="320.88, 7.298048, 125.9735" name="Conjurer_1_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="41"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_1_9">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-474.8969, 6.471003, 102.8514" name="Conjurer_1_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="12"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_2_0">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-463.9826, 4.173842, 232.9398" name="Conjurer_2_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="39"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_2_1">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="246.0932, -30.34545, 403.0329" name="Conjurer_2_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="13"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_2_2">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-391.869, 9.165998, 308.7953" name="Conjurer_2_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="225"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_2_3">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-91.3383, -40.04069, 314.7826" name="Conjurer_2_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="129"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_2_4">
+            <minLevel>13</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-379.6286, -0.1591827, 221.3451" name="Conjurer_2_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="107"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_2_5">
+            <minLevel>15</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-306.4555, 4.365113, 331.4698" name="Conjurer_2_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="36"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_2_6">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-144.1982, 4.481786, 370.3617" name="Conjurer_2_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="220"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_2_7">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-129.0268, -6.018359, 299.0834" name="Conjurer_2_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="7"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_2_8">
+            <minLevel>18</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-95.50292, 11.03478, 430.7531" name="Conjurer_2_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="241"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_2_9">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-304.5961, 23.41519, -193.5119" name="Conjurer_2_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="219"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_2_10">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-145.3074, -1.420919, 168.7406" name="Conjurer_2_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="38"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_0">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-359.7675, -0.6754072, 158.7382" name="Conjurer_3_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="638"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_1">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-198.7925, 4.902349, 98.83768" name="Conjurer_3_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="232"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_2">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-380.9785, 24.15264, -525.3304" name="Conjurer_3_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="278"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_3">
+            <minLevel>23</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-312.1755, 15.0064, -707.5076" name="Conjurer_3_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="217"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_4">
+            <minLevel>23</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-85.29664, -0.224, 60.80035" name="Conjurer_3_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="228"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_5">
+            <minLevel>22</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-287.7212, 12.12707, -34.03314" name="Conjurer_3_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="211"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_6">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="87.61182, 8.177754, -72.55713" name="Conjurer_3_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="4"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_7">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-299.1121, 17.14765, -302.602" name="Conjurer_3_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="286"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_8">
+            <minLevel>26</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="110.73, -9.882174, 120.7076" name="Conjurer_3_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="268"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_9">
+            <minLevel>28</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="297.9075, 4.137659, -22.07993" name="Conjurer_3_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="50"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_10">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-294.3489, 59.47368, -150.8057" name="Conjurer_3_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="48"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_3_11">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="410.9877, 15.23924, 676.7095" name="Conjurer_3_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="341"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_0">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-392.8199, 57.73466, -96.75714" name="Conjurer_4_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="130"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_1">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-172.0711, -0.4234993, 472.1714" name="Conjurer_4_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="235"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_2">
+            <minLevel>36</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="595.996, -2.640057, 188.8912" name="Conjurer_4_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="416"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_3">
+            <minLevel>36</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-93.75156, 33.80431, 226.0181" name="Conjurer_4_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="26"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_4">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-225.2421, 2.956992, 660.3145" name="Conjurer_4_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="290"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_5">
+            <minLevel>32</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-475.0179, 46.76543, -61.07553" name="Conjurer_4_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="236"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_6">
+            <minLevel>33</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="521.7017, 8.804245, 270.3921" name="Conjurer_4_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="361"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_7">
+            <minLevel>36</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="166.9768, 293.9123, -103.0227" name="Conjurer_4_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="795"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_8">
+            <minLevel>35</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="224.8714, 5.992352, 36.25676" name="Conjurer_4_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="170"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_9">
+            <minLevel>37</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="91.48916, -28.14907, 204.611" name="Conjurer_4_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="25"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_10">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="270.5271, 355.6094, -545.2422" name="Conjurer_4_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1849"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_11">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="84.76396, 21.90088, 177.8921" name="Conjurer_4_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="45"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_4_12">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-558.8902, 204.9697, -340.4431" name="Conjurer_4_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="637"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_0">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="393.1204, 7.885529, 127.6649" name="Conjurer_5_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="271"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_1">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-2.148571, 49.57911, -348.3792" name="Conjurer_5_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="270"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_2">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-476.1835, 228.4839, -121.6641" name="Conjurer_5_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="790"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_3">
+            <minLevel>41</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-461.8138, -38.06499, 720.3731" name="Conjurer_5_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1853"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_4">
+            <minLevel>42</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-284.1149, -41.42301, 691.4664" name="Conjurer_5_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1854"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_5">
+            <minLevel>42</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="379.8846, -2.393452, -33.82244" name="Conjurer_5_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="53"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_6">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="367.8673, -5.148543, 67.47323" name="Conjurer_5_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="112"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_7">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-249.2081, 224.763, 520.3425" name="Conjurer_5_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="653"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_8">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-482.918, -3.216821, -259.2998" name="Conjurer_5_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1811"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_9">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-344.3694, -38.99733, -223.9678" name="Conjurer_5_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="360"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_10">
+            <minLevel>48</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="251.8537, -23.50415, -394.4146" name="Conjurer_5_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="166"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_11">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="150.9621, 34.95453, 10.96959" name="Conjurer_5_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="242"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Conjurer_5_12">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="388.651, 76.50455, -26.1419" name="Conjurer_5_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1826"/>
+            </TargetMobs>
+        </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

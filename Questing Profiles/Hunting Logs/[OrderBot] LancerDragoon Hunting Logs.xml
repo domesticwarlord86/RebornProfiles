@@ -1,0 +1,998 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Lancer/Dragoon Hunting Logs
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Lancer/Dragoon Hunting Logs</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Lancer/Dragoon Hunting Logs -->	
+	<If condition="Core.Me.CurrentJob != ClassJobType.Lancer and Core.Me.CurrentJob != ClassJobType.Dragoon">
+		<ChangeClass Job="Lancer" />
+		<ChangeClass Job="Dragoon" />	
+	</If>
+  <If condition="Core.Me.CurrentJob == ClassJobType.Lancer or Core.Me.CurrentJob == ClassJobType.Dragoon">
+	
+		<!-- Rank 1 -->
+		<If condition="not HuntRankCompleted(ClassJobType.Lancer, 1)">
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 0, 0)">
+				<LisbethTravel ZoneId="148" xyz="82.45746, 11.482, -239.4292" name="Lancer_1_0"/>
+				<Grind grindRef="Lancer_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 0, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 1, 0)">
+				<LisbethTravel ZoneId="148" xyz="82.45746, 11.482, -239.4292" name="Lancer_1_1"/>
+				<Grind grindRef="Lancer_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 1, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 2, 0)">
+				<LisbethTravel ZoneId="148" xyz="120.5706, 0.647573, -169.7976" name="Lancer_1_2"/>
+				<Grind grindRef="Lancer_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 2, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 3, 0)">
+				<LisbethTravel ZoneId="154" xyz="226.9634, -27.85979, 342.9897" name="Lancer_1_3"/>
+				<Grind grindRef="Lancer_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 3, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 4, 0)">
+				<LisbethTravel ZoneId="154" xyz="305.7923, -20.01519, 200.4644" name="Lancer_1_4"/>
+				<Grind grindRef="Lancer_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 4, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 5, 0)">
+				<LisbethTravel ZoneId="148" xyz="328.9543, -6.246077, -91.59382" name="Lancer_1_5"/>
+				<Grind grindRef="Lancer_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 5, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 0)">
+				<LisbethTravel ZoneId="148" xyz="258.4995, -12.03043, -71.76523" name="Lancer_1_6"/>
+				<Grind grindRef="Lancer_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 1)">
+				<LisbethTravel ZoneId="148" xyz="119.1089, -12, 140.3002" name="Lancer_1_7"/>
+				<Grind grindRef="Lancer_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 6, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 7, 0)">
+				<LisbethTravel ZoneId="148" xyz="376.8226, 10.31183, 68.63804" name="Lancer_1_8"/>
+				<Grind grindRef="Lancer_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 7, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 0)">
+				<LisbethTravel ZoneId="148" xyz="465.0707, 19.11924, -75.06451" name="Lancer_1_9"/>
+				<Grind grindRef="Lancer_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 1)">
+				<LisbethTravel ZoneId="148" xyz="-61.6009, -1.332116, -130.0268" name="Lancer_1_10"/>
+				<Grind grindRef="Lancer_1_10" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 8, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 9, 0)">
+				<LisbethTravel ZoneId="152" xyz="-463.9826, 4.173842, 232.9398" name="Lancer_1_11"/>
+				<Grind grindRef="Lancer_1_11" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Lancer, 9, 0)"/>
+			</If>
+		</If>
+		
+		<!-- Rank 2 -->
+		<If condition="not HuntRankCompleted(ClassJobType.Lancer, 2)">
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 0, 0)">
+				<LisbethTravel ZoneId="140" xyz="-220.7684, 15.25812, -291.4506" name="Lancer_2_0"/>
+				<Grind grindRef="Lancer_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 0, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 1, 0)">
+				<LisbethTravel ZoneId="148" xyz="307.5142, -1.174989, -297.8878" name="Lancer_2_1"/>
+				<Grind grindRef="Lancer_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 1, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 2, 0)">
+				<LisbethTravel ZoneId="152" xyz="-379.6286, -0.1591827, 221.3451" name="Lancer_2_2"/>
+				<Grind grindRef="Lancer_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 2, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 3, 0)">
+				<LisbethTravel ZoneId="152" xyz="-443.2791, 0.0152936, 105.9235" name="Lancer_2_3"/>
+				<Grind grindRef="Lancer_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 3, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 0)">
+				<LisbethTravel ZoneId="152" xyz="-306.4555, 4.365113, 331.4698" name="Lancer_2_4"/>
+				<Grind grindRef="Lancer_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 1)">
+				<LisbethTravel ZoneId="152" xyz="-306.4555, 4.365113, 331.4698" name="Lancer_2_5"/>
+				<Grind grindRef="Lancer_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 4, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 5, 0)">
+				<LisbethTravel ZoneId="152" xyz="-144.1982, 4.481786, 370.3617" name="Lancer_2_6"/>
+				<Grind grindRef="Lancer_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 5, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 6, 0)">
+				<LisbethTravel ZoneId="152" xyz="-129.0268, -6.018359, 299.0834" name="Lancer_2_7"/>
+				<Grind grindRef="Lancer_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 6, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 6, 1)">
+				<LisbethTravel ZoneId="152" xyz="-97.67758, 12.44586, 436.5778" name="Lancer_2_8"/>
+				<Grind grindRef="Lancer_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 6, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 7, 0)">
+				<LisbethTravel ZoneId="152" xyz="-56.59529, -6.37919, 208.1935" name="Lancer_2_9"/>
+				<Grind grindRef="Lancer_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 7, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 8, 0)">
+				<LisbethTravel ZoneId="153" xyz="-304.5961, 23.41519, -193.5119" name="Lancer_2_10"/>
+				<Grind grindRef="Lancer_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 8, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 8, 1)">
+				<LisbethTravel ZoneId="152" xyz="-145.3074, -1.420919, 168.7406" name="Lancer_2_11"/>
+				<Grind grindRef="Lancer_2_11" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 8, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 9, 0)">
+				<LisbethTravel ZoneId="153" xyz="-321.6884, 20.85904, -188.7529" name="Lancer_2_12"/>
+				<Grind grindRef="Lancer_2_12" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Lancer, 9, 0)"/>
+			</If>
+		</If>
+		
+		<!-- Rank 3 -->
+		<If condition="not HuntRankCompleted(ClassJobType.Lancer, 3)">
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 0, 0)">
+				<LisbethTravel ZoneId="139" xyz="-359.7675, -0.6754072, 158.7382"/>
+				<Grind grindRef="Lancer_3_0" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 0, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 1, 0)">
+				<LisbethTravel ZoneId="153" xyz="-216.5829, 9.162712, -144.6914" name="Lancer_3_1"/>
+				<Grind grindRef="Lancer_3_1" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 1, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 2, 0)">
+				<LisbethTravel ZoneId="140" xyz="-358.7231, 15.01274, -661.0321" name="Lancer_3_2"/>
+				<Grind grindRef="Lancer_3_2" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 2, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 3, 0)">
+				<LisbethTravel ZoneId="153" xyz="-291.0852, 15.40323, 72.07095" name="Lancer_3_3"/>
+				<Grind grindRef="Lancer_3_3" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 3, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 4, 0)">
+				<LisbethTravel ZoneId="140" xyz="-215.6629, 15.29103, -738.7327" name="Lancer_3_4"/>
+				<Grind grindRef="Lancer_3_4" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 4, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 4, 1)">
+				<LisbethTravel ZoneId="153" xyz="91.27144, 8.229843, -67.15547" name="Lancer_3_5"/>
+				<Grind grindRef="Lancer_3_5" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 4, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 5, 0)">
+				<LisbethTravel ZoneId="146" xyz="-241.4814, 19.91375, -292.4163" name="Lancer_3_6"/>
+				<Grind grindRef="Lancer_3_6" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 5, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 6, 0)">
+				<LisbethTravel ZoneId="146" xyz="-133.7783, 17.17257, -554.4896" name="Lancer_3_7"/>
+				<Grind grindRef="Lancer_3_7" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 6, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 6, 1)">
+				<LisbethTravel ZoneId="153" xyz="316.779, 2.882558, -29.98805" name="Lancer_3_8"/>
+				<Grind grindRef="Lancer_3_8" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 6, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 7, 0)">
+				<LisbethTravel ZoneId="146" xyz="141.5266, 2.895067, -596.9803" name="Lancer_3_9"/>
+				<Grind grindRef="Lancer_3_9" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 7, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 8, 0)">
+				<LisbethTravel ZoneId="153" xyz="413.1059, 3.166638, -33.85453" name="Lancer_3_10"/>
+				<Grind grindRef="Lancer_3_10" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 8, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 8, 1)">
+				<LisbethTravel ZoneId="137" xyz="410.9877, 15.23924, 676.7095" name="Lancer_3_11"/>
+				<Grind grindRef="Lancer_3_11" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 8, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 9, 0)">
+				<LisbethTravel ZoneId="153" xyz="-194.8367, 0.3378163, 271.58" name="Lancer_3_12"/>
+				<Grind grindRef="Lancer_3_12" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Lancer, 9, 0)"/>
+			</If>
+		</If>
+		
+		<!-- Rank 4 -->
+		<If condition="not HuntRankCompleted(ClassJobType.Lancer, 4)">
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 0, 0)">
+				<LisbethTravel ZoneId="148" xyz="-505.5016, 65.23953, 69.43462" name="Lancer_4_0"/>
+				<Grind grindRef="Lancer_4_0" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 0, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 1, 0)">
+				<LisbethTravel ZoneId="137" xyz="316.2697, 37.56972, 355.1962" name="Lancer_4_1"/>
+				<Grind grindRef="Lancer_4_1" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 1, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 2, 0)">
+				<LisbethTravel ZoneId="146" xyz="101.3349, 5.030924, 876.9968" name="Lancer_4_2"/>
+				<Grind grindRef="Lancer_4_2" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 2, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 2, 1)">
+				<LisbethTravel ZoneId="146" xyz="-55.55076, -2.02129, 783.1107" name="Lancer_4_3"/>
+				<Grind grindRef="Lancer_4_3" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 2, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 3, 0)">
+				<LisbethTravel ZoneId="148" xyz="-462.412, 62.01105, -235.266" name="Lancer_4_4"/>
+				<Grind grindRef="Lancer_4_4" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 3, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 4, 0)">
+				<LisbethTravel ZoneId="180" xyz="-316.5049, 33.00128, -446.3409" name="Lancer_4_5"/>
+				<Grind grindRef="Lancer_4_5" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 4, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 4, 1)">
+				<LisbethTravel ZoneId="180" xyz="-314.1754, 52.76623, -284.2115" name="Lancer_4_6"/>
+				<Grind grindRef="Lancer_4_6" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 4, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 5, 0)">
+				<LisbethTravel ZoneId="155" xyz="166.9768, 293.9123, -103.0227" name="Lancer_4_7"/>
+				<Grind grindRef="Lancer_4_7" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 5, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 6, 0)">
+				<LisbethTravel ZoneId="155" xyz="91.14069, 239.4385, 317.8635" name="Lancer_4_8"/>
+				<Grind grindRef="Lancer_4_8" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 6, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 6, 1)">
+				<LisbethTravel ZoneId="153" xyz="203.3639, 12.91991, 45.99524" name="Lancer_4_9"/>
+				<Grind grindRef="Lancer_4_9" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 6, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 7, 0)">
+				<LisbethTravel ZoneId="154" xyz="91.48916, -28.14907, 204.611" name="Lancer_4_10"/>
+				<Grind grindRef="Lancer_4_10" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 7, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 8, 0)">
+				<LisbethTravel ZoneId="155" xyz="270.5271, 355.6094, -545.2422" name="Lancer_4_11"/>
+				<Grind grindRef="Lancer_4_11" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 8, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 8, 1)">
+				<LisbethTravel ZoneId="155" xyz="-106.4007, 297.3205, -193.7715" name="Lancer_4_12"/>
+				<Grind grindRef="Lancer_4_12" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 8, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 9, 0)">
+				<LisbethTravel ZoneId="145" xyz="410.4025, 6.644291, 141.3647" name="Lancer_4_13"/>
+				<Grind grindRef="Lancer_4_13" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Lancer, 9, 0)"/>
+			</If>
+		</If>
+		
+		<!-- Rank 5 -->
+		<If condition="not HuntRankCompleted(ClassJobType.Lancer, 5)">
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 0, 0)">
+				<LisbethTravel ZoneId="155" xyz="-558.8902, 204.9697, -340.4431" name="Lancer_5_0"/>
+				<Grind grindRef="Lancer_5_0" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 0, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 0, 1)">
+				<LisbethTravel ZoneId="155" xyz="-853.2675, 223.9743, 13.21246" name="Lancer_5_1"/>
+				<Grind grindRef="Lancer_5_1" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 0, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 1, 0)">
+				<LisbethTravel ZoneId="138" xyz="-284.1149, -41.42301, 691.4664"/>
+				<Grind grindRef="Lancer_5_2" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 1, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 2, 0)">
+				<LisbethTravel ZoneId="152" xyz="98.1741, 7.041402, -12.62055" name="Lancer_5_3"/>
+				<Grind grindRef="Lancer_5_3" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 2, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 2, 1)">
+				<LisbethTravel ZoneId="152" xyz="557.9612, -12, -45.12115" name="Lancer_5_4"/>
+				<Grind grindRef="Lancer_5_4" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 2, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 3, 0)">
+				<LisbethTravel ZoneId="153" xyz="415.4924, 2.942458, 146.8065" name="Lancer_5_5"/>
+				<Grind grindRef="Lancer_5_5" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 3, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 4, 0)">
+				<LisbethTravel ZoneId="156" xyz="-227.2761, -3.742822, -287.8165" name="Lancer_5_6"/>
+				<Grind grindRef="Lancer_5_6" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 4, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 4, 1)">
+				<LisbethTravel ZoneId="156" xyz="162.1043, -26.40627, -441.7636" name="Lancer_5_7"/>
+				<Grind grindRef="Lancer_5_7" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 4, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 5, 0)">
+				<LisbethTravel ZoneId="155" xyz="-249.2081, 224.763, 520.3425" name="Lancer_5_8"/>
+				<Grind grindRef="Lancer_5_8" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 5, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 6, 0)">
+				<LisbethTravel ZoneId="138" xyz="-344.3694, -38.99733, -223.9678" name="Lancer_5_9"/>
+				<Grind grindRef="Lancer_5_9" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 6, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 6, 1)">
+				<LisbethTravel ZoneId="156" xyz="-482.918, -3.216821, -259.2998" name="Lancer_5_10"/>
+				<Grind grindRef="Lancer_5_10" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 6, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 7, 0)">
+				<LisbethTravel ZoneId="155" xyz="631.0481, 300.2472, -64.82069" name="Lancer_5_11"/>
+				<Grind grindRef="Lancer_5_11" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 7, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 8, 0)">
+				<LisbethTravel ZoneId="152" xyz="156.2826, -24.58237, -493.9027" name="Lancer_5_12"/>
+				<Grind grindRef="Lancer_5_12" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 8, 0)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 8, 1)">
+				<LisbethTravel ZoneId="147" xyz="30.81657, 10.5538, 271.4451" name="Lancer_5_13"/>
+				<Grind grindRef="Lancer_5_13" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 8, 1)"/>
+			</If>
+			<If condition="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 9, 0)">
+				<LisbethTravel ZoneId="137" xyz="301.9296, 76.47188, -16.46302" name="Lancer_5_14"/>
+				<Grind grindRef="Lancer_5_14" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Lancer, 9, 0)"/>
+			</If>
+		</If>
+		
+			<!-- Complete -->
+			<While condition="HuntRankCompleted(ClassJobType.Lancer, 5)">
+				<LLToast message="Lancer/Dragoon hunt log complete!"/>
+				<WaitTimer WaitTime="26" />
+			</While>		
+		
+	</If>  
+  </Order>
+  <GrindAreas>
+        <GrindArea name="Lancer_1_0">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="82.45746, 11.482, -239.4292" name="Lancer_1_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="49"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_1_1">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="82.45746, 11.482, -239.4292" name="Lancer_1_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="37"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_1_2">
+            <minLevel>3</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="120.5706, 0.647573, -169.7976" name="Lancer_1_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="47"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_1_3">
+            <minLevel>3</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="226.9634, -27.85979, 342.9897" name="Lancer_1_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="9"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_1_4">
+            <minLevel>3</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="305.7923, -20.01519, 200.4644" name="Lancer_1_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="5"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_1_5">
+            <minLevel>6</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="328.9543, -6.246077, -91.59382" name="Lancer_1_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="32"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_1_6">
+            <minLevel>6</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="258.4995, -12.03043, -71.76523" name="Lancer_1_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="196"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_1_7">
+            <minLevel>7</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="119.1089, -12, 140.3002" name="Lancer_1_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="197"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_1_8">
+            <minLevel>8</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="376.8226, 10.31183, 68.63804" name="Lancer_1_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="195"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_1_9">
+            <minLevel>9</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="465.0707, 19.11924, -75.06451" name="Lancer_1_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="120"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_1_10">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-61.6009, -1.332116, -130.0268" name="Lancer_1_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="10"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_1_11">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-463.9826, 4.173842, 232.9398" name="Lancer_1_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="39"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_0">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-220.7684, 15.25812, -291.4506" name="Lancer_2_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="13"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_1">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="307.5142, -1.174989, -297.8878" name="Lancer_2_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="128"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_2">
+            <minLevel>13</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-379.6286, -0.1591827, 221.3451" name="Lancer_2_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="107"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_3">
+            <minLevel>14</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-443.2791, 0.0152936, 105.9235" name="Lancer_2_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="14"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_4">
+            <minLevel>15</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-306.4555, 4.365113, 331.4698" name="Lancer_2_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="6"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_5">
+            <minLevel>15</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-306.4555, 4.365113, 331.4698" name="Lancer_2_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="36"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_6">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-144.1982, 4.481786, 370.3617" name="Lancer_2_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="220"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_7">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-129.0268, -6.018359, 299.0834" name="Lancer_2_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="7"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_8">
+            <minLevel>18</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-97.67758, 12.44586, 436.5778" name="Lancer_2_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="240"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_9">
+            <minLevel>17</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-56.59529, -6.37919, 208.1935" name="Lancer_2_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="223"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_10">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-304.5961, 23.41519, -193.5119" name="Lancer_2_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="219"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_11">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-145.3074, -1.420919, 168.7406" name="Lancer_2_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="38"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_2_12">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-321.6884, 20.85904, -188.7529" name="Lancer_2_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="3"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_0">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-359.7675, -0.6754072, 158.7382" name="Lancer_3_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="638"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_1">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-216.5829, 9.162712, -144.6914" name="Lancer_3_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="234"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_2">
+            <minLevel>22</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-358.7231, 15.01274, -661.0321" name="Lancer_3_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="227"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_3">
+            <minLevel>24</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-291.0852, 15.40323, 72.07095" name="Lancer_3_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="52"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_4">
+            <minLevel>24</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-215.6629, 15.29103, -738.7327" name="Lancer_3_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="314"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_5">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="91.27144, 8.229843, -67.15547" name="Lancer_3_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="4"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_6">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-241.4814, 19.91375, -292.4163" name="Lancer_3_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="286"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_7">
+            <minLevel>26</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-133.7783, 17.17257, -554.4896" name="Lancer_3_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="303"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_8">
+            <minLevel>28</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="316.779, 2.882558, -29.98805" name="Lancer_3_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="50"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_9">
+            <minLevel>28</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="141.5266, 2.895067, -596.9803" name="Lancer_3_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="332"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_10">
+            <minLevel>29</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="413.1059, 3.166638, -33.85453" name="Lancer_3_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="140"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_11">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="410.9877, 15.23924, 676.7095" name="Lancer_3_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="341"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_3_12">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-194.8367, 0.3378163, 271.58" name="Lancer_3_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="566"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_0">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-505.5016, 65.23953, 69.43462" name="Lancer_4_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="207"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_1">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="316.2697, 37.56972, 355.1962" name="Lancer_4_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1313"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_2">
+            <minLevel>32</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="101.3349, 5.030924, 876.9968" name="Lancer_4_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="264"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_3">
+            <minLevel>32</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-55.55076, -2.02129, 783.1107" name="Lancer_4_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="132"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_4">
+            <minLevel>33</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-462.412, 62.01105, -235.266" name="Lancer_4_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="91"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_5">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-316.5049, 33.00128, -446.3409" name="Lancer_4_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="407"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_6">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-314.1754, 52.76623, -284.2115" name="Lancer_4_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="365"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_7">
+            <minLevel>36</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="166.9768, 293.9123, -103.0227" name="Lancer_4_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="795"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_8">
+            <minLevel>35</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="91.14069, 239.4385, 317.8635" name="Lancer_4_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="659"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_9">
+            <minLevel>36</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="203.3639, 12.91991, 45.99524" name="Lancer_4_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="171"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_10">
+            <minLevel>37</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="91.48916, -28.14907, 204.611" name="Lancer_4_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="25"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_11">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="270.5271, 355.6094, -545.2422" name="Lancer_4_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1849"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_12">
+            <minLevel>39</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-106.4007, 297.3205, -193.7715" name="Lancer_4_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1183"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_4_13">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="410.4025, 6.644291, 141.3647" name="Lancer_4_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="634"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_0">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-558.8902, 204.9697, -340.4431" name="Lancer_5_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="637"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_1">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-853.2675, 223.9743, 13.21246" name="Lancer_5_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1850"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_2">
+            <minLevel>42</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-284.1149, -41.42301, 691.4664" name="Lancer_5_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1854"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_3">
+            <minLevel>44</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="98.1741, 7.041402, -12.62055" name="Lancer_5_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="237"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_4">
+            <minLevel>42</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="557.9612, -12, -45.12115" name="Lancer_5_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="61"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_5">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="415.4924, 2.942458, 146.8065" name="Lancer_5_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="15"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_6">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-227.2761, -3.742822, -287.8165" name="Lancer_5_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="650"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_7">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="162.1043, -26.40627, -441.7636" name="Lancer_5_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1851"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_8">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-249.2081, 224.763, 520.3425" name="Lancer_5_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="653"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_9">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-344.3694, -38.99733, -223.9678" name="Lancer_5_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="360"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_10">
+            <minLevel>47</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-482.918, -3.216821, -259.2998" name="Lancer_5_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1814"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_11">
+            <minLevel>47</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="631.0481, 300.2472, -64.82069" name="Lancer_5_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1846"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_12">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="156.2826, -24.58237, -493.9027" name="Lancer_5_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="163"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_13">
+            <minLevel>48</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="30.81657, 10.5538, 271.4451" name="Lancer_5_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="304"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Lancer_5_14">
+            <minLevel>50</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="301.9296, 76.47188, -16.46302" name="Lancer_5_14"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1823"/>
+            </TargetMobs>
+        </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

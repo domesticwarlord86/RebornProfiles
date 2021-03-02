@@ -1,0 +1,1012 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Pugilist/Monk Hunting Logs
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Pugilist/Monk Hunting Logs</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Pugilist/Monk Hunting Logs -->
+	<If condition="Core.Me.CurrentJob != ClassJobType.Pugilist and Core.Me.CurrentJob != ClassJobType.Monk">
+		<ChangeClass Job="Pugilist" />
+		<ChangeClass Job="Monk" />	
+	</If>
+  <If condition="Core.Me.CurrentJob == ClassJobType.Pugilist or Core.Me.CurrentJob == ClassJobType.Monk">
+	
+		<!-- Rank 1 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Pugilist, 1)">
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 0, 0)">
+        <LisbethTravel ZoneId="141" xyz="-70.81795, 9.252864, 281.2776" name="Pugilist_1_0"/>
+        <Grind grindRef="Pugilist_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 1, 0)">
+        <LisbethTravel ZoneId="140" xyz="356.4496, 74.74335, 159.5603" name="Pugilist_1_1"/>
+        <Grind grindRef="Pugilist_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 2, 0)">
+        <LisbethTravel ZoneId="140" xyz="356.4496, 74.74335, 159.5603" name="Pugilist_1_2"/>
+        <Grind grindRef="Pugilist_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 3, 0)">
+        <LisbethTravel ZoneId="141" xyz="38.54113, 4.357831, 279.7944" name="Pugilist_1_3"/>
+        <Grind grindRef="Pugilist_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 4, 0)">
+        <LisbethTravel ZoneId="141" xyz="-37.02945, -7, 154.1964" name="Pugilist_1_4"/>
+        <Grind grindRef="Pugilist_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 5, 0)">
+        <LisbethTravel ZoneId="140" xyz="4.421546, 51.0052, 208.2111" name="Pugilist_1_5"/>
+        <Grind grindRef="Pugilist_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 6, 0)">
+        <LisbethTravel ZoneId="141" xyz="-201.8878, -30.66331, 101.3387" name="Pugilist_1_6"/>
+        <Grind grindRef="Pugilist_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 7, 0)">
+        <LisbethTravel ZoneId="140" xyz="-116.4889, 51.04927, 234.954" name="Pugilist_1_7"/>
+        <Grind grindRef="Pugilist_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 8, 0)">
+        <LisbethTravel ZoneId="140" xyz="-10.57907, 20.47346, 104.9839" name="Pugilist_1_8"/>
+        <Grind grindRef="Pugilist_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 9, 0)">
+        <LisbethTravel ZoneId="140" xyz="164.4741, 51.68739, -88.07418" name="Pugilist_1_9"/>
+        <Grind grindRef="Pugilist_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 9, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 9, 1)">
+        <LisbethTravel ZoneId="140" xyz="164.4741, 51.68739, -88.07418" name="Pugilist_1_10"/>
+        <Grind grindRef="Pugilist_1_10" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 9, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 9, 2)">
+        <LisbethTravel ZoneId="141" xyz="71.14718, -2, -122.1982" name="Pugilist_1_11"/>
+        <Grind grindRef="Pugilist_1_11" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Pugilist, 9, 2)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 2 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Pugilist, 2)">
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 0, 0)">
+        <LisbethTravel ZoneId="140" xyz="297.8392, 62.27665, -209.239" name="Pugilist_2_0"/>
+        <Grind grindRef="Pugilist_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 1, 0)">
+        <LisbethTravel ZoneId="141" xyz="153.6733, 14.86536, -51.7644" name="Pugilist_2_1"/>
+        <Grind grindRef="Pugilist_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 2, 0)">
+        <LisbethTravel ZoneId="141" xyz="-245.8036, -3.610852, -354.2835" name="Pugilist_2_2"/>
+        <Grind grindRef="Pugilist_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 3, 0)">
+        <LisbethTravel ZoneId="140" xyz="263.6787, 54.29805, 121.2497" name="Pugilist_2_3"/>
+        <Grind grindRef="Pugilist_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 4, 0)">
+        <LisbethTravel ZoneId="140" xyz="-220.7684, 15.25812, -291.4506" name="Pugilist_2_4"/>
+        <Grind grindRef="Pugilist_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 4, 1)">
+        <LisbethTravel ZoneId="140" xyz="-220.7684, 15.25812, -291.4506" name="Pugilist_2_5"/>
+        <Grind grindRef="Pugilist_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 4, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 4, 2)">
+        <LisbethTravel ZoneId="140" xyz="-220.7684, 15.25812, -291.4506" name="Pugilist_2_6"/>
+        <Grind grindRef="Pugilist_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 4, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 5, 0)">
+        <LisbethTravel ZoneId="145" xyz="-405.9275, -37.34286, 277.9005" name="Pugilist_2_7"/>
+        <Grind grindRef="Pugilist_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 6, 0)">
+        <LisbethTravel ZoneId="145" xyz="-284.3846, -36.72001, 64.88946" name="Pugilist_2_8"/>
+        <Grind grindRef="Pugilist_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 7, 0)">
+        <LisbethTravel ZoneId="145" xyz="-427.9544, -29.05921, 19.60006" name="Pugilist_2_9"/>
+        <Grind grindRef="Pugilist_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 8, 0)">
+        <LisbethTravel ZoneId="145" xyz="-370.0136, -8.865561, -212.5749" name="Pugilist_2_10"/>
+        <Grind grindRef="Pugilist_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 9, 0)">
+        <LisbethTravel ZoneId="145" xyz="-341.3801, -11.72587, -234.1548" name="Pugilist_2_11"/>
+        <Grind grindRef="Pugilist_2_11" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 9, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 9, 1)">
+        <LisbethTravel ZoneId="145" xyz="-341.3801, -11.72587, -234.1548" name="Pugilist_2_12"/>
+        <Grind grindRef="Pugilist_2_12" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 9, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 9, 2)">
+        <LisbethTravel ZoneId="140" xyz="-404.8704, 24.48058, -483.6965" name="Pugilist_2_13"/>
+        <Grind grindRef="Pugilist_2_13" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Pugilist, 9, 2)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 3 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Pugilist, 3)">
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 0, 0)">
+        <LisbethTravel ZoneId="152" xyz="72.50465, 7.970101, 415.4248" name="Pugilist_3_0"/>
+        <Grind grindRef="Pugilist_3_0" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 1, 0)">
+        <LisbethTravel ZoneId="153" xyz="-217.7982, 9.1602, -144.6874" name="Pugilist_3_1"/>
+        <Grind grindRef="Pugilist_3_1" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 2, 0)">
+        <LisbethTravel ZoneId="139" xyz="-496.8976, -3.400001, -5.841871"/>
+        <Grind grindRef="Pugilist_3_2" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 3, 0)">
+        <LisbethTravel ZoneId="139" xyz="-592.8195, -1.44532, 1.632414"/>
+        <Grind grindRef="Pugilist_3_3" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 4, 0)">
+        <LisbethTravel ZoneId="153" xyz="-85.29664, -0.224, 60.80035" name="Pugilist_3_4"/>
+        <Grind grindRef="Pugilist_3_4" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 4, 1)">
+        <LisbethTravel ZoneId="154" xyz="-32.6973, -46.5684, 408.4815" name="Pugilist_3_5"/>
+        <Grind grindRef="Pugilist_3_5" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 4, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 4, 2)">
+        <LisbethTravel ZoneId="146" xyz="-113.6612, 16.28217, -254.1625" name="Pugilist_3_6"/>
+        <Grind grindRef="Pugilist_3_6" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 4, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 5, 0)">
+        <LisbethTravel ZoneId="154" xyz="-257.0301, -58.12682, 300.4926" name="Pugilist_3_7"/>
+        <Grind grindRef="Pugilist_3_7" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 6, 0)">
+        <LisbethTravel ZoneId="146" xyz="141.5266, 2.895067, -596.9803" name="Pugilist_3_8"/>
+        <Grind grindRef="Pugilist_3_8" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 7, 0)">
+        <LisbethTravel ZoneId="154" xyz="-175.8622, -56.67997, 334.0674" name="Pugilist_3_9"/>
+        <Grind grindRef="Pugilist_3_9" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 8, 0)">
+        <LisbethTravel ZoneId="153" xyz="425.5199, 0.8837109, -33.88228" name="Pugilist_3_10"/>
+        <Grind grindRef="Pugilist_3_10" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 9, 0)">
+        <LisbethTravel ZoneId="137" xyz="410.9877, 15.23924, 676.7095" name="Pugilist_3_11"/>
+        <Grind grindRef="Pugilist_3_11" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 9, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 9, 1)">
+        <LisbethTravel ZoneId="148" xyz="-406.9117, 60.8596, -117.0442" name="Pugilist_3_12"/>
+        <Grind grindRef="Pugilist_3_12" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 9, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 9, 2)">
+        <LisbethTravel ZoneId="153" xyz="-147.9386, 0.4716271, 471.9752" name="Pugilist_3_13"/>
+        <Grind grindRef="Pugilist_3_13" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Pugilist, 9, 2)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 4 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Pugilist, 4)">
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 0, 0)">
+        <LisbethTravel ZoneId="139" xyz="591.8511, -1.461178, 206.3637" name="Pugilist_4_0"/>
+        <Grind grindRef="Pugilist_4_0" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 1, 0)">
+        <LisbethTravel ZoneId="146" xyz="-365.768, 7.618832, 540.2332" name="Pugilist_4_1"/>
+        <Grind grindRef="Pugilist_4_1" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 2, 0)">
+        <LisbethTravel ZoneId="146" xyz="-55.55076, -2.02129, 783.1107" name="Pugilist_4_2"/>
+        <Grind grindRef="Pugilist_4_2" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 3, 0)">
+        <LisbethTravel ZoneId="148" xyz="-258.9205, 55.44057, 39.8202" name="Pugilist_4_3"/>
+        <Grind grindRef="Pugilist_4_3" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 4, 0)">
+        <LisbethTravel ZoneId="137" xyz="-7.642155, 39.55009, 378.3857" name="Pugilist_4_4"/>
+        <Grind grindRef="Pugilist_4_4" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 4, 1)">
+        <LisbethTravel ZoneId="137" xyz="-184.401, 38.55942, 325.2947" name="Pugilist_4_5"/>
+        <Grind grindRef="Pugilist_4_5" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 4, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 4, 2)">
+        <LisbethTravel ZoneId="180" xyz="-314.1754, 52.76623, -284.2115" name="Pugilist_4_6"/>
+        <Grind grindRef="Pugilist_4_6" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 4, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 5, 0)">
+        <LisbethTravel ZoneId="180" xyz="-135.1674, 80.6256, -303.728" name="Pugilist_4_7"/>
+        <Grind grindRef="Pugilist_4_7" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 6, 0)">
+        <LisbethTravel ZoneId="155" xyz="77.01029, 213.8567, 403.0025" name="Pugilist_4_8"/>
+        <Grind grindRef="Pugilist_4_8" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 7, 0)">
+        <LisbethTravel ZoneId="155" xyz="226.6057, 269.9143, 8.515696" name="Pugilist_4_9"/>
+        <Grind grindRef="Pugilist_4_9" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 8, 0)">
+        <LisbethTravel ZoneId="155" xyz="168.0872, 340.8541, -399.9034" name="Pugilist_4_10"/>
+        <Grind grindRef="Pugilist_4_10" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 9, 0)">
+        <LisbethTravel ZoneId="155" xyz="110.766, 287.7978, -223.3034" name="Pugilist_4_11"/>
+        <Grind grindRef="Pugilist_4_11" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 9, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 9, 1)">
+        <LisbethTravel ZoneId="152" xyz="228.5374, 4.319172, 168.6895" name="Pugilist_4_12"/>
+        <Grind grindRef="Pugilist_4_12" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 9, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 9, 2)">
+        <LisbethTravel ZoneId="152" xyz="228.5374, 4.319172, 168.6895" name="Pugilist_4_13"/>
+        <Grind grindRef="Pugilist_4_13" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Pugilist, 9, 2)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 5 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Pugilist, 5)">
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 0, 0)">
+        <LisbethTravel ZoneId="145" xyz="387.6801, -8.683156, 199.9769" name="Pugilist_5_0"/>
+        <Grind grindRef="Pugilist_5_0" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 1, 0)">
+        <LisbethTravel ZoneId="138" name="Ferry Skipper" xyz="-284.1149, -41.42301, 691.4664"/>
+        <Grind grindRef="Pugilist_5_1" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 2, 0)">
+        <LisbethTravel ZoneId="152" xyz="557.9612, -12, -45.12115" name="Pugilist_5_2"/>
+        <Grind grindRef="Pugilist_5_2" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 3, 0)">
+        <LisbethTravel ZoneId="153" xyz="415.4924, 2.942458, 146.8065" name="Pugilist_5_3"/>
+        <Grind grindRef="Pugilist_5_3" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 4, 0)">
+        <LisbethTravel ZoneId="156" xyz="-227.2761, -3.742822, -287.8165" name="Pugilist_5_4"/>
+        <Grind grindRef="Pugilist_5_4" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 4, 1)">
+        <LisbethTravel ZoneId="155" xyz="-123.4198, 214.9523, 438.493" name="Pugilist_5_5"/>
+        <Grind grindRef="Pugilist_5_5" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 4, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 4, 2)">
+        <LisbethTravel ZoneId="156" xyz="278.3706, -4.352112, -537.9239" name="Pugilist_5_6"/>
+        <Grind grindRef="Pugilist_5_6" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 4, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 5, 0)">
+        <LisbethTravel ZoneId="155" xyz="-249.2081, 224.763, 520.3425" name="Pugilist_5_7"/>
+        <Grind grindRef="Pugilist_5_7" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 6, 0)">
+        <LisbethTravel ZoneId="156" xyz="-478.9515, -3.2168, -254.2694" name="Pugilist_5_8"/>
+        <Grind grindRef="Pugilist_5_8" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 7, 0)">
+        <LisbethTravel ZoneId="152" xyz="315.0393, -17.43429, -171.5787" name="Pugilist_5_9"/>
+        <Grind grindRef="Pugilist_5_9" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 8, 0)">
+        <LisbethTravel ZoneId="156" xyz="441.122, -6.09517, -759.0013" name="Pugilist_5_10"/>
+        <Grind grindRef="Pugilist_5_10" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 9, 0)">
+        <LisbethTravel ZoneId="146" xyz="410.7916, 12.56278, -105.1917" name="Pugilist_5_11"/>
+        <Grind grindRef="Pugilist_5_11" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 9, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 9, 1)">
+        <LisbethTravel ZoneId="147" xyz="30.81657, 10.5538, 271.4451" name="Pugilist_5_12"/>
+        <Grind grindRef="Pugilist_5_12" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 9, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 9, 2)">
+        <LisbethTravel ZoneId="138" xyz="-421.4905, -40.56665, -225.1713" name="Pugilist_5_13"/>
+        <Grind grindRef="Pugilist_5_13" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Pugilist, 9, 2)"/>
+      </If>
+    </If>
+		
+			<!-- Complete -->
+			<While condition="HuntRankCompleted(ClassJobType.Pugilist, 5)">
+				<LLToast message="Pugilist/Monk hunt log complete!"/>
+				<WaitTimer WaitTime="26" />
+			</While>		
+  </If>
+				
+  </Order>
+  <GrindAreas>
+        <GrindArea name="Pugilist_1_0">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-70.81795, 9.252864, 281.2776" name="Pugilist_1_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="632"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_1_1">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="356.4496, 74.74335, 159.5603" name="Pugilist_1_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="262"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_1_2">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="356.4496, 74.74335, 159.5603" name="Pugilist_1_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="287"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_1_3">
+            <minLevel>3</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="38.54113, 4.357831, 279.7944" name="Pugilist_1_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="318"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_1_4">
+            <minLevel>5</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-37.02945, -7, 154.1964" name="Pugilist_1_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="308"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_1_5">
+            <minLevel>6</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="4.421546, 51.0052, 208.2111" name="Pugilist_1_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="299"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_1_6">
+            <minLevel>7</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-201.8878, -30.66331, 101.3387" name="Pugilist_1_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="317"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_1_7">
+            <minLevel>8</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-116.4889, 51.04927, 234.954" name="Pugilist_1_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="283"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_1_8">
+            <minLevel>9</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-10.57907, 20.47346, 104.9839" name="Pugilist_1_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="265"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_1_9">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="164.4741, 51.68739, -88.07418" name="Pugilist_1_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="305"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_1_10">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="164.4741, 51.68739, -88.07418" name="Pugilist_1_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="298"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_1_11">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="71.14718, -2, -122.1982" name="Pugilist_1_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="289"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_0">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="297.8392, 62.27665, -209.239" name="Pugilist_2_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="316"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_1">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="153.6733, 14.86536, -51.7644" name="Pugilist_2_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="288"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_2">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-245.8036, -3.610852, -354.2835" name="Pugilist_2_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="293"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_3">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="263.6787, 54.29805, 121.2497" name="Pugilist_2_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="244"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_4">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-220.7684, 15.25812, -291.4506" name="Pugilist_2_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="13"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_5">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-220.7684, 15.25812, -291.4506" name="Pugilist_2_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="636"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_6">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-220.7684, 15.25812, -291.4506" name="Pugilist_2_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="635"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_7">
+            <minLevel>15</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-405.9275, -37.34286, 277.9005" name="Pugilist_2_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="306"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_8">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-284.3846, -36.72001, 64.88946" name="Pugilist_2_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="274"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_9">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-427.9544, -29.05921, 19.60006" name="Pugilist_2_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1199"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_10">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-370.0136, -8.865561, -212.5749" name="Pugilist_2_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1198"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_11">
+            <minLevel>17</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-341.3801, -11.72587, -234.1548" name="Pugilist_2_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="319"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_12">
+            <minLevel>17</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-341.3801, -11.72587, -234.1548" name="Pugilist_2_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="322"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_2_13">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-404.8704, 24.48058, -483.6965" name="Pugilist_2_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="309"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_0">
+            <minLevel>19</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="72.50465, 7.970101, 415.4248" name="Pugilist_3_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="214"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_1">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-217.7982, 9.1602, -144.6874" name="Pugilist_3_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="234"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_2">
+            <minLevel>22</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-496.8976, -3.400001, -5.841871" name="Pugilist_3_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="381"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_3">
+            <minLevel>22</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-592.8195, -1.44532, 1.632414" name="Pugilist_3_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="28"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_4">
+            <minLevel>23</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-85.29664, -0.224, 60.80035" name="Pugilist_3_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="228"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_5">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-32.6973, -46.5684, 408.4815" name="Pugilist_3_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="40"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_6">
+            <minLevel>26</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-113.6612, 16.28217, -254.1625" name="Pugilist_3_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="323"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_7">
+            <minLevel>28</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-257.0301, -58.12682, 300.4926" name="Pugilist_3_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="224"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_8">
+            <minLevel>28</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="141.5266, 2.895067, -596.9803" name="Pugilist_3_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="331"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_9">
+            <minLevel>26</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-175.8622, -56.67997, 334.0674" name="Pugilist_3_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="30"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_10">
+            <minLevel>29</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="425.5199, 0.8837109, -33.88228" name="Pugilist_3_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="139"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_11">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="410.9877, 15.23924, 676.7095" name="Pugilist_3_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="341"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_12">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-406.9117, 60.8596, -117.0442" name="Pugilist_3_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="130"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_3_13">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-147.9386, 0.4716271, 471.9752" name="Pugilist_3_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="235"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_0">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="591.8511, -1.461178, 206.3637" name="Pugilist_4_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="414"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_1">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-365.768, 7.618832, 540.2332" name="Pugilist_4_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="285"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_2">
+            <minLevel>32</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-55.55076, -2.02129, 783.1107" name="Pugilist_4_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="132"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_3">
+            <minLevel>33</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-258.9205, 55.44057, 39.8202" name="Pugilist_4_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="55"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_4">
+            <minLevel>33</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-7.642155, 39.55009, 378.3857" name="Pugilist_4_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="353"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_5">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-184.401, 38.55942, 325.2947" name="Pugilist_4_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="352"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_6">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-314.1754, 52.76623, -284.2115" name="Pugilist_4_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="365"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_7">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-135.1674, 80.6256, -303.728" name="Pugilist_4_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="412"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_8">
+            <minLevel>35</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="77.01029, 213.8567, 403.0025" name="Pugilist_4_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1612"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_9">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="226.6057, 269.9143, 8.515696" name="Pugilist_4_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="784"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_10">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="168.0872, 340.8541, -399.9034" name="Pugilist_4_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="794"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_11">
+            <minLevel>39</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="110.766, 287.7978, -223.3034" name="Pugilist_4_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1611"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_12">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="228.5374, 4.319172, 168.6895" name="Pugilist_4_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="33"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_4_13">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="228.5374, 4.319172, 168.6895" name="Pugilist_4_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="222"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_0">
+            <minLevel>241</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="387.6801, -8.683156, 199.9769" name="Pugilist_5_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="275"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_1">
+            <minLevel>42</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-284.1149, -41.42301, 691.4664" name="Pugilist_5_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1854"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_2">
+            <minLevel>42</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="557.9612, -12, -45.12115" name="Pugilist_5_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="61"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_3">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="415.4924, 2.942458, 146.8065" name="Pugilist_5_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="15"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_4">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-227.2761, -3.742822, -287.8165" name="Pugilist_5_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="651"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_5">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-123.4198, 214.9523, 438.493" name="Pugilist_5_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="788"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_6">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="278.3706, -4.352112, -537.9239" name="Pugilist_5_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="647"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_7">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-249.2081, 224.763, 520.3425" name="Pugilist_5_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="653"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_8">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-478.9515, -3.2168, -254.2694" name="Pugilist_5_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1809"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_9">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="315.0393, -17.43429, -171.5787" name="Pugilist_5_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="164"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_10">
+            <minLevel>48</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="441.122, -6.09517, -759.0013" name="Pugilist_5_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="793"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_11">
+            <minLevel>48</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="410.7916, 12.56278, -105.1917" name="Pugilist_5_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1841"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_12">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="30.81657, 10.5538, 271.4451" name="Pugilist_5_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="304"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Pugilist_5_13">
+            <minLevel>48</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-421.4905, -40.56665, -225.1713" name="Pugilist_5_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="345"/>
+            </TargetMobs>
+        </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

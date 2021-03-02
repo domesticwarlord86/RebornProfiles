@@ -1,0 +1,932 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Marauder/Warrior Hunting Logs
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Marauder/Warrior Hunting Logs</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Marauder/Warrior Hunting Logs -->	
+	<If condition="Core.Me.CurrentJob != ClassJobType.Marauder and Core.Me.CurrentJob != ClassJobType.Warrior">
+		<ChangeClass Job="Marauder" />
+		<ChangeClass Job="Warrior" />	
+	</If>
+	
+	<If condition="Core.Me.CurrentJob == ClassJobType.Marauder or Core.Me.CurrentJob == ClassJobType.Warrior">
+	
+		<!-- Rank 1 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Marauder, 1)">
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 0, 0)">
+        <LisbethTravel ZoneId="134" xyz="93.82973, 46.33266, 135.7144" name="Marauder_1_0"/>
+        <Grind grindRef="Marauder_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 1, 0)">
+        <LisbethTravel ZoneId="134" xyz="93.82973, 46.33266, 135.7144" name="Marauder_1_1"/>
+        <Grind grindRef="Marauder_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 2, 0)">
+        <LisbethTravel ZoneId="135" xyz="149.6387, 64.95876, 316.1634" name="Marauder_1_2"/>
+        <Grind grindRef="Marauder_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 3, 0)">
+        <LisbethTravel ZoneId="134" xyz="-39.21257, 46.84208, 17.64889" name="Marauder_1_3"/>
+        <Grind grindRef="Marauder_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 4, 0)">
+        <LisbethTravel ZoneId="135" xyz="354.2474, 54.81212, -41.93296" name="Marauder_1_4"/>
+        <Grind grindRef="Marauder_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 5, 0)">
+        <LisbethTravel ZoneId="134" xyz="114.1033, 67.5534, -147.6051" name="Marauder_1_5"/>
+        <Grind grindRef="Marauder_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 6, 0)">
+        <LisbethTravel ZoneId="134" xyz="-55.73642, 35.40247, -78.13557" name="Marauder_1_6"/>
+        <Grind grindRef="Marauder_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 6, 0)"/>
+				<GetTo ZoneId="134" xyz="-55.73642, 35.40247, -78.13557" name="Marauder_1_6"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 7, 0)">
+        <LisbethTravel ZoneId="134" xyz="-153.8597, 45.00096, -210.1831" name="Marauder_1_7"/>
+        <Grind grindRef="Marauder_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 8, 0)">
+        <LisbethTravel ZoneId="134" xyz="-76.04529, 48.70982, -211.6434" name="Marauder_1_8"/>
+        <Grind grindRef="Marauder_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 9, 0)">
+        <LisbethTravel ZoneId="134" xyz="-289.3684, 22.66283, -377.8493" name="Marauder_1_9"/>
+        <Grind grindRef="Marauder_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Marauder, 9, 0)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 2 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Marauder, 2)">
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 0, 0)">
+        <LisbethTravel ZoneId="135" xyz="247.7612, 6.84578, 785.0369" name="Marauder_2_0"/>
+        <Grind grindRef="Marauder_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 1, 0)">
+        <LisbethTravel ZoneId="134" xyz="70.75369, 46.92253, 124.3286" name="Marauder_2_1"/>
+        <Grind grindRef="Marauder_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 2, 0)">
+        <LisbethTravel ZoneId="138" xyz="586.8716, 37.75261, 327.947" name="Marauder_2_2"/>
+        <Grind grindRef="Marauder_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 3, 0)">
+        <LisbethTravel ZoneId="135" xyz="-39.02855, 40.3599, 686.4474" name="Marauder_2_3"/>
+        <Grind grindRef="Marauder_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 4, 0)">
+        <LisbethTravel ZoneId="135" xyz="-124.9706, 3.520135, 700.6313" name="Marauder_2_4"/>
+        <Grind grindRef="Marauder_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 5, 0)">
+        <LisbethTravel ZoneId="138" xyz="604.1115, 42.22591, 314.1177" name="Marauder_2_5"/>
+        <Grind grindRef="Marauder_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 0)">
+        <LisbethTravel ZoneId="138" xyz="323.4413, -9.667931, 123.1287" name="Marauder_2_6"/>
+        <Grind grindRef="Marauder_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 1)">
+        <LisbethTravel ZoneId="138" xyz="323.257, -12.10438, 132.3205" name="Marauder_2_7"/>
+        <Grind grindRef="Marauder_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 2)">
+        <LisbethTravel ZoneId="138" xyz="253.4046, -12.36597, 105.1967" name="Marauder_2_8"/>
+        <Grind grindRef="Marauder_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 6, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 7, 0)">
+        <LisbethTravel ZoneId="138" xyz="126.105, -15.37122, 88.45286" name="Marauder_2_9"/>
+        <Grind grindRef="Marauder_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 8, 0)">
+        <LisbethTravel ZoneId="138" xyz="-7.594713, -22.42778, 62.6085" name="Marauder_2_10"/>
+        <Grind grindRef="Marauder_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 9, 0)">
+        <LisbethTravel ZoneId="139" xyz="-412.1202, -5.057841, 181.4651"/>
+        <Grind grindRef="Marauder_2_11" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Marauder, 9, 0)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 3 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Marauder, 3)">
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 0, 0)">
+        <LisbethTravel ZoneId="139" xyz="-362.7808, -1.96473, 158.4184"/>
+        <Grind grindRef="Marauder_3_0" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 1, 0)">
+        <LisbethTravel ZoneId="152" xyz="-198.7925, 4.902349, 98.83768" name="Marauder_3_1"/>
+        <Grind grindRef="Marauder_3_1" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 2, 0)">
+        <LisbethTravel ZoneId="140" xyz="-366.3349, 16.392, -628.8094" name="Marauder_3_2"/>
+        <Grind grindRef="Marauder_3_2" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 3, 0)">
+        <LisbethTravel ZoneId="153" xyz="-298.1658, 16.14205, 76.57407" name="Marauder_3_3"/>
+        <Grind grindRef="Marauder_3_3" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 4, 0)">
+        <LisbethTravel ZoneId="154" xyz="-32.6973, -46.5684, 408.4815" name="Marauder_3_4"/>
+        <Grind grindRef="Marauder_3_4" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 5, 0)">
+        <LisbethTravel ZoneId="146" xyz="-278.2919, 21.05661, -307.5343" name="Marauder_3_5"/>
+        <Grind grindRef="Marauder_3_5" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 6, 0)">
+        <LisbethTravel ZoneId="154" xyz="-25.14334, -51.62584, 434.2633" name="Marauder_3_6"/>
+        <Grind grindRef="Marauder_3_6" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 6, 1)">
+        <LisbethTravel ZoneId="145" xyz="91.80782, 3.841721, -69.14981" name="Marauder_3_7"/>
+        <Grind grindRef="Marauder_3_7" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 6, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 6, 2)">
+        <LisbethTravel ZoneId="146" xyz="-118.9183, 14.51372, -569.1295" name="Marauder_3_8"/>
+        <Grind grindRef="Marauder_3_8" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 6, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 7, 0)">
+        <LisbethTravel ZoneId="145" xyz="270.8677, 7.392813, -216.6513" name="Marauder_3_9"/>
+        <Grind grindRef="Marauder_3_9" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 8, 0)">
+        <LisbethTravel ZoneId="148" xyz="-294.3489, 59.47368, -150.8057" name="Marauder_3_10"/>
+         <Grind grindRef="Marauder_3_10" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 9, 0)">
+        <LisbethTravel ZoneId="148" xyz="-505.5016, 65.23953, 69.43462" name="Marauder_3_11"/>
+        <Grind grindRef="Marauder_3_11" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Marauder, 9, 0)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 4 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Marauder, 4)">
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 0, 0)">
+        <LisbethTravel ZoneId="148" xyz="-436.3311, 49, 45.43752" name="Marauder_4_0"/>
+        <Grind grindRef="Marauder_4_0" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 1, 0)">
+        <LisbethTravel ZoneId="153" xyz="-299.9607, 0.09519827, 433.1929" name="Marauder_4_1"/>
+        <Grind grindRef="Marauder_4_1" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 1, 1)">
+        <LisbethTravel ZoneId="146" xyz="-55.55076, -2.02129, 783.1107" name="Marauder_4_2"/>
+        <Grind grindRef="Marauder_4_2" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 1, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 1, 2)">
+        <LisbethTravel ZoneId="137" xyz="99.53481, 69.95169, -13.59349" name="Marauder_4_3"/>
+        <Grind grindRef="Marauder_4_3" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 1, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 2, 0)">
+        <LisbethTravel ZoneId="137" xyz="489.9272, 9.006254, 631.5339" name="Marauder_4_4"/>
+        <Grind grindRef="Marauder_4_4" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 3, 0)">
+        <LisbethTravel ZoneId="137" xyz="521.7017, 8.804245, 270.3921" name="Marauder_4_5"/>
+        <Grind grindRef="Marauder_4_5" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 4, 0)">
+        <LisbethTravel ZoneId="137" xyz="-184.401, 38.55942, 325.2947" name="Marauder_4_6"/>
+        <Grind grindRef="Marauder_4_6" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 5, 0)">
+        <LisbethTravel ZoneId="155" xyz="91.14069, 239.4385, 317.8635" name="Marauder_4_7"/>
+        <Grind grindRef="Marauder_4_7" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 6, 0)">
+        <LisbethTravel ZoneId="155" xyz="166.9768, 293.9123, -103.0227" name="Marauder_4_8"/>
+        <Grind grindRef="Marauder_4_8" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 6, 1)">
+        <LisbethTravel ZoneId="155" xyz="77.01029, 213.8567, 403.0025" name="Marauder_4_9"/>
+        <Grind grindRef="Marauder_4_9" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 6, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 6, 2)">
+        <LisbethTravel ZoneId="155" xyz="168.0872, 340.8541, -399.9034" name="Marauder_4_10"/>
+        <Grind grindRef="Marauder_4_10" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 6, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 7, 0)">
+        <LisbethTravel ZoneId="155" xyz="270.5271, 355.6094, -545.2422" name="Marauder_4_11"/>
+        <Grind grindRef="Marauder_4_11" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 8, 0)">
+        <LisbethTravel ZoneId="155" xyz="110.766, 287.7978, -223.3034" name="Marauder_4_12"/>
+        <Grind grindRef="Marauder_4_12" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 9, 0)">
+        <LisbethTravel ZoneId="180" xyz="-2.148571, 49.57911, -348.3792" name="Marauder_4_13"/>
+        <Grind grindRef="Marauder_4_13" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Marauder, 9, 0)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 5 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Marauder, 5)">
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 0, 0)">
+        <LisbethTravel ZoneId="152" xyz="228.5374, 4.319172, 168.6895" name="Marauder_5_0"/>
+        <Grind grindRef="Marauder_5_0" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 1, 0)">
+        <LisbethTravel ZoneId="145" xyz="387.6801, -8.683156, 199.9769" name="Marauder_5_1"/>
+        <Grind grindRef="Marauder_5_1" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 1, 1)">
+        <LisbethTravel ZoneId="138" xyz="-284.1149, -41.42301, 691.4664"/>
+        <Grind grindRef="Marauder_5_2" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 1, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 1, 2)">
+        <LisbethTravel ZoneId="152" xyz="98.1741, 7.041402, -12.62055" name="Marauder_5_3"/>
+        <Grind grindRef="Marauder_5_3" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 1, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 2, 0)">
+        <LisbethTravel ZoneId="148" xyz="-560.7195, 24.77634, -243.81" name="Marauder_5_4"/>
+        <Grind grindRef="Marauder_5_4" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 3, 0)">
+        <LisbethTravel ZoneId="153" xyz="415.4924, 2.942458, 146.8065" name="Marauder_5_5"/>
+        <Grind grindRef="Marauder_5_5" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 4, 0)">
+        <LisbethTravel ZoneId="155" xyz="-123.4198, 214.9523, 438.493" name="Marauder_5_6"/>
+        <Grind grindRef="Marauder_5_6" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 5, 0)">
+        <LisbethTravel ZoneId="156" xyz="-478.9515, -3.2168, -254.2694" name="Marauder_5_7"/>
+        <Grind grindRef="Marauder_5_7" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 6, 0)">
+        <LisbethTravel ZoneId="180" xyz="80.17438, 23.42396, -707.2502" name="Marauder_5_8"/>
+        <Grind grindRef="Marauder_5_8" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 6, 1)">
+        <LisbethTravel ZoneId="154" xyz="-35.91779, -10.28475, -49.3069" name="Marauder_5_9"/>
+        <Grind grindRef="Marauder_5_9" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 6, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 6, 2)">
+        <LisbethTravel ZoneId="146" xyz="-178.0462, 4.902777, 84.6361" name="Marauder_5_10"/>
+        <Grind grindRef="Marauder_5_10" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 6, 2)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 7, 0)">
+        <LisbethTravel ZoneId="152" xyz="124.4229, -29.46935, -227.1476" name="Marauder_5_11"/>
+        <Grind grindRef="Marauder_5_11" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 8, 0)">
+        <LisbethTravel ZoneId="140" xyz="-467.245, 51.90547, -755.002" name="Marauder_5_12"/>
+        <Grind grindRef="Marauder_5_12" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 9, 0)">
+        <LisbethTravel ZoneId="137" xyz="301.9296, 76.47188, -16.46302" name="Marauder_5_13"/>
+        <Grind grindRef="Marauder_5_13" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Marauder, 9, 0)"/>
+      </If>
+    </If>
+
+		<!-- Complete -->
+		<While condition="HuntRankCompleted(ClassJobType.Marauder, 5)">
+			<LLToast message="Marauder/Warrior hunt log complete!"/>
+			<WaitTimer WaitTime="26" />
+		</While>
+
+		
+  </If>
+	
+  </Order>
+  <GrindAreas>
+        <GrindArea name="Marauder_1_0">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="93.82973, 46.33266, 135.7144" name="Marauder_1_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="49"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_1_1">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="93.82973, 46.33266, 135.7144" name="Marauder_1_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="417"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_1_2">
+            <minLevel>3</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="149.6387, 64.95876, 316.1634" name="Marauder_1_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="563"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_1_3">
+            <minLevel>4</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-39.21257, 46.84208, 17.64889" name="Marauder_1_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="395"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_1_4">
+            <minLevel>4</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="354.2474, 54.81212, -41.93296" name="Marauder_1_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="393"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_1_5">
+            <minLevel>4</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="114.1033, 67.5534, -147.6051" name="Marauder_1_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="405"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_1_6">
+            <minLevel>7</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-57.72897, 27.85086, -108.0015" name="Marauder_1_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="404"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_1_7">
+            <minLevel>8</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-153.8597, 45.00096, -210.1831" name="Marauder_1_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="358"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_1_8">
+            <minLevel>9</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-76.04529, 48.70982, -211.6434" name="Marauder_1_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="418"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_1_9">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-289.3684, 22.66283, -377.8493" name="Marauder_1_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="561"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_0">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="247.7612, 6.84578, 785.0369" name="Marauder_2_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="129"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_1">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="70.75369, 46.92253, 124.3286" name="Marauder_2_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="354"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_2">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="586.8716, 37.75261, 327.947" name="Marauder_2_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="394"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_3">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-39.02855, 40.3599, 686.4474" name="Marauder_2_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="409"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_4">
+            <minLevel>13</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-124.9706, 3.520135, 700.6313" name="Marauder_2_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="350"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_5">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="604.1115, 42.22591, 314.1177" name="Marauder_2_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="420"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_6">
+            <minLevel>15</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="323.4413, -9.667931, 123.1287" name="Marauder_2_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="363"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_7">
+            <minLevel>15</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="323.257, -12.10438, 132.3205" name="Marauder_2_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="402"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_8">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="253.4046, -12.36597, 105.1967" name="Marauder_2_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="403"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_9">
+            <minLevel>17</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="126.105, -15.37122, 88.45286" name="Marauder_2_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1181"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_10">
+            <minLevel>19</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-7.594713, -22.42778, 62.6085" name="Marauder_2_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="644"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_2_11">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-412.1202, -5.057841, 181.4651" name="Marauder_2_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1180"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_0">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-362.7808, -1.96473, 158.4184" name="Marauder_3_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="638"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_1">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-198.7925, 4.902349, 98.83768" name="Marauder_3_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="232"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_2">
+            <minLevel>22</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-366.3349, 16.392, -628.8094" name="Marauder_3_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="227"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_3">
+            <minLevel>24</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-298.1658, 16.14205, 76.57407" name="Marauder_3_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="172"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_4">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-32.6973, -46.5684, 408.4815" name="Marauder_3_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="40"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_5">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-278.2919, 21.05661, -307.5343" name="Marauder_3_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="286"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_6">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-25.14334, -51.62584, 434.2633" name="Marauder_3_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="17"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_7">
+            <minLevel>26</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="91.80782, 3.841721, -69.14981" name="Marauder_3_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="272"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_8">
+            <minLevel>26</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-118.9183, 14.51372, -569.1295" name="Marauder_3_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="303"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_9">
+            <minLevel>26</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="270.8677, 7.392813, -216.6513" name="Marauder_3_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="281"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_10">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-294.3489, 59.47368, -150.8057" name="Marauder_3_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="48"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_3_11">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-505.5016, 65.23953, 69.43462" name="Marauder_3_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="207"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_0">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-436.3311, 49, 45.43752" name="Marauder_4_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="238"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_1">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-299.9607, 0.09519827, 433.1929" name="Marauder_4_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="34"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_2">
+            <minLevel>32</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-55.55076, -2.02129, 783.1107" name="Marauder_4_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="132"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_3">
+            <minLevel>35</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="99.53481, 69.95169, -13.59349" name="Marauder_4_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="411"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_4">
+            <minLevel>32</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="489.9272, 9.006254, 631.5339" name="Marauder_4_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="560"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_5">
+            <minLevel>33</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="521.7017, 8.804245, 270.3921" name="Marauder_4_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="361"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_6">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-184.401, 38.55942, 325.2947" name="Marauder_4_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="352"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_7">
+            <minLevel>35</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="91.14069, 239.4385, 317.8635" name="Marauder_4_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="659"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_8">
+            <minLevel>36</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="166.9768, 293.9123, -103.0227" name="Marauder_4_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="795"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_9">
+            <minLevel>35</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="77.01029, 213.8567, 403.0025" name="Marauder_4_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1612"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_10">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="168.0872, 340.8541, -399.9034" name="Marauder_4_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="794"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_11">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="270.5271, 355.6094, -545.2422" name="Marauder_4_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1849"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_12">
+            <minLevel>39</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="110.766, 287.7978, -223.3034" name="Marauder_4_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1611"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_4_13">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-2.148571, 49.57911, -348.3792" name="Marauder_4_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="270"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_0">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="228.5374, 4.319172, 168.6895" name="Marauder_5_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="222"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_1">
+            <minLevel>241</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="387.6801, -8.683156, 199.9769" name="Marauder_5_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="275"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_2">
+            <minLevel>42</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-284.1149, -41.42301, 691.4664" name="Marauder_5_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1854"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_3">
+            <minLevel>43</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="98.1741, 7.041402, -12.62055" name="Marauder_5_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="237"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_4">
+            <minLevel>44</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-560.7195, 24.77634, -243.81" name="Marauder_5_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="131"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_5">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="415.4924, 2.942458, 146.8065" name="Marauder_5_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="15"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_6">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-123.4198, 214.9523, 438.493" name="Marauder_5_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="788"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_7">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-478.9515, -3.2168, -254.2694" name="Marauder_5_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1813"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_8">
+            <minLevel>48</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="80.17438, 23.42396, -707.2502" name="Marauder_5_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1836"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_9">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-35.91779, -10.28475, -49.3069" name="Marauder_5_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="174"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_10">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-178.0462, 4.902777, 84.6361" name="Marauder_5_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="243"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_11">
+            <minLevel>48</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="124.4229, -29.46935, -227.1476" name="Marauder_5_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="165"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_12">
+            <minLevel>48</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-467.245, 51.90547, -755.002" name="Marauder_5_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1818"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Marauder_5_13">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="301.9296, 76.47188, -16.46302" name="Marauder_5_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1822"/>
+            </TargetMobs>
+        </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

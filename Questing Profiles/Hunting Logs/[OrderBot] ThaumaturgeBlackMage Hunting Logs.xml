@@ -1,0 +1,985 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Thaumaturge/BlackMage Hunting Logs
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Thaumaturge/BlackMage Hunting Logs</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Thaumaturge/BlackMage Hunting Logs -->	
+  <If condition="Core.Me.CurrentJob != ClassJobType.Thaumaturge and Core.Me.CurrentJob != ClassJobType.BlackMage">
+		<ChangeClass Job="Thaumaturge" />
+		<ChangeClass Job="BlackMage" />	
+	</If>
+	<If condition="Core.Me.CurrentJob == ClassJobType.Thaumaturge or Core.Me.CurrentJob == ClassJobType.BlackMage">
+	
+	<!-- Rank 1 -->
+  <If condition="not HuntRankCompleted(ClassJobType.Thaumaturge, 1)">
+    <If condition="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 0, 0)">
+      <LisbethTravel ZoneId="140" xyz="314.5982, 64.7995, 156.4156" name="Thaumaturge_1_0"/>
+      <Grind grindRef="Thaumaturge_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 0, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 1, 0)">
+      <LisbethTravel ZoneId="141" xyz="-70.81795, 9.252864, 281.2776" name="Thaumaturge_1_1"/>
+      <Grind grindRef="Thaumaturge_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 1, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 2, 0)">
+      <LisbethTravel ZoneId="140" xyz="356.4496, 74.74335, 159.5603" name="Thaumaturge_1_2"/>
+      <Grind grindRef="Thaumaturge_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 2, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 3, 0)">
+      <LisbethTravel ZoneId="141" xyz="38.54113, 4.357831, 279.7944" name="Thaumaturge_1_3"/>
+      <Grind grindRef="Thaumaturge_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 3, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 4, 0)">
+      <LisbethTravel ZoneId="141" xyz="-61.9139, -7.333632, 26.66849" name="Thaumaturge_1_4"/>
+      <Grind grindRef="Thaumaturge_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 4, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 5, 0)">
+      <LisbethTravel ZoneId="140" xyz="78.99483, 55.21465, 279.6231" name="Thaumaturge_1_5"/>
+      <Grind grindRef="Thaumaturge_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 5, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 6, 0)">
+      <LisbethTravel ZoneId="140" xyz="14.92204, 53.50879, 240.2605" name="Thaumaturge_1_6"/>
+      <Grind grindRef="Thaumaturge_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 6, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 7, 0)">
+      <LisbethTravel ZoneId="141" xyz="-201.8878, -30.66331, 101.3387" name="Thaumaturge_1_7"/>
+      <Grind grindRef="Thaumaturge_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 7, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 8, 0)">
+      <LisbethTravel ZoneId="141" xyz="-220.3412, 25.02701, -103.2786" name="Thaumaturge_1_8"/>
+      <Grind grindRef="Thaumaturge_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 8, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 9, 0)">
+      <LisbethTravel ZoneId="141" xyz="142.8497, -0.2652956, -155.7652" name="Thaumaturge_1_9"/>
+      <Grind grindRef="Thaumaturge_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Thaumaturge, 9, 0)"/>
+    </If>
+  </If>
+	
+	<!-- Rank 2 -->
+  <If condition="not HuntRankCompleted(ClassJobType.Thaumaturge, 2)">
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 0, 0)">
+      <LisbethTravel ZoneId="140" xyz="297.8392, 62.27665, -209.239" name="Thaumaturge_2_0"/>
+      <Grind grindRef="Thaumaturge_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 0, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 0, 1)">
+      <LisbethTravel ZoneId="140" xyz="297.8392, 62.27665, -209.239" name="Thaumaturge_2_1"/>
+      <Grind grindRef="Thaumaturge_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 0, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 1, 0)">
+      <LisbethTravel ZoneId="141" xyz="153.6733, 14.86536, -51.7644" name="Thaumaturge_2_2"/>
+      <Grind grindRef="Thaumaturge_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 1, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 1, 1)">
+      <LisbethTravel ZoneId="141" xyz="98.36383, 28.18369, -57.11649" name="Thaumaturge_2_3"/>
+      <Grind grindRef="Thaumaturge_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 1, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 2, 0)">
+      <LisbethTravel ZoneId="141" xyz="-245.8036, -3.610852, -354.2835" name="Thaumaturge_2_4"/>
+      <Grind grindRef="Thaumaturge_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 2, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 2, 1)">
+      <LisbethTravel ZoneId="140" xyz="263.6787, 54.29805, 121.2497" name="Thaumaturge_2_5"/>
+      <Grind grindRef="Thaumaturge_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 2, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 3, 0)">
+      <LisbethTravel ZoneId="140" xyz="-220.7684, 15.25812, -291.4506" name="Thaumaturge_2_6"/>
+      <Grind grindRef="Thaumaturge_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 3, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 4, 0)">
+      <LisbethTravel ZoneId="141" xyz="281.5295, -19.71835, -139.4528" name="Thaumaturge_2_7"/>
+      <Grind grindRef="Thaumaturge_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 4, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 5, 0)">
+      <LisbethTravel ZoneId="145" xyz="-405.9275, -37.34286, 277.9005" name="Thaumaturge_2_8"/>
+      <Grind grindRef="Thaumaturge_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 5, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 6, 0)">
+      <LisbethTravel ZoneId="145" xyz="-284.3846, -36.72001, 64.88946" name="Thaumaturge_2_9"/>
+      <Grind grindRef="Thaumaturge_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 6, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 7, 0)">
+      <LisbethTravel ZoneId="145" xyz="-427.9544, -29.05921, 19.60006" name="Thaumaturge_2_10"/>
+      <Grind grindRef="Thaumaturge_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 7, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 8, 0)">
+      <LisbethTravel ZoneId="145" xyz="-341.3801, -11.72587, -234.1548" name="Thaumaturge_2_11"/>
+      <Grind grindRef="Thaumaturge_2_11" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 8, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 9, 0)">
+      <LisbethTravel ZoneId="140" xyz="-404.8704, 24.48058, -483.6965" name="Thaumaturge_2_12"/>
+      <Grind grindRef="Thaumaturge_2_12" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Thaumaturge, 9, 0)"/>
+    </If>
+  </If>
+	
+	<!-- Rank 3 -->
+  <If condition="not HuntRankCompleted(ClassJobType.Thaumaturge, 3)">
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 0, 0)">
+      <LisbethTravel ZoneId="152" xyz="72.50465, 7.970101, 415.4248" name="Thaumaturge_3_0"/>
+      <Grind grindRef="Thaumaturge_3_0" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 0, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 0, 1)">
+      <LisbethTravel ZoneId="153" xyz="-132.5118, 6.104465, -34.19106" name="Thaumaturge_3_1"/>
+      <Grind grindRef="Thaumaturge_3_1" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 0, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 1, 0)">
+      <LisbethTravel ZoneId="139" xyz="-496.8976, -3.400001, -5.841871"/>
+      <Grind grindRef="Thaumaturge_3_2" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 1, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 1, 1)">
+      <LisbethTravel ZoneId="140" xyz="-366.3349, 16.392, -628.8094" name="Thaumaturge_3_3"/>
+      <Grind grindRef="Thaumaturge_3_3" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 1, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 2, 0)">
+      <LisbethTravel ZoneId="140" xyz="-312.1755, 15.0064, -707.5076" name="Thaumaturge_3_4"/>
+      <Grind grindRef="Thaumaturge_3_4" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 2, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 2, 1)">
+      <LisbethTravel ZoneId="153" xyz="-85.29664, -0.224, 60.80035" name="Thaumaturge_3_5"/>
+      <Grind grindRef="Thaumaturge_3_5" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 2, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 3, 0)">
+      <LisbethTravel ZoneId="152" xyz="-287.7212, 12.12707, -34.03314" name="Thaumaturge_3_6"/>
+      <Grind grindRef="Thaumaturge_3_6" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 3, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 3, 1)">
+      <LisbethTravel ZoneId="152" xyz="-287.7212, 12.12707, -34.03314" name="Thaumaturge_3_7"/>
+      <Grind grindRef="Thaumaturge_3_7" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 3, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 4, 0)">
+      <LisbethTravel ZoneId="153" xyz="107.4208, 9.628453, 42.11203" name="Thaumaturge_3_8"/>
+      <Grind grindRef="Thaumaturge_3_8" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 4, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 5, 0)">
+      <LisbethTravel ZoneId="146" xyz="-326.441, 13.09522, -292.8373" name="Thaumaturge_3_9"/>
+      <Grind grindRef="Thaumaturge_3_9" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 5, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 6, 0)">
+      <LisbethTravel ZoneId="145" xyz="91.80782, 3.841721, -69.14981" name="Thaumaturge_3_10"/>
+      <Grind grindRef="Thaumaturge_3_10" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 6, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 7, 0)">
+      <LisbethTravel ZoneId="146" xyz="141.5266, 2.895067, -596.9803" name="Thaumaturge_3_11"/>
+      <Grind grindRef="Thaumaturge_3_11" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 7, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 8, 0)">
+      <LisbethTravel ZoneId="146" xyz="-274.5551, 4.495781, -74.26376" name="Thaumaturge_3_12"/>
+      <Grind grindRef="Thaumaturge_3_12" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 8, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 9, 0)">
+      <LisbethTravel ZoneId="148" xyz="-381.216, 54.41623, 32.85247" name="Thaumaturge_3_13"/>
+      <Grind grindRef="Thaumaturge_3_13" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Thaumaturge, 9, 0)"/>
+    </If>
+  </If>
+	
+	<!-- Rank 4 -->
+  <If condition="not HuntRankCompleted(ClassJobType.Thaumaturge, 4)">
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 0, 0)">
+      <LisbethTravel ZoneId="139" xyz="591.8511, -1.461178, 206.3637" name="Thaumaturge_4_0"/>
+      <Grind grindRef="Thaumaturge_4_0" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 0, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 0, 1)">
+      <LisbethTravel ZoneId="153" xyz="-299.9607, 0.09519827, 433.1929" name="Thaumaturge_4_1"/>
+      <Grind grindRef="Thaumaturge_4_1" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 0, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 1, 0)">
+      <LisbethTravel ZoneId="146" xyz="-365.768, 7.618832, 540.2332" name="Thaumaturge_4_2"/>
+      <Grind grindRef="Thaumaturge_4_2" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 1, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 1, 1)">
+      <LisbethTravel ZoneId="148" xyz="-475.0179, 46.76543, -61.07553" name="Thaumaturge_4_3"/>
+      <Grind grindRef="Thaumaturge_4_3" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 1, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 2, 0)">
+      <LisbethTravel ZoneId="146" xyz="-55.55076, -2.02129, 783.1107" name="Thaumaturge_4_4"/>
+      <Grind grindRef="Thaumaturge_4_4" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 2, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 2, 1)">
+      <LisbethTravel ZoneId="137" xyz="-8.62375, 39.65939, 351.7202" name="Thaumaturge_4_5"/>
+      <Grind grindRef="Thaumaturge_4_5" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 2, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 3, 0)">
+      <LisbethTravel ZoneId="137" xyz="-55.72523, 34.9875, 235.7207" name="Thaumaturge_4_6"/>
+      <Grind grindRef="Thaumaturge_4_6" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 3, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 3, 1)">
+      <LisbethTravel ZoneId="148" xyz="-462.412, 62.01105, -235.266" name="Thaumaturge_4_7"/>
+      <Grind grindRef="Thaumaturge_4_7" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 3, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 4, 0)">
+      <LisbethTravel ZoneId="139" xyz="277.1513, -3.4, 81.08727" name="Thaumaturge_4_8"/>
+      <Grind grindRef="Thaumaturge_4_8" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 4, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 5, 0)">
+      <LisbethTravel ZoneId="180" xyz="188.4085, 63.59081, -181.7564" name="Thaumaturge_4_9"/>
+      <Grind grindRef="Thaumaturge_4_9" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 5, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 6, 0)">
+      <LisbethTravel ZoneId="155" xyz="227.2754, 274.1229, -40.20396" name="Thaumaturge_4_10"/>
+      <Grind grindRef="Thaumaturge_4_10" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 6, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 7, 0)">
+      <LisbethTravel ZoneId="155" xyz="226.6057, 269.9143, 8.515696" name="Thaumaturge_4_11"/>
+      <Grind grindRef="Thaumaturge_4_11" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 7, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 8, 0)">
+      <LisbethTravel ZoneId="153" xyz="84.76396, 21.90088, 177.8921" name="Thaumaturge_4_12"/>
+      <Grind grindRef="Thaumaturge_4_12" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 8, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 9, 0)">
+      <LisbethTravel ZoneId="145" xyz="393.1204, 7.885529, 127.6649" name="Thaumaturge_4_13"/>
+      <Grind grindRef="Thaumaturge_4_13" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Thaumaturge, 9, 0)"/>
+    </If>
+  </If>
+	
+	<!-- Rank 5 -->
+  <If condition="not HuntRankCompleted(ClassJobType.Thaumaturge, 5)">
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 0, 0)">
+      <LisbethTravel ZoneId="155" xyz="-558.8902, 204.9697, -340.4431" name="Thaumaturge_5_0"/>
+      <Grind grindRef="Thaumaturge_5_0" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 0, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 0, 1)">
+      <LisbethTravel ZoneId="152" xyz="211.0939, -2.650456, -25.04965" name="Thaumaturge_5_1"/>
+      <Grind grindRef="Thaumaturge_5_1" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 0, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 1, 0)">
+      <LisbethTravel ZoneId="138" xyz="-284.1149, -41.42301, 691.4664"/>
+      <Grind grindRef="Thaumaturge_5_2" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 1, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 1, 1)">
+      <LisbethTravel ZoneId="148" xyz="-567.8146, 19.37439, -195.2891" name="Thaumaturge_5_3"/>
+      <Grind grindRef="Thaumaturge_5_3" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 1, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 2, 0)">
+      <LisbethTravel ZoneId="152" xyz="98.1741, 7.041402, -12.62055" name="Thaumaturge_5_4"/>
+      <Grind grindRef="Thaumaturge_5_4" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 2, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 2, 1)">
+      <LisbethTravel ZoneId="152" xyz="546.1073, -12.02215, -29.75102" name="Thaumaturge_5_5"/>
+      <Grind grindRef="Thaumaturge_5_5" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 2, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 3, 0)">
+      <LisbethTravel ZoneId="156" xyz="-109.4014, -1.987149, -616.0043" name="Thaumaturge_5_6"/>
+      <Grind grindRef="Thaumaturge_5_6" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 3, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 3, 1)">
+      <LisbethTravel ZoneId="153" xyz="367.8673, -5.148543, 67.47323" name="Thaumaturge_5_7"/>
+      <Grind grindRef="Thaumaturge_5_7" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 3, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 4, 0)">
+      <LisbethTravel ZoneId="155" xyz="-401.8686, 302.0016, 206.4174" name="Thaumaturge_5_8"/>
+      <Grind grindRef="Thaumaturge_5_8" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 4, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 4, 1)">
+      <LisbethTravel ZoneId="156" xyz="278.3706, -4.352112, -537.9239" name="Thaumaturge_5_9"/>
+      <Grind grindRef="Thaumaturge_5_9" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 4, 1)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 5, 0)">
+      <LisbethTravel ZoneId="146" xyz="-178.0462, 4.902777, 84.6361" name="Thaumaturge_5_10"/>
+      <Grind grindRef="Thaumaturge_5_10" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 5, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 6, 0)">
+      <LisbethTravel ZoneId="180" xyz="47.71708, 23.85058, -623.9421" name="Thaumaturge_5_11"/>
+      <Grind grindRef="Thaumaturge_5_11" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 6, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 7, 0)">
+      <LisbethTravel ZoneId="153" xyz="527.9218, 14.01785, 137.6401" name="Thaumaturge_5_12"/>
+      <Grind grindRef="Thaumaturge_5_12" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 7, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 8, 0)">
+      <LisbethTravel ZoneId="140" xyz="-460.7335, 50.21297, -730.4329" name="Thaumaturge_5_13"/>
+      <Grind grindRef="Thaumaturge_5_13" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 8, 0)"/>
+    </If>
+    <If condition="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 9, 0)">
+      <LisbethTravel ZoneId="137" xyz="301.9296, 76.47188, -16.46302" name="Thaumaturge_5_14"/>
+      <Grind grindRef="Thaumaturge_5_14" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Thaumaturge, 9, 0)"/>
+    </If>
+  </If>
+	
+	<!-- Complete -->
+	<While condition="HuntRankCompleted(ClassJobType.Thaumaturge, 5)">
+		<LLToast message="Thaumaturge/BlackMage hunt log complete!"/>
+		<WaitTimer WaitTime="26" />
+	</While>
+	
+</If>
+				
+  </Order>
+  <GrindAreas>
+        <GrindArea name="Thaumaturge_1_0">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="314.5982, 64.7995, 156.4156" name="Thaumaturge_1_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="49"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_1_1">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-70.81795, 9.252864, 281.2776" name="Thaumaturge_1_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="632"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_1_2">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="356.4496, 74.74335, 159.5603" name="Thaumaturge_1_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="287"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_1_3">
+            <minLevel>3</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="38.54113, 4.357831, 279.7944" name="Thaumaturge_1_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="318"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_1_4">
+            <minLevel>4</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-61.9139, -7.333632, 26.66849" name="Thaumaturge_1_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="201"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_1_5">
+            <minLevel>6</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="78.99483, 55.21465, 279.6231" name="Thaumaturge_1_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="284"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_1_6">
+            <minLevel>6</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="14.92204, 53.50879, 240.2605" name="Thaumaturge_1_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="276"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_1_7">
+            <minLevel>7</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-201.8878, -30.66331, 101.3387" name="Thaumaturge_1_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="317"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_1_8">
+            <minLevel>9</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-220.3412, 25.02701, -103.2786" name="Thaumaturge_1_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="266"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_1_9">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="142.8497, -0.2652956, -155.7652" name="Thaumaturge_1_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="279"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_0">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="297.8392, 62.27665, -209.239" name="Thaumaturge_2_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="277"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_1">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="297.8392, 62.27665, -209.239" name="Thaumaturge_2_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="316"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_2">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="153.6733, 14.86536, -51.7644" name="Thaumaturge_2_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="288"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_3">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="98.36383, 28.18369, -57.11649" name="Thaumaturge_2_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="330"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_4">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-245.8036, -3.610852, -354.2835" name="Thaumaturge_2_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="293"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_5">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="263.6787, 54.29805, 121.2497" name="Thaumaturge_2_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="244"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_6">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-220.7684, 15.25812, -291.4506" name="Thaumaturge_2_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="636"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_7">
+            <minLevel>14</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="281.5295, -19.71835, -139.4528" name="Thaumaturge_2_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="216"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_8">
+            <minLevel>15</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-405.9275, -37.34286, 277.9005" name="Thaumaturge_2_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="306"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_9">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-284.3846, -36.72001, 64.88946" name="Thaumaturge_2_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="274"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_10">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-427.9544, -29.05921, 19.60006" name="Thaumaturge_2_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1199"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_11">
+            <minLevel>17</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-341.3801, -11.72587, -234.1548" name="Thaumaturge_2_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="319"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_2_12">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-404.8704, 24.48058, -483.6965" name="Thaumaturge_2_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="309"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_0">
+            <minLevel>19</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="72.50465, 7.970101, 415.4248" name="Thaumaturge_3_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="214"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_1">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-132.5118, 6.104465, -34.19106" name="Thaumaturge_3_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="23"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_2">
+            <minLevel>22</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-496.8976, -3.400001, -5.841871" name="Thaumaturge_3_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="381"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_3">
+            <minLevel>22</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-366.3349, 16.392, -628.8094" name="Thaumaturge_3_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="227"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_4">
+            <minLevel>23</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-312.1755, 15.0064, -707.5076" name="Thaumaturge_3_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="217"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_5">
+            <minLevel>23</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-85.29664, -0.224, 60.80035" name="Thaumaturge_3_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="228"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_6">
+            <minLevel>22</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-287.7212, 12.12707, -34.03314" name="Thaumaturge_3_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="44"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_7">
+            <minLevel>22</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-287.7212, 12.12707, -34.03314" name="Thaumaturge_3_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="211"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_8">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="107.4208, 9.628453, 42.11203" name="Thaumaturge_3_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="226"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_9">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-326.441, 13.09522, -292.8373" name="Thaumaturge_3_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="564"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_10">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="91.80782, 3.841721, -69.14981" name="Thaumaturge_3_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="272"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_11">
+            <minLevel>28</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="141.5266, 2.895067, -596.9803" name="Thaumaturge_3_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="331"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_12">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-274.5551, 4.495781, -74.26376" name="Thaumaturge_3_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="116"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_3_13">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-381.216, 54.41623, 32.85247" name="Thaumaturge_3_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="238"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_0">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="591.8511, -1.461178, 206.3637" name="Thaumaturge_4_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="413"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_1">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-299.9607, 0.09519827, 433.1929" name="Thaumaturge_4_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="34"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_2">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-365.768, 7.618832, 540.2332" name="Thaumaturge_4_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="285"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_3">
+            <minLevel>32</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-475.0179, 46.76543, -61.07553" name="Thaumaturge_4_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="236"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_4">
+            <minLevel>32</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-55.55076, -2.02129, 783.1107" name="Thaumaturge_4_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="132"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_5">
+            <minLevel>32</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-8.62375, 39.65939, 351.7202" name="Thaumaturge_4_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="396"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_6">
+            <minLevel>33</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-55.72523, 34.9875, 235.7207" name="Thaumaturge_4_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="26"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_7">
+            <minLevel>33</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-462.412, 62.01105, -235.266" name="Thaumaturge_4_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="91"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_8">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="277.1513, -3.4, 81.08727" name="Thaumaturge_4_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="391"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_9">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="188.4085, 63.59081, -181.7564" name="Thaumaturge_4_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="46"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_10">
+            <minLevel>36</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="227.2754, 274.1229, -40.20396" name="Thaumaturge_4_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="114"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_11">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="226.6057, 269.9143, 8.515696" name="Thaumaturge_4_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="784"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_12">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="84.76396, 21.90088, 177.8921" name="Thaumaturge_4_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="45"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_4_13">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="393.1204, 7.885529, 127.6649" name="Thaumaturge_4_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="271"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_0">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-558.8902, 204.9697, -340.4431" name="Thaumaturge_5_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="637"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_1">
+            <minLevel>43</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="211.0939, -2.650456, -25.04965" name="Thaumaturge_5_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="233"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_2">
+            <minLevel>42</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-284.1149, -41.42301, 691.4664" name="Thaumaturge_5_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1854"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_3">
+            <minLevel>44</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-567.8146, 19.37439, -195.2891" name="Thaumaturge_5_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="131"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_4">
+            <minLevel>43</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="98.1741, 7.041402, -12.62055" name="Thaumaturge_5_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="237"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_5">
+            <minLevel>42</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="546.1073, -12.02215, -29.75102" name="Thaumaturge_5_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="60"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_6">
+            <minLevel>44</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-109.4014, -1.987149, -616.0043" name="Thaumaturge_5_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="27"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_7">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="367.8673, -5.148543, 67.47323" name="Thaumaturge_5_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="112"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_8">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-401.8686, 302.0016, 206.4174" name="Thaumaturge_5_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="785"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_9">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="278.3706, -4.352112, -537.9239" name="Thaumaturge_5_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="648"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_10">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-178.0462, 4.902777, 84.6361" name="Thaumaturge_5_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="243"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_11">
+            <minLevel>47</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="47.71708, 23.85058, -623.9421" name="Thaumaturge_5_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1836"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_12">
+            <minLevel>47</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="527.9218, 14.01785, 137.6401" name="Thaumaturge_5_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="8"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_13">
+            <minLevel>48</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-460.7335, 50.21297, -730.4329" name="Thaumaturge_5_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1815"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Thaumaturge_5_14">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="301.9296, 76.47188, -16.46302" name="Thaumaturge_5_14"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1825"/>
+            </TargetMobs>
+        </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

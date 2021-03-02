@@ -1,0 +1,975 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Rogue/Ninja Hunting Logs
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Rogue/Ninja Hunting Logs</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Rogue/Ninja Hunting Logs -->	
+	<If condition="Core.Me.CurrentJob != ClassJobType.Rogue and Core.Me.CurrentJob != ClassJobType.Ninja">
+	  <ChangeClass Job="Rogue"/>
+    <ChangeClass Job="Ninja"/>	  
+	</If>	
+    <If condition="Core.Me.CurrentJob == ClassJobType.Rogue or Core.Me.CurrentJob == ClassJobType.Ninja">
+      
+			<!-- Rank 1 -->
+			<If condition="not HuntRankCompleted(ClassJobType.Rogue, 1)">
+				<Log Message="[HUNTING LOG] Starting Rogue/Ninja Rank 1!" Color="Aqua"/>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 0, 0)">
+          <LisbethTravel ZoneId="134" xyz="93.82973, 46.33266, 135.7144" name="Rogue_1_0"/>
+          <Grind grindRef="Rogue_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 0, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 1, 0)">
+          <LisbethTravel ZoneId="134" xyz="93.82973, 46.33266, 135.7144" name="Rogue_1_1"/>
+          <Grind grindRef="Rogue_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 1, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 2, 0)">
+          <LisbethTravel ZoneId="135" xyz="149.6387, 64.95876, 316.1634" name="Rogue_1_2"/>
+          <Grind grindRef="Rogue_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 2, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 3, 0)">
+          <LisbethTravel ZoneId="135" xyz="354.2474, 54.81212, -41.93296" name="Rogue_1_3"/>
+          <Grind grindRef="Rogue_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 3, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 4, 0)">
+          <LisbethTravel ZoneId="134" xyz="120.2637, 48.43816, 21.74628" name="Rogue_1_4"/>
+          <Grind grindRef="Rogue_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 4, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 4, 1)">
+          <LisbethTravel ZoneId="134" xyz="120.2637, 48.43816, 21.74628" name="Rogue_1_5"/>
+          <Grind grindRef="Rogue_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 4, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 5, 0)">
+          <LisbethTravel ZoneId="134" xyz="114.1033, 67.5534, -147.6051" name="Rogue_1_6"/>
+          <Grind grindRef="Rogue_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 5, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 6, 0)">
+          <LisbethTravel ZoneId="135" xyz="279.9011, 73.46301, -261.3954" name="Rogue_1_7"/>
+          <Grind grindRef="Rogue_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 6, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 7, 0)">
+          <LisbethTravel ZoneId="135" xyz="394.2669, 76.12614, -329.2907" name="Rogue_1_8"/>
+          <Grind grindRef="Rogue_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 7, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 8, 0)">
+          <LisbethTravel ZoneId="134" xyz="-76.04529, 48.70982, -211.6434" name="Rogue_1_9"/>
+          <Grind grindRef="Rogue_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 8, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 8, 1)">
+          <LisbethTravel ZoneId="134" xyz="-76.04529, 48.70982, -211.6434" name="Rogue_1_10"/>
+          <Grind grindRef="Rogue_1_10" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 8, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 9, 0)">
+          <LisbethTravel ZoneId="134" xyz="-289.3684, 22.66283, -377.8493" name="Rogue_1_11"/>
+          <Grind grindRef="Rogue_1_11" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Rogue, 9, 0)"/>
+        </If>
+		  </If>
+			
+			<!-- Rank 2 -->
+      <If condition="not HuntRankCompleted(ClassJobType.Rogue, 2)">
+				<Log Message="[HUNTING LOG] Starting Rogue/Ninja Rank 2!" Color="Aqua"/>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 0, 0)">
+          <LisbethTravel ZoneId="135" xyz="-54.78482, 42.14679, 562.5046" name="Rogue_2_0"/>
+          <Grind grindRef="Rogue_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 0, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 1, 0)">
+          <LisbethTravel ZoneId="138" xyz="663.4239, 10.04681, 458.6419" name="Rogue_2_1"/>
+          <Grind grindRef="Rogue_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 1, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 1, 1)">
+          <LisbethTravel ZoneId="138" xyz="647.3243, 37.2284, 353.6689" name="Rogue_2_2"/>
+          <Grind grindRef="Rogue_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 1, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 2, 0)">
+          <LisbethTravel ZoneId="138" xyz="586.8716, 37.75261, 327.947" name="Rogue_2_3"/>
+          <Grind grindRef="Rogue_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 2, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 3, 0)">
+          <LisbethTravel ZoneId="135" xyz="-39.02855, 40.3599, 686.4474" name="Rogue_2_4"/>
+          <Grind grindRef="Rogue_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 3, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 4, 0)">
+          <LisbethTravel ZoneId="135" xyz="-124.9706, 3.520135, 700.6313" name="Rogue_2_5"/>
+          <Grind grindRef="Rogue_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 4, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 5, 0)">
+          <LisbethTravel ZoneId="138" xyz="323.257, -12.10438, 132.3205" name="Rogue_2_6"/>
+          <Grind grindRef="Rogue_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 5, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 6, 0)">
+          <LisbethTravel ZoneId="138" xyz="126.105, -15.37122, 88.45286" name="Rogue_2_7"/>
+          <Grind grindRef="Rogue_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 6, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 7, 0)">
+          <LisbethTravel ZoneId="138" xyz="-7.594713, -22.42778, 62.6085" name="Rogue_2_8"/>
+          <Grind grindRef="Rogue_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 7, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 7, 1)">
+          <LisbethTravel ZoneId="138" xyz="253.4046, -12.36597, 105.1967" name="Rogue_2_9"/>
+          <Grind grindRef="Rogue_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 7, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 8, 0)">
+          <LisbethTravel ZoneId="139" xyz="-412.1202, -5.057841, 181.4651"/>
+          <Grind grindRef="Rogue_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 8, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 9, 0)">
+          <LisbethTravel ZoneId="139" name="Ferry Skipper" xyz="224.8347, -0.9591978, 258.3586"/>
+          <Grind grindRef="Rogue_2_11" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Rogue, 9, 0)"/>
+        </If>
+      </If>
+			
+			<!-- Rank 3 -->
+      <If condition="not HuntRankCompleted(ClassJobType.Rogue, 3)">
+				<Log Message="[HUNTING LOG] Starting Rogue/Ninja Rank 3!" Color="Aqua"/>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 0, 0)">
+          <LisbethTravel ZoneId="152" xyz="-143.3017, -0.7045678, 163.3801" name="Rogue_3_0"/>
+          <Grind grindRef="Rogue_3_0" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 0, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 1, 0)">
+          <LisbethTravel ZoneId="152" xyz="43.54644, 7.621158, 455.7119" name="Rogue_3_1"/>
+          <Grind grindRef="Rogue_3_1" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 1, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 2, 0)">
+          <LisbethTravel ZoneId="152" xyz="72.50465, 7.970101, 415.4248" name="Rogue_3_2"/>
+          <Grind grindRef="Rogue_3_2" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 2, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 3, 0)">
+          <LisbethTravel ZoneId="153" xyz="-85.29664, -0.224, 60.80035" name="Rogue_3_3"/>
+          <Grind grindRef="Rogue_3_3" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 3, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 4, 0)">
+          <LisbethTravel ZoneId="153" xyz="-298.1658, 16.14205, 76.57407" name="Rogue_3_4"/>
+          <Grind grindRef="Rogue_3_4" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 4, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 4, 1)">
+          <LisbethTravel ZoneId="153" xyz="-298.1658, 16.14205, 76.57407" name="Rogue_3_5"/>
+          <Grind grindRef="Rogue_3_5" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 4, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 5, 0)">
+          <LisbethTravel ZoneId="153" xyz="87.61182, 8.177754, -72.55713" name="Rogue_3_6"/>
+          <Grind grindRef="Rogue_3_6" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 5, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 6, 0)">
+          <LisbethTravel ZoneId="153" xyz="107.4208, 9.628453, 42.11203" name="Rogue_3_7"/>
+          <Grind grindRef="Rogue_3_7" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 6, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 7, 0)">
+          <LisbethTravel ZoneId="146" xyz="141.5266, 2.895067, -596.9803" name="Rogue_3_8"/>
+          <Grind grindRef="Rogue_3_8" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 7, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 7, 1)">
+          <LisbethTravel ZoneId="146" xyz="141.5266, 2.895067, -596.9803" name="Rogue_3_9"/>
+          <Grind grindRef="Rogue_3_9" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 7, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 8, 0)">
+          <LisbethTravel ZoneId="153" xyz="425.5199, 0.8837109, -33.88228" name="Rogue_3_10"/>
+          <Grind grindRef="Rogue_3_10" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 8, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 8, 1)">
+          <LisbethTravel ZoneId="153" xyz="425.5199, 0.8837109, -33.88228" name="Rogue_3_11"/>
+          <Grind grindRef="Rogue_3_11" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 8, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 9, 0)">
+          <LisbethTravel ZoneId="146" xyz="115.6136, 9.663214, -449.8542" name="Rogue_3_12"/>
+          <Grind grindRef="Rogue_3_12" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Rogue, 9, 0)"/>
+        </If>
+      </If>
+			
+			<!-- Rank 4 -->
+      <If condition="not HuntRankCompleted(ClassJobType.Rogue, 4)">
+				<Log Message="[HUNTING LOG] Starting Rogue/Ninja Rank 4!" Color="Aqua"/>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 0, 0)">
+          <LisbethTravel ZoneId="137" xyz="316.2697, 37.56972, 355.1962" name="Rogue_4_0"/>
+          <Grind grindRef="Rogue_4_0" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 0, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 1, 0)">
+          <LisbethTravel ZoneId="137" xyz="99.53481, 69.95169, -13.59349" name="Rogue_4_1"/>
+          <Grind grindRef="Rogue_4_1" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 1, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 2, 0)">
+          <LisbethTravel ZoneId="137" xyz="257.7687, 47.56075, 543.8514" name="Rogue_4_2"/>
+           <Grind grindRef="Rogue_4_2" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 2, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 2, 1)">
+          <LisbethTravel ZoneId="137" xyz="458.2961, 12.37687, 161.5277" name="Rogue_4_3"/>
+          <Grind grindRef="Rogue_4_3" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 2, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 3, 0)">
+          <LisbethTravel ZoneId="180" xyz="-346.1981, 61.36707, -342.0472" name="Rogue_4_4"/>
+          <Grind grindRef="Rogue_4_4" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 3, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 3, 1)">
+          <LisbethTravel ZoneId="180" xyz="-254.3316, 63.01915, -251.4929" name="Rogue_4_5"/>
+          <Grind grindRef="Rogue_4_5" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 3, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 4, 0)">
+          <LisbethTravel ZoneId="180" xyz="-314.1754, 52.76623, -284.2115" name="Rogue_4_6"/>
+          <Grind grindRef="Rogue_4_6" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 4, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 5, 0)">
+          <LisbethTravel ZoneId="180" xyz="-135.1674, 80.6256, -303.728" name="Rogue_4_7"/>
+          <Grind grindRef="Rogue_4_7" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 5, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 6, 0)">
+          <LisbethTravel ZoneId="155" xyz="77.01029, 213.8567, 403.0025" name="Rogue_4_8"/>
+          <Grind grindRef="Rogue_4_8" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 6, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 6, 1)">
+          <LisbethTravel ZoneId="155" xyz="226.6057, 269.9143, 8.515696" name="Rogue_4_9"/>
+          <Grind grindRef="Rogue_4_9" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 6, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 7, 0)">
+          <LisbethTravel ZoneId="155" xyz="168.0872, 340.8541, -399.9034" name="Rogue_4_10"/>
+          <Grind grindRef="Rogue_4_10" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 7, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 8, 0)">
+          <LisbethTravel ZoneId="155" xyz="607.7924, 325.74, -420.3336" name="Rogue_4_11"/>
+          <Grind grindRef="Rogue_4_11" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 8, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 9, 0)">
+          <LisbethTravel ZoneId="155" xyz="-280.3073, 262.3526, -85.18606" name="Rogue_4_12"/>
+          <Grind grindRef="Rogue_4_12" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 9, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 9, 1)">
+          <LisbethTravel ZoneId="155" xyz="-106.4007, 297.3205, -193.7715" name="Rogue_4_13"/>
+          <Grind grindRef="Rogue_4_13" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Rogue, 9, 1)"/>
+        </If>
+      </If>
+			
+			<!-- Rank 5 -->
+      <If condition="not HuntRankCompleted(ClassJobType.Rogue, 5)">
+				<Log Message="[HUNTING LOG] Starting Rogue/Ninja Rank 5!" Color="Aqua"/>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 0, 0)">
+          <LisbethTravel ZoneId="145" xyz="393.1204, 7.885529, 127.6649" name="Rogue_5_0"/>
+          <Grind grindRef="Rogue_5_0" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 0, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 1, 0)">
+          <LisbethTravel ZoneId="145" xyz="387.6801, -8.683156, 199.9769" name="Rogue_5_1"/>
+          <Grind grindRef="Rogue_5_1" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 1, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 2, 0)">
+          <LisbethTravel ZoneId="156" xyz="-109.4014, -1.987149, -616.0043" name="Rogue_5_2"/>
+          <Grind grindRef="Rogue_5_2" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 2, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 3, 0)">
+          <LisbethTravel ZoneId="156" xyz="-373.4164, -15.66826, -493.1652" name="Rogue_5_3"/>
+          <Grind grindRef="Rogue_5_3" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 3, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 4, 0)">
+          <LisbethTravel ZoneId="156" xyz="-227.2761, -3.742822, -287.8165" name="Rogue_5_4"/>
+          <Grind grindRef="Rogue_5_4" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 4, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 4, 1)">
+          <LisbethTravel ZoneId="156" xyz="-227.2761, -3.742822, -287.8165" name="Rogue_5_5"/>
+          <Grind grindRef="Rogue_5_5" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 4, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 5, 0)">
+          <LisbethTravel ZoneId="156" xyz="278.3706, -4.352112, -537.9239" name="Rogue_5_6"/>
+          <Grind grindRef="Rogue_5_6" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 5, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 5, 1)">
+          <LisbethTravel ZoneId="156" xyz="278.3706, -4.352112, -537.9239" name="Rogue_5_7"/>
+          <Grind grindRef="Rogue_5_7" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 5, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 6, 0)">
+          <LisbethTravel ZoneId="156" xyz="332.7726, 23.10302, -723.5326" name="Rogue_5_8"/>
+          <Grind grindRef="Rogue_5_8" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 6, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 7, 0)">
+          <LisbethTravel ZoneId="156" xyz="441.122, -6.09517, -759.0013" name="Rogue_5_9"/>
+          <Grind grindRef="Rogue_5_9" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 7, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 8, 0)">
+          <LisbethTravel ZoneId="137" xyz="301.9296, 76.47188, -16.46302" name="Rogue_5_10"/>
+          <Grind grindRef="Rogue_5_10" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 8, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 8, 1)">
+          <LisbethTravel ZoneId="137" xyz="301.9296, 76.47188, -16.46302" name="Rogue_5_11"/>
+          <Grind grindRef="Rogue_5_11" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 8, 1)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 9, 0)">
+          <LisbethTravel ZoneId="137" xyz="301.9296, 76.47188, -16.46302" name="Rogue_5_12"/>
+          <Grind grindRef="Rogue_5_12" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 9, 0)"/>
+        </If>
+        <If condition="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 9, 1)">
+          <LisbethTravel ZoneId="137" xyz="388.651, 76.50455, -26.1419" name="Rogue_5_13"/>
+          <Grind grindRef="Rogue_5_13" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Rogue, 9, 1)"/>
+        </If>
+      </If>
+			
+			<!-- Complete -->
+			<While condition="HuntRankCompleted(ClassJobType.Rogue, 5)">
+				<LLToast message="Rogue/Ninja hunt log complete!"/>
+				<WaitTimer WaitTime="26" />
+			</While>
+    </If>
+		
+  </Order>
+  <GrindAreas>
+        <GrindArea name="Rogue_1_0">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="93.82973, 46.33266, 135.7144" name="Rogue_1_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="417"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_1_1">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="93.82973, 46.33266, 135.7144" name="Rogue_1_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="392"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_1_2">
+            <minLevel>3</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="149.6387, 64.95876, 316.1634" name="Rogue_1_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="563"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_1_3">
+            <minLevel>4</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="354.2474, 54.81212, -41.93296" name="Rogue_1_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="393"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_1_4">
+            <minLevel>4</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="120.2637, 48.43816, 21.74628" name="Rogue_1_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="640"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_1_5">
+            <minLevel>4</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="120.2637, 48.43816, 21.74628" name="Rogue_1_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="367"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_1_6">
+            <minLevel>4</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="114.1033, 67.5534, -147.6051" name="Rogue_1_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="405"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_1_7">
+            <minLevel>7</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="279.9011, 73.46301, -261.3954" name="Rogue_1_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="364"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_1_8">
+            <minLevel>8</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="394.2669, 76.12614, -329.2907" name="Rogue_1_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="408"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_1_9">
+            <minLevel>9</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-76.04529, 48.70982, -211.6434" name="Rogue_1_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="421"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_1_10">
+            <minLevel>9</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-76.04529, 48.70982, -211.6434" name="Rogue_1_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="418"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_1_11">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-289.3684, 22.66283, -377.8493" name="Rogue_1_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="561"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_0">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-54.78482, 42.14679, 562.5046" name="Rogue_2_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="399"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_1">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="663.4239, 10.04681, 458.6419" name="Rogue_2_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="400"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_2">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="647.3243, 37.2284, 353.6689" name="Rogue_2_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="410"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_3">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="586.8716, 37.75261, 327.947" name="Rogue_2_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="394"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_4">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-39.02855, 40.3599, 686.4474" name="Rogue_2_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="409"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_5">
+            <minLevel>13</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-124.9706, 3.520135, 700.6313" name="Rogue_2_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="350"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_6">
+            <minLevel>15</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="323.257, -12.10438, 132.3205" name="Rogue_2_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="402"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_7">
+            <minLevel>17</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="126.105, -15.37122, 88.45286" name="Rogue_2_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1181"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_8">
+            <minLevel>19</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-7.594713, -22.42778, 62.6085" name="Rogue_2_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="644"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_9">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="253.4046, -12.36597, 105.1967" name="Rogue_2_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="403"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_10">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-412.1202, -5.057841, 181.4651" name="Rogue_2_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1180"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_2_11">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-412.1202, -5.057841, 181.4651" name="Rogue_2_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="296"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_0">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-143.3017, -0.7045678, 163.3801" name="Rogue_3_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="38"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_1">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="43.54644, 7.621158, 455.7119" name="Rogue_3_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="2157"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_2">
+            <minLevel>19</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="72.50465, 7.970101, 415.4248" name="Rogue_3_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="214"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_3">
+            <minLevel>23</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-85.29664, -0.224, 60.80035" name="Rogue_3_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="228"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_4">
+            <minLevel>24</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-298.1658, 16.14205, 76.57407" name="Rogue_3_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="172"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_5">
+            <minLevel>24</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-298.1658, 16.14205, 76.57407" name="Rogue_3_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="52"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_6">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="87.61182, 8.177754, -72.55713" name="Rogue_3_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="4"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_7">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="107.4208, 9.628453, 42.11203" name="Rogue_3_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="226"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_8">
+            <minLevel>28</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="141.5266, 2.895067, -596.9803" name="Rogue_3_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="331"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_9">
+            <minLevel>28</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="141.5266, 2.895067, -596.9803" name="Rogue_3_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="332"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_10">
+            <minLevel>29</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="425.5199, 0.8837109, -33.88228" name="Rogue_3_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="169"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_11">
+            <minLevel>29</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="425.5199, 0.8837109, -33.88228" name="Rogue_3_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="139"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_3_12">
+            <minLevel>29</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="115.6136, 9.663214, -449.8542" name="Rogue_3_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="280"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_0">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="316.2697, 37.56972, 355.1962" name="Rogue_4_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1313"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_1">
+            <minLevel>35</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="99.53481, 69.95169, -13.59349" name="Rogue_4_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="411"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_2">
+            <minLevel>32</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="257.7687, 47.56075, 543.8514" name="Rogue_4_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="351"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_3">
+            <minLevel>33</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="458.2961, 12.37687, 161.5277" name="Rogue_4_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="639"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_4">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-346.1981, 61.36707, -342.0472" name="Rogue_4_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="106"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_5">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-254.3316, 63.01915, -251.4929" name="Rogue_4_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="398"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_6">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-314.1754, 52.76623, -284.2115" name="Rogue_4_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="365"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_7">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-135.1674, 80.6256, -303.728" name="Rogue_4_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="412"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_8">
+            <minLevel>35</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="77.01029, 213.8567, 403.0025" name="Rogue_4_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1612"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_9">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="226.6057, 269.9143, 8.515696" name="Rogue_4_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="784"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_10">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="168.0872, 340.8541, -399.9034" name="Rogue_4_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="794"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_11">
+            <minLevel>39</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="607.7924, 325.74, -420.3336" name="Rogue_4_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1182"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_12">
+            <minLevel>39</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-280.3073, 262.3526, -85.18606" name="Rogue_4_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="2156"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_4_13">
+            <minLevel>39</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-106.4007, 297.3205, -193.7715" name="Rogue_4_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1183"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_0">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="393.1204, 7.885529, 127.6649" name="Rogue_5_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="271"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_1">
+            <minLevel>241</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="387.6801, -8.683156, 199.9769" name="Rogue_5_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="275"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_2">
+            <minLevel>44</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-109.4014, -1.987149, -616.0043" name="Rogue_5_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="27"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_3">
+            <minLevel>44</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-373.4164, -15.66826, -493.1652" name="Rogue_5_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="645"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_4">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-227.2761, -3.742822, -287.8165" name="Rogue_5_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="650"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_5">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="-227.2761, -3.742822, -287.8165" name="Rogue_5_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="651"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_6">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="278.3706, -4.352112, -537.9239" name="Rogue_5_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="647"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_7">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="278.3706, -4.352112, -537.9239" name="Rogue_5_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="648"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_8">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="332.7726, 23.10302, -723.5326" name="Rogue_5_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="789"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_9">
+            <minLevel>48</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="441.122, -6.09517, -759.0013" name="Rogue_5_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="793"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_10">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="301.9296, 76.47188, -16.46302" name="Rogue_5_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1823"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_11">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="301.9296, 76.47188, -16.46302" name="Rogue_5_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1825"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_12">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="301.9296, 76.47188, -16.46302" name="Rogue_5_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1824"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Rogue_5_13">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="200" xyz="388.651, 76.50455, -26.1419" name="Rogue_5_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1826"/>
+            </TargetMobs>
+        </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

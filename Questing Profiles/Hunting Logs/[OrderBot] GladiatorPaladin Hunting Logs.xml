@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Gladiator/Paladin Hunting Logs
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Gladiator/Paladin Hunting Logs</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Gladiator/Paladin Hunting Logs -->
+	<If condition="Core.Me.CurrentJob != ClassJobType.Gladiator and Core.Me.CurrentJob != ClassJobType.Paladin">
+		<ChangeClass Job="Gladiator" />
+		<ChangeClass Job="Paladin" />	
+	</If>
+  <If condition="Core.Me.CurrentJob == ClassJobType.Gladiator or Core.Me.CurrentJob == ClassJobType.Paladin">
+    
+		<!-- Rank 1 -->	
+		<If condition="not HuntRankCompleted(ClassJobType.Gladiator, 1)">
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 0, 0)">
+        <LisbethTravel ZoneId="140" xyz="314.5982, 64.7995, 156.4156" name="Gladiator_1_0"/>
+        <Grind grindRef="Gladiator_1_0" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 1, 0)">
+        <LisbethTravel ZoneId="140" xyz="351.6014, 74.74335, 160.1844" name="Gladiator_1_1"/>
+        <Grind grindRef="Gladiator_1_1" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 2, 0)">
+        <LisbethTravel ZoneId="140" xyz="313.7525, 64.7995, 158.0555" name="Gladiator_1_2"/>
+        <Grind grindRef="Gladiator_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 3, 0)">
+        <LisbethTravel ZoneId="141" xyz="27.2504, 0.01336503, 244.2667" name="Gladiator_1_3"/>
+        <Grind grindRef="Gladiator_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 4, 0)">
+        <LisbethTravel ZoneId="140" xyz="45.20199, 50.77315, 210.5393" name="Gladiator_1_4"/>
+        <Grind grindRef="Gladiator_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 5, 0)">
+        <LisbethTravel ZoneId="141" xyz="-71.07242, -2.21065, 74.3978" name="Gladiator_1_5"/>
+        <Grind grindRef="Gladiator_1_5" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 6, 0)">
+        <LisbethTravel ZoneId="140" xyz="128.2242, 55.12308, 257.0624" name="Gladiator_1_6"/>
+        <Grind grindRef="Gladiator_1_6" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 7, 0)">
+        <LisbethTravel ZoneId="141" xyz="-201.8878, -30.66331, 101.3387" name="Gladiator_1_7"/>
+        <Grind grindRef="Gladiator_1_7" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 8, 0)">
+        <LisbethTravel ZoneId="141" xyz="-220.3412, 25.02701, -103.2786" name="Gladiator_1_8"/>
+        <Grind grindRef="Gladiator_1_8" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 9, 0)">
+        <LisbethTravel ZoneId="141" xyz="162.3209, -1.385605, -148.5018" name="Gladiator_1_9"/>
+        <Grind grindRef="Gladiator_1_9" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 9, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 9, 1)">
+        <LisbethTravel ZoneId="140" xyz="69.3227, 58.21692, 12.515" name="Gladiator_1_10"/>
+        <Grind grindRef="Gladiator_1_10" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Gladiator, 9, 1)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 2 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Gladiator, 2)">
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 0, 0)">
+        <LisbethTravel ZoneId="140" xyz="297.8392, 62.27665, -209.239" name="Gladiator_2_0"/>
+        <Grind grindRef="Gladiator_2_0" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 0, 1)">
+        <LisbethTravel ZoneId="140" xyz="297.8392, 62.27665, -209.239" name="Gladiator_2_1"/>
+        <Grind grindRef="Gladiator_2_1" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 0, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 1, 0)">
+        <LisbethTravel ZoneId="141" xyz="153.6733, 14.86536, -51.7644" name="Gladiator_2_2"/>
+        <Grind grindRef="Gladiator_2_2" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 2, 0)">
+        <LisbethTravel ZoneId="141" xyz="107.2903, 28.78377, -50.51696" name="Gladiator_2_3"/>
+        <Grind grindRef="Gladiator_2_3" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 3, 0)">
+        <LisbethTravel ZoneId="140" xyz="263.6787, 54.29805, 121.2497" name="Gladiator_2_4"/>
+        <Grind grindRef="Gladiator_2_4" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 4, 0)">
+        <LisbethTravel ZoneId="140" xyz="-220.7684, 15.25812, -291.4506" name="Gladiator_2_5"/>
+        <Grind grindRef="Gladiator_2_5" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 5, 0)">
+        <LisbethTravel ZoneId="140" xyz="-220.7684, 15.25812, -291.4506" name="Gladiator_2_6"/>
+        <Grind grindRef="Gladiator_2_6" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 6, 0)">
+        <LisbethTravel ZoneId="145" xyz="-405.9275, -37.34286, 277.9005" name="Gladiator_2_7"/>
+        <Grind grindRef="Gladiator_2_7" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 7, 0)">
+        <LisbethTravel ZoneId="145" xyz="-284.3846, -36.72001, 64.88946" name="Gladiator_2_8"/>
+        <Grind grindRef="Gladiator_2_8" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 8, 0)">
+        <LisbethTravel ZoneId="145" xyz="-370.0136, -8.865561, -212.5749" name="Gladiator_2_9"/>
+        <Grind grindRef="Gladiator_2_9" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 9, 0)">
+        <LisbethTravel ZoneId="145" xyz="-341.3801, -11.72587, -234.1548" name="Gladiator_2_10"/>
+        <Grind grindRef="Gladiator_2_10" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 9, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 9, 1)">
+        <LisbethTravel ZoneId="140" xyz="-404.8704, 24.48058, -483.6965" name="Gladiator_2_11"/>
+        <Grind grindRef="Gladiator_2_11" postCombatDelay="1" while="not HuntSubEntryCompleted(2, ClassJobType.Gladiator, 9, 1)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 3 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Gladiator, 3)">
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 0, 0)">
+        <LisbethTravel ZoneId="139" name="Ferry Skipper" xyz="-379.0874, -3.400003, 157.6983"/>
+        <Grind grindRef="Gladiator_3_0" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 0, 1)">
+        <LisbethTravel ZoneId="153" xyz="-238.4128, 8.118897, -45.80111" name="Gladiator_3_1"/>
+        <Grind grindRef="Gladiator_3_1" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 0, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 1, 0)">
+        <LisbethTravel ZoneId="140" xyz="-382.0351, 23.75671, -542.1874" name="Gladiator_3_2"/>
+        <Grind grindRef="Gladiator_3_2" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 2, 0)">
+        <LisbethTravel ZoneId="153" xyz="-89.83807, 0.8806657, -125.7679" name="Gladiator_3_3"/>
+        <Grind grindRef="Gladiator_3_3" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 3, 0)">
+        <LisbethTravel ZoneId="139" xyz="-586.3409, -1.478511, -9.559166"/>
+        <Grind grindRef="Gladiator_3_4" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 4, 0)">
+        <LisbethTravel ZoneId="154" xyz="-11.74198, -51.35887, 466.519" name="Gladiator_3_5"/>
+        <Grind grindRef="Gladiator_3_5" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 5, 0)">
+        <LisbethTravel ZoneId="146" xyz="-299.1121, 17.14765, -302.602" name="Gladiator_3_6"/>
+        <Grind grindRef="Gladiator_3_6" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 6, 0)">
+        <LisbethTravel ZoneId="145" xyz="110.73, -9.882174, 120.7076" name="Gladiator_3_7"/>
+        <Grind grindRef="Gladiator_3_7" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 7, 0)">
+        <LisbethTravel ZoneId="153" xyz="297.9075, 4.137659, -22.07993" name="Gladiator_3_8"/>
+        <Grind grindRef="Gladiator_3_8" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 8, 0)">
+        <LisbethTravel ZoneId="153" xyz="410.8612, 3.87971, -33.72728" name="Gladiator_3_9"/>
+        <Grind grindRef="Gladiator_3_9" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 9, 0)">
+        <LisbethTravel ZoneId="137" xyz="410.9877, 15.23924, 676.7095" name="Gladiator_3_10"/>
+        <Grind grindRef="Gladiator_3_10" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 9, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 9, 1)">
+        <LisbethTravel ZoneId="180" xyz="-320.9843, 62.32784, -153.988" name="Gladiator_3_11"/>
+        <Grind grindRef="Gladiator_3_11" postCombatDelay="1" while="not HuntSubEntryCompleted(3, ClassJobType.Gladiator, 9, 1)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 4 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Gladiator, 4)">
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 0, 0)">
+        <LisbethTravel ZoneId="148" xyz="-505.5016, 65.23953, 69.43462" name="Gladiator_4_0"/>
+        <Grind grindRef="Gladiator_4_0" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 0, 1)">
+        <LisbethTravel ZoneId="139" xyz="614.8629, -3.4, 209.2273" name="Gladiator_4_1"/>
+        <Grind grindRef="Gladiator_4_1" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 0, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 1, 0)">
+        <LisbethTravel ZoneId="139" xyz="451.854, -3.002753, 163.6298" name="Gladiator_4_2"/>
+        <Grind grindRef="Gladiator_4_2" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 1, 1)">
+        <LisbethTravel ZoneId="153" xyz="-257.501, -0.4269077, 457.6978" name="Gladiator_4_3"/>
+        <Grind grindRef="Gladiator_4_3" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 1, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 2, 0)">
+        <LisbethTravel ZoneId="146" xyz="-225.2421, 2.956992, 660.3145" name="Gladiator_4_4"/>
+        <Grind grindRef="Gladiator_4_4" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 3, 0)">
+        <LisbethTravel ZoneId="148" xyz="-258.9205, 55.44057, 39.8202" name="Gladiator_4_5"/>
+        <Grind grindRef="Gladiator_4_5" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 4, 0)">
+        <LisbethTravel ZoneId="180" xyz="-135.1674, 80.6256, -303.728" name="Gladiator_4_6"/>
+        <Grind grindRef="Gladiator_4_6" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 5, 0)">
+        <LisbethTravel ZoneId="146" xyz="-99.55016, -4.96616, 829.7856" name="Gladiator_4_7"/>
+        <Grind grindRef="Gladiator_4_7" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 6, 0)">
+        <LisbethTravel ZoneId="155" xyz="91.14069, 239.4385, 317.8635" name="Gladiator_4_8"/>
+        <Grind grindRef="Gladiator_4_8" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 7, 0)">
+        <LisbethTravel ZoneId="153" xyz="152.5824, 17.96369, 67.54988" name="Gladiator_4_9"/>
+        <Grind grindRef="Gladiator_4_9" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 8, 0)">
+        <LisbethTravel ZoneId="155" xyz="293.3883, 235.0341, -340.8607" name="Gladiator_4_10"/>
+        <Grind grindRef="Gladiator_4_10" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 9, 0)">
+        <LisbethTravel ZoneId="155" xyz="-476.1835, 228.4839, -121.6641" name="Gladiator_4_11"/>
+        <Grind grindRef="Gladiator_4_11" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 9, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 9, 1)">
+        <LisbethTravel ZoneId="180" xyz="-2.148571, 49.57911, -348.3792" name="Gladiator_4_12"/>
+        <Grind grindRef="Gladiator_4_12" postCombatDelay="1" while="not HuntSubEntryCompleted(4, ClassJobType.Gladiator, 9, 1)"/>
+      </If>
+    </If>
+		
+		<!-- Rank 5 -->
+    <If condition="not HuntRankCompleted(ClassJobType.Gladiator, 5)">
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 0, 0)">
+        <LisbethTravel ZoneId="138" xyz="-295.8291, -38.45673, 605.8625"/>
+        <Grind grindRef="Gladiator_5_0" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 0, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 0, 1)">
+        <LisbethTravel ZoneId="138" xyz="-461.8138, -38.06499, 720.3731"/>
+        <Grind grindRef="Gladiator_5_1" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 0, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 1, 0)">
+        <LisbethTravel ZoneId="152" xyz="211.0939, -2.650456, -25.04965" name="Gladiator_5_2"/>
+        <Grind grindRef="Gladiator_5_2" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 1, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 1, 1)">
+        <LisbethTravel ZoneId="152" xyz="379.8846, -2.393452, -33.82244" name="Gladiator_5_3"/>
+        <Grind grindRef="Gladiator_5_3" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 1, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 2, 0)">
+        <LisbethTravel ZoneId="138" xyz="-284.1149, -41.42301, 691.4664"/>
+        <Grind grindRef="Gladiator_5_4" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 2, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 2, 1)">
+        <LisbethTravel ZoneId="152" xyz="98.1741, 7.041402, -12.62055" name="Gladiator_5_5"/>
+        <Grind grindRef="Gladiator_5_5" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 2, 1)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 3, 0)">
+        <LisbethTravel ZoneId="156" xyz="-373.4164, -15.66826, -493.1652" name="Gladiator_5_6"/>
+        <Grind grindRef="Gladiator_5_6" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 3, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 4, 0)">
+        <LisbethTravel ZoneId="156" xyz="162.1043, -26.40627, -441.7636" name="Gladiator_5_7"/>
+        <Grind grindRef="Gladiator_5_7" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 4, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 5, 0)">
+        <LisbethTravel ZoneId="155" xyz="-386.6831, 232.0503, 312.9869" name="Gladiator_5_8"/>
+        <Grind grindRef="Gladiator_5_8" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 5, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 6, 0)">
+        <LisbethTravel ZoneId="146" xyz="-10.0968, 8.385177, -102.9517" name="Gladiator_5_9"/>
+        <Grind grindRef="Gladiator_5_9" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 6, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 7, 0)">
+        <LisbethTravel ZoneId="154" xyz="38.19737, -11.9009, -39.97551" name="Gladiator_5_10"/>
+        <Grind grindRef="Gladiator_5_10" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 7, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 8, 0)">
+        <LisbethTravel ZoneId="147" xyz="30.81657, 10.5538, 271.4451" name="Gladiator_5_11"/>
+        <Grind grindRef="Gladiator_5_11" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 8, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 9, 0)">
+        <LisbethTravel ZoneId="156" xyz="593.0532, -3.329473, -285.9713" name="Gladiator_5_12"/>
+        <Grind grindRef="Gladiator_5_12" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 9, 0)"/>
+      </If>
+      <If condition="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 9, 1)">
+        <LisbethTravel ZoneId="137" xyz="301.9296, 76.47188, -16.46302" name="Gladiator_5_13"/>
+        <Grind grindRef="Gladiator_5_13" postCombatDelay="1" while="not HuntSubEntryCompleted(5, ClassJobType.Gladiator, 9, 1)"/>
+      </If>
+    </If>
+	</If>	
+
+		<!-- Complete -->
+		<While condition="HuntRankCompleted(ClassJobType.Gladiator, 5)">
+				<LLToast message="Gladiator/Paladin hunt log complete!"/>
+				<WaitTimer WaitTime="26" />		
+		</While>
+
+		
+  </Order>
+  <GrindAreas>
+        <GrindArea name="Gladiator_1_0">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="314.5982, 64.7995, 156.4156" name="Gladiator_1_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="49"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_1_1">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="351.6014, 74.74335, 160.1844" name="Gladiator_1_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="262"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_1_2">
+            <minLevel>1</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="313.7525, 64.7995, 158.0555" name="Gladiator_1_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="287"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_1_3">
+            <minLevel>3</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="27.2504, 0.01336503, 244.2667" name="Gladiator_1_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="318"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_1_4">
+            <minLevel>5</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="45.20199, 50.77315, 210.5393" name="Gladiator_1_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="282"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_1_5">
+            <minLevel>5</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-71.07242, -2.21065, 74.3978" name="Gladiator_1_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="294"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_1_6">
+            <minLevel>5</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="128.2242, 55.12308, 257.0624" name="Gladiator_1_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="113"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_1_7">
+            <minLevel>7</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-201.8878, -30.66331, 101.3387" name="Gladiator_1_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="317"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_1_8">
+            <minLevel>9</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-220.3412, 25.02701, -103.2786" name="Gladiator_1_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="266"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_1_9">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="162.3209, -1.385605, -148.5018" name="Gladiator_1_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="292"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_1_10">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="69.3227, 58.21692, 12.515" name="Gladiator_1_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="302"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_0">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="297.8392, 62.27665, -209.239" name="Gladiator_2_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="316"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_1">
+            <minLevel>10</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="297.8392, 62.27665, -209.239" name="Gladiator_2_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="277"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_2">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="153.6733, 14.86536, -51.7644" name="Gladiator_2_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="288"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_3">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="107.2903, 28.78377, -50.51696" name="Gladiator_2_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="326"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_4">
+            <minLevel>12</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="263.6787, 54.29805, 121.2497" name="Gladiator_2_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="244"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_5">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-220.7684, 15.25812, -291.4506" name="Gladiator_2_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="636"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_6">
+            <minLevel>11</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-220.7684, 15.25812, -291.4506" name="Gladiator_2_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="635"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_7">
+            <minLevel>15</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-405.9275, -37.34286, 277.9005" name="Gladiator_2_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="306"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_8">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-284.3846, -36.72001, 64.88946" name="Gladiator_2_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="273"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_9">
+            <minLevel>16</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-370.0136, -8.865561, -212.5749" name="Gladiator_2_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1198"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_10">
+            <minLevel>17</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-341.3801, -11.72587, -234.1548" name="Gladiator_2_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="322"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_2_11">
+            <minLevel>20</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-404.8704, 24.48058, -483.6965" name="Gladiator_2_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="309"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_0">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-379.0874, -3.400003, 157.6983" name="Gladiator_3_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="638"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_1">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-238.4128, 8.118897, -45.80111" name="Gladiator_3_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="23"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_2">
+            <minLevel>21</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-382.0351, 23.75671, -542.1874" name="Gladiator_3_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="278"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_3">
+            <minLevel>22</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-89.83807, 0.8806657, -125.7679" name="Gladiator_3_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="215"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_4">
+            <minLevel>23</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-586.3409, -1.478511, -9.559166" name="Gladiator_3_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="28"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_5">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-11.74198, -51.35887, 466.519" name="Gladiator_3_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="17"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_6">
+            <minLevel>25</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-299.1121, 17.14765, -302.602" name="Gladiator_3_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="286"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_7">
+            <minLevel>26</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="110.73, -9.882174, 120.7076" name="Gladiator_3_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="268"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_8">
+            <minLevel>28</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="297.9075, 4.137659, -22.07993" name="Gladiator_3_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="50"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_9">
+            <minLevel>29</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="410.8612, 3.87971, -33.72728" name="Gladiator_3_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="169"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_10">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="410.9877, 15.23924, 676.7095" name="Gladiator_3_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="341"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_3_11">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-320.9843, 62.32784, -153.988" name="Gladiator_3_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="62"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_0">
+            <minLevel>30</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-505.5016, 65.23953, 69.43462" name="Gladiator_4_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="207"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_1">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="614.8629, -3.4, 209.2273" name="Gladiator_4_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="415"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_2">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="451.854, -3.002753, 163.6298" name="Gladiator_4_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="643"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_3">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-257.501, -0.4269077, 457.6978" name="Gladiator_4_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="34"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_4">
+            <minLevel>31</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-225.2421, 2.956992, 660.3145" name="Gladiator_4_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="290"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_5">
+            <minLevel>33</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-258.9205, 55.44057, 39.8202" name="Gladiator_4_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="55"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_6">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-135.1674, 80.6256, -303.728" name="Gladiator_4_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="412"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_7">
+            <minLevel>34</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-99.55016, -4.96616, 829.7856" name="Gladiator_4_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="324"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_8">
+            <minLevel>35</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="91.14069, 239.4385, 317.8635" name="Gladiator_4_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="659"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_9">
+            <minLevel>36</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="152.5824, 17.96369, 67.54988" name="Gladiator_4_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="24"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_10">
+            <minLevel>38</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="293.3883, 235.0341, -340.8607" name="Gladiator_4_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="658"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_11">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-476.1835, 228.4839, -121.6641" name="Gladiator_4_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="790"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_4_12">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-2.148571, 49.57911, -348.3792" name="Gladiator_4_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="270"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_0">
+            <minLevel>40</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-295.8291, -38.45673, 605.8625" name="Gladiator_5_0"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1852"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_1">
+            <minLevel>41</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-461.8138, -38.06499, 720.3731" name="Gladiator_5_1"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1853"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_2">
+            <minLevel>43</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="211.0939, -2.650456, -25.04965" name="Gladiator_5_2"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="233"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_3">
+            <minLevel>42</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="379.8846, -2.393452, -33.82244" name="Gladiator_5_3"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="59"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_4">
+            <minLevel>42</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-284.1149, -41.42301, 691.4664" name="Gladiator_5_4"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1854"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_5">
+            <minLevel>43</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="98.1741, 7.041402, -12.62055" name="Gladiator_5_5"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="237"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_6">
+            <minLevel>44</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-373.4164, -15.66826, -493.1652" name="Gladiator_5_6"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="645"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_7">
+            <minLevel>45</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="162.1043, -26.40627, -441.7636" name="Gladiator_5_7"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1851"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_8">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-386.6831, 232.0503, 312.9869" name="Gladiator_5_8"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="786"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_9">
+            <minLevel>46</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="-10.0968, 8.385177, -102.9517" name="Gladiator_5_9"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="339"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_10">
+            <minLevel>48</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="38.19737, -11.9009, -39.97551" name="Gladiator_5_10"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="29"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_11">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="30.81657, 10.5538, 271.4451" name="Gladiator_5_11"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="304"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_12">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="593.0532, -3.329473, -285.9713" name="Gladiator_5_12"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="649"/>
+            </TargetMobs>
+        </GrindArea>
+        <GrindArea name="Gladiator_5_13">
+            <minLevel>49</minLevel>
+            <maxLevel>80</maxLevel>
+            <Hotspots>
+                <Hotspot radius="90" xyz="301.9296, 76.47188, -16.46302" name="Gladiator_5_13"/>
+            </Hotspots>
+            <TargetMobs>
+                <TargetMob id="1821"/>
+            </TargetMobs>
+        </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
