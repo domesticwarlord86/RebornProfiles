@@ -13,7 +13,7 @@ It'll look like this:
 RebornBuddy
 └── Routines
     └── Kupo
-        ├── Rotations
+        └── Rotations
             └── BlueMage.cs
 ```
 
