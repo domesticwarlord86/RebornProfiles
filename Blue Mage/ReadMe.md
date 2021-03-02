@@ -9,11 +9,13 @@ To get it to work you'll want to make a fresh copy of RB. Do not install Magitek
 In that fresh install of RB, copy the Routines folder into RB's Routine folder. 
 
 It'll look like this:
-RB Folder
- |- Routines
-      |- Kupo
-          |- Rotations
-              |- BlueMage.cs
+```
+RebornBuddy
+└── Routines
+    └── Kupo
+        ├── Rotations
+            └── BlueMage.cs
+```
 
 
 ### Known Issues
