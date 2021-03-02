@@ -182,6 +182,7 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 	<Order>	
 		<BotSettings AutoEquip="1" />
 		<RunCode name="DisableSideStep"/>
+		
 	<!-- Out of the Blue -->
 		<If Condition="not IsQuestCompleted(68728)">
 			<LogMessage Message="Starting Quest Out of the Blue" />
@@ -263,49 +264,49 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		</If>
 		
 	<!-- Learn Bomb Toss Lvl. 5 Goblin Fisher & Grind to 6 -->
-		<If condition="not HasBlueSpell(11396) and Core.Player.ClassLevel &gt; 2 and IsQuestCompleted(68729)">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11396) and Core.Player.ClassLevel &gt; 2 and IsQuestCompleted(68729)">
 			<LogMessage Message="Starting Learn Bomb Toss and Grind To Level 6"/>
 			<If condition="not IsOnMap(134)">
 				 <TeleportTo name="Summerford Farms" aetheryteId="52" force="true"/>
 			</If>
 				<NoCombatMoveTo xyz="92.23995, 50.82322, -15.37223" name="GoblinFisher"/>
-				<Grind grindRef="GoblinFisher" postCombatDelay="1" while="not (HasBlueSpell(11396)) or (Core.Player.ClassLevel &lt; 6)"/>
+				<Grind grindRef="GoblinFisher" postCombatDelay="1" while="not (ActionManager.KnownBlueMageSpells.ContainsKey(11396)) or (Core.Player.ClassLevel &lt; 6)"/>
 		</If>
 		
 	<!-- Learn Ice Spikes Lvl. 9 Trickster Imps-->	
-		<If condition="not HasBlueSpell(11418) and IsQuestCompleted(68729)">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11418) and IsQuestCompleted(68729)">
 			<LogMessage Message="Starting Learn Ice Spikes" />
 			<If condition="not IsOnMap(148)">
 					<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
 			</If>
-				<Grind grindRef="TricksterImp" postCombatDelay="1" while="not HasBlueSpell(11418)"/>
+				<Grind grindRef="TricksterImp" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11418)"/>
 		</If>
 
 	<!-- Learn Faze -->
-		<If condition="not HasBlueSpell(11403) and IsQuestCompleted(68729)">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11403) and IsQuestCompleted(68729)">
 			<LogMessage Message="Starting Learn Faze"/>
 			<If condition="not IsOnMap(141)">
 				 <TeleportTo name="Summerford Farms" aetheryteId="53" force="true"/>
 			</If>
 				<NoCombatMoveTo xyz="-194.4272, 21.1615, -103.4405" name="QiqirnShellsweeper"/>
-				<Grind grindRef="QiqirnShellsweeper" postCombatDelay="1" while="not HasBlueSpell(11403)"/>
+				<Grind grindRef="QiqirnShellsweeper" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11403)"/>
 		</If>		
 				
 	<!-- Learn Blood Drain Lvl.9 Chigoe-->
-		<If condition="not (HasBlueSpell(11395)) and (Core.Player.ClassLevel &gt; 5) and IsQuestCompleted(68729)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11395)) and (Core.Player.ClassLevel &gt; 5) and IsQuestCompleted(68729)">
 			<LogMessage Message="Starting Learn Blood Drain" />
 			<If condition="not IsOnMap(148)">
 				<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
 			</If>
 				<LogMessage Message="Starting Learn Blood Drain" />
 				<NoCombatMoveTo xyz="155.276627,-8.3465 , -1.386267" name="Chigoe"/>
-				<Grind grindRef="Chigoe" postCombatDelay="1" while="not HasBlueSpell(11395)"/>
+				<Grind grindRef="Chigoe" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11395)"/>
 				<Grind grindRef="Chigoe" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 11"/>	
 				<SetBluActive Spells="11385,11395"/> <!-- Set Water Cannon 11385, Blood Drain 11395 -->
 		</If>
 		
 	<!-- Buy Off-Gaurd Totem -->	
-		<If condition="not HasBlueSpell(11411) and HasBlueSpell(11395) and HasBlueSpell(11403) and HasBlueSpell(11418) and HasBlueSpell(11396) and HasBlueSpell(11385)">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11411) and ActionManager.KnownBlueMageSpells.ContainsKey(11395) and ActionManager.KnownBlueMageSpells.ContainsKey(11403) and ActionManager.KnownBlueMageSpells.ContainsKey(11418) and ActionManager.KnownBlueMageSpells.ContainsKey(11396) and ActionManager.KnownBlueMageSpells.ContainsKey(11385)">
 			<LogMessage Message="Buying Off-Gaurd Totem" />
 			<If condition="not IsOnMap(131)">
 				<LisbethTravel ZoneId="131" XYZ="66.453,14.005,87.41882"/>
@@ -318,7 +319,7 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		</If>
 
 	<!-- Buy White Whind Totem -->	
-		<If condition="not HasBlueSpell(11406) and HasBlueSpell(11392) and HasBlueSpell(11412) and HasBlueSpell(11408) and HasBlueSpell(11395) and HasBlueSpell(11411) and HasBlueSpell(11407) and HasBlueSpell(11403) and HasBlueSpell(11418) and HasBlueSpell(11396) and HasBlueSpell(11385)">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11406) and ActionManager.KnownBlueMageSpells.ContainsKey(11392) and ActionManager.KnownBlueMageSpells.ContainsKey(11412) and ActionManager.KnownBlueMageSpells.ContainsKey(11408) and ActionManager.KnownBlueMageSpells.ContainsKey(11395) and ActionManager.KnownBlueMageSpells.ContainsKey(11411) and ActionManager.KnownBlueMageSpells.ContainsKey(11407) and ActionManager.KnownBlueMageSpells.ContainsKey(11403) and ActionManager.KnownBlueMageSpells.ContainsKey(11418) and ActionManager.KnownBlueMageSpells.ContainsKey(11396) and ActionManager.KnownBlueMageSpells.ContainsKey(11385)">
 			<LogMessage Message="Buying White Wind Totem" />
 			<If condition="not IsOnMap(131)">
 				<LisbethTravel ZoneId="131" XYZ="66.453,14.005,87.41882"/>
@@ -336,7 +337,7 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		
 		
 	<!-- Grind to 11 if needed -->	
-		<If Condition="(HasBlueSpell(11395)) and (Core.Player.ClassLevel &lt; 11) and IsQuestCompleted(68729)">
+		<If Condition="(ActionManager.KnownBlueMageSpells.ContainsKey(11395)) and (Core.Player.ClassLevel &lt; 11) and IsQuestCompleted(68729)">
 			<LogMessage Message="Starting Grind to Level 11" />
 			<If condition="not IsOnMap(148)">
 				<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
@@ -438,7 +439,7 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		</If>	
 
 	<!-- Learn Final Sting Lvl. 13 Killer Wespe-->
-		<If condition="not (HasBlueSpell(11407)) and (Core.Player.ClassLevel &gt; 12)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11407)) and (Core.Player.ClassLevel &gt; 12)">
 			<BotSettings AutoEquip="1" />
 			<LogMessage Message="Starting Learn Final Sting" />
 			<If condition="not IsOnMap(134)">
@@ -446,34 +447,34 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 			</If>			
 			<NoCombatMoveTo xyz="-284.9595, 23.06275, -400.7565" name="KillerWespe"/>
 			<RunCode Name="ManualFinalSting"/>
-			<!--<Grind grindRef="KillerWespe" postCombatDelay="1" while="not HasBlueSpell(11407) and Core.Player.ClassLevel &lt; 14"/>-->
+			<!--<Grind grindRef="KillerWespe" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11407) and Core.Player.ClassLevel &lt; 14"/>-->
 		</If>		
 
 	<!-- Learn Self-Destruct Lvl.13 Glide Bomb -->
-		<If condition="not (HasBlueSpell(11408)) and (Core.Player.ClassLevel &gt; 12)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11408)) and (Core.Player.ClassLevel &gt; 12)">
 			<LogMessage Message="Starting Learn Self-Destruct" />
 			<If condition="not IsOnMap(140)">
 					<LisbethTravel ZoneId="140" XYZ="299.3622, 62.36291, -222.2432" />
 			</If>
 				<NoCombatMoveTo xyz="299.3622, 62.36291, -222.2432" name="GlideBomb"/>
 				<RunCode Name="ManualSelfDestruct"/>
-				<!--<Grind grindRef="GlideBomb" postCombatDelay="1" while="not HasBlueSpell(11408)"/>-->
+				<!--<Grind grindRef="GlideBomb" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11408)"/>-->
 		</If>
 		
 	<!-- Learn Sticky Tongue & Grind To Level 15 -->	
-		<If condition="not HasBlueSpell(11412) and Core.Player.ClassLevel &gt; 10">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11412) and Core.Player.ClassLevel &gt; 10">
 			<LogMessage Message="Starting Learn Sticky Tongue" />
 			<If condition="not IsOnMap(141)">
 					<LisbethTravel ZoneId="141" XYZ="276.5776, -19.71835, -125.6576" />
 			</If>
-				<Grind grindRef="ToxicToad" postCombatDelay="1" while="not HasBlueSpell(11412)"/>
+				<Grind grindRef="ToxicToad" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11412)"/>
 				<SetBluActive Spells="11385,11395,11412,11406"/>
 				<Grind grindRef="ToxicToad" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 15"/>
 				<SetBluActive Spells="11385,11395,11412,11406"/> <!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, White Wind 11406 -->
 		</If>
 
 	<!-- Grind to 15 if needed -->	
-		<If Condition="(HasBlueSpell(11412)) and (Core.Player.ClassLevel &lt; 15) and IsQuestCompleted(68729)">
+		<If Condition="(ActionManager.KnownBlueMageSpells.ContainsKey(11412)) and (Core.Player.ClassLevel &lt; 15) and IsQuestCompleted(68729)">
 			<LogMessage Message="Starting Grind to Level 15" />
 			<If condition="not IsOnMap(141)">
 					<LisbethTravel ZoneId="141" XYZ="276.5776, -19.71835, -125.6576" />
@@ -482,14 +483,14 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		</If>	
 		
 	<!-- Learn Acorn Bomb -->
-		<If condition="not HasBlueSpell(11392) and (Core.Player.ClassLevel &gt; 14)">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11392) and (Core.Player.ClassLevel &gt; 14)">
 			<LogMessage Message="Starting Learn Acorn Bomb" />
 			<If condition="not IsOnMap(148)">
 					<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
 			</If>
 				<NoCombatMoveTo xyz="394.453949,17.85671,86.986427" name="TreantSapling"/>
 				<RunCode Name="ManualAcornBomb"/>
-				<!--<Grind grindRef="TreantSapling" postCombatDelay="1" while="not HasBlueSpell(11392) and Core.Player.ClassLevel &lt; 17"/>-->
+				<!--<Grind grindRef="TreantSapling" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11392) and Core.Player.ClassLevel &lt; 17"/>-->
 		</If>
 		
 	<!-- Grind to 19 -->	
@@ -503,7 +504,7 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		</If>	
 		
 	<!-- Learn Bristle -->
-		<If condition="not (HasBlueSpell(11393)) and (Core.Player.ClassLevel &gt; 18)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11393)) and (Core.Player.ClassLevel &gt; 18)">
 			<LogMessage Message="Starting Learn Bristle" />
 			<BotSettings AutoEquip="1" />
 			<If Condition="&buygear; == 1">
@@ -583,30 +584,30 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 				<If condition="not IsOnMap(152)">
 					<TeleportTo name="Hawthrone Hut" aetheryteId="4" force="true"/>
 				</If>			
-				<Grind grindRef="WildBoar" postCombatDelay="1" while="not HasBlueSpell(11393)"/>
+				<Grind grindRef="WildBoar" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11393)"/>
 				<Grind grindRef="WildBoar" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 21"/>				
 		</If>
 		
 	<!-- Learn Toad Oil -->
-		<If condition="not HasBlueSpell(11410) and Core.Player.ClassLevel &gt; 18">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11410) and Core.Player.ClassLevel &gt; 18">
 			<LogMessage Message="Starting Learn Toad Oil" />
 			<If condition="not IsOnMap(140)">
 				<LisbethTravel ZoneId="140" XYZ="-352.8664, 15.03115, -736.3968" />
 			</If>
-				<Grind grindRef="GigglingGigantoad" postCombatDelay="1" while="not HasBlueSpell(11410) or Core.Player.ClassLevel &lt; 22"/>
+				<Grind grindRef="GigglingGigantoad" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11410) or Core.Player.ClassLevel &lt; 22"/>
 				<SetBluActive Spells="11385,11395,11412,11410,11406"/> <!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, White Wind 11406 -->	
 			
 		</If>
 		
 	<!-- Learn 1000 Needles -->	
-		<If condition="not HasBlueSpell(11397) and Core.Player.ClassLevel &gt; 20">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11397) and Core.Player.ClassLevel &gt; 20">
 			<LogMessage Message="Starting Learn 1000 Needles"/>
 			<If condition="not IsOnMap(146)">
 					<TeleportTo name="Little Ala Mhigo" aetheryteId="19" force="true"/>
 			</If>
 				<NoCombatMoveTo xyz="-256.085754,17.70092,-284.663879" name="SabotenderBailaor"/>
 				<RunCode Name="Manual1000Needles"/>
-				<!--<Grind grindRef="SabotenderBailaor" postCombatDelay="1" while="not HasBlueSpell(11397)"/>-->
+				<!--<Grind grindRef="SabotenderBailaor" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11397)"/>-->
 
 		</If>
 		
@@ -622,24 +623,24 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		</If>		
 
 	<!-- Learn Plaincracker & Grind to 29 -->
-		 <If condition="not (HasBlueSpell(11391)) and (Core.Player.ClassLevel &gt; 23)">
+		 <If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11391)) and (Core.Player.ClassLevel &gt; 23)">
 			<LogMessage Message="Starting Learn Plaincracker"/>
 			<SetBluActive Spells="11385,11395,11412,11410,11406,11403,11396" Clear="true"/> <!-- Turn off 1000 Needles -->
 			<If condition="not IsOnMap(154)">
 			  <TeleportTo name="Fallgourd Float" aetheryteId="7" force="true" />
 			</If>
 				<NoCombatMoveTo xyz="-186.389, -57.37035, 334.5541" name="Clay_Golem"/>
-				<Grind grindRef="Clay_Golem" postCombatDelay="1" while="not HasBlueSpell(11391)" />
+				<Grind grindRef="Clay_Golem" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11391)" />
 				<SetBluActive Spells="11385,11395,11412,11410,11397,11406"/>	<!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, 1000 Needles 11397 -->		
 				<Grind grindRef="Clay_Golem" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 29" />
 		 </If>
 
 	<!-- Learn Flying Sardine -->
-		<If condition="not (HasBlueSpell(11423)) and (Core.Player.ClassLevel &gt; 26)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11423)) and (Core.Player.ClassLevel &gt; 26)">
 			<LogMessage Message="Starting Learn Flying Sardine"/>
 			<SetBluActive Spells="11385,11395,11412,11410,11406,11403,11396" Clear="true"/>  <!-- Turn off 1000 Needles -->
 			<LisbethTravel ZoneId="137" XYZ="284.6243, 43.35668, 748.2975" />
-			<Grind grindRef="Apkallu" postCombatDelay="1" while="not HasBlueSpell(11423)" />
+			<Grind grindRef="Apkallu" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11423)" />
 			<SetBluActive Spells="11385,11395,11412,11410,11397,11406"/>	<!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, 1000 Needles 11397 -->		
 			<Grind grindRef="Apkallu" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 31" />
 		</If>
@@ -653,14 +654,14 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		</If>		
 	
 	<!-- Learn Bad Breath -->
-		<If condition="not (HasBlueSpell(11388)) and (Core.Player.ClassLevel &gt; 30)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11388)) and (Core.Player.ClassLevel &gt; 30)">
 			<SetBluActive Spells="11385,11395,11412,11410,11406,11403,11396" Clear="true"/>  <!-- Turn off 1000 Needles -->			
 			<LogMessage Message="Starting Learn Bad Breath"/>
 			<If condition="not IsOnMap(148)">
 				<TeleportTo name="Bentbranch Meadows" aetheryteId="3" force="true" />
 			</If>
 			<NoCombatMoveTo xyz="-435.1415, 49, -2.487305" name="Clay_Golem"/>
-			<Grind grindRef="Stroper" postCombatDelay="1" while="not HasBlueSpell(11388)" />
+			<Grind grindRef="Stroper" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11388)" />
 			<SetBluActive Spells="11385,11395,11412,11410,11397,11406"/>	<!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, 1000 Needles 11397 -->		
 		</If>
 		 
@@ -787,17 +788,17 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		</If>
 		
 	<!-- Learn Pecular Light -->
-		<If condition="not HasBlueSpell(11421) and Core.Player.ClassLevel &gt; 40">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11421) and Core.Player.ClassLevel &gt; 40">
 			<LogMessage Message="Starting Learn Pecular Light"/>
 			<If condition="not IsOnMap(156)">
 				<TeleportTo name="Revenant's Toll" aetheryteId="24" force="true" />
 			</If>
 			<NoCombatMoveTo xyz="-464.3265, -9.696238, -534.2192" name="Lentic_Mudpuppy"/>
-			<Grind grindRef="Lentic_Mudpuppy" postCombatDelay="1" while="not HasBlueSpell(11421)" />
+			<Grind grindRef="Lentic_Mudpuppy" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11421)" />
 		</If>		
 
 	<!-- Turn off 1000 Needles If Has Abyssal Transfixion -->		
-		<If condition="HasBlueSpell(18300)">
+		<If condition="ActionManager.KnownBlueMageSpells.ContainsKey(18300)">
 			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411" Clear="true"/>  <!-- Turn off 1000 Needles -->
 			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411 -->	
 		</If>	
@@ -830,15 +831,15 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		</If>		
 
 	<!-- Learn Drill Cannons -->
-		<If condition="not HasBlueSpell(11398) and Core.Player.ClassLevel &gt; 49">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11398) and Core.Player.ClassLevel &gt; 49">
 			<LogMessage Message="Starting Learn Drill Cannons"/>
 			<LisbethTravel ZoneId="147" XYZ="-246.2222, 81.75178, -225.6007" />
-			<Grind grindRef="Vanguard" postCombatDelay="1" while="not HasBlueSpell(11398)"/>
+			<Grind grindRef="Vanguard" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11398)"/>
 		</If>
 
 	<!-- Learn Abyssal Transfixion -->
 	<!--
-		<If condition="not HasBlueSpell(1830) and Core.Player.ClassLevel &gt; 49">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(1830) and Core.Player.ClassLevel &gt; 49">
 			<LogMessage Message="Starting Learn Abyssal Transfixion"/>
 			<If condition="not IsOnMap(156)">
 				<LisbethTravel ZoneId="156" XYZ="417.0544, -5.971292, -446.3466" />
@@ -848,17 +849,17 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		</If>	-->
 
 	<!-- Learn Electrogenesis -->
-		<If condition="not HasBlueSpell(18298) and Core.Player.ClassLevel &gt; 49">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(18298) and Core.Player.ClassLevel &gt; 49">
 			<LogMessage Message="Starting Learn Electrogenesis"/>
 			<LisbethTravel ZoneId="401" XYZ="225.2717, -147.8377, 562.2714" />
-			<Grind grindRef="Conodont" postCombatDelay="1" while="not HasBlueSpell(18298)"/>
+			<Grind grindRef="Conodont" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(18298)"/>
 		</If>
 
 	<!-- Learn Chirp -->
-		<If condition="not HasBlueSpell(18301) and Core.Player.ClassLevel &gt; 49">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(18301) and Core.Player.ClassLevel &gt; 49">
 			<LogMessage Message="Starting Learn Chip"/>
 			<LisbethTravel ZoneId="401" XYZ="-123.0217, -165.98, 644.0829" />
-			<Grind grindRef="Paissa" postCombatDelay="1" while="not HasBlueSpell(18301)"/>
+			<Grind grindRef="Paissa" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(18301)"/>
 		</If>		
 		
 	<!-- Grind to 60 -->	
@@ -881,24 +882,24 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 		</If>
 		
 	<!-- Learn Whistle -->	
-		<If condition="not HasBlueSpell(18309) and Core.Player.ClassLevel &gt; 53">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(18309) and Core.Player.ClassLevel &gt; 53">
 			<LogMessage Message="Starting learn Whistle"/>
 			<LisbethTravel ZoneId="401" xyz="-279.887, -186.5992, 495.6214"/>
-			<Grind grindRef="Dhalmel" postCombatDelay="1" while="not HasBlueSpell(18309)"/>
+			<Grind grindRef="Dhalmel" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(18309)"/>
 		</If>
 				
 	<!-- Learn Northerlies -->
-		<If condition="not (HasBlueSpell(18297)) and (Core.Player.ClassLevel &gt; 53)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18297)) and (Core.Player.ClassLevel &gt; 53)">
 			<LogMessage Message="Starting learn Northerlies"/>
 			<LisbethTravel ZoneId="397" xyz="72.98383, 229.4418, 509.0287"/>
-			<Grind grindRef="SlateYeti" postCombatDelay="1" while="not HasBlueSpell(18297)"/>
+			<Grind grindRef="SlateYeti" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(18297)"/>
 		</If>
 
 	<!-- Learn Reflux -->
-		<If condition="not (HasBlueSpell(18319)) and (Core.Player.ClassLevel &gt; 53)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18319)) and (Core.Player.ClassLevel &gt; 53)">
 			<LogMessage Message="Starting learn Reflux"/>
 			<LisbethTravel ZoneId="400" xyz="81.64323, 27.38359, 284.709"/>
-			<Grind grindRef="CloudWyvern" postCombatDelay="1" while="not HasBlueSpell(18319)"/>
+			<Grind grindRef="CloudWyvern" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(18319)"/>
 		</If>
 		
 		<If Condition="(Core.Player.ClassLevel &gt; 55) and (Core.Player.ClassLevel &lt; 60)">	
@@ -909,31 +910,31 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 			
 		
 	<!-- Learn Tail Screw -->
-		<If condition="not (HasBlueSpell(11413)) and (Core.Player.ClassLevel &gt; 59)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11413)) and (Core.Player.ClassLevel &gt; 59)">
 			<LogMessage Message="Starting learn Tail Screw"/>
 			<LisbethTravel ZoneId="620" xyz="276.4915, 114.3593, -700.7811" name="Crag_Claw"/>
-			<Grind grindRef="Crag_Claw" postCombatDelay="1" while="not HasBlueSpell(11413)" />
+			<Grind grindRef="Crag_Claw" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11413)" />
 		</If>
 		
 	<!-- Learn Alpine Draft -->	
-		<If condition="not (HasBlueSpell(18295)) and (Core.Player.ClassLevel &gt; 59)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18295)) and (Core.Player.ClassLevel &gt; 59)">
 			<LogMessage Message="Starting learn Alpine Draft"/>
 			<LisbethTravel ZoneId="401" xyz="675.473, -98.51501, -691.1071" name="Griffin"/>
-			<Grind grindRef="Griffin" postCombatDelay="1" while="not HasBlueSpell(18295)"/>
+			<Grind grindRef="Griffin" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(18295)"/>
 		</If>
 
 	<!-- Learn Sonic Boom -->		
-		<If condition="not (HasBlueSpell(18308)) and (Core.Player.ClassLevel &gt; 59)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18308)) and (Core.Player.ClassLevel &gt; 59)">
 			<LogMessage Message="Starting learn Sonic Boom"/>
 			<LisbethTravel ZoneId="401" xyz="181.9077, -16.89004, -741.333" name="Anzu"/>
-			<Grind grindRef="Anzu" postCombatDelay="1" while="not HasBlueSpell(18308)"/>
+			<Grind grindRef="Anzu" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(18308)"/>
 		</If>		
 	
 	<!-- Learn Frog Legs -->
-		<If condition="not (HasBlueSpell(18307)) and (Core.Player.ClassLevel &gt; 59)">
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18307)) and (Core.Player.ClassLevel &gt; 59)">
 			<LogMessage Message="Starting learn Frog Legs"/>
 			<LisbethTravel ZoneId="399" XYZ="-428.6801, 138.1145, 504.5106" />
-			<Grind grindRef="Poroggo" postCombatDelay="1" while="not HasBlueSpell(18307)"/>
+			<Grind grindRef="Poroggo" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(18307)"/>
 		</If>	
 
 	</Order>	
