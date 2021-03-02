@@ -14,3 +14,10 @@ RB Folder
       |- Kupo
           |- Rotations
               |- BlueMage.cs
+
+
+### Known Issues
+- [ ] Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to be learned manually.
+- [ ] Sometimes th grind tag doesn't exit when it obtains the level like it's supposed to. Stop and start bot to make it move on.
+- [ ] 
+- [ ] 
