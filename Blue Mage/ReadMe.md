@@ -17,6 +17,13 @@ RebornBuddy
             └── BlueMage.cs
 ```
 
+You're also going to need [Lisbeth](https://www.siune.io/) in this new install.
+
+You're also going to need [LlamaLibrary](https://github.com/nt153133/LlamaLibrary).
+
+I'd also recommend [Gluttony](https://github.com/domesticwarlord86/Gluttony) for Food and [Osiris](https://github.com/domesticwarlord86/Osiris) for death handling.
+
+
 
 ### Known Issues
 - [ ] Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to be learned manually. The profile will stop at this spot to let you learn them.
