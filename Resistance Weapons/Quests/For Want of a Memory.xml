@@ -79,7 +79,7 @@
 				<If Condition="not IsOnMap(402)">
 					<TeleportTo AetheryteId="74"/> <!-- Azys Lla -->
 				</If>		
-				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31575,20) and IsOnMap(402)" />
+				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31575,20) and IsOnMap(402)" BlacklistId="887"/>
 			</While>		
 			<If Condition="&CleanInventory; == 1">
 				<!-- Chimera Mane, Amphiptere Skin -->
