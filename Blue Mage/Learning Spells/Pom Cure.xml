@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Thornmarch (Hard)
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Thornmarch (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18303))">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="66" trial="true"/>
+		</If>
+		<If condition="DutyManager.InInstance">
+			<Grind GrindRef="Thornmarch" While="not GameObjectManager.GetObjectByNPCId(718).CurrentHealth == 0"/> <!-- Finish Thornmarch -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty/>
+			</While>	
+		</If>
+	</While>
+	
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(18303))">
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>
+
+ </Order>
+  <GrindAreas>
+    <GrindArea name="Thornmarch">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="1.2941, 0, 15.9395" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="718" Weight="1"/> <!-- Whiskerwall Kupdi Koop -->
+        <TargetMob Id="721" Weight="1"/> <!-- Woolywart Kupqu Kogi -->
+        <TargetMob Id="722" Weight="1"/> <!-- Pukla Puki the Pomburner -->
+        <TargetMob Id="720" Weight="1"/> <!-- Furryfoot Kupli Kipp -->
+        <TargetMob Id="719" Weight="1"/> <!-- Ruffletuft Kupta Kapa -->
+        <TargetMob Id="724" Weight="1"/> <!-- Pukna Pako the Tailturner -->
+        <TargetMob Id="723" Weight="1"/> <!-- Puksi Piko the Shaggysong -->
+        <TargetMob Id="725" Weight="1"/> <!-- Good King Moggle Mog XII -->				
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>		
+  <CodeChunks>	
+  </CodeChunks>  
+</Profile>    

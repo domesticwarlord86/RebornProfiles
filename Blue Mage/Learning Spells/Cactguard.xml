@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Sunken Temple of Qarn
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Sunken Temple of Qarn</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- [The Sunken Temple of Qarn (Hard)] The Wrath of Qarn -->
+    <If Condition="not HasQuest(65632) and not IsQuestCompleted(65632)">
+      <GetTo ZoneId="156" XYZ="26.70581, 21.25273, -637.3229"/>
+      <If Condition="not IsQuestAcceptQualified(65632)">
+        <RunCode Name="Unlock_Normal_Mode"/>
+      </If>
+      <If Condition="IsQuestAcceptQualified(65632)">
+        <PickupQuest QuestId="65632" NpcId="1005524" XYZ="27.29834, 21.2714, -635.9808"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(65632) and not IsQuestCompleted(65632) and GetQuestStep(65632) == 1">
+      <GetTo ZoneId="131" XYZ="-10.54363, 7.5, 147.9428"/>
+      <TalkTo NpcId="1010365" XYZ="-10.63556, 7.499994, 146.6849" QuestId="65632" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(65632) and not IsQuestCompleted(65632) and GetQuestStep(65632) == 2">
+      <LisbethTravel Area="Southern Thanalan" Position="182.8132, 13.60193, -444.9475"/>
+      <TalkTo NpcId="1006220" XYZ="185.748, 13.7212, -443.1983" QuestId="65632" StepId="2"/>
+    </If>
+	
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="26"/>
+		</If>
+	
+	<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18315))">
+		<If condition="DutyManager.InInstance">
+			<!-- Find a sun sphere 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Find a sun sphere 0/1" />
+				<BotSettings AutoEquip="1" />	
+				<MoveTo XYZ="-65.72064,-12,-55.68018" />
+				<Grind GrindRef="SunSphere" while="not GameObjectManager.GetObjectByNPCId(3052).CurrentHealth == 0"/>
+				<UseObject NpcId="2004380" XYZ="-65.7175,-12,-55.66113" Radius="50" condition="not HasAtLeast(2001436,1)"/>
+			</If>
+
+			<!-- Defeat the damaged adjudicator 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Defeat the damaged adjudicator 0/1" />
+				<MoveTo XYZ="-52.10262,-15.74766,0.003014844" />
+				<While condition="GameObjectManager.GetObjectByNPCId(2004382).IsTargetable">
+					<MoveTo XYZ="-52.10262,-15.74766,0.003014844" distance="2"/>
+					<RunCode name="LockedDoor1"/>
+				</While>	
+				<MoveTo XYZ="-15.48886,-17.99999,-1.94025" />
+				<MoveTo XYZ="5.906719, -48.12198, 2.473309" usemesh="false" />
+				<MoveTo XYZ="-48.93845, -51, 0.7084602" />
+				<Grind GrindRef="FirstBoss" while="GetInstanceTodo(1) == 0"/> <!-- Fight the first boss -->
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>			
+			</If>	
+
+			<!-- Find a moon sphere 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Find a moon sphere 0/1" />
+				<MoveTo XYZ="48.96619, -48.26202, 13.31549" />
+				<Grind GrindRef="MoonSphere" while="not GameObjectManager.GetObjectByNPCId(3052).CurrentHealth == 0"/>
+				<UseObject NpcId="2004387" XYZ="110.9176,-33.84801,60.41623" Radius="200" condition="not HasAtLeast(2001437,1)"/>
+			</If>
+
+			<!-- Slay the sabotender emperatriz 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Slay the sabotender emperatriz 0/1" />		
+				<MoveTo XYZ="166.5358,-43.14706,0.01599336" />
+				<While condition="GameObjectManager.GetObjectByNPCId(2004388).IsTargetable">
+					<MoveTo XYZ="166.5358,-43.14706,0.01599336" distance="2"/>
+					<RunCode name="LockedDoor2"/>
+				</While>
+				<MoveTo XYZ="198.7488,-46.1691,-0.5036011" />
+				<MoveTo XYZ="219.3703, -41.22675, -0.4101346" />
+				<LLChangeZone Heading="1.367046"/>
+				<MoveTo XYZ="254.3246, -3.999998, 0.05864016" distance="1" />
+				<Grind GrindRef="SecondBoss" while="GetInstanceTodo(3) == 0"/> <!-- Fight the second boss -->
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>		
+			</If>
+
+		</If>
+	</While>	
+	
+	<!-- Turn In Unlock Quest -->
+	<If Condition="HasQuest(65632) and not IsQuestCompleted(65632) and GetQuestStep(65632) == 255">
+		<GetTo ZoneId="131" XYZ="-9.669962, 7.5, 147.9098"/>
+		<TurnIn QuestId="65632" NpcId="1010365" XYZ="-10.63556, 7.499994, 146.6849"/>
+	</If>
+
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(18315))">		
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="SunSphere">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-65.72064,-12,-55.68018" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="3052" Weight="1" /> <!-- Cracked Qarn Facer -->
+        </TargetMobs>
+	</GrindArea>  
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-43.01526,-51,3.036438" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="3070" Weight="1" /> <!-- Ruins Crawler -->
+			<TargetMob Id="3065" Weight="10" /> <!-- Damaged Adjudicator -->
+			<TargetMob Id="3066" Weight="1" /> <!-- Head of the Adjudicator -->
+			<TargetMob Id="3067" Weight="1" /> <!-- Arm of the Adjudicator -->
+			<TargetMob Id="3068" Weight="1" /> <!-- Tail of the Adjudicator -->
+        </TargetMobs>
+	</GrindArea>	
+	<GrindArea name="MoonSphere">
+        <Hotspots>
+			<Hotspot Radius="50" XYZ="60.94032, -38.65176, 59.00975" />
+			<Hotspot Radius="50" XYZ="111.9103, -33.65144, 62.15334" />
+			<Hotspot Radius="50" XYZ="158.8776, -44.99257, 1.887046" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="3052" Weight="1" /> <!-- Cracked Qarn Facer -->
+        </TargetMobs>
+	</GrindArea>  	
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="231.2505,-3.999998,0.1054569" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="3071" Weight="2" /> <!-- Sabotender Emperatriz -->				
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name=" MummyRoom1">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-31.05212,-19,-58.76251" />
+			<Hotspot Radius="200" XYZ="10.44669, -19, -36.10252" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="3051" Weight="2" /> <!-- Temple Mummy -->				
+        </TargetMobs>
+	</GrindArea>	
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="120.8071,-3.998585,0.1424049" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="3075" Weight="1" /> <!-- Vicegerent to the Warden -->		
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+	<CodeChunk Name="LockedDoor1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004382).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="LockedDoor2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004388).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="MagickedPedestal1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004398).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="MagickedPedestal2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004400).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="MagickedPedestal3">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004396).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>	 
+  </CodeChunks>
+</Profile>

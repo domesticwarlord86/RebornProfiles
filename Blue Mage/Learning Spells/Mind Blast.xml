@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Tam-Tara Deepcroft
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+<Profile>
+  <Name>The Tam-Tara Deepcroft</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11394))">
+		
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="2"/>
+		</If>
+		
+		<If condition="DutyManager.InInstance">
+			<!-- Cultist orbs destroyed 0/4 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Cultist orbs destroyed 0/4" />		
+				<BotSettings AutoEquip="1" />	
+				<NoCombatMoveTo XYZ="-0.1274785, 29.54992, -16.90282"/> <!-- Move to first boss room -->
+				<While Condition="GetInstanceTodo(0) == 0">
+					<MoveTo XYZ="-8.080134, 30.82913, -16.51366" distance="2"/> <!-- Move to first orb -->	
+					<UseObject NpcIds="2000061" radius="200" XYZ="-8.080134, 30.82913, -16.51366" condition="GetInstanceTodo(0) == 0"/>
+				</While>	
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>			
+			</If>
+			
+			<!-- Cultist orbs destroyed 1/4 -->	
+			<If Condition="GetInstanceTodo(0) == 1">
+				<Log Message="Cultist orbs destroyed 1/4" />
+				<While Condition="GetInstanceTodo(0) == 1">			
+					<NoCombatMoveTo XYZ="-22.78436,25.5263,20.48222" distance="2"/> <!-- Move to second Cultist orb -->
+					<UseObject NpcIds="2000062" radius="200" XYZ="-22.78436,25.5263,20.48222" condition="GetInstanceTodo(0) == 1"/>
+				</While>	
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>			
+			</If>
+			
+			<!-- Cultist rosary 0/1 -->	
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 2">
+				<Log Message="Cultist rosary 0/1" />
+				<While Condition="GetInstanceTodo(1) == 0">
+					<NoCombatMoveTo XYZ="-180.8298, 13.61397, -7.697925" distance="2"/> <!-- Move to cultist rosary -->
+					<UseObject NpcIds="2000057" radius="200" XYZ="-180.8298, 13.61397, -7.697925" condition="GetInstanceTodo(1) == 0"/>
+				</While>
+			</If>
+			
+			<!-- Sealed barrier broken 0/1 -->	
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Sealed barrier broken 0/1" />
+				<While Condition="GetInstanceTodo(2) == 0">					
+					<NoCombatMoveTo XYZ="-103.6168, 13.859, 15.76518" distance="2"/> <!-- Move to sealed barrier -->
+					<UseTransport NpcId="2000060" InteractDistance="3.5" XYZ="-103.6168, 13.859, 15.76518" />
+				</While>	
+			</If>
+			
+			<!-- Cultist orbs destroyed 2/4 -->	
+			<If Condition="GetInstanceTodo(0) == 2 and GetInstanceTodo(2) == 1">
+				<Log Message="Cultist orbs destroyed 2/4" />
+				<MoveTo XYZ="-95.11863, 13.859, 10.65544"/> <!-- Move into final orb room -->
+				<While Condition="GetInstanceTodo(0) == 2">				
+					<NoCombatMoveTo XYZ="-94.79001, 14.90759, 3.811112" distance="2"/> <!-- Move to cultist orb 3/4 -->
+					<UseObject NpcIds="2000067" radius="200" XYZ="-94.79001, 14.90759, 3.811112" condition="GetInstanceTodo(0) == 2"/>
+				</While>			
+			</If>
+			
+			<!-- Cultist orbs destroyed 3/4 -->	
+			<If Condition="GetInstanceTodo(0) == 3 and GetInstanceTodo(2) == 1">
+				<Log Message="Cultist orbs destroyed 3/4" />
+				<While Condition="GetInstanceTodo(0) == 3">				
+					<NoCombatMoveTo XYZ="-89.50608, 14.89957, 13.94871" distance="2"/> <!-- Move to cultist orb 4/4 -->
+					<UseObject NpcIds="2000063" radius="200" XYZ="-89.50608, 14.89957, 13.94871" condition="GetInstanceTodo(0) == 3"/>
+				</While>	
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>			
+			</If>
+			
+			<!-- Defeat Galvanth the Dominator -->	
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(0) == 4">
+				<Log Message="Defeat Galvanth the Dominator" />			
+				<MoveTo XYZ="-65.55235, 14.04922, -5.441873"/> <!-- Move into bosses room -->
+				<BotSettings AutoEquip="0" />	
+				<RunCode name="WaitForMindBlast"/>				
+				<Grind grindRef="Galvanth" While="GameObjectManager.GetObjectByNPCId(73)"/> <!-- Fight Galvanth the Dominator -->
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>			
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>
+			</If>			
+		</If>
+	</While>
+
+	<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11394))">
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>
+
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="Galvanth">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="48.82916,14.04632,-13.91929" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Galvanth the Dominator" Id="73" Weight="1" />
+			<TargetMob Name="Inconspicuous Imp" Id="456" Weight="2" />		
+        </TargetMobs>
+	</GrindArea>
+  </GrindAreas>		
+  <CodeChunks>
+  	<CodeChunk Name="CultistOrb1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000061).Interact();
+			await Coroutine.Sleep(3000);
+      ]]>	  
+	</CodeChunk>
+  	<CodeChunk Name="CultistOrb2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000062).Interact();
+			await Coroutine.Sleep(3000);
+      ]]>	 	  
+	</CodeChunk>
+  	<CodeChunk Name="CultistRosary">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000057).Interact();
+			await Coroutine.Sleep(3000);
+      ]]>	 	  
+	</CodeChunk>
+  	<CodeChunk Name="SealedBarrier">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000060).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>	 	  
+	</CodeChunk>
+  	<CodeChunk Name="CultistOrb3">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000067).Interact();
+			await Coroutine.Sleep(3000);
+      ]]>	 	  
+	</CodeChunk>
+  	<CodeChunk Name="CultistOrb4">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000063).Interact();
+			await Coroutine.Sleep(3000);
+      ]]>	 	  
+	</CodeChunk>
+		<CodeChunk Name="WaitForMindBlast">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(73);
+				var target = GameObjectManager.GetObjectByNPCId(73) as BattleCharacter;
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+						}
+						
+					Logging.WriteDiagnostic("Waiting for casting.");
+					await Coroutine.Wait(60000, () => target.SpellCastInfo.Name == "Mind Blast");
+					if (target.SpellCastInfo.Name == "Mind Blast")
+						{
+							Logging.WriteDiagnostic("Target is Mind Blast, starting combat.");
+							await Coroutine.Wait(5000, () => !target.IsCasting);
+						}	
+			]]>			
+		</CodeChunk>	
+  </CodeChunks>  
+</Profile>  

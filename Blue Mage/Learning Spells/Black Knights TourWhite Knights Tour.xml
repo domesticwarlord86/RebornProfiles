@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Vault
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+<Profile>
+  <Name>The Vault</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18310)) or not (ActionManager.KnownBlueMageSpells.ContainsKey(18311))">
+		
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="34"/>
+		</If>
+		
+		<If condition="DutyManager.InInstance">
+			<!-- Defeat Ser Adelphel 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Defeat Ser Adelphel 0/1" />
+				<BotSettings AutoEquip="1" />
+				<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,18318,23264,23265,11403,11429,23277,11419,18319" Clear="true"/>
+				<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411, Bristle 11393, Whistle 18309, Flying Sardine 11423, Plaincracker 11391 -->															
+				<MoveTo XYZ="-15.94501, -291.957, -99.10293" />
+				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(0) == 0"/> <!-- Fight first boss -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-0.01531982,-291.9814,-112.6573" />
+					<LLOpenChest/>
+				</If>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="76.15771,-263.9963,-31.6015" />
+					<LLOpenChest/>
+				</If>
+				<NoCombatMoveTo XYZ="90.28775, -263.9768, -0.5300576" />
+				<WaitTimer WaitTime="1" />
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="67.97888,-263.9963,-14.96918" />
+					<LLOpenChest/>
+				</If>
+				<MoveTo XYZ="103.7123, -263.8749, 0.1500739" />
+				<LLChangeZone Heading="1.576573"/>			
+			</If>
+
+			<!-- Defeat Ser Grinnaux 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Defeat Ser Grinnaux 0/1" />
+				<NoCombatMoveTo XYZ="26.10695, 1.192093E-07, 72.03249" />
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>				
+			</If>	
+		</If>
+	</While>
+
+	<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11394))">
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>
+
+	
+  </Order>
+  <GrindAreas>
+			<GrindArea name="FirstBoss">
+				<Hotspots>
+					<Hotspot Radius="90" XYZ="-15.94501, -291.957, -99.10293" name="Name"/>
+				</Hotspots>
+				<TargetMobs>
+					<TargetMob Id="3849" Weight="1"/> <!-- Ser Adelphel Brightblade -->
+					<TargetMob Id="3841" Weight="1"/> <!-- Vault Ostiary -->
+					<TargetMob Id="3843" Weight="1"/> <!-- Vault Deacon -->
+				</TargetMobs>
+			</GrindArea>	
+		<GrindArea name="SecondBoss">
+					<Hotspots>
+				<Hotspot Radius="200" XYZ="-4.5445,-2.384186E-07,71.97564" />
+					</Hotspots>
+					<TargetMobs>
+				<TargetMob Id="3850" Weight="2" /> <!-- Ser Grinnaux the Bull -->				
+					</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+					<Hotspots>
+				<Hotspot Radius="200" XYZ="0.01867887,300,-4.105208" />
+					</Hotspots>
+					<TargetMobs>
+				<TargetMob Id="3642" Weight="1" /> <!-- Ser Charibert  -->		
+					</TargetMobs>
+		</GrindArea>	
+  </GrindAreas>		
+  <CodeChunks>
+  </CodeChunks>  
+</Profile>  

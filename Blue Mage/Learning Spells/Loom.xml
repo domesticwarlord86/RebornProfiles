@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Tam-Tara Deepcroft
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Tam-Tara Deepcroft (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- [Unlock The Tam-Tara Deepcroft (Hard)] Corpse Groom -->
+    <If Condition="not HasQuest(67060) and not IsQuestCompleted(67060)">
+      <GetTo ZoneId="130" XYZ="51.80443, 4.099995, -151.1039"/>
+      <If Condition="IsQuestAcceptQualified(67060)">
+        <PickupQuest QuestId="67060" NpcId="1009366" XYZ="52.75037, 4.099995, -152.9107"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67060) and not IsQuestCompleted(67060) and GetQuestStep(67060) == 1">
+      <LisbethTravel Area="Eastern Thanalan" Position="-411.9761, -30.94185, 37.88881"/>
+      <UseObject NpcId="2004329" XYZ="-409.0792, -30.47229, 36.75891" QuestId="67060" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67060) and not IsQuestCompleted(67060) and GetQuestStep(67060) == 2">
+      <LisbethTravel Area="Central Shroud" Position="-110.2082, -39.8921, 337.0283"/>
+      <TalkTo NpcId="1001173" XYZ="-113.2372, -39.73311, 338.6434" QuestId="67060" StepId="2"/>
+    </If>
+	
+	<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11401))">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="24"/>
+		</If>
+		<If condition="DutyManager.InInstance">
+			<!-- Clear the interring chamber 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Clear the interring chamber 0/1" />
+				<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>
+				<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411, Bristle 11393, Whistle 18309, Flying Sardine 11423, Plaincracker 11391 -->													
+				<BotSettings AutoEquip="1" />	
+				<MoveTo XYZ="23.0666, 16.28374, 78.035" />
+				<Grind GrindRef="FirstBoss" while="GetInstanceTodo(0) == 0"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>			
+			</If>
+			
+			<!-- Clear the Tomb of King Galvanth the Dominator 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Clear the Tomb of King Galvanth the Dominator 0/1" />
+				<MoveTo XYZ="78.67669,17.79322,150.2489" />
+				<UseObject NpcID="2004090" XYZ="78.67669,17.79322,150.2489" Radius="25" condition="GameObjectManager.GetObjectByNPCId(2004090).IsTargetable"/>
+				<NoCombatMoveTo XYZ="59.88009, 16.27298, 122.349" />
+				<MoveTo XYZ="72.42445,18.38708,48.38635" />
+				<UseObject NpcID="2004091" XYZ="72.42445,18.38708,48.38635" Radius="25" condition="GameObjectManager.GetObjectByNPCId(2004091).IsTargetable"/>
+				<NoCombatMoveTo XYZ="86.1814, 16.27811, 93.164" />
+				<MoveTo XYZ="146.6849,17.99036,69.56287" />
+				<UseObject NpcID="2004092" XYZ="146.6849,17.99036,69.56287" Radius="25" condition="GameObjectManager.GetObjectByNPCId(2004092).IsTargetable"/>
+				<NoCombatMoveTo XYZ="103.7061, 16.34676, 66.70588" />
+				<MoveTo XYZ="93.77705, 18.31833, 37.67412" />
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>			
+			</If>
+		</If>
+	</While>
+	
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(11401))">		
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>		
+	
+	<!-- Turn In Unlock Quest -->
+	<If Condition="HasQuest(67060) and not IsQuestCompleted(67060) and GetQuestStep(67060) == 255">
+	  <GetTo ZoneId="148" XYZ="-95.1187, -40.04695, 322.5074"/>
+	  <TurnIn QuestId="67060" NpcId="1009367" XYZ="-94.52972, -40.05186, 324.5747"/>
+	</If>			
+		
+	
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="39.78007,16.28374,98.56228" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2852" Weight="1" />	<!-- Liavinne  -->	
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="87.9071,22.101,-44.26648" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2855" Weight="1" />	<!-- Spare Body  -->	
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-48.11482,14.055,-10.61427" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2860" Weight="1" />	<!-- Avere Bravearm  -->	
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>		
+  <CodeChunks>
+  </CodeChunks>  
+</Profile>  

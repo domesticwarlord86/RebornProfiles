@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Pharos Sirius (Hard)
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Pharos Sirius (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18322))">
+	
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="40"/>
+		</If>	
+	
+		<If condition="DutyManager.InInstance">
+		
+			<!-- Arrive in the fuel chamber 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Arrive in the fuel chamber 0/1" />
+				<BotSettings AutoEquip="1" />	
+				<MoveTo XYZ="-0.1046903, 140.0814, -20.88989" />
+				<MoveTo XYZ="2.677208, 93.01654, -28.18416" usemesh="false" />
+			</If>
+
+			<!-- Slay the ghrah luminary 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Slay the ghrah luminary 0/1" />
+				<MoveTo XYZ="0.3920374, 90.00001, -16.40562" usemesh="false" />
+				<Grind GrindRef="FirstBoss" while="GetInstanceTodo(1) == 0"/> <!-- Fight the first boss -->
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>				
+			</If>	
+
+
+
+		</If>
+	</While>	
+
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(18322))">
+		<While condition="DutyManager.InInstance">	
+			<WaitTimer WaitTime="5" />
+			<LLLeaveDuty/>
+		</While>	
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="0.3920374, 90.00001, -16.40562" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="4567" Weight="1"/> <!-- Ghrah Luminary -->
+        <TargetMob Id="4568" Weight="100"/> <!-- Corruption -->
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks> 
+  </CodeChunks>
+</Profile>

@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Haukke Manor
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Haukke Manor</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11414))">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="6"/>
+		</If>
+		<If condition="DutyManager.InInstance">
+			<!-- Find the green key 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0">
+				<Log Message="Find the green key 0/1" />
+				<BotSettings AutoEquip="1" />
+				<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>
+				<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411, Bristle 11393, Whistle 18309, Flying Sardine 11423, Plaincracker 11391 -->												
+				<MoveTo XYZ="71.39691,-0.001626727,28.64114" />
+				<UseObject NpcId="2000302" Radius="50" XYZ="71.39691,-0.001626727,28.64114" condition="GetInstanceTodo(0) == 0"/>
+				<MoveTo XYZ="0.5093936,0.1435532,56.9761" />
+				<While condition="GameObjectManager.GetObjectByNPCId(2000329).IsVisible">
+					<RunCode name="LockedDoor1"/>
+				</While>
+				<MoveTo XYZ="-52.42435,-0.002903374,22.51591" />
+				<UseObject NpcId="2000304" Radius="50" XYZ="-52.42435,-0.002903374,22.51591" condition="GetInstanceTodo(0) == 0"/>
+				<MoveTo XYZ="-18.92133, -1.192093E-07, 0.3697742"/>
+				<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(423).CurrentHealth == 0"/> <!-- Fight First Boss -->
+				<UseObject NpcId="2000324" Radius="50" XYZ="2.176069,0,0.1644126" condition="GetInstanceTodo(1) == 0"/>
+				<If Condition="&openchest; == 1">
+					<RunCode name="OpenChest" />
+				</If>			
+			</If>
+			
+			<!-- Find the yellow key 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Find the yellow key 0/1" />
+				<MoveTo XYZ="-48.38203,0.4250437,-0.01530602" />
+				<If condition="GameObjectManager.GetObjectByNPCId(2000355).IsVisible">
+					<RunCode name="IvyDoor"/>
+				</If>
+				<NoCombatMoveTo XYZ="-1.89994,-18.6151,34.6209" />
+				<While condition="GameObjectManager.GetObjectByNPCId(2000343).IsVisible">
+					<RunCode name="LockedDoor2"/>
+				</While>
+				<MoveTo XYZ="-12.3487,-18.80323,52.29088" />
+				<UseObject NpcId="2000325" Radius="50" XYZ="-12.3487,-18.80323,52.29088" condition="GetInstanceTodo(2) == 0"/>	<!-- Pickup Yellow Key -->
+			</If>
+
+			<!-- Find the bloody parchment 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+				<Log Message="Find the bloody parchment 0/1" />		
+				<MoveTo XYZ="-25.55891,-18.57028,-0.07634211" />
+				<While condition="GameObjectManager.GetObjectByNPCId(2000356).IsVisible">
+					<RunCode name="CarnationDoor"/>
+				</While>
+				<MoveTo XYZ="-18.87221, -18.93448, -0.6442814"/>	
+				<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(2001235)"/> <!-- Fight Second Boss -->
+				<If Condition="&openchest; == 1">
+					<RunCode name="OpenChest" />
+				</If>
+				<UseObject NpcId="2001235" Radius="50" XYZ="3.950047,-18.77998,-1.937151" condition="GetInstanceTodo(3) == 0"/>	<!-- Pickup bloody parchment -->
+				<If condition="GetInstanceTodo(3) == 1 and ActionManager.IsReturnReady">
+					<RunCode name="Return"/>
+				</If>	
+			</If>
+			
+			<!-- Defeat Lady Amandine 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+				<Log Message="Defeat Lady Amandine 0/1" />
+				<BotSettings AutoEquip="0" />					
+				<MoveTo XYZ="46.69981,9.875019,-0.2538557" />
+				<While condition="GameObjectManager.GetObjectByNPCId(2001233).IsVisible">
+					<RunCode name="SealedBarrier"/>
+				</While>
+				<SetBluActive Spells="11385,11406,18300,11407,11423" Clear="true"/> <!-- Turn off everything but Water Cannon -->
+				<MoveTo XYZ="30.17896,16.99996,0.192634" />
+				<MoveTo XYZ="17.09274, 17, -0.02151978"/>
+				<While condition="GetInstanceTodo(4) == 0">
+					<LLToast message="Lower boss health to below 30% to spawn Manor Sentry."/> let him cast Level 5 Petrify
+					<LLToast message="Manor Sentry will case Level 5 Petrify at 20% health."/>
+					<LLToast message="Kill yourself with Final Sting if you don't learn it."/>
+					<WaitTimer WaitTime="26" />
+				</While>	
+			</If>
+
+			<If Condition="GetInstanceTodo(4) == 1">
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>			
+			</If>					
+		</If>
+	</While>
+	
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(11414))">
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>	
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="10.49644,-2.384186E-07,3.150471E-10" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="423" Weight="1" /> <!-- Manor Claviger -->
+        </TargetMobs>
+	</GrindArea>			
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="17.23047,-18.8,-4" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="427" Weight="1" /> <!-- Manor Steward -->
+			<TargetMob Id="426" Weight="1" /> <!-- Manor Jester -->			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-17.54996,17,-0.01530602" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="422" Weight="1" /> <!-- Lady Amandine -->			
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+	<CodeChunk Name="LockedDoor1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000329).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="IvyDoor">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000355).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="LockedDoor2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000343).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="CarnationDoor">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000356).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="SealedBarrier">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001233).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="Return">
+		<![CDATA[
+			ActionManager.DoAction(ActionType.General, 8, Core.Me);
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);
+			await Coroutine.Wait(20000, () => CommonBehaviors.IsLoading);
+			if (CommonBehaviors.IsLoading)
+			{
+				await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+			}
+      ]]>
+	</CodeChunk>	
+  </CodeChunks>
+</Profile>

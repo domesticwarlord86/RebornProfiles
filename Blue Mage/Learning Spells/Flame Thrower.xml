@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Brayflox's Longstop (Hard)
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Brayflox's Longstop (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+     <!-- [Unlock Brayflox's Longstop (Hard)] Curds and Slay -->
+    <If Condition="not HasQuest(66947) and not IsQuestCompleted(66947)">
+      <GetTo ZoneId="156" XYZ="32.51, 21.27503, -636.2501"/>
+      <If Condition="IsQuestAcceptQualified(66947)">
+        <PickupQuest QuestId="66947" NpcId="1006975" XYZ="32.82214, 21.25273, -635.462"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66947) and not IsQuestCompleted(66947) and GetQuestStep(66947) == 1">
+      <GetTo ZoneId="137" XYZ="559.1483, 20.75329, 455.952"/>
+      <TalkTo NpcId="1006266" XYZ="560.3571, 20.75329, 455.8937" QuestId="66947" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(66947) and not IsQuestCompleted(66947) and GetQuestStep(66947) == 255">
+      <LisbethTravel Area="Eastern La Noscea (Raincatcher Gully)" Position="-331.2567, 69.03585, 155.8954"/>
+      <TurnIn QuestId="66947" NpcId="1006268" XYZ="-334.6151, 69.69995, 153.7957"/>
+    </If>
+
+	<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11402))">	
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="20" />
+		</If>
+		<If condition="DutyManager.InInstance">
+			
+
+			<!-- Farm first Tiny Key -->
+			<If Condition="GetInstanceTodo(0) == 0 and GetInstanceTodo(1) == 0">
+				<Log Message="Farming first Tiny Key" />
+				<BotSettings AutoEquip="1" />	
+				<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>
+				<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411, Bristle 11393, Whistle 18309, Flying Sardine 11423, Plaincracker 11391 -->					
+				<NoCombatMoveTo XYZ="-81.80727, -2.381622, 0.4254619" />
+				<NoCombatMoveTo XYZ="-43.06401, -2.381622, 54.97089" />
+				<NoCombatMoveTo XYZ="-8.675864, -0.7706152, 0.8579024" />
+				<Grind GrindRef="FarmTinyKey" While="not GameObjectManager.GetObjectByNPCId(2660).CurrentHealth == 0"/>
+				<UseObject NpcIds="2002325" radius="200" XYZ="-7.703425,-1.383872,-2.724141" condition="GetInstanceTodo(0) == 0"/>
+			</If>	
+
+			<!-- Clear Runstop Frontblock 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0">
+				<Log Message="Clear Runstop Frontblock 0/1" />
+				<NoCombatMoveTo XYZ="105.253, -0.1222783, 12.77754" distance="2"/> <!-- Move to Headgate -->		
+				<While condition="GameObjectManager.GetObjectByNPCId(2002182).IsTargetable">
+					<MoveTo XYZ="105.253, -0.1222783, 12.77754" distance="2"/>
+					<UseTransport NpcId="2002182" InteractDistance="3.5" XYZ="105.253, -0.1222783, 12.77754" />
+				</While>	
+				<MoveTo XYZ="113.9325, -2.48531, -17.92782"/> <!-- Move to first boss -->
+				<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(2548).CurrentHealth == 0"/> <!-- Fight First Boss -->	
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+			</If>		
+				
+			<!-- Liberate captured goblins 0/3 -->
+			<If Condition="GetInstanceTodo(2) == 0">			
+				<Log Message="Liberate captured goblins 0/3" />
+				<Grind GrindRef="CapturedGoblins" While="GetInstanceTodo(2) &lt; 3"/> <!-- Liberate Captured Goblins -->				
+				<MoveTo XYZ="44.75682, 7.015042, -128.6179"/> <!-- Move to cave entrance -->
+				<WaitTimer WaitTime="13"/>
+				<LLChangeZone Heading="3.190046"/>
+			</If>
+			
+			<!-- Clear Brayflox's Drossdump 0/1 -->
+			<If Condition="GetInstanceTodo(3) == 0">			
+				<Log Message="Clear Brayflox's Drossdump 0/1" />
+				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0" /> --> <!-- Kill second boss -->
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>			
+			</If>
+			
+			<!-- Open Swiftmake Checkgates 0/2 -->
+			<If Condition="GetInstanceTodo(4) == 0">			
+				<Log Message="Open Swiftmake Checkgates 0/2" />
+				<NoCombatMoveTo XYZ="-82.54991, 14.92233, -129.3664"/> <!-- Move to Tiny Key 2 -->
+				<UseObject NpcIds="2002642" radius="200" XYZ="-88.23793,13.14307,-122.5465" condition="GetInstanceTodo(0) == 0"/>
+				<NoCombatMoveTo XYZ="-95.26472,12.88843,-122.5933"/> <!-- Move to Swiftmake Checkgate 1 -->			
+				<While condition="GameObjectManager.GetObjectByNPCId(2002184).IsTargetable">
+					<MoveTo XYZ="-95.26472,12.88843,-122.5933" distance="2"/> <!-- Move to Swiftmake Checkgate 1 -->
+					<UseTransport NpcId="2002184" InteractDistance="3.5" XYZ="-95.26472,12.88843,-122.5933" />						
+				</While>	
+			</If>	
+				
+			<!-- Open Swiftmake Checkgates 1/2 -->
+			<If Condition="GetInstanceTodo(4) == 1">			
+				<Log Message="Open Swiftmake Checkgates 1/2" />
+				<MoveTo XYZ="-106.2929, 13.08915, -127.7986" offmesh="false"/> <!-- Move to other side of gate -->
+				<MoveTo XYZ="-111.197, 14.417, -138.6074"/>
+				<MoveTo XYZ="-97.07648, 20.52424, -170.3631"/>
+				<MoveTo XYZ="-101.2143, 20.73654, -179.9232"/> <!-- Move to Tiny Key 3 -->
+				<UseObject InCombat="true" NpcIds="2002644" radius="200" XYZ="-93.87576,20.48067,-173.7249" condition="GetInstanceTodo(0) == 0"/>
+				<MoveTo XYZ="-101.1448, 21.29802, -189.0635" /> <!-- Move to Swiftmake Checkgate 2 -->
+				<While condition="GameObjectManager.GetObjectByNPCId(2002884).IsTargetable">
+					<MoveTo XYZ="-101.1448, 21.29802, -189.0635" distance="2"/> <!-- Move to Swiftmake Checkgate 2 -->
+					<UseTransport NpcId="2002884" InteractDistance="3.5" XYZ="-101.1448, 21.29802, -189.0635" />	
+				</While>		
+			</If>			
+
+			<!-- Defeat the gobmachine G-VI 0/1 -->
+			<If Condition="GetInstanceTodo(5) == 0">			
+				<Log Message="Defeat the gobmachine G-VI 0/1" />
+				<BotSettings AutoEquip="0" />
+				<SetBluActive Spells="11385,11406,18300" Clear="true"/> <!-- Turn off everything but Water Cannon -->	
+				<MoveTo XYZ="-44.58178, 34.72327, -235.4707"/> <!-- Move to final boss -->
+				<RunCode name="WaitForFlamethrower"/>
+				<Grind GrindRef="FinalBoss" While="GetInstanceTodo(5) == 0" /> <!-- Kill second boss -->			
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>			
+			</If>		
+		</If>
+	</While>	
+
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(11402))">		
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>	
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FarmTinyKey">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-11.04911, -1.08387, -0.7577389" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2660" Weight="1"/> <!-- Illuminati Soldier -->
+        <TargetMob Id="1289" Weight="1"/> <!-- Painted Colibri -->
+        <TargetMob Id="1297" Weight="1"/> <!-- Deep Jungle Coeurl -->
+        <TargetMob Id="1288" Weight="1"/> <!-- Raveled Raincatcher -->
+        <TargetMob Id="2659" Weight="1"/> <!-- Eoraptor -->
+      </TargetMobs>
+    </GrindArea>	
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="111.4667,-2.443486,-40.1763" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Illuminati Commander" Id="2548" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>  
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-22.56818,25.52351,-174.3038" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2549" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+    <GrindArea name="CapturedGoblins">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="91.8576, 4.53233, -104.8914" name="FirstCage"/>
+		<Hotspot Radius="90" XYZ="34.06355, 7.038593, -85.85194" name="SecondCage"/>
+		<Hotspot Radius="90" XYZ="28.31378, 6.905986, -118.8425" name="ThirdCage"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2660" Weight="1"/> <!-- Illuminati Soldier -->
+        <TargetMob Id="2656" Weight="1"/> <!-- Illuminati Glider -->
+        <TargetMob Id="1297" Weight="1"/> <!-- Deep Jungle Coeurl -->
+      </TargetMobs>
+    </GrindArea>	
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-26.09322,35.28735,-228.3997" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2547" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>  
+		<CodeChunk Name="WaitForFlamethrower">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(2547);
+				var target = GameObjectManager.GetObjectByNPCId(2547) as BattleCharacter;
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+						}
+						
+					Logging.WriteDiagnostic("Waiting for casting.");
+					await Coroutine.Wait(60000, () => target.SpellCastInfo.Name == "Flame Thrower");
+					if (target.SpellCastInfo.Name == "Flame Thrower")
+						{
+							Logging.WriteDiagnostic("Target is casting Flame Thrower, starting combat.");
+							await Coroutine.Wait(5000, () => !target.IsCasting);
+						}					
+			]]>			
+		</CodeChunk>				
+  </CodeChunks>
+</Profile>

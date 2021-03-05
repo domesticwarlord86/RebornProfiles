@@ -156,11 +156,6 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 			await Coroutine.Sleep(26000);
 		  ]]>
 		</CodeChunk>
-		<CodeChunk Name="ManualAcornBomb"><![CDATA[ 
-			Core.OverlayManager.AddToast(() => "Please manually learn Acorn Bomb from Treant Sapling.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
-			await Coroutine.Sleep(26000);
-		  ]]>
-		</CodeChunk>
 		<CodeChunk Name="Manual1000Needles"><![CDATA[ 
 			Core.OverlayManager.AddToast(() => "Please manually learn 1000 Needles from Sabotender Bailaor.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
 			await Coroutine.Sleep(26000);
@@ -476,21 +471,19 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 	<!-- Grind to 15 if needed -->	
 		<If Condition="(ActionManager.KnownBlueMageSpells.ContainsKey(11412)) and (Core.Player.ClassLevel &lt; 15) and IsQuestCompleted(68729)">
 			<LogMessage Message="Starting Grind to Level 15" />
-			<If condition="not IsOnMap(141)">
-					<LisbethTravel ZoneId="141" XYZ="276.5776, -19.71835, -125.6576" />
-			</If>
-				<Grind grindRef="ToxicToad" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 15"/>
+			<LisbethTravel ZoneId="141" XYZ="276.5776, -19.71835, -125.6576" />
+			<Grind grindRef="ToxicToad" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 15"/>
 		</If>	
 		
 	<!-- Learn Acorn Bomb -->
 		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11392) and (Core.Player.ClassLevel &gt; 14)">
 			<LogMessage Message="Starting Learn Acorn Bomb" />
-			<If condition="not IsOnMap(148)">
-					<TeleportTo name="Summerford Farms" aetheryteId="3" force="true"/>
-			</If>
-				<NoCombatMoveTo xyz="394.453949,17.85671,86.986427" name="TreantSapling"/>
-				<RunCode Name="ManualAcornBomb"/>
-				<!--<Grind grindRef="TreantSapling" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11392) and Core.Player.ClassLevel &lt; 17"/>-->
+			<LisbethTravel ZoneId="148" xyz="394.453949,17.85671,86.986427" name="TreantSapling"/>
+			<While condition="">
+				<LLToast message="Please manually learn Acorn Bomb from Treant Sapling."/>
+				<WaitTimer WaitTime="26" />
+			</While>
+			<!--<Grind grindRef="TreantSapling" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11392) and Core.Player.ClassLevel &lt; 17"/>-->
 		</If>
 		
 	<!-- Grind to 19 -->	
@@ -748,86 +741,60 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 			<LogMessage Message="Starting Grind to 45"/>
 			<BotSettings AutoEquip="1" />
 			<SetBluActive Spells="11385,11395,11412,11410,11397,11406"/> <!-- Set Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, 1000 Needles 11397, White Wind 11406 -->
-			<If condition="not IsOnMap(137)">
-				<LisbethTravel ZoneId="137" XYZ="-140.8507, 44.96326, 181.646" />
-			</If>
-				<NoCombatMoveTo xyz="-140.8507, 44.96326, 181.646" name="EasternLaNoscea3033"/>
-				<Grind grindRef="EasternLaNoscea3033" postCombatDelay="1" Condition="Core.Player.ClassLevel &lt; 33"/>		
+			<LisbethTravel ZoneId="137" XYZ="-140.8507, 44.96326, 181.646" />
+			<Grind grindRef="EasternLaNoscea3033" while="Core.Player.ClassLevel &lt; 33"/>		
 		</If>
 		<If Condition="(Core.Player.ClassLevel &gt; 32) and (Core.Player.ClassLevel &lt; 34)">				
-			<If condition="not IsOnMap(137)">
-				<LisbethTravel ZoneId="137" XYZ="-202.4171, 49.80733, 594.4215" />
-			</If>
-				<BotSettings AutoEquip="1" />
-				<NoCombatMoveTo xyz="-202.4171, 49.80733, 594.4215" name="EasternLaNoscea34"/>
-				<Grind grindRef="EasternLaNoscea34" postCombatDelay="1" Condition="Core.Player.ClassLevel &lt; 34"/>		
+			<BotSettings AutoEquip="1" />
+			<LisbethTravel ZoneId="137" XYZ="-202.4171, 49.80733, 594.4215" />
+			<Grind grindRef="EasternLaNoscea34" while="Core.Player.ClassLevel &lt; 34"/>		
 		</If>
 		<If Condition="(Core.Player.ClassLevel &gt; 33) and (Core.Player.ClassLevel &lt; 38)">				
-			<If condition="not IsOnMap(155)">
-				<LisbethTravel ZoneId="155" XYZ="358.5911, 314.8157, -402.1956" />
-			</If>
-				<BotSettings AutoEquip="1" />
-				<NoCombatMoveTo xyz="358.5911, 314.8157, -402.1956" name="CentralCoerthas37"/>
-				<Grind grindRef="CentralCoerthas37" postCombatDelay="1" Condition="Core.Player.ClassLevel &lt; 38"/>		
+			<BotSettings AutoEquip="1" />
+			<LisbethTravel ZoneId="155" XYZ="358.5911, 314.8157, -402.1956" />
+			<Grind grindRef="CentralCoerthas37" while="Core.Player.ClassLevel &lt; 38"/>		
 		</If>
 		<If Condition="(Core.Player.ClassLevel &gt; 37) and (Core.Player.ClassLevel &lt; 39)">				
-			<If condition="not IsOnMap(155)">
-				<LisbethTravel ZoneId="155" XYZ="123.6318, 288.5168, -233.6251" />
-			</If>
-				<BotSettings AutoEquip="1" />
-				<NoCombatMoveTo xyz="123.6318, 288.5168, -233.6251" name="CentralCoerthas39"/>
-				<Grind grindRef="CentralCoerthas39" postCombatDelay="1" Condition="Core.Player.ClassLevel &lt; 39"/>		
+			<BotSettings AutoEquip="1" />
+			<LisbethTravel ZoneId="155" XYZ="123.6318, 288.5168, -233.6251" />
+			<Grind grindRef="CentralCoerthas39" while="Core.Player.ClassLevel &lt; 39"/>		
 		</If>
-		<If Condition="(Core.Player.ClassLevel &gt; 38) and (Core.Player.ClassLevel &lt; 41)">				
-			<If condition="not IsOnMap(155)">
-				<LisbethTravel ZoneId="155" XYZ="-558.7783, 204.1571, -320.1446" />
-			</If>
-				<BotSettings AutoEquip="1" />
-				<NoCombatMoveTo xyz="-558.7783, 204.1571, -320.1446" name="CentralCoerthas41"/>
-				<Grind grindRef="CentralCoerthas41" postCombatDelay="1" Condition="Core.Player.ClassLevel &lt; 41"/>		
+		<If Condition="(Core.Player.ClassLevel &gt; 38) and (Core.Player.ClassLevel &lt; 41)">
+			<BotSettings AutoEquip="1" />
+			<LisbethTravel ZoneId="155" XYZ="-558.7783, 204.1571, -320.1446" />
+			<Grind grindRef="CentralCoerthas41" while="Core.Player.ClassLevel &lt; 41"/>		
 		</If>
 		
 	<!-- Learn Pecular Light -->
-		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11421) and Core.Player.ClassLevel &gt; 40">
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11421) and Core.Player.ClassLevel &gt; 43">
 			<LogMessage Message="Starting Learn Pecular Light"/>
-			<If condition="not IsOnMap(156)">
-				<TeleportTo name="Revenant's Toll" aetheryteId="24" force="true" />
-			</If>
-			<NoCombatMoveTo xyz="-464.3265, -9.696238, -534.2192" name="Lentic_Mudpuppy"/>
+			<LisbethTravel ZoneId="156" xyz="-464.3265, -9.696238, -534.2192" name="Lentic_Mudpuppy"/>
 			<Grind grindRef="Lentic_Mudpuppy" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11421)" />
 		</If>		
 
 	<!-- Turn off 1000 Needles If Has Abyssal Transfixion -->		
 		<If condition="ActionManager.KnownBlueMageSpells.ContainsKey(18300)">
-			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>  <!-- Turn off 1000 Needles -->
 			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411 -->	
 		</If>	
 
 	<!-- Turn off 1000 Needles above 50 -->		
 		<If condition="Core.Player.ClassLevel &gt; 49">
-			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>  <!-- Turn off 1000 Needles -->
 			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411, White Wind 11406 -->	
 		</If>			
 		
 	<!-- Grind to 50 -->	
 		<If Condition="(Core.Player.ClassLevel &gt; 40) and (Core.Player.ClassLevel &lt; 47)">	
-			<LogMessage Message="Starting Grind to 47"/>
-			<If condition="not IsOnMap(152)">
-				<LisbethTravel ZoneId="152" XYZ="286.695, -12.7683, -142.6935" />
-			</If>
-			
-				<BotSettings AutoEquip="1" />
-				<NoCombatMoveTo xyz="286.695, -12.7683, -142.6935" name="Larkscall46"/>
-				<Grind grindRef="Larkscall46" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 47"/>		
+			<BotSettings AutoEquip="1" />
+			<LisbethTravel ZoneId="152" XYZ="286.695, -12.7683, -142.6935" />
+			<Grind grindRef="Larkscall46" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 47"/>		
 		</If>
 		<If Condition="(Core.Player.ClassLevel &gt; 46) and (Core.Player.ClassLevel &lt; 50)">
 			<LogMessage Message="Starting Grind To 50"/>
-			<If condition="not IsOnMap(138)">
-				<TeleportTo name="Aleport" aetheryteId="14" force="true"/>
-			</If>
-				<BotSettings AutoEquip="1" />
-				<LisbethTravel ZoneId="138" XYZ="-347.2093, -39.91124, -307.5996"/>		
-				<Grind grindRef="Sapsa50" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 50"/>		
+			<BotSettings AutoEquip="1" />
+			<LisbethTravel ZoneId="138" XYZ="-347.2093, -39.91124, -307.5996"/>		
+			<Grind grindRef="Sapsa50" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 50"/>		
 		</If>		
 
 	<!-- Learn Drill Cannons -->
@@ -836,17 +803,6 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 			<LisbethTravel ZoneId="147" XYZ="-246.2222, 81.75178, -225.6007" />
 			<Grind grindRef="Vanguard" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(11398)"/>
 		</If>
-
-	<!-- Learn Abyssal Transfixion -->
-	<!--
-		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(1830) and Core.Player.ClassLevel &gt; 49">
-			<LogMessage Message="Starting Learn Abyssal Transfixion"/>
-			<If condition="not IsOnMap(156)">
-				<LisbethTravel ZoneId="156" XYZ="417.0544, -5.971292, -446.3466" />
-			</If>
-				<NoCombatMoveTo xyz="417.0544, -5.971292, -446.3466"/>
-				
-		</If>	-->
 
 	<!-- Learn Electrogenesis -->
 		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(18298) and Core.Player.ClassLevel &gt; 49">
@@ -860,21 +816,27 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 			<LogMessage Message="Starting Learn Chip"/>
 			<LisbethTravel ZoneId="401" XYZ="-123.0217, -165.98, 644.0829" />
 			<Grind grindRef="Paissa" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(18301)"/>
+		</If>
+
+	<!-- Learn the Look -->
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11399) and Core.Player.ClassLevel &gt; 49">
+			<LogMessage Message="Starting Learn the Look"/>
+			<LLoadProfile Path="Learning Spells/Necrologos The Liminal Ones.xml"/>	
 		</If>		
 		
 	<!-- Grind to 60 -->	
 		<If Condition="(Core.Player.ClassLevel &gt; 49) and (Core.Player.ClassLevel &lt; 52)">	
 			<LogMessage Message="Starting grind to 52"/>
-			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>  <!-- Turn off 1000 Needles -->
 			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411 -->
 			<BotSettings AutoEquip="1" />
-			<LisbethTravel ZoneId="398" xyz="719.0096, -49.74113, 62.89742"/>
+			<LisbethTravel Area="The Dravanian Forelands" Position="766.8146, -40.50135, 159.433"/>
 			<Grind grindRef="ChocoboForest52" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 52"/>		
 		</If>
 		
 		<If Condition="(Core.Player.ClassLevel &gt; 51) and (Core.Player.ClassLevel &lt; 56)">
 			<LogMessage Message="Starting grind to 56"/>
-			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>  <!-- Turn off 1000 Needles -->
 			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411 -->
 			<BotSettings AutoEquip="1" />
 			<LisbethTravel ZoneId="400" xyz="429.4695, 24.61826, 379.8786"/>
@@ -935,7 +897,199 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 			<LogMessage Message="Starting learn Frog Legs"/>
 			<LisbethTravel ZoneId="399" XYZ="-428.6801, 138.1145, 504.5106" />
 			<Grind grindRef="Poroggo" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(18307)"/>
+		</If>
+		
+	<!-- Learn Abyssal Transfixion -->
+		<If condition="not ActionManager.KnownBlueMageSpells.ContainsKey(18300) and Core.Player.ClassLevel &gt; 59">
+			<LogMessage Message="Starting Learn Abyssal Transfixion"/>
+			<LLoadProfile Path="Learning Spells/Necrologos His Treasure Forhelen.xml"/>	
+		</If>		
+
+	<!-- Grind to 63 -->	
+		<If Condition="(Core.Player.ClassLevel &gt; 59) and (Core.Player.ClassLevel &lt; 64)">	
+			<LogMessage Message="Starting grind to 63"/>
+			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411, Bristle 11393, Whistle 18309, Flying Sardine 11423, Plaincracker 11391 -->
+			<BotSettings AutoEquip="1" />
+			<LisbethTravel Area="The Ruby Sea" Position="-635.4999, 23.76061, -644.5583"/>
+			<Grind grindRef="RubySea63" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 64"/>		
 		</If>	
+		
+	<!-- Learn Tingle -->
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(23265)) and (Core.Player.ClassLevel &gt; 63)">
+			<LogMessage Message="Starting learn Tingle"/>
+			<LisbethTravel Area="Yanxia (Fierce)" Position="279.6038, -14.689, -687.0553"/>
+			<Grind grindRef="TripleTingle" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(23265)"/>
+		</If>
+
+	<!-- Learn Triple Trident -->
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(23264)) and (Core.Player.ClassLevel &gt; 63)">
+			<LogMessage Message="Starting learn Tingle"/>
+			<LisbethTravel Area="Yanxia (Fierce)" Position="279.6038, -14.689, -687.0553"/>
+			<Grind grindRef="TripleTingle" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(23264)"/>
+		</If>		
+
+	<!-- Grind to 68 -->	
+		<If Condition="(Core.Player.ClassLevel &gt; 63) and (Core.Player.ClassLevel &lt; 68)">	
+			<LogMessage Message="Starting grind to 68"/>
+			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411, Bristle 11393, Whistle 18309, Flying Sardine 11423, Plaincracker 11391, Exuviation 18318, Tingle 23264, Tripple Trident 23265 -->
+			<BotSettings AutoEquip="1" />
+			<LisbethTravel Area="Yanxia (Fierce)" Position="279.6038, -14.689, -687.0553"/>
+			<Grind grindRef="Yanxia67" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 68"/>		
+		</If>
+		
+	<!-- Grind to 70 -->	
+		<If Condition="(Core.Player.ClassLevel &gt; 63) and (Core.Player.ClassLevel &lt; 70)">
+			<LogMessage Message="Starting grind to 70"/>
+			<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>  <!-- Turn off 1000 Needles -->
+			<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411, Bristle 11393, Whistle 18309, Flying Sardine 11423, Plaincracker 11391 -->
+			<BotSettings AutoEquip="1" />
+			<LisbethTravel Area="The Lochs" Position="178.669, 2.071185, 431.7863"/>
+			<Grind grindRef="Lochs70" postCombatDelay="1" while="Core.Player.ClassLevel &lt; 70"/>		
+		</If>		
+
+	<!-- Learn Ultravibration -->
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(23277)) and (Core.Player.ClassLevel &gt; 65)">
+			<LogMessage Message="Starting learn Ultravibration"/>
+			<SetBluActive Spells="11385,18300" Clear="true"/>
+			<LisbethTravel Area="The Peaks (South)" Position="-421.2545, 292.8535, 272.8044"/>
+			<Grind grindRef="Ultravibration" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(23277)"/>
+		</If>		
+
+	<!-- Learn Aetherial Spark -->
+		<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(23281)) and (Core.Player.ClassLevel &gt; 67)">
+			<LogMessage Message="Starting learn Aetherial Spark"/>
+			<SetBluActive Spells="11385,18300" Clear="true"/>
+			<LisbethTravel Area="The Lochs" Position="63.13359, 18.00002, 70.2263"/>
+			<Grind grindRef="Aetherial Spark" postCombatDelay="1" while="not ActionManager.KnownBlueMageSpells.ContainsKey(23281)"/>
+		</If>
+
+	<!-- Begin Dungeon Farmming for spells -->
+	<If condition="(Core.Player.ClassLevel &gt; 69)">
+	
+		<!-- Learn Mind Blast - The Tam-Tara Deepcroft -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11394))">
+				<LogMessage Message="Loading The Tam-Tara Deepcroft to learn Mind Blast"/>
+				<LLoadProfile Path="Learning Spells/Mind Blast.xml"/>			
+			</If>
+
+		<!-- Learn Level 5 Petrify - Haukke Manor -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11414))">
+				<LLToast message="Level 5 Petrify comes from Haukke Manor. There's an assist profile for it in Learning Spells."/>
+				<WaitTimer WaitTime="3" />		
+			</If>
+			
+		<!-- Learn Ram's Voice and Dragon's Voice - A Relic Reborn: The Chimera -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11419)) or not (ActionManager.KnownBlueMageSpells.ContainsKey(11420))">
+				<LogMessage Message="Loading A Relic Reborn: The Chimera to learn Ram's Voice and Dragon's Voice"/>
+				<LLoadProfile Path="Learning Spells/Rams VoiceDragons Voice.xml"/>		
+			</If>			
+			
+		<!-- Learn Snort - The Dragon's Neck -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11383))">
+				<LLToast message="Snort comes from The Dragon's Neck."/>
+				<LLToast message="You can find a Hildibrand profile to unlock Dungeon in my questing folder."/>
+				<WaitTimer WaitTime="3" />			
+			</If>	
+
+		<!-- Learn 4-tonze Weight - The Dragon's Neck -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11384))">
+				<LLToast message="4-tonze Weight comes from The Dragon's Neck."/>
+				<LLToast message="You can find a Hildibrand profile to unlock Dungeon in my questing folder."/>
+				<WaitTimer WaitTime="3" />			
+			</If>			
+
+		<!-- Learn Glower - The Aurum Vale -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11404))">
+				<LogMessage Message="Loading The Aurum Vale to learn Glower"/>
+				<LLoadProfile Path="Learning Spells/Glower.xml"/>			
+			</If>
+
+		<!-- Learn Ink Jet - Sastasha (Hard) -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11422))">
+				<LogMessage Message="Loading Sastasha (Hard) to learn Ink Jet"/>
+				<LLoadProfile Path="Learning Spells/Ink Jet.xml"/>			
+			</If>
+
+		<!-- Learn Fire Agnon - The Wanderer's Palace (Hard) -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11425))">
+				<LogMessage Message="Loading The Wanderer's Palace (Hard) to learn Fire Agnon"/>
+				<LLoadProfile Path="Learning Spells/Fire Angon.xml"/>			
+			</If>				
+	
+		<!-- Learn Flame Thrower - Brayflox's Longstop (Hard) -->
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11402))">
+				<LogMessage Message="Loading Brayflox's Longstop (Hard) to learn Flame Thrower"/>
+				<LLoadProfile Path="Learning Spells/Flame Thrower.xml"/>
+			</If>
+		
+		<!-- Learn Flying Frenzy and Song of Torment - Pharos Sirius -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11389)) or not (ActionManager.KnownBlueMageSpells.ContainsKey(11386))">
+				<LogMessage Message="Loading Pharos Sirius to learn Flying Frenzy and Song of Torment"/>
+				<LLoadProfile Path="Learning Spells/Flying FrenzySong of Torment.xml"/>			
+			</If>
+			
+		<!-- Learn Loom - The Tam-Tara Deepcroft (Hard) -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11401))">
+				<LogMessage Message="Loading The Tam-Tara Deepcroft (Hard) to learn Loom"/>
+				<LLoadProfile Path="Learning Spells/Loom.xml"/>			
+			</If>
+
+		<!-- Learn Feather Rain - The Howling Eye (Extreme) -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11426))">
+				<LogMessage Message="Loading The Howling Eye (Extreme) to learn Feather Rain"/>
+				<LLoadProfile Path="Learning Spells/Feather Rain.xml"/>			
+			</If>
+
+		<!-- Learn Shock Strike - The Striking Tree (Hard) -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11429))">
+				<LogMessage Message="Loading The Striking Tree (Hard) to learn Shock Strike"/>
+				<LLoadProfile Path="Learning Spells/Shock Strike.xml"/>			
+			</If>
+			
+		<!-- Learn Viel of the Whorl - The Whorleater (Hard) -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11431))">
+				<LogMessage Message="Loading The Whorleater (Hard) to learn Viel of the Whorl"/>
+				<LLoadProfile Path="Learning Spells/Veil of the Whorl.xml"/>			
+			</If>			
+
+		<!-- Learn Eruption - The Bowl of Embers (Hard) -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11427))">
+				<LogMessage Message="Loading The Bowl of Embers (Hard) to learn Eruption"/>
+				<LLoadProfile Path="Learning Spells/Eruption.xml"/>			
+			</If>	
+
+		<!-- Learn Pom Cure - Thornmarch (Hard) -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18303))">
+				<LogMessage Message="Loading Thornmarch (Hard)) to learn Pom Cure"/>
+				<LLoadProfile Path="Learning Spells/Pom Cure.xml"/>			
+			</If>	
+
+		<!-- Learn Black Knight's Tour and White Knight's Tour - The Vault -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18310)) or not (ActionManager.KnownBlueMageSpells.ContainsKey(18311))">
+				<LogMessage Message="Loading The Vault to learn Black Knight's Tour and White Knight's Tour"/>
+				<LLoadProfile Path="Learning Spells/Black Knights TourWhite Knights Tour.xml"/>			
+			</If>
+
+		<!-- Learn Cactguard - The Sunken Temple of Qarn (Hard) -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18315))">
+				<LogMessage Message="Loading The Sunken Temple of Qarn (Hard) to learn Cactguard"/>
+				<LLoadProfile Path="Learning Spells/Cactguard.xml"/>			
+			</If>
+
+		<!-- Learn Aetherial Mimicry - Pharos Sirius (Hard) -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(18322))">
+				<LogMessage Message="Loading Pharos Sirius (Hard) to learn Aetherial Mimicry"/>
+				<LLoadProfile Path="Learning Spells/Aetherial Mimicry.xml"/>			
+			</If>	
+
+		<!-- Learn High Voltage - The Binding Coil of Bahamut - Turn 1 -->		
+			<If condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11387))">
+				<LogMessage Message="Loading The Binding Coil of Bahamut - Turn 1 to learn High Voltage"/>
+				<LLoadProfile Path="Learning Spells/High Voltage.xml"/>			
+			</If>			
+	</If>			
 
 	</Order>	
 	
@@ -1052,10 +1206,10 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 				<minLevel>41</minLevel>
 				<maxLevel>46</maxLevel>
 				<Hotspots>
-						<Hotspot radius="20" xyz="286.695, -12.7683, -142.6935"/>
-						<Hotspot radius="20" xyz="301.5771, -15.57807, -162.4957"/>
-						<Hotspot radius="20" xyz="342.8094, -19.96478, -159.3831"/>
-						<Hotspot radius="20" xyz="335.4152, -18.16909, -192.2231"/>							
+						<Hotspot radius="100" xyz="286.695, -12.7683, -142.6935"/>
+						<Hotspot radius="100" xyz="301.5771, -15.57807, -162.4957"/>
+						<Hotspot radius="100" xyz="342.8094, -19.96478, -159.3831"/>
+						<Hotspot radius="100" xyz="335.4152, -18.16909, -192.2231"/>							
 				</Hotspots>
 				<TargetMobs>
 					<TargetMob id="164"/>
@@ -1074,20 +1228,15 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 				</TargetMobs>				
 		</GrindArea>
 		<GrindArea name="ChocoboForest52">
-				<minLevel>50</minLevel>
-				<maxLevel>52</maxLevel>
-				<Hotspots>
-						<Hotspot radius="20" xyz="742.4263, -48.91931, 76.20999"/>
-						<Hotspot radius="20" xyz="719.5503, -48.30646, 34.29776"/>	
-						<Hotspot radius="20" xyz="713.7133, -48.36623, 118.5442"/>	
-						<Hotspot radius="20" xyz="792.0062, -39.17931, 160.0574"/>
-						<Hotspot radius="20" xyz="818.7001, -44.58519, 86.61452"/>	
-						<Hotspot radius="20" xyz="818.7001, -44.58519, 86.61452"/>							
-				</Hotspots>
-				<TargetMobs>
-					<TargetMob id="3564"/>
-				</TargetMobs>				
-		</GrindArea>
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="766.8146, -40.50135, 159.433" name="Name"/>
+				<Hotspot Radius="90" XYZ="849.6375,-33.49977,153.7346" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3564" Weight="1"/> <!-- Wild Chocobo -->
+        <TargetMob Id="3563" Weight="1"/> <!-- Feather Flea -->
+      </TargetMobs>
+    </GrindArea>
 		<GrindArea name="Churning56">
 				<minLevel>52</minLevel>
 				<maxLevel>56</maxLevel>
@@ -1463,6 +1612,66 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 				<TargetMobs>
 					<TargetMob id="9248"/>
 				</TargetMobs>
-		</GrindArea>		
+		</GrindArea>
+    <GrindArea name="RubySea63">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="-635.4999, 23.76061, -644.5583" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="5749" Weight="1"/> <!-- Island Gedan -->
+        <TargetMob Id="115" Weight="1"/> <!-- Wind Sprite -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Yanxia67">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="360.5009, -16.22713, -686.9731" name="Name"/>
+				<Hotspot Radius="200" XYZ="424.0634,-16.22713,-734.9508" name="Name"/>
+				<Hotspot Radius="200" XYZ="279.6038, -14.689, -687.0553" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="56" Weight="1"/> <!-- Water Sprite -->
+        <TargetMob Id="5769" Weight="1"/> <!-- Ebisu Catfish -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="TripleTingle">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="360.5009, -16.22713, -686.9731" name="Name"/>
+				<Hotspot Radius="200" XYZ="424.0634,-16.22713,-734.9508" name="Name"/>
+				<Hotspot Radius="200" XYZ="279.6038, -14.689, -687.0553" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="5769" Weight="1"/> <!-- Ebisu Catfish -->
+      </TargetMobs>
+    </GrindArea>		
+    <GrindArea name="Lochs70">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="178.669, 2.071185, 431.7863" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="117" Weight="1"/> <!-- Lightning Sprite -->
+        <TargetMob Id="5723" Weight="1"/> <!-- Abaddon -->
+        <TargetMob Id="6797" Weight="1"/> <!-- Bonza Yabby -->
+        <TargetMob Id="5726" Weight="1"/> <!-- Vepar -->
+      </TargetMobs>
+    </GrindArea>		
+    <GrindArea name="Ultravibration">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-421.2545, 292.8535, 272.8044" name="Name"/>
+				<Hotspot Radius="200" XYZ="-513.2698,305.3329,250.6534" name="Name"/>
+				<Hotspot Radius="200" XYZ="-295.4883,305.3666,183.6571" name="Name"/>
+				<Hotspot Radius="200" XYZ="-315.4193,307.1342,89.06689" name="Name"/>				
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="5714" Weight="1"/> <!-- Kongamato -->
+      </TargetMobs>
+    </GrindArea>		
+    <GrindArea name="Aetherial Spark">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="63.13359, 18.00002, 70.2263" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="5722" Weight="1"/> <!-- Salt Dhruva -->
+      </TargetMobs>
+    </GrindArea>		
 	</GrindAreas>	
 </Profile>

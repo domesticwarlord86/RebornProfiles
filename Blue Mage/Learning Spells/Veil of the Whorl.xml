@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Whorleater (Hard)
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Whorleater (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11431))">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="72" trial="true"/>
+		</If>
+		<If condition="DutyManager.InInstance">
+			<Grind GrindRef="Leviathan" While="not GameObjectManager.GetObjectByNPCId(2550).CurrentHealth == 0"/> <!-- Kill Leviathan -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>	
+		</If>
+	</While>
+	
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(11431))">
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>		
+
+ </Order>
+  <GrindAreas>
+    <GrindArea name="Leviathan">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="1.485, 6.730883E-07, 16.206" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2553" Weight="10"/> <!-- Wavespine Sahagin -->
+        <TargetMob Id="2554" Weight="1000"/> <!-- Gyre Spume -->				
+        <TargetMob Id="2551" Weight="100"/> <!-- Leviathan's Tail -->
+        <TargetMob Id="2550" Weight="1"/> <!-- Leviathan -->
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>		
+  <CodeChunks>	
+  </CodeChunks>  
+</Profile>    

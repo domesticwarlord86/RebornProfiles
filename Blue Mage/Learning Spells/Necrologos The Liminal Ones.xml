@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Necrologos: The Liminal Ones Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Necrologos: The Liminal Ones</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Zodiac Weapons\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+	
+		<While condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11399)">
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(657)">
+				<LisbethTravel Area="Mor Dhona" Position="420.7729, -5.853507, -443.9117"/>
+				<ExPickupGuildLeve leveIds="657" leveType="Battlecraft" npcId="1004348" npcLocation="415.9761,-6.061038,-444.419" Timeout="5" /> <!-- Necrologos: The Liminal Ones -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(657)">
+					<ExPickupGuildLeve leveIds="656" leveType="Battlecraft" npcId="1004348" npcLocation="415.9761,-6.061038,-444.419" Timeout="5" /> <!-- Turnabout's Fair Play -->
+				</If>
+			</If>	
+
+			<!-- Necrologos: The Liminal Ones -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(657)">
+				<LisbethTravel Area="Mor Dhona" Position="109.913, -5.043104, -496.5076"/>			
+				<InitiateLeve LeveId="657"/> 
+				<WaitTimer WaitTime="2" />
+				<While condition="not GameObjectManager.GetObjectByNPCId(1769)">
+					<UseObject NpcId="2001098" UseTimes="5">
+						<HotSpots>
+							<HotSpot Radius="200" XYZ="103.42, -5.008227, -492.581"/>
+							<HotSpot Radius="200" XYZ="98.60365, -5.458168, -510.9296"/>
+							<HotSpot Radius="200" XYZ="129.7607, -14.1291, -463.5554"/>
+						</HotSpots>						
+					</UseObject>	
+				</While>	
+				<Grind GrindRef="Denizen" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 				
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1004348" NpcLocation="415.9761,-6.061038,-444.419"/>
+				<LLoadProfile Path="../../Start.xml"/>
+			</If>
+
+
+			<!-- Turnabout's Fair Play -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(656)">
+				<LisbethTravel Area="Mor Dhona" Position="131.4192, -15.22016, -455.426"/>
+				<InitiateLeve LeveId="656"/> <!-- Turnabout's Fair Play -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="TurnaboutsFairPlay" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1004348" NpcLocation="415.9761,-6.061038,-444.419"/>
+				<LLoadProfile Path="../../Start.xml"/>			
+			</If>
+		
+		</While> 
+
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(11399))">		
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>	
+
+	</Order>
+  <GrindAreas> 
+    <GrindArea name="Denizen">
+      <Hotspots>
+        <Hotspot Radius="500" XYZ="103.42, -5.008227, -492.581"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1769" Weight="1"/> <!-- Denizen of the Dark -->		
+      </TargetMobs>
+    </GrindArea>
+ 	<GrindArea name="TurnaboutsFairPlay">
+        <Hotspots>
+			<Hotspot Radius="500" XYZ="131.5322, -14.72913, -461.6263" />
+			<Hotspot Radius="500" XYZ="122.301,-6.745001,-533.3486" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Beggar Shramana" Id="1767" Weight="1" />
+			<TargetMob Name="Beggar Bonze" Id="1766" Weight="1" />
+			<TargetMob Name="Ice Sprite" Id="114" Weight="1" />
+			<TargetMob Name="Bloodshot Eye" Id="1768" Weight="100" />
+        </TargetMobs>		
+	</GrindArea>
+  </GrindAreas>	
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+				while (CommonBehaviors.IsLoading) 
+				{ 
+					await Coroutine.Wait(10000, () => !CommonBehaviors.IsLoading); 
+				}	
+				
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="WaitFortheLook">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1769);
+				var target = GameObjectManager.GetObjectByNPCId(1769) as BattleCharacter;
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+						}
+						
+					Logging.WriteDiagnostic("Waiting for casting.");
+					await Coroutine.Wait(60000, () => target.SpellCastInfo.Name == "the Look");
+					if (target.SpellCastInfo.Name == "the Look")
+						{
+							await Coroutine.Wait(5000, () => !target.IsCasting);
+							Logging.WriteDiagnostic("Target has casted the Look, starting combat.");						
+						}		
+			]]>			
+		</CodeChunk>		
+  </CodeChunks>
+</Profile>

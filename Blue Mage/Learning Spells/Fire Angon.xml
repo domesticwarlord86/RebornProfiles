@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Wanderer's Palace (Hard)
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Wanderer's Palace (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11425))">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="30"/>
+		</If>
+		
+		<If condition="DutyManager.InInstance">
+			<!-- Save the fleeing tonberries 0/3 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Save the fleeing tonberries 0/3" />
+				<BotSettings AutoEquip="1" />
+				<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>
+				<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411, Bristle 11393, Whistle 18309, Flying Sardine 11423, Plaincracker 11391 -->									
+				<Grind GrindRef="FeelingTonberries" while="GetInstanceTodo(0) &lt; 3"/>
+			</If>
+
+			<!-- Defeat Frumious Koheel Ja 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 3">
+				<Log Message="Defeat Frumious Koheel Ja 0/1" />		
+				<MoveTo XYZ="124.7649, -12.05, 123.1324" />
+				<Grind GrindRef="FirstBoss" while="not GameObjectManager.GetObjectByNPCId(3091).CurrentHealth == 0"/>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="10" />
+					<LLLeaveDuty/>
+				</While>
+			</If>	
+		</If>
+	</While>	
+	
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(11425))">		
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>			
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FeelingTonberries">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="131.9547, -18.06663, 375.9462" name="Name"/>
+		<Hotspot Radius="90" XYZ="184.7503, -18, 346.0439" name="Name"/>
+		<Hotspot Radius="90" XYZ="124.5397, -14, 253.868" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+		<TargetMob Id="3077" Weight="1"/> <!-- Silverscales Lurker-->
+        <TargetMob Id="3078" Weight="1"/> <!-- Silverscales Warder -->
+        <TargetMob Id="3079" Weight="1"/> <!-- Bronze Pugil -->
+        <TargetMob Id="3081" Weight="1"/> <!-- Pack Ziz -->
+        <TargetMob Id="3080" Weight="1"/> <!-- Pteroc Pointer -->
+      </TargetMobs>
+    </GrindArea>  
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="125.225,-12,98.92437" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="3091" Weight="1000" /> <!-- Frumious Koheel Ja -->
+        </TargetMobs>
+	</GrindArea>
+  </GrindAreas>
+  <CodeChunks>	
+  </CodeChunks>
+</Profile>

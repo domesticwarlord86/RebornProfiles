@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Aurum Vale
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Aurum Vale</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11404))">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="5"/>
+		</If> 
+		<If condition="DutyManager.InInstance">
+			<!-- Breach the Lock 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Breach the Lock 0/1" />
+				<SetBluActive Spells="18300,11385,11395,11412,11410,11388,11411,11406,11393,18309,11423,11391,18318,23264,23265,11403" Clear="true"/>
+				<!-- Set Aybssal Transfixion 18300, Water Cannon 11385, Blood Drain 11395, Sticky Tongue 11412, Toad Oil 11410, Bad Breath 11388, Off-Gaurd 11411, Bristle 11393, Whistle 18309, Flying Sardine 11423, Plaincracker 11391 -->													
+				<BotSettings AutoEquip="1" />	
+				<MoveTo XYZ="55.0162, -9.150264, 3.192619"/> 
+				<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(1534).CurrentHealth == 0"/> <!-- Fight First Boss -->
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>			
+			</If>
+			
+			<!-- Defeat the morbol bed keeper 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Defeat the morbol bed keeper 0/1" />
+				<MoveTo XYZ="-34.71429,-17.24663,-72.34308" />
+				<Grind GrindRef="Bedkeeper1" While="GetInstanceTodo(1) == 0"/> <!-- Clear the first bed keeper -->			
+			</If>
+			
+			<!-- Clear the Coincounter's Chest 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Clear the Coincounter's Chest 0/1" />
+				<MoveTo XYZ="-129.4953, -30.09197, -135.3869"/>
+				<RunCode name="WaitForGlower"/>
+				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(2) == 0"/> <!-- Fight second boss -->
+				<If Condition="&openchest; == 1">
+					<LLOpenChest />
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>				
+			</If>
+		</If>		
+	</While>
+
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(11404))">
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>			
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="27.51196,-9.256966,2.822876" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1534" Weight="1" /> <!-- Locksmith -->
+        </TargetMobs>
+	</GrindArea>
+    <GrindArea name="Bedkeeper1">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-32.02882, -17.23334, -66.66665" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1535" Weight="1"/> <!-- Morbol Seedling -->
+        <TargetMob Id="1538" Weight="1000"/> <!-- Goldvine -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Bedkeeper2">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-336.795, -32.25722, -143.1539" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1536" Weight="1"/> <!-- Morbol Fruit -->
+        <TargetMob Id="1535" Weight="1"/> <!-- Morbol Seedling -->
+        <TargetMob Id="1538" Weight="1000"/> <!-- Goldvine -->
+      </TargetMobs>
+    </GrindArea>	
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-169.1768,-29.73806,-141.8632" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1533" Weight="1" /> <!-- Coincounter -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-411.4595,-33.2965,-126.8483" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1532" Weight="1" />	<!-- Miser's Mistress -->
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="WaitForGlower">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1533);
+				var target = GameObjectManager.GetObjectByNPCId(1533) as BattleCharacter;
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+						}
+						
+					Logging.WriteDiagnostic("Waiting for casting.");
+					await Coroutine.Wait(-1, () => target.SpellCastInfo.Name == "Glower");
+					if (target.SpellCastInfo.Name == "Glower")
+						{
+							Logging.WriteDiagnostic("Target is casting Glower, starting combat.");
+						}					
+			]]>			
+		</CodeChunk>	
+  </CodeChunks>
+</Profile>

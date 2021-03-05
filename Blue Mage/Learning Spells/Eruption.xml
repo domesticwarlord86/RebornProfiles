@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Bowl of Embers (Hard)
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Bowl of Embers (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+		<While condition="not (ActionManager.KnownBlueMageSpells.ContainsKey(11427))">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="59" trial="true"/>
+		</If>
+		<If condition="DutyManager.InInstance">
+			<MoveTo XYZ="-13.12728, 0, -8.592924" usemesh="false" />
+			<Grind GrindRef="Ifrit" While="not GameObjectManager.GetObjectByNPCId(1185).CurrentHealth == 0"/> <!-- Kill Ifrit -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>	
+		</If>
+	</While>
+	
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(11427))">
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>		
+
+ </Order>
+  <GrindAreas>
+	<GrindArea name="Ifrit">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="15,0,0" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Ifrit" Id="1185" Weight="1" />	
+			<TargetMob Name="Infernal Nail" Id="1186" Weight="1000" />				
+        </TargetMobs>
+	</GrindArea>
+  </GrindAreas>		
+  <CodeChunks>	
+  </CodeChunks>  
+</Profile>    

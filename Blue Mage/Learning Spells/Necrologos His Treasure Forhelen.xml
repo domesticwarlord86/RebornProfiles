@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Necrologos: His Treasure Forhelen
+  Authors: DomesticWarlord86
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Necrologos: His Treasure Forhelen</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Zodiac Weapons\Quest Behaviors</BehaviorDirectory>
+	<Order>
+	
+	<While condition="not ActionManager.KnownBlueMageSpells.ContainsKey(18300)">
+		<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(903)">
+			<LisbethTravel Area="Ishgard (Foundation)" Position="-55.46103, 15.14058, -41.67292"/>
+			<ExPickupGuildLeve leveIds="903" leveType="Battlecraft" npcId="1011208" npcLocation="-53.54395,15.19559,-42.67957" Timeout="5" />
+		</If>
+		
+		<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(903)">
+			<LisbethTravel Area="The Dravanian Hinterlands (East)" Position="179.245, 69.80235, -157.6981"/>
+			<InitiateLeve LeveId="903"/> <!-- Necrologos: His Treasure Forhelen -->
+			<WaitTimer WaitTime="2" />
+			<Grind GrindRef="Necrologos" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+			<WaitTimer WaitTime="2" />					
+			<RunCode Name="CloseTimer"/>
+			<LisbethTravel Area="Ishgard (Foundation)" Position="-55.46103, 15.14058, -41.67292"/>	
+			<ExTurnInGuildLeve NpcId="1011208" NpcLocation="-53.54395,15.19559,-42.67957"/>		
+		</If>
+	</While>
+
+	<If condition="(ActionManager.KnownBlueMageSpells.ContainsKey(18300))">		
+		<LLoadProfile Path="../BLU Level Quest Spells.xml"/>
+	</If>	
+
+	</Order>
+  <GrindAreas> 
+    <GrindArea name="Necrologos">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="179.245, 69.80235, -157.6981" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3711" Weight="1"/> <!-- Wilde Wildebeest -->
+        <TargetMob Id="3710" Weight="1"/> <!-- Pondless Poroggo -->
+        <TargetMob Id="3712" Weight="1"/> <!-- Ragged Ratel -->
+        <TargetMob Id="2838" Weight="100"/> <!-- Arch Demon -->
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>	
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickNo();
+				}		
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>
