@@ -75,7 +75,7 @@
 				<LLOpenChest/>
 			</If>					
 			<MoveTo XYZ="-110.3985, 348.2341, -374.2008"/>
-			<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(3798).CurrentHealth == 0"/> <!-- Fight second boss -->
+			<Grind GrindRef="FinalBoss" While="GetInstanceTodo(2) == 1"/> <!-- Fight second boss -->
 			<If Condition="&openchest; == 1">
 				<MoveTo XYZ="-95.44525,348.1649,-406.4241" />
 				<LLOpenChest/>
@@ -142,7 +142,9 @@
 			<Hotspot Radius="200" XYZ="-103.488,348.1642,-395.8698" />
         </Hotspots>
         <TargetMobs>
-			<TargetMob Id="3798" Weight="1" />	<!-- Tioman -->
+						<TargetMob Id="3798" Weight="1" />	<!-- Tioman -->
+            <TargetMob Id="4388" Weight="2" />    <!-- Left Wing -->
+            <TargetMob Id="4389" Weight="3" />    <!-- Right Wing -->			
         </TargetMobs>
 	</GrindArea>	
   </GrindAreas>
