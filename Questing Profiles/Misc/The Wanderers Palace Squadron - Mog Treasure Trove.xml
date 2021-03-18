@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Wanderer's Palace
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "1">
+]>
+
+<Profile>
+  <Name>The Wanderer's Palace</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<While condition="not HasAtLeast(31,999)">
+		<If condition="not IsOnMap(534) and not IsOnMap(535) and not IsOnMap(536)">
+			<LLGoToBarracks/>
+		</If>
+		<If condition="IsOnMap(534) or IsOnMap(535) or IsOnMap(536)">
+			<LLCommandMission Index="6"/>
+		</If>
+		<If condition="IsOnMap(159)">
+			<If condition="DutyManager.InInstance">
+				<!-- Clear Still Waters 0/1 -->
+				<If Condition="GetInstanceTodo(0) == 0">
+					<Log Message="Clear Still Waters 0/1" />
+					<BotSettings AutoEquip="1" />	
+					<MoveTo XYZ="191.8649, -14.20051, 274.408"/>
+					<MoveTo XYZ="125.0092, -14.00001, 188.2706"/>
+					<MoveTo XYZ="124.8259, -12.05, 123.9436"/>
+					<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(1548).CurrentHealth == 0"/> <!-- Fight First Boss -->
+					<WaitTimer WaitTime="3" />
+					<If Condition="&openchest; == 1">
+						<LLOpenChest />
+					</If>			
+				</If>
+				
+				<!-- Unlock the sealed gate 0/1 -->
+				<If Condition="GetInstanceTodo(1) == 0">
+					<Log Message="Unlock the sealed gate 0/1" />
+					<MoveTo XYZ="117.995,-9.001419,65.37875"/>
+					<UseObject NpcId="2001123" XYZ="117.995,-9.001419,65.37875" Condition="GetInstanceTodo(1) == 0"/> 
+				</If>
+				
+				<!-- Climb the Endless Rise 0/4 -->
+				<If Condition="GetInstanceTodo(3) == 0">
+					<Log Message="Climb the Endless Rise 0/4" />
+					<MoveTo XYZ="35.81345, -0.16426, -16.8532"/>
+					<If condition="GetInstanceTodo(2) &lt; 3">
+						<UseObject NpcIds="2002789" Radius="200" Condition="GetInstanceTodo(2) &lt; 3">
+							<HotSpots>
+								<HotSpot XYZ="43.52446, -0.16426, -17.34544" Radius="200"/>
+								<HotSpot XYZ="79.18799, -5.050018, -16.37779" Radius="200"/>
+								<HotSpot XYZ="78.55174, -10.16426, 26.99038" Radius="200"/>
+								<HotSpot XYZ="124.8495, -10.05, 27.00736" Radius="200"/>
+							</HotSpots>
+						</UseObject>					
+					</If>
+					<MoveTo XYZ="33.58755, 0, -5.501933"/>
+					<While condition="GameObjectManager.GetObjectByNPCId(2001124).IsTargetable">
+						<MoveTo XYZ="33.58755, 0, -5.501933"/>
+						<RunCode name="RustedNymianDevice2001124"/>
+					</While>	
+					<MoveTo XYZ="33.52447, -1.192093E-07, -28.49777"/>
+					<While condition="GameObjectManager.GetObjectByNPCId(2001125).IsTargetable">
+						<MoveTo XYZ="33.52447, -1.192093E-07, -28.49777"/>
+						<RunCode name="RustedNymianDevice2001125"/>
+					</While>	
+					<MoveTo XYZ="41.54206, 0, -59.79185"/>
+					<While condition="GameObjectManager.GetObjectByNPCId(2001126).IsTargetable">
+						<MoveTo XYZ="41.54206, 0, -59.79185"/>
+						<RunCode name="RustedNymianDevice2001126"/>
+					</While>	
+				</If>
+				<If Condition="GetInstanceTodo(3) == 1">
+					<Log Message="Climb the Endless Rise 1/4" />
+					<MoveTo XYZ="53.61336,8.952527,-95.99935"/>
+					<UseObject NpcId="2001127" XYZ="53.61336,8.952527,-95.99935" Radius="10" Condition="GetInstanceTodo(3) == 1"/>
+				</If>
+				<While Condition="GetInstanceTodo(3) == 2">
+					<Log Message="Climb the Endless Rise 2/4" />
+					<MoveTo XYZ="42.70602, 0, -146.6996"/>
+					<If condition="GetInstanceTodo(2) &lt; 2">
+						<UseObject NpcIds="2002789" Radius="200" Condition="GetInstanceTodo(2) &lt; 2">
+							<HotSpots>
+								<HotSpot XYZ="35.78941, -1.192093E-07, -146.3148" Radius="200"/>
+							</HotSpots>
+						</UseObject>					
+					</If>			
+					<MoveTo XYZ="33.70079, 0.2081963, -152.8321"/>
+					<While condition="GameObjectManager.GetObjectByNPCId(2001129).IsTargetable">
+						<MoveTo XYZ="33.70079, 0.2081963, -152.8321"/>
+						<RunCode name="RustedNymianDevice2001129"/>
+					</While>	
+				</While>
+				<While Condition="GetInstanceTodo(3) == 3">
+					<Log Message="Climb the Endless Rise 3/4" />
+					<MoveTo XYZ="122.4979, -0.05968666, -147.4138"/>
+					<While condition="GameObjectManager.GetObjectByNPCId(2001128).IsTargetable">
+						<MoveTo XYZ="122.4979, -0.05968666, -147.4138"/>
+						<RunCode name="RustedNymianDevice2001128"/>
+					</While>	
+				</While>
+				
+				<!-- Clear the Final Ease 0/1 -->
+				<If Condition="GetInstanceTodo(4) == 0">
+					<Log Message="Clear the Final Ease 0/1" />
+					<MoveTo XYZ="42.85134, 0, -216.3028"/>
+					<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(1549).CurrentHealth == 0"/> <!-- Fight Giant Bavarois -->
+					<If Condition="&openchest; == 1">
+						<LLOpenChest />
+					</If>
+				</If>
+				
+				<!-- Defeat the tonberry king 0/1 -->
+				<If Condition="GetInstanceTodo(5) == 0">
+					<Log Message="Defeat the tonberry king 0/1" />
+					<MoveTo XYZ="72.65417, 9.950102, -318.8521"/>
+					<UseObject NpcId="2002789" XYZ="73.60564, 9.836, -369.6367" Radius="100" condition="GetInstanceTodo(2) == 0"/>			
+					<MoveTo XYZ="73.60564, 9.836, -369.6367"/>
+					<UseObject NpcId="2002789" XYZ="73.60564, 9.836, -369.6367" Radius="100" condition="GetInstanceTodo(2) == 1"/>
+					<MoveTo XYZ="63.589, 10, -380.4978"/>
+					<While condition="GameObjectManager.GetObjectByNPCId(2001131).IsTargetable">
+						<MoveTo XYZ="63.589, 10, -380.4978"/>
+						<RunCode name="RustedNymianDevice2001131"/>
+					</While>	
+					<MoveTo XYZ="82.4129, 10, -380.4955"/>
+					<While condition="GameObjectManager.GetObjectByNPCId(2001130).IsTargetable">
+						<MoveTo XYZ="82.4129, 10, -380.4955"/>
+						<RunCode name="RustedNymianDevice2001130"/>
+					</While>	
+					<WaitTimer WaitTime="3" />
+					<BotSettings AutoEquip="0" />
+					<MoveTo XYZ="67.09601, 6, -423.0093"/>	
+					<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(1547).CurrentHealth == 0"/> <!-- Fight Final Boss -->			
+					<If Condition="&openchest; == 1">
+						<LLOpenChest />
+					</If>
+					<While condition="DutyManager.InInstance">	
+						<WaitTimer WaitTime="5" />
+						<LLLeaveDuty/>
+					</While>
+				</If>				
+			</If>
+		</If>	
+	</While>
+
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="124.9912,-12,98.2687" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1548" Weight="1" />	
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="43.26027,-0.1639996,-243.0157" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1549" Weight="0" />
+			<TargetMob Id="1551" Weight="1" />
+			<TargetMob Id="1552" Weight="1" />
+			<TargetMob Id="1554" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="73.00182,6,-448.6943" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1547" Weight="1" />
+			<TargetMob Id="1550" Weight="0" />
+			<TargetMob Id="2180" Weight="0" />
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+ 	<CodeChunk Name="RustedNymianDevice2001124">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001124).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+ 	<CodeChunk Name="RustedNymianDevice2001125">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001125).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+ 	<CodeChunk Name="RustedNymianDevice2001126">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001126).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+ 	<CodeChunk Name="RustedNymianDevice2001129">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001129).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+ 	<CodeChunk Name="RustedNymianDevice2001128">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001128).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+ 	<CodeChunk Name="RustedNymianDevice2001130">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001130).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>		
+ 	<CodeChunk Name="RustedNymianDevice2001131">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001131).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>	
+  </CodeChunks>
+</Profile>
