@@ -14,6 +14,10 @@
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
 	<While condition="not HasAtLeast(31,999)">
+		<While condition="CurrentGCSeals() &lt; 2500">
+			<LLToast message="We need at least 2500 GC Seals to do Wanderer's Palace"/>
+			<WaitTimer WaitTime="26" />
+		</While>		
 		<If condition="not IsOnMap(534) and not IsOnMap(535) and not IsOnMap(536) and not IsOnMap(159)">
 			<LLGoToBarracks/>
 		</If>
@@ -51,7 +55,7 @@
 						<UseTransport NpcId="2000700" InteractDistance="3" XYZ="137.2994,-17.99036,454.4014" />
 					</If>
 					<MoveTo XYZ="124.9765, -10.0499, 54.9087" />	
-					<If condition="GetInstanceTodo(2) &lt; 3">
+					<If condition="GetInstanceTodo(2) &lt; 3 and GameObjectManager.GetObjectByNPCId(2001124).IsTargetable">
 						<UseObject NpcIds="2002789" InCombat="True" Radius="200" Condition="GetInstanceTodo(2) &lt; 3">
 							<HotSpots>
 								<HotSpot XYZ="124.9765, -10.0499, 54.9087" Radius="200"/>
@@ -89,7 +93,7 @@
 					<If condition="GameObjectManager.GetObjectByNPCId(2000700)"> <!-- Check for shortcut -->
 						<UseTransport NpcId="2000700" InteractDistance="3" XYZ="137.2994,-17.99036,454.4014" />
 					</If>					
-					<If condition="GetInstanceTodo(2) &lt; 2">
+					<If condition="GetInstanceTodo(2) &lt; 2 and GameObjectManager.GetObjectByNPCId(2001129).IsTargetable">
 						<UseObject NpcIds="2002789" InCombat="True" Radius="200" Condition="GetInstanceTodo(2) &lt; 2">
 							<HotSpots>
 								<HotSpot XYZ="35.78941, -1.192093E-07, -146.3148" Radius="200"/>
@@ -119,7 +123,7 @@
 				</While>
 				
 				<!-- Clear the Final Ease 0/1 -->
-				<If Condition="GetInstanceTodo(4) == 0">
+				<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 4">
 					<Log Message="Clear the Final Ease 0/1" />
 					<If condition="GameObjectManager.GetObjectByNPCId(2000700)"> <!-- Check for shortcut -->
 						<UseTransport NpcId="2000700" InteractDistance="3" XYZ="137.2994,-17.99036,454.4014" />
@@ -132,7 +136,7 @@
 				</If>
 				
 				<!-- Defeat the tonberry king 0/1 -->
-				<If Condition="GetInstanceTodo(5) == 0">
+				<If Condition="GetInstanceTodo(5) == 0 and GetInstanceTodo(4) == 1">
 					<Log Message="Defeat the tonberry king 0/1" />
 					<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
 						<UseTransport NpcId="2000700" InteractDistance="3" XYZ="137.2994,-17.99036,454.4014" />
