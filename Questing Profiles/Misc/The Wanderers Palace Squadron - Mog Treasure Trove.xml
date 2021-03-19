@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: The Wanderer's Palace
-  Authors: Zamphire
+  Profile: The Wanderer's Palace - Moogle Treasure Trove
+  Authors: DomesticWarlord86
 -->
 
 <!DOCTYPE Profile [
@@ -10,14 +10,14 @@
 ]>
 
 <Profile>
-  <Name>The Wanderer's Palace</Name>
+  <Name>The Wanderer's Palace - Moogle Treasure Trove</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
 	<While condition="not HasAtLeast(31,999)">
-		<If condition="not IsOnMap(534) and not IsOnMap(535) and not IsOnMap(536)">
+		<If condition="not IsOnMap(534) and not IsOnMap(535) and not IsOnMap(536) and not IsOnMap(159)">
 			<LLGoToBarracks/>
 		</If>
-		<If condition="IsOnMap(534) or IsOnMap(535) or IsOnMap(536)">
+		<If condition="IsOnMap(534) or IsOnMap(535) or IsOnMap(536) and not IsOnMap(159)">
 			<LLCommandMission Index="6"/>
 		</If>
 		<If condition="IsOnMap(159)">
@@ -25,14 +25,15 @@
 				<!-- Clear Still Waters 0/1 -->
 				<If Condition="GetInstanceTodo(0) == 0">
 					<Log Message="Clear Still Waters 0/1" />
-					<BotSettings AutoEquip="1" />	
-					<MoveTo XYZ="191.8649, -14.20051, 274.408"/>
-					<MoveTo XYZ="125.0092, -14.00001, 188.2706"/>
-					<MoveTo XYZ="124.8259, -12.05, 123.9436"/>
-					<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(1548).CurrentHealth == 0"/> <!-- Fight First Boss -->
+					<!-- This chest only has white items, no greens
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="106.0654,-14.02307,266.8345" />
+						<LLOpenChest />
+					</If>	-->		
+					<Grind GrindRef="FirstBoss" While="GetInstanceTodo(0) == 0"/> <!-- Fight First Boss -->
 					<WaitTimer WaitTime="3" />
 					<If Condition="&openchest; == 1">
-						<LLOpenChest />
+						<UseObject NpcId="0" Radius="90" XYZ="125.0171,-12.00891,92.11865" UseTimes="1"/>
 					</If>			
 				</If>
 				
@@ -46,102 +47,135 @@
 				<!-- Climb the Endless Rise 0/4 -->
 				<If Condition="GetInstanceTodo(3) == 0">
 					<Log Message="Climb the Endless Rise 0/4" />
-					<MoveTo XYZ="35.81345, -0.16426, -16.8532"/>
+					<If condition="GameObjectManager.GetObjectByNPCId(2000700)"> <!-- Check for Shortcut -->
+						<UseTransport NpcId="2000700" InteractDistance="3" XYZ="137.2994,-17.99036,454.4014" />
+					</If>
+					<MoveTo XYZ="124.9765, -10.0499, 54.9087" />	
 					<If condition="GetInstanceTodo(2) &lt; 3">
-						<UseObject NpcIds="2002789" Radius="200" Condition="GetInstanceTodo(2) &lt; 3">
+						<UseObject NpcIds="2002789" InCombat="True" Radius="200" Condition="GetInstanceTodo(2) &lt; 3">
 							<HotSpots>
-								<HotSpot XYZ="43.52446, -0.16426, -17.34544" Radius="200"/>
-								<HotSpot XYZ="79.18799, -5.050018, -16.37779" Radius="200"/>
-								<HotSpot XYZ="78.55174, -10.16426, 26.99038" Radius="200"/>
-								<HotSpot XYZ="124.8495, -10.05, 27.00736" Radius="200"/>
+								<HotSpot XYZ="124.9765, -10.0499, 54.9087" Radius="200"/>
+								<HotSpot XYZ="78.54426, -10.16426, 27.87591" Radius="200"/>
+								<HotSpot XYZ="35.50969, -0.16426, -16.46348" Radius="200"/>
 							</HotSpots>
 						</UseObject>					
 					</If>
-					<MoveTo XYZ="33.58755, 0, -5.501933"/>
+					<MoveTo XYZ="35.50969, -0.16426, -16.46348" />
 					<While condition="GameObjectManager.GetObjectByNPCId(2001124).IsTargetable">
-						<MoveTo XYZ="33.58755, 0, -5.501933"/>
-						<RunCode name="RustedNymianDevice2001124"/>
-					</While>	
-					<MoveTo XYZ="33.52447, -1.192093E-07, -28.49777"/>
+						<UseTransport NpcId="2001124" InteractDistance="3" XYZ="34.98889,0.9307861,-6.393555" />
+					</While>
 					<While condition="GameObjectManager.GetObjectByNPCId(2001125).IsTargetable">
-						<MoveTo XYZ="33.52447, -1.192093E-07, -28.49777"/>
-						<RunCode name="RustedNymianDevice2001125"/>
-					</While>	
-					<MoveTo XYZ="41.54206, 0, -59.79185"/>
+						<UseTransport NpcId="2001125" InteractDistance="3" XYZ="34.98889,0.9307861,-27.63416" />	
+					</While>
+					<MoveTo XYZ="43.13412, 0, -54.62678" />
 					<While condition="GameObjectManager.GetObjectByNPCId(2001126).IsTargetable">
-						<MoveTo XYZ="41.54206, 0, -59.79185"/>
-						<RunCode name="RustedNymianDevice2001126"/>
-					</While>	
+						<UseTransport NpcId="2001126" InteractDistance="3" XYZ="42.98462,0.9917603,-58.33527" />
+					</While>		
 				</If>
+				
 				<If Condition="GetInstanceTodo(3) == 1">
 					<Log Message="Climb the Endless Rise 1/4" />
-					<MoveTo XYZ="53.61336,8.952527,-95.99935"/>
-					<UseObject NpcId="2001127" XYZ="53.61336,8.952527,-95.99935" Radius="10" Condition="GetInstanceTodo(3) == 1"/>
+					<If condition="GameObjectManager.GetObjectByNPCId(2000700)"> <!-- Check for shortcut -->
+						<UseTransport NpcId="2000700" InteractDistance="3" XYZ="137.2994,-17.99036,454.4014" />
+					</If>					
+					<MoveTo XYZ="50.72399, 7.83574, -95.4252" />
+					<While condition="GameObjectManager.GetObjectByNPCId(2001127).IsTargetable">
+						<UseObject NpcId="2001127" XYZ="53.61336,8.952527,-95.99935" Radius="10" UseTimes="1"/>
+					</While>	
 				</If>
+				
 				<While Condition="GetInstanceTodo(3) == 2">
 					<Log Message="Climb the Endless Rise 2/4" />
-					<MoveTo XYZ="42.70602, 0, -146.6996"/>
+					<If condition="GameObjectManager.GetObjectByNPCId(2000700)"> <!-- Check for shortcut -->
+						<UseTransport NpcId="2000700" InteractDistance="3" XYZ="137.2994,-17.99036,454.4014" />
+					</If>					
 					<If condition="GetInstanceTodo(2) &lt; 2">
-						<UseObject NpcIds="2002789" Radius="200" Condition="GetInstanceTodo(2) &lt; 2">
+						<UseObject NpcIds="2002789" InCombat="True" Radius="200" Condition="GetInstanceTodo(2) &lt; 2">
 							<HotSpots>
 								<HotSpot XYZ="35.78941, -1.192093E-07, -146.3148" Radius="200"/>
 							</HotSpots>
 						</UseObject>					
-					</If>			
-					<MoveTo XYZ="33.70079, 0.2081963, -152.8321"/>
+					</If>
+					<MoveTo XYZ="35.97696, 0.1998781, -149.4807" />	
 					<While condition="GameObjectManager.GetObjectByNPCId(2001129).IsTargetable">
-						<MoveTo XYZ="33.70079, 0.2081963, -152.8321"/>
-						<RunCode name="RustedNymianDevice2001129"/>
+						<UseTransport NpcId="2001129" InteractDistance="3" XYZ="35.99597,0.9917603,-150.5914" />
 					</While>	
 				</While>
+				
 				<While Condition="GetInstanceTodo(3) == 3">
 					<Log Message="Climb the Endless Rise 3/4" />
-					<MoveTo XYZ="122.4979, -0.05968666, -147.4138"/>
+					<If condition="GameObjectManager.GetObjectByNPCId(2000700)"> <!-- Check for shortcut -->
+						<UseTransport NpcId="2000700" InteractDistance="3" XYZ="137.2994,-17.99036,454.4014" />
+					</If>	
+					<!-- This chest drops Bloody Knife Blades, not needed for grinding.
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="121.1108,-0.01531982,-156.4202" />
+						<LLOpenChest />
+					</If>	-->
+					<MoveTo XYZ="114.4457, -0.2999986, -145.5608" />
 					<While condition="GameObjectManager.GetObjectByNPCId(2001128).IsTargetable">
-						<MoveTo XYZ="122.4979, -0.05968666, -147.4138"/>
-						<RunCode name="RustedNymianDevice2001128"/>
+						<UseTransport NpcId="2001128" InteractDistance="3" XYZ="122.4979, -0.05968666, -147.4138" />	
 					</While>	
 				</While>
 				
 				<!-- Clear the Final Ease 0/1 -->
 				<If Condition="GetInstanceTodo(4) == 0">
 					<Log Message="Clear the Final Ease 0/1" />
+					<If condition="GameObjectManager.GetObjectByNPCId(2000700)"> <!-- Check for shortcut -->
+						<UseTransport NpcId="2000700" InteractDistance="3" XYZ="137.2994,-17.99036,454.4014" />
+					</If>					
 					<MoveTo XYZ="42.85134, 0, -216.3028"/>
-					<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(1549).CurrentHealth == 0"/> <!-- Fight Giant Bavarois -->
+					<Grind GrindRef="SecondBoss" While="GetInstanceTodo(4) == 0"/> <!-- Fight Giant Bavarois -->
 					<If Condition="&openchest; == 1">
-						<LLOpenChest />
+						<UseObject NpcId="0" Radius="50" XYZ="43.2143, -0.1639996, -248.1134" UseTimes="2"/>
 					</If>
 				</If>
 				
 				<!-- Defeat the tonberry king 0/1 -->
 				<If Condition="GetInstanceTodo(5) == 0">
 					<Log Message="Defeat the tonberry king 0/1" />
-					<MoveTo XYZ="72.65417, 9.950102, -318.8521"/>
-					<UseObject NpcId="2002789" XYZ="73.60564, 9.836, -369.6367" Radius="100" condition="GetInstanceTodo(2) == 0"/>			
-					<MoveTo XYZ="73.60564, 9.836, -369.6367"/>
-					<UseObject NpcId="2002789" XYZ="73.60564, 9.836, -369.6367" Radius="100" condition="GetInstanceTodo(2) == 1"/>
-					<MoveTo XYZ="63.589, 10, -380.4978"/>
-					<While condition="GameObjectManager.GetObjectByNPCId(2001131).IsTargetable">
-						<MoveTo XYZ="63.589, 10, -380.4978"/>
-						<RunCode name="RustedNymianDevice2001131"/>
-					</While>	
-					<MoveTo XYZ="82.4129, 10, -380.4955"/>
-					<While condition="GameObjectManager.GetObjectByNPCId(2001130).IsTargetable">
-						<MoveTo XYZ="82.4129, 10, -380.4955"/>
-						<RunCode name="RustedNymianDevice2001130"/>
-					</While>	
-					<WaitTimer WaitTime="3" />
-					<BotSettings AutoEquip="0" />
+					<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
+						<UseTransport NpcId="2000700" InteractDistance="3" XYZ="137.2994,-17.99036,454.4014" />
+					</If>	
+					<MoveTo XYZ="43.03217, -1.192093E-07, -288.344" />
+					<If condition="GameObjectManager.GetObjectByNPCId(2001832).IsVisible and GameObjectManager.GetObjectByNPCId(2001131).IsTargetable">
+						<If condition="GetInstanceTodo(2) &lt; 2">
+							<UseObject NpcIds="2002789" InCombat="True" Radius="200" Condition="GetInstanceTodo(2) &lt; 2">
+								<HotSpots>
+									<HotSpot XYZ="73.60564, 9.836, -369.6367" Radius="200"/>
+									<HotSpot XYZ="73.60564, 9.836, -369.6367" Radius="200"/>
+								</HotSpots>
+							</UseObject>					
+						</If>
+						<!-- This chest has a minion
+						<If Condition="&openchest; == 1">
+							<MoveTo XYZ="37.73547,4.989685,-319.051" />
+							<LLOpenChest />
+						</If>	-->				
+						<MoveTo XYZ="72.84753, 9.836, -369.7419" />
+						<While condition="GameObjectManager.GetObjectByNPCId(2001131).IsTargetable">
+							<UseTransport NpcId="2001131" InteractDistance="3" XYZ="64.98816,10.94067,-379.6292" />
+						</While>	
+						<While condition="GameObjectManager.GetObjectByNPCId(2001130).IsTargetable">
+							<UseTransport NpcId="2001130" InteractDistance="3" XYZ="80.97961,10.94067,-379.6292" />
+						</While>	
+						<WaitTimer WaitTime="3" />
+					</If>	
 					<MoveTo XYZ="67.09601, 6, -423.0093"/>	
-					<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(1547).CurrentHealth == 0"/> <!-- Fight Final Boss -->			
+					<Grind GrindRef="FinalBoss" While="GetInstanceTodo(5) == 0"/> <!-- Fight Final Boss -->			
 					<If Condition="&openchest; == 1">
-						<LLOpenChest />
+						<UseObject NpcId="0" Radius="90" XYZ="67.09601, 6, -423.0093" UseTimes="1"/>
 					</If>
 					<While condition="DutyManager.InInstance">	
 						<WaitTimer WaitTime="5" />
 						<LLLeaveDuty/>
 					</While>
-				</If>				
+				</If>
+
+				<If condition="IsOnMap(534) or IsOnMap(535) or IsOnMap(536)">
+					<LLGcExpeditionResult/>
+					<WaitTimer WaitTime="5" />
+				</If>	
 			</If>
 		</If>	
 	</While>
@@ -149,14 +183,20 @@
 	
   </Order>
   <GrindAreas>
-	<GrindArea name="FirstBoss">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="124.9912,-12,98.2687" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Id="1548" Weight="1" />	
-        </TargetMobs>
-	</GrindArea>
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="124.9912,-12,98.2687" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1561" Weight="1"/> <!-- Gear Grease -->
+        <TargetMob Id="1563" Weight="1"/> <!-- Bronze Buzzard -->
+        <TargetMob Id="1559" Weight="1"/> <!-- Bronze Beetle -->				
+        <TargetMob Id="1562" Weight="1"/> <!-- Pug Pugil -->
+        <TargetMob Id="35" Weight="1"/> <!-- Tonberry -->
+        <TargetMob Id="1560" Weight="1"/> <!-- Cog Oil -->			
+        <TargetMob Id="1548" Weight="1"/> <!-- Keeper of Halidom -->
+      </TargetMobs>
+    </GrindArea>	
 	<GrindArea name="SecondBoss">
         <Hotspots>
 			<Hotspot Radius="200" XYZ="43.26027,-0.1639996,-243.0157" />
@@ -179,62 +219,6 @@
         </TargetMobs>
 	</GrindArea>	
   </GrindAreas>
-  <CodeChunks>
- 	<CodeChunk Name="RustedNymianDevice2001124">
-		<![CDATA[
-			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001124).Interact();
-			await Coroutine.Sleep(1000);
-			ff14bot.RemoteWindows.SelectYesno.ClickYes();
-			await Coroutine.Sleep(3000);
-      ]]>
-	</CodeChunk>
- 	<CodeChunk Name="RustedNymianDevice2001125">
-		<![CDATA[
-			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001125).Interact();
-			await Coroutine.Sleep(1000);
-			ff14bot.RemoteWindows.SelectYesno.ClickYes();
-			await Coroutine.Sleep(3000);
-      ]]>
-	</CodeChunk>
- 	<CodeChunk Name="RustedNymianDevice2001126">
-		<![CDATA[
-			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001126).Interact();
-			await Coroutine.Sleep(1000);
-			ff14bot.RemoteWindows.SelectYesno.ClickYes();
-			await Coroutine.Sleep(3000);
-      ]]>
-	</CodeChunk>
- 	<CodeChunk Name="RustedNymianDevice2001129">
-		<![CDATA[
-			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001129).Interact();
-			await Coroutine.Sleep(1000);
-			ff14bot.RemoteWindows.SelectYesno.ClickYes();
-			await Coroutine.Sleep(3000);
-      ]]>
-	</CodeChunk>
- 	<CodeChunk Name="RustedNymianDevice2001128">
-		<![CDATA[
-			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001128).Interact();
-			await Coroutine.Sleep(1000);
-			ff14bot.RemoteWindows.SelectYesno.ClickYes();
-			await Coroutine.Sleep(3000);
-      ]]>
-	</CodeChunk>
- 	<CodeChunk Name="RustedNymianDevice2001130">
-		<![CDATA[
-			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001130).Interact();
-			await Coroutine.Sleep(1000);
-			ff14bot.RemoteWindows.SelectYesno.ClickYes();
-			await Coroutine.Sleep(3000);
-      ]]>
-	</CodeChunk>		
- 	<CodeChunk Name="RustedNymianDevice2001131">
-		<![CDATA[
-			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001131).Interact();
-			await Coroutine.Sleep(1000);
-			ff14bot.RemoteWindows.SelectYesno.ClickYes();
-			await Coroutine.Sleep(3000);
-      ]]>
-	</CodeChunk>	
+  <CodeChunks>	
   </CodeChunks>
 </Profile>
