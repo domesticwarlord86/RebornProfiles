@@ -12,8 +12,10 @@
 <Profile>
   <Name>Amdapor Keep (Hard)</Name>
   <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-  
+  <Order>	
+	
+  <If Condition="GetQuestStep(67749) == 7">	
+	
 	<If condition="not DutyManager.InInstance">
 		<LLJoinDuty DutyId="29"/>
 	</If>
@@ -219,6 +221,11 @@
 		</If>
 		
 	</If>
+	
+  </If>	
+	
+  <LLoadProfile Path="../Start.xml"/>	
+	
   </Order>
   <GrindAreas>
 	<GrindArea name="FirstBoss">

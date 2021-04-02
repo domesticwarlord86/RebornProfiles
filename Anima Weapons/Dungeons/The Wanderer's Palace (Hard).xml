@@ -13,6 +13,9 @@
   <Name>The Wanderer's Palace (Hard)</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>	
+  
+  <If Condition="GetQuestStep(67749) == 6">
+  
 	<If condition="not DutyManager.InInstance">
 		<LLJoinDuty DutyId="30"/>
 	</If>
@@ -192,8 +195,9 @@
 
 	</If>
 	
+  </If>
 
-	<LLoadProfile Path="../Start.xml"/>		
+  <LLoadProfile Path="../Start.xml"/>		
 	
   </Order>
   <GrindAreas>

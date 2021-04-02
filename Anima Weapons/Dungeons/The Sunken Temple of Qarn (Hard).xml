@@ -13,6 +13,9 @@
   <Name>The Sunken Temple of Qarn</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
+  
+  <If Condition="GetQuestStep(67749) == 3">
+  
     <!-- [The Sunken Temple of Qarn (Hard)] The Wrath of Qarn -->
     <If Condition="not HasQuest(65632) and not IsQuestCompleted(65632)">
       <GetTo ZoneId="156" XYZ="26.70581, 21.25273, -637.3229"/>
@@ -241,8 +244,10 @@
 		<GetTo ZoneId="131" XYZ="-9.669962, 7.5, 147.9098"/>
 		<TurnIn QuestId="65632" NpcId="1010365" XYZ="-10.63556, 7.499994, 146.6849"/>
 	</If>
-
-	<LLoadProfile Path="../Start.xml"/>		
+	
+  </If>
+  
+  <LLoadProfile Path="../Start.xml"/>		
 	
   </Order>
   <GrindAreas>

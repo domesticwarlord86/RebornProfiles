@@ -13,6 +13,9 @@
   <Name>The Aery</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>	
+  
+  <If Condition="GetQuestStep(67749) == 11">
+  
 	<If condition="not DutyManager.InInstance">
 		<LLJoinDuty DutyId="39"/>
 	</If>
@@ -198,8 +201,9 @@
 		
 	</If>
 	
-
-	<LLoadProfile Path="../Start.xml"/>		
+  </If>	
+	
+  <LLoadProfile Path="../Start.xml"/>	  
 	
   </Order>
   <GrindAreas>
