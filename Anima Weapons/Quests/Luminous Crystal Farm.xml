@@ -18,7 +18,7 @@
 		  </If>
           <While Condition="not HasAtLeast(13569,1)">
 			<Log Message="Farming Luminous Ice Crystal in Coerthas Western Highlands..." />
-            <LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(13569,1)"/>
+            <LLFate MinLevel="1" MaxLevel="80" BlacklistID="793" while="not HasAtLeast(13569,1)"/>
           </While>		  
 		 </If>
 
@@ -51,7 +51,7 @@
 		  </If>				             
           <While Condition="not HasAtLeast(13572,1)">
 			<Log Message="Farming Luminous Earth Crystal in The Dravanian Forelands..." />
-            <LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(13572,1)"/>
+            <LLFate MinLevel="1" MaxLevel="80" BlacklistID="838" while="not HasAtLeast(13572,1)"/>
           </While>
         </While>
 		
