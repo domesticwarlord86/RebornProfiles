@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Hatching Tide 2021
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Hatching Tide 2021</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+    <!-- Fowl Demands -->
+    <If Condition="not HasQuest(69625) and not IsQuestCompleted(69625)">
+      <LisbethTravel Zone="133" Subzone="580" Position="-50.07856, 6.499984, -92.07327"/>
+      <If Condition="IsQuestAcceptQualified(69625)">
+        <LLPickupQuest QuestId="69625" NpcId="1036539"/>
+        <LLSmallTalk/>
+      </If>
+    </If>  
+    <If Condition="GetQuestStep(69625) == 1">
+      <LisbethTravel Zone="133" Subzone="581" Position="-290.4952, 7.653628, -169.7795"/>
+      <UseObject NpcId="2011538" XYZ="-289.6315, 7.70575, -169.8177" QuestId="69625" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69625) == 255">
+      <LisbethTravel Zone="133" Subzone="581" Position="-303.7632, 8.322596, -157.7023"/>
+      <LLTurnIn QuestId="69625" NpcId="1036567" XYZ="-305.7756, 8.375714, -156.1456"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- A Poultry Sum -->
+    <If Condition="IsQuestCompleted(69625) and not HasQuest(69626) and not IsQuestCompleted(69626)">
+      <LisbethTravel Zone="133" Subzone="581" Position="-302.5004, 8.360787, -156.6381"/>
+      <If Condition="IsQuestAcceptQualified(69626)">
+        <LLPickupQuest QuestId="69626" NpcId="1036541"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69626) == 1">
+      <LisbethTravel Zone="133" Subzone="581" Position="-304.2338, 8.32129, -157.616"/>
+      <LLTalkTo NpcId="1036564" XYZ="-305.7756, 8.375714, -156.1456" QuestId="69626" StepId="1"/>
+    </If>	
+    <While Condition="GetQuestStep(69626) == 2">
+		<LLToast message="Please compelte the FATE manually."/>
+		<WaitTimer WaitTime="26" />		
+    </While>	
+    <If Condition="GetQuestStep(69626) == 3">
+      <LisbethTravel Zone="133" Subzone="581" Position="-302.6869, 8.383688, -155.5762"/>
+      <LLTalkTo NpcId="1036541" XYZ="-301.5031, 8.383688, -155.2911" QuestId="69626" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69626) == 4">
+      <LisbethTravel Zone="133" Subzone="580" Position="-50.46945, 6.499984, -92.19366"/>
+      <LLTalkTo NpcId="1036539" XYZ="-50.0954, 6.499997, -90.19611" QuestId="69626" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69626) == 5">
+      <LisbethTravel Zone="133" Subzone="0" Position="-48.88607, 6.79678, -124.1541"/>
+      <LLTalkTo NpcId="1036569" XYZ="-47.40979, 6.799423, -124.7425" QuestId="69626" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69626) == 255">
+      <LisbethTravel Zone="133" Subzone="580" Position="-50.11118, 6.499985, -91.91638"/>
+      <LLTurnIn QuestId="69626" NpcId="1036539" XYZ="-50.0954, 6.499997, -90.19611"/>
+      <LLSmallTalk/>
+    </If>	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
