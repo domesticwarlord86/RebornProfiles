@@ -182,7 +182,7 @@
 	<CodeChunks>
 	 <CodeChunk name="PluginLoad">
       <![CDATA[
-        var Plugin = PluginManager.Plugins.Where(p => p.Plugin.Name == "SycrusAssist");
+        var Plugin = PluginManager.Plugins.Where(p => p.Plugin.Name == "DungeonAssist");
         var Plugin2 = PluginManager.Plugins.Where(p => p.Plugin.Name == "Osiris");
 		var Plugin3 = PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep");
 		
@@ -208,7 +208,7 @@
 				
 				if (Plugin != null)
 				{
-					PluginManager.SetEnabledPlugins("SycrusAssist");
+					PluginManager.SetEnabledPlugins("DungeonAssist");
 					Core.OverlayManager.AddToast(() => text1, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
 					
 				}
