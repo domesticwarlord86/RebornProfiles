@@ -196,8 +196,8 @@
         var text6 = string.Empty;
 		
 		
-		text1 = "Plug-In Sycrus Assist is installed and enabled";
-		text2 = "You Need the Sycrus Assist Plug-In to Operate this Profile";
+		text1 = "Plug-In Dungeon Assist is installed and enabled";
+		text2 = "You Need the Dungeon Assist Plug-In to Operate this Profile";
 		text3 = "Plug-In Osiris  is installed and enabled";
 		text4 = "You Need the Osiris Plug-In to Operate this Profile";
 		text5 = "Plug-In SideStep  is installed and enabled";
