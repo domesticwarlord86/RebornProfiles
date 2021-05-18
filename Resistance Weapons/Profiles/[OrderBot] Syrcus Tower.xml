@@ -27,8 +27,8 @@
 
 				<If Condition="GetInstanceTodo(2) == 0">
 					<Log Message="Clear the Ladder of Ascension 0/1" />
-					<MoveTo Name="Boss Arena 1" XYZ="-0.8759959, -700, 62.71616" Distance="1" />
-					<WaitWhile Condition="not Core.Me.InCombat"/>
+					<MoveTo XYZ="0.08094282, -700, 74.585" />
+					<WaitWhile Condition="not IsPartyInCombat"/>
 					<Grind GrindRef="Yellow Dragon" While="GetInstanceTodo(2) == 0" />
 					<MoveTo XYZ="36.59584, -682.3271, -34.34914" />
 					<LLChangeZone Heading="1.693069"/>					
@@ -38,8 +38,9 @@
 					<Log Message="Defeat Scylla" />
 					<If condition="GameObjectManager.GetObjectByNPCId(2004154) or GameObjectManager.GetObjectByNPCId(2002941)">
 						<RunCode name="Allagan Teleporter"/>
-					</If>					
-					<WaitWhile Condition="not Core.Me.InCombat"/>
+					</If>
+					<MoveTo XYZ="0.4508072, -590, -156.197" />					
+					<WaitWhile Condition="not IsPartyInCombat"/>
 					<Grind GrindRef="Scylla" While="GetInstanceTodo(3) == 0" />	
 					<MoveTo XYZ="-0.1552268, -589.46, -222.2895" usemesh="false" />					
 					<MoveTo XYZ="-0.1741263, -581.6946, -252.3315" usemesh="false" />
@@ -52,7 +53,7 @@
 						<RunCode name="Allagan Teleporter"/>
 					</If>					
 					<MoveTo XYZ="23.1056, -400, -200.1003" />
-					<WaitWhile Condition="not Core.Me.InCombat"/>
+					<WaitWhile Condition="not IsPartyInCombat"/>
 					<Grind GrindRef="Green Dragon" While="GetInstanceTodo(4) == 0" />
 					<MoveTo XYZ="-69.1171, -395.2811, -215.37" />
 					<LLChangeZone Heading="3.067017"/>	
@@ -65,7 +66,7 @@
 					<If condition="GameObjectManager.GetObjectByNPCId(2004154) or GameObjectManager.GetObjectByNPCId(2002941)">
 						<RunCode name="Allagan Teleporter"/>
 					</If>
-					<WaitWhile Condition="not Core.Me.InCombat"/>
+					<WaitWhile Condition="not IsPartyInCombat"/>
 					<Grind GrindRef="Glasya Labolas" While="GetInstanceTodo(5) == 0" />
 					<MoveTo XYZ="-13.77971, 4.375302, -266.6036" />
 					<LLChangeZone Heading="4.825583"/>
@@ -77,7 +78,7 @@
 						<RunCode name="Allagan Teleporter"/>
 					</If>					
 					<MoveTo XYZ="-0.04082332, 200, -222.5494" />
-					<WaitWhile Condition="not Core.Me.InCombat"/>
+					<WaitWhile Condition="not IsPartyInCombat"/>
 					<Grind GrindRef="Red Dragon" PostCombatDelay="3.0" While="GetInstanceTodo(6) == 0" />
 					<MoveTo XYZ="-16.32521, 204.8967, -132.3171" />
 					<LLChangeZone Heading="4.674441"/>
@@ -89,7 +90,7 @@
 						<RunCode name="Allagan Teleporter"/>
 					</If>					
 					<MoveTo XYZ="12.27859, 600, -179.0363" />
-					<WaitWhile Condition="not Core.Me.InCombat"/>
+					<WaitWhile Condition="not IsPartyInCombat"/>
 					<Grind GrindRef="Amon" While="GetInstanceTodo(7) == 0" />	
 					<MoveTo XYZ="-59.21965, 602.7, -199.7233" />
 					<LLChangeZone Heading="4.773327"/>
@@ -98,7 +99,7 @@
 				<If Condition="GetInstanceTodo(7) == 1 and GetInstanceTodo(8) == 0">
 					<Log Message="Defeat Xande 0/1" />
 					<MoveTo XYZ="-374.567, 500.0322, -200.096" />
-					<WaitWhile Condition="not Core.Me.InCombat"/>
+					<WaitWhile Condition="not IsPartyInCombat"/>
 					<Grind GrindRef="Xande" PostCombatDelay="3.0" While="GetInstanceTodo(8) == 0" /> 
 				</If>
 				
