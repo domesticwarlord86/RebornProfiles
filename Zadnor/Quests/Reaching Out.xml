@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Reaching Out
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Reaching Out</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- Reaching Out -->
+    <If Condition="not HasQuest(69622) and not IsQuestCompleted(69622)">
+      <NoCombatMoveTo XYZ="693.6035, 296.0987, 676.6155"/>
+      <If Condition="IsQuestAcceptQualified(69622)">
+        <LLPickupQuest QuestId="69622" NpcId="1036656"/>
+        <LLSmallTalk/>
+      </If>
+    </If>  
+    <If Condition="GetQuestStep(69622) == 1 and GetQuestById(69622).QuestI8A == 0">
+      <NoCombatMoveTo XYZ="-423.0909, 240.072, 126.6655"/>
+      <UseObject NpcId="2011552" XYZ="-421.5305, 240.1311, 124.7119" QuestId="69622" StepId="1"/>    
+    </If>
+    <If Condition="GetQuestStep(69622) == 1 and GetQuestById(69622).QuestI8A == 17">
+      <NoCombatMoveTo XYZ="-864.2637, 249.334, 103.2193"/>
+      <UseObject NpcId="2011553" XYZ="-873.2585, 249.1035, 103.2578" QuestId="69622" StepId="1"/>	
+	</If>
+    <If Condition="GetQuestStep(69622) == 2">
+	  <If condition="ActionManager.IsReturnReady">
+		<Log Message="Return is ready, let's take the easy way back..." />
+		<RunCode name="Return"/>
+	  </If>		
+      <NoCombatMoveTo XYZ="696.6168, 296.1007, 675.5587"/>
+      <LLTalkTo NpcId="1036752" XYZ="696.437, 296.0963, 677.5463" QuestId="69622" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69622) == 255">
+      <MoveTo XYZ="696.6168, 296.1007, 675.5587"/>
+      <LLTurnIn QuestId="69622" NpcId="1036656" XYZ="694.2092, 296.0948, 678.3398"/>
+      <LLSmallTalk/>
+    </If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="Return">
+			<![CDATA[
+				ActionManager.DoAction(ActionType.General, 8, Core.Me);
+				await Coroutine.Sleep(1000);
+				ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				await Coroutine.Sleep(4000);
+				await Coroutine.Wait(20000, () => CommonBehaviors.IsLoading);
+				if (CommonBehaviors.IsLoading)
+				{
+					await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+				}
+		  ]]>
+		</CodeChunk>  
+  </CodeChunks>
+</Profile>  

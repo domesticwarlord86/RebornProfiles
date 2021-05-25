@@ -13,6 +13,11 @@
   Fate: 1723 Breaking the Ice Bozja_Slay
   ID: 1724 Type: Bozja_Slay Fate: Meet the Puppetmaster  
 
+  Confirmed Zone 2:
+  ID: 1725 Type: Bozja_Boss Fate: Challenge Accepted 
+  ID: 1728 Type: Bozja_Boss Fate: A Just Pursuit   
+  ID: 1730 Type: Bozja_Boss Fate: Supersoldier Rising 
+  ID: 1731 Type: Bozja_Boss Fate: Demented Mentor 
   
   
  Fate: 1728 A Just Pursuit Bozja_Boss
@@ -88,11 +93,23 @@ ID: 1741 Type: Bozja_Boss Fate: The Student Becalms the Master
 				<Log Message="Loading 'Where Eagles Roost'..." />
 				<LLoadProfile Path="../Quests/Where Eagles Roost.xml"/>			
 			</If>
+			
+			<!-- Grind to Rank 20 -->
+			<While condition="Core.Me.ElementalLevel &lt; 20 and CurrentMettle() &lt; NextResistanceRank()">
+				<Log Message="Doing Fates to grind Mettle to Rank 20..." />
+				<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1728,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 20"/>	
+			</While>
+
+			<!-- Complete 'Reaching Out' if not done -->	
+			<If condition="Core.Me.ElementalLevel &gt; 19 and not IsQuestCompleted(69622)">
+				<Log Message="Loading 'Reaching Out'..." />
+				<LLoadProfile Path="../Quests/Reaching Out.xml"/>			
+			</If>			
 
 			<!-- Grind to Rank 25 -->
 			<While condition="Core.Me.ElementalLevel &lt; 25 and CurrentMettle() &lt; NextResistanceRank()">
 				<Log Message="Doing Fates to grind Mettle to Rank 25..." />
-				<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 25"/>	
+				<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1728,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 25"/>	
 			</While>			
 	</While>
 		
