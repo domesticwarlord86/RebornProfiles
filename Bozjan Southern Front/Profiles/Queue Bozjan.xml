@@ -57,6 +57,17 @@
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
+						if (ConditionParser.IsQuestCompleted(69620)||ConditionParser.GetQuestStep(69620) > 1)
+						{
+							Logging.WriteDiagnostic("Selecting 'The Bozjan Southern Front'.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(2);
+							await Coroutine.Wait(10000, () => SelectString.IsOpen);
+							await Buddy.Coroutines.Coroutine.Sleep(500);
+							{
+								Logging.WriteDiagnostic("Selecting 'Enter the Bozjan southern front'.");
+								ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+							}							
+						}					
 						if (ConditionParser.IsQuestCompleted(69562))
 						{
 							Logging.WriteDiagnostic("Selecting 'The Bozjan Southern Front'.");
@@ -72,6 +83,12 @@
 						{
 							Logging.WriteDiagnostic("Selecting 'Enter the Bozjan southern front'.");
 							ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+							await Coroutine.Wait(10000, () => SelectString.IsOpen);
+							await Buddy.Coroutines.Coroutine.Sleep(500);
+							{
+								Logging.WriteDiagnostic("Selecting 'Enter the Bozjan southern front'.");
+								ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+							}								
 						}						
 					}										
 
