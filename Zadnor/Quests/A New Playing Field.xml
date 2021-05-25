@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: A New Playing Field
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>A New Playing Field</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- A New Playing Field -->
+    <If Condition="not HasQuest(69620) and not IsQuestCompleted(69620)">
+      <If Condition="not IsOnMap(915)">	
+		<While Condition="not IsOnMap(759)">
+		  <TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+		</While>				
+		<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+		<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+	  </If>	
+      <LisbethTravel Zone="915" Subzone="0" Position="14.73567, 0.01559058, -16.4707"/>
+      <If Condition="IsQuestAcceptQualified(69620)">
+        <LLPickupQuest QuestId="69620" NpcId="1032881"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69620) == 1">
+      <LisbethTravel Zone="915" Subzone="0" Position="-26.38429, -0.5419349, -32.76464"/>
+      <LLTalkTo NpcId="1032080" XYZ="-29.862, -0.4095392, -34.3786" QuestId="69620" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(69620) == 2">
+	  <If Condition="not IsOnMap(975)">
+        <LisbethTravel Zone="915" Subzone="0" Position="-26.38429, -0.5419349, -32.76464"/>
+	    <RunCode name="EnterZadnor"/>
+	  </If>
+	  <MoveTo XYZ="682.6802, 296.6181, 659.835" />
+	  <RunCode name="LearnCampVrdelnis"/>
+      <MoveTo XYZ="694.5613, 296.0645, 626.15"/>
+      <LLTalkTo NpcId="1036655" XYZ="695.0331, 296.0529, 623.926" QuestId="69620" StepId="2"/>	  
+    </If>	
+    <If Condition="GetQuestStep(69620) == 3">
+      <MoveTo XYZ="697.7384, 296.0999, 675.8616"/>
+      <LLTalkTo NpcId="1036751" XYZ="697.9019, 296.0947, 678.2177" QuestId="69620" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69620) == 255">
+      <MoveTo XYZ="697.725, 296.0999, 675.8618"/>
+      <LLTurnIn QuestId="69620" NpcId="1036752" XYZ="696.437, 296.0963, 677.5463"/>
+      <LLSmallTalk/>
+    </If>	
+	
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="EnterZadnor">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032080);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Selecting 'Zadnor'.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						await Coroutine.Wait(10000, () => SelectString.IsOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+						{
+							Logging.WriteDiagnostic("Selecting 'Enter Zadnor'.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						}													
+					}										
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk> 
+		<CodeChunk Name="LearnCampVrdelnis">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(2011572);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+					}
+					
+			]]>			
+		</CodeChunk>		
+  </CodeChunks>
+</Profile>  

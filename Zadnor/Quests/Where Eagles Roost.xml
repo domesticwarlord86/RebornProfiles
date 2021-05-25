@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Where Eagles Roost
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Where Eagles Roost</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- Where Eagles Roost -->
+    <If Condition="not HasQuest(69628) and not IsQuestCompleted(69628)">
+      <NoCombatMoveTo XYZ="677.3476, 296.0853, 677.2308"/>
+      <If Condition="IsQuestAcceptQualified(69628)">
+        <LLPickupQuest QuestId="69628" NpcId="1036753"/>
+        <LLSmallTalk/>
+      </If>
+    </If> 
+    <If Condition="GetQuestStep(69628) == 255">
+      <NoCombatMoveTo XYZ="-320.4261, 301.0342, 771.4069"/>
+      <LLTurnIn QuestId="69628" NpcId="1036754" XYZ="-322.8962, 300.9424, 771.7554"/>
+      <LLSmallTalk/>
+    </If>
+
+	<MoveTo XYZ="-355.9269, 286.2837, 760.7605" />
+	<RunCode name="LearnZuprtik"/>
+	
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="LearnZuprtik">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(2011573);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+					}
+					
+			]]>			
+		</CodeChunk>		  
+  </CodeChunks>
+</Profile>  

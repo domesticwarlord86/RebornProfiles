@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Queue Zadnor
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Queue Zadnor Southern Front</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	  <If condition="not PartyManager.IsInParty or PartyManager.IsPartyLeader">
+		<Log Message="I'm party leader, entering Zadnor..." />
+			<If Condition="not IsOnMap(915)">	
+				<While Condition="not IsOnMap(759)">
+					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+				</While>				
+				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+			</If>
+			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+			<RunCode name="EnterZadnor"/>
+	  </If>
+
+	  <If condition="not PartyManager.IsPartyLeader and PartyManager.IsInParty">
+		<Log Message="I'm not party leader, waiting for Zadnor queue..." />
+			<If Condition="not IsOnMap(915)">	
+				<While Condition="not IsOnMap(759)">
+					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+				</While>				
+				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+			</If>
+			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+			<RunCode name="EnterZadnorPartyMemeber"/>			
+	  </If>		
+		
+  </Order>
+    <CodeChunks>
+		<CodeChunk Name="EnterZadnor">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032080);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Selecting 'Zadnor'.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						await Coroutine.Wait(10000, () => SelectString.IsOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+						{
+							Logging.WriteDiagnostic("Selecting 'Enter Zadnor'.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						}													
+					}										
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="EnterZadnorPartyMemeber">
+			<![CDATA[
+					await Coroutine.Wait(-1, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>		
+	</CodeChunks>		
+</Profile>	

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Resolve Unshaken
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Resolve Unshaken</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- Resolve Unshaken -->
+    <If Condition="not HasQuest(69621) and not IsQuestCompleted(69621)">
+		<If Condition="not IsOnMap(975)">	
+			<While Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</While>				
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+			<RunCode name="EnterZadnor"/>
+		</If>	
+      <NoCombatMoveTo XYZ="695.5464, 296.101, 675.4802"/>
+      <If Condition="IsQuestAcceptQualified(69621)">
+        <LLPickupQuest QuestId="69621" NpcId="1036752"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69621) == 1">
+      <NoCombatMoveTo XYZ="-48.24506, 306.6165, 483.9917"/>
+      <UseObject NpcId="2011551" XYZ="-48.32532, 307.0267, 483.4821" QuestId="69621" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69621) == 2">
+      <If condition="ActionManager.IsReturnReady">
+		<Log Message="Return is ready, let's take the easy way back..." />
+		<RunCode name="Return"/>
+	  </If>	
+      <NoCombatMoveTo XYZ="695.0911, 296.1021, 675.0186"/>
+      <LLTalkTo NpcId="1036656" XYZ="694.2092, 296.0948, 678.3398" QuestId="69621" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69621) == 3">
+      <MoveTo XYZ="696.8575, 296.0995, 676.111"/>
+      <LLTalkTo NpcId="1036657" XYZ="697.9628, 296.0936, 678.7059" QuestId="69621" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69621) == 4">
+      <MoveTo XYZ="682.3651, 296.077, 638.3442"/>
+      <LLTalkTo NpcId="1036746" XYZ="681.2999, 296.0732, 636.0416" QuestId="69621" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69621) == 255">
+      <MoveTo XYZ="697.3619, 296.0979, 676.7798"/>
+      <LLTurnIn QuestId="69621" NpcId="1036657" XYZ="697.9628, 296.0936, 678.7059"/>
+      <LLSmallTalk/>
+    </If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="EnterZadnor">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032080);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Selecting 'Zadnor'.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						await Coroutine.Wait(10000, () => SelectString.IsOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+						{
+							Logging.WriteDiagnostic("Selecting 'Enter Zadnor'.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						}													
+					}										
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>  
+		<CodeChunk Name="Return">
+			<![CDATA[
+				ActionManager.DoAction(ActionType.General, 8, Core.Me);
+				await Coroutine.Sleep(1000);
+				ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				await Coroutine.Sleep(4000);
+				await Coroutine.Wait(20000, () => CommonBehaviors.IsLoading);
+				if (CommonBehaviors.IsLoading)
+				{
+					await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+				}
+		  ]]>
+		</CodeChunk>		
+  </CodeChunks>
+</Profile>  
