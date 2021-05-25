@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Shadowbrings 5.55 MSQ
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Shadowbrings 5.55 MSQ</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->
+	<!-- Check if completed 5.4 quests -->
+    <If Condition="not IsQuestCompleted(69599)">
+		<LLToast message="Please complete 5.5 quests before loading this profile."/>
+    </If>
+	
+    <!-- The Company We Keep -->
+    <If Condition="IsQuestCompleted(69599) and not HasQuest(69600) and not IsQuestCompleted(69600)">
+	  <If condition="not IsOnMap(351)">
+		<LisbethTravel Zone="156" Subzone="943" Position="21.43668, 21.25273, -632.4913"/>
+		<UseTransport NpcId="2002881" InteractDistance="3.0" XYZ="21.13373, 22.32391, -631.281"/>
+	  </If>		
+      <MoveTo ZoneId="351" XYZ="-1.792886, 0, -6.814459"/>
+      <If Condition="IsQuestAcceptQualified(69600)">
+        <LLPickupQuest QuestId="69600" NpcId="1036400"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69600) == 1">
+      <LisbethTravel Zone="621" Subzone="2610" Position="748.7938, 70.13963, 524.953"/>
+      <LLTalkTo NpcId="1024065" XYZ="749.9961, 70.13963, 522.8809" QuestId="69600" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69600) == 2">
+      <LisbethTravel Zone="621" Subzone="2610" Position="740.3648, 70, 532.2333"/>
+      <LLTalkTo NpcId="1036325" XYZ="740.0167, 70, 534.02" QuestId="69600" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69600) == 3">
+      <LisbethTravel Zone="621" Subzone="2610" Position="741.8649, 70, 533.4343"/>
+      <LLTalkTo NpcId="1037011" XYZ="741.7257, 70, 534.6302" QuestId="69600" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69600) == 255">
+      <LisbethTravel Zone="612" Subzone="2613" Position="-640.5712, 130, -502.7285"/>
+      <LLTurnIn QuestId="69600" NpcId="1036424" XYZ="-641.9318, 130, -503.1968"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- On Official Business -->
+    <If Condition="IsQuestCompleted(69600) and not HasQuest(69601) and not IsQuestCompleted(69601)">
+      <LisbethTravel Zone="612" Subzone="2613" Position="-641.3196, 130, -506.511"/>
+      <If Condition="IsQuestAcceptQualified(69601)">
+        <LLPickupQuest QuestId="69601" NpcId="1036426"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69601) == 1">
+      <LisbethTravel Zone="133" Subzone="0" Position="125.7335, 12.93142, -247.6816"/>
+      <LLTalkTo NpcId="1036428" XYZ="125.9938, 12.9667, -249.3782" QuestId="69601" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69601) == 2">
+      <LisbethTravel Zone="152" Subzone="113" Position="29.62093, -3.622539, 212.1625"/>
+      <LLTalkTo NpcId="1005577" XYZ="28.48853, -3.631957, 210.6202" QuestId="69601" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69601) == 3">
+      <LisbethTravel Zone="133" Subzone="579" Position="-158.4195, 4.008915, -5.904653"/>
+      <LLTalkTo NpcId="1000460" XYZ="-159.411, 4.054098, -4.104736" QuestId="69601" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69601) == 4">
+	  <If condition="not IsOnMap(205)">
+		<LisbethTravel Zone="133" Subzone="579" Position="-159.041, 4.004559, -6.780818"/>
+		<UseTransport NpcId="1000460" DialogOption="0" InteractDistance="3.0" XYZ="-159.411, 4.054098, -4.104736"/>
+	  </If>		
+      <MoveTo XYZ="5.283656, -1.805006, 1.818319"/>
+      <LLTalkTo NpcId="1003027" XYZ="4.898132, -1.92944, -0.1983643" QuestId="69601" StepId="4"/>
+    </If>	
+    <If Condition="GetQuestStep(69601) == 255">
+	  <If condition="not IsOnMap(205)">
+		<LisbethTravel Zone="133" Subzone="579" Position="-159.041, 4.004559, -6.780818"/>
+		<UseTransport NpcId="1000460" DialogOption="0" InteractDistance="3.0" XYZ="-159.411, 4.054098, -4.104736"/>
+	  </If>		
+      <MoveTo XYZ="6.323468, -1.797006, 4.422415"/>
+      <LLTurnIn QuestId="69601" NpcId="1036436" XYZ="4.226685, -1.858, 2.792297"/>
+      <LLSmallTalk/>
+    </If>	
+	
+    <!-- Death Unto Dawn -->
+    <If Condition="IsQuestCompleted(69601) and not HasQuest(69602) and not IsQuestCompleted(69602)">
+	  <If condition="not IsOnMap(205)">
+		<LisbethTravel Zone="133" Subzone="579" Position="-159.041, 4.004559, -6.780818"/>
+		<UseTransport NpcId="1000460" DialogOption="0" InteractDistance="3.0" XYZ="-159.411, 4.054098, -4.104736"/>
+	  </If>	
+      <MoveTo XYZ="5.710891, -1.805006, 3.058277"/>
+      <If Condition="IsQuestAcceptQualified(69602)">
+        <LLPickupQuest QuestId="69602" NpcId="1003027"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69602) == 1">
+      <LisbethTravel Zone="132" Subzone="545" Position="58.7523, -8.556477, 107.0511"/>
+      <LLTalkTo NpcId="1036439" XYZ="57.90796, -8.556445, 107.1641" QuestId="69602" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69602) == 2">
+      <LisbethTravel Zone="132" Subzone="549" Position="33.15565, -19, 102.0125"/>
+	  <While condition="GetQuestStep(69602) == 2">
+		<LLToast message="Please complete the Death Unto Dawn solo duty."/>
+		<WaitTimer WaitTime="26" />
+	  </While>	
+    </If>
+    <If Condition="GetQuestStep(69602) == 255">
+	  <If condition="not IsOnMap(351)">
+		<LisbethTravel Zone="156" Subzone="943" Position="21.43668, 21.25273, -632.4913"/>
+		<UseTransport NpcId="2002881" InteractDistance="3.0" XYZ="21.13373, 22.32391, -631.281"/>
+	  </If>		
+      <MoveTo ZoneId="351" XYZ="-0.9346759, 0, -2.269413"/>	
+      <LLTurnIn QuestId="69602" NpcId="1036444" XYZ="-1.693787, 0, -4.135254"/>
+      <LLSmallTalk/>
+    </If>	
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
