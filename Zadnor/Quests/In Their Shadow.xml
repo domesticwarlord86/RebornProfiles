@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- In Their Shadow -->
+    <If Condition="not HasQuest(69629) and not IsQuestCompleted(69629)">
+	  <If condition="ActionManager.IsReturnReady">
+		<Log Message="Return is ready, let's take the easy way back..." />
+		<RunCode name="Return"/>
+	  </If>	
+      <NoCombatMoveTo XYZ="681.7144, 296.1369, 676.0651"/>
+      <If Condition="IsQuestAcceptQualified(69629)">
+        <LLPickupQuest QuestId="69629" NpcId="1036753"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69629) == 255">
+      <NoCombatMoveTo XYZ="-704.0317, 265.3237, -249.2748"/>
+      <LLTurnIn QuestId="69629" NpcId="1036755" XYZ="-704.4022, 265.5478, -250.721"/>
+      <LLSmallTalk/>
+    </If>	
+	
+	<NoCombatMoveTo XYZ="-689.3873,276.5392,-292.1646" />
+	<RunCode name="LearnLjeban"/>
+	
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="LearnLjeban">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(2011574);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+					}
+					
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="Return">
+			<![CDATA[
+				ActionManager.DoAction(ActionType.General, 8, Core.Me);
+				await Coroutine.Sleep(1000);
+				ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				await Coroutine.Sleep(4000);
+				await Coroutine.Wait(20000, () => CommonBehaviors.IsLoading);
+				if (CommonBehaviors.IsLoading)
+				{
+					await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+				}
+		  ]]>
+		</CodeChunk>		
+  </CodeChunks>
+</Profile>  

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Renewed Focus
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Renewed Focus</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- Renewed Focus -->
+    <If Condition="not HasQuest(69623) and not IsQuestCompleted(69623)">
+      <NoCombatMoveTo XYZ="683.6797, 296.0761, 637.394"/>
+      <If Condition="IsQuestAcceptQualified(69623)">
+        <LLPickupQuest QuestId="69623" NpcId="1036746"/>
+        <LLSmallTalk/>
+      </If>
+    </If> 
+    <If Condition="GetQuestStep(69623) == 1">
+      <MoveTo XYZ="697.38, 296.0993, 676.1385"/>
+      <LLTalkTo NpcId="1036657" XYZ="697.9628, 296.0936, 678.7059" QuestId="69623" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69623) == 2">
+      <NoCombatMoveTo XYZ="-178.9243, 299.8411, -675.0485"/>
+      <UseObject NpcId="2011554" XYZ="-178.3933, 299.6414, -677.6379" QuestId="69623" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69623) == 3">
+      <NoCombatMoveTo XYZ="-176.0493, 299.4644, -674.2681"/>
+      <UseObject NpcId="2011613" XYZ="-178.3933, 299.6414, -677.6379" QuestId="69623" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69623) == 4">
+      <NoCombatMoveTo XYZ="696.0607, 296.0997, 676.0571"/>
+      <LLTalkTo NpcId="1036657" XYZ="697.9628, 296.0936, 678.7059" QuestId="69623" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69623) == 255">
+      <MoveTo XYZ="696.0607, 296.0997, 676.0571"/>
+      <LLTurnIn QuestId="69623" NpcId="1036657" XYZ="697.9628, 296.0936, 678.7059"/>
+      <LLSmallTalk/>
+    </If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
