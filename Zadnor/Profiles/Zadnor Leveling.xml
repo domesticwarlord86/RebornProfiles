@@ -5,28 +5,32 @@
   
   Confirmed Zone 1:
   ID: 1717 Type: Bozja_Boss Fate: Of Beasts and Braggadocio 
-  Fate: 1718 Parts and Parcel Bozja_Gather *Blacklist as it's a pickup
-  Fate: 1719 An Immoral Dilemma Bozja_Boss  
+  ID: 1718 Type: Bozja_Gather Fate: Parts and Parcel  *Blacklist as it's a pickup
+  ID: 1719 Type: Bozja_Boss Fate: An Immoral Dilemma  
   ID: 1720 Type: Bozja_Boss Fate: Deadly Divination 
   ID: 1721 Type: Bozja_Slay Fate: A Wrench in the Reconnaissance Effort 
   ID: 1722 Type: Bozja_Boss Fate: Another Pilot Episode 
-  Fate: 1723 Breaking the Ice Bozja_Slay
+  ID: 1723 Type: Bozja_Slay Fate: Breaking the Ice 
   ID: 1724 Type: Bozja_Slay Fate: Meet the Puppetmaster  
 
   Confirmed Zone 2:
   ID: 1725 Type: Bozja_Boss Fate: Challenge Accepted 
+  Fate Name: Th'uban the Terrible | ID: 1726 | Location: <-643.5449, 245.6, 651.6976>
   ID: 1728 Type: Bozja_Boss Fate: A Just Pursuit   *Blacklisting because Sidestep gets stuck on a tree
   ID: 1730 Type: Bozja_Boss Fate: Supersoldier Rising 
   ID: 1731 Type: Bozja_Boss Fate: Demented Mentor 
   ID: 1732 Type: Bozja_Boss Fate: Sever the Strings   *Blacklisting because Sidestep gets stuck on a tree
   
   Confirmed Zone 3:
-  ID: 1741 Type: Bozja_Boss Fate: The Student Becalms the Master 
-  ID: 1736 Type: Bozja_Boss Fate: Mean-spirited 
-  ID: 1742 Type: Bozja_Slay Fate: Attack of the Machines 
+  ID: 1733 Type: Bozja_Boss Fate: The Beasts Are Back 
   ID: 1734 Type: Bozja_Boss Fate: Still Only Counts as One 
-  ID: 1738 Type: Bozja_Slay Fate: When Mages Rage 
-  ID: 1735 Type: Bozja_Boss Fate: Seeq and You Will Find  
+  ID: 1735 Type: Bozja_Boss Fate: Seeq and You Will Find    
+  ID: 1736 Type: Bozja_Boss Fate: Mean-spirited   
+ID: 1737 Type: Bozja_Boss Fate: A Relic Unleashed   
+  ID: 1738 Type: Bozja_Slay Fate: When Mages Rage   
+  ID: 1741 Type: Bozja_Boss Fate: The Student Becalms the Master 
+  ID: 1742 Type: Bozja_Slay Fate: Attack of the Machines 
+
 			 
 -->
 <Profile>
@@ -61,7 +65,19 @@
 				  <MoveTo XYZ="658.2029, 296.0164, 675.5206" />
 				  <RunCode name="RankUp"/>
 				  <LLSmallTalk/>
-				</If>		
+				</If>
+
+				<!-- Rank up if ready -->
+				<If condition="CurrentMettle() == NextResistanceRank() and Core.Me.ElementalLevel &lt; 25">
+				  <Log Message="We have enough Mettle to rank up, doing so..." />
+					<If condition="ActionManager.IsReturnReady">
+						<Log Message="Return is ready, let's take the easy way back..." />
+						<RunCode name="Return"/>
+					</If>		  
+				  <MoveTo XYZ="658.2029, 296.0164, 675.5206" />
+				  <RunCode name="RankUp"/>
+				  <LLSmallTalk/>
+				</If>				
 				
 				<!-- Complete 'A New Playing Field' if not done -->	
 				<If Condition="not IsQuestCompleted(69620)">
@@ -96,7 +112,7 @@
 				<!-- Grind to Rank 20 -->
 				<While condition="Core.Me.ElementalLevel &lt; 20 and CurrentMettle() &lt; NextResistanceRank()">
 					<Log Message="Doing Fates to grind Mettle to Rank 20..." />
-					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 20"/>	
+					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 20"/>	
 				</While>
 
 				<!-- Complete 'Reaching Out' if not done -->	
@@ -108,7 +124,7 @@
 				<!-- Grind to Rank 22 -->
 				<While condition="Core.Me.ElementalLevel &lt; 22 and CurrentMettle() &lt; NextResistanceRank()">
 					<Log Message="Doing Fates to grind Mettle to Rank 22..." />
-					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 22"/>	
+					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 22"/>	
 				</While>	
 
 				<!-- Complete 'In Their Shadow' if not done -->	
@@ -120,7 +136,7 @@
 				<!-- Grind to Rank 23 -->
 				<While condition="Core.Me.ElementalLevel &lt; 23 and CurrentMettle() &lt; NextResistanceRank()">
 					<Log Message="Doing Fates to grind Mettle to Rank 23..." />
-					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 23"/>	
+					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 23"/>	
 				</While>
 
 				<!-- Complete 'Renewed Focus' if not done -->	
@@ -132,8 +148,20 @@
 				<!-- Grind to Rank 25 -->
 				<While condition="Core.Me.ElementalLevel &lt; 25 and CurrentMettle() &lt; NextResistanceRank()">
 					<Log Message="Doing Fates to grind Mettle to Rank 25..." />
-					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 25"/>	
-				</While>			
+					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 26"/>	
+				</While>
+				
+				<!-- Complete 'March of the Bloody Queen' if not done -->	
+				<If condition="Core.Me.ElementalLevel &gt; 24 and not IsQuestCompleted(69624) and GetQuestStep(69624) &lt; 5">
+					<Log Message="Loading 'March of the Bloody Queen'..." />
+					<LLoadProfile Path="../Quests/March of the Bloody Queen.xml"/>			
+				</If>				
+
+				<!-- Overlevel -->
+				<While condition="Core.Me.ElementalLevel &lt; 26">
+					<Log Message="Doing Fates to overlevel..." />
+					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and Core.Me.ElementalLevel &lt; 26"/>	
+				</While>				
 		</While>
 	</While>	
   

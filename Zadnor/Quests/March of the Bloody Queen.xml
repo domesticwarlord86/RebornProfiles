@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: March of the Bloody Queen
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>March of the Bloody Queen</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- March of the Bloody Queen -->
+    <If Condition="not HasQuest(69624) and not IsQuestCompleted(69624)">
+      <NoCombatMoveTo XYZ="682.5345, 296.0766, 637.9152"/>
+      <If Condition="IsQuestAcceptQualified(69624)">
+        <LLPickupQuest QuestId="69624" NpcId="1036746"/>
+        <LLSmallTalk/>
+      </If>
+    </If>  
+    <If Condition="GetQuestStep(69624) == 1">
+      <MoveTo XYZ="697.2916, 296.0987, 676.4333"/>
+      <LLTalkTo NpcId="1036657" XYZ="697.9628, 296.0936, 678.7059" QuestId="69624" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69624) == 2">
+      <NoCombatMoveTo XYZ="174.2044, 303.5119, -230.6932"/>
+      <UseObject NpcId="2011555" XYZ="175.9213, 303.4562, -233.3868" QuestId="69624" StepId="2"/>
+    </If>	
+    <If Condition="GetQuestStep(69624) == 3">
+      <MoveTo XYZ="174.4619, 303.5119, -231.1289"/>
+      <UseObject NpcId="2011614" XYZ="175.9213, 303.4866, -233.3563" QuestId="69624" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69624) == 4">
+      <NoCombatMoveTo XYZ="682.6421, 296.0773, 638.7613"/>
+      <UseObject NpcId="1036746" XYZ="681.2999, 296.0732, 636.0416" QuestId="69624" StepId="4"/>
+    </If>
+    <While Condition="GetQuestStep(69624) == 5">
+      <LLToast messahe="Please complete the Dalriada duty"/>
+	  <WaitTimer WaitTime="3" />
+    </While>
+
+		
+	<LLoadProfile Path="../Start.xml"/>	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
