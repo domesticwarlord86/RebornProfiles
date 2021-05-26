@@ -43,10 +43,9 @@
       <NoCombatMoveTo XYZ="682.6421, 296.0773, 638.7613"/>
       <UseObject NpcId="1036746" XYZ="681.2999, 296.0732, 636.0416" QuestId="69624" StepId="4"/>
     </If>
-    <While Condition="GetQuestStep(69624) == 5">
-      <LLToast messahe="Please complete the Dalriada duty"/>
-	  <WaitTimer WaitTime="3" />
-    </While>
+    <If Condition="GetQuestStep(69624) == 5">
+      <LLToast message="Please complete the Dalriada duty."/>
+    </If>
 
 		
 	<LLoadProfile Path="../Start.xml"/>	
