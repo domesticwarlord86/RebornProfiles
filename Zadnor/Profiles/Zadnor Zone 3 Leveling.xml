@@ -77,90 +77,12 @@
 				  <MoveTo XYZ="658.2029, 296.0164, 675.5206" />
 				  <RunCode name="RankUp"/>
 				  <LLSmallTalk/>
-				</If>				
-				
-				<!-- Complete 'A New Playing Field' if not done -->	
-				<If Condition="not IsQuestCompleted(69620)">
-					<Log Message="Loading 'A New Playing Field'..." />
-					<LLoadProfile Path="../Quests/A New Playing Field.xml"/>
-				</If>
-				
-				<!-- Grind to Rank 16 -->
-				<While condition="Core.Me.ElementalLevel == 15 and CurrentMettle() &lt; NextResistanceRank()">
-					<Log Message="Doing Fates to grind Mettle to Rank 16..." />
-					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 16"/>	
-				</While>
-				
-				<!-- Complete 'Resolve Unshaken' if not done -->	
-				<If condition="Core.Me.ElementalLevel &gt; 15 and not IsQuestCompleted(69621)">
-					<Log Message="Loading 'Resolve Unshaken'..." />
-					<LLoadProfile Path="../Quests/Resolve Unshaken.xml"/>			
-				</If>
+				</If>							
 
-				<!-- Grind to Rank 18 -->
-				<While condition="Core.Me.ElementalLevel &lt; 18 and CurrentMettle() &lt; NextResistanceRank()">
-					<Log Message="Doing Fates to grind Mettle to Rank 18..." />
-					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 18"/>	
-				</While>			
-
-				<!-- Complete 'Where Eagles Roost' if not done -->	
-				<If condition="Core.Me.ElementalLevel &gt; 17 and not IsQuestCompleted(69628)">
-					<Log Message="Loading 'Where Eagles Roost'..." />
-					<LLoadProfile Path="../Quests/Where Eagles Roost.xml"/>			
-				</If>
-				
-				<!-- Grind to Rank 20 -->
-				<While condition="Core.Me.ElementalLevel &lt; 20 and CurrentMettle() &lt; NextResistanceRank()">
-					<Log Message="Doing Fates to grind Mettle to Rank 20..." />
-					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 20"/>	
-				</While>
-
-				<!-- Complete 'Reaching Out' if not done -->	
-				<If condition="Core.Me.ElementalLevel &gt; 19 and not IsQuestCompleted(69622)">
-					<Log Message="Loading 'Reaching Out'..." />
-					<LLoadProfile Path="../Quests/Reaching Out.xml"/>			
-				</If>	
-
-				<!-- Grind to Rank 22 -->
-				<While condition="Core.Me.ElementalLevel &lt; 22 and CurrentMettle() &lt; NextResistanceRank()">
-					<Log Message="Doing Fates to grind Mettle to Rank 22..." />
-					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 22"/>	
-				</While>	
-
-				<!-- Complete 'In Their Shadow' if not done -->	
-				<If condition="Core.Me.ElementalLevel &gt; 21 and not IsQuestCompleted(69629)">
-					<Log Message="Loading 'In Their Shadow'..." />
-					<LLoadProfile Path="../Quests/In Their Shadow.xml"/>			
-				</If>
-
-				<!-- Grind to Rank 23 -->
-				<While condition="Core.Me.ElementalLevel &lt; 23 and CurrentMettle() &lt; NextResistanceRank()">
-					<Log Message="Doing Fates to grind Mettle to Rank 23..." />
-					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 23"/>	
-				</While>
-
-				<!-- Complete 'Renewed Focus' if not done -->	
-				<If condition="Core.Me.ElementalLevel &gt; 22 and not IsQuestCompleted(69623)">
-					<Log Message="Loading 'Renewed Focus'..." />
-					<LLoadProfile Path="../Quests/Renewed Focus.xml"/>			
-				</If>				
-
-				<!-- Grind to Rank 25 -->
-				<While condition="Core.Me.ElementalLevel &lt; 25 and CurrentMettle() &lt; NextResistanceRank()">
-					<Log Message="Doing Fates to grind Mettle to Rank 25..." />
-					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 26"/>	
-				</While>
-				
-				<!-- Complete 'March of the Bloody Queen' if not done -->	
-				<If condition="Core.Me.ElementalLevel &gt; 24 and not IsQuestCompleted(69624) and GetQuestStep(69624) &lt; 5">
-					<Log Message="Loading 'March of the Bloody Queen'..." />
-					<LLoadProfile Path="../Quests/March of the Bloody Queen.xml"/>			
-				</If>				
-
-				<!-- Overlevel -->
+				<!-- Zone 3 Fates -->
 				<While condition="Core.Me.ElementalLevel &lt; 26">
-					<Log Message="Doing Fates to overlevel..." />
-					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and Core.Me.ElementalLevel &lt; 26"/>	
+					<Log Message="Doing Fates in Zone 3..." />
+					<LLFate FateIds="1733,1734,1735,1736,1737,1738,1739,1740,1741,1742" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and Core.Me.ElementalLevel &lt; 26"/>	
 				</While>				
 		</While>
 	</While>	
