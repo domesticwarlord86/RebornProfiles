@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Proofs of Mettle farming
+  Authors: DomesticWarlord86
+  
+  Confirmed Zone 1:
+  ID: 1717 Type: Bozja_Boss Fate: Of Beasts and Braggadocio 
+  ID: 1718 Type: Bozja_Gather Fate: Parts and Parcel  *Blacklist as it's a pickup
+  ID: 1719 Type: Bozja_Boss Fate: An Immoral Dilemma  
+  ID: 1720 Type: Bozja_Boss Fate: Deadly Divination 
+  ID: 1721 Type: Bozja_Slay Fate: A Wrench in the Reconnaissance Effort 
+  ID: 1722 Type: Bozja_Boss Fate: Another Pilot Episode 
+  ID: 1723 Type: Bozja_Slay Fate: Breaking the Ice 
+  ID: 1724 Type: Bozja_Slay Fate: Meet the Puppetmaster  
+
+  Confirmed Zone 2:
+  ID: 1725 Type: Bozja_Boss Fate: Challenge Accepted 
+  ID: 1726 Type:  Fate Name: Th'uban the Terrible
+  ID: 1728 Type: Bozja_Boss Fate: A Just Pursuit   *Blacklisting because Sidestep gets stuck on a tree
+  ID: 1730 Type: Bozja_Boss Fate: Supersoldier Rising 
+  ID: 1731 Type: Bozja_Boss Fate: Demented Mentor 
+  ID: 1732 Type: Bozja_Boss Fate: Sever the Strings   *Blacklisting because Sidestep gets stuck on a tree
+  
+  Confirmed Zone 3:
+  ID: 1733 Type: Bozja_Boss Fate: The Beasts Are Back 
+  ID: 1734 Type: Bozja_Boss Fate: Still Only Counts as One 
+  ID: 1735 Type: Bozja_Boss Fate: Seeq and You Will Find    
+  ID: 1736 Type: Bozja_Boss Fate: Mean-spirited   
+  ID: 1737 Type: Bozja_Boss Fate: A Relic Unleashed   
+  ID: 1738 Type: Bozja_Slay Fate: When Mages Rage   
+  ID: 1741 Type: Bozja_Boss Fate: The Student Becalms the Master 
+  ID: 1742 Type: Bozja_Slay Fate: Attack of the Machines 
+
+			 
+-->
+
+<!DOCTYPE Profile [
+
+<!ENTITY Zone1 "0"> 		
+<!ENTITY Zone2 "0"> 		
+<!ENTITY Zone3 "1"> 
+
+]> 
+
+<Profile>
+  <Name>Proofs of Mettle farming</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<RunCode name="Disable_Flight"/>
+	<While condition="1 == 1">	
+		<If Condition="not IsOnMap(975)">  
+			<If Condition="not IsOnMap(915)">	
+				<While Condition="not IsOnMap(759)">
+					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+				</While>				
+				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+			</If>
+			<MoveTo ZoneId="915" XYZ="-27.72526, -0.5876654, -33.76041"/>
+			<RunCode name="EnterZadnor"/>
+		</If>  
+	  
+		<While Condition="IsOnMap(975)">
+			<Log Message="Starting Proofs of Mettle farming..." />
+
+				<!-- Cash In if ready -->
+				<If condition="CurrentMettle() &gt; 20000000 and Core.Me.ElementalLevel == 25">
+				  <Log Message="We have enough Mettle to cash in, doing so..." />
+					<If condition="ActionManager.IsReturnReady">
+						<Log Message="Return is ready, let's take the easy way back..." />
+						<RunCode name="Return"/>
+					</If>		  
+				  <NoCombatMoveTo XYZ="711.1771,296.0955,673.2433" />
+				  <RunCode name="CashIn"/>
+				  <LLSmallTalk/>
+				</If>							
+
+				<!-- Overlevel Farming -->
+				
+				<!-- Zone 1-->
+				<If Condition="&Zone1; == 1">
+					<While condition="Core.Me.ElementalLevel == 25 and IsOnMap(975) and CurrentMettle() &lt; 20000000">
+						<Log Message="Farming for Proofs of Mettle in Zone 3..." />
+						<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; 20000000"/>	
+					</While>
+				</If>					
+				
+				<!-- Zone 2-->
+				<If Condition="&Zone2; == 1">
+					<While condition="Core.Me.ElementalLevel == 25 and IsOnMap(975) and CurrentMettle() &lt; 20000000">
+						<Log Message="Farming for Proofs of Mettle in Zone 3..." />
+						<LLFate FateIds="1725,1726,1727,1729,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; 20000000"/>	
+					</While>
+				</If>	
+				
+				<!-- Zone 3-->
+				<If Condition="&Zone3; == 1">
+					<While condition="Core.Me.ElementalLevel == 25 and IsOnMap(975) and CurrentMettle() &lt; 20000000">
+						<Log Message="Farming for Proofs of Mettle in Zone 3..." />
+						<LLFate FateIds="1733,1734,1735,1736,1737,1738,1739,1740,1741,1742" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; 20000000"/>	
+					</While>
+				</If>		
+		</While>
+	</While>	
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="EnterZadnor">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032080);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Selecting 'Zadnor'.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						await Coroutine.Wait(10000, () => SelectString.IsOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+						{
+							Logging.WriteDiagnostic("Selecting 'Enter Zadnor'.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						}													
+					}										
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>  
+		<CodeChunk Name="RankUp">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1036720);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+					
+					await Coroutine.Wait(5000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}				
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Offer proof of your mettle.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					}					
+
+					await Coroutine.Wait(5000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(500, () => !Talk.DialogOpen);
+						await Coroutine.Wait(500, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}	
+				
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="Return">
+			<![CDATA[
+				ActionManager.DoAction(ActionType.General, 8, Core.Me);
+				await Coroutine.Sleep(1000);
+				ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				await Coroutine.Sleep(4000);
+				await Coroutine.Wait(20000, () => CommonBehaviors.IsLoading);
+				if (CommonBehaviors.IsLoading)
+				{
+					await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+				}
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="CashIn">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1036725);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					if (!Talk.DialogOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}						
+					
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					{
+						Logging.WriteDiagnostic("Choosing 'Proof of mettle exchange.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					}
+	
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+
+					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+					if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+					{
+						Logging.WriteDiagnostic("Selecting Yes.");
+						ff14bot.RemoteWindows.SelectYesno.ClickYes();
+					}
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					{
+						Talk.Next();
+						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					{
+						Logging.WriteDiagnostic("Choosing 'Nothing.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(3);
+					}					
+				
+		  ]]>
+		</CodeChunk>		
+		<CodeChunk Name="Disable_Flight">
+		<![CDATA[
+			foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "Enable Flight" || p.Plugin.Name == "启用飞行"))
+			{
+			try
+			{
+				if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+			}
+			catch (Exception ex) {  }
+			}
+		]]>
+		</CodeChunk>		
+  </CodeChunks>
+</Profile>  
