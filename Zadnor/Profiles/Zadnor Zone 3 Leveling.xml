@@ -80,7 +80,7 @@
 				</If>							
 
 				<!-- Zone 3 Fates -->
-				<While condition="Core.Me.ElementalLevel &lt; 26">
+				<While condition="Core.Me.ElementalLevel &lt; 26 and IsOnMap(975)">
 					<Log Message="Doing Fates in Zone 3..." />
 					<LLFate FateIds="1733,1734,1735,1736,1737,1738,1739,1740,1741,1742" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and Core.Me.ElementalLevel &lt; 26"/>	
 				</While>				

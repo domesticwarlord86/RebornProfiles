@@ -86,7 +86,7 @@
 				</If>
 				
 				<!-- Grind to Rank 16 -->
-				<While condition="Core.Me.ElementalLevel == 15 and CurrentMettle() &lt; NextResistanceRank()">
+				<While condition="Core.Me.ElementalLevel == 15 and CurrentMettle() &lt; NextResistanceRank() and IsOnMap(975)">
 					<Log Message="Doing Fates to grind Mettle to Rank 16..." />
 					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 16"/>	
 				</While>
@@ -98,7 +98,7 @@
 				</If>
 
 				<!-- Grind to Rank 18 -->
-				<While condition="Core.Me.ElementalLevel &lt; 18 and CurrentMettle() &lt; NextResistanceRank()">
+				<While condition="Core.Me.ElementalLevel &lt; 18 and CurrentMettle() &lt; NextResistanceRank() and IsOnMap(975)">
 					<Log Message="Doing Fates to grind Mettle to Rank 18..." />
 					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 18"/>	
 				</While>			
@@ -110,7 +110,7 @@
 				</If>
 				
 				<!-- Grind to Rank 20 -->
-				<While condition="Core.Me.ElementalLevel &lt; 20 and CurrentMettle() &lt; NextResistanceRank()">
+				<While condition="Core.Me.ElementalLevel &lt; 20 and CurrentMettle() &lt; NextResistanceRank() and IsOnMap(975)">
 					<Log Message="Doing Fates to grind Mettle to Rank 20..." />
 					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 20"/>	
 				</While>
@@ -122,7 +122,7 @@
 				</If>	
 
 				<!-- Grind to Rank 22 -->
-				<While condition="Core.Me.ElementalLevel &lt; 22 and CurrentMettle() &lt; NextResistanceRank()">
+				<While condition="Core.Me.ElementalLevel &lt; 22 and CurrentMettle() &lt; NextResistanceRank() and IsOnMap(975)">
 					<Log Message="Doing Fates to grind Mettle to Rank 22..." />
 					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 22"/>	
 				</While>	
@@ -134,7 +134,7 @@
 				</If>
 
 				<!-- Grind to Rank 23 -->
-				<While condition="Core.Me.ElementalLevel &lt; 23 and CurrentMettle() &lt; NextResistanceRank()">
+				<While condition="Core.Me.ElementalLevel &lt; 23 and CurrentMettle() &lt; NextResistanceRank() and IsOnMap(975)">
 					<Log Message="Doing Fates to grind Mettle to Rank 23..." />
 					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 23"/>	
 				</While>
@@ -146,7 +146,7 @@
 				</If>				
 
 				<!-- Grind to Rank 25 -->
-				<While condition="Core.Me.ElementalLevel &lt; 25 and CurrentMettle() &lt; NextResistanceRank()">
+				<While condition="Core.Me.ElementalLevel &lt; 25 and CurrentMettle() &lt; NextResistanceRank() and IsOnMap(975)">
 					<Log Message="Doing Fates to grind Mettle to Rank 25..." />
 					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 26"/>	
 				</While>
@@ -158,7 +158,7 @@
 				</If>				
 
 				<!-- Overlevel -->
-				<While condition="Core.Me.ElementalLevel &lt; 26">
+				<While condition="Core.Me.ElementalLevel &lt; 26 and IsOnMap(975)">
 					<Log Message="Doing Fates to overlevel..." />
 					<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724,1725,1726,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and Core.Me.ElementalLevel &lt; 26"/>	
 				</While>				
