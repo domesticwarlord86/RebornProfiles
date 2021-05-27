@@ -46,8 +46,20 @@
     <If Condition="GetQuestStep(69624) == 5">
       <LLToast message="Please complete the Dalriada duty."/>
     </If>
-
-		
+    <If Condition="GetQuestStep(69624) == 6">
+      <MoveTo XYZ="678.3223, 296.0727, 638.372"/>
+      <LLTalkTo NpcId="1036747" XYZ="677.9125, 296.0691, 636.3774" QuestId="69624" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(69624) == 7">
+	  <LLLeaveDuty/>
+	  <WaitTimer WaitTime="15" />
+    </If>
+    <If Condition="GetQuestStep(69624) == 255">
+      <MoveTo XYZ="14.17206, 0.01250923, -17.18727"/>
+      <LLTurnIn QuestId="69624" NpcId="1032881" XYZ="16.70856, 0.03045718, -17.92938"/>
+      <LLSmallTalk/>
+    </If>
+	
 	<LLoadProfile Path="../Start.xml"/>	
   </Order>
   <GrindAreas>
