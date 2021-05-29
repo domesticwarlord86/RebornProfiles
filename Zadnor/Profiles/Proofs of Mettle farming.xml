@@ -24,7 +24,7 @@
   Confirmed Zone 3:
   ID: 1733 Type: Bozja_Boss Fate: The Beasts Are Back 
   ID: 1734 Type: Bozja_Boss Fate: Still Only Counts as One 
-  ID: 1735 Type: Bozja_Boss Fate: Seeq and You Will Find    
+  ID: 1735 Type: Bozja_Boss Fate: Seeq and You Will Find    *Blacklisted becuase it's surrounded by high level mobs
   ID: 1736 Type: Bozja_Boss Fate: Mean-spirited   
   ID: 1737 Type: Bozja_Boss Fate: A Relic Unleashed   
   ID: 1738 Type: Bozja_Slay Fate: When Mages Rage   
@@ -67,6 +67,18 @@
 				<!-- Cash In if ready -->
 				<If condition="CurrentMettle() &gt; 20000000 and Core.Me.ElementalLevel == 25">
 				  <Log Message="We have enough Mettle to cash in, doing so..." />
+					<If condition="not ActionManager.IsReturnReady">
+						<!-- Coming from Zone 2 -->
+						<If condition="IsOnSubMap(3669) or IsOnSubMap(3665)">
+							<NoCombatMoveTo XYZ="-354.9459, 286.4552, 760.5636"/>
+							<UseTransport NpcId="2011573" InteractDistance="3.0" XYZ="-356.466, 286.0303, 758.4497" UseTimes="1"/>						
+						</If>						
+						<!-- Coming from Zone 3 -->
+						<If condition="IsOnSubMap(3670) or IsOnSubMap(3667)">
+							<NoCombatMoveTo XYZ="108.5128, 300.9673, -132.6214" />
+							<LLTransport NpcId="2011575" InteractDistance="3.0" XYZ="106.3706, 300.9536, -130.8157" UseTimes="1"/>
+						</If>	
+					</If>				  
 					<If condition="ActionManager.IsReturnReady">
 						<Log Message="Return is ready, let's take the easy way back..." />
 						<RunCode name="Return"/>
@@ -74,31 +86,61 @@
 				  <NoCombatMoveTo XYZ="711.1771,296.0955,673.2433" />
 				  <RunCode name="CashIn"/>
 				  <LLSmallTalk/>
-				</If>							
+				</If>
+
+				<!-- In Camp Vrdelnis -->
+				<If condition="IsOnSubMap(3664)">
+					<!-- Move to Zone 1 -->
+					<If Condition="&Zone1; == 1">
+						<NoCombatMoveTo XYZ="594.4854, 297.6004, 617.0576" />
+					</If>
+					<!-- Move to Zone 2 -->
+					<If Condition="&Zone2; == 1">
+						<NoCombatMoveTo XYZ="679.6825,297.2915,660.0288" />
+						<LLTransport NpcId="2011572" InteractDistance="3.0" XYZ="679.6825, 297.2915, 660.0288"/>					
+						<NoCombatMoveTo XYZ="-411.4355, 280.0278, 760.0984" />
+					</If>
+					<!-- Move to Zone 3 -->
+					<If Condition="&Zone3; == 1">
+						<NoCombatMoveTo XYZ="679.6825,297.2915,660.0288" />
+						<LLTransport DialogOption="2" BlacklistAfter="true" NpcId="2011572" InteractDistance="3.0" XYZ="679.6825, 297.2915, 660.0288"/>					
+						<NoCombatMoveTo XYZ="108.5253, 300.0442, -182.3032" />
+					</If>					
+				</If>
+				
 
 				<!-- Overlevel Farming -->
 				
 				<!-- Zone 1-->
 				<If Condition="&Zone1; == 1">
-					<While condition="Core.Me.ElementalLevel == 25 and IsOnMap(975) and CurrentMettle() &lt; 20000000">
+					<If condition="not IsOnSubMap(3668)">
+						<NoCombatMoveTo XYZ="594.4854, 297.6004, 617.0576" />
+					</If>				
+					<While condition="Core.Me.ElementalLevel == 25 and IsOnMap(975) and IsOnSubMap(3668) and CurrentMettle() &lt; 20000000">
 						<Log Message="Farming for Proofs of Mettle in Zone 3..." />
-						<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; 20000000"/>	
+						<LLFate FateIds="1717,1719,1720,1721,1722,1723,1724" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and IsOnSubMap(3668) and CurrentMettle() &lt; 20000000"/>	
 					</While>
 				</If>					
 				
 				<!-- Zone 2-->
 				<If Condition="&Zone2; == 1">
-					<While condition="Core.Me.ElementalLevel == 25 and IsOnMap(975) and CurrentMettle() &lt; 20000000">
+					<If condition="not IsOnSubMap(3669)">
+						<NoCombatMoveTo XYZ="-411.4355, 280.0278, 760.0984" />
+					</If>					
+					<While condition="Core.Me.ElementalLevel == 25 and IsOnMap(975) and IsOnSubMap(3669) and CurrentMettle() &lt; 20000000">
 						<Log Message="Farming for Proofs of Mettle in Zone 3..." />
-						<LLFate FateIds="1725,1726,1727,1729,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; 20000000"/>	
+						<LLFate FateIds="1725,1726,1727,1729,1730,1731" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and IsOnSubMap(3669) and CurrentMettle() &lt; 20000000"/>	
 					</While>
 				</If>	
 				
 				<!-- Zone 3-->
 				<If Condition="&Zone3; == 1">
-					<While condition="Core.Me.ElementalLevel == 25 and IsOnMap(975) and CurrentMettle() &lt; 20000000">
+					<If condition="not IsOnSubMap(3670)">
+						<NoCombatMoveTo XYZ="108.5253, 300.0442, -182.3032" />
+					</If>	
+					<While condition="Core.Me.ElementalLevel == 25 and IsOnMap(975) and IsOnSubMap(3670) and CurrentMettle() &lt; 20000000">
 						<Log Message="Farming for Proofs of Mettle in Zone 3..." />
-						<LLFate FateIds="1733,1734,1735,1736,1737,1738,1739,1740,1741,1742" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and CurrentMettle() &lt; 20000000"/>	
+						<LLFate FateIds="1733,1734,1736,1737,1738,1739,1740,1741,1742" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and IsOnSubMap(3670) and CurrentMettle() &lt; 20000000"/>	
 					</While>
 				</If>		
 		</While>
@@ -242,11 +284,13 @@
 						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
 					}						
 					
-					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
 					{
 						Talk.Next();
-						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
 					}
 
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
@@ -256,11 +300,13 @@
 					}
 	
 					await Coroutine.Wait(10000, () => Talk.DialogOpen);
-					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
 					{
 						Talk.Next();
-						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
 					}
 
 					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
@@ -271,18 +317,21 @@
 					}
 					
 					await Coroutine.Wait(10000, () => Talk.DialogOpen);
-					while (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+					while (!SelectString.IsOpen)
 					{
-						Talk.Next();
-						await Coroutine.Wait(5000, () => !Talk.DialogOpen);
-						await Buddy.Coroutines.Coroutine.Sleep(1000);
-					}
+						if (Talk.DialogOpen)
+						{
+							Talk.Next();
+						}
+						await Coroutine.Yield();
+						await Buddy.Coroutines.Coroutine.Sleep(100);
+					} 
 
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
 					{
-						Logging.WriteDiagnostic("Choosing 'Nothing.");
+						Logging.WriteDiagnostic("Choosing 'Nothing'.");
 						ff14bot.RemoteWindows.SelectString.ClickSlot(3);
-					}					
+					} 					
 				
 		  ]]>
 		</CodeChunk>		
