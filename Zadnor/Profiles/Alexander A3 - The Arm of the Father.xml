@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Alexander - The Arm of the Father
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Alexander - The Arm of the Father</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<While condition="not HasAtLeast(13585,30)">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="114" Undersized="False"/>
+		</If>
+		
+		<If condition="DutyManager.InInstance">
+		
+			<!-- Clear the Strategion 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Clear the Strategion  0/1" />
+				<MoveTo XYZ="-2.669731, 42, 18.59715" />
+				<Grind GrindRef="FirstGate" While="NumAttackableEnemies(90, Array[int]([3762,3763,3764])) &gt; 0"/> <!-- Clear Trash Room -->
+				<MoveTo XYZ="18.41848, 36, -14.2571" />
+				<MoveTo XYZ="24.97149, 23.89562, -21.37113" usemesh="false" />
+				<MoveTo XYZ="58.16549, -0.0001102686, -16.50103" />
+			</If>
+
+			<!-- Arrive at Condensate Demineralizer #9 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Arrive at Condensate Demineralizer #9 0/1" />
+				<MoveTo XYZ="57.99951, -8.999996, -41.79449" usemesh="false" />
+			</If>	
+
+			<!-- Defeat the living liquid 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Defeat the living liquid" />
+				<MoveTo XYZ="57.99951, -8.999996, -41.79449" usemesh="false" />
+				<WaitWhile Condition="not IsPartyInCombat() or GetInstanceTodo(2) == 1"/>
+				<Grind GrindRef="FinalBoss" while="not GetInstanceTodo(2) == 1"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="71.29106, -8.999998, -63.49583" />
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>			
+			</If>
+		</If>
+		
+	</While>
+  </Order>
+  <GrindAreas>	
+    <GrindArea name="FirstGate">
+      <Hotspots>
+		<Hotspot Radius="90" XYZ="-2.669731, 42, 18.59715" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3762" Weight="1"/> <!-- Echioceras -->
+        <TargetMob Id="3763" Weight="1"/> <!-- Ogrebon -->
+        <TargetMob Id="3764" Weight="1"/> <!-- Clay Claw -->
+      </TargetMobs>
+    </GrindArea>  
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="58,-8.999999,-74" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3765" Weight="100"/> <!-- Living Liquid -->		
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>
