@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Hells' Lid
+  Authors: DomesticWarlord86
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Hells' Lid</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+ 	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="284"/>>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<!-- Arrive at Demonsgate 0/1 -->
+		<If Condition="not GetInstanceTodo(0) == 1">
+			<Log Message="Arrive at Demonsgate" />
+			<If condition="IsOnSubMap(2386)">	
+				<Grind GrindRef="ClearFirstRoom" While="NumAttackableEnemies(180, Array[int]([6998])) &gt; 0"/> <!-- Clear before dropdown -->	
+				<MoveTo XYZ="-70.88406, 37.02681, 307.0667" />
+				<MoveTo XYZ="-71.57901, 3.109485, 295.3122" usemesh="false" />
+			</If>	
+			<Grind GrindRef="ClearSecondRoom" While="NumAttackableEnemies(180, Array[int]([6999,7000,6998,7002,7001])) &gt; 0"/> <!-- Clear after dropdown -->	
+			<MoveTo XYZ="-70.76974, -3, 148.1838" />
+		</If>
+
+		<!-- Clear Demonsgate 0/1 -->
+		<If Condition="not GetInstanceTodo(1) == 1 and GetInstanceTodo(0) == 1">		
+			<Log Message="Clear Demonsgate 0/1" />			
+			<MoveTo XYZ="-70.76974, -3, 148.1838" />
+			<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
+				<WaitWhile Condition="not IsPartyInCombat()"/>
+			</If>
+			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Fight first boss -->			
+			<If Condition="&openchest; == 1">
+				<NoCombatMoveTo XYZ="-71.39697,-3.006042,115.6786" />
+				<LLOpenChest/>
+			</If>
+		</If>
+
+		<!-- Arrive in the Furnace 0/1 -->
+		<If Condition="not GetInstanceTodo(2) == 1 and GetInstanceTodo(1) == 1">
+			<Log Message="Arrive in the Furnace 0/1" />
+			<Grind GrindRef="ThirdClear" While="NumAttackableEnemies(300, Array[int]([7003,7004,7007,7005,7074])) &gt; 0"/> <!-- Clear after first boss -->				
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="34.04285,-16.495,51.68225" />
+				<LLOpenChest/>
+			</If>	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="30.80798,-25.52838,-64.2558" />
+				<LLOpenChest/>
+			</If>
+			<MoveTo XYZ="58.26813, -26, -104.5613" />
+		</If>
+		
+		<!-- Clear the Furnace 0/1 -->
+		<If Condition="not GetInstanceTodo(3) == 1 and GetInstanceTodo(2) == 1">
+			<Log Message="Clear the Furnace 0/1" />
+			<MoveTo XYZ="58.26813, -26, -104.5613" />
+			<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
+				<WaitWhile Condition="not IsPartyInCombat()"/>
+			</If>
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Fight second boss -->
+			<If Condition="&openchest; == 1">
+				<NoCombatMoveTo XYZ="59.22021,-26.01666,-137.316" />
+				<LLOpenChest/>
+			</If>			
+			</If>		
+		
+		<!-- Arrive on the Polished Shell 0/1-->
+		<If Condition="not GetInstanceTodo(4) == 1 and GetInstanceTodo(3) == 1">
+			<Log Message="Arrive on the Polished Shell 0/1" />
+			<If condition="IsOnSubMap(2390)">	
+				<MoveTo XYZ="58.56471, -27.52685, -155.8927" />
+				<MoveTo XYZ="57.42034, -97.02225, -174.3563" usemesh="false" />
+			</If>
+			<Grind GrindRef="AfterSecondBoss" While="NumAttackableEnemies(300, Array[int]([7008,7009,7011,7010,7012,7014,7013])) &gt; 0"/> <!-- Clear after second boss -->				
+			<If Condition="&openchest; == 1">			
+				<MoveTo XYZ="65.78162,-97.0321,-234.8211" />
+				<LLOpenChest/>
+			</If>	
+			<If Condition="&openchest; == 1">			
+				<MoveTo XYZ="69.29114,-96.9101,-332.5399" />
+				<LLOpenChest/>
+			</If>
+			<MoveTo XYZ="61.55721, -89.89997, -443.7422" />
+		</If>	
+
+		<!-- Defeat Genbu 0/1-->
+		<If Condition="not GetInstanceTodo(5) == 1 and GetInstanceTodo(4) == 1">
+			<Log Message="Defeat Genbu 0/1" />	
+			<MoveTo XYZ="61.90805, -88.00001, -457.9611" />				
+			<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
+				<WaitWhile Condition="not IsPartyInCombat()"/>
+			</If>
+			<Grind GrindRef="FinalBoss" While="GetInstanceTodo(5) == 0"/> <!-- Fight second boss -->	
+			<If Condition="&openchest; == 1">
+				<NoCombatMoveTo XYZ="62.05847,-88.0293,-484.2451" />
+				<LLOpenChest/>
+			</If>			
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>	
+		</If>
+	</If>
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="ClearFirstRoom">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-70.88406, 37.02681, 307.0667" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6998" Weight="1"/> <!-- Hellish Gasame -->
+      </TargetMobs>
+    </GrindArea> 
+    <GrindArea name="ClearSecondRoom">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-76.63777, 2.904931, 223.5365" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6999" Weight="1"/> <!-- Nurikabe -->
+        <TargetMob Id="6998" Weight="1"/> <!-- Hellish Gasame -->
+        <TargetMob Id="7000" Weight="1"/> <!-- Hellish Lion -->
+        <TargetMob Id="7002" Weight="1"/> <!-- Hellfire Shikigami -->
+        <TargetMob Id="7001" Weight="1"/> <!-- Grand Nurikabe -->
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-70.76974, -3, 148.1838" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6994" Weight="1"/> <!-- Otake-maru -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="ThirdClear">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-13.16864,-8.500013,20.18762" name="Name"/>
+		<Hotspot Radius="90" XYZ="28.13683,-16.5,26.02637" name="Name"/>
+		<Hotspot Radius="90" XYZ="76.89014,-27.28368,-7.522766" name="Name"/>		
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7003" Weight="1"/> <!-- Hellish Naked Yumemi -->
+        <TargetMob Id="7004" Weight="1"/> <!-- Hellish Yumemi -->
+        <TargetMob Id="7007" Weight="1"/> <!-- Uwabami --> 
+        <TargetMob Id="7005" Weight="1"/> <!-- Kaja -->
+		<TargetMob Id="7074" Weight="1"/> <!-- Kaja of the Seven Flames -->
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="55.49495, -26, -108.8184" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6995" Weight="1"/> <!-- Kamaitachi -->
+		<TargetMob Id="7016" Weight="100"/> <!-- Tsumuji-kaze -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="AfterSecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="44.95517, -96.30215, -220.5296" name="Name"/>
+		<Hotspot Radius="90" XYZ="91.05054,-96.73642,-286.3356" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7008" Weight="1"/> <!-- Reisen Apa -->
+        <TargetMob Id="7009" Weight="1"/> <!-- Reisen Tatsunoko -->
+        <TargetMob Id="7011" Weight="1"/> <!-- Right Hand of the Spring -->
+        <TargetMob Id="7010" Weight="1"/> <!-- Shikigami of the Spring -->
+        <TargetMob Id="7012" Weight="1"/> <!-- Left Hand of the Spring -->
+        <TargetMob Id="7014" Weight="1"/> <!-- Boltstorm Nue -->
+        <TargetMob Id="7013" Weight="1"/> <!-- Stillwind Nue -->		
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="61.90805, -88.00001, -457.9611" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6996" Weight="1"/> <!-- Genbu -->
+		<TargetMob Id="6997" Weight="100"/> <!-- Chelonian Gate -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>	
