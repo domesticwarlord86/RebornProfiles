@@ -15,7 +15,7 @@
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
  	<If condition="not DutyManager.InInstance">
-		<LLJoinDuty DutyId="284" Undersized="true"/>
+		<LLJoinDuty DutyId="284" Undersized="False"/>
 	</If>
 	<If condition="DutyManager.InInstance">
 		<!-- Arrive at Demonsgate 0/1 -->
@@ -32,7 +32,10 @@
 
 		<!-- Clear Demonsgate 0/1 -->
 		<If Condition="not GetInstanceTodo(1) == 1 and GetInstanceTodo(0) == 1">		
-			<Log Message="Clear Demonsgate 0/1" />			
+			<Log Message="Clear Demonsgate 0/1" />
+			<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
+				<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
+			</If>			
 			<MoveTo XYZ="-70.76974, -3, 148.1838" />
 			<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 				<WaitWhile Condition="not IsPartyInCombat()"/>
@@ -47,6 +50,9 @@
 		<!-- Arrive in the Furnace 0/1 -->
 		<If Condition="not GetInstanceTodo(2) == 1 and GetInstanceTodo(1) == 1">
 			<Log Message="Arrive in the Furnace 0/1" />
+			<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
+				<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
+			</If>			
 			<MoveTo XYZ="-50.4355, -7.064269, 19.29245" />
 			<Grind GrindRef="ThirdClear" While="NumAttackableEnemies(300, Array[int]([7003,7004,7007,7005,7074])) &gt; 0"/> <!-- Clear after first boss -->				
 			<If Condition="&openchest; == 1">
@@ -63,6 +69,9 @@
 		<!-- Clear the Furnace 0/1 -->
 		<If Condition="not GetInstanceTodo(3) == 1 and GetInstanceTodo(2) == 1">
 			<Log Message="Clear the Furnace 0/1" />
+			<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
+				<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
+			</If>
 			<MoveTo XYZ="58.26813, -26, -104.5613" />
 			<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 				<WaitWhile Condition="not IsPartyInCombat()"/>
@@ -77,6 +86,9 @@
 		<!-- Arrive on the Polished Shell 0/1-->
 		<If Condition="not GetInstanceTodo(4) == 1 and GetInstanceTodo(3) == 1">
 			<Log Message="Arrive on the Polished Shell 0/1" />
+			<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
+				<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
+			</If>			
 			<If condition="IsOnSubMap(2390)">	
 				<MoveTo XYZ="58.56471, -27.52685, -155.8927" />
 				<MoveTo XYZ="57.42034, -97.02225, -174.3563" usemesh="false" />
@@ -98,6 +110,9 @@
 		<!-- Defeat Genbu 0/1-->
 		<If Condition="not GetInstanceTodo(5) == 1 and GetInstanceTodo(4) == 1">
 			<Log Message="Defeat Genbu 0/1" />	
+			<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
+				<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
+			</If>			
 			<MoveTo XYZ="61.90805, -88.00001, -457.9611" />				
 			<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
 				<WaitWhile Condition="not IsPartyInCombat()"/>
@@ -118,7 +133,7 @@
   <GrindAreas>
     <GrindArea name="ClearFirstRoom">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="-70.88406, 37.02681, 307.0667" name="Name"/>
+        <Hotspot Radius="90" XYZ="-78.41248, 50.02288, 378.1493" name="Name"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="6998" Weight="1"/> <!-- Hellish Gasame -->
@@ -156,11 +171,12 @@
         <TargetMob Id="7007" Weight="1"/> <!-- Uwabami --> 
         <TargetMob Id="7005" Weight="1"/> <!-- Kaja -->
 		<TargetMob Id="7074" Weight="1"/> <!-- Kaja of the Seven Flames -->
+		<TargetMob Id="7006" Weight="1"/> <!-- Sea Scorpion -->
       </TargetMobs>
     </GrindArea>	
     <GrindArea name="SecondBoss">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="55.49495, -26, -108.8184" name="Name"/>
+        <Hotspot Radius="90" XYZ="58.86504, -26, -119.4284" name="Name"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="6995" Weight="1"/> <!-- Kamaitachi -->
@@ -193,7 +209,7 @@
     </GrindArea>	
     <GrindArea name="FinalBoss">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="61.90805, -88.00001, -457.9611" name="Name"/>
+        <Hotspot Radius="90" XYZ="84.60477, 18.60033, 13.55567" name="Name"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="6996" Weight="1"/> <!-- Genbu -->
