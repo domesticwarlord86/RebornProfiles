@@ -102,7 +102,8 @@
 				<MoveTo XYZ="69.29114,-96.9101,-332.5399" />
 				<LLOpenChest/>
 			</If>
-			<MoveTo XYZ="61.91396, -92.89997, -338.5129" />
+			<MoveTo XYZ="61.82898, -92.89998, -349.3139" />
+			<WaitTimer WaitTime="3" />
 			<Grind GrindRef="BeforeGenbu" While="NumAttackableEnemies(300, Array[int]([7014,7013])) &gt; 0"/> <!-- Clear after second boss -->							
 			<MoveTo XYZ="61.55721, -89.89997, -443.7422" />
 		</If>	
@@ -176,7 +177,7 @@
     </GrindArea>	
     <GrindArea name="SecondBoss">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="58.86504, -26, -119.4284" name="Name"/>
+        <Hotspot Radius="90" XYZ="78.32697, -26, -120.88" name="Name"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="6995" Weight="1"/> <!-- Kamaitachi -->
@@ -209,7 +210,7 @@
     </GrindArea>	
     <GrindArea name="FinalBoss">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="84.60477, 18.60033, 13.55567" name="Name"/>
+        <Hotspot Radius="90" XYZ="61.67957, -88, -466.9331" name="Name"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="6996" Weight="1"/> <!-- Genbu -->
