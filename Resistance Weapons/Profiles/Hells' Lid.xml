@@ -15,7 +15,7 @@
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
  	<If condition="not DutyManager.InInstance">
-		<LLJoinDuty DutyId="284"/>>
+		<LLJoinDuty DutyId="284" Undersized="true"/>
 	</If>
 	<If condition="DutyManager.InInstance">
 		<!-- Arrive at Demonsgate 0/1 -->
@@ -47,6 +47,7 @@
 		<!-- Arrive in the Furnace 0/1 -->
 		<If Condition="not GetInstanceTodo(2) == 1 and GetInstanceTodo(1) == 1">
 			<Log Message="Arrive in the Furnace 0/1" />
+			<MoveTo XYZ="-50.4355, -7.064269, 19.29245" />
 			<Grind GrindRef="ThirdClear" While="NumAttackableEnemies(300, Array[int]([7003,7004,7007,7005,7074])) &gt; 0"/> <!-- Clear after first boss -->				
 			<If Condition="&openchest; == 1">
 				<MoveTo XYZ="34.04285,-16.495,51.68225" />
@@ -89,6 +90,8 @@
 				<MoveTo XYZ="69.29114,-96.9101,-332.5399" />
 				<LLOpenChest/>
 			</If>
+			<MoveTo XYZ="61.91396, -92.89997, -338.5129" />
+			<Grind GrindRef="BeforeGenbu" While="NumAttackableEnemies(300, Array[int]([7014,7013])) &gt; 0"/> <!-- Clear after second boss -->							
 			<MoveTo XYZ="61.55721, -89.89997, -443.7422" />
 		</If>	
 
@@ -177,6 +180,15 @@
         <TargetMob Id="7012" Weight="1"/> <!-- Left Hand of the Spring -->
         <TargetMob Id="7014" Weight="1"/> <!-- Boltstorm Nue -->
         <TargetMob Id="7013" Weight="1"/> <!-- Stillwind Nue -->		
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="BeforeGenbu">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="63.37381, -93.00002, -375.4275" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7014" Weight="1"/> <!-- Boltstorm Nue -->
+        <TargetMob Id="7013" Weight="1"/> <!-- Stillwind Nue -->
       </TargetMobs>
     </GrindArea>	
     <GrindArea name="FinalBoss">
