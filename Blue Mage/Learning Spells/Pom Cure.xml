@@ -42,13 +42,13 @@
         <Hotspot Radius="90" XYZ="1.2941, 0, 15.9395" name="Name"/>
       </Hotspots>
       <TargetMobs>
-        <TargetMob Id="718" Weight="1"/> <!-- Whiskerwall Kupdi Koop -->
-        <TargetMob Id="721" Weight="1"/> <!-- Woolywart Kupqu Kogi -->
-        <TargetMob Id="722" Weight="1"/> <!-- Pukla Puki the Pomburner -->
-        <TargetMob Id="720" Weight="1"/> <!-- Furryfoot Kupli Kipp -->
-        <TargetMob Id="719" Weight="1"/> <!-- Ruffletuft Kupta Kapa -->
-        <TargetMob Id="724" Weight="1"/> <!-- Pukna Pako the Tailturner -->
-        <TargetMob Id="723" Weight="1"/> <!-- Puksi Piko the Shaggysong -->
+        <TargetMob Id="718" Weight="100"/> <!-- Whiskerwall Kupdi Koop -->
+        <TargetMob Id="721" Weight="100"/> <!-- Woolywart Kupqu Kogi -->
+        <TargetMob Id="722" Weight="100"/> <!-- Pukla Puki the Pomburner -->
+        <TargetMob Id="720" Weight="100"/> <!-- Furryfoot Kupli Kipp -->
+        <TargetMob Id="719" Weight="100"/> <!-- Ruffletuft Kupta Kapa -->
+        <TargetMob Id="724" Weight="100"/> <!-- Pukna Pako the Tailturner -->
+        <TargetMob Id="723" Weight="100"/> <!-- Puksi Piko the Shaggysong -->
         <TargetMob Id="725" Weight="1"/> <!-- Good King Moggle Mog XII -->				
       </TargetMobs>
     </GrindArea>
