@@ -687,34 +687,17 @@ Modified: DomesticWarlord86
         <LisbethTravel ZoneId="152" XYZ="261.8295, -9.323303, -72.80078"/>
       <UseObject NpcIds="2003307" XYZ="261.8295, -9.323303, -72.80078" QuestId="66811" StepId="1"/>
     </If>
-    <If Condition="HasQuest(66811) and GetQuestStep(66811) == 2 and GetQuestById(66811).QuestI8B == 0">
-      <RunCode Name="DisableMount"/>
-      <SoTransport NpcId="2003487" InteractDistance="2.0" XYZ="429.8923, -14.29773, -257.618" QuestId="66811" BlacklistAfter="True"/>
-      <SoTransport NpcId="2003309" InteractDistance="2.0" XYZ="369.3751, -19.63837, -156.3287" QuestId="66811" BlacklistAfter="True"/>
-      <SoTransport NpcId="2003488" InteractDistance="2.0" XYZ="550.0419, -24.24664, -329.0914" QuestId="66811" BlacklistAfter="True"/>
-      <SoTransport NpcId="2003310" InteractDistance="2.0" XYZ="551.812, -22.5376, -352.1324" QuestId="66811" BlacklistAfter="True"/>
-      <WaitWhile Condition="GetQuestById(66811).QuestI8B == 0"/>
-      <RunCode Name="EnableMount"/>
-    </If>
-    <If Condition="HasQuest(66811) and GetQuestStep(66811) == 2 and GetQuestById(66811).QuestI8B == 1">
-      <RunCode Name="DisableMount"/>
-      <SoTransport NpcId="2003309" InteractDistance="2.0" XYZ="369.3751, -19.63837, -156.3287" QuestId="66811" BlacklistAfter="True"/>
-      <SoTransport NpcId="2003487" InteractDistance="2.0" XYZ="429.8923, -14.29773, -257.618" QuestId="66811" BlacklistAfter="True"/>
-      <SoTransport NpcId="2003488" InteractDistance="2.0" XYZ="550.0419, -24.24664, -329.0914" QuestId="66811" BlacklistAfter="True"/>
-      <SoTransport NpcId="2003310" InteractDistance="2.0" XYZ="551.812, -22.5376, -352.1324" QuestId="66811" BlacklistAfter="True"/>
-      <WaitWhile Condition="GetQuestById(66811).QuestI8B == 1"/>
-      <RunCode Name="EnableMount"/>
-    </If>
-    <If Condition="HasQuest(66811) and GetQuestStep(66811) == 2 and GetQuestById(66811).QuestI8B == 2">
-      <RunCode Name="DisableMount"/>
-      <SoTransport NpcId="2003309" InteractDistance="2.0" XYZ="369.3751, -19.63837, -156.3287" QuestId="66811" BlacklistAfter="True"/>
-      <SoTransport NpcId="2003487" InteractDistance="2.0" XYZ="429.8923, -14.29773, -257.618" QuestId="66811" BlacklistAfter="True"/>
-      <SoTransport NpcId="2003474" InteractDistance="2.0" XYZ="385.4885, -15.67102, -296.5591" QuestId="66811" BlacklistAfter="True"/>
-      <SoTransport NpcId="2003478" InteractDistance="2.0" XYZ="364.7974, -34.01245, -432.4254" QuestId="66811" BlacklistAfter="True"/>
-      <SoTransport NpcId="2003479" InteractDistance="2.0" XYZ="389.6696, -28.12244, -494.2245" QuestId="66811" BlacklistAfter="True"/>
-      <SoTransport NpcId="2003260" InteractDistance="2.0" XYZ="375.1124, -25.65051, -469.9016" QuestId="66811" BlacklistAfter="True"/>
-      <WaitWhile Condition="GetQuestById(66811).QuestI8B == 2"/>
-      <RunCode Name="EnableMount"/>
+    <If Condition="HasQuest(66811) and GetQuestStep(66811) ==2">
+			<If condition="not Core.Player.HasAura(404)">			
+				<LisbethTravel Area="East Shroud" Position="260.9778, -8.996453, -73.75793"/>
+				<UseObject NpcId="2003307" XYZ="261.8295, -9.323303, -72.80078" UseTimes="1"/>
+			</If>
+			<NoCombatMoveTo XYZ="429.8923,-14.29773,-257.618" />
+			<RunCode name="PerilousPumpkins"/>	
+			<NoCombatMoveTo XYZ="550.0419,-24.24664,-329.0914" />
+			<RunCode name="PerilousPumpkins"/>
+      <LisbethTravel Zone="152" Subzone="116" Position="550.4019, -23.5247, -351.8727"/>
+      <UseObject NpcId="2003310" XYZ="551.812, -22.5376, -352.1324" QuestId="66811" StepId="2"/>			
     </If>
 	
     <!-- With One Stone -->
@@ -1450,6 +1433,28 @@ Modified: DomesticWarlord86
     <CodeChunk Name="Moongrass">
       <![CDATA[
 				uint[] bloomIds = { 2003334,2003335,2003336,2003459,2003460,2003461,2002865 };
+				var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && bloomIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+
+
+				if (!npcId.IsWithinInteractRange)
+
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
+					while (_target.Distance2D(Core.Me.Location) >= 4)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
+					Navigator.PlayerMover.MoveStop();
+				}
+
+				npcId.Interact();
+            ]]>
+    </CodeChunk>
+    <CodeChunk Name="PerilousPumpkins">
+      <![CDATA[
+				uint[] bloomIds = { 2003307,2003487,2003488 };
 				var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && bloomIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
 
 
