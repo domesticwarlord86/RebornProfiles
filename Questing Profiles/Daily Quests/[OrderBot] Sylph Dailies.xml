@@ -54,15 +54,82 @@ Modified: DomesticWarlord86
       <LisbethTravel ZoneId="152" XYZ="46.3531, 6.073428, 249.0289"/>
       <LLTurnIn QuestId="66789" NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913"/>
     </If>    
+		
+		<!-- Rank up -->	
+    <!-- Pilfered Podlings -->
+    <If Condition="not HasQuest(66790) and not IsQuestCompleted(66790)">
+      <LisbethTravel ZoneId="152" XYZ="21.53701, -6.152399, 250.1149"/>
+      <If Condition="IsQuestAcceptQualified(66790)">
+        <LLPickupQuest QuestId="66790" NpcId="1005565"/>
+        <LLSmallTalk/>
+      </If>
+    </If>		
+    <If Condition="GetQuestStep(66790) == 1">
+			<If condition="not IsOnSubMap(113)">
+				<LisbethTravel ZoneId="152" XYZ="21.53701, -6.152399, 250.1149"/>
+			</If>
+      <GetTo ZoneId="152" XYZ="44.9026, 6.073428, 248.9499"/>
+      <LLTalkTo NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913" QuestId="66790" StepId="1"/>
+    </If>	  
+    <If Condition="GetQuestStep(66790) == 2">
+			<If condition="not Core.Player.HasAura(416)">
+				<If condition="not IsOnSubMap(113)">
+					<LisbethTravel ZoneId="152" XYZ="21.53701, -6.152399, 250.1149"/>
+				</If>			
+				<GetTo ZoneId="152" XYZ="47.54366, 6.073428, 249.9388"/>
+				<LLTalkTo NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913" UseTimes="1"/>		
+			</If>
+      <GetTo ZoneId="152" Subzone="76" XYZ="197.0248, 8.42153, 177.6225"/>
+      <RunCode name="FragrantBloom"/> 
+      <GetTo ZoneId="152" Subzone="76" XYZ="234.9485, -1.490604, 106.2165"/>
+      <RunCode name="FragrantBloom"/>	
+      <GetTo ZoneId="152" Subzone="76" XYZ="260.9749, -6.795566, 6.180478"/>
+      <RunCode name="FragrantBloom"/>	
+      <GetTo ZoneId="152" Subzone="76" XYZ="247.21, -4.99402, -52.89931"/>
+      <LLTalkTo NpcId="1005571" XYZ="247.8217, -5.192553, -54.24591" QuestId="66790" StepId="2"/>	
+    </If>		
+    <If Condition="GetQuestStep(66790) == 3">
+      <LisbethTravel Zone="152" Subzone="77" Position="261.4507, -9.032818, -82.71522"/>
+      <UseObject NpcId="2002865" XYZ="259.7543, -8.712891, -81.59003" QuestId="66790" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(66790) == 4">
+			<If condition="not Core.Player.HasAura(404)">			
+				<LisbethTravel Zone="152" Subzone="77" Position="261.4507, -9.032818, -82.71522"/>
+				<RunCode name="Moongrass"/>	
+			</If>	
+			<NoCombatMoveTo XYZ="240.5583,-5.294922,-47.80658" />
+			<RunCode name="Moongrass"/>
+			<NoCombatMoveTo XYZ="204.364,-3.372314,-11.39856" />
+			<RunCode name="Moongrass"/>
+			<NoCombatMoveTo XYZ="181.8113,0.01519775,34.07336" />
+			<RunCode name="Moongrass"/>
+			<NoCombatMoveTo XYZ="205.4626,-1.541199,90.83691" />
+			<RunCode name="Moongrass"/>
+			<NoCombatMoveTo XYZ="207.2937,9.201172,189.5018" />
+			<RunCode name="Moongrass"/>
+			<NoCombatMoveTo XYZ="68.61975,4.898132,183.7949" />
+			<RunCode name="Moongrass"/>
+			<GetTo ZoneId="152" XYZ="20.80796, -6.1918, 249.2623"/>
+			<UseObject NpcId="2003035" XYZ="21.34735, -6.240967, 251.5449" QuestId="66790" StepId="4"/>			
+    </If>	
+    <If Condition="GetQuestStep(66790) == 255">
+      <GetTo ZoneId="152" XYZ="23.61268, -6.07478, 250.6139"/>
+      <LLTurnIn QuestId="66790" NpcId="1005565" XYZ="22.47644, -6.21051, 252.552"/>
+      <LLSmallTalk/>
+    </If>		
 	
-	<If Condition="not HasAtLeastOneQuest(Array[int]([66793,66794,66795,66796,66797,66798,66799,66800,66801,66802,66803,66804,66805,66806,66807,66808,66809,66810,66811,66812,66813,66814,66815,66816,66817,66818,66819,66820,66821,66822]))">
+	<If Condition="not HasAtLeastOneQuest(Array[int]([66790,66788,66793,66794,66795,66796,66797,66798,66799,66800,66801,66802,66803,66804,66805,66806,66807,66808,66809,66810,66811,66812,66813,66814,66815,66816,66817,66818,66819,66820,66821,66822]))">
       
-	  <LisbethTravel Area="East Shroud" Position="26.88378, -5.92612, 250.2208"/>
-      <If Condition="ClassName != ((ClassJobType.Paladin) or (ClassJobType.Warrior) or (ClassJobType.DarkKnight) or (ClassJobType.Gunbreaker) or (ClassJobType.Whitemage) or (ClassJobType.Scholar) or (ClassJobType.Astrologian) or (ClassJobType.Monk) or (ClassJobType.Dragoon) or (ClassJobType.Ninja) or (ClassJobType.Samurai) or (ClassJobType.Bard) or (ClassJobType.Machinist) or (ClassJobType.Dancer) or (ClassJobType.Blackmage) or (ClassJobType.Summoner) or (ClassJobType.Redmage))">
+			<If Condition="not HasAtLeastOneQuest(Array[int]([66789,66793,66794,66795,66796,66797,66798,66799,66800,66801,66802,66803,66804,66805,66806,66807,66808,66809,66810,66811,66812,66813,66814,66815,66816,66817,66818,66819,66820,66821,66822]))">
+				<LisbethTravel ZoneId="152" XYZ="21.53701, -6.152399, 250.1149"/>
+			</If>
+			<If condition="not ClassName == ClassJobType.Astrologian and not ClassName == ClassJobType.Bard and not ClassName == ClassJobType.BlackMage and not ClassName == ClassJobType.Dancer and not ClassName == ClassJobType.DarkKnight and not ClassName == ClassJobType.Dragoon and not ClassName == ClassJobType.Gunbreaker and not ClassName == ClassJobType.Machinist and not ClassName == ClassJobType.Monk and not ClassName == ClassJobType.Ninja and not ClassName == ClassJobType.Paladin and not ClassName == ClassJobType.RedMage and not ClassName == ClassJobType.Samurai and not ClassName == ClassJobType.Scholar and not ClassName == ClassJobType.Summoner and not ClassName == ClassJobType.Warrior and not ClassName == ClassJobType.WhiteMage">
         <LogMessage Message="Not already on a DoW/M class, swapping."/>
         <RunCode name="SwitchDoWMJob"/>
       </If>
-	  
+			
+	
+		
 	  <!-- Rank 3 -->
       <!-- Ripe for the Picking -->
         <If Condition="IsQuestAcceptQualified(66813)">
@@ -1357,6 +1424,50 @@ Modified: DomesticWarlord86
           await Coroutine.Sleep(2000);
         }
             ]]>
-    </CodeChunk>	  
+    </CodeChunk>	
+    <CodeChunk Name="FragrantBloom">
+      <![CDATA[
+				uint[] bloomIds = { 2003330,2003331,2003333 };
+				var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && bloomIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+
+
+				if (!npcId.IsWithinInteractRange)
+
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
+					while (_target.Distance2D(Core.Me.Location) >= 4)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
+					Navigator.PlayerMover.MoveStop();
+				}
+
+				npcId.Interact();
+            ]]>
+    </CodeChunk>
+    <CodeChunk Name="Moongrass">
+      <![CDATA[
+				uint[] bloomIds = { 2003334,2003335,2003336,2003459,2003460,2003461,2002865 };
+				var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && bloomIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+
+
+				if (!npcId.IsWithinInteractRange)
+
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
+					while (_target.Distance2D(Core.Me.Location) >= 4)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
+					Navigator.PlayerMover.MoveStop();
+				}
+
+				npcId.Interact();
+            ]]>
+    </CodeChunk>		
   </CodeChunks>
 </Profile>

@@ -78,12 +78,90 @@ Modified: DomesticWarlord86
       <LLTurnIn QuestId="66857" NpcId="1005927" XYZ="-2.853455, 16.03717, -172.5033"/>
     </If>
 	
+	
+		<!-- Rank up -->
+		<!-- No-good Zo Ga's Ambition -->
+    <If Condition="IsQuestCompleted(66857) and not HasQuest(66858) and not IsQuestCompleted(66858) and IsQuestAcceptQualified(66858)">
+      <LisbethTravel Zone="180" Subzone="944" Position="1.114608, 16.18168, -173.4215"/>
+      <If Condition="IsQuestAcceptQualified(66858)">
+        <LLPickupQuest QuestId="66858" NpcId="1005927"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66858) == 1">
+      <LisbethTravel Zone="180" Subzone="237" Position="-87.3281, 64.38799, -246.0081"/>
+      <LLTalkTo NpcId="1007936" XYZ="-89.12799, 64.1947, -246.8453" QuestId="66858" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66858) == 2">
+      <LisbethTravel Zone="180" Subzone="944" Position="1.30149, 16.18168, -171.918"/>
+      <LLTalkTo NpcId="1005927" XYZ="-2.853455, 16.03717, -172.5033" QuestId="66858" StepId="2"/>
+    </If>		
+    <If Condition="GetQuestStep(66858) == 3">
+      <LisbethTravel Zone="180" Subzone="175" Position="-0.5919441, 33.38839, -245.9193"/>
+      <LLTalkTo NpcId="1005932" XYZ="-1.236023, 33.38838, -244.1902" QuestId="66858" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(66858) == 4">
+      <LisbethTravel Zone="180" Subzone="176" Position="95.41113, 55.36865, -499.9469"/>
+      <LLTalkTo NpcId="1005960" XYZ="97.3678, 56.80933, -502.0676" QuestId="66858" StepId="4"/>
+			<WaitWhile condition="not GetQuestStep(66858) == 5"/>
+    </If>	
+    <If Condition="GetQuestStep(66858) == 5">
+			<If condition="not IsOnSubMap(238)">
+				<LisbethTravel Zone="180" Subzone="176" Position="95.41113, 55.36865, -499.9469"/>
+				<UseTransport NpcId="1005960" InteractDistance="3.0" XYZ="97.3678, 56.80933, -502.0676"/>
+			</If>	
+      <LisbethTravel Zone="180" XYZ="220.4914, 21.72474, -578.4895"/>
+      <LLTalkTo NpcId="1007937" XYZ="221.8203, 21.48438, -580.6516" QuestId="66858" StepId="5"/>
+    </If>	
+    <If Condition="GetQuestStep(66858) == 6">
+			<If condition="not IsOnSubMap(238)">
+				<LisbethTravel Zone="180" Subzone="176" Position="95.41113, 55.36865, -499.9469"/>
+				<UseTransport NpcId="1005960" InteractDistance="3.0" XYZ="97.3678, 56.80933, -502.0676"/>
+			</If>			
+      <LisbethTravel Zone="180" XYZ="184.5063, 24.57081, -622.1365"/>
+      <UseObject NpcId="2003719" XYZ="182.5741, 24.73486, -622.3392" QuestId="66858" StepId="6"/>
+    </If>		
+    <If Condition="GetQuestStep(66858) == 7">
+			<If condition="not IsOnSubMap(238)">
+				<LisbethTravel Zone="180" Subzone="176" Position="95.41113, 55.36865, -499.9469"/>
+				<UseTransport NpcId="1005960" InteractDistance="3.0" XYZ="97.3678, 56.80933, -502.0676"/>
+			</If>			
+      <LisbethTravel Zone="180" Subzone="238" Position="219.9005, 21.76395, -580.0992"/>
+      <LLTalkTo NpcId="1007937" XYZ="221.8203, 21.48438, -580.6516" QuestId="66858" StepId="7"/>
+    </If>		
+    <If Condition="GetQuestStep(66858) == 8">
+			<If condition="not IsOnSubMap(238)">
+				<LisbethTravel Zone="180" Subzone="176" Position="95.41113, 55.36865, -499.9469"/>
+				<UseTransport NpcId="1005960" InteractDistance="3.0" XYZ="97.3678, 56.80933, -502.0676"/>
+			</If>			
+      <LisbethTravel Zone="180" Subzone="238" Position="224.0735, 21.35903, -577.3892"/>
+      <UseItem ItemId="2001234" NpcId="2003720" XYZ="224.7806, 23.94141, -580.9568" QuestId="66858" StepId="8"/>		
+    </If>	
+    <If Condition="GetQuestStep(66858) == 9">
+			<If condition="not IsOnSubMap(238)">
+				<LisbethTravel Zone="180" Subzone="176" Position="95.41113, 55.36865, -499.9469"/>
+				<UseTransport NpcId="1005960" InteractDistance="3.0" XYZ="97.3678, 56.80933, -502.0676"/>
+			</If>			
+      <LisbethTravel Zone="180" Subzone="238" Position="152.3, 26.34981, -553.5423"/>
+      <LLTalkTo NpcId="1008883" XYZ="150.1945, 26.48923, -555.1385" QuestId="66858" StepId="9"/>
+    </If>		
+    <If Condition="GetQuestStep(66858) == 255">
+			<If condition="IsOnSubMap(238)">
+				<LisbethTravel Zone="180" Subzone="238" Position="152.3, 26.3498, -553.5423"/>
+				<UseTransport NpcId="2002888" InteractDistance="3.0" XYZ="150.4692, 27.69507, -552.1782"/> 
+			</If>
+      <LisbethTravel Zone="180" Subzone="944" Position="1.409359, 16.18168, -173.8518"/>
+      <LLTurnIn QuestId="66858" NpcId="1005927" XYZ="-2.853455, 16.03717, -172.5033"/>
+      <LLSmallTalk/>	
+    </If>		
+
+	
     <If Condition="not HasAtLeastOneQuest(Array[int]([66900,66901,66902,66903,66904,66905,66906,66907,66908,66909,66871,66872,66873,66874,66875,66876,66877,66878,66879,66880,66861,66862,66863,66864,66865,66866,66867,66868,66869,66870]))">
       
-		  <If Condition="ClassName != ((ClassJobType.Paladin) or (ClassJobType.Warrior) or (ClassJobType.DarkKnight) or (ClassJobType.Gunbreaker) or (ClassJobType.Whitemage) or (ClassJobType.Scholar) or (ClassJobType.Astrologian) or (ClassJobType.Monk) or (ClassJobType.Dragoon) or (ClassJobType.Ninja) or (ClassJobType.Samurai) or (ClassJobType.Bard) or (ClassJobType.Machinist) or (ClassJobType.Dancer) or (ClassJobType.Blackmage) or (ClassJobType.Summoner) or (ClassJobType.Redmage))">
-			<LogMessage Message="Not already on a DoW/M class, swapping."/>
-			<RunCode name="SwitchDoWMJob"/>
-		  </If>
+			<If condition="not ClassName == ClassJobType.Astrologian and not ClassName == ClassJobType.Bard and not ClassName == ClassJobType.BlackMage and not ClassName == ClassJobType.Dancer and not ClassName == ClassJobType.DarkKnight and not ClassName == ClassJobType.Dragoon and not ClassName == ClassJobType.Gunbreaker and not ClassName == ClassJobType.Machinist and not ClassName == ClassJobType.Monk and not ClassName == ClassJobType.Ninja and not ClassName == ClassJobType.Paladin and not ClassName == ClassJobType.RedMage and not ClassName == ClassJobType.Samurai and not ClassName == ClassJobType.Scholar and not ClassName == ClassJobType.Summoner and not ClassName == ClassJobType.Warrior and not ClassName == ClassJobType.WhiteMage">
+        <LogMessage Message="Not already on a DoW/M class, swapping."/>
+        <RunCode name="SwitchDoWMJob"/>
+      </If>
 	  
 		<LisbethTravel Area="Outer La Noscea" Position="12.67644, 16.16401, -180.8399"/>
 
@@ -439,8 +517,13 @@ Modified: DomesticWarlord86
     <If Condition="HasQuest(66880) and GetQuestStep(66880) == 1">
       <LisbethTravel ZoneId="180" XYZ="-1.236023, 33.38838, -244.1902"/>
       <TalkTo NpcId="1005932" DialogOption="0" XYZ="-1.236023, 33.38838, -244.1902" QuestId="66880" StepId="1"/>
+	  <WaitWhile condition="not Core.Player.HasAura(404)"/>
     </If>
     <If Condition="HasQuest(66880) and GetQuestStep(66880) == 2">
+			<If condition="not Core.Player.HasAura(404)">
+				<LisbethTravel Zone="180" Subzone="175" Position="0.6589706, 33.3884, -246.9312"/>
+				<RunCode name="DangerousDelivery"/>		
+			</If>
       <SoTransport InteractDistance="2.0" NpcId="2003963" XYZ="91.20313, 55.74109, -483.299" QuestId="66880" StepId="2"/>
     </If>
 	
@@ -458,7 +541,7 @@ Modified: DomesticWarlord86
 	
     <!-- Too Hot to Handle -->
     <If Condition="HasQuest(66874) and GetQuestStep(66874) == 1">
-      <LisbethTravel ZoneId="180" XYZ="97.3678, 56.80933, -502.0676"/>
+      <LisbethTravel Area="Outer La Noscea" Position="71.25161, 55.43057, -496.4543"/>
       <Grind GrindRef="66874" While="HasQuest(66874) and GetQuestStep(66874) == 1"/>
     </If>
 	
@@ -693,7 +776,11 @@ Modified: DomesticWarlord86
       <TalkTo NpcId="1005932" DialogOption="0" XYZ="-1.236023, 33.38838, -244.1902" QuestId="66870" StepId="1"/>
     </If>
     <If Condition="HasQuest(66870) and GetQuestStep(66870) == 2">
-      <SoTransport InteractDistance="2.0" NpcId="2003950" XYZ="49.97327, 49.3324, -342.6719" QuestId="66870" StepId="2"/>
+	  <If condition="not IsOnMap(180) or not Core.Player.HasAura(404)">
+		<LisbethTravel ZoneId="180" XYZ="-1.236023, 33.38838, -244.1902"/>
+		<TalkTo NpcId="1005932" DialogOption="0" XYZ="-1.236023, 33.38838, -244.1902" QuestId="66870" StepId="2"/>
+	  </If>
+      <TalkTo NpcId="2003950" XYZ="49.97327, 49.3324, -342.6719" QuestId="66870" StepId="2"/>
     </If>
     <If Condition="HasQuest(66870) and GetQuestStep(66870) == 3">
       <LisbethTravel ZoneId="180" XYZ="49.97327, 49.3324, -342.6719"/>
@@ -1187,6 +1274,75 @@ Modified: DomesticWarlord86
           await Coroutine.Sleep(2000);
         }
             ]]>
-    </CodeChunk>	  
+    </CodeChunk>
+		<CodeChunk Name="DangerousDelivery">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1005932);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();			
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen || Talk.DialogOpen || SelectString.IsOpen);
+					
+					
+					
+					if (!SelectIconString.IsOpen || !Talk.DialogOpen || !SelectString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}	
+					
+					if (Talk.DialogOpen)
+					while (!SelectIconString.IsOpen)
+					{
+						Talk.Next();
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+					}						
+					
+					if (!SelectIconString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Choosing 'A Dangerous Delivery'.");
+						SelectIconString.ClickLineContains(("Dangerous"));
+
+					}
+
+					if (!SelectString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Choosing 'Yes'.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						await Buddy.Coroutines.Coroutine.Sleep(2000);
+					}				
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (!SelectString.IsOpen)
+					{
+						Talk.Next();
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+					}	
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Yes'.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+						await Buddy.Coroutines.Coroutine.Sleep(2000);
+					}
+					
+			]]>			
+		</CodeChunk>	  
   </CodeChunks>
 </Profile>

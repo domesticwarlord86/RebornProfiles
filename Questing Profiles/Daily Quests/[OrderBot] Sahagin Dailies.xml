@@ -8,7 +8,7 @@ Authors:  Sodimm.
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
  
-      <If Condition="ClassName != ((ClassJobType.Paladin) or (ClassJobType.Warrior) or (ClassJobType.DarkKnight) or (ClassJobType.Gunbreaker) or (ClassJobType.Whitemage) or (ClassJobType.Scholar) or (ClassJobType.Astrologian) or (ClassJobType.Monk) or (ClassJobType.Dragoon) or (ClassJobType.Ninja) or (ClassJobType.Samurai) or (ClassJobType.Bard) or (ClassJobType.Machinist) or (ClassJobType.Dancer) or (ClassJobType.Blackmage) or (ClassJobType.Summoner) or (ClassJobType.Redmage))">
+			<If condition="not ClassName == ClassJobType.Astrologian and not ClassName == ClassJobType.Bard and not ClassName == ClassJobType.BlackMage and not ClassName == ClassJobType.Dancer and not ClassName == ClassJobType.DarkKnight and not ClassName == ClassJobType.Dragoon and not ClassName == ClassJobType.Gunbreaker and not ClassName == ClassJobType.Machinist and not ClassName == ClassJobType.Monk and not ClassName == ClassJobType.Ninja and not ClassName == ClassJobType.Paladin and not ClassName == ClassJobType.RedMage and not ClassName == ClassJobType.Samurai and not ClassName == ClassJobType.Scholar and not ClassName == ClassJobType.Summoner and not ClassName == ClassJobType.Warrior and not ClassName == ClassJobType.WhiteMage">
         <LogMessage Message="Not already on a DoW/M class, swapping."/>
         <RunCode name="SwitchDoWMJob"/>
       </If>
@@ -77,12 +77,66 @@ Authors:  Sodimm.
   
     <!-- Register Dailies -->
     <RegisterDailies QuestIds="66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935,66936,66937,66938,66939,66940,66941,66942,66943,66944,66945"/>
-
+		
+		<If condition="not IsOnMap(138)">
+			<LisbethTravel ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+		</If>	
+		
+		<!-- Rank up -->
+    <!-- The Scarlet Bloodletter -->
+    <If Condition="not HasQuest(66912) and not IsQuestCompleted(66912) and IsQuestAcceptQualified(66912)">
+      <LisbethTravel Zone="138" Subzone="945" Position="-240.327, -40.90739, 67.44558"/>
+      <If Condition="IsQuestAcceptQualified(66912)">
+        <LLPickupQuest QuestId="66912" NpcId="1005937"/>
+        <LLSmallTalk/>
+      </If>
+    </If>		
+    <If Condition="GetQuestStep(66912) == 1">
+      <LisbethTravel Zone="138" Subzone="945" Position="-237.6532, -41.68227, 17.53122"/>
+      <UseTransport NpcId="1005946" InteractDistance="3.0" XYZ="-239.2767, -42.13019, 15.2132"/>
+			<WaitWhile condition="GetQuestStep(66912) == 1"/>
+    </If>	
+    <If Condition="GetQuestStep(66912) == 2">
+			<If condition="not IsOnSubMap(947)">
+				<LisbethTravel Zone="138" Subzone="945" Position="-237.6532, -41.68227, 17.53122"/>
+				<UseTransport NpcId="1005946" InteractDistance="3.0" XYZ="-239.2767, -42.13019, 15.2132"/>
+			</If>		
+      <MoveTo XYZ="-890.4941, -27.15275, 928.8238"/>
+      <LLTalkTo NpcId="1008917" XYZ="-889.0669, -27.47114, 929.6559" QuestId="66912" StepId="2"/>
+    </If>		
+    <If Condition="GetQuestStep(66912) == 3">
+			<If condition="not IsOnSubMap(947)">
+				<LisbethTravel Zone="138" Subzone="945" Position="-237.6532, -41.68227, 17.53122"/>
+				<UseTransport NpcId="1005946" InteractDistance="3.0" XYZ="-239.2767, -42.13019, 15.2132"/>
+			</If>			
+      <Grind GrindRef="TheScarletBloodletter" while="GetQuestStep(66912) == 3"/>
+    </If>
+    <If Condition="GetQuestStep(66912) == 4">
+			<If condition="not IsOnSubMap(947)">
+				<LisbethTravel Zone="138" Subzone="945" Position="-237.6532, -41.68227, 17.53122"/>
+				<UseTransport NpcId="1005946" InteractDistance="3.0" XYZ="-239.2767, -42.13019, 15.2132"/>
+			</If>					
+      <MoveTo XYZ="-890.8661, -27.15275, 930.4163"/>
+      <LLTalkTo NpcId="1008917" XYZ="-889.0669, -27.47114, 929.6559" QuestId="66912" StepId="4"/>
+    </If>	
+    <If Condition="GetQuestStep(66912) == 5">
+      <LisbethTravel Zone="138" Subzone="223" Position="310.4669, -31.9, 281.9113"/>
+      <GetTo ZoneId="138" XYZ="317.5639, -31.89874, 275.3316"/>		
+      <LLTalkTo NpcId="1008918" XYZ="317.1892, -31.89867, 273.7316" QuestId="66912" StepId="5"/>
+    </If>		
+    <If Condition="GetQuestStep(66912) == 255">
+			<If condition="IsOnSubMap(223)">
+				<GetTo ZoneId="138" XYZ="310.4669, -31.9, 281.9113"/>		
+			</If>	
+      <LisbethTravel Zone="138" Subzone="945" Position="-238.9304, -40.95455, 66.40385"/>
+      <LLTurnIn ItemId="2001293" QuestId="66912" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406"/>
+      <LLSmallTalk/>
+    </If>
     
 	<!-- Pick Ups -->
     <If Condition="not HasAtLeastOneQuest(Array[int]([66915,66916,66917,66918,66919,66920,66921,66922,66923,66924,66926,66927,66928,66929,66930,66931,66932,66933,66934,66935,66936,66937,66938,66939,66940,66941,66942,66943,66944,66945]))">
      
-	 <LisbethTravel ZoneId="138" XYZ="-226.1235, -40.48583, 57.08398"/>
+	 
 	 
 	 <!-- Rank 3 -->
       <!-- Tines of the Trident -->         
@@ -1035,7 +1089,24 @@ Authors:  Sodimm.
         <TargetMob Id="2716" Weight="1"/> <!-- Halfstone Shoalscale -->
         <TargetMob Id="2717" Weight="1"/> <!-- Halfstone Shoalclaw -->
       </TargetMobs>
-    </GrindArea>	
+    </GrindArea>
+    <GrindArea name="TheScarletBloodletter">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-890.4941, -27.15275, 928.8238" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2537" Weight="1"/> <!-- Surfspine Sahagin -->
+        <TargetMob Id="2538" Weight="1"/> <!-- Surf Elbst -->
+        <TargetMob Id="2535" Weight="1"/> <!-- Drowned Bowman -->
+        <TargetMob Id="2536" Weight="1"/> <!-- Drowned Demolisher -->
+        <TargetMob Id="2534" Weight="1"/> <!-- Surfscale Sahagin -->
+        <TargetMob Id="2542" Weight="1"/> <!-- Lost Duchess Deckhand -->
+        <TargetMob Id="2541" Weight="1"/> <!-- Surftooth Sahagin -->
+        <TargetMob Id="2540" Weight="1"/> <!-- Surfclaw Sahagin -->
+        <TargetMob Id="2543" Weight="1"/> <!-- Lost Duchess Deckhand -->
+        <TargetMob Id="2539" Weight="1"/> <!-- Drowned Raider -->
+      </TargetMobs>
+    </GrindArea>		
   </GrindAreas>
   <CodeChunks>
     <CodeChunk Name="DisableMount"><![CDATA[

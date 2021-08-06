@@ -1422,10 +1422,6 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 		    <LogMessage Message="Not already on a crafter class, swapping."/>
 			<RunCode Name="SwitchDoHJob"/>
 		  </If>	
-  		  <If Condition="not Core.Me.HasAura(551)">
-			<LisbethTravel Area="North Shroud" Position="446.029, -0.9374138, -67.87682"/>
-			<LLTalkTo NpcId="1008945" XYZ="445.4565, -0.9374095, -67.36859" UseTimes="1"/>
-		  </If>	
           <If Condition="ClassName == ClassJobType.Carpenter">
             <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8110,'Amount':4,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
           </If>
@@ -1704,6 +1700,7 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
         <LogMessage Message="Not already on a DoW/M class, swapping."/>
         <RunCode name="SwitchDoWMJob"/>
       </If>
+			<LisbethTravel Area="Coerthas Central Highlands" Position="244.983, 221.998, 351.4167"/>
       <LisbethTravel ZoneId="155" XYZ="249.4246, 222, 365.9561"/>
       <TalkTo NpcId="1009219" XYZ="249.4246, 222, 365.9561" QuestId="67054" StepId="1"/>
     </If>
@@ -1746,7 +1743,8 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
       </If>
     </If>
     <If Condition="HasQuest(67050) and GetQuestStep(67050) == 2">
-      <LisbethTravel ZoneId="155" XYZ="248.4262, 222, 363.174"/>
+			<LisbethTravel Area="Coerthas Central Highlands" Position="243.5949, 221.9537, 351.2222"/>
+      <GetTo ZoneId="155" XYZ="248.4262, 222, 363.174"/>
       <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
         <LogMessage Message="Not already on a crafter class, swapping."/>
         <RunCode Name="SwitchDoHJob"/>
@@ -2061,7 +2059,6 @@ Required User Setup:  Set your Gear Set numbers below. Ensure your Crafting Gear
 		  <!-- Detailing -->
   		  <If Condition="not Core.Me.HasAura(551)">
 		    <LisbethTravel Area="North Shroud" Position="-4.375552, -40.94998, 178.775"/>
-		    <RunCode name="Detailing"/>
 		  </If>		
           <If Condition="ClassName == ClassJobType.Carpenter">
             <Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':8096,'Amount':2,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
