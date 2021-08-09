@@ -1300,33 +1300,33 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     <While Condition="GetQuestStep(67836) == 2 and not HqHasAtLeast(15733,1)">
       <!-- Stonemasonry Supplies -->
 				<If Condition="ClassName == ClassJobType.Carpenter">
-					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15731,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15733,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
 				</If>
 				<If Condition="ClassName == ClassJobType.Blacksmith">
-					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15731,'Amount':1,'Enabled':true,'Type':'Blacksmith','Hq':true}]"/>
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15733,'Amount':1,'Enabled':true,'Type':'Blacksmith','Hq':true}]"/>
 				</If>
 				<If Condition="ClassName == ClassJobType.Armorer">
-					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15731,'Amount':1,'Enabled':true,'Type':'Armorer','Hq':true}]"/>
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15733,'Amount':1,'Enabled':true,'Type':'Armorer','Hq':true}]"/>
 				</If>
 				<If Condition="ClassName == ClassJobType.Goldsmith">
-					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15731,'Amount':1,'Enabled':true,'Type':'Goldsmith','Hq':true}]"/>
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15733,'Amount':1,'Enabled':true,'Type':'Goldsmith','Hq':true}]"/>
 				</If>
 				<If Condition="ClassName == ClassJobType.Leatherworker">
-					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15731,'Amount':1,'Enabled':true,'Type':'Leatherworker','Hq':true}]"/>
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15733,'Amount':1,'Enabled':true,'Type':'Leatherworker','Hq':true}]"/>
 				</If>
 				<If Condition="ClassName == ClassJobType.Weaver">
-					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15731,'Amount':1,'Enabled':true,'Type':'Weaver','Hq':true}]"/>
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15733,'Amount':1,'Enabled':true,'Type':'Weaver','Hq':true}]"/>
 				</If>
 				<If Condition="ClassName == ClassJobType.Alchemist">
-					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15731,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':true}]"/>
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15733,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':true}]"/>
 				</If>
 				<If Condition="ClassName == ClassJobType.Culinarian">
-					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15731,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15733,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true}]"/>
 				</If>	
     </While>
     <If Condition="HasQuest(67836) and GetQuestStep(67836) == 2">
       <LisbethTravel ZoneId="400" XYZ="-652.2557, 73, 217.43" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-      <HandOver ItemId="15733" NpcId="1017384" XYZ="-652.2557, 73, 217.43" QuestId="67836" StepId="2"/>
+      <LLHandOver ItemId="15733" NpcId="1017384" XYZ="-652.2557, 73, 217.43" QuestId="67836" StepId="2"/>
     </If>
     <If Condition="HasQuest(67836) and GetQuestStep(67836) == 3">
       <LisbethTravel ZoneId="400" XYZ="-59.29661, -8.844474, 185.9052" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
