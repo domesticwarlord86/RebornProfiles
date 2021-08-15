@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Moonfire Faire 2021
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Moonfire Faire 2021</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- Unseasonable Chills -->
+    <If Condition="not HasQuest(69618) and not IsQuestCompleted(69618)">
+      <LisbethTravel Zone="128" Subzone="737" Position="11.98408, 45.65599, 131.1467"/>
+      <If Condition="IsQuestAcceptQualified(69618)">
+        <LLPickupQuest QuestId="69618" NpcId="1036599"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69618) == 1">
+      <LisbethTravel Area="Eastern La Noscea (Bloodshore)" Position="664.755, 9.728733, 241.8631"/>
+      <LLTalkTo NpcId="1036600" XYZ="665.3086, 10.33026, 225.391" QuestId="69618" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69618) == 2">
+      <LisbethTravel Zone="137" Subzone="167" Position="711.6642, 9.488638, 197.7083"/>
+      <LLTalkTo NpcId="1036661" XYZ="713.6185, 9.162479, 195.941" QuestId="69618" StepId="2"/>
+    </If>	
+    <If Condition="GetQuestStep(69618) == 3">
+      <LisbethTravel Zone="137" Subzone="167" Position="756.6592, 9.553111, 223.7037"/>
+      <LLTalkTo NpcId="1036662" XYZ="758.358, 9.528734, 224.5974" QuestId="69618" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69618) == 4">
+      <LisbethTravel Zone="137" Subzone="167" Position="667.4404, 10.39743, 225.7087"/>
+      <LLTalkTo NpcId="1036600" XYZ="665.3086, 10.33026, 225.391" QuestId="69618" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69618) == 5">
+      <LisbethTravel Area="Eastern La Noscea (Bloodshore)" Position="728.9854, 9.996364, 286.0948"/>
+			<If condition="not IsFateActive(1710)">
+				<Log Message="Waiting for FATE 'A Blizzard of Bombards' to spawn..." />
+				<LLToast message="Waiting for FATE 'A Blizzard of Bombards' to spawn..." />
+				<WaitWhile condition="not IsFateActive(1710)"/>
+			</If>	
+			<LLFate MinLevel="0" MaxLevel="81" while="GetQuestStep(69618) == 5" FateIds="1710"/>	
+    </If>		
+    <If Condition="GetQuestStep(69618) == 255">
+      <LisbethTravel Zone="137" Subzone="167" Position="669.7023, 10.17065, 229.6866"/>
+      <LLTurnIn QuestId="69618" NpcId="1036667" XYZ="667.2921, 10.39136, 226.5812"/>
+      <LLSmallTalk/>
+    </If> 
+
+    <!-- A Treat to Beat the Heat -->
+    <If Condition="IsQuestCompleted(69618) and not HasQuest(69619) and not IsQuestCompleted(69619)">
+      <LisbethTravel Zone="137" Subzone="167" Position="660.5811, 10.39743, 229.4024"/>
+      <If Condition="IsQuestAcceptQualified(69619)">
+        <LLPickupQuest QuestId="69619" NpcId="1035619"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69619) == 1 and GetQuestById(69619).QuestI8A == 0">
+      <LisbethTravel Zone="137" Subzone="167" Position="666.4556, 10.39743, 227.1976"/>
+      <LLTalkTo NpcId="1036600" XYZ="665.3086, 10.33026, 225.391" QuestId="69619" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(69619) == 1 and GetQuestById(69619).QuestI8A == 1">
+      <LisbethTravel Zone="137" Subzone="167" Position="668.8452, 9.850446, 243.4339"/>
+      <LLTalkTo NpcId="1036840" XYZ="670.6492, 9.871593, 245.3497" QuestId="69619" StepId="1"/>
+    </If>		
+    <If Condition="GetQuestStep(69619) == 1 and GetQuestById(69619).QuestI8A == 2">
+      <LisbethTravel Zone="137" Subzone="206" Position="625.8194, 23.93624, 458.1008"/>
+      <LLTalkTo NpcId="1006273" XYZ="619.0126, 23.93624, 455.1002" QuestId="69619" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(69619) == 255">
+      <LisbethTravel Zone="137" Subzone="167" Position="659.0555, 9.591512, 234.0501"/>
+      <LLTurnIn QuestId="69619" NpcId="1035619" XYZ="662.0126, 10.78809, 225.8488"/>
+      <LLSmallTalk/>
+			<StopBot/>
+    </If>
+		
+		<!-- Fate Farm -->
+		<If Condition="IsQuestCompleted(69618) and IsQuestCompleted(69619)">
+			<Log Message="Quests are done, going into FATE farm mode..." />
+			<LLToast message="Quests are done, going into FATE farm mode..." />
+			<While condition="1 == 1">
+				<LisbethTravel Area="Eastern La Noscea (Bloodshore)" Position="728.9854, 9.996364, 286.0948"/>
+				<If condition="not IsFateActive(1710)">
+					<Log Message="Waiting for FATE 'A Blizzard of Bombards' to spawn..." />
+					<LLToast message="Waiting for FATE 'A Blizzard of Bombards' to spawn..." />
+					<WaitWhile condition="not IsFateActive(1710)"/>
+				</If>	
+				<LLFate MinLevel="0" MaxLevel="81" while="IsFateActive(1710)" FateIds="1710"/>
+			</While>
+		</If>
+		
+	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
