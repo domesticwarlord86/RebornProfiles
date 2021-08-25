@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- What Dreams Are Made Of -->
+    <If Condition="not HasQuest(69632) and not IsQuestCompleted(69632)">
+      <If Condition="not IsOnMap(915)">	
+		<While Condition="not IsOnMap(759)">
+		  <TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+		</While>				
+		<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+		<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+	  </If>		
+      <MoveTo XYZ="5.698191, 2.770275, -50.42464"/>
+      <If Condition="IsQuestAcceptQualified(69632)">
+        <LLPickupQuest QuestId="69632" NpcId="1032879"/>
+        <LLSmallTalk/>
+      </If>
+    </If> 
+    <If Condition="GetQuestStep(69632) == 255">
+      <MoveTo XYZ="0.2987615, 3.097473, -57.70946"/>
+      <LLTurnIn QuestId="69632" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Spare Parts -->
+    <If Condition="not HasQuest(69633)">
+      <If Condition="not IsOnMap(915)">	
+		<While Condition="not IsOnMap(759)">
+		  <TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+		</While>				
+		<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+		<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+	  </If>		
+      <MoveTo XYZ="-0.7042373, 2.902938, -56.04116"/>
+      <If Condition="IsQuestAcceptQualified(69633)">
+		<RunCode name="SpareParts"/>
+      </If>
+    </If>
+	
+    <!-- Tell Me a Story -->
+    <If Condition="not HasQuest(69634)">
+      <If Condition="not IsOnMap(915)">	
+		<While Condition="not IsOnMap(759)">
+		  <TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+		</While>				
+		<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+		<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+	  </If>		
+      <MoveTo XYZ="-0.7042373, 2.902938, -56.04116"/>
+      <If Condition="IsQuestAcceptQualified(69634)">
+		<RunCode name="TellMeAStory"/>
+      </If>
+    </If>
+
+    <!-- A Fond Memory -->
+    <If Condition="not HasQuest(69635)">
+      <If Condition="not IsOnMap(915)">	
+		<While Condition="not IsOnMap(759)">
+		  <TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+		</While>				
+		<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+		<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+	  </If>		
+      <MoveTo XYZ="-0.7042373, 2.902938, -56.04116"/>
+      <If Condition="IsQuestAcceptQualified(69635)">
+		<RunCode name="AFondMemory"/>
+      </If>
+    </If>	
+	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="SpareParts">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();			
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}	
+					
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Spare Parts'.");
+						SelectIconString.ClickLineContains(("Spare Parts"));
+					}									
+
+					if (Talk.DialogOpen)
+					{
+						await Coroutine.Wait(10000, () => Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+						while (Talk.DialogOpen)
+						{
+							Talk.Next();
+							await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+							await Coroutine.Wait(1000, () => Talk.DialogOpen);
+							await Coroutine.Yield();
+						}	
+						
+						await Coroutine.Wait(10000, () => SelectString.IsOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+						{
+							Logging.WriteDiagnostic("Choosing current class.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+						}
+					}
+
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();					
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}
+
+					
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="TellMeAStory">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();			
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}	
+					
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'Tell Me a Story'.");
+						SelectIconString.ClickLineContains(("Tell Me"));
+					}									
+
+					if (Talk.DialogOpen)
+					{
+						await Coroutine.Wait(10000, () => Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+						while (Talk.DialogOpen)
+						{
+							Talk.Next();
+							await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+							await Coroutine.Wait(1000, () => Talk.DialogOpen);
+							await Coroutine.Yield();
+						}	
+						
+						await Coroutine.Wait(10000, () => SelectString.IsOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+						{
+							Logging.WriteDiagnostic("Choosing current class.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+						}
+					}
+
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();					
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}
+
+					
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="AFondMemory">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();			
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}	
+					
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing 'A Fond Memory'.");
+						SelectIconString.ClickLineContains(("A Fond Memory"));
+					}									
+
+					if (Talk.DialogOpen)
+					{
+						await Coroutine.Wait(10000, () => Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+						while (Talk.DialogOpen)
+						{
+							Talk.Next();
+							await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+							await Coroutine.Wait(1000, () => Talk.DialogOpen);
+							await Coroutine.Yield();
+						}	
+						
+						await Coroutine.Wait(10000, () => SelectString.IsOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(500);
+						{
+							Logging.WriteDiagnostic("Choosing current class.");
+							ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+						}
+					}
+
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();					
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}
+
+					
+			]]>			
+		</CodeChunk>		
+  </CodeChunks>
+</Profile>  
