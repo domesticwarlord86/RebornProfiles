@@ -14,7 +14,7 @@
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
 
-	<While condition="not HasAtLeast(13585,30)">
+	<While condition="not HasAtLeast(33758,30)">
 		<If condition="not DutyManager.InInstance">
 			<LLJoinDuty DutyId="114" Undersized="False"/>
 		</If>

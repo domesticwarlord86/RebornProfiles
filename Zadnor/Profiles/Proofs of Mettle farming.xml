@@ -140,7 +140,7 @@
 					</If>	
 					<While condition="Core.Me.ElementalLevel == 25 and IsOnMap(975) and IsOnSubMap(3670) and CurrentMettle() &lt; 20000000">
 						<Log Message="Farming for Proofs of Mettle in Zone 3..." />
-						<LLFate FateIds="1733,1734,1736,1737,1738,1739,1740,1741,1742" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and IsOnSubMap(3670) and CurrentMettle() &lt; 20000000"/>	
+						<LLFate FateIds="1733,1734,1736,1737,1738,1739,1740,1741,1742,1735" UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(975) and IsOnSubMap(3670) and CurrentMettle() &lt; 20000000"/>	
 					</While>
 				</If>		
 		</While>
