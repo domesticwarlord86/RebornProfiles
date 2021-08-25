@@ -779,21 +779,81 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
       <FlyTo XYZ="-340.3455, 59.03801, 316.6327" Land="True"/>
       <LLTurnIn QuestId="67859" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445"/>
       <LLSmallTalk/>
-    </If>		
+    </If>	
 
+		<!-- Rep up from Trusted to Respected-->
+    <!--  The Tools Make the Moogle -->
+    <If Condition="not HasQuest(67860) and not IsQuestCompleted(67860)">
+      <LisbethTravel Zone="400" Subzone="2095" Position="-340.6908, 59.03801, 316.6869"/>
+      <If Condition="IsQuestAcceptQualified(67860)">
+        <LLPickupQuest QuestId="67860" NpcId="1017169"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67860) == 1">
+      <LisbethTravel Zone="400" Subzone="2095" Position="-340.6908, 59.03801, 316.6869"/>
+      <LLTalkTo NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587" QuestId="67860" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67860) == 2">
+      <LisbethTravel Zone="400" Subzone="2045" Position="-102.1123, -8.845976, 217.0226"/>
+      <LLTalkTo NpcId="1017446" XYZ="-103.9293, -8.845976, 216.3577" QuestId="67860" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67860) == 3">
+      <LisbethTravel Zone="400" Subzone="2095" Position="-341.2041, 59.03801, 318.1843"/>
+      <LLHandOver ItemId="2001978" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587" QuestId="67860" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(67860) == 4">
+      <LisbethTravel Zone="400" Subzone="2095" Position="-329.6392, 59.02918, 300.3515"/>
+      <LLHandOver ItemId="2001978" NpcId="1017172" XYZ="-329.3355, 59.05639, 298.2375" QuestId="67860" StepId="4"/>
+    </If>		
+    <If Condition="GetQuestStep(67860) == 255">
+      <If condition="not HqHasAtLeast(15722,1)">
+				<If Condition="ClassName == ClassJobType.Carpenter">
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15722,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true,'AmountMode':'Restock'}]"/>
+				</If>
+				<If Condition="ClassName == ClassJobType.Blacksmith">
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15722,'Amount':1,'Enabled':true,'Type':'Blacksmith','Hq':true,'AmountMode':'Restock'}]"/>
+				</If>
+				<If Condition="ClassName == ClassJobType.Armorer">
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15722,'Amount':1,'Enabled':true,'Type':'Armorer','Hq':true,'AmountMode':'Restock'}]"/>
+				</If>
+				<If Condition="ClassName == ClassJobType.Goldsmith">
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15722,'Amount':1,'Enabled':true,'Type':'Goldsmith','Hq':true,'AmountMode':'Restock'}]"/>
+				</If>
+				<If Condition="ClassName == ClassJobType.Leatherworker">
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15722,'Amount':1,'Enabled':true,'Type':'Leatherworker','Hq':true,'AmountMode':'Restock'}]"/>
+				</If>
+				<If Condition="ClassName == ClassJobType.Weaver">
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15722,'Amount':1,'Enabled':true,'Type':'Weaver','Hq':true,'AmountMode':'Restock'}]"/>
+				</If>
+				<If Condition="ClassName == ClassJobType.Alchemist">
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15722,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':true,'AmountMode':'Restock'}]"/>
+				</If>
+				<If Condition="ClassName == ClassJobType.Culinarian">
+					<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':15722,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':true,'AmountMode':'Restock'}]"/>
+				</If>				
+			</If>
+			<If Condition="HqHasAtLeast(15722,1)">
+				<LisbethTravel Zone="400" Subzone="2095" Position="-343.0392, 59.03801, 318.4308"/>
+				<LLTurnIn ItemId="15722" QuestId="67860" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587"/>
+				<LLSmallTalk/>
+			</If>      
+    </If>		
+		
 		
 		<!-- Daily quests start -->
     <!-- ** 19/35 54% -->
     <RegisterDailies QuestIds="67826,67827,67828,67829,67830,67831,67832,67833,67834,67835,67836,67837,67838,67839,67840,67841,67842,67843,67844,67845,67846,67847,67848,67849,67850,67851,67852,67853,67854,67855"/>
 		
-		<If condition="not IsOnSubMap(2095)">
-			<LisbethTravel Area="The Churning Mists" Position="-336.749, 58.95078, 323.9718"/>
-		</If>			
+		
     
 
 		<!-- Pickup quests -->
     <If Condition="IsQuestCompleted(67856) and not HasQuest(67857) and not HasQuest(67858) and not HasQuest(67859) and not HasQuest(67860) and not HasQuest(67861) and not HasAtLeastOneQuest(Array[int]([67826,67827,67828,67829,67830,67831,67832,67833,67834,67835,67836,67837,67838,67839,67840,67841,67842,67843,67844,67845,67846,67847,67848,67849,67850,67851,67852,67853,67854,67855]))">			
-			
+
+			<If condition="not IsOnSubMap(2095)">
+				<LisbethTravel Area="The Churning Mists" Position="-336.749, 58.95078, 323.9718"/>
+			</If>				
 			<If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
 				<LogMessage Message="Not already on a crafter class, swapping."/>
 				<RunCode Name="SwitchDoHJob"/>
