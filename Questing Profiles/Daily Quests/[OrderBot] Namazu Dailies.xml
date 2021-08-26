@@ -433,6 +433,10 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 				<If condition="not IsOnSubMap(2850)">
 					<TeleportTo AetheryteId="128"/>
 				</If>
+				<If condition="not ClassName == ClassJobType.Carpenter and not ClassName == ClassJobType.Blacksmith and not ClassName == ClassJobType.Armorer and not ClassName == ClassJobType.Goldsmith and not ClassName == ClassJobType.Leatherworker and not ClassName == ClassJobType.Weaver and not ClassName == ClassJobType.Alchemist and not ClassName == ClassJobType.Culinarian">
+					<LogMessage Message="Not already on a crafter class, swapping."/>
+					<RunCode Name="SwitchDoHJob"/>
+				</If>					
 				<MoveTo XYZ="-776.6082, 127.3974, 98.88535" Distance="1"/>
 				<!-- The Importance of Being Yes, Yes -->
 				<If Condition="IsQuestAcceptQualified(68639)">
@@ -1248,28 +1252,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Mol Tea Ceremony Paraphernalia -->
 						<While Condition="HasItem(22709) and not HasAtLeast(22735, 3)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22735,'Amount':3,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasAtLeast(22735, 3)">
@@ -1312,28 +1316,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Stable Supplies -->
 						<While Condition="HasItem(22710) and not HasAtLeast(22736, 2)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22736,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasAtLeast(22736, 2)">
@@ -1365,28 +1369,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Drum Parts -->
 						<While Condition="HasItem(22711) and not HasItem(22737)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22737,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasItem(22737)">
@@ -1437,28 +1441,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Confetti-making Tools -->
 						<While Condition="HasItem(22712) and not HasAtLeast(22738, 3)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22738,'Amount':3,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasAtLeast(22738, 3)">
@@ -1496,28 +1500,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Substitute Offering -->
 						<While Condition="HasItem(22713) and not HasHqItem(22739)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22739,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 						</While>
 					</If>
@@ -1554,28 +1558,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Steeping Accessory -->
 						<While Condition="HasItem(22714) and not HasAtLeast(22740, 2)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22740,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasAtLeast(22740, 2)">
@@ -1635,28 +1639,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Pristine Fruit Figurine -->
 						<While Condition="HasItem(22715) and not HasHqItem(22741)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22741,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasHqItem(22741)">
@@ -1713,28 +1717,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Land Diving Gear -->
 						<While Condition="HasItem(22716) and not HasAtLeast(22742, 2)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22742,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasAtLeast(22742, 2)">
@@ -1788,28 +1792,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Culinary Knife Component -->
 						<While Condition="HasItem(22717) and not HasHqItem(22743)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22743,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasHqItem(22743)">
@@ -1865,28 +1869,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Generous Gifts -->
 						<While Condition="HasItem(22718) and not HasAtLeast(22744, 2)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22744,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasAtLeast(22742, 2)">
@@ -1943,28 +1947,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Korrigan Doll -->
 						<While Condition="HasItem(22719) and not HasHqItem(22745)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22745,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}]"/>
 							</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasHqItem(22745)">
@@ -2004,28 +2008,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<!-- Elixir Mixing Paraphernalia -->
 						<While Condition="HasItem(23172) and not HasAtLeast(23173, 3)">
 							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}"/>
+								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':23173,'Amount':3,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}]"/>
 							</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasAtLeast(23173, 3)">
@@ -2275,19 +2279,19 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 					<If Condition="GetQuestStep(68634) == 1">
 						<If Condition="GetQuestById(68634).GetTodoArgs(1, 0).Item1 == 0">
 							<If Condition="not IsOnMap(614)">
-								<LisbethTravel ZoneId="622" XYZ="-277.0524, 17.31996, 507.738" Land="True"/>
+								<LisbethTravel ZoneId="614" XYZ="-277.0524, 17.31996, 507.738" Land="True"/>
 							</If>
 							<HandOver ItemId="2002472" NpcId="1025701" XYZ="-280.8118, 17.31996, 524.5289" QuestId="68634"/>
 						</If>
 						<If Condition="GetQuestById(68634).GetTodoArgs(1, 0).Item1 == 1">
 							<If Condition="not IsOnMap(614)">
-								<LisbethTravel ZoneId="622" XYZ="-277.0524, 17.31996, 507.738" Land="True"/>
+								<LisbethTravel ZoneId="614" XYZ="-277.0524, 17.31996, 507.738" Land="True"/>
 							</If>
 							<HandOver ItemId="2002472" NpcId="1025702" XYZ="-279.2554, 17.31996, 489.2804" QuestId="68634"/>
 						</If>
 						<If Condition="GetQuestById(68634).GetTodoArgs(1, 0).Item1 == 2">
 							<If Condition="not IsOnMap(614)">
-								<LisbethTravel ZoneId="622" XYZ="-277.0524, 17.31996, 507.738" Land="True"/>
+								<LisbethTravel ZoneId="614" XYZ="-277.0524, 17.31996, 507.738" Land="True"/>
 							</If>
 							<HandOver ItemId="2002472" NpcId="1025768" XYZ="-292.2561, 17.31996, 489.7687" QuestId="68634"/>
 						</If>
@@ -2327,28 +2331,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 							<!-- Altar Components -->
 							<While Condition="HasItem(22695) and not HasAtLeast(22721, 2)">
 								<If Condition="ClassName == ClassJobType.Carpenter">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Blacksmith">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Armorer">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Goldsmith">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Leatherworker">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Weaver">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Alchemist">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Culinarian">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22721,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 							</While>
 							<If Condition="CraftingLog.IsOpen and HasAtLeast(22721, 2)">
@@ -2401,28 +2405,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 							<!-- Mikoshi Frippery -->
 							<While Condition="HasItem(22696) and not HasAtLeast(22722, 2)">
 								<If Condition="ClassName == ClassJobType.Carpenter">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Blacksmith">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Armorer">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Goldsmith">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Leatherworker">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Weaver">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Alchemist">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Culinarian">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22722,'Amount':2,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}]"/>
 								</If>
 							</While>
 							<If Condition="CraftingLog.IsOpen and HasAtLeast(22722, 2)">
@@ -2506,28 +2510,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 							<!-- Ceremonial Bow Components -->
 							<While Condition="HasItem(22697) and not HasHqItem(22723)">
 								<If Condition="ClassName == ClassJobType.Carpenter">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Blacksmith">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Armorer">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Goldsmith">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Leatherworker">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Weaver">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Alchemist">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Culinarian">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22723,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 							</While>
 							<If Condition="CraftingLog.IsOpen and HasHqItem(22723)">
@@ -2595,28 +2599,28 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 							<!-- Effigy Components -->
 							<While Condition="HasItem(22698) and not HasHqItem(22724)">
 								<If Condition="ClassName == ClassJobType.Carpenter">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Blacksmith">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Armorer">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Goldsmith">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Leatherworker">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Weaver">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Alchemist">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 								<If Condition="ClassName == ClassJobType.Culinarian">
-									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}"/>
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22724,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','Hq':true}]"/>
 								</If>
 							</While>
 							<If Condition="CraftingLog.IsOpen and HasHqItem(22724)">
