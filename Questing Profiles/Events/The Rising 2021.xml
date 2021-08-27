@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Rising 2021
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>The Rising 2021</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Rising Calm -->
+    <If Condition="not HasQuest(69627) and not IsQuestCompleted(69627)">
+      <GetTo ZoneId="130" SubZoneId="0" XYZ="-59.71365, 4, -125.8524"/>
+      <If Condition="IsQuestAcceptQualified(69627)">
+        <LLPickupQuest QuestId="69627" NpcId="1036686"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69627) == 1">
+      <GetTo ZoneId="130" SubZoneId="615" XYZ="22.55812, 6.999995, -80.93005"/>
+      <LLTalkTo NpcId="1001353" XYZ="21.07263, 7.45, -78.78235" QuestId="69627" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69627) == 2">
+      <GetTo ZoneId="131" SubZoneId="650" XYZ="-99.57298, 40.2, 122.661"/>
+      <LLTalkTo NpcId="1002299" XYZ="-98.8938, 40.19998, 120.8362" QuestId="69627" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69627) == 3">
+      <GetTo ZoneId="131" SubZoneId="650" XYZ="-115.5194, 41.59998, 121.1703"/>
+      <LLTalkTo NpcId="1002281" XYZ="-115.7397, 41.59998, 118.8831" QuestId="69627" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69627) == 4">
+      <GetTo ZoneId="130" SubZoneId="615" XYZ="11.92268, 6.999994, -90.37826"/>
+      <LLTalkTo NpcId="1036687" XYZ="10.08612, 6.999993, -89.89093" QuestId="69627" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69627) == 5">
+      <GetTo ZoneId="130" SubZoneId="0" XYZ="-56.72626, 4, -142.1134"/>
+      <LLTalkTo NpcId="1036688" XYZ="-56.38214, 4.099994, -144.152" QuestId="69627" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69627) == 6">
+      <GetTo ZoneId="130" SubZoneId="615" XYZ="11.70048, 6.999996, -91.93884"/>
+      <LLTalkTo NpcId="1036687" XYZ="10.08612, 6.999993, -89.89093" QuestId="69627" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(69627) == 255">
+      <GetTo ZoneId="130" SubZoneId="640" XYZ="-19.40659, 10, -50.08977"/>
+      <LLTurnIn QuestId="69627" NpcId="1036689" XYZ="-21.16431, 10, -48.84418"/>
+      <LLSmallTalk/>
+    </If>	
+		
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
