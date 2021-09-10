@@ -50,7 +50,7 @@
 	</If>	
 	
 	<!-- Obtain Curtana Animus -->
-	<If Condition="HasAtLeast(7824,1)">
+	<If Condition="HasAtLeast(7824,1) and HasAtLeast(7833,1)">
 		<Log Message="Starting Animus Book Farm..." />
 		<LLoadProfile Path="../Animus/Animus Book Farm.xml"/>
 	</If>
