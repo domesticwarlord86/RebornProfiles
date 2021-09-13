@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: A Nocturne for Heroes
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>A Nocturne for Heroes</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- The Man in Black -->
+    <If Condition="not HasQuest(68694) and not IsQuestCompleted(68694)">
+      <LisbethTravel Zone="130" Subzone="621" Position="-132.2155, 4, -74.18058"/>
+      <If Condition="IsQuestAcceptQualified(68694)">
+        <LLPickupQuest QuestId="68694" NpcId="1026849"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68694) == 1">
+      <LisbethTravel Zone="141" Subzone="248" Position="-68.32346, -6.073271, 28.48149"/>
+      <UseObject NpcId="2009661" XYZ="-68.89453, -5.56958, 30.44165" QuestId="68694" StepId="1"/>
+    </If>		
+    <While Condition="GetQuestStep(68694) == 2">
+			<While condition="not IsOnSubMap(249) and GetQuestStep(68694) == 2">
+				<LisbethTravel Area="Central Thanalan" Position="280.756, -14.55744, -25.18001"/>
+			</While>
+			<While condition="IsOnSubMap(249) and GetQuestStep(68694) == 2">
+				<LLFate FateIds="1409" MinLevel="0" MaxLevel="81" while="IsOnSubMap(249) and GetQuestStep(68694) == 2"/>	
+			</While>
+    </While>
+    <If Condition="GetQuestStep(68694) == 3">
+      <LisbethTravel Zone="141" Subzone="249" Position="115.6167, 0.5618118, -144.0761"/>
+      <UseObject NpcId="2009662" XYZ="115.8007, 0.8086548, -143.1144" QuestId="68694" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(68694) == 4">
+      <LisbethTravel Zone="141" Subzone="290" Position="-3.725665, -2.072266, -180.6061"/>
+      <LLTalkTo NpcId="1026850" XYZ="-5.172852, -2.072266, -183.3677" QuestId="68694" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(68694) == 255">
+      <LisbethTravel Zone="130" Subzone="621" Position="-130.567, 4, -77.81435"/>
+      <LLTurnIn QuestId="68694" NpcId="1026849" XYZ="-132.4636, 4, -75.05914"/>
+      <LLSmallTalk/>
+    </If>	
+		
+    <!-- In the Dark of Night -->
+    <If Condition="not HasQuest(68695) and not IsQuestCompleted(68695)">
+      <LisbethTravel Zone="130" Subzone="621" Position="-129.6385, 4, -78.98674"/>
+      <If Condition="IsQuestAcceptQualified(68695)">
+        <LLPickupQuest QuestId="68695" NpcId="1026849"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(68695) == 1 and GetQuestById(68695).QuestI8A == 0">
+      <LisbethTravel Zone="132" Subzone="559" Position="-113.1882, -7.500001, 90.72346"/>
+      <LLTalkTo NpcId="1006694" XYZ="-115.3735, -7.351984, 91.23364" QuestId="68695" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(68695) == 1 and GetQuestById(68695).QuestI8A == 16">
+      <LisbethTravel Zone="133" Subzone="565" Position="166.8457, 15.7, -67.16155"/>
+      <LLTalkTo NpcId="1000227" XYZ="168.6274, 15.7, -65.69012" QuestId="68695" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(68695) == 1 and GetQuestById(68695).QuestI8A == 32">
+      <LisbethTravel Zone="133" Subzone="0" Position="149.838, 10.93234, -228.2395"/>
+      <LLTalkTo NpcId="1000257" XYZ="150.1639, 10.85295, -230.457" QuestId="68695" StepId="1"/>
+    </If>		
+    <If Condition="GetQuestStep(68695) == 2">
+      <LisbethTravel Zone="133" Subzone="0" Position="-38.55002, 7.045372, -122.0371"/>
+      <LLTalkTo NpcId="1026867" XYZ="-36.45386, 7.236626, -121.0193" QuestId="68695" StepId="2"/>
+    </If>	
+    <While Condition="GetQuestStep(68695) == 3">
+			<While condition="not IsOnMap(152) and GetQuestStep(68695) == 3">
+				<LisbethTravel Zone="152" Subzone="75" Position="-235.2908, 12, 19.40991"/>
+			</While>	
+			<While condition="IsOnMap(152) and GetQuestStep(68695) == 3">			
+				<SimpleDuty InteractNpcId="2009664" XYZ="-237.6898, 11.97827, 18.2345" QuestId="68695" StepId="3">
+					<HotSpots>
+						<HotSpot XYZ="-268.2384,11.57348,-25.65051" Radius="100"/>
+					</HotSpots>
+					<TargetMobs>
+						<TargetMob Id="7895" Weight="3000"/> <!-- Iseultalon  -->
+					</TargetMobs>
+				</SimpleDuty>
+			</While>
+    </While>	
+    <If Condition="GetQuestStep(68695) == 4">
+      <LisbethTravel Zone="152" Subzone="75" Position="-306.7795, 11.25094, -13.49422"/>
+      <LLTalkTo NpcId="1026871" XYZ="-305.7145, 11.0578, -12.19196" QuestId="68695" StepId="4"/>
+    </If>		
+    <If Condition="GetQuestStep(68695) == 5">
+      <LisbethTravel Zone="133" Subzone="0" Position="-39.58248, 6.971686, -123.0446"/>
+      <LLTalkTo NpcId="1026867" XYZ="-36.45386, 7.236626, -121.0193" QuestId="68695" StepId="5"/>
+    </If>	
+    <If Condition="GetQuestStep(68695) == 255">
+      <LisbethTravel Zone="132" Subzone="551" Position="11.20031, -0.1157992, 6.52608"/>
+      <LLTurnIn QuestId="68695" NpcId="1026870" XYZ="11.42896, 0.01538192, 4.470825"/>
+      <LLSmallTalk/>
+    </If>	
+
+    <!-- Messenger of the Winds -->
+    <If Condition="not HasQuest(68696) and not IsQuestCompleted(68696)">
+      <LisbethTravel Zone="132" Subzone="551" Position="11.04573, -0.2066554, 7.776065"/>
+      <If Condition="IsQuestAcceptQualified(68696)">
+        <LLPickupQuest QuestId="68696" NpcId="1026870"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68696) == 1">
+      <LisbethTravel Zone="148" Subzone="68" Position="-37.69836, 0.2752957, -231.3876"/>
+      <LLTalkTo NpcId="1026868" XYZ="-40.48224, 0.1310671, -231.6777" QuestId="68696" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68696) == 2">
+      <LisbethTravel Zone="133" Subzone="0" Position="-37.83348, 7.114248, -121.7175"/>
+      <LLTalkTo NpcId="1026867" XYZ="-36.45386, 7.236626, -121.0193" QuestId="68696" StepId="2"/>
+    </If>
+    <While Condition="GetQuestStep(68696) == 3">
+				<LisbethTravel Zone="132" Subzone="0" Position="67.55942, -7.982883, 107.8025"/>
+      <!-- <LLTalkTo NpcId="1026869" XYZ="67.36853, -8.060707, 110.9178" QuestId="68696" StepId="3"/>
+				<SimpleDuty InteractNpcId="1026869" XYZ="67.36853, -8.060707, 110.9178" QuestId="68696" StepId="3">
+					<HotSpots>
+						<HotSpot XYZ="-0.01531982,-1.791354,-0.01531982" Radius="100"/>
+					</HotSpots>
+					<TargetMobs>
+						<TargetMob Id="7893" Weight="3000"/> 
+					</TargetMobs>
+				</SimpleDuty>		-->
+				<While condition="GetQuestStep(68696) == 3">
+					<LLToast message="Please complete the Garuda fight manually."/>
+					<WaitTimer WaitTime="26" />
+				</While>
+    </While>
+    <If Condition="GetQuestStep(68696) == 255">
+      <LisbethTravel Zone="132" Subzone="0" Position="67.77179, -7.982032, 108.1186"/>
+      <LLTurnIn QuestId="68696" NpcId="1026869" XYZ="67.36853, -8.060707, 110.9178"/>
+      <LLSmallTalk/>
+    </If>		
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
