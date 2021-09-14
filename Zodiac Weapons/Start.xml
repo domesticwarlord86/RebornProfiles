@@ -161,6 +161,11 @@
 		</If>	
 		<LLoadProfile Path="Quests/White Mage.xml"/>
 	</If>
+	
+	<While Condition="&brd; == 0 and &blm; == 0 and &drg; == 0 and &mnk; == 0 and &nin; == 0 and &pld; == 0 and &sch; == 0 and &smn; == 0 and &war; == 0 and &whm; == 0">
+		<LLToast message="Please select a Class in the profile."/>
+		<WaitTimer WaitTime="26" />
+	</While>
 
   </Order>
   <CodeChunks>
