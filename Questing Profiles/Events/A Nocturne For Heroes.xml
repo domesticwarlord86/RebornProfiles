@@ -143,6 +143,14 @@
       <LLTurnIn QuestId="68696" NpcId="1026869" XYZ="67.36853, -8.060707, 110.9178"/>
       <LLSmallTalk/>
     </If>		
+		
+		<If Condition="IsQuestCompleted(68696) and not HasLearnedMount(151)">
+			<LisbethTravel Area="The Gold Saucer" Position="-42.00428, 3.814697E-06, 8.764808"/>
+			<While condition="not HasLearnedMount(151)">
+				<LLToast message="Buy Regalia Type-G Title from Ironworks Vendor."/>
+				<WaitTimer WaitTime="26" />
+			</While>
+		</If>
   
   </Order>
   <GrindAreas>
