@@ -97,9 +97,6 @@ If you die at any time, you'll need to restart the bot.
 
 We cannot manually meld materia to your Sphere scroll. It will farm the 75 Alexandrite and obtain your Sphere scroll but you will need to manually meld the materia and go purchase the next level of relic.
 
-Right now Light Level cannot be automatically detected. The bot will spam Garuda indefinitely. You will need to check it periodically and go buy the next level of relic when your light level is complete.
-
-You will need to atach new Mahatma's every two Tam-Tara runs. The bot will stop to allow you to do so.
 
 
 * Fates
