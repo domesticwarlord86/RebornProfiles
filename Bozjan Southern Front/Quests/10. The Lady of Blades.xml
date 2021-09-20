@@ -25,7 +25,6 @@
   </Order>
     <CodeChunks>
 		<CodeChunk Name="EnterBozjan">
-		<CodeChunk Name="EnterBozjan">
 			<![CDATA[
 				var npcId = GameObjectManager.GetObjectByNPCId(1032080);
 
