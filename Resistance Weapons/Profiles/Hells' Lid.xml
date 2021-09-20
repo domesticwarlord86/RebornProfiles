@@ -3,6 +3,13 @@
   Profile: Hells' Lid
   Authors: DomesticWarlord86
   Code Credit: TuckMeIntoBread, Kayla.
+	
+	This profile was designed to to be ran in a party of four bots.
+	
+	It uses party leader status to determine if it should wait to pull bosses. If you're not the party
+	leader, it will wait forever until the party is in combat. So while it can be used in Duty
+	Finder, you'll want to make sure you're the leader somehow.
+	
 -->
 
 <!DOCTYPE Profile [
@@ -42,7 +49,7 @@
 					<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
 				</If>			
 				<MoveTo XYZ="-70.76974, -3, 148.1838" />
-				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
+				<If condition="PartyManager.IsInParty and not PartyManager.IsPartyLeader">
 					<WaitWhile Condition="not IsPartyInCombat()"/>
 				</If>
 				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Fight first boss -->			
@@ -78,7 +85,7 @@
 					<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
 				</If>
 				<MoveTo XYZ="58.26813, -26, -104.5613" />
-				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
+				<If condition="PartyManager.IsInParty and not PartyManager.IsPartyLeader">
 					<WaitWhile Condition="not IsPartyInCombat()"/>
 				</If>
 				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Fight second boss -->
@@ -124,7 +131,7 @@
 					<MoveTo XYZ="57.42034, -97.02225, -174.3563" usemesh="false" />
 				</If>			
 				<MoveTo XYZ="61.90805, -88.00001, -457.9611" Distance="1"/>				
-				<If condition="not PartyManager.IsInParty or not PartyManager.IsPartyLeader">
+				<If condition="PartyManager.IsInParty and not PartyManager.IsPartyLeader">
 					<WaitWhile Condition="not IsPartyInCombat()"/>
 				</If>
 				<Grind GrindRef="FinalBoss" While="GetInstanceTodo(5) == 0 and IsOnSubMap(2393)"/> <!-- Fight second boss -->	
