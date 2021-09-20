@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Unlock Omega Raids
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Unlock Omega Raids</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- The Hunt for Omega -->
+    <If Condition="not HasQuest(68464) and not IsQuestCompleted(68464)">
+      <LisbethTravel Zone="635" Subzone="0" Position="69.63861, -0.07444594, 61.58783"/>
+      <If Condition="IsQuestAcceptQualified(68464)">
+        <LLPickupQuest QuestId="68464" NpcId="1021926"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68464) == 1">
+      <LisbethTravel Zone="635" Subzone="0" Position="113.4429, 0.6520417, 53.50974"/>
+      <LLTalkTo NpcId="1021930" XYZ="112.4132, 0.6520417, 56.29041" QuestId="68464" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68464) == 2">
+      <LisbethTravel Zone="612" Subzone="2640" Position="465.5282, 69.31083, 522.8773"/>
+      <LLTalkTo NpcId="1021933" XYZ="466.2089, 69.27097, 525.7495" QuestId="68464" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(68464) == 3">
+      <LisbethTravel Zone="612" Subzone="2640" Position="465.6934, 69.31255, 522.5445"/>
+      <LLTalkTo NpcId="1021941" XYZ="467.0023, 69.2701, 521.1414" QuestId="68464" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(68464) == 4">
+      <LisbethTravel Zone="612" Subzone="2640" Position="466.9766, 69.25381, 520.5961"/>
+      <While Condition="GetQuestStep(68464) == 4">
+		<LLToast message="Please complete the solo Duty for The Hunt for Omega"/>
+		<WaitTimer WaitTime="26" />
+	  </While>
+    </If>
+    <If Condition="GetQuestStep(68464) == 255">
+	  <If condition="not IsOnMap(724)">
+        <LisbethTravel Zone="612" Subzone="2640" Position="476.0241, 69.74751, 524.8325"/>
+		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
+	  </If>	
+      <MoveTo XYZ="-211.2561, -223.5, -125.8573"/>
+      <LLTurnIn QuestId="68464" NpcId="1021942" XYZ="-208.5756, -223.5, -124.1627"/>
+      <LLSmallTalk/>
+    </If>	
+	
+    <!-- Into the Deltascape -->
+    <If Condition="IsQuestCompleted(68464) and not HasQuest(68465) and not IsQuestCompleted(68465)">
+	  <If condition="not IsOnMap(724)">
+        <LisbethTravel Zone="612" Subzone="2640" Position="476.0241, 69.74751, 524.8325"/>
+		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
+	  </If>
+      <MoveTo XYZ="-210.8495, -223.5, -125.5106"/>
+      <If Condition="IsQuestAcceptQualified(68465)">
+        <LLPickupQuest QuestId="68465" NpcId="1021942"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68465) == 1">
+	  <If condition="not IsOnMap(724)">
+        <LisbethTravel Zone="612" Subzone="2640" Position="476.0241, 69.74751, 524.8325"/>
+		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
+	  </If>	
+      <MoveTo XYZ="-211.5986, -223.5, -119.0378"/>
+      <LLTalkTo NpcId="1021946" XYZ="-211.017, -223.25, -117.0215" QuestId="68465" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68465) == 2">
+      <While Condition="GetQuestStep(68465) == 2">
+		<LLToast message="Please use Duty Finder to complete Deltascape V1.0."/>
+		<WaitTimer WaitTime="26" />
+	  </While>
+    </If>
+    <If Condition="GetQuestStep(68465) == 255">
+	  <If condition="not IsOnMap(724)">
+        <LisbethTravel Zone="612" Subzone="2640" Position="476.0241, 69.74751, 524.8325"/>
+		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
+	  </If>		
+      <MoveTo XYZ="-211.3062, -223.5, -122.7875"/>
+      <LLTurnIn QuestId="68465" NpcId="1021942" XYZ="-208.5756, -223.5, -124.1627"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- A Catastrophe Waiting -->
+    <If Condition="IsQuestCompleted(68465) and not HasQuest(68466) and not IsQuestCompleted(68466)">
+	  <If condition="not IsOnMap(724)">
+        <LisbethTravel Zone="612" Subzone="2640" Position="476.0241, 69.74751, 524.8325"/>
+		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
+	  </If>			
+      <MoveTo XYZ="-211.3062, -223.5, -122.7875"/>
+      <If Condition="IsQuestAcceptQualified(68466)">
+        <LLPickupQuest QuestId="68466" NpcId="1021942"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(68466) == 1">
+	  <If condition="not IsOnMap(724)">
+        <LisbethTravel Zone="612" Subzone="2640" Position="476.0241, 69.74751, 524.8325"/>
+		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
+	  </If>		
+      <MoveTo XYZ="-210.1544, -223.5, -118.4608"/>
+      <LLTalkTo NpcId="1021946" XYZ="-211.017, -223.25, -117.0215" QuestId="68466" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(68466) == 2">
+      <While Condition="GetQuestStep(68466) == 2">
+		<LLToast message="Please use Duty Finder to complete Deltascape V2.0."/>
+		<WaitTimer WaitTime="26" />
+	  </While>
+    </If>
+    <If Condition="GetQuestStep(68466) == 255">
+	  <If condition="not IsOnMap(724)">
+        <LisbethTravel Zone="612" Subzone="2640" Position="476.0241, 69.74751, 524.8325"/>
+		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
+	  </If>		
+      <MoveTo XYZ="-210.4384, -223.5, -124.7957"/>
+      <LLTurnIn QuestId="68466" NpcId="1021943" XYZ="-207.2023, -223.5, -124.9562"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- The Croak Queen -->
+    <If Condition="IsQuestCompleted(68466) and not HasQuest(68467) and not IsQuestCompleted(68467)">
+	  <If condition="not IsOnMap(724)">
+        <LisbethTravel Zone="612" Subzone="2640" Position="476.0241, 69.74751, 524.8325"/>
+		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
+	  </If>		
+      <MoveTo XYZ="-210.4384, -223.5, -124.7957"/>
+      <If Condition="IsQuestAcceptQualified(68467)">
+        <LLPickupQuest QuestId="68467" NpcId="1021942"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68467) == 1">
+	  <If condition="not IsOnMap(724)">
+        <LisbethTravel Zone="612" Subzone="2640" Position="476.0241, 69.74751, 524.8325"/>
+		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
+	  </If>		
+      <MoveTo XYZ="-210.9367, -223.5, -118.7155"/>
+      <LLTalkTo NpcId="1021946" XYZ="-211.017, -223.25, -117.0215" QuestId="68467" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68467) == 2">
+      <While Condition="GetQuestStep(68467) == 2">
+		<LLToast message="Please use Duty Finder to complete Deltascape V3.0."/>
+		<WaitTimer WaitTime="26" />
+	  </While>
+    </If>
+    <If Condition="GetQuestStep(68467) == 255">
+	  <If condition="not IsOnMap(724)">
+        <LisbethTravel Zone="612" Subzone="2640" Position="476.0241, 69.74751, 524.8325"/>
+		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
+	  </If>			
+      <MoveTo XYZ="-212.2224, -223.5, -123.2504"/>
+      <LLTurnIn QuestId="68467" NpcId="1021942" XYZ="-208.5756, -223.5, -124.1627"/>
+      <LLSmallTalk/>
+    </If>	
+	
+    <!-- A Void at All Costs -->
+    <If Condition="IsQuestCompleted(68467) and not HasQuest(68468) and not IsQuestCompleted(68468)">
+	  <If condition="not IsOnMap(724)">
+        <LisbethTravel Zone="612" Subzone="2640" Position="476.0241, 69.74751, 524.8325"/>
+		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
+	  </If>		
+      <MoveTo XYZ="-211.0307, -223.5, -123.3842"/>
+      <If Condition="IsQuestAcceptQualified(68468)">
+        <LLPickupQuest QuestId="68468" NpcId="1021942"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68468) == 1">
+      <MoveTo XYZ="-210.6802, -223.5, -118.638"/>
+      <LLTalkTo NpcId="1021946" XYZ="-211.017, -223.25, -117.0215" QuestId="68468" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68468) == 2">
+      <While Condition="GetQuestStep(68468) == 2">
+		<LLToast message="Please use Duty Finder to complete Deltascape V4.0."/>
+		<WaitTimer WaitTime="26" />
+	  </While>
+    </If>	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Eureka Unlock
+  Authors:
+-->
+<Profile>
+  <Name>Eureka Unlock</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- And We Shall Call It Eureka -->
+    <If Condition="not HasQuest(68614) and not IsQuestCompleted(68614)">
+      <LisbethTravel Zone="635" Subzone="0" Position="-69.14528, 0.009999931, 62.68438"/>
+      <If Condition="IsQuestAcceptQualified(68614)">
+        <LLPickupQuest QuestId="68614" NpcId="1019459"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68614) == 1">
+      <LisbethTravel Zone="628" Subzone="2906" Position="-47.98429, -2.9, -52.25094"/>
+      <LLTalkTo NpcId="1019002" XYZ="-48.05072, -2.9, -50.24799" QuestId="68614" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68614) == 255">
+      <LisbethTravel Zone="628" Subzone="2904" Position="-127.3188, -4.999999, 146.1965"/>
+      <LLTurnIn QuestId="68614" NpcId="1025233" XYZ="-129.1981, -4.999999, 145.3727"/>
+      <LLSmallTalk/>
+    </If>	
+		
+    <If Condition="IsQuestCompleted(68614) and Core.Me.ElementalLevel == 1">
+	  <If condition="not DutyManager.InInstance">
+		<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+		<RunCode name="EnterAnemos"/>
+	  </If>	
+	  <LLToast message="Please complete the short quest change to allow you to walk outside."/>	
+    </If>	
+	
+  </Order>
+	<CodeChunks>		
+		<CodeChunk Name="LevelSync">
+			<![CDATA[
+				ff14bot.RemoteWindows.ToDoList.LevelSync();
+			]]>			
+		</CodeChunk>			
+		<CodeChunk Name="EnterAnemos">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1024517);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Eureka Anemos.");
+						SelectString.ClickLineContains("Anemos");;
+					}					
+							
+					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+						{
+							Logging.WriteDiagnostic("Selecting Yes.");
+							ff14bot.RemoteWindows.SelectYesno.ClickYes();	
+						}
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>		
+	</CodeChunks>    
+</Profile>  
