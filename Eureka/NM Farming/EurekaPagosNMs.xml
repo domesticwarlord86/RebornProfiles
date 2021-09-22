@@ -17,13 +17,13 @@
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY AnnounceFates "1"> 
-<!ENTITY StopBot "1">
+<!ENTITY AnnounceFates "0"> 
+<!ENTITY StopBot "0">
 
 <!-- Select NMs to farm -->
 <!ENTITY TheSnowQueen "0">
 <!ENTITY Taxim "0">
-<!ENTITY AshDragon "0">
+<!ENTITY AshDragon "1">
 <!ENTITY Glavoid "0">
 <!ENTITY Anapos "0">
 <!ENTITY Hakutaku "0">

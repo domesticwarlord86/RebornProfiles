@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Eureka Pagos Leveling
+  Authors: DomesticWarlord86
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY DoFates "0"> 
+
+]> 
+
+<Profile>
+  <Name>Eureka Pagos Leveling</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<While Condition="not IsOnMap(763)">
+		<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+		<RunCode name="EnterPagos"/>
+	</While>
+ 	<While Condition="IsOnMap(763)">
+		<While Condition="Core.Me.ElementalLevel &lt; 20">
+			<NoCombatMoveTo XYZ="-578.9044, -700.8606, 86.51808" />
+			<Grind GrindRef="Under20" while="Core.Me.ElementalLevel &lt; 20"/>
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 22">
+			<MoveTo XYZ="-472.8371, -704.0522, 252.6677" />
+			<Grind GrindRef="20to21" while="Core.Me.ElementalLevel &lt; 22"/>
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 23">
+			<MoveTo XYZ="-324.5545, -674.0774, 167.9012" />
+			<Grind GrindRef="21to22" while="Core.Me.ElementalLevel &lt; 23"/>
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 25">
+			<NoCombatMoveTo XYZ="53.07406, -737.6741, 324.4169" />
+			<Grind GrindRef="23to25" while="Core.Me.ElementalLevel &lt; 25"/>		
+		</While>
+		<While condition="Core.Me.ElementalLevel &lt; 27">
+			<NoCombatMoveTo XYZ="447.303, -740.0225, 435.4175" />
+			<If Condition="&DoFates; == 1">
+				<Grind GrindRef="25to27" while="Core.Me.ElementalLevel &lt; 27 and not IsFateActive(1353)"/>
+				<RunCode name="LevelSync"/>
+				<LLFate FateId="1353" MinLevel="1" MaxLevel="80" while="IsFateActive(1353)"/>
+			</If>
+			<If Condition="&DoFates; == 0">
+				<Grind GrindRef="25to27" while="Core.Me.ElementalLevel &lt; 27"/>
+			</If>				
+		</While>
+		<While condition="Core.Me.ElementalLevel &lt; 28">
+			<NoCombatMoveTo XYZ="586.6545, -728.2477, 294.0709" />
+			<If Condition="&DoFates; == 1">
+				<Grind GrindRef="27to28" while="Core.Me.ElementalLevel &lt; 28 and not IsFateActive(1354)"/>
+				<RunCode name="LevelSync"/>
+				<LLFate FateId="1354" MinLevel="1" MaxLevel="80" while="IsFateActive(1354)"/>	
+			</If>
+			<If Condition="&DoFates; == 0">
+				<Grind GrindRef="27to28" while="Core.Me.ElementalLevel &lt; 28"/>
+			</If>			
+		</While>
+		<While condition="Core.Me.ElementalLevel &lt; 30">
+			<NoCombatMoveTo XYZ="374.9399, -681.7018, 21.94587" />
+			<If Condition="&DoFates; == 1">				
+				<Grind GrindRef="28to31" while="not IsFateActive(1366) and Core.Me.ElementalLevel &lt; 30"/>
+				<RunCode name="LevelSync"/>
+				<LLFate FateId="1366" MinLevel="1" MaxLevel="80" while="IsFateActive(1366)"/>					
+			</If>
+			<If Condition="&DoFates; == 0">
+				<Grind GrindRef="28to31" while="Core.Me.ElementalLevel &lt; 30"/>
+			</If>			
+		</While>	
+		<While condition="Core.Me.ElementalLevel &lt; 31">
+			<NoCombatMoveTo XYZ="-572.523, -607.4022, -527.281" />
+			<If Condition="&DoFates; == 1">				
+				<Grind GrindRef="31to32" while="not IsFateActive(1356) and Core.Me.ElementalLevel &lt; 31"/>
+				<RunCode name="LevelSync"/>
+				<LLFate FateId="1356" MinLevel="1" MaxLevel="80" while="IsFateActive(1356)"/>							
+			</If>
+			<If Condition="&DoFates; == 0">
+				<Grind GrindRef="31to32" while="Core.Me.ElementalLevel &lt; 31"/>
+			</If>			
+		</While>
+		<While condition="Core.Me.ElementalLevel &lt; 33">
+			<NoCombatMoveTo XYZ="-583.2302, -615.7835, -110.5662" />
+			<If Condition="&DoFates; == 1">				
+				<Grind GrindRef="32to35" while="not IsFateActive(1352) and Core.Me.ElementalLevel &lt; 33"/>
+				<RunCode name="LevelSync"/>
+				<LLFate FateId="1352" MinLevel="1" MaxLevel="80" while="IsFateActive(1352)"/>						
+			</If>
+			<If Condition="&DoFates; == 0">
+				<Grind GrindRef="32to35" while="Core.Me.ElementalLevel &lt; 33"/>
+			</If>			
+		</While>
+		<While condition="Core.Me.ElementalLevel &lt; 36">
+			<NoCombatMoveTo XYZ="-668.0698, -619.3779, -158.808" />
+			<Grind GrindRef="33to35" while="Core.Me.ElementalLevel &lt; 36"/>		
+		</While>		
+	</While>
+	
+  </Order>
+	<GrindAreas>  
+    <GrindArea name="Under20">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-578.9044, -700.8606, 86.51808" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7413" Weight="1"/> <!-- Yukinko -->
+        <TargetMob Id="7464" Weight="1"/> <!-- Zombie Brobinyak -->
+        <TargetMob Id="7422" Weight="1"/> <!-- Pagos Deepeye -->
+        <TargetMob Id="7424" Weight="1"/> <!-- Sylvestre -->
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="20to21">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-472.8371, -704.0522, 252.6677" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7406" Weight="1"/> <!-- Deadly Dodo -->
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="21to22">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-325.0621, -674.1133, 168.0152" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7409" Weight="1"/> <!-- Val Banemite -->
+        <TargetMob Id="7415" Weight="1"/> <!-- Val Roselet -->
+      </TargetMobs>
+    </GrindArea>
+		<GrindArea name="23to25">
+					<Hotspots>
+				<Hotspot Radius="200" XYZ="53.07406, -737.6741, 324.4169" />
+					</Hotspots>
+					<TargetMobs>
+				<TargetMob Id="7413" Weight="1" /> <!-- Yukinko -->
+					</TargetMobs>
+		</GrindArea>		
+		<GrindArea name="25to27">
+					<Hotspots>
+				<Hotspot Radius="200" XYZ="448.0505,-736.2757,391.8059" />
+				<Hotspot Radius="200" XYZ="371.8877,-737.534,446.8703" />
+					</Hotspots>
+					<TargetMobs>
+				<TargetMob Id="7434" Weight="1" /> <!-- Blood Demon -->
+					</TargetMobs>
+		</GrindArea>	
+		<GrindArea name="27to28">
+					<Hotspots>
+				<Hotspot Radius="200" XYZ="567.0404,-723.0895,247.6082" />
+				<Hotspot Radius="200" XYZ="548.2413,-726.4501,329.7932" />
+					</Hotspots>
+					<TargetMobs>
+				<TargetMob Id="7453" Weight="1" /> <!-- Val Worm -->
+					</TargetMobs>
+		</GrindArea>
+ 	<GrindArea name="28to31">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="359.3042,-680.7711,13.50421" />
+			<Hotspot Radius="200" XYZ="405.2948,-688.3589,61.41748" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="7429" Weight="1" /> <!-- Blubber Eyes -->
+        </TargetMobs>
+	</GrindArea>
+ 	<GrindArea name="31to32">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-572.523, -607.4022, -527.281" />
+			<Hotspot Radius="200" XYZ="-517.3267,-608.3411,-511.8334" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="7431" Weight="1" /> <!-- Wandering Opken -->
+        </TargetMobs>
+	</GrindArea>	
+ 	<GrindArea name="32to35">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-579.4899, -615.8221, -123.7463" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="7423" Weight="1" /> <!-- Pagos Billygoat -->
+        </TargetMobs>
+	</GrindArea>
+    <GrindArea name="33to35">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-668.0698, -619.3779, -158.808" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7456" Weight="1"/> <!-- Val Corpse Flower -->
+        <TargetMob Id="7442" Weight="1"/> <!-- Lab Minotaur -->
+      </TargetMobs>
+    </GrindArea>	
+	</GrindAreas>	
+	<CodeChunks>
+		<CodeChunk Name="LevelSync">
+			<![CDATA[
+				ff14bot.RemoteWindows.ToDoList.LevelSync();
+			]]>			
+		</CodeChunk>			
+		<CodeChunk Name="EnterPagos">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1024517);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Eureka Pagos.");
+						SelectString.ClickLineContains("Pagos");;
+					}					
+							
+					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+						{
+							Logging.WriteDiagnostic("Selecting Yes.");
+							ff14bot.RemoteWindows.SelectYesno.ClickYes();	
+						}
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>		
+		<CodeChunk Name="LevelSync">
+			<![CDATA[
+				ff14bot.RemoteWindows.ToDoList.LevelSync();
+			]]>			
+		</CodeChunk>
+	</CodeChunks>  
+</Profile>  

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Appriase Pyros Logograms
+  Authors:
+-->
+<Profile>
+  <Name>Appriase Pyros Logograms</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<If Condition="IsOnMap(795)">
+		<MoveTo XYZ="-287.5563,680.8171,125.5664" />
+		<RunCode name="AppraiseLogos"/>		
+	</If>
+	
+  </Order>
+	<CodeChunks>		
+		<CodeChunk Name="LevelSync">
+			<![CDATA[
+				ff14bot.RemoteWindows.ToDoList.LevelSync();
+			]]>			
+		</CodeChunk>			
+		<CodeChunk Name="AppraiseLogos">
+			<![CDATA[
+				Dictionary<uint, ulong> Slots = new Dictionary<uint, ulong>
+				{
+					{24007, 0},
+					{24008, 1},
+					{24009, 2},
+					{24010, 3},
+					{24011, 4},
+					{24012, 5},
+					{24013, 6},
+					{24014, 7},
+					{24015, 8}
+				};
+				var npcId = GameObjectManager.GetObjectByNPCId(1026495);
+
+				if (!npcId.IsWithinInteractRange)
+
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
+					while (_target.Distance2D(Core.Me.Location) >= 4)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
+					Navigator.PlayerMover.MoveStop();
+				}
+
+				npcId.Interact();
+
+				await Coroutine.Wait(10000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing 'Appraise logograms'.");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+				}					
+											
+				await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("ItemInspectionList")!= null);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				//Start
+				if (RaptureAtkUnitManager.GetWindowByName("ItemInspectionList") != null)
+				{
+					foreach (var slot in Slots.Keys)
+					{
+						if (InventoryManager.FilledSlots.Any(i => i.RawItemId == slot))
+						{
+							Logging.WriteDiagnostic(string.Format("Selecting Logogram: {0}", DataManager.GetItem(slot).CurrentLocaleName));
+							RaptureAtkUnitManager.GetWindowByName("ItemInspectionList").SendAction(2, 3, 0, 3, Slots[slot]);
+
+
+							await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+							await Buddy.Coroutines.Coroutine.Sleep(500);
+							if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+							{
+								Logging.WriteDiagnostic("Selecting Yes.");
+								ff14bot.RemoteWindows.SelectYesno.ClickYes();
+							}
+
+							await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("ItemInspectionResult") != null);
+							await Buddy.Coroutines.Coroutine.Sleep(500);
+							while (RaptureAtkUnitManager.GetWindowByName("ItemInspectionResult") != null)
+							{
+								if (InventoryManager.FilledSlots.Any(i => i.RawItemId == slot))
+								{
+									Logging.WriteDiagnostic("Appraising next Logogram.");
+									RaptureAtkUnitManager.GetWindowByName("ItemInspectionResult").SendAction(1, 3, 0);
+									await Buddy.Coroutines.Coroutine.Sleep(1000);
+								}
+								else
+								{
+									{
+										Logging.WriteDiagnostic("Out of boxes. Closing");
+										RaptureAtkUnitManager.GetWindowByName("ItemInspectionResult").SendAction(1, 3, 1);
+										await Buddy.Coroutines.Coroutine.Sleep(500);
+										await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("ItemInspectionList")!= null);
+									}
+								}
+							}
+						}
+					}
+				}
+
+				if (RaptureAtkUnitManager.GetWindowByName("ItemInspectionList") != null)
+				{
+					RaptureAtkUnitManager.GetWindowByName("ItemInspectionList").SendAction(1,3,0xFFFFFFFF);
+				}					
+			]]>			
+		</CodeChunk>				
+	</CodeChunks>    
+</Profile>  

@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Eureka Leveling
+  Authors:
+-->
+<Profile>
+  <Name>Eureka Leveling</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<While Condition="not IsOnMap(795)">
+		<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+		<RunCode name="EnterPyros"/>
+	</While>
+ 	<While Condition="IsOnMap(795)">	
+		<While Condition="Core.Me.ElementalLevel &lt; 35">
+			<MoveTo XYZ="-230.1711, 673.3081, 241.7366" />
+			<Grind GrindRef="Under35" while="Core.Me.ElementalLevel &lt; 35 and IsOnMap(795)"/>				
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 37">
+			<If condition="not IsOnSubMap(2532)">
+				<NoCombatMoveTo XYZ="-114.22, 675.6703, 294.5529" />
+			</If>
+			<NoCombatMoveTo XYZ="-27.33788, 683.8391, 239.4041" />
+			<Grind GrindRef="35to37" while="Core.Me.ElementalLevel &lt; 37 and IsOnMap(795)"/>				
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 39">
+			<If condition="IsOnSubMap(2531)">
+				<NoCombatMoveTo XYZ="-114.22, 675.6703, 294.5529" />
+			</If>		
+			<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />
+			<Grind GrindRef="37to39" while="Core.Me.ElementalLevel &lt; 39 and IsOnMap(795)"/>				
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 41">
+			<If condition="IsOnSubMap(2531)">
+				<NoCombatMoveTo XYZ="-114.22, 675.6703, 294.5529" />
+			</If>		
+			<NoCombatMoveTo XYZ="301.9975, 738.0284, 510.2732" />
+			<Grind GrindRef="39to41" while="Core.Me.ElementalLevel &lt; 41 and IsOnMap(795)"/>				
+		</While>		
+		<While Condition="Core.Me.ElementalLevel &lt; 43">
+			<If condition="IsOnSubMap(2531)">
+				<NoCombatMoveTo XYZ="-114.22, 675.6703, 294.5529" />
+			</If>		
+			<NoCombatMoveTo XYZ="106.1567, 754.0265, 782.7327" />
+			<Grind GrindRef="41to43" while="Core.Me.ElementalLevel &lt; 43 and IsOnMap(795)"/>				
+		</While>	
+		<While Condition="Core.Me.ElementalLevel &lt; 45">
+			<If condition="IsOnSubMap(2531)">
+				<NoCombatMoveTo XYZ="131.861, 659.6484, -211.8499" />
+			</If>		
+			<NoCombatMoveTo XYZ="131.861, 659.6484, -211.8499" />
+			<Grind GrindRef="43to45" while="Core.Me.ElementalLevel &lt; 45 and IsOnMap(795)"/>				
+		</While>		
+		<While Condition="Core.Me.ElementalLevel &lt; 46">
+			<If condition="IsOnSubMap(2531)">
+				<NoCombatMoveTo XYZ="-448.4793, 673.0787, -592.7371" />
+			</If>		
+			<NoCombatMoveTo XYZ="-448.4793, 673.0787, -592.7371" />
+			<Grind GrindRef="45to46" while="Core.Me.ElementalLevel &lt; 46 and IsOnMap(795)"/>				
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 47">
+			<If condition="IsOnSubMap(2531)">
+				<NoCombatMoveTo XYZ="-375.3877, 658.0246, -747.3553" />
+			</If>		
+			<NoCombatMoveTo XYZ="-375.3877, 658.0246, -747.3553" />
+			<Grind GrindRef="46to47" while="Core.Me.ElementalLevel &lt; 47 and IsOnMap(795)"/>				
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 48">
+			<If condition="IsOnSubMap(2531)">
+				<NoCombatMoveTo XYZ="-310.4484, 658.0249, -712.3555" />
+			</If>		
+			<NoCombatMoveTo XYZ="-310.4484, 658.0249, -712.3555" />
+			<Grind GrindRef="47to48" while="Core.Me.ElementalLevel &lt; 48 and IsOnMap(795)"/>				
+		</While>
+		<While Condition="Core.Me.ElementalLevel &lt; 49">
+			<If condition="IsOnSubMap(2531)">
+				<NoCombatMoveTo XYZ="-310.4484, 658.0249, -712.3555" />
+			</If>		
+			<NoCombatMoveTo XYZ="159.8988, 680.0634, -411.0845" />
+			<Grind GrindRef="48to49" while="Core.Me.ElementalLevel &lt; 49 and IsOnMap(795)"/>				
+		</While>	
+		<While Condition="Core.Me.ElementalLevel &lt; 51">
+			<If condition="IsOnSubMap(2531)">
+				<NoCombatMoveTo XYZ="-310.4484, 658.0249, -712.3555" />
+			</If>		
+			<NoCombatMoveTo XYZ="293.7856, 680.2284, -628.4229" />
+			<Grind GrindRef="49to50" while="Core.Me.ElementalLevel &lt; 51 and IsOnMap(795)"/>				
+		</While>		
+		<While Condition="Core.Me.ElementalLevel &lt; 60">
+			<LLToast message="Fix me!"/>
+			<WaitTimer WaitTime="26" />
+		</While>			
+	</While>
+	
+  </Order>
+	<GrindAreas>  
+    <GrindArea name="Under35">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-230.1711, 673.3081, 241.7366" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7786" Weight="1"/> <!-- Spriggan Pankratiast -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="35to37">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-30.21558, 683.6637, 239.5694" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7794" Weight="1"/> <!-- Pyros Kongamato -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="37to39">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="197.406, 717.3887, 196.2222" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7799" Weight="1"/> <!-- Stray Snipper -->
+        <TargetMob Id="7796" Weight="1"/> <!-- Pyros Serpent -->
+        <TargetMob Id="7773" Weight="1"/> <!-- Ember Sprite -->
+        <TargetMob Id="7800" Weight="1"/> <!-- Voidskipper -->
+        <TargetMob Id="7792" Weight="1"/> <!-- Gibbon -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="39to41">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="301.9975, 738.0284, 510.2732" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7804" Weight="1"/> <!-- Pyros Chelone -->
+        <TargetMob Id="7777" Weight="1"/> <!-- Pyros Wraith -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="41to43">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="106.1567, 754.0265, 782.7327" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7812" Weight="1"/> <!-- Valking -->
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="43to45">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="131.861, 659.6484, -211.8499" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7816" Weight="1"/> <!-- Clipper -->
+        <TargetMob Id="7817" Weight="1"/> <!-- Karlabos of Pyros -->				
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="45to46">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-445.4742, 674.5573, -572.9968" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7824" Weight="1"/> <!-- Bird Eater -->
+				<TargetMob Id="7780" Weight="1"/> <!-- Pyros Parthenope -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="46to47">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-375.3877, 658.0246, -747.3553" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7825" Weight="1"/> <!-- Pyros Crab -->
+        <TargetMob Id="7780" Weight="1"/> <!-- Pyros Parthenope -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="47to48">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-310.4484, 658.0249, -712.3555" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7828" Weight="1"/> <!-- Pyros Slime -->
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="48to49">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="159.8988, 680.0634, -411.0845" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7833" Weight="1"/> <!-- Pyros Hawk -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="49to50">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="293.7856, 680.2284, -628.4229" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7836" Weight="1"/> <!-- Matanga Castaway -->
+      </TargetMobs>
+    </GrindArea>		
+	</GrindAreas>	
+	<CodeChunks>
+		<CodeChunk Name="LevelSync">
+			<![CDATA[
+				ff14bot.RemoteWindows.ToDoList.LevelSync();
+			]]>			
+		</CodeChunk>			
+		<CodeChunk Name="EnterPyros">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1024517);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Eureka Pyros.");
+						SelectString.ClickLineContains("Pyros");;
+					}					
+							
+					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+						{
+							Logging.WriteDiagnostic("Selecting Yes.");
+							ff14bot.RemoteWindows.SelectYesno.ClickYes();	
+						}
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>		
+	</CodeChunks>  
+</Profile>  

@@ -28,7 +28,7 @@
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY AnnounceFates "0">
+<!ENTITY AnnounceFates "1">
 <!ENTITY StopBot "1">
  
 <!-- Profile Settings -->
@@ -40,15 +40,15 @@
 <!ENTITY Number "0"> 
 <!ENTITY Jahannam "0">
 <!ENTITY Amemet "0">
-<!ENTITY Caym "1">
+<!ENTITY Caym "0">
 <!ENTITY Bombadeel "0">    		
 <!ENTITY Serket "0"> 		
 <!ENTITY JudgmentalJulika "0"> 
 <!ENTITY TheWhiteRider "0"> 
 <!ENTITY Polyphemus "1"> 
-<!ENTITY SimurghsStrider "1">
-<!ENTITY KingHazmat "1">
-<!ENTITY Fafnir "1">
+<!ENTITY SimurghsStrider "0">
+<!ENTITY KingHazmat "0">
+<!ENTITY Fafnir "0">
 <!ENTITY Amarok "0">
 <!ENTITY Lamashtu "0">
 <!ENTITY Pazuzu "0">
