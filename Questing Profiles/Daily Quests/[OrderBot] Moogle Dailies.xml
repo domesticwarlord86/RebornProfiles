@@ -854,10 +854,10 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
 			<If condition="not IsOnSubMap(2095)">
 				<LisbethTravel Area="The Churning Mists" Position="-336.749, 58.95078, 323.9718"/>
 			</If>				
-			<If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
-				<LogMessage Message="Not already on a crafter class, swapping."/>
-				<RunCode Name="SwitchDoHJob"/>
-			</If>	
+				<If condition="not ClassName == ClassJobType.Carpenter and not ClassName == ClassJobType.Blacksmith and not ClassName == ClassJobType.Armorer and not ClassName == ClassJobType.Goldsmith and not ClassName == ClassJobType.Leatherworker and not ClassName == ClassJobType.Weaver and not ClassName == ClassJobType.Alchemist and not ClassName == ClassJobType.Culinarian">
+					<LogMessage Message="Not already on a crafter class, swapping."/>
+					<RunCode Name="SwitchDoHJob"/>
+				</If>		
 			<!-- With a Little Help -->
       <If Condition="IsQuestAcceptQualified(67826) and not HasQuest(67826)">
         <PickUpQuest QuestId="67826" NpcId="1017171" XYZ="-335.5612, 59.00343, 313.9849"/>
