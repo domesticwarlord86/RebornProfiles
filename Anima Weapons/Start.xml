@@ -113,7 +113,7 @@
 	</If>
 	<!-- Load Astrologian -->
 	<If Condition="&ast; == 1">
-		<If Condition="not ClassName == ClassJobType.Ninja">	
+		<If Condition="not ClassName == ClassJobType.Astrologian">	
 			<ChangeClass Job="Astrologian" />
 		</If>	
 		<LLoadProfile Path="Quests/Astrologian.xml"/>
