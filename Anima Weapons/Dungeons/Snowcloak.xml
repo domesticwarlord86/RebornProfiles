@@ -163,7 +163,14 @@
 					<RunCode Name="AnimatedSeraphCane " />
 					<WaitTimer WaitTime="3" />
 				</While>
-			</If>			
+			</If>
+			<If Condition="ClassName == ((ClassJobType.DarkKnight))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13617">
+					<Log Message="Equipping Animated Deathbringer " />
+					<RunCode Name="AnimatedDeathbringer " />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
 			<While condition="DutyManager.InInstance">	
 				<WaitTimer WaitTime="10" />
 				<LLLeaveDuty/>
@@ -355,7 +362,7 @@
 	</CodeChunk>
  	<CodeChunk Name="AnimatedElements">
 		<![CDATA[ 
-			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand];
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
 			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
 			{
@@ -368,7 +375,7 @@
 	</CodeChunk>
  	<CodeChunk Name="AnimatedAlmandal">
 		<![CDATA[ 
-			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand];
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
 			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
 			{
@@ -381,7 +388,7 @@
 	</CodeChunk>		
  	<CodeChunk Name="AnimatedParashu">
 		<![CDATA[ 
-			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand];
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
 			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
 			{
@@ -394,11 +401,24 @@
 	</CodeChunk>
  	<CodeChunk Name="AnimatedSeraphCane">
 		<![CDATA[ 
-			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand];
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
 			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
 			{
 				if(slot.RawItemId == 13619)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>	
+ 	<CodeChunk Name="AnimatedDeathbringer">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13617)
 				{
 					slot.Move(EquipSlot);
 				}
