@@ -160,19 +160,19 @@
 			<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
 				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13613">
 					<Log Message="Equipping Animated Seraph Cane " />
-					<RunCode Name="AnimatedSeraphCane " />
+					<RunCode Name="AnimatedSeraphCane" />
 					<WaitTimer WaitTime="3" />
 				</While>
 			</If>
 			<If Condition="ClassName == ((ClassJobType.DarkKnight))"> 
 				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13617">
 					<Log Message="Equipping Animated Deathbringer " />
-					<RunCode Name="AnimatedDeathbringer " />
+					<RunCode Name="AnimatedDeathbringer" />
 					<WaitTimer WaitTime="3" />
 				</While>
 			</If>
 			<While condition="DutyManager.InInstance">	
-				<WaitTimer WaitTime="10" />
+				<WaitTimer WaitTime="5" />
 				<LLLeaveDuty/>
 			</While>			
 		</If>
