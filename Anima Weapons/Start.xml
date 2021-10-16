@@ -10,7 +10,7 @@
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
 <!ENTITY ast "0"> 	
-<!ENTITY brd "1"> 		
+<!ENTITY brd "0"> 		
 <!ENTITY blm "0"> 		
 <!ENTITY drg "0"> 
 <!ENTITY mch "0"> 	
@@ -21,6 +21,7 @@
 <!ENTITY smn "0"> 
 <!ENTITY war "0"> 
 <!ENTITY whm "0"> 
+<!ENTITY drk "1"> 
 ]>
 
 <!--
@@ -113,7 +114,7 @@
 	</If>
 	<!-- Load Astrologian -->
 	<If Condition="&ast; == 1">
-		<If Condition="not ClassName == ClassJobType.Ninja">	
+		<If Condition="not ClassName == ClassJobType.Astrologian">	
 			<ChangeClass Job="Astrologian" />
 		</If>	
 		<LLoadProfile Path="Quests/Astrologian.xml"/>
@@ -124,6 +125,13 @@
 			<ChangeClass Job="Machinist" />
 		</If>	
 		<LLoadProfile Path="Quests/Machinist.xml"/>
+	</If>	
+	<!-- Load DarkKnight -->
+	<If Condition="&drk; == 1">
+		<If Condition="not ClassName == ClassJobType.DarkKnight">	
+			<ChangeClass Job="DarkKnight" />
+		</If>	
+		<LLoadProfile Path="Quests/DarkKnight.xml"/>
 	</If>	
   </Order>
   <CodeChunks>

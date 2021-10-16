@@ -100,6 +100,13 @@
 					<WaitTimer WaitTime="3" />
 				</While>
 			</If>			
+			<If Condition="ClassName == ((ClassJobType.DarkKnight))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13617">
+					<Log Message="Equipping Animated Deathbringer " />
+					<RunCode Name="AnimatedDeathbringer " />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>	
 			<If Condition="IsQuestAcceptQualified(67749)">
 				<RunCode name="StartTougheningUp"/>
 			</If>
@@ -202,7 +209,14 @@
 					<RunCode Name="AnimatedSeraphCane " />
 					<WaitTimer WaitTime="3" />
 				</While>
-			</If>			
+			</If>
+			<If Condition="ClassName == ((ClassJobType.DarkKnight))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13617">
+					<Log Message="Equipping Animated Deathbringer " />
+					<RunCode Name="AnimatedDeathbringer " />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>	
 			<LisbethTravel Zone="146" Subzone="254" Position="176.4762, 12.57165, -451.4933"/>
 			<TalkTo NpcId="1016517" XYZ="175.0363, 12.35368, -451.8959" QuestId="67749" StepId="4"/>
 		</If>
@@ -266,7 +280,7 @@
 				</While>
 			</If>
 			<If Condition="ClassName == ((ClassJobType.Paladin))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13616">
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13611">
 					<Log Message="Equipping Animated Hauteclaire" />
 					<RunCode Name="AnimatedHauteclaire" />
 					<WaitTimer WaitTime="3" />
@@ -299,12 +313,19 @@
 				</While>
 			</If>
 			<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13613">
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13619">
 					<Log Message="Equipping Animated Seraph Cane " />
 					<RunCode Name="AnimatedSeraphCane " />
 					<WaitTimer WaitTime="3" />
 				</While>
 			</If>			
+			<If Condition="ClassName == ((ClassJobType.DarkKnight))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13617">
+					<Log Message="Equipping Animated Deathbringer " />
+					<RunCode Name="AnimatedDeathbringer " />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>	
 		  <LisbethTravel Zone="153" Subzone="128" Position="124.4174, 24.53529, 176.1044"/>
 		  <TalkTo NpcId="1016518" XYZ="126.3295, 24.77428, 178.3932" QuestId="67749" StepId="8"/>
 		</If>
@@ -580,6 +601,19 @@
 			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
 			{
 				if(slot.RawItemId == 13619)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>		
+ 	<CodeChunk Name="AnimatedDeathbringer">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13617)
 				{
 					slot.Move(EquipSlot);
 				}
