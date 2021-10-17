@@ -25,6 +25,7 @@
 			<If Condition="GetInstanceTodo(0) == 0">
 				<Log Message="Clear Engine Room #262 0/1" />
 				<BotSettings AutoEquip="1" />
+				<MoveTo XYZ="-0.2103347, -5.143304, 8.119263" />
 				<MoveTo XYZ="-5.779995, -1.301059, -6.571419" />
 				<MoveTo XYZ="0.02018939, 8.000002, -43.64269" />
 			</If>
