@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+###############################################
+# Profile: [O] Breaking Brick Mountains Quest #
+###############################################
+# Author: y2krazy                             #
+###############################################
+# Version: 3.0.0                              #
+###############################################
+# Required Level: 30                          #
+###############################################
+# Required Setup:                             #
+#  Fill out User Configuration below.         #
+###############################################
+# Required User Interaction:                  #
+#  None                                       #
+###############################################
+-->
+<!-- User Configuration -->
+<!DOCTYPE Profile [
+
+  <!-- True = "1" | False = "0" -->
+  <!-- ONLY SET ONE ZONE TO "1"! -->
+
+  <!ENTITY LowerLaNoscea "1"> <!-- Farm chunk of brickman in Lower La Noscea. -->
+  <!ENTITY UpperLaNoscea "0"> <!-- Farm chunk of brickman in Upper La Noscea. -->
+  <!ENTITY CentralShroud "0"> <!-- Farm chunk of brickman in Central Shroud. -->
+  <!ENTITY NorthShroud "0"> <!-- Farm chunk of brickman in North Shroud. -->
+  <!ENTITY CentralThanalan "0"> <!-- Farm chunk of brickman in Central Thanalan. -->
+
+  <!-- Log Colors -->
+
+  <!ENTITY LogColor "#66FF66"> <!-- Normal -->
+  <!ENTITY LogColorAck "#FF0000"> <!-- Warnings -->
+]>
+<!-- End User Configuration -->
+<Profile>
+	<Name>[O] Breaking Brick Mountains Quest (v3.0.0)</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<KillRadius>90</KillRadius>
+	<Order>
+
+        <If Condition="GetQuestStep(66824) != 255 and &LowerLaNoscea; == 0 and &UpperLaNoscea; == 0 and &CentralShroud; == 0 and &NorthShroud; == 0 and &CentralThanalan; == 0">
+            <LLToast message="Make sure to open the prfile and select one of the farming zones."/>
+            <StopBot/>
+        </If>
+
+		<Log Color="&LogColor;" Name="Breaking Brick Mountains" Message="Checking for completed quest..."/>
+
+		<!-- Breaking Brick Mountains -->
+
+		<If Condition="not IsQuestCompleted(66824)">
+			<If Condition="not HasQuest(66824)">
+				<Log Color="&LogColor;" Name="Breaking Brick Mountains" Message="Picking up the Breaking Brick Mountains quest!"/>
+                <LisbethTravel ZoneId="130" XYZ="47.37915, 4.099995, -148.4551" /> <!-- Havak Alvak -->
+                <If Condition="IsQuestAcceptQualified(66824)">
+                    <LLPickupQuest NpcId="1005532" QuestId="66824" XYZ="47.37915, 4.099995, -148.4551" />
+                </If>
+			</If>
+			<If Condition="HasQuest(66824)">
+				<If Condition="GetQuestStep(66824) == 1">
+					<Log Color="&LogColor;" Name="Breaking Brick Mountains" Message="Talking to Beefy Businessman..."/>
+                    <LisbethTravel ZoneId="130" XYZ="-146.1357, 14.005, 56.13782" /> <!-- Beefy Businessman -->
+                    <LLTalkTo NpcId="1005533" XYZ="-146.1357, 14.005, 56.13782" QuestId="66824" StepId="1" />
+				</If>
+
+				<!-- Farm chunk of brickman in Lower La Noscea. -->
+
+				<If Condition="&LowerLaNoscea; == 1">
+					<While Condition="GetQuestStep(66824) == 2">
+						<Log Color="&LogColor;" Name="Breaking Brick Mountains" Message="Obtaining a chunk of brickman..."/>
+						<LisbethTravel ZoneId="135" XYZ="276.7286, 70.89819, -204.0882" /> <!-- FATE: Brick by Brick -->
+						<While Condition="GetQuestStep(66824) == 2">
+							<LLFate FateIds="666,667" MinLevel="1" MaxLevel="80" while="not GetQuestStep(66824) == 255"/>
+						</While>
+					</While>
+				</If>
+
+				<!-- Farm chunk of brickman in Upper La Noscea. -->
+
+				<If Condition="&UpperLaNoscea; == 1">
+					<While Condition="GetQuestStep(66824) == 2">
+						<Log Color="&LogColor;" Name="Breaking Brick Mountains" Message="Obtaining a chunk of brickman..."/>
+						<LisbethTravel ZoneId="139" XYZ="635.3461, -3.4, 135.6121" /> <!-- FATE: Brick by Brick -->
+						<While Condition="GetQuestStep(66824) == 2">
+							<LLFate FateIds="668,669,670,671" MinLevel="1" MaxLevel="80" while="not GetQuestStep(66824) == 255"/>
+						</While>	
+					</While>
+				</If>
+
+				<!-- Farm chunk of brickman in Central Shroud. -->
+
+				<If Condition="&CentralShroud; == 1">
+					<While Condition="GetQuestStep(66824) == 2">
+						<Log Color="&LogColor;" Name="Breaking Brick Mountains" Message="Obtaining a chunk of brickman..."/>
+						<LisbethTravel ZoneId="148" XYZ="108.6752, -12, 121.7637" /> <!-- FATE: Brick by Brick -->
+						<While Condition="GetQuestStep(66824) == 2">
+							<LLFate FateIds="672,673" MinLevel="1" MaxLevel="81" while="not GetQuestStep(66824) == 255"/>
+						</While>	
+					</While>
+				</If>
+
+				<!-- Farm chunk of brickman in North Shroud. -->
+
+				<If Condition="&NorthShroud; == 1">
+					<While Condition="GetQuestStep(66824) == 2">
+						<Log Color="&LogColor;" Name="Breaking Brick Mountains" Message="Obtaining a chunk of brickman..."/>
+						<LisbethTravel ZoneId="154" XYZ="-281.4612, -79.32581, 480.1272" /> <!-- FATE: Brick by Brick -->
+						<While Condition="GetQuestStep(66824) == 2">
+							<LLFate FateIds="674,675,676,677" MinLevel="1" MaxLevel="80" while="not GetQuestStep(66824) == 255"/>
+						</While>		
+					</While>
+				</If>
+
+				<!-- Farm chunk of brickman in Central Thanalan. -->
+
+				<If Condition="&CentralThanalan; == 1">
+					<While Condition="GetQuestStep(66824) == 2">
+						<Log Color="&LogColor;" Name="Breaking Brick Mountains" Message="Obtaining a chunk of brickman..."/>
+						<LisbethTravel ZoneId="141" XYZ="-163.062, -30.94036, 100.6626" /> <!-- FATE: Brick by Brick -->
+						<While Condition="GetQuestStep(66824) == 2">
+							<LLFate FateIds="660,661" MinLevel="1" MaxLevel="80" while="not GetQuestStep(66824) == 255"/>
+						</While>	
+					</While>
+				</If>
+				<If Condition="GetQuestStep(66824) == 255">
+					<Log Color="&LogColor;" Name="Breaking Brick Mountains" Message="Turning in the Breaking Brick Mountains quest!"/>
+          <LisbethTravel ZoneId="130" XYZ="-146.1357, 14.005, 56.13782" /> <!-- Beefy Businessman -->
+
+					<!-- Rewards
+
+					Wind-up Brickman
+					Thug's Mug
+
+					-->
+
+					<LLTurnIn QuestId="66824" ItemId="2001166" NpcId="1005533" XYZ="-146.1357, 14.005, 56.13782" />
+				</If>
+			</If>			
+		</If>
+		
+		<If Condition="IsQuestCompleted(66824) and not HasAtLeast(8576,1)">
+			<GetTo ZoneId="130" XYZ="-151.3158, 14.005, 50.13063" />
+			<BuyItem ItemIds="8576" ItemCounts="1" NpcId="1009804" XYZ="-150.5608,14.005,48.38635" />
+		</If>	
+
+
+		<Log Color="&LogColor;" Name="Breaking Brick Mountains" Message="You've completed Breaking Brick Mountains seasonal event quest!"/>
+
+	</Order>
+	<GrindAreas>
+	</GrindAreas>
+</Profile>
