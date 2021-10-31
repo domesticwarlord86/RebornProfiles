@@ -558,11 +558,11 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 				</If>
 				<!-- Collision of Cultures -->
 				<If Condition="GetQuestStep(68651) == 2">
-					<LisbethTravel ZoneId="622" XYZ="-161.5778, 5.142273, 554.467" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+					<FlyTo ZoneId="622" XYZ="-161.5778, 5.142273, 554.467" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
 					<SoUseSpell SpellId="11499" NpcId="2009498" UseDistance="3.0" XYZ="-161.5778, 5.142273, 554.467" QuestId="68651" StepId="2"/>
 				</If>
 				<If Condition="GetQuestStep(68651) == 3">
-					<LisbethTravel ZoneId="622" XYZ="176.3485, 4.135132, 20.64545" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
+					<FlyTo ZoneId="622" XYZ="176.3485, 4.135132, 20.64545" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
 					<SoUseSpell SpellId="11499" NpcId="2009499" UseDistance="3.0" XYZ="176.3485, 4.135132, 20.64545" QuestId="68651" StepId="3"/>
 					<Dismount/>
 				</If>
