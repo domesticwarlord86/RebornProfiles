@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Extreme Primal Unlocks
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Extreme Primal Unlocks</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->
+	
+	
+		
+		<!-- Urianger -->
+
+    <!-- Primal Nature -->
+    <If Condition="not HasQuest(66730) and not IsQuestCompleted(66730)">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>		
+      <GetTo Zone="212" Subzone="356" XYZ="-1.094497, -3.000001, -56.10085"/>
+      <If Condition="IsQuestAcceptQualified(66730)">
+        <LLPickupQuest QuestId="66730" NpcId="1007478"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66730) == 255">
+      <GetTo ZoneId="132" XYZ="-74.18166, -0.5019636, -3.780119"/>
+      <LLTurnIn QuestId="66730" NpcId="1000168" XYZ="-75.48645, -0.5013741, -5.081299"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Gale-force Warning -->
+    <If Condition="IsQuestCompleted(66730) and not HasQuest(66731) and not IsQuestCompleted(66731)">
+      <GetTo ZoneId="132" XYZ="-74.18166, -0.5019636, -3.780119"/>
+      <If Condition="IsQuestAcceptQualified(66731)">
+        <LLPickupQuest QuestId="66731" NpcId="1000168"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66731) == 1">
+      <LisbethTravel Zone="155" Subzone="393" Position="644.0228, 287.5315, 177.0876"/>
+      <UseObject NpcId="2003456" XYZ="649.7748, 292.4391, 175.3414" QuestId="66731" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(66731) == 2">
+      <LLToast message="Please complete Howling Eye (Extreme) manually."/>
+    </If>
+    <If Condition="GetQuestStep(66731) == 4">
+      <GetTo ZoneId="132" XYZ="-73.19645, -0.5023444, -3.02158"/>
+      <LLHandOver ItemId="2001139" NpcId="1000168" XYZ="-75.48645, -0.5013741, -5.081299" QuestId="66731" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(66731) == 255">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>	      	
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>		
+			<MoveTo Zone="212" Subzone="356" XYZ="-1.094497, -3.000001, -56.10085"/>
+      <LLTurnIn ItemId="2001139" QuestId="66731" NpcId="1007478" XYZ="-2.822998, -3.000001, -56.22955"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Quake Me Up Before You O'Ghomoro -->
+    <If Condition="IsQuestCompleted(66731) and not HasQuest(66732) and not IsQuestCompleted(66732)">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>				
+      <MoveTo ZoneId="212" XYZ="-0.2816163, -3.000001, -57.04661"/>
+      <If Condition="IsQuestAcceptQualified(66732)">
+        <LLPickupQuest QuestId="66732" NpcId="1007478"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(66732) == 1">
+      <GetTo ZoneId="128" XYZ="93.98167, 40.24966, 79.98298"/>
+      <LLTalkTo NpcId="1003281" XYZ="97.52039, 40.24855, 81.1322" QuestId="66732" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66732) == 2">
+      <LisbethTravel Zone="180" Subzone="238" Position="145.5463, 26.19276, -626.8334"/>
+      <UseObject NpcId="2003457" XYZ="144.3961, 29.03784, -622.4918" QuestId="66732" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(66732) == 3">
+      <LLToast message="Please complete the Navel (Extreme) manually."/>
+    </If>	
+    <If Condition="GetQuestStep(66732) == 5">
+      <LisbethTravel Zone="128" Subzone="755" Position="95.21683, 40.24918, 80.47211"/>
+      <LLHandOver ItemId="2001140" NpcId="1003281" XYZ="97.52039, 40.24855, 81.1322" QuestId="66732" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(66732) == 255">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>	      	
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>		
+			<MoveTo Zone="212" Subzone="356" XYZ="-1.094497, -3.000001, -56.10085"/>
+      <LLTurnIn ItemId="2001140" QuestId="66732" NpcId="1007478" XYZ="-2.822998, -3.000001, -56.22955"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Ifrit Ain't Broke -->
+    <If Condition="IsQuestCompleted(66732) and not HasQuest(66733) and not IsQuestCompleted(66733)">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>		
+      <MoveTo ZoneId="212" XYZ="-0.6841935, -3.000001, -55.89943"/>
+      <If Condition="IsQuestAcceptQualified(66733)">
+        <LLPickupQuest QuestId="66733" NpcId="1007478"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66733) == 1">
+      <GetTo ZoneId="130" XYZ="-139.5883, 4.099999, -113.3338"/>
+      <LLTalkTo NpcId="1004576" XYZ="-141.6495, 4.1, -114.6716" QuestId="66733" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66733) == 2">
+      <LisbethTravel Zone="146" Subzone="320" Position="689.2648, 3.926224, -82.43633"/>
+      <UseObject NpcId="2003458" XYZ="694.3617, 7.919373, -80.1557" QuestId="66733" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(66733) == 3">
+      <LLToast message="Please complete the Bowl of Embers (Extreme) manually."/>
+    </If>
+    <If Condition="GetQuestStep(66733) == 5">
+      <LisbethTravel Zone="130" Subzone="614" Position="-139.8483, 4.1, -112.8057"/>
+      <LLHandOver ItemId="2001141" NpcId="1004576" XYZ="-141.6495, 4.1, -114.6716" QuestId="66733" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(66733) == 255">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>	      	
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>		
+			<MoveTo Zone="212" Subzone="356" XYZ="-1.094497, -3.000001, -56.10085"/>
+      <LLTurnIn ItemId="2001141" QuestId="66733" NpcId="1007478" XYZ="-2.822998, -3.000001, -56.22955"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- To Tussle with Gods -->
+    <If Condition="IsQuestCompleted(66733) and not HasQuest(66734) and not IsQuestCompleted(66734)">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>		
+      <MoveTo ZoneId="212" XYZ="-0.6841935, -3.000001, -55.89943"/>
+      <If Condition="IsQuestAcceptQualified(66734)">
+        <LLPickupQuest QuestId="66734" NpcId="1007478"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(66734) == 1">
+      <GetTo ZoneId="156" XYZ="25.8932, 29, -823.1498"/>
+      <LLHandOver ItemIds="2001143,2001144,2001142" NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66734" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66734) == 255">
+      <GetTo ZoneId="156" XYZ="71.90326, 33.06656, -710.9344"/>
+      <LLTurnIn ItemIds="2001143,2001144,2001142" QuestId="66734" NpcId="1006951" XYZ="73.77734, 33.06658, -709.7734"/>
+      <LLSmallTalk/>
+    </If>		
+	
+		
+    <!-- Primal Fear -->
+    <If Condition="not HasQuest(66543) and not IsQuestCompleted(66543)">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>		
+      <MoveTo ZoneId="212" XYZ="-0.6841935, -3.000001, -55.89943"/>
+      <If Condition="IsQuestAcceptQualified(66543)">
+        <LLPickupQuest QuestId="66543" NpcId="1007478"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66543) == 255">
+      <GetTo ZoneId="132" XYZ="230.2532, 1.999974, 44.29363"/>
+			<UseTransport NpcId="1000423" InteractDistance="3.0" XYZ="232.0438, 1.999974, 45.57861"/>		
+      <MoveTo ZoneId="204" XYZ="0.1496464, 0.5000255, -0.8195266"/>
+      <LLTurnIn QuestId="66543" NpcId="1003061" XYZ="-0.01531982, 0.500025, -4.379395"/>
+      <LLSmallTalk/>
+    </If>				
+		
+		
+    <!-- Drop Dead Shiva -->
+    <If Condition="not HasQuest(65626) and not IsQuestCompleted(65626)">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>
+      <GetTo Zone="212" Subzone="356" XYZ="-1.094497, -3.000001, -56.10085"/>
+      <If Condition="IsQuestAcceptQualified(65626)">
+        <LLPickupQuest QuestId="65626" NpcId="1007478"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(65626) == 1">
+      <LisbethTravel Zone="155" Subzone="402" Position="-432.3696, 211, -227.9069"/>
+      <GetTo ZoneId="155" XYZ="-434.7807, 233.3999, -201.825"/>
+      <LLTalkTo NpcId="1006444" XYZ="-432.9748, 233.4727, -199.6643" QuestId="65626" StepId="1"/>
+			<GetTo ZoneId="155" XYZ="-433.5071, 210.7882, -223.3333" />
+    </If>	
+    <If Condition="GetQuestStep(65626) == 2">
+      <GetTo ZoneId="155" XYZ="-913.6881, 229.352, -5.814642"/>
+      <LLTalkTo NpcId="1010054" XYZ="-916.6552, 229.3692, -6.424072" QuestId="65626" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(65626) == 3">
+      <LLToast message="Please complete Akh Afah Amphitheatre (Extreme) manually."/>
+    </If>		
+		
+		
+    <!-- Whorl of a Time -->
+    <If Condition="not HasQuest(66949) and not IsQuestCompleted(66949)">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>		
+      <GetTo Zone="212" Subzone="356" XYZ="-1.094497, -3.000001, -56.10085"/>
+      <If Condition="IsQuestAcceptQualified(66949)">
+        <LLPickupQuest QuestId="66949" NpcId="1007478"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66949) == 1">
+      <GetTo ZoneId="128" XYZ="94.24232, 40.24934, 80.46768"/>
+      <LLTalkTo NpcId="1003281" XYZ="97.52039, 40.24855, 81.1322" QuestId="66949" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66949) == 255">
+      <GetTo ZoneId="135" XYZ="159.9812, 8.973653, 586.1437"/>
+      <LLTurnIn QuestId="66949" NpcId="1005409" XYZ="159.6246, 8.974117, 582.7573"/>
+      <LLSmallTalk/>
+    </If>		
+  
+    <!-- The King Lives -->
+    <If Condition="not HasQuest(66948) and not IsQuestCompleted(66948)">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>		
+      <GetTo Zone="212" Subzone="356" XYZ="-1.094497, -3.000001, -56.10085"/>
+      <If Condition="IsQuestAcceptQualified(66948)">
+        <LLPickupQuest QuestId="66948" NpcId="1007478"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66948) == 255">
+      <LisbethTravel Zone="152" Subzone="75" Position="-315.7156, 11.97047, -35.01218"/>
+      <LLTurnIn QuestId="66948" NpcId="1008544" XYZ="-316.4263, 12.0503, -35.38574"/>
+      <LLSmallTalk/>
+    </If>	
+
+    <!-- Judgment Bolts and Lightning -->
+    <If Condition="not HasQuest(67066) and not IsQuestCompleted(67066)">
+      <LisbethTravel Zone="132" Subzone="591" Position="-60.45404, -1.485051, 10.98836"/>
+      <If Condition="IsQuestAcceptQualified(67066)">
+        <LLPickupQuest QuestId="67066" NpcId="1009294"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67066) == 1">
+      <LisbethTravel Zone="152" Subzone="74" Position="-7.406993, -8.420729, 270.631"/>
+      <LLTalkTo NpcId="1000587" XYZ="-7.248047, -8.407776, 268.2383" QuestId="67066" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67066) == 2">
+      <LisbethTravel Zone="152" Subzone="77" Position="190.9996, -31.42276, -218.8009"/>
+      <UseObject NpcId="2004430" XYZ="198.2909, -29.83142, -220.4471" QuestId="67066" StepId="2"/>
+    </If>		
+    <If Condition="GetQuestStep(67066) == 3">
+      <LLToast message="Please complete the Striking Tree (Extreme) manually."/>
+    </If>			
+
+	
+	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

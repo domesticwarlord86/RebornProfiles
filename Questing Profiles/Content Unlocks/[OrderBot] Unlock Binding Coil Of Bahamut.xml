@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- GetQuestById(66098).QuestI8AH == 2-->
+	<!-- Profile start here -->	
+    <!-- Primal Awakening -->
+    <If Condition="not HasQuest(66695) and not IsQuestCompleted(66695)">
+			<If condition="not IsOnMap(212)">
+				<LisbethTravel Area="Western Thanalan" Position="-492.173, 19.05119, -372.0412"/>
+				<GetTo ZoneId="140" XYZ="-482.4437, 17.07477, -386.8323"/>
+				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
+			</If>		
+      <MoveTo ZoneId="212" XYZ="-0.6841935, -3.000001, -55.89943"/>
+      <If Condition="IsQuestAcceptQualified(66695)">
+        <LLPickupQuest QuestId="66695" NpcId="1007478"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66695) == 1">
+      <LisbethTravel Zone="137" Subzone="216" Position="-17.15716, 70.50106, 15.07088"/>
+      <LLTalkTo NpcId="1007685" XYZ="-18.53979, 70.50106, 17.74622" QuestId="66695" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66695) == 2">
+      <LisbethTravel Zone="137" Subzone="217" Position="359.1398, 76.36107, -98.17083"/>
+      <UseObject NpcId="2002609" XYZ="356.9849, 77.71411, -99.83978" QuestId="66695" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(66695) == 255">
+      <LisbethTravel Zone="137" Subzone="168" Position="13.00934, 64.8274, 46.12881"/>
+      <LLTurnIn QuestId="66695" NpcId="1007627" XYZ="13.26007, 65.04303, 43.80859"/>
+      <LLSmallTalk/>
+    </If>	
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

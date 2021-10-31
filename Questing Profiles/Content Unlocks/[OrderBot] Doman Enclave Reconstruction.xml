@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+	
+	  <!-- Precious Reclamation -->
+    <If Condition="not HasQuest(68622) and not IsQuestCompleted(68622)">
+      <GetTo ZoneId="759" XYZ="31.3112, 0.2657571, 26.83124"/>
+      <If Condition="IsQuestAcceptQualified(68622)">
+        <LLPickupQuest QuestId="68622" NpcId="1024791"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68622) == 1">
+      <LisbethTravel Zone="156" Subzone="411" Position="22.9433, 20.49608, -681.1296"/>
+      <LLHandOver ItemId="2002465" NpcId="1006530" XYZ="21.92719, 20.74697, -682.063" QuestId="68622" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68622) == 2">
+      <LisbethTravel Zone="156" Subzone="411" Position="63.61673, 31.19996, -755.9119"/>
+      <LLTalkTo NpcId="1025287" XYZ="64.34729, 31.19996, -754.0246" QuestId="68622" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(68622) == 255">
+      <LisbethTravel Zone="156" Subzone="411" Position="69.07791, 30.80195, -723.0386"/>
+      <LLTurnIn QuestId="68622" NpcId="2009436" XYZ="70.05408, 30.74683, -722.8657"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Toll Booty -->
+    <If Condition="IsQuestCompleted(68622) and not HasQuest(65581) and not IsQuestCompleted(65581)">
+      <LisbethTravel Zone="156" Subzone="411" Position="73.05374, 30.57171, -721.6806"/>
+      <If Condition="IsQuestAcceptQualified(65581)">
+        <LLPickupQuest QuestId="65581" NpcId="1009812"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(65581) == 1">
+      <GetTo ZoneId="156" Subzone="1392" XYZ="25.36885, 29, -823.7762"/>
+      <LLTalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="65581" StepId="1"/>
+    </If>		
+		<If Condition="GetQuestStep(65581) == 2">
+      <GetTo ZoneId="156" XYZ="50.03401, 31.15475, -749.6777"/>
+      <UseObject NpcId="2004628" XYZ="50.61414, 31.14368, -748.4092" QuestId="65581" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(65581) == 3">
+      <LisbethTravel Zone="156" Subzone="412" Position="-127.7135, -2.030131, -637.5616"/>
+      <UseObject NpcId="2004631" XYZ="-127.5502, -1.937927, -638.4833" QuestId="65581" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(65581) == 4">
+      <LisbethTravel Zone="156" Subzone="412" Position="-165.1242, 11.28954, -619.1068"/>
+      <UseObject NpcId="2004629" XYZ="-166.7964, 12.28351, -619.8978" QuestId="65581" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(65581) == 5">
+      <LisbethTravel Zone="156" Subzone="412" Position="-130.1608, -1.130496, -642.9095"/>
+      <LLHandOver ItemId="2001462" NpcId="1009817" XYZ="-130.1748, -0.8585259, -645.2583" QuestId="65581" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(65581) == 6">
+      <LisbethTravel Zone="156" Subzone="411" Position="23.28762, 20.12641, -680.5229"/>
+      <LLHandOver ItemId="2001462" NpcId="1006530" XYZ="21.92719, 20.74697, -682.063" QuestId="65581" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(65581) == 255">
+      <LisbethTravel Zone="156" Subzone="411" Position="53.99285, 31.17486, -761.8626"/>
+      <LLTurnIn QuestId="65581" NpcId="1009813" XYZ="55.43604, 31.18755, -763.4241"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Li'l Rascals -->
+    <If Condition="IsQuestCompleted(65581) and not HasQuest(65586) and not IsQuestCompleted(65586)">
+      <LisbethTravel Zone="156" Subzone="411" Position="54.13242, 31.17679, -762.2753"/>
+      <If Condition="IsQuestAcceptQualified(65586)">
+        <LLPickupQuest QuestId="65586" NpcId="1009813"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(65586) == 1">
+      <LisbethTravel Zone="156" Subzone="411" Position="72.7498, 30.54939, -721.1323"/>
+      <LLTalkTo NpcId="1009812" XYZ="74.08252, 30.54939, -720.9735" QuestId="65586" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(65586) == 2">
+      <LisbethTravel Zone="156" Subzone="411" Position="23.76864, 20.08907, -680.9078"/>
+      <LLTalkTo NpcId="1006530" XYZ="21.92719, 20.74697, -682.063" QuestId="65586" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(65586) == 3 and GetQuestById(65586).QuestI8A == 0">
+      <LisbethTravel Zone="156" Subzone="411" Position="85.85094, 28.34813, -621.1546"/>
+      <LLTalkTo NpcId="1009825" XYZ="86.07605, 28.34813, -622.1866" QuestId="65586" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(65586) == 3 and GetQuestById(65586).QuestI8A == 1">
+      <LisbethTravel Area="Mor Dhona" Position="31.44609, 20.495, -657.554"/>
+      <LLTalkTo NpcId="1009826" XYZ="29.16003, 21.25273, -642.5117" QuestId="65586" StepId="3"/>
+			<GetTo ZoneId="156" XYZ="31.44609, 20.495, -657.554"/>
+    </If>		
+    <If Condition="GetQuestStep(65586) == 3 and GetQuestById(65586).QuestI8A == 2">
+      <LisbethTravel Zone="156" Subzone="411" Position="15.10868, 53.584, -703.5533"/>
+      <LLTalkTo NpcId="1009823" XYZ="16.98328, 53.615, -703.3341" QuestId="65586" StepId="3"/>
+    </If>		
+    <If Condition="GetQuestStep(65586) == 3 and GetQuestById(65586).QuestI8A == 3">
+      <LisbethTravel Zone="156" Subzone="1392" Position="23.28099, 29.03109, -777.7448"/>
+      <LLTalkTo NpcId="1009824" XYZ="22.26288, 28.99997, -780.85" QuestId="65586" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(65586) == 255">
+      <LisbethTravel Zone="156" Subzone="411" Position="54.05804, 31.1745, -761.7084"/>
+      <LLTurnIn QuestId="65586" NpcId="1009813" XYZ="55.43604, 31.18755, -763.4241"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Short Arms of the Law -->
+    <If Condition="IsQuestCompleted(65586) and not HasQuest(65636) and not IsQuestCompleted(65636)">
+      <LisbethTravel Zone="156" Subzone="411" Position="52.77922, 31.17633, -761.6417"/>
+      <If Condition="IsQuestAcceptQualified(65636)">
+        <LLPickupQuest QuestId="65636" NpcId="1009813"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(65636) == 1">
+      <LisbethTravel Zone="156" Subzone="411" Position="63.58334, 20.2746, -640.5124"/>
+      <LLTalkTo NpcId="1009828" XYZ="64.95764, 20.48733, -641.0162" QuestId="65636" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(65636) == 2">
+      <LisbethTravel Zone="156" Subzone="409" Position="-56.58115, 3.875728, -645.0107"/>
+      <LLTalkTo NpcId="1009831" XYZ="-58.48792, 3.43662, -645.655" QuestId="65636" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(65636) == 3">
+      <LisbethTravel Zone="156" Subzone="412" Position="-102.2285, -1.198335, -617.6715"/>
+      <LLTalkTo NpcId="1009835" XYZ="-103.3799, -1.323601, -615.9304" QuestId="65636" StepId="3"/>
+			<WaitWhile condition="GetQuestStep(65636) == 3"/>
+    </If>
+    <If Condition="GetQuestStep(65636) == 4">
+      <LisbethTravel Zone="156" Subzone="412" Position="-103.9334, -1.461933, -618.2816"/>
+      <LLTalkTo NpcId="1009835" XYZ="-103.3799, -1.323601, -615.9304" QuestId="65636" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(65636) == 5">
+      <LisbethTravel Zone="156" Subzone="412" Position="-99.63413, -0.7004982, -615.4398"/>
+      <UseObject NpcId="2004633" XYZ="-98.74121, -0.01531982, -616.5408" QuestId="65636" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(65636) == 6">
+      <LisbethTravel Zone="156" Subzone="412" Position="-96.68177, -0.5453169, -624.7045"/>
+      <LLTalkTo NpcId="1009839" XYZ="-95.78094, -0.4209221, -625.6962" QuestId="65636" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(65636) == 255">
+      <LisbethTravel Zone="156" Subzone="411" Position="23.53536, 20.03602, -680.5381"/>
+      <LLTurnIn ItemId="2001463" QuestId="65636" NpcId="1006530" XYZ="21.92719, 20.74697, -682.063"/>
+      <LLSmallTalk/>
+    </If>		
+		
+    <!-- A Thousand and One Farewells -->
+    <If Condition="IsQuestCompleted(65636) and not HasQuest(68623) and not IsQuestCompleted(68623)">
+      <LisbethTravel Zone="156" Subzone="411" Position="66.65298, 30.74933, -722.251"/>
+      <If Condition="IsQuestAcceptQualified(68623)">
+        <LLPickupQuest QuestId="68623" NpcId="1025330"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(68623) == 1">
+      <LisbethTravel Zone="156" Subzone="411" Position="23.14837, 20.223, -680.6321"/>
+      <LLTalkTo NpcId="1006530" XYZ="21.92719, 20.74697, -682.063" QuestId="68623" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(68623) == 2">
+      <LisbethTravel Zone="156" Subzone="411" Position="54.19091, 31.17698, -762.2056"/>
+      <LLTalkTo NpcId="1009813" XYZ="55.43604, 31.18755, -763.4241" QuestId="68623" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(68623) == 3">
+      <LisbethTravel Zone="156" Subzone="411" Position="51.17802, 50, -774.3077"/>
+      <LLTalkTo NpcId="1018433" XYZ="50.76672, 50, -772.3964" QuestId="68623" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(68623) == 4">
+      <LisbethTravel Zone="156" Subzone="411" Position="63.81041, 31.19996, -755.6102"/>
+      <LLTalkTo NpcId="1025287" XYZ="64.34729, 31.19996, -754.0246" QuestId="68623" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(68623) == 255">
+      <GetTo ZoneId="759" XYZ="31.62062, 0.2657571, 26.75028"/>
+      <LLTurnIn QuestId="68623" NpcId="1024791" XYZ="31.60144, 0.265757, 28.91589"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- It Takes an Enclave -->
+    <If Condition="IsQuestCompleted(68623) and not HasQuest(68677) and not IsQuestCompleted(68677)">
+      <GetTo ZoneId="759" XYZ="31.74273, 0.2140166, 25.12198"/>
+      <If Condition="IsQuestAcceptQualified(68677)">
+        <LLPickupQuest QuestId="68677" NpcId="1024791"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(68677) == 1">
+      <GetTo ZoneId="759" XYZ="65.96361, 0, -58.30572"/>
+      <LLTalkTo NpcId="1024793" XYZ="66.66663, -7.579447E-09, -59.67804" QuestId="68677" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68677) == 255">
+			<If condition="not IsOnMap(759)"/>
+				<TeleportTo Name="Camp Bronze Lake" AetheryteId="15"/>
+			</If>
+      <MoveTo ZoneId="759" XYZ="31.24518, 0.2657571, 26.82043"/>
+      <LLTurnIn QuestId="68677" NpcId="1024791" XYZ="31.60144, 0.265757, 28.91589"/>
+      <LLSmallTalk/>
+    </If>		
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
