@@ -22,9 +22,6 @@
 		<If Condition="GetInstanceTodo(0) == 0">
 			<Log Message="Defeat Ser Adelphel 0/1" />
 			<BotSettings AutoEquip="1" />
-			<MoveTo XYZ="35.58115, -299.9991, 30.23291" />
-			<MoveTo XYZ="49.41565, -299.9846, -27.70547" />
-			<MoveTo XYZ="-34.34875, -300, -74.30262" />
 			<MoveTo XYZ="-15.94501, -291.957, -99.10293" />
 			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(0) == 0"/> <!-- Fight first boss -->
 			<If Condition="&openchest; == 1">
