@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Shared Fate Farming
+  Authors: DomesticWarlord86, nt153133
+-->
+
+<!DOCTYPE Profile [ 
+<!-- Profile Settings -->
+<!ENTITY Lakeland "1"> 		
+<!ENTITY Kolusia "1"> 		
+<!ENTITY AmhAraeng "1"> 
+<!ENTITY IlMheg "1"> 
+<!ENTITY RaktikaGreatwood "1"> 
+<!ENTITY TheTempest "1"> 
+
+]>
+
+
+<Profile>
+  <Name>Shared Fate Farming</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+	<RunCode name="UpdateFates"/>
+	
+	<!-- Lakeland -->
+	<If Condition="&Lakeland; == 1">
+		<While condition="SharedFateRank(813) &lt; 3">
+			<TeleportTo AetheryteId="132"/> <!-- Fort Jobb -->
+			<While condition="SharedFateRank(813) &lt; 3">
+				<LLFate UseFlight="True" CheckShareFate="True" BlacklistIds="1504" MinLevel="0" MaxLevel="81" while="IsOnMap(813) and SharedFateRank(813) &lt; 3"/>	
+			</While>
+		</While>
+	</If>	
+	
+	<!-- Kolusia -->
+	<If Condition="&Kolusia; == 1">
+		<While condition="SharedFateRank(814) &lt; 3">
+			<If condition="not IsOnMap(814)">
+				<TeleportTo AetheryteId="138"/> <!-- Wright -->
+			</If>	
+			<LLFate UseFlight="True" CheckShareFate="True" MinLevel="0" MaxLevel="81" while="IsOnMap(814) and SharedFateRank(814) &lt; 3"/>	
+		</While>
+	</If>	
+	
+	<!-- Amh Araeng -->
+	<If Condition="&AmhAraeng; == 1">
+		<While condition="SharedFateRank(815) &lt; 3">
+			<If condition="not IsOnMap(815)">
+				<TeleportTo AetheryteId="140"/> <!-- Mord Souq -->
+			</If>	
+			<LLFate UseFlight="True" CheckShareFate="True" MinLevel="0" MaxLevel="81" while="IsOnMap(815) and SharedFateRank(815) &lt; 3"/>	
+		</While>	
+	</If>	
+
+	<!-- Il Mheg -->
+	<If Condition="&IlMheg; == 1">
+		<While condition="SharedFateRank(816) &lt; 3">
+			<If condition="not IsOnMap(816)">
+				<TeleportTo AetheryteId="144"/> <!-- Lydha Lran -->
+			</If>	
+			<LLFate UseFlight="True" CheckShareFate="True" MinLevel="0" MaxLevel="81" while="IsOnMap(816) and SharedFateRank(816) &lt; 3"/>	
+		</While>
+	</If>	
+	
+	<!-- Rak'tika Greatwood -->
+	<If Condition="&RaktikaGreatwood; == 1">
+		<While condition="SharedFateRank(817) &lt; 3">
+			<If condition="not IsOnMap(817)">
+				<TeleportTo AetheryteId="142"/> <!-- Slitherbough -->
+			</If>	
+			<LLFate UseFlight="True" CheckShareFate="True" MinLevel="0" MaxLevel="81" while="IsOnMap(817) and SharedFateRank(817) &lt; 3"/>	
+		</While>	
+	</If>	
+	
+	<!-- The Tempest -->
+	<If Condition="&TheTempest; == 1">
+		<While condition="SharedFateRank(818) &lt; 3">
+			<If condition="not IsOnMap(818)">
+				<TeleportTo AetheryteId="147"/> <!-- The Ondo Cups -->
+			</If>	
+			<LLFate UseFlight="False" CheckShareFate="True" MinLevel="0" MaxLevel="81" while="IsOnMap(818) and SharedFateRank(818) &lt; 3"/>	
+		</While>	
+	</If>	
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="UpdateFates">
+    <![CDATA[
+        await LlamaLibrary.ScriptConditions.Extras.UpdateSharedFates();
+    ]]>
+    </CodeChunk>	
+  </CodeChunks>
+</Profile>  

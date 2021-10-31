@@ -1,0 +1,1146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Emote Unlock
+  Authors: DomesticWarlord86
+	
+	Info pulled from:
+	https://www.gameskinny.com/6tqzr/ffxiv-all-emote-unlocks-guide
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+	
+	<!-- Vendor Purchasable -->
+		<!-- Gold Saucer -->		
+		<!-- Gold Dance (Ballroom Etiquette - The Golden Dance) - Sold by the Prize Claim at the Gold Saucer for 80,000 MGP. -->
+		<!-- Aback (Ballroom Etiquette - Bewilderment) - Sold by Kasumi at the Gold Saucer (7.3,7.4) for 5,000 gil. -->
+		<!-- Bee's Knees (Ballroom Etiquette - The Bee's Knees) - Sold by the Prize Claim at the Gold Saucer for 80,000 MGP. -->
+		<!-- Big Grin (Ballroom Etiquette - Pursuing Happiness) - Sold by the Prize Claim at the Gold Saucer for 20,000 MGP. -->
+		<!-- Thavnairian Dance (Ballroom Etiquette - The Thavnairian Dance) - Sold by the Prize Claim at the Gold Saucer for 80,000 MGP. -->	
+
+	
+	<!-- Grand Company -->
+		<!-- Attention (Ballroom Etiquette - Attention) - Sold by your Grand Company Quartermaster for 40,000 Grand Company Seals. -->	
+		<!-- At Ease (Ballroom Etiquette - At Ease) - Sold by your Grand Company Quartermaster for 40,000 Grand Company Seals. -->
+		<!-- Reflect (Ballroom Etiquette - Reflection) - Sold by your Grand Company Quartermaster for 10,000 Grand Company Seals. -->	 
+
+	<!-- Skybuilders -->
+		<!-- Break Fast (Ballroom Etiquette - Well Bread) - Purchased with 900 Skybuilders' Scrips in the Firmament. *** -->
+		<!-- Eat Rice Ball (Ballroom Etiquette - Concealing Meals) - Obtained through Fete Presents or purchased with 1,800 Skybuilders Scrips in the Firmament. *** -->	
+		<!-- Lean (Ballroom Etiquette - The Winsome Wallflower) - Sold by the Skybuilders' Scrip vendor in the Firmament for 1,800 Skybuilders' Scrips or can be a reward in Fete Presents. *** -->
+		<!-- High Five (Ballroom Etiquette - Uncouth Congratulations) - Sold by the Skybuilders' Scrip vendor in the Firmament for 1,800 Skybuilders' Scrips. *** -->	
+		<!-- Insist (Ballroom Etiquette - Emphatic Elucidation) -  Sold by the Skybuilders' Scrip vendor in the Firmament for 1,800 Skybuilders' Scrips or can be a reward in Fete Presents. *** -->
+		<!-- Sweep Up (Ballroom Etiquette - Next, Godliness) - Sold by the Skybuilders' Scrip vendor in the Firmament for 1,800 Skybuilders' Scrips. *** -->	
+		<!-- Read (Ballroom Etiquette - Intelligent Impressions) - Sold by the Skybuilders' Scrip vendor in the Firmament for 1,800 Skybuilders' Scrips or can be a reward in Fete Presents. *** -->	
+
+
+	<!-- MSQ Unlocked -->
+		<!-- Imperial Salute - Reward for the LVL 45 main story quest Acting the Part. -->
+		<If Condition="not IsQuestCompleted(66538)">
+			<LLToast message="Please complete the LVL 60 MSQ Acting the Part"/>
+		</If>	
+		
+		<!-- Victory - Reward for the LVL 60 main story quest A Spectacle for the Ages. -->	
+		<If Condition="not IsQuestCompleted(67775)">
+			<LLToast message="Please complete the LVL 60 MSQ A Spectacle for the Ages"/>
+		</If>			
+		
+		<!-- Battle Stance - Reward for the LVL 60 main story quest Causes and Costs. -->
+		<If Condition="not IsQuestCompleted(67777)">
+			<LLToast message="Please complete the LVL 60 MSQ Causes and Costs"/>
+		</If>	
+		
+		<!-- Water Flip - Reward for the LVL 63 main story quest In Soroban We Trust. -->			
+		<If Condition="not IsQuestCompleted(68020)">
+			<LLToast message="Please complete the LVL 63 MSQ In Soroban We Trust"/>
+		</If>	
+		
+		<!-- Eastern Bow - Reward for the LVL 62 main story quest Confederate Consernation. -->
+		<If Condition="not IsQuestCompleted(68016)">
+			<LLToast message="Please complete the LVL 62 MSQ Confederate Consernation."/>
+		</If>		
+		
+		<!-- Box - Reward for the LVL 70 main story quest Arenvald's Adventure. -->
+		<If Condition="not IsQuestCompleted(68498)">
+			<LLToast message="Please complete the LVL 70 MSQ Causes and Costs"/>
+		</If>
+
+		<!-- Greeting - Reward for the LVL 70 main story quest Tidings from the East. -->
+		<If Condition="not IsQuestCompleted(68558)">
+			<LLToast message="Please complete the LVL 70 MSQ Tidings from the East."/>
+		</If>	
+		
+		<!-- Ponder - Reward for the LVL 70 main story quest Emissary of the Dawn. -->
+		<If Condition="not IsQuestCompleted(68612)">
+			<LLToast message="Please complete the LVL 70 MSQ Emissary of the Dawn."/>
+		</If>			
+		
+		<!-- Endure - Reward for the LVL 70 main story quest The Call. -->
+		<If Condition="not IsQuestCompleted(68684)">
+			<LLToast message="Please complete the LVL 70 MSQ The Call."/>
+		</If>
+
+		<!-- Shush - Reward for completing the LVL 80 main story quest Death Unto Dawn. -->	
+		<If Condition="not IsQuestCompleted(69602)">
+			<LLToast message="Please complete the LVL 78 MSQ Death Unto Dawn."/>
+		</If>		
+
+	<!-- Beast Tribes -->
+		<!-- Charmed (Ballroom Etiquette - Salacious Sentiments) - Sold by the Ananta beast tribe vendor for 5 Ananta Dreamstaves. -->
+		<!-- Need to be able to check if we have this emote, otherwise it'll try to buy it every time the profile if ran
+		<If condition="LlamaLibrary.Helpers.BeastTribeHelper.GetBeastTribeRank(10) &lt; 5">
+			<LLToast message="Please do Ananta beasts tribe quests until Resepcted rank for /charmed."/>
+		</If>
+		<If condition="LlamaLibrary.Helpers.BeastTribeHelper.GetBeastTribeRank(10) &gt; 4">
+			<LisbethTravel Area="The Fringes" Position="-24.61855, 56.07355, 234.6421"/>
+			<BuyShopExchangeCurrency NpcId= "1024774" ItemId="22377" SelectString="0" Count="1"/>
+		</If>	
+		-->
+		
+		<!-- Lali Hop (Ballroom Etiquette - The Lali Hop) - Sold by the Dwarven beast tribe vendor for 8 Hammered Frogments. -->
+		<!-- Need to be able to check if we have this emote, otherwise it'll try to buy it every time the profile if ran
+		<If condition="LlamaLibrary.Helpers.BeastTribeHelper.GetBeastTribeRank(14) &lt; 8">
+			<LLToast message="Please do Dwarves beasts tribe quests until Bloodsworn rank for /Lali Hop."/>
+		</If>
+		<If condition="LlamaLibrary.Helpers.BeastTribeHelper.GetBeastTribeRank(14) &gt; 7">		
+			<LisbethTravel Area="Lakeland (Dwarves Middle Level)" Position="-600.8823, 65.60204, -419.5441"/>
+			<BuyShopExchangeCurrency NpcId= "1033714" ItemId="31405" SelectString="0" Count="1"/>
+		</If>
+		-->
+		
+		<!-- Moonlift Dance - Reward for the LVL 60 quest Eternity, Loyalty, Honesty, which is part of a chain questline that starts with When Good Dragons Go Bad in Idyllshire (7,7.3) only after you have reached Bloodsworn with all three Heavensward beast tribes and completed their final quests. -->
+		<If Condition="not IsQuestCompleted(67921) and IsQuestCompleted(67863) and IsQuestCompleted(67796) and IsQuestCompleted(67761)">		
+			<LLToast message="Please do the quest Eternity, Loyalty, Honesty"/>
+		</If>
+		
+		<!-- Moogle Dance - Reward for completing the LVL 50 Moogle beast tribe quest Piecing Together the Past. -->
+		<If Condition="LlamaLibrary.Helpers.BeastTribeHelper.GetBeastTribeRank(10) &gt; 5 and not IsQuestCompleted(67862)">	
+			<LLToast message="Please do the quest Piecing Together the Past"/>
+		</If>			
+		
+		<!-- Gratuity - Reward for the LVL 70 quest What a Wonder-full World, which starts with The Ananta Maid's Tail in Kugane (13.1,9.8) only after you have reached Bloodsworn with all three Stormblood beast tribes and completed their final quests. -->
+		<If Condition="not IsQuestCompleted(68700) and IsQuestCompleted(68577) and IsQuestCompleted(68514) and IsQuestCompleted(68638)">	
+			<LLToast message="Please do the quest What a Wonder-full World"/>
+		</If>	
+
+		<!-- Ritual Prayer (Ballroom Etiquette -  Heathen Gestures) - Sold by the Kojin beast tribe vendor for 3 Kojin Sango. -->
+		<!-- Need to be able to check if we have this emote, otherwise it'll try to buy it every time the profile if ran
+		<If condition="LlamaLibrary.Helpers.BeastTribeHelper.GetBeastTribeRank(9) &lt; 8">
+			<LLToast message="Please do Kojin beasts tribe quests until Bloodsworn rank for /Ritual Prayer."/>
+		</If>
+		<If condition="LlamaLibrary.Helpers.BeastTribeHelper.GetBeastTribeRank(9) &gt; 7">		
+			<LisbethTravel Area="The Ruby Sea" Position="390.0916, -119.5893, -232.6794"/>
+			<BuyShopExchangeCurrency NpcId= "1024219" ItemId="21102" SelectString="0" Count="1"/>
+		</If>
+		-->
+		
+		<!-- Sundrop Dance - Reward for the LVL 50 Vanu Vanu beast tribe quest Sundrop the Beat at Respected reputation. -->
+		<If condition="not IsQuestCompleted(67705) and LlamaLibrary.Helpers.BeastTribeHelper.GetBeastTribeRank(6) &lt; 6">
+			<LLToast message="Please do Vanu Vanu beasts tribe quests until Respected rank for /Sundrop Dance."/>
+		</If>
+		<If condition="LlamaLibrary.Helpers.BeastTribeHelper.GetBeastTribeRank(6) &gt; 5">		
+			<LLToast message="Please do the quest Sundrop the Beat"/>
+		</If>
+		
+		<!-- Yol Dance (Ballroom Etiquette - The Yol Dance) - Sold by the Namazu beast tribe vendor for 8 Namazu Koban. -->
+		<!-- Need to be able to check if we have this emote, otherwise it'll try to buy it every time the profile if ran
+		<If condition="LlamaLibrary.Helpers.BeastTribeHelper.GetBeastTribeRank(11) &lt; 8">
+			<LLToast message="Please do Namazu beasts tribe quests until Bloodsworn rank for /Yol Dance."/>
+		</If>
+		<If condition="LlamaLibrary.Helpers.BeastTribeHelper.GetBeastTribeRank(11) &gt; 7">		
+			<LisbethTravel Area="The Azim Steppe" Position="-780.2785, 127.8081, 101.7598"/>
+			<BuyShopExchangeCurrency NpcId= "1025604" ItemId="23364" SelectString="0" Count="1"/>
+		</If>
+		-->
+		
+	<!-- Misc -->
+		<!-- Breath Control - Obtained by completing 10 command missions with your squadron. -->	
+		<!-- Confirm (Ballroom Etiquette - Scholarly Certitude) - May come from chests in LVL 70 treasure maps. *** -->	
+		<!-- Eat Apple (Ballroom Etiquette - Apples with Aplomb) - Obtained through Kupo of Fortune in the Firmament. *** -->
+		<!-- Fist Pump (Ballroom Etiquette - Overzealous Affirmations) - May come from Moisture-warped Lockboxes found in Eureka Hydatos. *** -->
+		<!-- Headache (Ballroom Etiquette - Feigning Fatigue) - Sold by Maudlin Latool Ja (U'ldah Steps of Thal (12.5,13) for 400 Allied Seals once you unlock the Blue Mage Log through completing Blue Mage quests up to LVL 60. -->
+		<!-- Wring Hands (Ballroom Etiquette - Good Will Seeking) - May come from Zadnor Lockboxes in Zadnor. *** -->
+		<!-- Guard (Ballroom Etiquette - Pointed Misgivings) - Sold by the Resistance Quartermaster for 50 Bozjan Clusters in the Bozjan Southern Front. *** -->
+		<!-- Elucidate (Ballroom Etiquette - Stimulating Soliloquies) - Sold by the Wolves' Den Provisioner in the Wolves' Den Pier -->	
+		<!-- Reprimand (Ballroom Etiquette - Refined Reproaches) - Sold by a Wolves' Den Provisioner at the Wolves' Den Pier for 15,000 Wolf Marks. -->		
+		<!-- Malevolence (Ballroom Etiquette -  Dark Entreaty) - Sold by the Resistance Quartermaster for 50 Bozjan Clusters in the Bozjan Southern Front. *** -->
+		<!-- Paint It Black / Blue / Red / Yellow (Ballroom Etiquette - Decadent Decoration) - May come from chests in LVL 80 treasure maps. *** -->		
+		<!-- Sweat (Ballroom Etiquette - Excessive Petticoats) - Sold by the Confederate Custodian in the Ruby Sea for 10 Empyrean Potsherds, which are obtained in the Heaven on High deep dungeon. -->	
+		<!-- Push-ups - Obtained by completing 10 command missions with your squadron. -->	
+		<!-- Scheme (Ballroom Etiquette - Ideal Gossip) - May come from Heat-warped Lockboxes found in Eureka Pyros. *** -->
+		<!-- Sit-ups - Obtained by completing 10 command missions with your squadron. -->	
+		<!-- Tomestone - Obtained by typing your account to the companion app. -->	
+		<!-- Tremble (Ballroom Etiquette - Fear and Loathing) - Sold by the Wondrous Sundries merchant in Rhalgr's Reach (13.9,11.8) for 6 Mythic Clan Mark Logs, which cost 500 Centurio Seals each at the Centurio Seal Exchange in Rhalgr's or Kugane. -->		
+		<!-- Winded (Ballroom Etiquette - Unseemly Exertions) - Sold by the Wondrous Sundries merchant in Rhalgr's Reach (13.9,11.8) for 6 Mythic Clan Mark Logs, which cost 500 Centurio Seals each at the Centurio Seal Exchange in Rhalgr's or Kugane. -->	
+				
+
+	<!-- Side Quests -->
+	<!-- Ball Dance - Reward for the quest Help Me, Lord of the Dance (LVL 14, P'molminn in Ul'dah Steps of Nald (10.8,9.8)). -->
+	<If Condition="not IsQuestCompleted(66963)">	
+    <!-- Help Me, Lord of the Dance -->
+    <If Condition="not HasQuest(66963) and not IsQuestCompleted(66963)">
+      <GetTo ZoneId="130" XYZ="-22.23732, 9.999999, -72.18204"/>
+      <If Condition="IsQuestAcceptQualified(66963)">
+        <LLPickupQuest QuestId="66963" NpcId="1007799"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66963) == 1 and GetQuestById(66963).QuestI8A == 0">
+      <GetTo ZoneId="131" XYZ="7.934941, 15.00001, -1.791586"/>
+      <LLTalkTo NpcId="1007800" XYZ="6.546082, 15.00001, -1.327576" QuestId="66963" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66963) == 1 and GetQuestById(66963).QuestI8A == 1">
+      <GetTo ZoneId="131" XYZ="96.46152, 12.27927, 54.73103"/>
+      <LLTalkTo NpcId="1001697" XYZ="98.55798, 12.27927, 54.79517" QuestId="66963" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66963) == 1 and GetQuestById(66963).QuestI8A == 2">
+      <GetTo ZoneId="131" XYZ="48.63863, 34, -35.64764"/>
+      <LLTalkTo NpcId="1007801" XYZ="50.24792, 34, -35.56885" QuestId="66963" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(66963) == 2">
+      <GetTo ZoneId="131" XYZ="-11.85309, 33.99983, -51.31974"/>
+      <LLTalkTo NpcId="1007798" XYZ="-13.7179, 34.02289, -51.86548" QuestId="66963" StepId="2"/>
+    </If>	
+    <If Condition="GetQuestStep(66963) == 255">
+      <GetTo ZoneId="131" XYZ="-11.85309, 33.99983, -51.31974"/>
+			<LLToast message="Please /dance and turn in the quest."/>
+    </If>		
+	</If>	
+	<!-- Harvest Dance - Reward for the quest Saw That One Coming (LVL 14, Eral in New Gridania (12.1,13.2)). -->
+	<If Condition="not IsQuestCompleted(66961)">	
+    <!-- Saw That One Coming -->
+    <If Condition="not HasQuest(66961) and not IsQuestCompleted(66961)">
+      <GetTo ZoneId="132" XYZ="40.75524, -8, 97.60961"/>
+      <If Condition="IsQuestAcceptQualified(66961)">
+        <LLPickupQuest QuestId="66961" NpcId="1000375"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66961) == 1">
+      <GetTo ZoneId="132" XYZ="-84.92107, -3.308192, 42.38749"/>
+      <LLTalkTo NpcId="1007792" XYZ="-87.84625, -3.308192, 41.70288" QuestId="66961" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(66961) == 2">
+      <GetTo ZoneId="132" XYZ="-45.8077, -1.250027, 57.63129"/>
+      <LLTalkTo NpcId="1000153" XYZ="-44.87683, -1.250002, 56.83984" QuestId="66961" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(66961) == 3 and GetQuestById(66961).QuestI8A == 0">
+      <GetTo ZoneId="133" XYZ="26.90552, 8.356529, -97.08772"/>
+      <LLHandOver ItemId="2001249" NpcId="1007795" XYZ="28.94629, 8.45142, -96.42181" QuestId="66961" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(66961) == 3 and GetQuestById(66961).QuestI8A == 1">
+      <GetTo ZoneId="133" XYZ="-126.4791, 6.814792, -121.4003"/>
+      <LLHandOver ItemId="2001249" NpcId="1007794" XYZ="-124.8646, 6.567382, -120.7447" QuestId="66961" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(66961) == 3 and GetQuestById(66961).QuestI8A == 2">
+      <GetTo ZoneId="133" XYZ="-143.5462, 4.268148, -32.10163"/>
+      <LLHandOver ItemId="2001249" NpcId="1007793" XYZ="-143.3891, 4.123518, -29.31262" QuestId="66961" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(66961) == 255">
+      <GetTo ZoneId="132" XYZ="-86.0774, -3.308192, 41.62041"/>
+      <LLTurnIn QuestId="66961" NpcId="1007792" XYZ="-87.84625, -3.308192, 41.70288"/>
+      <LLSmallTalk/>
+    </If>		
+	</If>
+	
+	<!-- Haurchefant - Reward for the LVL 60 quest The Burdens We Bear, which is part of a chain questline starting with The Oaths We Swear in Mor Dhona (22.1,5.1) and only opens up after completing the LVL 60 main story quest Litany of Peace. -->
+	<If Condition="not IsQuestCompleted(67015) and IsQuestCompleted(67783)">	
+    <!-- The Paths We Walk -->
+    <If Condition="not HasQuest(67011) and not IsQuestCompleted(67011)">
+			<If condition="not IsOnMap(433)">
+				<GetTo ZoneId="419" XYZ="16.04894, 16.00967, -9.050252"/>
+				<UseTransport NpcId="1011217" InteractDistance="3.0" XYZ="17.99036, 16.00967, -9.567444"/>			
+			</If>
+      <MoveTo XYZ="-4.213974, -5.34269E-10, -3.447551"/>
+      <If Condition="IsQuestAcceptQualified(67011)">
+        <LLPickupQuest QuestId="67011" NpcId="1012337"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67011) == 1">
+      <GetTo ZoneId="419" XYZ="-172.7776, -12.54369, -22.83131"/>
+      <LLTalkTo NpcId="1012180" XYZ="-174.1818, -12.55547, -21.56104" QuestId="67011" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67011) == 2">
+      <GetTo ZoneId="418" XYZ="88.9905, 15.09468, 33.18174"/>
+      <LLTalkTo NpcId="1011192" XYZ="88.36499, 15.09468, 31.29626" QuestId="67011" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67011) == 3">
+      <LisbethTravel Zone="401" Subzone="2117" Position="-280.4689, -184.664, 738.8461"/>
+      <LLTalkTo NpcId="1011952" XYZ="-277.6379, -184.5974, 741.6038" QuestId="67011" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(67011) == 4">
+      <LisbethTravel Zone="397" Subzone="2204" Position="501.7667, 217.9515, 788.6181"/>
+      <LLTalkTo NpcId="1011231" XYZ="503.1051, 217.9515, 790.2189" QuestId="67011" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(67011) == 5">
+      <GetTo ZoneId="419" XYZ="119.326, 14.95313, -154.7364"/>
+      <UseObject NpcId="2007017" XYZ="120.6226, 14.9386, -156.6034" QuestId="67011" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(67011) == 6">
+      <GetTo ZoneId="419" XYZ="23.19849, 27.96457, -144.395"/>
+      <UseObject NpcId="2007018" XYZ="23.02582, 27.93921, -145.739" QuestId="67011" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(67011) == 7">
+      <GetTo ZoneId="129" XYZ="9.737584, 20.9993, -12.44748"/>
+      <LLTalkTo NpcId="1001029" XYZ="9.170593, 20.9994, -15.21332" QuestId="67011" StepId="7"/>
+			<LLSmallTalk/>
+    </If>	
+    <If Condition="GetQuestStep(67011) == 255">
+      <GetTo ZoneId="156" XYZ="29.91827, 50.99997, -816.3873"/>
+      <LLTurnIn QuestId="67011" NpcId="1016809" XYZ="29.86182, 50.99997, -818.2651"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- The Oaths We Swear -->
+    <If Condition="IsQuestCompleted(67011) and not HasQuest(67012) and not IsQuestCompleted(67012)">
+      <GetTo ZoneId="156" XYZ="29.63065, 50.99997, -815.432"/>
+      <If Condition="IsQuestAcceptQualified(67012)">
+        <LLPickupQuest QuestId="67012" NpcId="1016809"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67012) == 1">
+      <GetTo ZoneId="130" XYZ="-139.9117, 4.10972, -113.2831"/>
+      <LLHandOver ItemId="2001947" NpcId="1004576" XYZ="-141.6495, 4.1, -114.6716" QuestId="67012" StepId="1"/>
+    </If>
+		<If Condition="GetQuestStep(67012) == 2">
+      <LisbethTravel Zone="397" Subzone="2207" Position="459.2176, 162.5132, -524.4964"/>
+      <LLTalkTo NpcId="1012345" XYZ="460.1663, 162.5073, -527.0314" QuestId="67012" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67012) == 3">
+      <LisbethTravel Zone="397" Subzone="2207" Position="452.2841, 157.4083, -547.0876"/>
+      <LLTalkTo NpcId="1017119" XYZ="450.7362, 157.4083, -545.0675" QuestId="67012" StepId="3"/>
+			<GetTo ZoneId="397" XYZ="455.7715, 162.4369, -528.9378" />
+    </If>	
+    <If Condition="GetQuestStep(67012) == 4">
+      <LisbethTravel Zone="397" Subzone="2220" Position="-288.1866, 127.0022, 11.09639"/>
+      <LLTalkTo NpcId="1011907" XYZ="-288.8686, 127.0664, 13.19904" QuestId="67012" StepId="4"/>
+    </If>	
+    <If Condition="GetQuestStep(67012) == 255">
+      <GetTo ZoneId="398" XYZ="469.5043, -49.89133, 21.93567"/>
+      <LLTurnIn QuestId="67012" NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079"/>
+      <LLSmallTalk/>
+    </If>	
+    <!-- The Legacies We Leave -->
+    <If Condition="IsQuestCompleted(67012) and not HasQuest(67013) and not IsQuestCompleted(67013)">
+      <GetTo ZoneId="398" XYZ="469.1512, -49.89133, 23.87895"/>
+      <If Condition="IsQuestAcceptQualified(67013)">
+        <LLPickupQuest QuestId="67013" NpcId="1011916"/>
+        <LLSmallTalk/>
+      </If>
+			<GetTo ZoneId="398" XYZ="471.1735, -51.1414, 35.68015" />
+    </If>
+    <If Condition="GetQuestStep(67013) == 1">
+      <LisbethTravel Zone="398" Subzone="2021" Position="73.40357, -49.15932, -140.7676"/>
+      <LLTalkTo NpcId="1011928" XYZ="73.19751, -49.19563, -139.0555" QuestId="67013" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67013) == 2">
+      <LisbethTravel Zone="398" Subzone="2025" Position="-286.3098, 39.04307, 46.76702"/>
+      <LLTalkTo NpcId="1011935" XYZ="-285.6337, 39.04305, 53.72693" QuestId="67013" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67013) == 3">
+      <LisbethTravel Zone="400" Subzone="2042" Position="379.2637, -69.42955, 694.7996"/>
+      <LLTalkTo NpcId="1012077" XYZ="381.7043, -66.84979, 700.8619" QuestId="67013" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(67013) == 4">
+      <LisbethTravel Zone="400" Subzone="2015" Position="-259.3295, 30.37311, 557.3337"/>
+      <UseObject NpcId="2007019" XYZ="-261.0361, 30.3501, 559.0447" QuestId="67013" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(67013) == 5">
+      <GetTo ZoneId="131" XYZ="-8.210337, 29.99997, 22.62021"/>
+      <UseObject NpcId="2007020" XYZ="-6.271484, 30.0144, 23.45313" QuestId="67013" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(67013) == 255">
+      <GetTo ZoneId="131" XYZ="11.56272, 34, -40.43004"/>
+      <LLTurnIn QuestId="67013" NpcId="1017123" XYZ="12.92438, 34, -39.32251"/>
+      <LLSmallTalk/>
+    </If>		
+    <!-- The Triumphs We Share -->
+    <If Condition="IsQuestCompleted(67013) and not HasQuest(67014) and not IsQuestCompleted(67014)">
+      <GetTo ZoneId="131" XYZ="12.99192, 34.05656, -41.61132"/>
+      <If Condition="IsQuestAcceptQualified(67014)">
+        <LLPickupQuest QuestId="67014" NpcId="1017123"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67014) == 1">
+      <GetTo ZoneId="156" XYZ="35.98069, 20.495, -654.0732"/>
+      <LLTalkTo NpcId="1017118" XYZ="34.37854, 20.495, -652.1554" QuestId="67014" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67014) == 2">
+      <GetTo ZoneId="418" XYZ="-157.7709, 16.99999, -53.12611"/>
+      <UseObject NpcId="2007061" XYZ="-158.2208, 17.04425, -55.13086" QuestId="67014" StepId="2"/>
+    </If>	
+    <If Condition="GetQuestStep(67014) == 3">
+      <LisbethTravel Zone="400" Subzone="2044" Position="571.6221, -1.191689, -368.0571"/>
+      <UseObject NpcId="2007062" XYZ="570.1532, -1.205505, -369.955" QuestId="67014" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(67014) == 4">
+      <GetTo ZoneId="418" XYZ="13.44143, -12.02088, 40.38398"/>
+      <LLTalkTo NpcId="1012251" XYZ="12.31396, -12.02088, 40.26843" QuestId="67014" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(67014) == 5">
+      <GetTo ZoneId="401" XYZ="-596.1823, -51.05185, -392.4807"/>
+      <LLTalkTo NpcId="1012065" XYZ="-594.6288, -51.05185, -389.7917" QuestId="67014" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(67014) == 6">
+      <GetTo ZoneId="133" XYZ="-16.58037, 10.17663, -248.9203"/>
+      <LLTalkTo NpcId="1006756" XYZ="-16.89185, 10.17425, -246.8757" QuestId="67014" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(67014) == 255">
+      <GetTo ZoneId="478" XYZ="71.38739, 205.72, 23.556"/>
+      <LLTurnIn QuestId="67014" NpcId="1012097" XYZ="73.3501, 205.8896, 23.48358"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- The Burdens We Bear -->
+    <If Condition="IsQuestCompleted(67014) and not HasQuest(67015) and not IsQuestCompleted(67015)">
+      <GetTo ZoneId="478" XYZ="72.56325, 205.9863, 22.36581"/>
+      <If Condition="IsQuestAcceptQualified(67015)">
+        <LLPickupQuest QuestId="67015" NpcId="1012097"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67015) == 1">
+			<If condition="not IsOnMap(463">
+				<LisbethTravel Zone="399" Subzone="2011" Position="-488.3111, 137.4297, 739.7634"/>
+				<UseTransport NpcId="2005336" InteractDistance="3.0" XYZ="-488.7923, 138.9333, 741.0543"/>  
+			</If>
+      <MoveTo XYZ="17.96356, 38.43, 14.11283"/>
+      <LLTalkTo NpcId="1012138" XYZ="19.27209, 38.43, 15.85406" QuestId="67015" StepId="1"/>		
+    </If>		
+    <If Condition="GetQuestStep(67015) == 2">
+      <LisbethTravel Zone="402" Subzone="2131" Position="-864.6668, -184.293, -660.1544"/>
+      <UseObject NpcId="2007063" XYZ="-867.3381, -184.3138, -661.0056" QuestId="67015" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67015) == 3">
+      <LisbethTravel Zone="402" Subzone="2131" Position="-915.3364, -184.293, -677.9324"/>
+      <LLTalkTo NpcId="2007067" XYZ="-916.7773, -184.3138, -678.645" QuestId="67015" StepId="3"/>
+			<LLSmallTalk/>
+    </If>	
+    <If Condition="GetQuestStep(67015) == 4">
+      <LisbethTravel Zone="402" Subzone="2145" Position="-694.1834, -36.84544, 432.3963"/>
+      <UseObject NpcId="2007064" XYZ="-696.0708, -37.09473, 432.3339" QuestId="67015" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(67015) == 5">
+      <LisbethTravel Zone="402" Subzone="2174" Position="-65.77536, 271.2328, -3.528817"/>
+      <UseObject NpcId="2007065" XYZ="-64.2558, 271.229, -4.226807" QuestId="67015" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(67015) == 255">
+      <LisbethTravel Zone="155" Subzone="381" Position="52.17316, 374.6279, -676.0972"/>
+      <LLTurnIn QuestId="67015" NpcId="2007066" XYZ="50.33948, 374.4716, -676.5088"/>
+      <LLSmallTalk/>
+    </If>		
+	</If>
+		
+	<!-- Hum - Reward for completing the LVL 70 quest The Fire-bird Down Below, which is part of a chain questline starting with An Auspicious Encounter in The Ruby Sea (5.7,15.8), only after you have completed the LVL 70 main story quest Hope on the Waves. -->	
+	<If Condition="not IsQuestCompleted(68688) and IsQuestCompleted(68560)">	
+    <!-- The Fire-bird Down Below -->
+    <If Condition="not HasQuest(68688) and not IsQuestCompleted(68688)">
+      <GetTo ZoneId="613" XYZ="322.7793, -120.0267, -252.8567"/>
+      <If Condition="IsQuestAcceptQualified(68688)">
+        <LLPickupQuest QuestId="68688" NpcId="1019178"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(68688) == 1">
+			<If condition="not IsOnMap(764)">
+				<LisbethTravel ZoneId="613" XYZ="283.0298, 16.19965, 844.9703"/>
+				<UseTransport NpcId="1025137" InteractDistance="3.0" XYZ="281.6663, 16.35002, 846.8909"/>			
+			</If>		
+      <MoveTo XYZ="61.9233, -90.00002, -476.1151"/>
+      <LLTalkTo NpcId="1026480" XYZ="61.99731, -90.00002, -478.1415" QuestId="68688" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(68688) == 2">
+			<If condition="not IsOnMap(764)">
+				<LisbethTravel ZoneId="613" XYZ="283.0298, 16.19965, 844.9703"/>
+				<UseTransport NpcId="1025137" InteractDistance="3.0" XYZ="281.6663, 16.35002, 846.8909"/>			
+			</If>			
+      <MoveTo XYZ="74.79034, -89.91247, -458.3608"/>
+      <LLTalkTo NpcId="1026204" XYZ="74.23511, -90.00003, -457.3587" QuestId="68688" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(68688) == 3">
+      <LLToast message="Please complete the duty Hells' Kier manually."/>
+    </If>				
+	</If>
+		
+	<!-- Lali-ho - Reward for the quest Learning to Lali-ho, which is part of a chain questline starting with the LVL 70 quest A Disagreeable Dwarf in Kholusia (12.5,9.3), only after you complete the LVL 78 main story quest Meet the Tholls. -->
+	<If Condition="not IsQuestCompleted(69095)">	
+      <!-- Talos, Interrupted -->
+      <If Condition="IsQuestCompleted(68907) and not HasQuest(68908) and not IsQuestCompleted(68908)">
+        <LisbethTravel ZoneId="814" XYZ="-283.3589, 35.30619, 205.8826"/>
+        <If Condition="IsQuestAcceptQualified(68908)">
+          <PickupQuest QuestId="68908" NpcId="1030766"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(68908) &gt; 0">
+        <If Condition="GetQuestStep(68908) == 1">
+          <LisbethTravel ZoneId="814" XYZ="-479.352, 25.71229, 333.4714"/>
+          <UseObject NpcId="2010303" XYZ="-481.529, 26.10815, 333.2722" QuestId="68908" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68908) == 2">
+          <TalkTo NpcId="1030769" XYZ="-474.7234, 24.51279, 337.2701" QuestId="68908" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(68908) == 255">
+          <LisbethTravel ZoneId="814" XYZ="-283.0184, 35.27775, 206.5128"/>
+          <TurnIn QuestId="68908" NpcId="1030766" XYZ="-284.2299, 35.37314, 204.6692"/>
+        </If>
+      </If>
+      <!-- The Cape in Bloom -->
+      <If Condition="IsQuestCompleted(68908) and not HasQuest(68909) and not IsQuestCompleted(68909)">
+        <LisbethTravel ZoneId="814" XYZ="-283.0184, 35.27775, 206.5128"/>
+        <If Condition="IsQuestAcceptQualified(68909)">
+          <PickupQuest QuestId="68909" NpcId="1030766"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(68909) &gt; 0">
+        <If Condition="GetQuestStep(68909) == 1">
+          <LisbethTravel ZoneId="814" XYZ="-547.0389, 37.30137, 530.2125"/>
+          <TalkTo NpcId="1030770" XYZ="-547.8752, 37.72265, 532.4635" QuestId="68909" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68909) == 2">
+          <LisbethTravel ZoneId="814" XYZ="-537.4136, 62.07313, 679.3146"/>
+          <UseObject NpcIds="2010304,2010305,2010306" XYZ="-537.4136, 62.07313, 679.3146" QuestId="68909" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(68909) == 3">
+          <HandOver ItemId="2002689" NpcId="1030771" XYZ="-532.4636, 62.52299, 684.0161" QuestId="68909" StepId="3"/>
+        </If>
+        <If Condition="GetQuestStep(68909) == 255">
+          <LisbethTravel ZoneId="814" XYZ="-282.5569, 35.33027, 204.7049"/>
+          <TurnIn QuestId="68909" NpcId="1030766" XYZ="-284.2299, 35.37314, 204.6692"/>
+        </If>
+      </If>
+      <!-- Wright for the Job -->
+      <If Condition="IsQuestCompleted(68909) and not HasQuest(68910) and not IsQuestCompleted(68910)">
+        <LisbethTravel ZoneId="814" XYZ="-282.5569, 35.33027, 204.7049"/>
+        <If Condition="IsQuestAcceptQualified(68910)">
+          <PickupQuest QuestId="68910" NpcId="1030766"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(68910) &gt; 0">
+        <If Condition="GetQuestStep(68910) == 1">
+          <LisbethTravel ZoneId="814" XYZ="-241.071, 20.51989, 351.7715"/>
+          <TalkTo NpcId="1030772" XYZ="-240.2228, 20.52173, 352.1934" QuestId="68910" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(68910) == 2">
+          <TalkTo NpcId="1030773" XYZ="-259.7849, 21.73225, 362.1423" QuestId="68910" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(68910) == 3">
+          <LisbethTravel ZoneId="814" XYZ="-290.5972, 17.77208, 445.4134"/>
+          <TalkTo NpcId="1030774" XYZ="-290.2725, 17.77208, 442.8624" QuestId="68910" StepId="3"/>
+        </If>
+        <If Condition="GetQuestStep(68910) == 255">
+          <TurnIn QuestId="68910" NpcId="1030774" XYZ="-290.2725, 17.77208, 442.8624"/>
+        </If>
+      </If>
+      <!-- Almost a Friend -->
+      <If Condition="IsQuestCompleted(69092) and not HasQuest(69093) and not IsQuestCompleted(69093)">
+        <LisbethTravel ZoneId="814" XYZ="-393.7853, 417.6181, -657.8896"/>
+        <If Condition="IsQuestAcceptQualified(69093)">
+          <PickupQuest QuestId="69093" NpcId="1030800"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69093) &gt; 0">
+        <If Condition="GetQuestStep(69093) == 1">
+          <LisbethTravel ZoneId="814" XYZ="-407.3595, 417.2153, -632.1819"/>
+          <TalkTo NpcId="1030781" XYZ="-408.835, 417.2161, -633.1731" QuestId="69093" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69093) == 2">
+          <UseItem ItemId="2002690" NpcId="2010336" XYZ="-407.1565, 417.8683, -633.2036" QuestId="69093" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(69093) == 3">
+          <TalkTo NpcId="1030781" XYZ="-408.835, 417.2161, -633.1731" QuestId="69093" StepId="3"/>
+        </If>
+        <If Condition="GetQuestStep(69093) == 255">
+          <LisbethTravel ZoneId="814" XYZ="-393.7853, 417.6181, -657.8896"/>
+          <TurnIn QuestId="69093" NpcId="1030800" XYZ="-396.6888, 417.5182, -657.9232"/>
+        </If>
+      </If>
+      <!-- A Practiced Greeting -->
+      <If Condition="IsQuestCompleted(69093) and not HasQuest(69094) and not IsQuestCompleted(69094)">
+        <LisbethTravel ZoneId="814" XYZ="-393.7853, 417.6181, -657.8896"/>
+        <If Condition="IsQuestAcceptQualified(69094)">
+          <LLPickupQuest QuestId="69094" NpcId="1030800" DialogOption="0,1"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69094) &gt; 0">
+        <If Condition="GetQuestStep(69094) == 1">
+          <LisbethTravel ZoneId="814" XYZ="-191.1804, 362.9854, -292.8359"/>
+          <TalkTo NpcId="1030782" XYZ="-191.1804, 362.9854, -292.8359" QuestId="69094" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69094) == 2">
+          <LisbethTravel ZoneId="814" XYZ="-406.3884, 362.5874, -289.433"/>
+          <WaitWhile Condition="not GetQuestStep(69094) == 3"/>
+        </If>
+        <If Condition="GetQuestStep(69094) == 3">
+          <UseObject NpcId="1030784" XYZ="-407.8584, 362.5906, -289.5705" QuestId="69094" StepId="3"/>
+        </If>
+        <If Condition="GetQuestStep(69094) == 255">
+          <LisbethTravel ZoneId="814" XYZ="-517.3772, 392.1036, -479.3842"/>
+          <RunCode Name="69094"/>
+          <LLTurnIn QuestId="69094" NpcId="1030786" XYZ="-519.646, 392.919, -482.7192"/>
+        </If>
+      </If>
+      <!-- Learning to Lali-ho -->
+      <If Condition="IsQuestCompleted(69094) and not HasQuest(69095) and not IsQuestCompleted(69095)">
+        <LisbethTravel ZoneId="814" XYZ="-517.3772, 392.1036, -479.3842"/>
+        <If Condition="IsQuestAcceptQualified(69095)">
+          <PickupQuest QuestId="69095" NpcId="1030786"/>
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69095) &gt; 0">
+        <If Condition="GetQuestStep(69095) == 1">
+          <LisbethTravel ZoneId="814" XYZ="-438.7872, 417.2873, -638.9003"/>
+          <TalkTo NpcId="1030775" XYZ="-436.7285, 417.2178, -640.4364" QuestId="69095" StepId="1"/>
+        </If>
+        <If Condition="GetQuestStep(69095) == 2">
+          <TalkTo NpcId="1030795" XYZ="-493.8278, 417.1517, -610.3761" QuestId="69095" StepId="2"/>
+        </If>
+        <If Condition="GetQuestStep(69095) == 3">
+          <LisbethTravel ZoneId="814" XYZ="-410.7575, 417.2111, -631.379"/>
+          <TalkTo NpcId="1030787" XYZ="-408.8044, 417.2132, -631.7388" QuestId="69095" StepId="3"/>
+        </If>
+        <If Condition="GetQuestStep(69095) == 255">
+          <LisbethTravel ZoneId="814" XYZ="-448.3421, 417.1312, -610.4088"/>
+          <TurnIn QuestId="69095" NpcId="1030776" XYZ="-450.8583, 417.1344, -610.8644"/>
+        </If>
+      </If>
+	</If>
+	
+	<!-- Hildibrand Quests -->
+	<!-- Most Gentlemanly - Reward for the LVL 50 Hildibrand quest Her Last Vow. -->	
+	<!-- Manderville Dance - Reward for completing the LVL 50 Hildibrand quest The Hammer. -->
+	<!-- Manderville Mambo - Reward for completing the final LVL 70 Hilibrand quest Don't Do the Dewprism. -->
+	<If Condition="not IsQuestCompleted(66038) and not IsQuestCompleted(66852) or not IsQuestCompleted(68704)">	
+		<LLToast message="Please complete the Hilibrand quest line."/>
+	</If>	
+	
+		
+	<!-- Spectacles - Reward for the LVL 60 quest Letters from No One, which is part of a chain questline that starts with Keeping the Ledger in The Pillars in Ishgard (6.3,9.4) only after you have completed the LVL 56 main story quest He Who Would Not Be Denied. -->	
+	<If Condition="not IsQuestCompleted(67899) and not IsQuestCompleted(66038)">
+		<LLToast message="Please complete the quest Her Last Vow."/>
+	</If>
+	<If Condition="not IsQuestCompleted(67899) and not IsQuestCompleted(67173)">
+		<LLToast message="Please complete the MSQ He Who Would Not Be Denied."/>
+	</If>	
+	<If Condition="not IsQuestCompleted(67899) and IsQuestCompleted(67173) and IsQuestCompleted(66038)">	
+    <!-- Keeping the Ledger -->
+    <If Condition="not HasQuest(67405) and not IsQuestCompleted(67405)">
+      <GetTo ZoneId="419" XYZ="-248.6896, -20.03492, -89.51664"/>
+      <If Condition="IsQuestAcceptQualified(67405)">
+        <LLPickupQuest QuestId="67405" NpcId="1012181"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67405) == 1 and GetQuestById(67405).QuestI8A == 0">
+      <GetTo ZoneId="419" XYZ="-128.5663, 14.80313, -129.3208"/>
+      <LLTalkTo NpcId="1012263" XYZ="-129.4118, 14.80313, -127.9164" QuestId="67405" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67405) == 1 and GetQuestById(67405).QuestI8A == 16">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-144.9514, 14.80313, -130.9591"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>			
+			</If>
+      <MoveTo XYZ="-5.247254, 0.02499962, 6.130944"/>
+      <LLTalkTo NpcId="1012264" XYZ="-6.790344, 0.02499956, 3.829956" QuestId="67405" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67405) == 1 and GetQuestById(67405).QuestI8A == 17">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-144.9514, 14.80313, -130.9591"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>			
+			</If>		
+      <MoveTo XYZ="-4.321333, 0.02499962, -5.955764"/>
+      <LLTalkTo NpcId="1012265" XYZ="-2.182068, 0.289917, -5.508545" QuestId="67405" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(67405) == 1 and GetQuestById(67405).QuestI8A == 18">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-144.9514, 14.80313, -130.9591"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>			
+			</If>				
+      <MoveTo XYZ="-8.708842, 0.02499962, 7.634268"/>
+      <LLTalkTo NpcId="1012262" XYZ="-10.33038, 0, 8.194031" QuestId="67405" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67405) == 1 and GetQuestById(67405).QuestI8A == 35">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-144.9514, 14.80313, -130.9591"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>			
+			</If>			
+      <MoveTo XYZ="6.71195, 0.2249995, -0.5572193"/>
+      <UseObject NpcIds="2006243,2006244,2006245" XYZ="7.217468, 1.419067, 1.083313" QuestId="67405" StepId="1" While="GetQuestStep(67405) == 1"/>
+    </If>	
+    <If Condition="GetQuestStep(67405) == 255">
+      <GetTo ZoneId="419" XYZ="-250.0005, -20.03492, -89.00067"/>
+      <LLTurnIn DialogOption="4" QuestId="67405" NpcId="1012181" XYZ="-248.5543, -20.03492, -90.98956"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- Contradicting Convictions -->
+    <If Condition="IsQuestCompleted(67405) and not HasQuest(67688) and not IsQuestCompleted(67688)">
+      <LisbethTravel Zone="419" Subzone="2317" Position="-248.5112, -20.03492, -88.3743"/>
+      <If Condition="IsQuestAcceptQualified(67688)">
+        <LLPickupQuest QuestId="67688" NpcId="1012181"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67688) == 1">
+      <LisbethTravel Zone="419" Subzone="0" Position="-114.6296, -4.734937, -31.23487"/>
+      <LLTalkTo NpcId="1015926" XYZ="-114.0002, -4.734939, -33.46307" QuestId="67688" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67688) == 2">
+      <GetTo ZoneId="418" XYZ="98.27251, -21.30936, 55.0279"/>
+      <LLTalkTo NpcId="1015931" XYZ="97.0321, -22, 52.41467" QuestId="67688" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67688) == 255">
+      <GetTo ZoneId="419" XYZ="-248.2268, -20.03492, -87.42289"/>
+      <LLTurnIn QuestId="67688" NpcId="1012181" XYZ="-248.5543, -20.03492, -90.98956"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- The Benefits of Consultation -->
+    <If Condition="IsQuestCompleted(67688) and not HasQuest(67689) and not IsQuestCompleted(67689)">
+      <GetTo ZoneId="419" XYZ="-248.6528, -20.03492, -87.97687"/>
+      <If Condition="IsQuestAcceptQualified(67689)">
+        <LLPickupQuest QuestId="67689" NpcId="1015932"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67689) == 1">
+			<GetTo ZoneId="419" XYZ="-142.3668, 14.80313, -131.3677"/>
+			<UseTransport NpcId="1016234" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>							
+		</If>
+    <If Condition="GetQuestStep(67689) == 2">	
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.3668, 14.80313, -131.3677"/>
+				<UseTransport NpcId="1016234" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>				
+			</If>		
+      <MoveTo XYZ="-6.074938, 0.02499962, -5.350811"/>
+      <LLTalkTo NpcId="1015933" XYZ="-7.950012, 0.02499956, -8.224609" QuestId="67689" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67689) == 3">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.3668, 14.80313, -131.3677"/>
+				<UseTransport NpcId="1016234" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>				
+			</If>
+      <MoveTo XYZ="3.851213, 0.2, 5.11321"/>
+      <LLTalkTo NpcId="1015935" XYZ="5.111694, 0.2249995, 4.013123" QuestId="67689" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(67689) == 4">
+      <GetTo ZoneId="418" XYZ="71.27817, 23.97913, -49.82085"/>
+      <LLTalkTo NpcId="1015936" XYZ="69.90149, 23.97913, -48.72211" QuestId="67689" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(67689) == 5">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.743, 14.80313, -130.5446"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>			
+			</If>		
+      <MoveTo XYZ="-7.585006, 0.02499962, -7.443482"/>
+      <LLTalkTo NpcId="1012266" XYZ="-7.950012, 0.2, -10.51355" QuestId="67689" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(67689) == 255">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.3668, 14.80313, -131.3677"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>					
+			</If>		
+      <LLTurnIn QuestId="67689" NpcId="1012266" XYZ="-7.950012, 0.2, -10.51355"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- Balancing the Spear -->
+    <If Condition="IsQuestCompleted(67689) and not HasQuest(67690) and not IsQuestCompleted(67690)">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.3668, 14.80313, -131.3677"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>					
+			</If>		
+      <MoveTo XYZ="-6.536405, 0.02499956, -8.023203"/>
+      <If Condition="IsQuestAcceptQualified(67690)">
+        <LLPickupQuest QuestId="67690" NpcId="1012266"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67690) == 1">
+      <GetTo ZoneId="419" XYZ="-174.3241, 15.06314, -174.5729"/>
+      <LLTalkTo NpcId="1015977" XYZ="-177.3557, 15.06314, -174.3649" QuestId="67690" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67690) == 2">
+      <GetTo ZoneId="419" XYZ="-174.0735, 15.06314, -173.1348"/>
+      <LLTalkTo NpcId="1015941" XYZ="-175.3414, 15.06314, -171.0995" QuestId="67690" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67690) == 3">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.3668, 14.80313, -131.3677"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>					
+			</If>			
+      <MoveTo XYZ="5.285493, 0.2, 7.594339"/>
+      <LLTalkTo NpcId="1015944" XYZ="6.94281, 0.2249996, 7.431091" QuestId="67690" StepId="3"/>
+    </If>		
+    <If Condition="GetQuestStep(67690) == 4 and GetQuestById(67690).QuestI8A == 0">
+      <GetTo ZoneId="419" XYZ="-64.39237, -4.734931, -36.01495"/>
+      <LLTalkTo NpcId="1015949" XYZ="-62.18054, -4.734931, -36.51489" QuestId="67690" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(67690) == 4 and GetQuestById(67690).QuestI8A == 17">
+      <GetTo ZoneId="419" XYZ="-231.1799, -20.03492, -75.77011"/>
+      <LLTalkTo NpcId="1015947" XYZ="-228.9922, -20.03492, -77.07336" QuestId="67690" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(67690) == 255">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.3668, 14.80313, -131.3677"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>					
+			</If>		
+      <MoveTo XYZ="-0.2126149, 0.04326189, -8.513334"/>
+      <LLTurnIn QuestId="67690" NpcId="1015952" XYZ="-1.388611, 0.2, -9.903137"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- More than Meets Her Eye -->
+    <If Condition="IsQuestCompleted(67690) and not HasQuest(67691) and not IsQuestCompleted(67691)">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.3668, 14.80313, -131.3677"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>					
+			</If>				
+      <MoveTo XYZ="-2.672058, 0.02499956, -6.818284"/>
+      <If Condition="IsQuestAcceptQualified(67691)">
+        <LLPickupQuest QuestId="67691" NpcId="1015952"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(67691) == 1">
+      <GetTo ZoneId="419" XYZ="-34.0612, 15.96506, -70.29073"/>
+      <LLTalkTo NpcId="1015965" XYZ="-31.63196, 15.96506, -66.94135" QuestId="67691" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67691) == 2">
+      <GetTo ZoneId="419" XYZ="-65.35902, -4.734931, -38.11492"/>
+      <LLTalkTo NpcId="1015975" XYZ="-63.98114, -4.734931, -36.14868" QuestId="67691" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67691) == 3">
+      <GetTo ZoneId="418" XYZ="-42.85898, 19.00832, -34.79277"/>
+      <LLTalkTo NpcId="1015968" XYZ="-41.00104, 19.00832, -31.29626" QuestId="67691" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(67691) == 4">
+      <GetTo ZoneId="418" XYZ="-42.85898, 19.00832, -34.79277"/>
+      <LLTalkTo NpcId="1015972" XYZ="-41.73346, 19.00832, -31.84564" QuestId="67691" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(67691) == 5">
+      <LisbethTravel Zone="397" Subzone="2222" Position="780.4749, 216.1894, 222.667"/>
+      <LLTalkTo NpcId="1015973" XYZ="782.62, 216.8877, 222.9801" QuestId="67691" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(67691) == 6">
+      <LisbethTravel Zone="397" Subzone="2222" Position="780.475, 216.1894, 222.667"/>
+      <UseObject NpcId="2006603" XYZ="782.1926, 216.6322, 219.7451" QuestId="67691" StepId="6"/>
+			<WaitWhile condition="GetQuestStep(67691) == 6"/>
+		</If>		
+    <If Condition="GetQuestStep(67691) == 7">
+      <LisbethTravel Zone="397" Subzone="2222" Position="780.5695, 216.1337, 219.8524"/>
+      <UseObject NpcId="2006617" XYZ="782.1926, 216.6322, 219.7451" QuestId="67691" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(67691) == 8">
+      <GetTo ZoneId="418" XYZ="-39.40879, 19.00832, -31.83411"/>
+      <LLTalkTo NpcId="1015970" XYZ="-37.82715, 19.00832, -28.97687" QuestId="67691" StepId="8"/>
+    </If>
+    <If Condition="GetQuestStep(67691) == 255">
+      <GetTo ZoneId="419" XYZ="-121.5391, 14.55313, -164.5502"/>
+      <LLTurnIn QuestId="67691" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- Divine Reckoning -->
+    <If Condition="IsQuestCompleted(67691) and not HasQuest(67743) and not IsQuestCompleted(67743)">
+      <GetTo ZoneId="419" XYZ="-120.3855, 14.55313, -163.0967"/>
+      <If Condition="IsQuestAcceptQualified(67743)">
+        <LLPickupQuest QuestId="67743" NpcId="1015976"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(67743) == 1">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.9296, 14.80313, -130.8868"/>
+				<UseTransport NpcId="1016234" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>						
+			</If>			
+      <LLTalkTo NpcId="1018161" XYZ="-8.590881, 0.02499956, 3.952026" QuestId="67743" StepId="1"/>
+      <LLTalkTo NpcId="1017877" XYZ="-5.44751, 0.02499956, -2.273621" QuestId="67743" StepId="1"/>
+      <LLTalkTo NpcId="1017875" XYZ="-1.236023, 0.02499956, -4.898254" QuestId="67743" StepId="1"/>
+      <LLTalkTo NpcId="1018008" XYZ="5.172791, 0.2249996, 0.3203735" QuestId="67743" StepId="1"/>
+      <LLTalkTo NpcId="1017876" XYZ="8.743347, 0.2, 2.670288" QuestId="67743" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(67743) == 2">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.9296, 14.80313, -130.8868"/>
+				<UseTransport NpcId="1016234" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>		
+			</If>					
+      <MoveTo XYZ="3.673855, 0.2, -6.371543"/>
+      <LLTalkTo NpcId="1017874" XYZ="6.42395, 0.2249996, -6.149414" QuestId="67743" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67743) == 3">
+      <LisbethTravel Zone="397" Subzone="2201" Position="548.1758, 173.365, -534.2729"/>
+      <LLTalkTo NpcId="1017878" XYZ="547.8751, 174.0571, -537.0108" QuestId="67743" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(67743) == 255">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.7401, 14.80313, -130.4649"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>						
+			</If>		
+      <MoveTo XYZ="4.592953, 0.2249995, -5.945186"/>
+      <LLTurnIn QuestId="67743" NpcId="1017874" XYZ="6.42395, 0.2249996, -6.149414"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- Through the Grapevine -->
+    <If Condition="IsQuestCompleted(67743) and not HasQuest(67744) and not IsQuestCompleted(67744)">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.7401, 14.80313, -130.4649"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>						
+			</If>			
+      <MoveTo XYZ="1.922579, 0.1227437, -4.844075"/>
+      <If Condition="IsQuestAcceptQualified(67744)">
+        <LLPickupQuest QuestId="67744" NpcId="1017874"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(67744) == 1">
+      <GetTo ZoneId="419" XYZ="52.38153, 11.96509, 38.54746"/>
+      <LLTalkTo NpcId="1017879" XYZ="56.10742, 11.96507, 38.92566" QuestId="67744" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67744) == 2">
+      <GetTo ZoneId="419" XYZ="-120.94, 14.55313, -163.8833"/>
+      <LLHandOver ItemId="2001495" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796" QuestId="67744" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67744) == 3 and GetQuestById(67744).QuestI8A == 0">
+      <GetTo ZoneId="418" XYZ="88.62494, 15.09468, 33.43427"/>
+      <LLTalkTo NpcId="1011192" XYZ="88.36499, 15.09468, 31.29626" QuestId="67744" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(67744) == 3 and GetQuestById(67744).QuestI8A == 1">
+      <GetTo ZoneId="418" XYZ="98.94776, -22, 52.22034"/>
+      <LLTalkTo NpcId="1018087" XYZ="99.16833, -22, 49.21033" QuestId="67744" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(67744) == 3 and GetQuestById(67744).QuestI8A == 2">
+      <GetTo ZoneId="418" XYZ="27.71412, -12.02088, 50.45451"/>
+      <LLTalkTo NpcId="1012167" XYZ="27.66455, -11.99229, 47.86743" QuestId="67744" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(67744) == 255">
+      <GetTo ZoneId="419" XYZ="-121.6026, 14.55313, -164.3492"/>
+      <LLTurnIn QuestId="67744" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- A Familial Resemblance -->
+    <If Condition="IsQuestCompleted(67744) and not HasQuest(67745) and not IsQuestCompleted(67745)">
+      <GetTo ZoneId="419" XYZ="-120.3689, 14.55313, -162.8201"/>
+      <If Condition="IsQuestAcceptQualified(67745)">
+        <LLPickupQuest QuestId="67745" NpcId="1015976"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <While Condition="GetQuestStep(67745) == 1">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.7401, 14.80313, -130.4649"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>						
+			</If>			
+      <LLTalkTo NpcId="1018161" XYZ="-8.590881, 0.02499956, 3.952026" QuestId="67745" StepId="1"/>
+      <LLTalkTo NpcId="1017877" XYZ="-5.44751, 0.02499956, -2.273621" QuestId="67745" StepId="1"/>
+      <LLTalkTo NpcId="1017875" XYZ="-1.236023, 0.02499956, -4.898254" QuestId="67745" StepId="1"/>
+      <LLTalkTo NpcId="1018008" XYZ="5.172791, 0.2249996, 0.3203735" QuestId="67745" StepId="1"/>
+      <LLTalkTo NpcId="1017876" XYZ="8.743347, 0.2, 2.670288" QuestId="67745" StepId="1"/>
+    </While>
+    <If Condition="GetQuestStep(67745) == 2">
+      <GetTo ZoneId="419" XYZ="96.8353, -4.73493, -38.39415"/>
+      <LLTalkTo NpcId="1017883" XYZ="94.77368, -4.73493, -37.9798" QuestId="67745" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67745) == 255">
+      <GetTo ZoneId="419" XYZ="-120.4845, 14.55313, -163.0192"/>
+      <LLTurnIn ItemId="2001493" QuestId="67745" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- Finding Ulaa -->
+    <If Condition="IsQuestCompleted(67745) and not HasQuest(67746) and not IsQuestCompleted(67746)">
+      <GetTo ZoneId="419" XYZ="-120.4845, 14.55313, -163.0192"/>
+      <If Condition="IsQuestAcceptQualified(67746)">
+        <LLPickupQuest QuestId="67746" NpcId="1015976"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(67746) == 1">
+      <GetTo ZoneId="419" XYZ="-227.1253, -20.03492, -79.14901"/>
+      <UseObject NpcId="2007422" XYZ="-225.8488, -20.03516, -81.22388" QuestId="67746" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67746) == 2">
+      <GetTo ZoneId="418" XYZ="-6.920049, 1.30706, 91.01954"/>
+      <LLTalkTo NpcId="1017886" XYZ="-6.179932, 1.30706, 93.09521" QuestId="67746" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67746) == 3">
+      <LisbethTravel Zone="155" Subzone="383" Position="-147.7527, 290.141, -157.9481"/>
+      <LLTalkTo NpcId="1017887" XYZ="-147.8752, 290.3255, -155.993" QuestId="67746" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(67746) == 4">
+      <LisbethTravel Zone="155" Subzone="383" Position="-189.0176, 285.3668, -154.2857"/>
+			<LLSendChat say="inspection" NpcId="2007423" XYZ="-191.2109, 285.1758, -154.223" QuestId="67746"/>
+			<LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(67746) == 5">
+			<LisbethTravel Zone="155" Subzone="383" Position="-189.0176, 285.3668, -154.2857"/>
+      <WaitWhile condition="GetQuestStep(67746) == 5"/>
+    </If>
+    <If Condition="GetQuestStep(67746) == 6">
+      <LisbethTravel Zone="155" Subzone="383" Position="-166.8863, 289.0568, -145.0366"/>
+      <LLTalkTo NpcId="1017892" XYZ="-165.7588, 289.3539, -142.1684" QuestId="67746" StepId="6"/>
+    </If>	
+    <If Condition="GetQuestStep(67746) == 255">
+      <GetTo ZoneId="419" XYZ="-120.6807, 14.55313, -163.2708"/>
+      <LLTurnIn QuestId="67746" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- The Student Body's Revenge -->
+    <If Condition="IsQuestCompleted(67746) and not HasQuest(67897) and not IsQuestCompleted(67897)">
+      <GetTo ZoneId="419" XYZ="-121.7781, 14.55313, -164.7927"/>
+      <If Condition="IsQuestAcceptQualified(67897)">
+        <LLPickupQuest QuestId="67897" NpcId="1015976"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(67897) == 1">
+      <GetTo ZoneId="419" XYZ="-143.1339, 14.80313, -130.5724"/>
+			<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>  
+			<LLSmallTalk/>
+    </If>		
+    <If Condition="GetQuestStep(67897) == 2">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.7401, 14.80313, -130.4649"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>						
+			</If>			
+      <MoveTo XYZ="-5.064081, 0.02499962, -5.692121"/>
+			<LLEmoteNpc NpcId="1017902" Emote="soothe" XYZ="-7.461731, 0.02499956, -6.973389" QuestId="67897" StepId="2"/>
+			<LLSmallTalk/>
+    </If>	
+    <If Condition="GetQuestStep(67897) == 3">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.7401, 14.80313, -130.4649"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>						
+			</If>			
+      <MoveTo ZoneId="427" XYZ="-4.844617, 0.02499956, -2.912869"/>
+			<LLEmoteNpc NpcId="1017904" Emote="rally" XYZ="-6.424072, 0.02499956, -5.56958" QuestId="67897" StepId="3"/>
+			<LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(67897) == 255">
+      <MoveTo XYZ="-4.94389, 0.02499962, -4.808268"/>
+      <LLTurnIn QuestId="67897" NpcId="1017897" XYZ="-5.020264, 0.07901219, -8.651917"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- The Whipping Boy -->
+    <If Condition="IsQuestCompleted(67897) and not HasQuest(67898) and not IsQuestCompleted(67898)">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.7401, 14.80313, -130.4649"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>						
+			</If>			
+      <MoveTo XYZ="-5.025439, 0.02499956, -5.89622"/>
+      <If Condition="IsQuestAcceptQualified(67898)">
+        <LLPickupQuest QuestId="67898" NpcId="1017897"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67898) == 1">
+      <GetTo ZoneId="419" XYZ="-121.4828, 14.66714, -159.9579"/>
+      <LLTalkTo NpcId="1017909" XYZ="-120.2259, 14.55313, -162.6154" QuestId="67898" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67898) == 2">
+      <GetTo ZoneId="419" XYZ="-36.39956, 15.96506, -71.20431"/>
+      <LLTalkTo NpcId="1017912" XYZ="-35.69086, 15.96506, -68.2536" QuestId="67898" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(67898) == 255">
+      <GetTo ZoneId="419" XYZ="-36.39956, 15.96506, -71.20431"/>
+			<LLEmoteNpc NpcId="1017912" Emote="soothe" XYZ="-35.69086, 15.96506, -68.2536" QuestId="67898" StepId="255"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- Letters from No One -->
+    <If Condition="IsQuestCompleted(67898) and not HasQuest(67899) and not IsQuestCompleted(67899)">
+      <GetTo ZoneId="419" XYZ="-36.39956, 15.96506, -71.20431"/>
+      <If Condition="IsQuestAcceptQualified(67899)">
+        <LLPickupQuest QuestId="67899" NpcId="1017914"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67899) == 1">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.7401, 14.80313, -130.4649"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>						
+			</If>		
+      <LLTalkTo NpcId="1017919" XYZ="-9.323303, 0.2, -10.23883" QuestId="67899" StepId="1"/>
+      <LLTalkTo NpcId="1017920" XYZ="4.714966, 0.2249996, -5.96637" QuestId="67899" StepId="1"/>
+      <LLTalkTo NpcId="1017918" XYZ="10.39136, 0.2, -0.5646362" QuestId="67899" StepId="1"/>
+      <UseObject NpcIds="2007425,2007426" XYZ="11.8562, 0.1983643, 10.42188" QuestId="67899" StepId="1"/>		
+    </If>	
+    <If Condition="GetQuestStep(67899) == 2">
+			<If condition="not IsOnMap(427)">
+				<GetTo ZoneId="419" XYZ="-142.7401, 14.80313, -130.4649"/>
+				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>						
+			</If>			
+      <MoveTo XYZ="-4.957877, 0.02499956, 7.720467"/>
+      <LLHandOver ItemId="2001494" NpcId="1017916" XYZ="-2.609314, 0.02499956, 6.17981" QuestId="67899" StepId="2"/>
+    </If>	
+    <If Condition="GetQuestStep(67899) == 255">
+      <GetTo ZoneId="419" XYZ="-47.44103, 15.73161, -91.40448"/>
+      <LLTurnIn QuestId="67899" NpcId="1017923" XYZ="-45.09052, 15.87441, -91.32526"/>
+      <LLSmallTalk/>
+    </If>		
+	</If>	
+	
+	<!-- Step Dance - Reward for the quest Good for What Ales You (LVL 14, Dodozan in Limsa Lominsa Lower Decks (7.5,12.4)). -->	
+	<If Condition="not IsQuestCompleted(66962)">	
+    <!-- Good for What Ales You -->
+    <If Condition="not HasQuest(66962) and not IsQuestCompleted(66962)">
+      <GetTo ZoneId="129" XYZ="-187.7923, 16, 56.09879"/>
+      <If Condition="IsQuestAcceptQualified(66962)">
+        <LLPickupQuest QuestId="66962" NpcId="1003505"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66962) == 1 and GetQuestById(66962).QuestI8A == 0">
+      <GetTo ZoneId="129" XYZ="-173.1413, 4, 180.5227"/>
+      <LLTalkTo NpcId="1007962" XYZ="-170.3975, 3.999997, 180.8041" QuestId="66962" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(66962) == 1 and GetQuestById(66962).QuestI8A == 1">
+      <GetTo ZoneId="129" XYZ="-156.08, 3.999957, 187.939"/>
+      <LLTalkTo NpcId="1007960" XYZ="-154.162, 3.999983, 186.2668" QuestId="66962" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(66962) == 1 and GetQuestById(66962).QuestI8A == 2">
+      <GetTo ZoneId="129" XYZ="-189.459, 0.9999907, 206.5503"/>
+      <LLTalkTo NpcId="1007961" XYZ="-189.8375, 0.9999907, 205.6152" QuestId="66962" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(66962) == 2">
+			<GetTo ZoneId="129" XYZ="-265.5883, 8.199999, 176.2127" />
+      <MoveTo Zone="129" Subzone="702" XYZ="-262.0242, 16.34713, 191.5619"/>
+      <LLTalkTo NpcId="1007797" XYZ="-260.731, 16.35219, 194.171" QuestId="66962" StepId="2"/>
+    </If>	
+    <If Condition="GetQuestStep(66962) == 255">
+      <GetTo ZoneId="129" XYZ="-188.5276, 16, 56.4686"/>
+      <LLTurnIn ItemId="2001250" QuestId="66962" NpcId="1003505" XYZ="-186.2059, 16, 56.9314"/>
+      <LLSmallTalk/>
+    </If>		
+	</If>	
+				
+	<!-- Throw - Reward for the LVL 36 quest Toss Fit Workout in Coerthas Central Highlands (25,27.8). -->	
+	<If Condition="not IsQuestCompleted(66846)">	
+    <!-- Toss Fit Workout -->
+    <If Condition="not HasQuest(66846) and not IsQuestCompleted(66846)">
+      <LisbethTravel Zone="155" Subzone="385" Position="172.213, 222.0003, 312.1581"/>
+      <If Condition="IsQuestAcceptQualified(66846)">
+        <LLPickupQuest QuestId="66846" NpcId="1006381"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(66846) == 255">
+      <LisbethTravel Zone="155" Subzone="385" Position="242.8152, 222.2244, 326.9453"/>
+      <LLTurnIn QuestId="66846" NpcId="1006385" XYZ="241.5045, 222.2589, 325.4597"/>
+      <LLSmallTalk/>
+    </If>		
+	</If>			
+	
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
