@@ -19,6 +19,10 @@
 	<Author>Antony_256, DomesticWarlord86, NeonNeo</Author>
 	<Order>
 	<RunCode name="PluginLoad"/>
+		<If condition="not IsQuestCompleted(67010) and not GetQuestStep(67010) &gt; 3">
+			<LLToast message="Please complete the Sycus Tower unlock quests and then run the profile again."/>
+			<StopBot/>
+		</If>
 		<While condition="not HasAtLeast(32956,150)">
 			<While condition="not DutyManager.InInstance">
 				<LLJoinDuty DutyId="102" Undersized="False" Raid="True"/>
@@ -27,48 +31,57 @@
 
 				<If Condition="GetInstanceTodo(2) == 0">
 					<Log Message="Clear the Ladder of Ascension 0/1" />
-					<MoveTo XYZ="0.08094282, -700, 74.585" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="0.08094282, -700, 74.585" />
 					<WaitWhile Condition="not IsPartyInCombat()"/>
 					<Grind GrindRef="Yellow Dragon" While="GetInstanceTodo(2) == 0" />
-					<MoveTo XYZ="36.59584, -682.3271, -34.34914" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="36.59584, -682.3271, -34.34914" />
 					<LLChangeZone Heading="1.693069"/>					
 				</If>
 
 				<If Condition="GetInstanceTodo(2) == 1 and GetInstanceTodo(3) == 0">
 					<Log Message="Defeat Scylla" />
-					<If condition="GameObjectManager.GetObjectByNPCId(2004154) or GameObjectManager.GetObjectByNPCId(2002941)">
-						<RunCode name="Allagan Teleporter"/>
+					<If condition="GameObjectManager.GetObjectByNPCId(2004154)">
+						<UseTransport InteractDistance="3.0" NpcId="2004154" XYZ="-5.01403,-894.782,324.8913"/>
 					</If>
-					<MoveTo XYZ="0.4508072, -590, -156.197" />					
+					<If condition="GameObjectManager.GetObjectByNPCId(2002941)">
+						<UseTransport InteractDistance="3.0" NpcId="2002941" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="0.4508072, -590, -156.197" />					
 					<WaitWhile Condition="not IsPartyInCombat()"/>
 					<Grind GrindRef="Scylla" While="GetInstanceTodo(3) == 0" />	
-					<MoveTo XYZ="-0.1552268, -589.46, -222.2895" usemesh="false" />					
-					<MoveTo XYZ="-0.1741263, -581.6946, -252.3315" usemesh="false" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-0.1552268, -589.46, -222.2895" usemesh="false" />					
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-0.1741263, -581.6946, -252.3315" usemesh="false" />
 					<LLChangeZone Heading="3.156204"/>					
 				</If>
 				
 				<If Condition="GetInstanceTodo(3) == 1 and GetInstanceTodo(4) == 0">
 					<Log Message="Clear the Braid" />
-					<If condition="GameObjectManager.GetObjectByNPCId(2004154) or GameObjectManager.GetObjectByNPCId(2002941)">
-						<RunCode name="Allagan Teleporter"/>
-					</If>					
-					<MoveTo XYZ="23.1056, -400, -200.1003" />
+					<If condition="GameObjectManager.GetObjectByNPCId(2004154)">
+						<UseTransport InteractDistance="3.0" NpcId="2004154" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<If condition="GameObjectManager.GetObjectByNPCId(2002941)">
+						<UseTransport InteractDistance="3.0" NpcId="2002941" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>				
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="23.1056, -400, -200.1003" />
 					<WaitWhile Condition="not IsPartyInCombat()"/>
 					<Grind GrindRef="Green Dragon" While="GetInstanceTodo(4) == 0" />
-					<MoveTo XYZ="-69.1171, -395.2811, -215.37" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-69.1171, -395.2811, -215.37" />
 					<LLChangeZone Heading="3.067017"/>	
-					<MoveTo Name="Jumppad" XYZ="4.952466, -4, -135.4132" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" Name="Jumppad" XYZ="4.952466, -4, -135.4132" />
 					<RunCode Name="Jumppad"/>					
 				</If>			
 
 				<If Condition="GetInstanceTodo(4) == 1 and GetInstanceTodo(5) == 0">
 					<Log Message="Defeat Glasya Labolas 0/1" />
-					<If condition="GameObjectManager.GetObjectByNPCId(2004154) or GameObjectManager.GetObjectByNPCId(2002941)">
-						<RunCode name="Allagan Teleporter"/>
+					<If condition="GameObjectManager.GetObjectByNPCId(2004154)">
+						<UseTransport InteractDistance="3.0" NpcId="2004154" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<If condition="GameObjectManager.GetObjectByNPCId(2002941)">
+						<UseTransport InteractDistance="3.0" NpcId="2002941" XYZ="-5.01403,-894.782,324.8913"/>
 					</If>
 					<WaitWhile Condition="not IsPartyInCombat()"/>
 					<Grind GrindRef="Glasya Labolas" While="GetInstanceTodo(5) == 0" />
-					<MoveTo XYZ="-13.77971, 4.375302, -266.6036" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-13.77971, 4.375302, -266.6036" />
 					<LLChangeZone Heading="4.825583"/>
 				</If>
 
@@ -77,34 +90,44 @@
 					<If condition="GameObjectManager.GetObjectByNPCId(2004154) or GameObjectManager.GetObjectByNPCId(2002941)">
 						<RunCode name="Allagan Teleporter"/>
 					</If>					
-					<MoveTo XYZ="-0.04082332, 200, -222.5494" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-0.04082332, 200, -222.5494" />
 					<WaitWhile Condition="not IsPartyInCombat()"/>
 					<Grind GrindRef="Red Dragon" PostCombatDelay="3.0" While="GetInstanceTodo(6) == 0" />
-					<MoveTo XYZ="-16.32521, 204.8967, -132.3171" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-16.32521, 204.8967, -132.3171" />
 					<LLChangeZone Heading="4.674441"/>
 				</If>
 				
 				<If Condition="GetInstanceTodo(6) == 1 and GetInstanceTodo(7) == 0">
 					<Log Message="Defeat Amon 0/1" />
 					<If condition="GameObjectManager.GetObjectByNPCId(2004154)">
-						<RunCode name="Allagan Teleporter"/>
-					</If>					
-					<MoveTo XYZ="12.27859, 600, -179.0363" />
+						<UseTransport InteractDistance="3.0" NpcId="2004154" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<If condition="GameObjectManager.GetObjectByNPCId(2002941)">
+						<UseTransport InteractDistance="3.0" NpcId="2002941" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>				
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="12.27859, 600, -179.0363" />
 					<WaitWhile Condition="not IsPartyInCombat()"/>
 					<Grind GrindRef="Amon" While="GetInstanceTodo(7) == 0" />	
-					<MoveTo XYZ="-59.21965, 602.7, -199.7233" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-59.21965, 602.7, -199.7233" />
 					<LLChangeZone Heading="4.773327"/>
 				</If>
 
 				<If Condition="GetInstanceTodo(7) == 1 and GetInstanceTodo(8) == 0">
 					<Log Message="Defeat Xande 0/1" />
-					<MoveTo XYZ="-374.567, 500.0322, -200.096" />
+					<If condition="GameObjectManager.GetObjectByNPCId(2004154)">
+						<UseTransport InteractDistance="3.0" NpcId="2004154" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<If condition="GameObjectManager.GetObjectByNPCId(2002941)">
+						<UseTransport InteractDistance="3.0" NpcId="2002941" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>					
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-374.567, 500.0322, -200.096" />
 					<WaitWhile Condition="not IsPartyInCombat()"/>
 					<Grind GrindRef="Xande" PostCombatDelay="3.0" While="GetInstanceTodo(8) == 0" /> 
+					<PassOnLoot/>
 				</If>
 				
 				<If Condition="GetInstanceTodo(8) == 1">
-					<WaitTimer WaitTime="5" />
+					<WaitTimer WaitTime="60000" />
 					<LLLeaveDuty/>
 				</If>	
 			</If>
@@ -114,7 +137,7 @@
 	<GrindAreas>
 		<GrindArea Name="Yellow Dragon">
 			<Hotspots>
-				<Hotspot XYZ="0.07623291, -700, 40.11597" Radius="120" />
+				<Hotspot XYZ="0.07623291, -700, 40.11597" Radius="200" />
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="2800" Weight="1"/> <!-- Oceanus -->		
@@ -126,7 +149,7 @@
 		</GrindArea>
 		<GrindArea Name="Scylla">
 			<Hotspots>
-				<Hotspot XYZ="0.1983643, -590, -192.1569" Radius="120" />
+				<Hotspot XYZ="0.1983643, -590, -192.1569" Radius="200" />
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="2809" Weight="1"/> <!-- Scylla -->
@@ -135,7 +158,7 @@
 		</GrindArea>
 		<GrindArea Name="Green Dragon">
 			<Hotspots>
-				<Hotspot XYZ="23.1056, -400, -200.1003" Radius="120" />
+				<Hotspot XYZ="8.191957, -400, -206.3808" Radius="200" />
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="2796" Weight="1"/> <!-- Gomory -->
@@ -147,7 +170,7 @@
 		</GrindArea>
 		<GrindArea Name="Glasya Labolas">
 			<Hotspots>
-				<Hotspot XYZ="-0.03659993, -200, -460.0256" Radius="120" />
+				<Hotspot XYZ="0.07623291,0,-202.472" Radius="200" />
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="2815" Weight="10"/> <!-- Glasya Labolas -->
@@ -156,7 +179,7 @@
 		</GrindArea>
 		<GrindArea Name="Red Dragon">
 			<Hotspots>
-				<Hotspot XYZ="-0.04082332, 200, -222.5494" Radius="120" />
+				<Hotspot XYZ="18.22345, 200, -201.4061" Radius="200" />
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="2792" Weight="1"/> <!-- Azer -->
@@ -166,19 +189,19 @@
 		</GrindArea>
 		<GrindArea Name="Amon">
 			<Hotspots>
-				<Hotspot XYZ="2.609253, 600, -199.7254" Radius="120" />
+				<Hotspot XYZ="-0.9613647,600,-201.8616" Radius="200" />
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="2821" Weight="1"/> <!-- Amon -->
 				<TargetMob Id="2817" Weight="10"/> <!-- Experimental By-product #66 -->
 				<TargetMob Id="2818" Weight="10"/> <!-- Experimental By-product #33 -->
-				<TargetMob Id="2886" Weight="1"/> <!-- Kum Kum -->
-				<TargetMob Id="2826" Weight="1"/> <!-- Kichiknebik -->
+				<TargetMob Id="2886" Weight="10"/> <!-- Kum Kum -->
+				<TargetMob Id="2826" Weight="10"/> <!-- Kichiknebik -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea Name="Xande">
 			<Hotspots>
-				<Hotspot XYZ="-392.6299, 500, -200.5189" Radius="120" />
+				<Hotspot XYZ="-400.392,500,-198.6185" Radius="200" />
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="2824" Weight="1"/> <!-- Xande -->			

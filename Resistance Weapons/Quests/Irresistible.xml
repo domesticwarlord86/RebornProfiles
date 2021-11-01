@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- GetQuestById(66098).QuestI8AH == 2-->
+	<!-- Profile start here -->	
+	<If Condition="not IsQuestCompleted(67012)">	
+		<LLToast message="Please do the quest The Burdens We Bear"/>
+	</If>	
+	
+    <!--  Irresistible -->
+    <If Condition="not HasQuest(69637)">
+			<While Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</While>				
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>		
+      <LisbethTravel Zone="915" Subzone="0" Position="0.9804457, 3.105582, -57.64367"/>
+      <If Condition="IsQuestAcceptQualified(69637)">
+        <RunCode name="Irresistible"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69637) == 255">
+      <While condition="not HasAtLeast(33767,15)">
+				<LLToast message="Please collect 15 Raw Emotions. They come from the following:"/>
+				<LLToast message="Dalriada, Delubrum Reginae, level 70 dungeons, or any floor HoH."/>
+				<WaitTimer WaitTime="26" />
+			</While>
+      <If condition="HasAtLeast(33767,15)">
+				<If Condition="ClassName == ClassJobType.Bard">	
+					<ChangeClass Job="Bard" Force="True"/>
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32673">
+						<Log Message="Augmented Law's Order weapon equipped, going to purchase differnt weapon." />
+						<LisbethTravel Area="Central Shroud" Position="16.39847, -8.011558, -13.21636"/>
+						<BuyItem NpcId="1000220" ItemId="1893" ItemCount="1" DialogOption="0" XYZ="16.18976,-8.010209,-15.64056"/>
+						<EquipWeapon ItemID="1893"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>		
+				<If Condition="ClassName == ClassJobType.Dragoon">	
+					<ChangeClass Job="Dragoon" Force="True"/>
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32672">
+						<Log Message="Augmented Law's Order weapon equipped, going to purchase differnt weapon." />
+						<LisbethTravel Area="Central Shroud" Position="16.39847, -8.011558, -13.21636"/>
+						<BuyItem NpcId="1000220" ItemId="1822" ItemCount="1" DialogOption="0" XYZ="16.18976,-8.010209,-15.64056"/>
+						<EquipWeapon ItemID="1822"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ClassJobType.Paladin">	
+					<ChangeClass Job="Paladin" Force="True"/>
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32669">
+						<Log Message="Augmented Law's Order weapon equipped, going to purchase differnt weapon." />
+						<LisbethTravel Area="Central Thanalan" Position="-10.65622, -2.04808, -150.1143"/>
+						<BuyItem NpcId="1001563" ItemIds="1602,2219" ItemCount="1,1" DialogOption="0" XYZ="-8.346741,-2.04808,-149.3401"/>
+						<EquipWeapon ItemID="1602"/>
+						<WaitTimer WaitTime="3" />
+						<EquipWeapon ItemID="2219"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ClassJobType.RedMage">
+					<ChangeClass Job="Redmage" force="True"/>
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32683">
+					<Log Message="Augmented Law's Order weapon equipped, going to purchase differnt tool." />
+					<LisbethTravel Area="Idyllshire" Position="75.44334, 207.0313, 3.713525"/>
+					<While condition="not HasAtLeast(20397,1)">
+						<BuyItem NpcId="1012093" ItemId="20397" ItemCount="1" DialogOption="0" XYZ="75.88306,207.1172,6.607117"/>
+					</While>  
+					<EquipWeapon ItemID="20397"/>
+					<WaitTimer WaitTime="3" />
+							</While>		  
+				</If>		
+				<If Condition="ClassName == ClassJobType.WhiteMage">	
+					<ChangeClass Job="WhiteMage" Force="True"/>
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32677">
+						<Log Message="Augmented Law's Order weapon equipped, going to purchase differnt weapon." />
+						<LisbethTravel Area="Central Shroud" Position="16.39847, -8.011558, -13.21636"/>
+						<BuyItem NpcId="1000220" ItemId="1997" ItemCount="1" DialogOption="0" XYZ="16.18976,-8.010209,-15.64056"/>
+						<EquipWeapon ItemID="1997"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<While Condition="not IsOnMap(759)">
+					<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+				</While>				
+				<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+				<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+				<LLTurnIn ItemId="33767" QuestId="69637" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>
+				<LLSmallTalk/>	 
+			</If>			
+    </If>	
+
+		<LLoadProfile Path="../Start.xml"/>		
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="Irresistible">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();			
+									
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!Talk.DialogOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}						
+					
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing current quest.");
+						if (!ConditionParser.IsQuestCompleted(69637))
+						{
+							Logging.WriteDiagnostic("Choosing 'Irresistible'.");
+							SelectIconString.ClickLineContains(("Irresistible"));
+						}
+						else if (ConditionParser.IsQuestCompleted(69637))
+						{
+							Logging.WriteDiagnostic("Resistance Weapon Forging'.");
+							SelectIconString.ClickLineContains(("Resistance Weapon Forging"));
+							await Coroutine.Wait(10000, () => SelectString.IsOpen);
+							await Buddy.Coroutines.Coroutine.Sleep(500);
+							{
+								Logging.WriteDiagnostic("Choosing 'Irresistible'.");
+								SelectString.ClickLineContains(("Irresistible"));
+							}							
+						}
+					}									
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (!SelectString.IsOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}	
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing current class.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+					}
+
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();					
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}
+
+					
+			]]>			
+		</CodeChunk>	
+  </CodeChunks>
+</Profile>  

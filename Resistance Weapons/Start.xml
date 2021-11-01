@@ -17,7 +17,7 @@
 <!ENTITY mnk "0"> 
 <!ENTITY nin "0">
 <!ENTITY rdm "0">  		
-<!ENTITY pld "1"> 
+<!ENTITY pld "0"> 
 <!ENTITY sam "0"> 		
 <!ENTITY sch "0"> 
 <!ENTITY smn "0"> 
@@ -61,11 +61,15 @@
 			<If Condition="HasAtLeast(32663,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
+			<!-- Blade's Providence -->
+			<If Condition="HasAtLeast(32681,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32681,1)">
+			<While Condition="HasAtLeast(33474,1)">
 				<LLToast message="Congratulations! You're all done with Astrologian."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>				
 			<!-- Solstice -->
 			<If Condition="not HasAtLeast(30240,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -97,11 +101,15 @@
 			<If Condition="HasAtLeast(32655,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
+			<!-- Blade's Muse -->
+			<If Condition="HasAtLeast(32673,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32673,1)">
+			<While Condition="HasAtLeast(33466,1)">
 				<LLToast message="Congratulations! You're all done with Bard."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>				
 			<!-- Brilliance -->
 			<If Condition="not HasAtLeast(30232,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -133,11 +141,15 @@
 			<If Condition="HasAtLeast(32660,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>				
+			<!-- Blade's Muse -->
+			<If Condition="HasAtLeast(32678,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32678,1)">
+			<While Condition="HasAtLeast(33471,1)">
 				<LLToast message="Congratulations! You're all done with Black Mage."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>				
 			<!-- Soulscourge -->
 			<If Condition="not HasAtLeast(30237,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -169,11 +181,15 @@
 			<If Condition="HasAtLeast(32667,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
+			<!-- Blade's Euphoria -->
+			<If Condition="HasAtLeast(32685,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32685,1)">
+			<While Condition="HasAtLeast(33478,1)">
 				<LLToast message="Congratulations! You're all done with Dancer."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>				
 			<!-- Enchufla -->
 			<If Condition="not HasAtLeast(30244,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -205,11 +221,15 @@
 			<If Condition="HasAtLeast(32657,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
+			<!-- Blade's Justice -->
+			<If Condition="HasAtLeast(32675,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32675,1)">
+			<While Condition="HasAtLeast(33468,1)">
 				<LLToast message="Congratulations! You're all done with Dark Knight."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>				
 			<!-- Woeborn -->
 			<If Condition="not HasAtLeast(30234,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -240,12 +260,16 @@
 			<!-- Augmented Law's Order Spear -->
 			<If Condition="HasAtLeast(32654,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
+			</If>				
+			<!-- Blade's Glory -->
+			<If Condition="HasAtLeast(32672,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32672,1)">
-				<LLToast message="Congratulations! You're all done with Dark Knight."/>
+			<While Condition="HasAtLeast(33465,1)">
+				<LLToast message="Congratulations! You're all done with Dragoon."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>				
 			<!-- Dreizack -->
 			<If Condition="not HasAtLeast(30231,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -277,11 +301,15 @@
 			<If Condition="HasAtLeast(32666,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
+			<!-- Blade's Resolve -->
+			<If Condition="HasAtLeast(32684,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32684,1)">
+			<While Condition="HasAtLeast(33477,1)">
 				<LLToast message="Congratulations! You're all done with Gunbreaker."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>				
 			<!-- Crownsblade -->
 			<If Condition="not HasAtLeast(30243,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -313,11 +341,15 @@
 			<If Condition="HasAtLeast(32658,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
+			<!-- Blade's Ingenuity -->
+			<If Condition="HasAtLeast(32676,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32676,1)">
+			<While Condition="HasAtLeast(33469,1)">
 				<LLToast message="Congratulations! You're all done with Machinist."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>				
 			<!-- Lawman -->
 			<If Condition="not HasAtLeast(30235,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -349,11 +381,15 @@
 			<If Condition="HasAtLeast(32652,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
+			<!-- Blade's Ingenuity -->
+			<If Condition="HasAtLeast(32670,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32670,1)">
+			<While Condition="HasAtLeast(33463,1)">
 				<LLToast message="Congratulations! You're all done with Monk."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>					
 			<!-- Samsara -->
 			<If Condition="not HasAtLeast(30229,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -385,11 +421,15 @@
 			<If Condition="HasAtLeast(32656,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
+			<!-- Blade's Subtlety -->
+			<If Condition="HasAtLeast(32674,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32674,1)">
+			<While Condition="HasAtLeast(33467,1)">
 				<LLToast message="Congratulations! You're all done with Ninja."/>
 				<WaitTimer WaitTime="26" />
-			</While>			
+			</While>				
 			<!-- Honeshirazu -->
 			<If Condition="not HasAtLeast(30233,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -421,11 +461,15 @@
 			<If Condition="HasAtLeast(32665,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
+			<!-- Blade's Temperance -->
+			<If Condition="HasAtLeast(32683,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32683,1)">
+			<While Condition="HasAtLeast(33476,1)">
 				<LLToast message="Congratulations! You're all done with Red Mage."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>			
 			<!-- Talekeeper -->
 			<If Condition="not HasAtLeast(30242,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -456,9 +500,13 @@
 			<!-- Augmented Law's Order Bastard Sword -->
 			<If Condition="HasAtLeast(32651,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
+			</If>	
+			<!-- Blade's Honor -->
+			<If Condition="HasAtLeast(32669,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32669,1)">
+			<While Condition="HasAtLeast(33462,1)">
 				<LLToast message="Congratulations! You're all done with Paladin."/>
 				<WaitTimer WaitTime="26" />
 			</While>			
@@ -492,12 +540,16 @@
 			<!-- Augmented Law's Order Samurai Blade -->
 			<If Condition="HasAtLeast(32664,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
-			</If>				
+			</If>					
+			<!-- Blade's Fealty -->
+			<If Condition="HasAtLeast(32682,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32682,1)">
+			<While Condition="HasAtLeast(33475,1)">
 				<LLToast message="Congratulations! You're all done with Samurai."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>			
 			<!-- Hoshikiri -->
 			<If Condition="not HasAtLeast(30241,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -529,11 +581,15 @@
 			<If Condition="HasAtLeast(32662,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
+			<!-- Blade's Wisdom -->
+			<If Condition="HasAtLeast(32680,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32680,1)">
+			<While Condition="HasAtLeast(33473,1)">
 				<LLToast message="Congratulations! You're all done with Scholar."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>				
 			<!-- Akademos -->
 			<If Condition="not HasAtLeast(30239,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -565,11 +621,15 @@
 			<If Condition="HasAtLeast(32661,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>			
+			<!-- Blade's Acumen -->
+			<If Condition="HasAtLeast(32679,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32679,1)">
+			<While Condition="HasAtLeast(33472,1)">
 				<LLToast message="Congratulations! You're all done with Summoner."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>				
 			<!-- Espiritus -->
 			<If Condition="not HasAtLeast(30238,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
@@ -601,8 +661,12 @@
 			<If Condition="HasAtLeast(32653,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
 			</If>				
+			<!-- Blade's Valor -->
+			<If Condition="HasAtLeast(32671,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
+			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32671,1)">
+			<While Condition="HasAtLeast(33464,1)">
 				<LLToast message="Congratulations! You're all done with Warrior."/>
 				<WaitTimer WaitTime="26" />
 			</While>			
@@ -637,12 +701,16 @@
 			<!-- Augmented Law's Order Cane -->
 			<If Condition="HasAtLeast(32659,1)">
 				<LLoadProfile Path="Quests/A New Path of Resistance.xml"/>
+			</If>				
+			<!-- Blade's Mercy -->
+			<If Condition="HasAtLeast(32677,1)">
+				<LLoadProfile Path="Quests/Irresistible.xml"/>
 			</If>			
 			<!-- All done -->
-			<While Condition="HasAtLeast(32677,1)">
+			<While Condition="HasAtLeast(33470,1)">
 				<LLToast message="Congratulations! You're all done with White Mage."/>
 				<WaitTimer WaitTime="26" />
-			</While>		
+			</While>			
 			<!-- Ingrimm -->
 			<If Condition="not HasAtLeast(30236,1)">
 				<LLoadProfile Path="Quests/Resistance Is (Not) Futile.xml"/>
