@@ -116,7 +116,7 @@
 		  <TurnIn QuestId="67750" NpcId="1016136" XYZ="-756.0082, -182.9606, -550.103"/>  
 		  <BotSettings AutoEquip="0" />
 		</If>
-		<If condition="not HasAtLeast(13577,1) not and HasAtLeast(13578,1) not and HasAtLeast(13579,1) not and HasAtLeast(13580,1)">
+		<If condition="not HasAtLeast(13577,1) and not HasAtLeast(13578,1) and not HasAtLeast(13579,1) and not HasAtLeast(13580,1)">
 			<While condition="1 == 1">
 				<RunCode name="ObtainMaterials"/>
 			</While>	
