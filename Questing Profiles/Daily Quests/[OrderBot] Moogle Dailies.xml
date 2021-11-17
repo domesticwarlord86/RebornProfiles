@@ -972,6 +972,29 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
 				<LLTurnIn ItemId="15724" QuestId="67862" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587"/>
 				<LLSmallTalk/>
 			</If>      
+    </If>	
+
+		<!-- Sworn to Bloodsworn -->
+    <!-- The Zenith of Craftsmanship -->
+    <If Condition="not HasQuest(67863) and not IsQuestCompleted(67863)">
+      <LisbethTravel Zone="400" Subzone="2095" Position="-338.9249, 59.03798, 316.6961"/>
+      <If Condition="IsQuestAcceptQualified(67863)">
+        <LLPickupQuest QuestId="67863" NpcId="1017320"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(67863) == 1 and GetQuestById(67863).QuestI8A == 0">
+      <LisbethTravel Zone="400" Subzone="2095" Position="-341.4538, 59.03801, 319.5519"/>
+      <LLTalkTo NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587" QuestId="67863" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(67863) == 1 and GetQuestById(67863).QuestI8A == 16">
+      <LisbethTravel Zone="400" Subzone="2095" Position="-362.3665, 60.89618, 308.6613"/>
+      <LLTalkTo NpcId="1017173" XYZ="-363.8209, 60.89619, 306.3859" QuestId="67863" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(67863) == 255">
+      <LisbethTravel Zone="400" Subzone="2095" Position="-341.7852, 59.03801, 317.7703"/>
+      <LLTurnIn QuestId="67863" NpcId="1017320" XYZ="-342.1531, 59.03801, 315.1445"/>
+      <LLSmallTalk/>
     </If>		
 		
 		

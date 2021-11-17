@@ -1118,34 +1118,35 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 					<If Condition="ClassName != ClassJobType.Fisher">
 
 						<If Condition="not HasItem(22707) and not HasHqItem(22733)">
+							<TeleportTo AetheryteId="110" Force="True"/>
 							<UseObject NpcId="1025786" XYZ="75.42529, 114.8851, -9.475891" Condition="not HasItem(22707)"/>
 						</If>
 						<!-- Dzo Shear Components -->
 						<While Condition="HasItem(22707) and not HasHqItem(22733)">
-							<If Condition="ClassName == ClassJobType.Carpenter">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock','QuickSynth':true}]"/>
-							</If>
-							<If Condition="ClassName == ClassJobType.Blacksmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock','QuickSynth':true}]"/>
-							</If>
-							<If Condition="ClassName == ClassJobType.Armorer">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock','QuickSynth':true}]"/>
-							</If>
-							<If Condition="ClassName == ClassJobType.Goldsmith">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock','QuickSynth':true}]"/>
-							</If>
-							<If Condition="ClassName == ClassJobType.Leatherworker">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock','QuickSynth':true}]"/>
-							</If>
-							<If Condition="ClassName == ClassJobType.Weaver">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock','QuickSynth':true}]"/>
-							</If>
-							<If Condition="ClassName == ClassJobType.Alchemist">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock','QuickSynth':true}]"/>
-							</If>
-							<If Condition="ClassName == ClassJobType.Culinarian">
-								<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock','QuickSynth':true}]"/>
-							</If>
+								<If Condition="ClassName == ClassJobType.Carpenter">
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Default','Hq':true}]"/>
+								</If>
+								<If Condition="ClassName == ClassJobType.Blacksmith">
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Default','Hq':true}]"/>
+								</If>
+								<If Condition="ClassName == ClassJobType.Armorer">
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Default','Hq':true}]"/>
+								</If>
+								<If Condition="ClassName == ClassJobType.Goldsmith">
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Default','Hq':true}]"/>
+								</If>
+								<If Condition="ClassName == ClassJobType.Leatherworker">
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Default','Hq':true}]"/>
+								</If>
+								<If Condition="ClassName == ClassJobType.Weaver">
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Default','Hq':true}]"/>
+								</If>
+								<If Condition="ClassName == ClassJobType.Alchemist">
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Alchemist','AmountMode':'Default','Hq':true}]"/>
+								</If>
+								<If Condition="ClassName == ClassJobType.Culinarian">
+									<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':22733,'Amount':1,'Enabled':true,'Type':'Culinarian','AmountMode':'Default','Hq':true}]"/>
+								</If>
 						</While>
 						<If Condition="CraftingLog.IsOpen and HasHqItem(22733)">
 							<RunCode Name="StopCrafting"/>
@@ -2561,8 +2562,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 						<If Condition="not IsOnMap(463)">
 							<LisbethTravel ZoneId="399" XYZ="-529.1114, 153.1559, -488.4168"/>
 						</If>
-						<LisbethTravel ZoneId="622" XYZ="-581.1666, 137.8901, 495.137" Land="True"/>
-						<NoCombatMoveTo XYZ="-488.7923, 138.9333, 741.0543"/>
+						<LisbethTravel ZoneId="399" XYZ="-488.7923, 138.9333, 741.0543" Land="True"/>
 						<UseTransport InteractDistance="3.0" NpcId="2005336" XYZ="-488.7923, 138.9333, 741.0543"/>
 						<UseItem ItemId="2002474" NpcId="2009488" XYZ="17.83771, 38.40698, 15.03003" QuestId="68637" StepId="1"/>
 					</If>
