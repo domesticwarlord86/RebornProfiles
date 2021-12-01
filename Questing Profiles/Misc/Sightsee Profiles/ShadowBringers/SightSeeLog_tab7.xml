@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  Sightseeing Log Tab7(Shadowbringers)
+Authors:  Kayla D'orden
+Notes:    Missing https://ffxiv.gamerescape.com/wiki/Sightseeing_Log:_Rakuza_District
+				  https://ffxiv.gamerescape.com/wiki/Sightseeing_Log:_The_Statue_of_Zuiko
+				  https://ffxiv.gamerescape.com/wiki/Sightseeing_Log:_Tenkonto
+				  https://ffxiv.gamerescape.com/wiki/Sightseeing_Log:_Kugane_Ofunakura
+				  https://ffxiv.gamerescape.com/wiki/Sightseeing_Log:_East_Othard_Coastline (timed)
+				  
+-->
+<Profile>
+	<Name>[OrderBot] Sightseeing Log Tab7(ShadowBringer)</Name>
+	<Order>
+
+		<If Condition="not IsQuestCompleted(69204)">
+		  <GetTo ZoneId="398" XYZ="504.1477, -48.98983, 34.56757"/>
+		  <If Condition="IsQuestAcceptQualified(67643)">
+			<PickupQuest QuestId="67643" NpcId="1013715" XYZ="504.1477, -48.98983, 34.56757"/>
+		  </If>
+		</If>
+
+		<If Condition="not IsQuestCompleted(68456)">
+		  <GetTo ZoneId="635" XYZ="-32.50736, 8.254956, 95.39259"/>
+		  <If Condition="IsQuestAcceptQualified(68456)">
+			<PickupQuest QuestId="68456" NpcId="1019464" XYZ="-32.50736, 8.254956, 95.39259"/>
+		  </If>
+		</If>
+				
+		<!-- The Sunken Destroyer(2162880) /lookout -218.12, -283.105, -113.249  -->
+		<TeleportTo AetheryteId="102"/>
+		<FlyTo ZoneId="621" XYZ="-141.227, 1.477553, -144.5314" Name="The Sunken Destroyer" ArrivalTolerance="0.5" Land="false" AllowedVariance="0.0"/>
+		<RunCode Name="MoveTo2162880"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		
+		<!-- The Ala Mhigan Quarter #2(2162881) /lookout 728.046, 80.9657, 602.288  -->
+		<TeleportTo AetheryteId="103" Force="True"/>
+		<FlyTo ZoneId="621" XYZ="728.063, 86.37264, 595.8619" Name="The Ala Mhigan Quarter #2" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="MoveTo2162881"/>
+		<RunCode Name="lookout"/>
+
+		<!-- The Statue of Zuiko(2162882) /lookout -4.37274, 5.2779, -64.0847  
+		<TeleportTo AetheryteId="111"/>
+		<FlyTo ZoneId="628" XYZ="-4.37274, 5.2779, -64.0847" Name="The Statue of Zuiko" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		NOPE -->
+
+		<!-- Rakuza District(2162883) /lookout -71.5357, 26.1413, -143.151  
+		<TeleportTo AetheryteId="111"/>
+		<FlyTo ZoneId="628" XYZ="-71.5357, 26.1413, -143.151" Name="Rakuza District" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		Jumping puzzle in Kugane-->
+		
+		<!-- Tenkonto(2162884) /lookout 64.4344, 15.7567, -30.3241 
+		<TeleportTo AetheryteId="111"/>
+		<FlyTo ZoneId="628" XYZ="64.4344, 15.7567, -30.3241" Name="Tenkonto" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		Kugane jumping -->
+
+		<!-- Kugane Ofunakura(2162885) /lookout -67.3715, 4.26844, 57.9105  
+		<TeleportTo AetheryteId="111"/>
+		<FlyTo ZoneId="628" XYZ="-67.3715, 4.26844, 57.9105" Name="Kugane Ofunakura" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		Kugane jumping-->
+		
+		<!-- Shisui of the Violet Tides(2162886) /lookout -821.625, -858.011, 749.037  -->
+		<TeleportTo AetheryteId="105"/>
+		<FlyTo ZoneId="613" XYZ="-812.0109, 11.23451, 743.8633" Name="Shisui of the Violet Tides" ArrivalTolerance="0.5" Land="false" AllowedVariance="0.0"/>
+		<RunCode Name="MoveTo2162886"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		
+		<!-- East Othard Coastline(2162887) timed  -->
+		
+		<!-- Crick(2162888) /lookout 1.39211, 33.4709, -474.697  -->
+		<TeleportTo AetheryteId="105" Force="true"/>
+		<FlyTo ZoneId="613" XYZ="4.592254, 35.44714, -476.6796" Name="Crick" ArrivalTolerance="0.5" Land="false" AllowedVariance="0.0"/>
+		<RunCode Name="MoveTo2162888"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		
+		<!-- Imperial Hypersonic Assault Craft L-XXIII(2162889) /lookout 706.341, -120.255, 866.73  -->
+		<TeleportTo AetheryteId="107"/>
+		<FlyTo ZoneId="614" XYZ="707.2202, 1.805963, 876.7701" Name="Imperial Hypersonic Assault Craft L-XXIII" ArrivalTolerance="0.5" Land="false" AllowedVariance="0.0"/>
+		<RunCode Name="MoveTo2162889"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+
+		<!-- Mol Iloh(2162890) /lookout 495.494, 67.7263, -498.119  -->
+		<TeleportTo AetheryteId="109"/>
+		<FlyTo ZoneId="622" XYZ="495.494, 67.7263, -498.119" Name="Mol Iloh" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+
+		<!-- Moai Statue(2162891) /lookout 19.4963, -46.2176, -54.5222  -->
+		<TeleportTo AetheryteId="109"/>
+		<FlyTo ZoneId="622" XYZ="16.21639, 32.65728, -90.48852" Name="Moai Statue" ArrivalTolerance="0.5" Land="false" AllowedVariance="0.0"/>
+		<RunCode Name="MoveTo2162891"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>	
+		
+	</Order>
+	<CodeChunks>
+		<CodeChunk Name="dismount"><![CDATA[ 
+		if (Core.Player.IsMounted)
+		{
+			ff14bot.Managers.ActionManager.Dismount();
+			await Coroutine.Sleep(1000);
+		}
+		]]></CodeChunk>
+		<CodeChunk Name="lookout"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/lookout");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="pray"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/pray");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="doze"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/doze");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="rally"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/rally");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="groundsit"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/groundsit");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="me"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/me");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="MoveTo2162880"><![CDATA[ 
+			MovementManager.StartDescending();
+			await Coroutine.Wait(5000, () => CommonBehaviors.IsLoading);
+			MovementManager.StopDescending();
+
+            Vector3[] _navPoints = new[]
+            {
+				new Vector3(-141.227f, -38.67442f, -144.5314f),
+				new Vector3(-172.3727f, -103.8588f, -199.8518f),
+				new Vector3(-117.5087f, -237.915f, -140.6888f),
+				new Vector3(-217.2989f, -283.8595f, -113.7824f)
+
+            };
+            foreach (var _target in _navPoints)
+            {
+                while (_target.DistanceSqr(Core.Me.Location) >= 0.5)
+                {
+                    ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+                    await Coroutine.Sleep(50);
+					Navigator.PlayerMover.MoveStop();
+                }
+                Navigator.PlayerMover.MoveStop();
+            }
+            if (Core.Player.IsMounted)
+            {
+                ff14bot.Managers.ActionManager.Dismount();
+                await Coroutine.Sleep(1000);
+            }
+		]]></CodeChunk>
+		<CodeChunk Name="MoveTo2162881"><![CDATA[ 
+			Navigator.PlayerMover.MoveTowards(new Vector3(728.046f, 80.9657f, 602.28f));
+            await Coroutine.Sleep(900);
+			Navigator.PlayerMover.MoveStop();
+		]]></CodeChunk>
+		<CodeChunk Name="MoveTo2162886"><![CDATA[ 
+			MovementManager.StartDescending();
+			await Coroutine.Wait(5000, () => CommonBehaviors.IsLoading);
+			MovementManager.StopDescending();
+
+            Vector3[] _navPoints = new[]
+            {
+				new Vector3(-900.0173f, -556.4039f, 762.6817f),
+				new Vector3(-814.2746f, -840.0505f, 754.7007f),
+				new Vector3(-825.2022f, -854.1397f, 746.2316f),
+				new Vector3(-822.9401f, -860.1194f, 748.1032f)
+
+            };
+            foreach (var _target in _navPoints)
+            {
+                while (_target.DistanceSqr(Core.Me.Location) >= 0.5)
+                {
+                    ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+                    await Coroutine.Sleep(50);
+					Navigator.PlayerMover.MoveStop();
+                }
+                Navigator.PlayerMover.MoveStop();
+            }
+            if (Core.Player.IsMounted)
+            {
+                ff14bot.Managers.ActionManager.Dismount();
+                await Coroutine.Sleep(1000);
+            }
+		]]></CodeChunk>
+		
+		<CodeChunk Name="MoveTo2162888"><![CDATA[ 
+            Vector3[] _navPoints = new[]
+            {
+				new Vector3(1.328654f, 33.58335f, -478.2882f),
+				new Vector3(1.204454f, 33.50779f, -474.519f)
+            };
+            foreach (var _target in _navPoints)
+            {
+                while (_target.DistanceSqr(Core.Me.Location) >= 0.5)
+                {
+                    ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+                    await Coroutine.Sleep(50);
+					Navigator.PlayerMover.MoveStop();
+                }
+                Navigator.PlayerMover.MoveStop();
+            }
+            if (Core.Player.IsMounted)
+            {
+                ff14bot.Managers.ActionManager.Dismount();
+                await Coroutine.Sleep(1000);
+            }
+		]]></CodeChunk>
+		<CodeChunk Name="MoveTo2162889"><![CDATA[ 
+			MovementManager.StartDescending();
+			await Coroutine.Wait(5000, () => CommonBehaviors.IsLoading);
+			MovementManager.StopDescending();
+
+            Vector3[] _navPoints = new[]
+            {
+				new Vector3(708.5318f, -48.94405f, 876.845f),
+				new Vector3(697.9845f, -106.7747f, 876.9014f),
+				new Vector3(705.3855f, -121.1797f, 867.2203f)
+            };
+            foreach (var _target in _navPoints)
+            {
+                while (_target.DistanceSqr(Core.Me.Location) >= 0.5)
+                {
+                    ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+                    await Coroutine.Sleep(50);
+					Navigator.PlayerMover.MoveStop();
+                }
+                Navigator.PlayerMover.MoveStop();
+            }
+            if (Core.Player.IsMounted)
+            {
+                ff14bot.Managers.ActionManager.Dismount();
+                await Coroutine.Sleep(1000);
+            }
+		]]></CodeChunk>
+		
+<CodeChunk Name="MoveTo2162891"><![CDATA[ 
+            Vector3[] _navPoints = new[]
+            {
+				new Vector3(10.0351f, 24.25619f, -60.58677f),
+				new Vector3(41.35862f, 5.702538f, -53.90322f)
+            };
+            foreach (var _target in _navPoints)
+            {
+                while (_target.DistanceSqr(Core.Me.Location) >= 0.5)
+                {
+                    ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+                    await Coroutine.Sleep(50);
+					Navigator.PlayerMover.MoveStop();
+                }
+                Navigator.PlayerMover.MoveStop();
+            }
+			MovementManager.StartDescending();
+			await Coroutine.Wait(5000, () => CommonBehaviors.IsLoading);
+			MovementManager.StopDescending();
+
+            _navPoints = new[]
+            {
+				new Vector3(44.02473f, -38.13639f, -52.28058f),
+				new Vector3(14.78706f, -41.26385f, -55.2424f),
+				new Vector3(18.98111f, -46.82316f, -54.54298f)
+            };
+            foreach (var _target in _navPoints)
+            {
+                while (_target.DistanceSqr(Core.Me.Location) >= 0.5)
+                {
+                    ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+                    await Coroutine.Sleep(50);
+					Navigator.PlayerMover.MoveStop();
+                }
+                Navigator.PlayerMover.MoveStop();
+            }
+            if (Core.Player.IsMounted)
+            {
+                ff14bot.Managers.ActionManager.Dismount();
+                await Coroutine.Sleep(1000);
+            }
+		]]></CodeChunk>
+	</CodeChunks>
+
+
+</Profile>

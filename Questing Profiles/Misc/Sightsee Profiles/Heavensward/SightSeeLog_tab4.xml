@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Profile:  Sightseeing Log Tab4(Non-Timed)
+Authors:  Kayla
+Notes:    Path of knowing you need to jump off the cliff at the right angle and The cathedral look here https://ffxiv.gamerescape.com/wiki/Sightseeing_Log:_The_Cathedral
+-->
+<Profile>
+	<Name>[OrderBot] Sightseeing Log Tab4(Non-Timed)</Name>
+	<Order>
+
+		<!-- Statue of the Unsung(2162818) /pray 564.649, 186.474, 493.283  -->
+		<TeleportTo AetheryteId="78"/>
+		<FlyTo ZoneId="400" XYZ="564.649, 186.474, 493.283" Name="Statue of the Unsung" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="pray"/>
+
+		<!-- Landlord Colony(2162819) /lookout 740.541, 202.987, -405.95  -->
+		<TeleportTo AetheryteId="78"/>
+		<FlyTo ZoneId="400" XYZ="740.541, 202.987, -405.95" Name="Landlord Colony" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+
+		<!-- The Old Father(2162820) /lookout -392.1, 113.008, 122.388  -->
+		<TeleportTo AetheryteId="78"/>
+		<FlyTo ZoneId="400" XYZ="-392.1, 113.008, 122.388" Name="The Old Father" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+
+		<!-- Coldwind(2162821) /lookout -805.472, -89.4253, -824.851  -->
+		<TeleportTo AetheryteId="72"/>
+		<FlyTo ZoneId="401" XYZ="-805.472, -89.4253, -824.851" Name="Coldwind" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+
+		<!-- The Shattered Back(2162822) /lookout 207.516, -12.7969, -779.469  -->
+		<TeleportTo AetheryteId="72"/>
+		<FlyTo ZoneId="401" XYZ="207.516, -12.7969, -779.469" Name="The Shattered Back" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		
+		<!-- Provenance(2162823) /lookout -629.845, -163.335, 308.732  -->
+		<TeleportTo AetheryteId="72"/>
+		<FlyTo ZoneId="401" XYZ="-629.845, -163.335, 308.732" Name="Provenance" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		
+		<!-- The Sage's Cataract(2162824) /lookout -515.021, 150.299, -477.84  -->
+		<If Condition="not IsOnMap(399)">
+			<GetTo ZoneId="399" XYZ="-528.3641, 150.6786, -469.7975"/>
+		</If>
+		<FlyTo ZoneId="399" XYZ="-515.021, 150.299, -477.84" Name="The Sage's Cataract" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		
+		<!-- The Path of Knowing(2162825) /lookout -141.94, 187.337, 779.134  
+		<If Condition="not IsOnMap(399)">
+			<GetTo ZoneId="399" XYZ="-528.3641, 150.6786, -469.7975"/>
+		</If>
+		<FlyTo ZoneId="399" XYZ="-141.94, 187.337, 779.134" Name="The Path of Knowing" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		you need to jump off the cliff above to get this-->
+		
+		<!-- The Daggers(2162826) /lookout 395.143, 201.227, 439.936  -->
+		<If Condition="not IsOnMap(399)">
+			<GetTo ZoneId="399" XYZ="-528.3641, 150.6786, -469.7975"/>
+		</If>
+		<FlyTo ZoneId="399" XYZ="401.3338, 203.3388, 441.7937" Name="The Daggers" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<FlyTo ZoneId="399" XYZ="395.9238, 202.0362, 440.4389" Name="The Daggers" ArrivalTolerance="0.5" Land="false" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		
+		<!-- Centrifugal Crystal Engine(2162827) /lookout -625.377, -168.824, -383.315  -->
+		<TeleportTo AetheryteId="74"/>
+		<FlyTo ZoneId="402" XYZ="-606.3791, -170.442, -428.0511" Name="Centrifugal Crystal Engine" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="MoveTo2162827"/>
+		<RunCode Name="lookout"/>
+		<TeleportTo AetheryteId="74" Force="True"/>
+		
+		<!-- Biomass Incubation Complex(2162828) /lookout 651.968, -50.186, -807.028  -->
+		<TeleportTo AetheryteId="74"/>
+		<FlyTo ZoneId="402" XYZ="669.0516, -33.26518, -830.8209" Name="Biomass Incubation Complex" ArrivalTolerance="0.5" Land="true" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="MoveTo2162828"/>
+		<RunCode Name="lookout"/>
+		<TeleportTo AetheryteId="74" Force="True"/>
+		
+		<!-- The Cathedral(2162829) /lookout 168.109, 8.49612, 304.277  
+		<TeleportTo AetheryteId="74"/>
+		<FlyTo ZoneId="402" XYZ="171.0821, 25.75298, 302.1337" Name="The Cathedral" ArrivalTolerance="0.5" Land="false" AllowedVariance="0.0"/>
+		<RunCode Name="dismount"/>
+		<RunCode Name="lookout"/>
+		You need to jump from top of wall  (X25.9, Y28.6, Z6.0)-->
+	</Order>
+	<CodeChunks>
+		<CodeChunk Name="dismount"><![CDATA[ 
+		if (Core.Player.IsMounted)
+		{
+			ff14bot.Managers.ActionManager.Dismount();
+			await Coroutine.Sleep(1000);
+		}
+		]]></CodeChunk>
+		<CodeChunk Name="lookout"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/lookout");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="pray"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/pray");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="doze"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/doze");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="rally"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/rally");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="groundsit"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/groundsit");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="me"><![CDATA[ 
+		await Coroutine.Sleep(1500);
+		ff14bot.Managers.ChatManager.SendChat("/me");
+		await Coroutine.Sleep(1000);
+		]]></CodeChunk>
+		<CodeChunk Name="MoveTo2162799"><![CDATA[ 
+		Vector3 _target = new Vector3(-603.9484f, 156.8299f, 632.1282f);
+		ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+		while (_target.Distance2D(Core.Me.Location) >= 1)
+		{
+			ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+			await Coroutine.Sleep(100);
+		}
+		Navigator.PlayerMover.MoveStop();
+		_target = new Vector3(-622.8054f, 156.9892f, 670.6766f);
+		ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+		while (_target.Distance2D(Core.Me.Location) >= 0.5)
+		{
+			ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+			await Coroutine.Sleep(50);
+		}
+		Navigator.PlayerMover.MoveStop();
+		if (Core.Player.IsMounted)
+		{
+			ff14bot.Managers.ActionManager.Dismount();
+			await Coroutine.Sleep(1000);
+		}
+		]]></CodeChunk>
+		<CodeChunk Name="MoveTo2162814"><![CDATA[ 
+		if (Core.Player.IsMounted)
+		{
+			ff14bot.Managers.ActionManager.Dismount();
+			await Coroutine.Sleep(1000);
+		}
+		Vector3 _target = new Vector3(37.69775f, -143.6301f, 820.7176f);
+		ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+		while (_target.Distance2D(Core.Me.Location) >= 1)
+		{
+			ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+			await Coroutine.Sleep(100);
+		}
+		Navigator.PlayerMover.MoveStop();
+		_target = new Vector3(41.91534f, -138.2688f, 833.9902f);
+		ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+		while (_target.Distance2D(Core.Me.Location) >= 0.5)
+		{
+			ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+			await Coroutine.Sleep(50);
+		}
+		Navigator.PlayerMover.MoveStop();
+		_target = new Vector3(45.48538f, -134.5283f, 842.6234f);
+		ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+		while (_target.Distance2D(Core.Me.Location) >= 0.5)
+		{
+			ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+			await Coroutine.Sleep(50);
+		}
+		Navigator.PlayerMover.MoveStop();
+
+		]]></CodeChunk>
+		<CodeChunk Name="MoveTo2162827"><![CDATA[ 
+		Vector3 _target = new Vector3(-602.4983f, -169f, -405.2929f);
+		ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+		while (_target.Distance2D(Core.Me.Location) >= 1)
+		{
+			ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+			await Coroutine.Sleep(100);
+		}
+		Navigator.PlayerMover.MoveStop();
+		_target = new Vector3(-625.377f, -168.824f, -383.315f);
+		ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+		while (_target.Distance2D(Core.Me.Location) >= 0.5)
+		{
+			ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+			await Coroutine.Sleep(50);
+		}
+		Navigator.PlayerMover.MoveStop();
+		if (Core.Player.IsMounted)
+		{
+			ff14bot.Managers.ActionManager.Dismount();
+			await Coroutine.Sleep(1000);
+		}
+		]]></CodeChunk>
+		<CodeChunk Name="MoveTo2162828"><![CDATA[ 
+            Vector3[] _navPoints = new[]
+            {
+                new Vector3(665.2115f, -45.98069f, -823.6209f),
+                new Vector3(653.9483f, -40.88724f, -810.1611f),
+                new Vector3(658.1705f, -49.30964f, -810.4144f),
+                new Vector3(652.2063f, -50.32238f, -807.071f)
+            };
+            foreach (var _target in _navPoints)
+            {
+                ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+                while (_target.Distance2D(Core.Me.Location) >= 1)
+                {
+                    ff14bot.Navigation.Navigator.PlayerMover.MoveTowards(_target);
+                    await Coroutine.Sleep(100);
+                }
+                Navigator.PlayerMover.MoveStop();
+            }
+            if (Core.Player.IsMounted)
+            {
+                ff14bot.Managers.ActionManager.Dismount();
+                await Coroutine.Sleep(1000);
+            }
+		]]></CodeChunk>
+	</CodeChunks>
+
+
+</Profile>

@@ -1746,6 +1746,7 @@ Authors:  Sodimm, TuckMeIntoBread, DomesticWarlord86
 							<RunCode Name="StopCrafting"/>
 						</If>
 						<If Condition="HasAtLeast(22742, 2)">
+							<LisbethTravel Area="The Azim Steppe (The Dawn Throne)" Position="88.4856, 116.043, 140.6862"/>
 							<HandOver ItemId="22742" NpcId="1025820" XYZ="94.2854, 116.043, 143.4805" QuestId="68661" Step="2"/>
 						</If>
 					</If>
