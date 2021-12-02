@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Endwalker Main Story Quests
+  Authors: DomesticWarlord86
+	
+	This profile is in early beta. As such I've set it to not work unless you change acceptBeta to 1.
+	By doing so you accept that there's a lot of this profile that may not work properly yet.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY acceptBeta "0"> 		
+]> 
+
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- GetQuestById(66098).QuestI8AH == 2-->
+	<!-- Profile start here -->	
+
+	<If Condition="&acceptBeta; == 0">
+		<LLToast message="LOL you thought there were quests!"/>
+		<Log Message="Stay Tuned. ;)" />  
+	</If>	
+	<If Condition="&acceptBeta; == 1">
+		<LLToast message="Welcome to Endwalker!"/>
+	</If>	
+ 
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
