@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Endwalker 6.0
+  Authors: Zamphire, Kayla, Angles24
+-->
+<Profile>
+  <Name>Endwalker 6.0</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  	
+	<!-- 80 [Quest Name] -->
+	<LLToast message="LOL you thought there were quests!"/>
+	<Log Message="Stay Tuned. ;)" />  
+		
+  </Order>
+</Profile>
+
+
