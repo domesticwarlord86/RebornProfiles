@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Sage Quests
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Sage Quests</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- GetQuestById(66098).QuestI8AH == 2-->
+	<!-- Profile start here -->	
+    <!-- Sage's Path -->
+    <If Condition="not HasQuest(69603) and not IsQuestCompleted(69603)">
+      <GetTo ZoneId="129" XYZ="-89.08726, 20, 86.35266"/>  <!-- Subzone="0" Area="Limsa Lominsa (Lower Decks)" -->
+      <If Condition="IsQuestAcceptQualified(69603)">
+        <LLPickupQuest QuestId="69603" NpcId="1039243"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69603) == 1">
+      <GetTo ZoneId="134" XYZ="-25.89312, 42.59772, 161.6769"/>  <!-- Subzone="179" Area="Middle La Noscea" -->
+      <LLTalkTo NpcId="1039265" XYZ="-27.5426, 42.59772, 163.7445" QuestId="69603" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69603) == 255">
+      <GetTo ZoneId="134" XYZ="-25.89312, 42.59772, 161.6769"/>  <!-- Subzone="179" Area="Middle La Noscea" -->
+      <LLTurnIn QuestId="69603" NpcId="1039265" XYZ="-27.5426, 42.59772, 163.7445"/>			
+      <LLSmallTalk/>
+			<If Condition="IsQuestCompleted(69603)">
+				<If Condition="not ClassName == ((ClassJobType.Sage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 35778">
+						<RunCode name="UseCoffer"/>
+						<Log Message="Equipping Stonegold Milpreves" />
+						<EquipWeapon ItemID="35778"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<AutoInventoryEquip/>
+			</If>				
+    </If>
+		
+ 
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="UseCoffer">
+		<![CDATA[ 
+            BagSlot coffer = InventoryManager.FilledSlots.FirstOrDefault(i => i.RawItemId == 35873);
+            if (coffer != default(BagSlot))
+            {
+                coffer.UseItem();
+                await Coroutine.Sleep(5000);
+            }
+		]]>
+		</CodeChunk>	
+  </CodeChunks>
+</Profile>  

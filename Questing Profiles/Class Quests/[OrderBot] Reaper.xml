@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Reaper Quests
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Reaper Quests</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- GetQuestById(66098).QuestI8AH == 2-->
+	<!-- Profile start here -->	
+    <!-- The Nightmare's End -->
+    <If Condition="not HasQuest(69609) and not IsQuestCompleted(69609)">
+      <GetTo ZoneId="130" XYZ="81.5092, 4, -129.1605"/>  <!-- Subzone="0" Area="Ul'dah (Steps of Nald)" -->
+      <If Condition="IsQuestAcceptQualified(69609)">
+        <LLPickupQuest QuestId="69609" NpcId="1036633"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69609) == 1">
+      <GetTo ZoneId="131" XYZ="134.8965, 4, 10.40489"/>  <!-- Subzone="646" Area="Ul'dah (Steps of Thal)" -->
+      <LLTalkTo NpcId="1036634" XYZ="134.0504, 4, 11.42896" QuestId="69609" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69609) == 2">
+      <GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+			<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>	
+			<WaitWhile condition="GetQuestStep(69609) == 255"/>	
+    </If>
+    <If Condition="GetQuestStep(69609) == 255">
+			<If condition="not IsOnMap(971)">
+				<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+				<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+			</If>
+      <LLTurnIn NpcId="1037014" XYZ="0.9002075, 0.01480778, -4.379395" QuestId="69609" StepId="255"/>
+			<If Condition="IsQuestCompleted(69609)">
+				<If Condition="not ClassName == ((ClassJobType.Reaper))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 35760">
+						<RunCode name="UseCoffer"/>
+						<Log Message="Equipping Deepgold War Scythe" />
+						<EquipWeapon ItemID="35760"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<AutoInventoryEquip/>
+			</If>			
+    </If>		
+			
+    <!-- The Harvest Begins -->
+    <If Condition="IsQuestCompleted(69609) and not HasQuest(69610) and not IsQuestCompleted(69610)">
+			<If condition="not IsOnMap(971)">
+				<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+				<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+			</If>		
+      <If Condition="IsQuestAcceptQualified(69610)">
+        <LLPickupQuest QuestId="69610" NpcId="1037014"/>
+        <LLSmallTalk/>
+      </If>
+    </If>			
+		
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+			<CodeChunk Name="UseCoffer">
+		<![CDATA[ 
+            BagSlot coffer = InventoryManager.FilledSlots.FirstOrDefault(i => i.RawItemId == 35872);
+            if (coffer != default(BagSlot))
+            {
+                coffer.UseItem();
+                await Coroutine.Sleep(5000);
+            }
+		]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>  
