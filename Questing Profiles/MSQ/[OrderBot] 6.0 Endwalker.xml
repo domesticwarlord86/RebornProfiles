@@ -51,6 +51,9 @@
       <GetTo ZoneId="129" XYZ="-373.2449, 7.999985, 46.1327"/>  <!-- Subzone="728" Area="Limsa Lominsa (Lower Decks)" -->
       <LLTalkTo NpcId="1038570" XYZ="-374.6853, 7.999938, 45.82275" QuestId="69893" StepId="1"/>
     </If>
+    <If Condition="HasQuest(69893) and GetQuestStep(69893) &lt; 255">
+			<WaitWhile condition="GetQuestStep(69893) &lt; 255"/>
+    </If>		
     <If Condition="GetQuestStep(69893) == 255">
       <GetTo ZoneId="962" XYZ="50.51358, -16.247, 145.8548"/>  <!-- Subzone="3822" Area="" -->
       <LLTurnIn QuestId="69893" NpcId="1038578" XYZ="49.69861, -16.247, 145.2201"/>
@@ -215,9 +218,9 @@
 		<!-- Might need to make a new tag to follow NPC here -->
     <If Condition="GetQuestStep(69897) == 2">
       <GetTo ZoneId="962" XYZ="-236.6738, 13.23725, -25.63701"/>  <!-- Subzone="3807" Area="" -->
-      <LLTalkTo NpcId="1038753" XYZ="-234.2108, 12.96952, -27.05432" QuestId="69897" StepId="2"/>
-			<LLTalkTo NpcId="1038753" XYZ="-234.2108, 12.96952, -27.05432" QuestId="69897" StepId="2"/>
-      <LLTalkTo NpcId="1038753" XYZ="-77.90129, 41.37599, -209.4096" QuestId="69897" StepId="2"/>		
+      <LLTalkTo InteractDistance="1" NpcId="1038753" XYZ="-234.2108, 12.96952, -27.05432" QuestId="69897" StepId="2"/>
+			<LLTalkTo InteractDistance="1" NpcId="1038753" XYZ="-234.2108, 12.96952, -27.05432" QuestId="69897" StepId="2"/>
+      <LLTalkTo InteractDistance="1" NpcId="1038753" XYZ="-77.90129, 41.37599, -209.4096" QuestId="69897" StepId="2"/>		
     </If>	
     <If Condition="GetQuestStep(69897) == 3">
       <GetTo ZoneId="962" XYZ="-69.13951, 18.04393, -319.5711"/>  <!-- Subzone="3811" Area="" -->
@@ -678,7 +681,7 @@
 			<RunCode name="TurnOnMount"/>			
     </If>
     <If Condition="GetQuestStep(69908) == 7">
-      <GetTo ZoneId="957" XYZ="-445.8572, 49.98135, 94.63971"/>  <!-- Subzone="3885" Area="" -->
+      <GetTo ZoneId="957" XYZ="-445.8572, 49.98135, 94.63971"/>
       <LLTalkTo NpcId="1041221" XYZ="-444.7242, 49.55681, 97.18469" QuestId="69908" StepId="7"/>
 			<RunCode name="TurnOffMount"/>
 			<MoveTo XYZ="-460.2699, 51.14045, 128.9878" />
@@ -687,9 +690,120 @@
 			<MoveTo XYZ="-484.5909,54.18516,128.3601" />
 			<WaitWhile condition="GetQuestStep(69908) == 7"/>
 			<RunCode name="TurnOnMount"/>			
+    </If>	
+    <If Condition="GetQuestStep(69908) == 8">
+      <GetTo ZoneId="957" XYZ="-481.9859, 54.17505, 128.4273"/>  <!-- Subzone="3885" Area="" -->
+      <LLTalkTo NpcId="1038637" XYZ="-484.6113, 54.18761, 128.3436" QuestId="69908" StepId="8"/>
+    </If>
+    <If Condition="GetQuestStep(69908) == 255">
+      <GetTo ZoneId="957" XYZ="-484.6452, 48.96137, 153.016"/>  <!-- Subzone="3885" Area="" -->
+      <LLTurnIn ItemId="2003181" QuestId="69908" NpcId="1038635" XYZ="-487.1443, 49.16134, 153.4294"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Shadowed Footsteps -->
+    <If Condition="IsQuestCompleted(69908) and not HasQuest(69909) and not IsQuestCompleted(69909)">
+      <GetTo ZoneId="957" XYZ="-484.6452, 48.96137, 153.016"/>  <!-- Subzone="3885" Area="" -->
+      <If Condition="IsQuestAcceptQualified(69909)">
+        <LLPickupQuest QuestId="69909" NpcId="1038635"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69909) == 1">
+      <GetTo ZoneId="957" XYZ="-235.1282, 27.61966, 24.09503"/>  <!-- Subzone="3885" Area="" -->
+      <LLTalkTo NpcId="1038638" XYZ="-230.6402, 27.61966, 23.72772" QuestId="69909" StepId="1"/>
+			<WaitWhile condition="GetQuestStep(69909) == 1"/>
+    </If>
+    <If Condition="GetQuestStep(69909) == 2">
+      <GetTo ZoneId="957" XYZ="-234.9981, 27.61966, 23.15695"/>  <!-- Subzone="3885" Area="" -->
+      <LLTalkTo NpcId="1038638" XYZ="-230.6402, 27.61966, 23.72772" QuestId="69909" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69909) == 3">
+      <GetTo ZoneId="957" XYZ="-17.91662, 83.88016, -69.18366"/>  <!-- Subzone="3885" Area="" -->
+      <LLTalkTo NpcId="1038639" XYZ="-15.03015, 84.48873, -71.00024" QuestId="69909" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69909) == 4">
+      <GetTo ZoneId="957" XYZ="31.4718, 90.2834, -153.3373"/>  <!-- Subzone="3887" Area="" -->
+      <UseObject NpcId="2011954" XYZ="31.60144, 90.22656, -154.6503" QuestId="69909" StepId="4"/>
+    </If>	
+    <If Condition="GetQuestStep(69909) == 5">
+      <GetTo ZoneId="957" XYZ="32.18766, 90.29767, -156.0076"/>  <!-- Subzone="3887" Area="" -->
+      <LLTalkTo NpcId="1038641" XYZ="34.62268, 90.26942, -159.8077" QuestId="69909" StepId="5"/>
+    </If>	
+    <If Condition="GetQuestStep(69909) == 255">
+      <GetTo ZoneId="957" XYZ="-510.9986, 11.97528, 114.7178"/>  <!-- Subzone="3886" Area="" -->
+      <LLTurnIn QuestId="69909" NpcId="1038631" XYZ="-510.7958, 11.97528, 117.6927"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- A Boy's Errand -->
+    <If Condition="IsQuestCompleted(69909) and not HasQuest(69910) and not IsQuestCompleted(69910)">
+      <GetTo ZoneId="957" XYZ="-510.9986, 11.97528, 114.7178"/>  <!-- Subzone="3886" Area="" -->
+      <If Condition="IsQuestAcceptQualified(69910)">
+        <LLPickupQuest QuestId="69910" NpcId="1038631"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69910) == 1">
+      <GetTo ZoneId="957" XYZ="-388.9201, 11.82304, 28.69027"/>  <!-- Subzone="3885" Area="" -->
+      <LLTalkTo NpcId="1038642" XYZ="-384.1764, 12.20272, 28.24438" QuestId="69910" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69910) == 2">
+      <GetTo ZoneId="957" XYZ="-388.9201, 11.82304, 28.69027"/>  <!-- Subzone="3885" Area="" -->
+      <LLTalkTo NpcId="1038642" XYZ="-384.1764, 12.20272, 28.24438" QuestId="69910" StepId="2"/>
+			<WaitWhile condition="GetQuestStep(69910) == 2"/>
+    </If>	
+    <If Condition="GetQuestStep(69910) == 3 and GetQuestById(69910).QuestI8A == 0">
+      <GetTo ZoneId="957" XYZ="-560.36, 9.817463, -582.6246"/>  <!-- Subzone="3888" Area="" -->
+      <LLTalkTo NpcId="1037648" XYZ="-562.005, 9.817466, -585.1987" QuestId="69910" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69910) == 3 and GetQuestById(69910).QuestI8A == 16">
+      <GetTo ZoneId="957" XYZ="-567.8857, 9.817484, -571.5042"/>  <!-- Subzone="3888" Area="" -->
+      <LLTalkTo NpcId="1037646" XYZ="-568.9937, 9.817484, -569.8787" QuestId="69910" StepId="3"/>
+    </If>		
+    <If Condition="GetQuestStep(69910) == 3 and GetQuestById(69910).QuestI8A == 32">
+      <GetTo ZoneId="957" XYZ="-587.476, 9.817478, -589.4294"/>  <!-- Subzone="3888" Area="" -->
+      <LLTalkTo NpcId="1037647" XYZ="-588.8304, 9.81748, -590.0817" QuestId="69910" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(69910) == 4">
+      <GetTo ZoneId="957" XYZ="-550.2515, 9.817456, -564.929"/>  <!-- Subzone="3888" Area="" -->
+      <LLTalkTo NpcId="1038645" XYZ="-549.2485, 9.817465, -563.0427" QuestId="69910" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69910) == 5">
+      <GetTo ZoneId="957" XYZ="-552.3464, 9.817474, -561.2477"/>  <!-- Subzone="3888" Area="" -->
+      <LLTalkTo NpcId="1038648" XYZ="-557.641, 9.672808, -555.0469" QuestId="69910" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69910) == 6">
+			<RunCode name="TurnOffMount"/>
+      <MoveTo XYZ="-103.3072, 88.84355, -607.3538" />
+			<RunCode name="TurnOnMount"/>
+    </If>	
+    <If Condition="GetQuestStep(69910) == 255">
+      <GetTo ZoneId="957" XYZ="-90.77538, 89.43965, -641.8225"/>  <!-- Subzone="3889" Area="" -->
+      <LLTurnIn QuestId="69910" NpcId="1037649" XYZ="-92.97333, 89.5583, -642.3591"/>
+      <LLSmallTalk/>
     </If>		
 
 		<!-- Tipping the Scale -->
+    <If Condition="IsQuestCompleted(69910) and not HasQuest(69911) and not IsQuestCompleted(69911)">
+      <GetTo ZoneId="957" XYZ="-90.77538, 89.43965, -641.8225"/>  <!-- Subzone="3889" Area="" -->
+      <If Condition="IsQuestAcceptQualified(69911)">
+        <LLPickupQuest QuestId="69911" NpcId="1037649"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69911) == 1">
+      <GetTo ZoneId="957" XYZ="-510.7582, 11.97528, 114.8824"/>  <!-- Subzone="3886" Area="" -->
+      <LLHandOver ItemId="2003182" NpcId="1038631" XYZ="-510.7958, 11.97528, 117.6927" QuestId="69911" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69911) == 2">
+      <GetTo ZoneId="957" XYZ="-696.118, -0.05423236, -564.5586"/>  <!-- Subzone="3885" Area="" -->
+      <LLTalkTo NpcId="1038651" XYZ="-699.6719, -0.06901036, -565.0569" QuestId="69911" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69911) == 3">
+      <GetTo ZoneId="957" XYZ="-701.7575, -0.08073753, -562.0176"/>  <!-- Subzone="3885" Area="" -->
+      <LLTalkTo NpcId="1038652" XYZ="-704.097, -0.09036914, -562.4323" QuestId="69911" StepId="3"/>
+    </If>		
     <If Condition="GetQuestStep(69911) == 255">
 		  <GetTo ZoneId="957" XYZ="-489.5791, 4.748685, 17.00305"/>  <!-- Subzone="3886" Area="" -->
       <LLTurnIn QuestId="69911" NpcId="1038653" XYZ="-492.0577, 4.567674, 17.53253"/>
@@ -719,14 +833,16 @@
 			</If>	
       <MoveTo XYZ="3.059902, 1.907349E-06, 4.101292"/> <!-- Zone: "987" Subzone="0" Area="" -->
       <LLTurnIn QuestId="69912" NpcId="1038589" XYZ="4.074097, 1.907349E-06, 2.029419"/>
-      <LLSmallTalk/>
-      <MoveTo XYZ="0.2365436, 1.907349E-06, 12.692"/> <!-- Zone: "987" Subzone="0" Area="" -->
-			<UseTransport NpcId="2011937" InteractDistance="3.0" XYZ="-0.01531982, 1.144348, 14.78589"/>			
+      <LLSmallTalk/>		
     </If>
 		
     <!-- In the Dark of the Tower -->
     <If Condition="IsQuestCompleted(69903) and IsQuestCompleted(69912) and not HasQuest(69913) and not IsQuestCompleted(69913)">
-      <MoveTo XYZ="-1.236338, 1.907582E-06, 3.405902"/> <!-- Zone: "987" Subzone="0" Area="" -->
+			<If condition="not IsOnMap(987)">
+				<GetTo ZoneId="962" XYZ="-107.2913, 3.898939, 5.505816"/>  <!-- Subzone="3816" Area="" -->
+				<UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>
+			</If>	      
+			<MoveTo XYZ="-1.236338, 1.907582E-06, 3.405902"/> <!-- Zone: "987" Subzone="0" Area="" -->
       <If Condition="IsQuestAcceptQualified(69913)">
         <LLPickupQuest QuestId="69913" NpcId="1040291"/>
         <LLSmallTalk/>
