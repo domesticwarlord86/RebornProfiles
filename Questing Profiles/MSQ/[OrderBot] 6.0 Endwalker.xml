@@ -5,6 +5,15 @@
 	
 	This profile is in early beta. As such I've set it to not work unless you change acceptBeta to 1.
 	By doing so you accept that there's a lot of this profile that may not work properly yet.
+	
+	Known Issues: 
+	A Labyrinthine Descent - Line 224
+		Find a better way to follow Alisaie
+	The Full Report, Warts and All - Line 395
+		For some reason it hangs on the NoCombatMoveTo. Stopping and starting the bot fixes it, not sure why yet
+	The Great Work - Line 659
+		Moving toward and back away, then toward the lantern again is likely to cause issues.
+	
 -->
 
 <!DOCTYPE Profile [
@@ -218,9 +227,9 @@
 		<!-- Might need to make a new tag to follow NPC here -->
     <If Condition="GetQuestStep(69897) == 2">
       <GetTo ZoneId="962" XYZ="-236.6738, 13.23725, -25.63701"/>  <!-- Subzone="3807" Area="" -->
-      <LLTalkTo InteractDistance="1" NpcId="1038753" XYZ="-234.2108, 12.96952, -27.05432" QuestId="69897" StepId="2"/>
-			<LLTalkTo InteractDistance="1" NpcId="1038753" XYZ="-234.2108, 12.96952, -27.05432" QuestId="69897" StepId="2"/>
-      <LLTalkTo InteractDistance="1" NpcId="1038753" XYZ="-77.90129, 41.37599, -209.4096" QuestId="69897" StepId="2"/>		
+      <LLTalkTo InteractDistance="0.5" NpcId="1038753" XYZ="-234.2108, 12.96952, -27.05432" QuestId="69897" StepId="2"/>
+			<LLTalkTo InteractDistance="0.5" NpcId="1038753" XYZ="-234.2108, 12.96952, -27.05432" QuestId="69897" StepId="2"/>
+      <LLTalkTo InteractDistance="0.5" NpcId="1038753" XYZ="-77.90129, 41.37599, -209.4096" QuestId="69897" StepId="2"/>		
     </If>	
     <If Condition="GetQuestStep(69897) == 3">
       <GetTo ZoneId="962" XYZ="-69.13951, 18.04393, -319.5711"/>  <!-- Subzone="3811" Area="" -->
@@ -319,7 +328,8 @@
     </If>
     <If Condition="GetQuestStep(69899) == 5">
       <GetTo ZoneId="956" XYZ="574.7405, 169.4404, -518.2614"/>  <!-- Subzone="3836" Area="" -->
-      <LLToast message="Please sedate the Large Green Bird with the sleeping dart."/>
+      <LLToast message="Please sedate the Large Green Bird with the sleeping dart."/>\
+			<StopBot/>
     </If>
     <If Condition="GetQuestStep(69899) == 255">
       <GetTo ZoneId="956" XYZ="643.4731, 184.8565, -130.9254"/>  <!-- Subzone="3829" Area="" -->
