@@ -6,7 +6,7 @@ Since Blue Mage isn't supported by Magitek I made a very rudementary Kupo routin
 
 To get it to work you'll want to make a fresh copy of RB. Do not install Magitek in this fresh copy. For some reason, Magitek tries to take over combat even if you've got Kupo selected as the routine.
 
-In that fresh install of RB, copy the Routines folder into RB's Routine folder. 
+In that fresh install of RB, copy the Routines folder into RB's Routine folder.
 
 It'll look like this:
 ```
@@ -19,7 +19,7 @@ RebornBuddy
 
 You're also going to need [Lisbeth](https://www.siune.io/) in this new install.
 
-You're also going to need [LlamaLibrary](https://github.com/nt153133/LlamaLibrary).
+You're also going to need [LlamaLibrary](https://github.com/nt153133/__LlamaLibrary).
 
 I'd also recommend [Gluttony](https://github.com/domesticwarlord86/Gluttony) for Food and [Osiris](https://github.com/domesticwarlord86/Osiris) for death handling.
 

@@ -1,6 +1,6 @@
 # Zodiac Relic Weapons
 
-This rofile set is designed to obtain your level 50 Zodiac weapon with as little interaction from the user as possible.
+This profile set is designed to obtain your level 50 Zodiac weapon with as little interaction from the user as possible.
 
 ## Setup
 
@@ -24,10 +24,9 @@ In the Start.xml you will find a list of items, one for each job. You must buy t
 You will need ExBuddy installed in your plugins folder which can be found here https://github.com/Entrax643/ExBuddy
 You will need to take the ExTurnInGuildLeveTag.cs file from my Plugins folder and place it in RebornBuddy\Plugins\ExBuddy\OrderBotTags\Behaviors folder, overwriting the current one. This files makes some changes to fix the GuildLeve turn ins.
 
-You will also need the latest version of LlamaLibrary installed in your botbases folder which can be found here https://github.com/nt153133/LlamaLibrary
-(Make sure you update before running the profiles, Kayla is constantly making new tags for this set and you'll need the absolute latest.)
+You will also need to install the latest version of [LlamaLibrary](https://github.com/nt153133/__LlamaLibrary). Make sure you update LlamaLibrary before running the profiles, Kayla is constantly making new tags for this set and you'll need the absolute latest.
 
-I'm in the process of changing over all the movement in this profile to be handled by Lisbeth. Saga's new Sextant 2.0 is far suprior to anything else RebornBuddy has to offer and makes for a much smoother questing experience. As such, you will need Lisbeth to make these profiles work. If you don't have it, you can find it here: https://www.siune.io/
+I'm in the process of changing over all the movement in this profile to be handled by Lisbeth. Saga's new Sextant 2.0 is far superior to anything else RebornBuddy has to offer and makes for a much smoother questing experience. As such, you will need Lisbeth to make these profiles work. If you don't have it, you can find it here: https://www.siune.io/
 
 
 ## Current Progress
@@ -104,20 +103,15 @@ We cannot manually meld materia to your Sphere scroll. It will farm the 75 Alexa
 	* 'Tower of Power' is triggered by speaking to the House Haillenarte Guard at Boulder Downs, Coerthas Central Highlands (x10,y28). This must be done manually.
 	* 'The Ceruleum Road' is trigger by speaking to the Wary Merchant. This must be done manually.
 	* 'Surprise' FATE is hard for the bot to do on it's own. There's only two NPCs that need to be kept alive and the bot is horrible at that. Might want to do this one manually.
-	
+
 * Dungeons
 	* Copperbell Mines (Hard): One of the Collapsed Rocks has a smaller hitbox then RB thinks it does. Sometimes melee classes don't get close enough. Watch this.
-	* The Tousand Maws of Toto-Rak: The meshing here is absolutely horrible. Keep an eye on it as you run as it may not be able to get to some of the photocells that drop. And could possibly get stuck on things.
+	* The Thousand Maws of Toto-Rak: The meshing here is absolutely horrible. Keep an eye on it as you run as it may not be able to get to some of the photocells that drop. And could possibly get stuck on things.
 	* Hullbreaker Isle: Currently cannot fight the kraken due to no meshing of the fight area. You will need to do this fight manually, but the bot will do the rest of the instance.
 	* Stone Vigil (Hard): The second fight Curca Fera is neigh impossible to solo, even by hand. Do this dungeon synced manually.
-	
+
 * Leves
 	* You must already have levequests unlocked for the Whitebrim, Saint Coinarch's Find and Camp Bluefog. I can't automate those quests yet as they combine a quest and a levequest in one.
 	* Levequests sometimes don't turn in all the way. May have to turn them in manually.
 	* "Someone's in the Doghouse" will need to be done manually until I can find a way to automate the beckon escort quest.
-	* Necrologos: The Liminal Ones & Necrologos: Pale Oblation. I can't figure ou thow to get these to exit the UseObject tag properly. So for now they're set to manual completion.
-
-
-
-
-
+	* Necrologos: The Liminal Ones & Necrologos: Pale Oblation. I can't figure out how to get these to exit the UseObject tag properly. So for now they're set to manual completion.
