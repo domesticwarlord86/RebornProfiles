@@ -782,9 +782,15 @@
       <LLTalkTo NpcId="1038648" XYZ="-557.641, 9.672808, -555.0469" QuestId="69910" StepId="5"/>
     </If>
     <If Condition="GetQuestStep(69910) == 6">
-			<RunCode name="TurnOffMount"/>
+      <!-- Mount 275 = "Hamsa" Dodo Mount -->
+      <RunCode name="69910_DismountIfNot_275" />
+      <If Condition="not Core.Player.IsMounted">
+        <GetTo ZoneId="957" XYZ="-552.3464, 9.817474, -561.2477" /> <!-- Subzone="3888" Area="" -->
+        <LLTalkTo NpcId="1038650" XYZ="-555.8404, 9.714635, -558.2208" QuestId="69910" StepId="6" />
+      </If>
+      <RunCode name="TurnOffMount" />
       <MoveTo XYZ="-103.3072, 88.84355, -607.3538" />
-			<RunCode name="TurnOnMount"/>
+      <RunCode name="TurnOnMount" />
     </If>	
     <If Condition="GetQuestStep(69910) == 255">
       <GetTo ZoneId="957" XYZ="-90.77538, 89.43965, -641.8225"/>  <!-- Subzone="3889" Area="" -->
@@ -1146,15 +1152,27 @@
   <GrindAreas>
   </GrindAreas>
   <CodeChunks>
-		<CodeChunk Name="TurnOffMount">
-		<![CDATA[ 
-			ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
-		]]>
-		</CodeChunk>
-		<CodeChunk Name="TurnOnMount">
-		<![CDATA[ 
-			ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
-		]]>
-		</CodeChunk>		
+    <CodeChunk Name="TurnOffMount">
+      <![CDATA[ 
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="TurnOnMount">
+      <![CDATA[ 
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="69910_DismountIfNot_275">
+      <![CDATA[ 
+        if(Core.Player.IsMounted && Core.Memory.Read<uint>(Core.Player.Pointer + 0xC38) != 275)
+        {
+          while(Core.Player.IsMounted)
+          {
+            await CommonTasks.StopAndDismount();
+            await Buddy.Coroutines.Coroutine.Wait(3000, () => !Core.Player.IsMounted);
+          }
+        }
+      ]]>
+    </CodeChunk>
   </CodeChunks>
-</Profile>  
+</Profile>
