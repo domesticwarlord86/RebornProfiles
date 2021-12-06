@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Mare Lamentorum Aether Quests
+  Authors: Angles24
+-->
+<Profile>
+  <Name>Mare Lamentorum Aether Quests</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Alluring Allag -->
+    <If Condition="not IsQuestCompleted(69789)">
+      <If Condition="not HasQuest(69789)">
+      <GetTo ZoneId="959" XYZ="-80.53382, -132.7896, -522.0748"/>  <!-- Subzone="3966" Area="" -->
+        <If Condition="IsQuestAcceptQualified(69789)">
+          <LLPickupQuest QuestId="69789" NpcId="1041123"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <!-- Name That Way -->
+    <If Condition="not IsQuestCompleted(70052)">
+      <If Condition="not HasQuest(70052)">
+      <GetTo ZoneId="959" XYZ="25.10471, -129.2092, -537.2442"/>  <!-- Subzone="3966" Area="" -->
+        <If Condition="IsQuestAcceptQualified(70052)">
+          <LLPickupQuest QuestId="70052" NpcId="1041555"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70052) == 1">
+      <GetTo ZoneId="959" XYZ="111.0813, -133.0735, -466.6637"/>  <!-- Subzone="3966" Area="" -->
+      <LLTalkTo NpcId="1041556" XYZ="113.1456, -133.0735, -465.1713" QuestId="70052" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(70052) == 2 and GetQuestById(70052).QuestI8A == 0">
+      <GetTo ZoneId="959" XYZ="65.97427, -133, -432.9718"/>  <!-- Subzone="3966" Area="" -->
+      <LLTalkTo NpcId="1041745" XYZ="66.23938, -133, -432.8222" QuestId="70052" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(70052) == 2 and GetQuestById(70052).QuestI8A == 1">
+      <GetTo ZoneId="959" XYZ="-109.5143, -133.0734, -555.9778"/>  <!-- Subzone="3966" Area="" -->
+      <LLTalkTo NpcId="1041744" XYZ="-110.1244, -133.0734, -556.7865" QuestId="70052" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(70052) == 2 and GetQuestById(70052).QuestI8A == 2">
+      <GetTo ZoneId="959" XYZ="-88.30416, -133.0393, -508.9786"/>  <!-- Subzone="3966" Area="" -->
+      <LLTalkTo NpcId="1041746" XYZ="-85.83203, -133.0356, -507.1336" QuestId="70052" StepId="2"/>
+    </If>
+    <!-- Carrots: It's What's for Dinner -->
+    <If Condition="not IsQuestCompleted(69777)">
+      <If Condition="not HasQuest(69777)">
+      <GetTo ZoneId="959" XYZ="-287.4745, -143.5, -521.2815"/>  <!-- Subzone="3968" Area="" -->
+        <If Condition="IsQuestAcceptQualified(69777)">
+          <LLPickupQuest QuestId="69777" NpcId="1039520"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <!-- True Carrot Crimes -->
+    <If Condition="not IsQuestCompleted(69776)">
+      <If Condition="not HasQuest(69776)">
+      <GetTo ZoneId="959" XYZ="-302.0262, -144, -491.7879"/>  <!-- Subzone="3968" Area="" -->
+        <If Condition="IsQuestAcceptQualified(69776)">
+          <LLPickupQuest QuestId="69776" NpcId="1037867"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69777) == 1 and GetQuestById(69777).QuestI8A == 0">
+      <GetTo ZoneId="959" XYZ="-346.2328, -161.8501, -651.5731"/>  <!-- Subzone="3968" Area="" -->	  	  
+	  <RunCode Name="Dinner1" />	
+	  <RunCode Name="697771" />	
+	  <WaitWhile Condition="GetQuestStep(69777) == 1 and not GetQuestById(69777).QuestI8A == 1"/>	  
+	  <RunCode Name="Dinner2" />	
+    </If>
+    <If Condition="GetQuestStep(69777) == 1 and GetQuestById(69777).QuestI8A == 1">
+      <GetTo ZoneId="959" XYZ="-482.0173, -167.5, -545.6169"/>  <!-- Subzone="3968" Area="" -->	  	   
+	  <RunCode Name="697772" />		
+	  <WaitWhile Condition="GetQuestStep(69777) == 1 and not GetQuestById(69777).QuestI8A == 2"/>
+	  <WaitTimer WaitTime="10"/>	
+    </If>
+    <If Condition="GetQuestStep(69777) == 1 and GetQuestById(69777).QuestI8A == 2">
+      <GetTo ZoneId="959" XYZ="-441.1549, -168, -418.4973"/>  <!-- Subzone="3968" Area="" -->	  	  
+	  <RunCode Name="Dinner3" />
+	  <RunCode Name="697773" />	
+	  <WaitWhile Condition="not GetQuestStep(69777) == 255"/> 
+	  <RunCode Name="Dinner4" />	
+    </If>
+    <If Condition="GetQuestStep(69776) == 1">
+      <GetTo ZoneId="959" XYZ="-558.4612, -168, -475.4071"/>  <!-- Subzone="3968" Area="" -->
+      <LLTalkTo NpcId="1041132" XYZ="-558.1293, -168, -475.3338" QuestId="69776" StepId="1"/>
+	  <WaitWhile Condition="not GetQuestStep(69776) == 255"/> 
+    </If>
+   <If Condition="GetQuestStep(69776) == 255">
+      <GetTo ZoneId="959" XYZ="-300.8365, -144, -491.9566"/> <!-- Subzone="3968" Area="" -->
+      <LLTurnIn QuestId="69776" NpcId="1037867" XYZ="-301.6251, -144, -491.1422"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69777) == 255">
+      <GetTo ZoneId="959" XYZ="-284.5599, -143.5, -520.0661"/> <!-- Subzone="3968" Area="" -->
+      <LLTurnIn QuestId="69777" NpcId="1039520" XYZ="-287.8615, -143.5, -520.2869"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(70052) == 255">
+      <GetTo ZoneId="959" XYZ="111.7244, -133.0735, -465.2448"/> <!-- Subzone="3966" Area="" -->
+      <LLTurnIn QuestId="70052" NpcId="1041556" XYZ="113.1456, -133.0735, -465.1713"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69789) == 1">
+      <GetTo ZoneId="959" XYZ="536.5048, 132.3637, 233.5986"/>  <!-- Subzone="3964" Area="" -->
+      <LLTalkTo NpcId="1041127" XYZ="537.3159, 132.4039, 233.814" QuestId="69789" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69789) == 2 and GetQuestById(69789).QuestI8A == 0">
+      <GetTo ZoneId="959" XYZ="700.5245, 134.5686, 230.5932"/>  <!-- Subzone="3965" Area="" -->
+      <LLTalkTo NpcId="2012338" XYZ="700.1906, 135.2101, 229.4803" QuestId="69789" StepId="2"/>	
+	  <WaitWhile Condition="not GetQuestStep(69789) == 2 and not GetQuestById(69789).QuestI8A == 12"/> 
+    </If>
+    <If Condition="GetQuestStep(69789) == 2 and GetQuestById(69789).QuestI8A == 17">
+      <GetTo ZoneId="959" XYZ="735.2055, 150.9361, 190.1665"/>  <!-- Subzone="3965" Area="" -->
+      <UseObject NpcId="1041125" XYZ="735.5, 151.0801, 189.0134" BlacklistAfter="True" UseTimes="1"/>	  
+	  <WaitWhile Condition="GetQuestStep(69789) == 2 and not GetQuestById(69789).QuestI8A == 33"/> 
+    </If>
+    <If Condition="GetQuestStep(69789) == 2 and GetQuestById(69789).QuestI8A == 33">
+      <GetTo ZoneId="959" XYZ="664.4351, 128.7616, 187.7081"/>  <!-- Subzone="3965" Area="" -->
+      <LLTalkTo NpcId="1041124" XYZ="663.6301, 128.4896, 188.1895" QuestId="69789" StepId="2"/>
+	  <WaitWhile Condition="not GetQuestStep(69789) == 3"/> 
+    </If>
+    <If Condition="GetQuestStep(69789) == 3">
+      <GetTo ZoneId="959" XYZ="539.0164, 132.4362, 236.2894"/>  <!-- Subzone="3964" Area="" -->
+	  <WaitWhile Condition="not GetQuestStep(69789) == 4"/> 
+    </If>
+    <If Condition="GetQuestStep(69789) == 4">
+      <GetTo ZoneId="959" XYZ="537.7601, 132.3741, 235.9429"/>  <!-- Subzone="3964" Area="" -->
+      <LLTalkTo NpcId="1041127" XYZ="537.3159, 132.4039, 233.814" QuestId="69789" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69789) == 255">
+      <GetTo ZoneId="959" XYZ="-80.21399, -132.7897, -521.5502"/>  <!-- Subzone="3966" Area="" -->
+      <LLTurnIn ItemId="2003261" QuestId="69789" NpcId="1041123" XYZ="-81.86469, -132.7433, -521.6602"/>
+      <LLSmallTalk/>
+    </If>
+  </Order>
+  <CodeChunks>
+	<CodeChunk Name="Dinner1">
+      <![CDATA[
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+        await Coroutine.Sleep(1000);
+		
+        var loc1 = new Vector3(-344.2131f, -160.4042f, -654.9385f);
+        var loc2 = new Vector3(-342.3999f, -158.9042f, -651.1718f);
+        var loc3 = new Vector3(-340.6804f, -157.4042f, -648.8758f);
+        var loc4 = new Vector3(-338.3418f, -155.9042f, -647.1322f);
+        var loc5 = new Vector3(-335.3369f, -154.4042f, -646.1667f);
+        var loc6 = new Vector3(-331.9178f, -152.9042f, -645.215f);		
+        var loc7 = new Vector3(-328.9101f, -152.7414f, -652.1348f);
+        var loc8 = new Vector3(-327.9684f, -151.2613f, -655.7252f);
+
+        Navigator.PlayerMover.MoveTowards(loc1);
+        await Coroutine.Sleep(250);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc2);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc3);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc3) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc4);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc4) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc5);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc5) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc6);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc6) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc7);
+        await Coroutine.Sleep(1000);
+        while (Core.Me.Location.Distance2D(loc7) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc8);
+        await Coroutine.Sleep(250);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc8) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="697771">
+      <![CDATA[
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+
+        var target = GameObjectManager.GetObjectByNPCId(1041789);
+
+        await Coroutine.Sleep(1000);
+
+        ChatManager.SendChat("/s carrot of happiness");
+      ]]>
+    </CodeChunk>
+	<CodeChunk Name="Dinner2">
+      <![CDATA[
+        var loc1 = new Vector3(-321.6648f, -161.8502f, -642.5018f);
+
+        Navigator.PlayerMover.MoveTowards(loc1);
+        await Coroutine.Sleep(500);
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="697772">
+      <![CDATA[
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+        var loc1 = new Vector3(-482.0173f, -167.5f, -545.6169f);
+
+        Navigator.PlayerMover.MoveTowards(loc1);
+        await Coroutine.Sleep(500);
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();			
+
+		var target = GameObjectManager.GetObjectByNPCId(1041790);
+
+        await Coroutine.Sleep(1000);
+
+        ChatManager.SendChat("/s carrot of happiness");
+      ]]>
+    </CodeChunk>
+	<CodeChunk Name="Dinner3">
+      <![CDATA[
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+        await Coroutine.Sleep(1000);
+		
+        var loc1 = new Vector3(-438.6012f, -166.5541f, -415.9189f);
+        var loc2 = new Vector3(-436.3791f, -165.0541f, -413.1156f);
+        var loc3 = new Vector3(-434.3452f, -163.5542f, -411.0078f);
+        var loc4 = new Vector3(-431.9083f, -162.0541f, -409.4832f);
+        var loc5 = new Vector3(-428.6362f, -160.5541f, -408.9521f);
+        var loc6 = new Vector3(-425.2656f, -159.0541f, -408.6514f);		
+        var loc7 = new Vector3(-422.3368f, -158.8874f, -414.4143f);
+        var loc8 = new Vector3(-411.3275f, -158.8965f, -425.7238f);
+
+        Navigator.PlayerMover.MoveTowards(loc1);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc2);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc3);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc3) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc4);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc4) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc5);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc5) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc6);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc6) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc7);
+        await Coroutine.Sleep(1000);
+        while (Core.Me.Location.Distance2D(loc7) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc8);
+        await Coroutine.Sleep(1000);
+        while (Core.Me.Location.Distance2D(loc8) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="697773">
+      <![CDATA[
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+
+        var target = GameObjectManager.GetObjectByNPCId(1041791);
+
+        await Coroutine.Sleep(1000);
+
+        ChatManager.SendChat("/s carrot of happiness");
+      ]]>
+    </CodeChunk>
+	<CodeChunk Name="Dinner4">
+      <![CDATA[
+        var loc1 = new Vector3(-398.2322f, -168f, -429.0905f);
+
+        Navigator.PlayerMover.MoveTowards(loc1);
+        await Coroutine.Sleep(500);
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>

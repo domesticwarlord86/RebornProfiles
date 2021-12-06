@@ -49,6 +49,56 @@
 			</If>				
     </If>
 		
+		<!-- Change To Sage If Not Already -->
+		<If Condition="IsQuestCompleted(69603) and not ClassName == ClassJobType.Sage">	
+			<ChangeClass Job="Sage" />
+		</If>
+
+    <!-- Sage's Focus -->
+    <If Condition="not HasQuest(69604) and not IsQuestCompleted(69604)">
+      <LisbethTravel Zone="134" Subzone="179" Position="-26.60374, 42.59772, 163.5414"/> <!-- Area="Middle La Noscea" -->
+      <If Condition="IsQuestAcceptQualified(69604)">
+        <LLPickupQuest QuestId="69604" NpcId="1039265"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69604) == 1">
+      <GetTo ZoneId="478" XYZ="61.17835, 206.983, 46.96805"/>  <!-- Subzone="0" Area="Idyllshire" -->
+      <LLTalkTo NpcId="1039244" XYZ="62.05847, 207, 49.3324" QuestId="69604" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69604) == 2">
+      <GetTo ZoneId="478" XYZ="20.92411, 215.45, -105.9744"/>  <!-- Subzone="0" Area="Idyllshire" -->
+      <UseObject NpcId="2011759" XYZ="20.06561, 215.4421, -108.1713" QuestId="69604" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69604) == 3">
+      <GetTo ZoneId="478" XYZ="68.62286, 212.8397, -114.0495"/>  <!-- Subzone="0" Area="Idyllshire" -->
+      <LLTalkTo NpcId="1039246" XYZ="71.64111, 213.0318, -110.7348" QuestId="69604" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69604) == 4">
+      <GetTo ZoneId="478" XYZ="68.62286, 212.8397, -114.0495"/>  <!-- Subzone="0" Area="Idyllshire" -->
+      <LLTalkTo NpcId="1039247" XYZ="68.7113, 212.8453, -109.9718" QuestId="69604" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69604) == 5">
+      <LisbethTravel Zone="399" Subzone="2052" Position="-609.4623, 147.0476, 42.56373"/> <!-- Area="The Dravanian Hinterlands (West)" -->
+      <LLTalkTo NpcId="1039248" XYZ="-612.2988, 146.8684, 42.4353" QuestId="69604" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69604) == 6">
+      <LisbethTravel Zone="399" Subzone="2052" Position="-609.4623, 147.0476, 42.56373"/> <!-- Area="The Dravanian Hinterlands (West)" -->
+      <LLToast message="Please complete the solo duty manually."/>
+    </If>
+    <If Condition="GetQuestStep(69604) == 7">
+      <WaitWhile condition="GetQuestStep(69604) == 7"/>
+    </If>		
+    <If Condition="GetQuestStep(69604) == 8">
+      <LisbethTravel Zone="399" Subzone="2034" Position="-613.8224, 146.8684, 44.3371"/> <!-- Area="The Dravanian Hinterlands (West)" -->
+      <LLTalkTo NpcId="1039248" XYZ="-612.2988, 146.8684, 42.4353" QuestId="69604" StepId="8"/>
+    </If>
+    <If Condition="GetQuestStep(69604) == 255">
+      <GetTo ZoneId="478" XYZ="1.865792, 211, -19.56077"/>  <!-- Subzone="2093" Area="Idyllshire" -->
+      <LLTurnIn QuestId="69604" NpcId="1039249" XYZ="0.3508911, 211, -17.74628"/>
+      <LLSmallTalk/>
+    </If>		
+		
  
   </Order>
   <GrindAreas>
