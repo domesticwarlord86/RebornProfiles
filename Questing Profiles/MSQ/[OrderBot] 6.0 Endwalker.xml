@@ -14,8 +14,8 @@
 	The Great Work - Line 659
 		Moving toward and back away, then toward the lantern again is likely to cause issues.
 		Marked as manual for now.
-	A Frosty Reception - Line 1116
-		Garlemald isn't currently meshed, can't move around here.
+	Tracks In The Snow	
+		Find a better way to follow the girl.
 -->
 
 <!DOCTYPE Profile [
@@ -1144,6 +1144,135 @@
         <LLPickupQuest QuestId="69920" NpcId="1038839"/>
         <LLSmallTalk/>
       </If>
+    </If>	
+    <If Condition="GetQuestStep(69920) == 1">
+      <GetTo ZoneId="958" XYZ="-157.7241, 18.50667, 366.1911"/>  <!-- Subzone="3902" Area="" -->
+      <LLTalkTo NpcId="1038840" XYZ="-157.0612, 18.31633, 364.0649" QuestId="69920" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69920) == 2">
+      <GetTo ZoneId="958" XYZ="-32.16343, -0.1226918, 361.7068"/>  <!-- Subzone="3902" Area="" -->
+      <UseObject NpcId="2012076" XYZ="-31.26581, -0.2594604, 362.8137" QuestId="69920" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69920) == 3">
+      <GetTo ZoneId="958" XYZ="35.41289, -11.85023, 361.3991"/>  <!-- Subzone="3902" Area="" -->
+      <UseObject NpcId="2012077" XYZ="36.94202, -12.03937, 362.2339" QuestId="69920" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69920) == 4">
+      <GetTo ZoneId="958" XYZ="65.97291, -14.34492, 383.8115"/>  <!-- Subzone="3905" Area="" -->
+      <LLTalkTo NpcId="1038843" XYZ="66.84973, -14.34492, 385.7328" QuestId="69920" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69920) == 5">
+      <GetTo ZoneId="958" XYZ="116.7688, -16.81971, 390.4879"/>  <!-- Subzone="3902" Area="" -->
+      <UseObject NpcId="2012078" XYZ="117.8148, -16.9223, 390.4631" QuestId="69920" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69920) == 6">
+      <LLToast message="Approach the girl stealthly wihtout being seen."/>
+			<StopBot/>
+    </If>
+    <If Condition="GetQuestStep(69920) == 255">
+      <GetTo ZoneId="958" XYZ="552.3287, 32.19771, 159.9246"/>  <!-- Subzone="3902" Area="" -->
+      <LLTurnIn QuestId="69920" NpcId="1038846" XYZ="555.8098, 32.30835, 159.1057"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- How The Mighty Are Fallen -->
+    <If Condition="IsQuestCompleted(69920) and not HasQuest(69921) and not IsQuestCompleted(69921)">
+      <GetTo ZoneId="958" XYZ="561.8985, 32.32047, 149.8912"/>  <!-- Subzone="3906" Area="" -->
+      <If Condition="IsQuestAcceptQualified(69921)">
+        <LLPickupQuest QuestId="69921" NpcId="1038847"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69921) == 1">
+      <GetTo ZoneId="958" XYZ="586.9373, 38.37206, 217.1245"/>  <!-- Subzone="3906" Area="" -->
+      <LLTalkTo NpcId="1038849" XYZ="588.464, 38.37206, 216.6018" QuestId="69921" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69921) == 2">
+      <GetTo ZoneId="958" XYZ="586.9373, 38.37206, 217.1245"/>  <!-- Subzone="3906" Area="" -->
+      <LLHandOver ItemId="2003227" NpcId="1038850" XYZ="589.8069, 38.37206, 217.5477" QuestId="69921" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69921) == 3">
+      <GetTo ZoneId="958" XYZ="588.2705, 38.37206, 213.2212"/>  <!-- Subzone="3906" Area="" -->
+      <LLHandOver ItemId="2003227" NpcId="1038851" XYZ="591.3328, 38.37206, 214.5571" QuestId="69921" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69921) == 4">
+      <GetTo ZoneId="958" XYZ="586.7125, 38.37206, 215.5685"/>  <!-- Subzone="3906" Area="" -->
+      <LLHandOver ItemId="2003227" NpcId="1038852" XYZ="585.046, 38.37206, 216.0525" QuestId="69921" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69921) == 5">
+      <GetTo ZoneId="958" XYZ="561.7736, 32.32067, 151.113"/>  <!-- Subzone="3906" Area="" -->
+      <LLHandOver ItemId="2003227" NpcId="1038847" XYZ="563.9885, 32.31887, 150.0419" QuestId="69921" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69921) == 6">
+      <GetTo ZoneId="958" XYZ="157.9608, -15.09227, 621.1699"/>  <!-- Subzone="3907" Area="" -->
+      <LLTalkTo NpcId="1038853" XYZ="156.7559, -14.95557, 623.2242" QuestId="69921" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(69921) == 7">
+      <GetTo ZoneId="958" XYZ="146.0767, -13.94504, 635.7167" />
+    </If>	
+    <If Condition="GetQuestStep(69921) == 255">
+      <GetTo ZoneId="958" XYZ="138.6498, -13.26687, 646.652"/>  <!-- Subzone="3908" Area="" -->
+      <LLTurnIn QuestId="69921" NpcId="1038856" XYZ="137.6516, -13.27878, 648.249"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- At the End of the Trail -->
+    <If Condition="IsQuestCompleted(69921) and not HasQuest(69922) and not IsQuestCompleted(69922)">
+      <GetTo ZoneId="958" XYZ="136.7837, -13.2621, 647.9834"/>  <!-- Subzone="3908" Area="" -->
+      <If Condition="IsQuestAcceptQualified(69922)">
+        <LLPickupQuest QuestId="69922" NpcId="1037712"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69922) == 1">
+      <GetTo ZoneId="958" XYZ="555.1927, 32.3054, 160.616"/>  <!-- Subzone="3906" Area="" -->
+      <LLTalkTo NpcId="1038857" XYZ="559.0753, 32.32231, 159.4414" QuestId="69922" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69922) == 2">
+      <GetTo ZoneId="958" XYZ="595.1851, 32.31866, 138.9474"/>  <!-- Subzone="3906" Area="" -->
+      <LLTalkTo NpcId="1038858" XYZ="596.5818, 32.31866, 138.8418" QuestId="69922" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69922) == 3">
+      <GetTo ZoneId="958" XYZ="505.4102, 19.52781, 173.3602"/>  <!-- Subzone="3902" Area="" -->
+      <LLTalkTo NpcId="1038862" XYZ="504.9667, 19.44738, 175.7382" QuestId="69922" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69922) == 4">
+      <GetTo ZoneId="958" XYZ="312.9015, -16.23428, 354.984"/>  <!-- Subzone="3907" Area="" -->
+      <LLTalkTo NpcId="1038863" XYZ="310.7195, -16.26255, 357.0153" QuestId="69922" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69922) == 5">
+      <GetTo ZoneId="958" XYZ="429.9366, -17.53177, 540.9159"/>  <!-- Subzone="3907" Area="" -->
+      <UseObject NpcId="2012083" XYZ="429.8618, -17.41058, 543.6942" QuestId="69922" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69922) == 6">
+      <GetTo ZoneId="958" XYZ="581.3829, -15.86232, 625.5062"/>  <!-- Subzone="3907" Area="" -->
+      <LLTalkTo NpcId="1038865" XYZ="583.856, -15.84252, 625.6351" QuestId="69922" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(69922) == 255">
+      <GetTo ZoneId="958" XYZ="604.8148, 34.7239, 201.3075"/>  <!-- Subzone="3906" Area="" -->
+      <LLTurnIn QuestId="69922" NpcId="1038867" XYZ="605.9509, 34.7239, 202.4719"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- A Way Forward -->
+    <If Condition="IsQuestCompleted(69922) and not HasQuest(69923) and not IsQuestCompleted(69923)">
+      <GetTo ZoneId="958" XYZ="604.8148, 34.7239, 201.3075"/>  <!-- Subzone="3906" Area="" -->
+      <If Condition="IsQuestAcceptQualified(69923)">
+        <LLPickupQuest QuestId="69923" NpcId="1038868"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69923) == 1">
+      <GetTo ZoneId="958" XYZ="-334.8416, 23.8036, 403.4775"/>  <!-- Subzone="3903" Area="" -->
+      <LLTalkTo NpcId="1039864" XYZ="-334.1268, 23.80361, 405.2644" QuestId="69923" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69923) == 2">
+      <GetTo ZoneId="958" XYZ="-360.7741, 22.2549, 430.364"/>  <!-- Subzone="3903" Area="" -->
+      <LLTalkTo NpcId="1039870" XYZ="-358.1445, 22.55407, 430.0145" QuestId="69923" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69923) == 3">
+      <GetTo ZoneId="958" XYZ="-361.5228, 22.15042, 431.6743"/>  <!-- Subzone="3903" Area="" -->
+      <LLTalkTo NpcId="1039878" XYZ="-362.1729, 22.07107, 434.0123" QuestId="69923" StepId="3"/>
     </If>		
 		
  
