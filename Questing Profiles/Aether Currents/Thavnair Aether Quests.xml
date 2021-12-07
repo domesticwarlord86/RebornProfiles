@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Thavnair Aether Quests
+  Authors: Angles24
+-->
+<Profile>
+	<Name>Thavnair Aether Quests</Name>
+	<Order>	 
+	
+    <!-- Steppe Child -->
+    <If Condition="not IsQuestCompleted(70025)">
+      <If Condition="not HasQuest(70025)">
+      <GetTo ZoneId="957" XYZ="202.4384, 1.769939, 726.8918"/>  <!-- Subzone="3880" Area="Thavnair (West)" -->
+        <If Condition="IsQuestAcceptQualified(70025)">
+          <LLPickupQuest QuestId="70025" NpcId="1041331"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70025) == 1">
+      <GetTo ZoneId="957" XYZ="191.545, 14.11859, 490.847"/>  <!-- Subzone="3880" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041333" XYZ="190.6919, 14.11859, 489.4635" QuestId="70025" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(70025) == 2">
+      <GetTo ZoneId="957" XYZ="124.4656, 16.76197, 537.5046"/>  <!-- Subzone="3879" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041334" XYZ="123.125, 16.52279, 537.8042" QuestId="70025" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(70025) == 2">
+      <GetTo ZoneId="957" XYZ="166.8809, 41.56153, 409.7892"/>  <!-- Subzone="3879" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041338" XYZ="167.1626, 41.61481, 409.5369" QuestId="70025" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(70025) == 3">
+      <GetTo ZoneId="957" XYZ="166.8462, 41.55914, 409.7457"/>  <!-- Subzone="3879" Area="Thavnair (West)" -->
+      <WaitWhile Condition="not GetQuestStep(70025) == 4"/> 
+    </If>
+    <If Condition="GetQuestStep(70025) == 4">
+      <GetTo ZoneId="957" XYZ="166.6691, 41.55793, 409.3247"/>  <!-- Subzone="3879" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041338" XYZ="167.1626, 41.61481, 409.5369" QuestId="70025" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(70025) == 5">
+      <GetTo ZoneId="957" XYZ="123.7382, 16.77437, 536.9589"/>  <!-- Subzone="3879" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041334" XYZ="123.125, 16.52279, 537.8042" QuestId="70025" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(70025) == 255">
+      <GetTo ZoneId="957" XYZ="194.0885, 14.1186, 487.1321"/>  <!-- Subzone="3880" Area="Thavnair (West)" -->
+      <LLTurnIn QuestId="70025" NpcId="1041332" XYZ="194.6898, 14.1186, 485.9845"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- Alchemist or Dancer -->
+    <If Condition="not IsQuestCompleted(69739)">
+      <If Condition="not HasQuest(69739)">
+      <GetTo ZoneId="957" XYZ="-509.3728, -3.71933E-05, -18.51809"/>  <!-- Subzone="3886" Area="Thavnair (West)" -->
+        <If Condition="IsQuestAcceptQualified(69739)">
+          <LLPickupQuest QuestId="69739" NpcId="1037670"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69739) == 1">
+      <GetTo ZoneId="957" XYZ="17.79213, 90.24879, -132.8209"/>  <!-- Subzone="3887" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1039382" XYZ="17.07483, 90.24879, -133.3486" QuestId="69739" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69739) == 2 and GetQuestById(69739).QuestI8A == 0">
+      <GetTo ZoneId="957" XYZ="61.61014, 94.60124, -160.3575"/>  <!-- Subzone="3887" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="2011914" XYZ="63.09595, 98.98523, -157.6105" QuestId="69739" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69739) == 2 and GetQuestById(69739).QuestI8A == 16">
+      <GetTo ZoneId="957" XYZ="76.9185, 93.84843, -157.2751"/>  <!-- Subzone="3887" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="2011913" XYZ="79.51477, 93.0647, -157.0917" QuestId="69739" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69739) == 2 and GetQuestById(69739).QuestI8A == 33">
+      <GetTo ZoneId="957" XYZ="65.51837, 94.60124, -130.9786"/>  <!-- Subzone="3887" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="2011912" XYZ="65.29333, 96.29968, -130.2358" QuestId="69739" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69739) == 3">
+      <GetTo ZoneId="957" XYZ="18.23678, 90.24879, -133.3266"/>  <!-- Subzone="3887" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1039382" XYZ="17.07483, 90.24879, -133.3486" QuestId="69739" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69739) == 255">
+      <GetTo ZoneId="957" XYZ="-508.0005, -3.409386E-05, -19.92097"/>  <!-- Subzone="3886" Area="Thavnair (West)" -->
+      <LLTurnIn QuestId="69739" NpcId="1037670" XYZ="-508.8426, -3.710991E-05, -20.76758"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- Radiant Patrol -->
+    <If Condition="not IsQuestCompleted(69795)">
+      <If Condition="not HasQuest(69795)">
+        <GetTo ZoneId="957" XYZ="382.8278, 3.244179, -208.0586"/> <!-- Area="Thavnair" -->
+        <If Condition="IsQuestAcceptQualified(69795)">
+          <LLPickupQuest QuestId="69795" NpcId="1040669"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <!-- In Agama's Footsteps -->
+    <If Condition="not IsQuestCompleted(69793)">
+      <If Condition="not HasQuest(69793)">
+        <GetTo ZoneId="957" XYZ="461.9884, 14.66212, -218.7693"/> <!-- Area="Thavnair" -->
+        <If Condition="IsQuestAcceptQualified(69793)">
+          <LLPickupQuest QuestId="69793" NpcId="1040864"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69795) == 1">
+      <GetTo ZoneId="957" XYZ="422.6416, 7.445353, -61.4058"/> <!-- Area="Thavnair" -->
+      <LLTalkTo NpcId="1040670" XYZ="422.629, 7.427357, -60.68518" QuestId="69795" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69795) == 2 and GetQuestById(69795).QuestI8A == 0">
+      <GetTo ZoneId="957" XYZ="661.829, 36.68545, 89.9124"/> <!-- Area="Thavnair" -->
+      <LLTalkTo NpcId="2012232" XYZ="660.8529, 36.42322, 89.09741" QuestId="69795" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69795) == 2 and GetQuestById(69795).QuestI8A == 17">
+      <GetTo ZoneId="957" XYZ="411.0321, 7.953523, 302.8152"/> <!-- Area="Thavnair" -->
+      <LLTalkTo NpcId="1040850" XYZ="411.0321, 7.953523, 302.8152" QuestId="69795" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69795) == 2 and GetQuestById(69795).QuestI8A == 33">
+      <GetTo ZoneId="957" XYZ="344.7385, 6.440305, 371.4521"/> <!-- Area="Thavnair" -->
+      <LLTalkTo NpcId="2012231" XYZ="343.9536, 6.362976, 372.5491" QuestId="69795" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69795) == 3">
+      <GetTo ZoneId="957" XYZ="423.4084, 7.478816, -61.96204"/> <!-- Area="Thavnair" -->
+      <LLTalkTo NpcId="1040670" XYZ="422.629, 7.427357, -60.68518" QuestId="69795" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69793) == 1">
+      <GetTo ZoneId="957" XYZ="-26.21783, 26.60704, -178.7249"/> <!-- Area="Thavnair" -->
+      <LLTalkTo NpcId="1040862" XYZ="-27.02374, 26.58384, -178.6375" QuestId="69793" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69793) == 2">
+	  <RunCode name="TurnOffMount"/>
+	  <WaitTimer WaitTime="3"/>
+      <MoveTo XYZ="13.94738, 25.79158, -183.5201"/>
+	  <WaitTimer WaitTime="3"/>
+      <MoveTo XYZ="70.13353, 18.2304, -192.6267"/>
+	  <WaitTimer WaitTime="3"/>
+      <MoveTo XYZ="146.9716, 10.61594, -210.8742"/>
+	  <WaitTimer WaitTime="3"/>
+      <MoveTo XYZ="218.4862, 7.163108, -230.0302"/>
+	  <WaitTimer WaitTime="3"/>
+      <MoveTo XYZ="293.5972, 9.100899, -221.1982"/>
+	  <WaitTimer WaitTime="3"/>
+      <MoveTo XYZ="334.676, 13.0769, -239.7956"/>	  
+	  <RunCode name="TurnOnMount"/>
+      <LLTalkTo NpcId="2012261" XYZ="334.676, 13.0769, -239.7956" QuestId="69793" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69795) == 255">
+      <GetTo ZoneId="957" XYZ="381.6828, 3.164383, -206.7914"/>  <!-- Subzone="3894" Area="Thavnair" -->
+      <LLTurnIn ItemId="2003248" QuestId="69795" NpcId="1040669" XYZ="381.6434, 3.189177, -207.2023"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69793) == 255">
+      <GetTo ZoneId="957" XYZ="462.101, 14.42547, -220.0066"/>  <!-- Subzone="3894" Area="Thavnair" -->
+      <LLTurnIn QuestId="69793" NpcId="1040864" XYZ="462.5162, 14.3201, -219.8673"/>
+      <LLSmallTalk/>
+    </If>
+	
+  </Order>
+   <CodeChunks>
+    <CodeChunk Name="TurnOffMount">
+      <![CDATA[ 
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="TurnOnMount">
+      <![CDATA[ 
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>   
