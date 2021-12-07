@@ -20,7 +20,7 @@
 
 	<!-- GetQuestById(66098).QuestI8AH == 2-->
 	<!-- Profile start here -->	
-    <!-- The Nightmare's End -->
+    <!-- The Killer Instinct -->
     <If Condition="not HasQuest(69609) and not IsQuestCompleted(69609)">
       <GetTo ZoneId="130" XYZ="81.5092, 4, -129.1605"/>  <!-- Subzone="0" Area="Ul'dah (Steps of Nald)" -->
       <If Condition="IsQuestAcceptQualified(69609)">

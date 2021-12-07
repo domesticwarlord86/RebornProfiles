@@ -15,7 +15,7 @@
 		Moving toward and back away, then toward the lantern again is likely to cause issues.
 		Marked as manual for now.
 	Tracks In The Snow	
-		Find a better way to follow the girl.
+		Should work, may need to adjust timings a bit.
 -->
 
 <!DOCTYPE Profile [
@@ -28,7 +28,7 @@
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
 
-	<!-- GetQuestById(66098).QuestI8AH == 2-->
+	<!-- and GetQuestById(66098).QuestI8A == 0-->
 	<!-- Profile start here -->	
 
 	<If Condition="&acceptBeta; == 0">
@@ -895,9 +895,9 @@
 			<UseTransport NpcId="1040283" InteractDistance="3.0" XYZ="208.3619, 60.34319, -601.0681"/>		      
     </If>		
     <If Condition="GetQuestStep(69914) == 2">
-      <GetTo ZoneId="963" XYZ="57.9958, -27.00001, 179.4145"/>  <!-- Subzone="3858" Area="" -->
+      <GetTo ZoneId="963" XYZ="56.50447, -27.00001, 179.2234"/>  <!-- Subzone="3858" Area="" -->
       <LLTalkTo NpcId="1040255" XYZ="57.26709, -27.00001, 177.5387" QuestId="69914" StepId="2"/>
-    </If>
+    </If>		
     <If Condition="GetQuestStep(69914) == 3">
 			<If condition="not IsOnMap(963)">
 				<GetTo ZoneId="963" XYZ="57.9958, -27.00001, 179.4145"/>  <!-- Subzone="3858" Area="" -->
@@ -1046,7 +1046,8 @@
     </If>
     <If Condition="GetQuestStep(69917) == 2">
       <GetTo ZoneId="129" XYZ="8.125968, 20.99976, -12.70373"/>  <!-- Subzone="732" Area="Limsa Lominsa (Lower Decks)" -->
-      <LLTalkTo NpcId="1001029" XYZ="9.170593, 20.9994, -15.21332" QuestId="69917" StepId="2"/>
+      <UseTransport NpcId="1001029" XYZ="9.170593, 20.9994, -15.21332" QuestId="69917" StepId="2"/>
+			<WaitWhile condition="GetQuestStep(69917) == 2"/>
     </If>
     <If Condition="GetQuestStep(69917) == 255">
       <GetTo ZoneId="621" XYZ="743.8848, 69.99999, 524.1352"/>  <!-- Subzone="2610" Area="The Lochs (The Ala Mhigan Quarter)" -->
@@ -1130,6 +1131,7 @@
     <If Condition="GetQuestStep(69919) == 6">
       <GetTo ZoneId="958" XYZ="-336.4824, 23.80361, 403.3191"/>  <!-- Subzone="3903" Area="" -->
       <LLTalkTo NpcId="1038828" XYZ="-334.5846, 23.80361, 404.6539" QuestId="69919" StepId="6"/>
+			<WaitWhile condition="GetQuestStep(69919) != 255"/>
     </If>
     <If Condition="GetQuestStep(69919) == 255">
       <GetTo ZoneId="958" XYZ="-354.1204, 22.6483, 434.3159"/>  <!-- Subzone="3903" Area="" -->
@@ -1166,8 +1168,25 @@
       <UseObject NpcId="2012078" XYZ="117.8148, -16.9223, 390.4631" QuestId="69920" StepId="5"/>
     </If>
     <If Condition="GetQuestStep(69920) == 6">
+			<RunCode name="TurnOffMount"/>
+			<WaitTimer Waittime="5"/>
+			<MoveTo XYZ="205.1743, -19.10521, 373.7455" />
+			<WaitTimer Waittime="27"/>
+			<MoveTo XYZ="273.8142, -13.14002, 317.4648" />
+			<WaitTimer Waittime="22"/>
+			<MoveTo XYZ="324.1707, -9.298947, 251.0451" />
+			<WaitTimer Waittime="17"/>
+			<MoveTo XYZ="353.8969, -1.325196, 232.9675" />
+			<WaitTimer Waittime="40"/><!--
+			<MoveTo XYZ="402.4455, 4.064979, 242.5137" />
+			<WaitTimer Waittime="15"/>-->
+			<MoveTo XYZ="497.9082, 20.3584, 151.0306" />
+			<GetTo ZoneId="958" XYZ="555.8098,32.30835,159.1057" />
+			<WaitWhile condition="GetQuestStep(69920) == 6"/>
+			<RunCode name="TurnOnMount"/>
+			<!--
       <LLToast message="Approach the girl stealthly wihtout being seen."/>
-			<StopBot/>
+			<StopBot/>-->
     </If>
     <If Condition="GetQuestStep(69920) == 255">
       <GetTo ZoneId="958" XYZ="552.3287, 32.19771, 159.9246"/>  <!-- Subzone="3902" Area="" -->
@@ -1206,6 +1225,7 @@
     <If Condition="GetQuestStep(69921) == 6">
       <GetTo ZoneId="958" XYZ="157.9608, -15.09227, 621.1699"/>  <!-- Subzone="3907" Area="" -->
       <LLTalkTo NpcId="1038853" XYZ="156.7559, -14.95557, 623.2242" QuestId="69921" StepId="6"/>
+			<WaitWhile condition="GetQuestStep(69921) == 6"/>
     </If>
     <If Condition="GetQuestStep(69921) == 7">
       <GetTo ZoneId="958" XYZ="146.0767, -13.94504, 635.7167" />
@@ -1273,8 +1293,311 @@
     <If Condition="GetQuestStep(69923) == 3">
       <GetTo ZoneId="958" XYZ="-361.5228, 22.15042, 431.6743"/>  <!-- Subzone="3903" Area="" -->
       <LLTalkTo NpcId="1039878" XYZ="-362.1729, 22.07107, 434.0123" QuestId="69923" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69923) == 4">
+      <LisbethTravel Zone="958" Subzone="3902" Position="-310.1345, 22.49282, 366.7542"/> <!-- Area="Garlemald" -->
+      <LLTalkTo NpcId="1039880" XYZ="-308.3696, 22.46834, 365.7129" QuestId="69923" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69923) == 5">
+			<RunCode name="TurnOffMount"/>
+			<NoCombatMoveTo XYZ="-295.3914, 4.537916, 258.5102" />
+			<WaitTimer Waittime="3"/>
+      <NoCombatMoveTo XYZ="65.88302, 0.04138899, 150.071"/> <!-- Zone: "958" Subzone="3913" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039880" XYZ="65.07941, -0.1091221, 152.0953" QuestId="69923" StepId="5"/>
+			<RunCode name="TurnOnMount"/>
+    </If>	
+    <If Condition="GetQuestStep(69923) == 255">
+      <LisbethTravel Zone="958" XYZ="65.88302, 0.04138899, 150.071"/> <!-- Zone: "958" Subzone="3913" Area="Garlemald" -->
+      <LLTurnIn QuestId="69923" NpcId="1039883" XYZ="64.65234, 0.2142759, 147.8446"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- The Last Bsstion -->
+    <If Condition="IsQuestCompleted(69923) and not HasQuest(69924) and not IsQuestCompleted(69924)">
+      <LisbethTravel Zone="958" XYZ="65.88302, 0.04138899, 150.071"/> <!-- Zone: "958" Subzone="3913" Area="Garlemald" -->
+      <If Condition="IsQuestAcceptQualified(69924)">
+        <LLPickupQuest QuestId="69924" NpcId="1039883"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69924) == 1">
+      <GetTo ZoneId="958" XYZ="167.7169, 0.9689628, 103.0773" />
+			<WaitWhile condition="GetQuestStep(69924) == 1"/>
+    </If>	
+    <If Condition="GetQuestStep(69924) == 2">
+      <GetTo ZoneId="958" XYZ="168.0475, 0.9665298, 107.5323"/>  <!-- Subzone="3910" Area="Garlemald" -->
+      <LLTalkTo NpcId="1038761" XYZ="169.2378, 0.9999279, 105.8213" QuestId="69924" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69924) == 3">
+      <GetTo ZoneId="958" XYZ="301.4198, 5.516328, 78.34881" />
+			<WaitWhile condition="GetQuestStep(69924) == 3"/>
     </If>		
-		
+    <If Condition="GetQuestStep(69924) == 4">
+      <GetTo ZoneId="958" XYZ="301.2787, 5.530367, 76.89069"/>  <!-- Subzone="3914" Area="Garlemald" -->
+      <LLTalkTo NpcId="1038766" XYZ="301.1978, 5.530021, 76.67651" QuestId="69924" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69924) == 5">
+      <GetTo ZoneId="958" XYZ="385.0165, 4.142855, 70.29065"/>  <!-- Subzone="3914" Area="Garlemald" -->
+      <LLTalkTo NpcId="1040164" XYZ="387.2892, 3.89357, 71.97681" QuestId="69924" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69924) == 6">
+      <GetTo ZoneId="958" XYZ="528.0471, 14.62334, -165.0412" />
+			<WaitWhile condition="GetQuestStep(69924) == 6"/>
+    </If>		
+    <If Condition="GetQuestStep(69924) == 7">
+      <GetTo ZoneId="958" XYZ="528.0471, 14.62334, -165.0412"/>  <!-- Subzone="3910" Area="Garlemald" -->
+      <LLTalkTo NpcId="1040750" XYZ="526.9092, 14.61623, -162.8596" QuestId="69924" StepId="7"/>
+    </If>	
+    <If Condition="GetQuestStep(69924) == 8">
+      <GetTo ZoneId="958" XYZ="523.3819, 10.85637, -348.7201"/>  <!-- Subzone="3910" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039886" XYZ="520.8667, 10.8, -352.4987" QuestId="69924" StepId="8"/>
+    </If>
+    <If Condition="GetQuestStep(69924) == 9">
+      <GetTo ZoneId="958" XYZ="510.786, 10.8, -424.4272"/>  <!-- Subzone="3910" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039889" XYZ="509.4834, 10.8, -422.6292" QuestId="69924" StepId="9"/>
+    </If>
+    <If Condition="GetQuestStep(69924) == 10">
+      <GetTo ZoneId="958" XYZ="526.8512, -36.65, -249.414"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039890" XYZ="528.2825, -36.65, -251.484" QuestId="69924" StepId="10"/>
+    </If>
+    <If Condition="GetQuestStep(69924) == 255">
+      <GetTo ZoneId="958" XYZ="546.6478, -35.24417, -194.0996"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTurnIn QuestId="69924" NpcId="1039892" XYZ="547.5393, -35.24417, -192.279"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Personae non Gratae -->
+    <If Condition="IsQuestCompleted(69924) and not HasQuest(69925) and not IsQuestCompleted(69925)">
+      <GetTo ZoneId="958" XYZ="531.6425, -36.65, -177.9594"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <If Condition="IsQuestAcceptQualified(69925)">
+        <LLPickupQuest QuestId="69925" NpcId="1039896"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69925) == 1 and GetQuestById(69925).QuestI8A == 0">
+      <GetTo ZoneId="958" XYZ="526.7617, -36.65, -186.4436"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1037716" XYZ="524.4373, -36.65, -186.6942" QuestId="69925" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69925) == 1 and GetQuestById(69925).QuestI8A == 17">
+      <GetTo ZoneId="958" XYZ="511.1898, -36.65, -163.1323"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1037718" XYZ="512.6268, -36.65, -160.3266" QuestId="69925" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(69925) == 1 and GetQuestById(69925).QuestI8A == 33">
+      <GetTo ZoneId="958" XYZ="503.7395, -36.65, -178.0714"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1037715" XYZ="500.5721, -36.65, -178.851" QuestId="69925" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69925) == 1 and GetQuestById(69925).QuestI8A == 49">
+      <GetTo ZoneId="958" XYZ="498.1853, -36.19848, -202.8736"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1037717" XYZ="495.3535, -36.06746, -205.1576" QuestId="69925" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(69925) == 1 and GetQuestById(69925).QuestI8A == 65">
+      <GetTo ZoneId="958" XYZ="510.8194, -36.65, -202.843"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <UseObject NpcId="2012062" XYZ="512.1679, -34.82775, -201.7169" QuestId="69925" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69925) == 2">
+      <GetTo ZoneId="958" XYZ="548.2252, -36.60517, -216.3892"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039899" XYZ="549.6758, -36.61608, -216.846" QuestId="69925" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69925) == 3">
+      <GetTo ZoneId="958" XYZ="549.0861, -36.61618, -259.0269"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1037719" XYZ="549.7977, -36.61618, -260.5784" QuestId="69925" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69925) == 4">
+      <GetTo ZoneId="958" XYZ="549.1381, -36.61608, -219.7639"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039899" XYZ="549.6758, -36.61608, -216.846" QuestId="69925" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69925) == 255">
+      <GetTo ZoneId="958" XYZ="530.7444, -36.65001, -177.7881"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTurnIn QuestId="69925" NpcId="1039896" XYZ="530.1747, -36.65, -175.8602"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- His Park Materials -->
+    <If Condition="IsQuestCompleted(69925) and not HasQuest(69926) and not IsQuestCompleted(69926)">
+      <GetTo ZoneId="958" XYZ="530.7444, -36.65001, -177.7881"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <If Condition="IsQuestAcceptQualified(69926)">
+        <LLPickupQuest QuestId="69926" NpcId="1039896"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69926) == 1">
+      <GetTo ZoneId="958" XYZ="409.6849, 15.55817, -494.3037"/>  <!-- Subzone="3920" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039901" XYZ="408.6519, 15.55817, -496.1471" QuestId="69926" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69926) == 2">
+      <GetTo ZoneId="958" XYZ="383.6354, 15.55816, -626.9127"/>  <!-- Subzone="3920" Area="Garlemald" -->
+      <UseObject NpcIds="2012093,2012094,2012095,2012096" QuestId="69926" StepId="2">
+				<HotSpots>
+					<HotSpot Radius="200" XYZ="381.9486, 16.617, -635.34"/>
+					<HotSpot Radius="200" XYZ="423.1173, 16.31183, -570.3365"/>
+					<HotSpot Radius="200" XYZ="381.7349, 15.54889, -503.2578"/>
+					<HotSpot Radius="200" XYZ="381.6434, 25.98608, -503.1968"/>
+				</HotSpots>
+			</UseObject>	
+    </If>
+		<!--
+    <If Condition="GetQuestStep(69926) == 2">
+      <GetTo ZoneId="958" XYZ="422.4308, 15.73405, -567.7321"/>
+      <UseObject NpcId="2012095" XYZ="423.1173, 16.31183, -570.3365" QuestId="69926" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69926) == 2">
+      <GetTo ZoneId="958" XYZ="386.0892, 15.55817, -508.3025"/>
+      <UseObject NpcId="2012093" XYZ="381.7349, 15.54889, -503.2578" QuestId="69926" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69926) == 2">
+      <GetTo ZoneId="958" XYZ="381.4345, 25.0491, -505.4348"/>
+      <UseObject NpcId="2012094" XYZ="381.6434, 25.98608, -503.1968" QuestId="69926" StepId="2"/>
+    </If>
+		-->
+    <If Condition="GetQuestStep(69926) == 3">
+      <GetTo ZoneId="958" XYZ="429.1425, 15.55816, -612.8055"/>  <!-- Subzone="3920" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039906" XYZ="432.2423, 15.55817, -611.902" QuestId="69926" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69926) == 4">
+      <GetTo ZoneId="958" XYZ="445.487, 15.08504, -646.0578"/>  <!-- Subzone="3920" Area="Garlemald" -->
+      <UseObject NpcId="2012100" XYZ="445.7617, 15.48785, -648.6152" QuestId="69926" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69926) == 255">
+      <GetTo ZoneId="958" XYZ="433.7727, 15.55816, -612.1447"/>  <!-- Subzone="3920" Area="Garlemald" -->
+      <LLTurnIn ItemId="2003228" QuestId="69926" NpcId="1039906" XYZ="432.2423, 15.55817, -611.902"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- No Good Deed -->
+    <If Condition="IsQuestCompleted(69926) and not HasQuest(69927) and not IsQuestCompleted(69927)">
+      <GetTo ZoneId="958" XYZ="412.7953, 16.21181, -575.412"/>  <!-- Subzone="3920" Area="Garlemald" -->
+      <If Condition="IsQuestAcceptQualified(69927)">
+        <LLPickupQuest QuestId="69927" NpcId="1038789"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69927) == 1">
+      <GetTo ZoneId="958" XYZ="342.7629, 10.8, -528.9598"/>  <!-- Subzone="3917" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039910" XYZ="340.7185, 10.8, -530.0831" QuestId="69927" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69927) == 2">
+      <GetTo ZoneId="958" XYZ="271.7919, 10.5, -581.8554"/>  <!-- Subzone="3917" Area="Garlemald" -->
+      <UseItem ItemId="2003229" NpcId="2012101" XYZ="270.2524, 10.45239, -579.7666" QuestId="69927" StepId="2"/>
+    </If>	
+    <If Condition="GetQuestStep(69927) == 3">
+      <GetTo ZoneId="958" XYZ="337.5844, 10.8, -528.013"/>  <!-- Subzone="3917" Area="Garlemald" -->
+      <LLHandOver ItemId="2003230" NpcId="1039910" XYZ="340.7185, 10.8, -530.0831" QuestId="69927" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69927) == 4">
+      <GetTo ZoneId="958" XYZ="337.8103, 10.8, -528.4406"/>  <!-- Subzone="3917" Area="Garlemald" -->
+      <UseObject NpcId="2012106" XYZ="339.1621, 10.78809, -530.541" QuestId="69927" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69927) == 255">
+      <GetTo ZoneId="958" XYZ="523.7183, -36.65, -236.0452"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTurnIn QuestId="69927" NpcId="1039913" XYZ="526.3904, -36.65, -233.8751"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Alea Iacta Est -->
+    <If Condition="IsQuestCompleted(69927) and not HasQuest(69928) and not IsQuestCompleted(69928)">
+      <GetTo ZoneId="958" XYZ="523.7183, -36.65, -236.0452"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <If Condition="IsQuestAcceptQualified(69928)">
+        <LLPickupQuest QuestId="69928" NpcId="1039913"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69928) == 1 and GetQuestById(69928).QuestI8A == 0">
+      <GetTo ZoneId="958" XYZ="497.1134, -36.06746, -204.5439"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1038790" XYZ="495.4147, -36.06746, -205.1271" QuestId="69928" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69928) == 1 and GetQuestById(69928).QuestI8A == 16">
+      <GetTo ZoneId="958" XYZ="512.1069, -36.65, -162.6931"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1038791" XYZ="512.6268, -36.65, -160.3266" QuestId="69928" StepId="1"/>
+    </If>		
+    <If Condition="GetQuestStep(69928) == 2">
+      <GetTo ZoneId="958" XYZ="507.3292, 10.8, -424.0298"/>  <!-- Subzone="3910" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039889" XYZ="509.4834, 10.8, -422.6292" QuestId="69928" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69928) == 3">
+      <GetTo ZoneId="958" XYZ="280.3102, 10.8, -234.5002"/>  <!-- Subzone="3917" Area="Garlemald" -->
+      <UseTransport NpcId="2012107" XYZ="279.3774, 10.81854, -232.99" QuestId="69928" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69928) == 255">
+      <GetTo ZoneId="958" XYZ="-399.3843, 22.084, 420.434"/>  <!-- Subzone="3903" Area="Garlemald" -->
+      <LLTurnIn QuestId="69928" NpcId="1039915" XYZ="-399.8016, 22.14318, 422.8733"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Strange Bedfellows -->
+    <If Condition="IsQuestCompleted(69928) and not HasQuest(69929) and not IsQuestCompleted(69929)">
+      <GetTo ZoneId="958" XYZ="-399.3843, 22.084, 420.434"/>  <!-- Subzone="3903" Area="Garlemald" -->
+      <If Condition="IsQuestAcceptQualified(69929)">
+        <LLPickupQuest QuestId="69929" NpcId="1039915"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69929) == 1">
+      <GetTo ZoneId="958" XYZ="493.772, 10.8, -423.5958"/>  <!-- Subzone="3910" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039917" XYZ="495.5062, 10.8, -425.2232" QuestId="69929" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69929) == 2">
+      <GetTo ZoneId="958" XYZ="502.7504, -36.65, -181.005"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1037715" XYZ="500.5721, -36.65, -178.851" QuestId="69929" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69929) == 3">
+      <GetTo ZoneId="958" XYZ="522.2227, -36.46938, -186.2633"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1037716" XYZ="524.4373, -36.65, -186.6942" QuestId="69929" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69929) == 4">
+      <GetTo ZoneId="958" XYZ="548.3253, -36.61618, -259.8542"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1037719" XYZ="549.7977, -36.61618, -260.5784" QuestId="69929" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69929) == 5">
+      <GetTo ZoneId="958" XYZ="546.223, -35.24417, -193.8747"/>  <!-- Subzone="3915" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039924" XYZ="547.5089, -35.24417, -192.7368" QuestId="69929" StepId="5"/>
+    </If>
+		<!-- Use Chain on npcs -->
+    <If Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 0">
+      <GetTo ZoneId="958" XYZ="507.3714, 8.571986, 62.29583"/>  <!-- Subzone="3910" Area="Garlemald" -->
+			<Dismount/>
+      <UseObject NpcId="2012111" XYZ="507.042, 8.865417, 64.68298" QuestId="69929" StepId="6" UseTimes="1"/>
+			<WaitWhile condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 0"/>
+      <!-- <LLUseItem ItemId="2003231" NpcId="2012111" XYZ="507.042, 8.865417, 64.68298"  InCombat="True" UseHealthPercent="25" QuestId="69929" StepId="6" UseTimes="1"/>-->
+    </If>		
+    <If Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 16">
+      <GetTo ZoneId="958" XYZ="340.4011, 2.151342, 95.16756"/>  <!-- Subzone="3914" Area="Garlemald" -->
+			<Dismount/>
+			<RunCode name="Strange_Bedfellows"/>
+      <UseItem ItemId="2003231" NpcId="10986" XYZ="338.4907, 2.304016, 94.77368" InCombat="True" UseHealthPercent="10" QuestId="69929" StepId="6" UseTimes="1"/>
+    </If>		
+    <If Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 32">
+      <GetTo ZoneId="958" XYZ="81.72018, 0.855561, 151.9904"/>  <!-- Subzone="3913" Area="Garlemald" -->
+			<Dismount/>
+      <UseObject NpcId="2012108" XYZ="79.42322, 0.6256104, 153.2463" QuestId="69929" StepId="6" UseTimes="1"/>
+    </If>		
+    <If Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 49">
+      <GetTo ZoneId="958" XYZ="-23.89815, -13.05349, 395.8865"/>  <!-- Subzone="3902" Area="Garlemald" -->
+			<Dismount/>
+			<RunCode name="Strange_Bedfellows"/>
+      <UseItem ItemId="2003231" NpcId="10986" XYZ="-25.5589, -12.95496, 396.9634" InCombat="True" UseHealthPercent="10" QuestId="69929" StepId="6" UseTimes="1"/>
+    </If>
+    <If Condition="GetQuestStep(69929) == 7">
+      <GetTo ZoneId="958" XYZ="-207.9491, 14.89283, 452.6305"/>  <!-- Subzone="3902" Area="Garlemald" -->
+      <LLTalkTo NpcId="1039930" XYZ="-208.3315, 15.48662, 450.8887" QuestId="69929" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(69929) == 255">
+      <GetTo ZoneId="958" XYZ="-350.4409, 23.58527, 421.5272"/>  <!-- Subzone="3903" Area="Garlemald" -->
+      <LLTurnIn QuestId="69929" NpcId="1039931" XYZ="-351.1559, 23.7426, 418.4176"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- In from the Cold -->
+    <If Condition="IsQuestCompleted(69929) and not HasQuest(69930) and not IsQuestCompleted(69930)">
+      <GetTo ZoneId="958" XYZ="-350.4409, 23.58527, 421.5272"/>  <!-- Subzone="3903" Area="Garlemald" -->
+      <If Condition="IsQuestAcceptQualified(69930)">
+        <LLPickupQuest QuestId="69930" NpcId="1039931"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69930) == 1">
+      <GetTo ZoneId="958" XYZ="-360.438, 22, 487.1302"/>  <!-- Subzone="3903" Area="Garlemald" -->
+			<LLToast message="Please complete the solo duty manually."/>
+    </If>		
  
  	</If>
   </Order>
@@ -1303,5 +1626,27 @@
         }
       ]]>
     </CodeChunk>
+    <CodeChunk Name="Strange_Bedfellows">
+      <![CDATA[ 
+					uint[] questNpcIds = { 2012109,2012110 };
+					var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+
+				if (!npcId.IsWithinInteractRange)
+
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
+					while (_target.Distance2D(Core.Me.Location) >= 4)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
+					Navigator.PlayerMover.MoveStop();
+				}
+							
+				npcId.Interact();		
+        await Coroutine.Sleep(7000);
+      ]]>
+    </CodeChunk>		
   </CodeChunks>
 </Profile>
