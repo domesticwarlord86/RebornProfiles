@@ -25,7 +25,7 @@
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY acceptBeta "1"> 		
+<!ENTITY acceptBeta "0"> 		
 ]> 
 
 <Profile>
