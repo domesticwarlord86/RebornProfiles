@@ -1921,24 +1921,34 @@
     </If>
     <If Condition="GetQuestStep(69939) == 2">
 			<!-- Stairs again -->
-			<LLToast message="Climb those stairs and do this step manually please."/>
+			<GetTo ZoneId="959" XYZ="-376.7693, -161.8438, -238.0391"/>  <!-- Subzone="3968" Area="" -->
+			<GetTo ZoneId="959" XYZ="-357.4525, -161.8438, -256.2293"/>  <!-- Subzone="3968" Area="" -->
+			<WaitTimer Waittime="2"/>
+			<RunCode name="699391"/>			
+			<LLTalkTo NpcId="1038923" XYZ="-376.2722, -151.6717, -267.9026" QuestId="69939" StepId="2"/>
+			<WaitTimer Waittime="2"/>
+			<RunCode name="699392"/>	
+			<!--<LLToast message="Climb those stairs and do this step manually please."/>
 			<StopBot/>
-			<!--			
       <GetTo ZoneId="959" XYZ="-375.7984, -151.4913, -270.0193"/>
       <LLTalkTo NpcId="1038923" XYZ="-376.2722, -151.6717, -267.9026" QuestId="69939" StepId="2"/> -->
     </If>
     <If Condition="GetQuestStep(69939) == 3">
-			<LLToast message="Climb those stairs and do this step manually please."/>
+		<GetTo ZoneId="959" XYZ="-331.909, -161.8438, -363.095" Distance="0.5"/>
+			<WaitTimer Waittime="5"/>
+			<RunCode name="699393"/>			
+			<LLTalkTo NpcId="1038924" XYZ="-329.9763, -151.6717, -333.7606" QuestId="69939" StepId="3"/>
+			<WaitTimer Waittime="2"/>
+			<RunCode name="699394"/>	
+			<!--<LLToast message="Climb those stairs and do this step manually please."/>
 			<StopBot/>
-			<!--
       <GetTo ZoneId="959" XYZ="-331.523, -151.6717, -334.9587"/>
       <LLTalkTo NpcId="1038924" XYZ="-329.9763, -151.6717, -333.7606" QuestId="69939" StepId="3"/> -->
     </If>
 		<!-- Guise 2579 -->
     <If Condition="GetQuestStep(69939) == 4">
-			<LLToast message="Go downstairs and do this step manually please."/>
-			<StopBot/>
-			<!--
+			<!--<LLToast message="Go downstairs and do this step manually please."/>
+			<StopBot/>-->
       <GetTo ZoneId="959" XYZ="-516.6047, -161.8454, -283.7932"/>
       <LLTalkTo NpcId="1038919" XYZ="-518.3643, -161.8455, -281.941" QuestId="69939" StepId="4"/> -->
     </If>
@@ -2325,6 +2335,140 @@
         Navigator.PlayerMover.MoveTowards(loc1);
         await Coroutine.Sleep(1000);
         MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+      ]]>
+    </CodeChunk>
+	<CodeChunk Name="699391">
+      <![CDATA[
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+        await Coroutine.Sleep(1000);
+		
+        var loc1 = new Vector3(-357.4635f, -160.8146f, -258.96534f);
+        var loc2 = new Vector3(-357.067f, -159.3146f, -262.4281f);
+        var loc3 = new Vector3(-357.7219f, -157.8146f, -265.2889f);
+        var loc4 = new Vector3(-358.944f, -156.3146f, -268.2762f);
+        var loc5 = new Vector3(-360.8378f, -154.8146f, -270.2435f);
+        var loc6 = new Vector3(-363.5175f, -153.3146f, -272.8293f);		
+        var loc7 = new Vector3(-367.9785f, -152.9691f, -269.4294f);
+        var loc8 = new Vector3(-373.885f, -151.6717f, -268.4223f);
+
+        Navigator.PlayerMover.MoveTowards(loc1);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc2);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc3);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc3) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc4);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc4) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc5);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc5) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc6);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc6) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc7);
+        await Coroutine.Sleep(500);
+        while (Core.Me.Location.Distance2D(loc7) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc8);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc8) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+	<CodeChunk Name="699392">
+      <![CDATA[
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+        await Coroutine.Sleep(1000);
+		
+        var loc1 = new Vector3(-384.2141f, -161.8438f, -283.1291f);
+
+        Navigator.PlayerMover.MoveTowards(loc1);
+        await Coroutine.Sleep(1000);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+      ]]>
+    </CodeChunk>
+	<CodeChunk Name="699393">
+      <![CDATA[
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+        await Coroutine.Sleep(1000);
+		
+        var loc1 = new Vector3(-333.8608f, -160.8146f, -359.6165f);
+        var loc2 = new Vector3(-336.442f, -159.3146f, -358.0278f);
+        var loc3 = new Vector3(-338.5784f, -157.8146f, -355.8105f);
+        var loc4 = new Vector3(-340.4261f, -156.3146f, -353.4054f);
+        var loc5 = new Vector3(-341.0055f, -154.8146f, -350.5086f);
+        var loc6 = new Vector3(-341.6295f, -153.3146f, -347.2227f);		
+        var loc7 = new Vector3(-336.4114f, -153.1465f, -344.5868f);
+        var loc8 = new Vector3(-332.3878f, -151.4837f, -333.126f);
+
+        Navigator.PlayerMover.MoveTowards(loc1);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc2);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc2) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc3);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc3) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc4);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc4) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc5);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc5) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc6);
+        await Coroutine.Sleep(500);
+        MovementManager.Jump();
+        while (Core.Me.Location.Distance2D(loc6) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc7);
+        await Coroutine.Sleep(500);
+        while (Core.Me.Location.Distance2D(loc7) > 1) {  await Coroutine.Yield();  }
+
+        Navigator.PlayerMover.MoveTowards(loc8);
+        await Coroutine.Sleep(500);
+        while (Core.Me.Location.Distance2D(loc8) > 1) {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+    </CodeChunk>
+	<CodeChunk Name="699394">
+      <![CDATA[
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+        await Coroutine.Sleep(1000);
+		
+        var loc1 = new Vector3(-341.6084f, -161.8438f, -324.1553f);
+
+        Navigator.PlayerMover.MoveTowards(loc1);
+        await Coroutine.Sleep(1000);
         while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
       ]]>
     </CodeChunk>	
