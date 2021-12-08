@@ -25,7 +25,7 @@
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY acceptBeta "0"> 		
+<!ENTITY acceptBeta "1"> 		
 ]> 
 
 <Profile>
@@ -1880,16 +1880,21 @@
     </If>
 		<!-- Navigating these stairs is going to be rough -->
     <If Condition="GetQuestStep(69938) == 2">
-      <GetTo ZoneId="959" XYZ="-484.7618, -154.94, -688.9039"/>  <!-- Subzone="3968" Area="" -->
-      <UseTransport NpcId="2012178" XYZ="-486.595, -154.3755, -689.2653" QuestId="69938" StepId="2"/>
+			<LLToast message="Climb those stairs and do this step manually please."/>
+			<StopBot/>
+			<!--
+      <GetTo ZoneId="959" XYZ="-484.7618, -154.94, -688.9039"/>
+      <LLTalkTo NpcId="2012178" XYZ="-486.595, -154.3755, -689.2653" QuestId="69938" StepId="2"/> -->
     </If>		
     <If Condition="GetQuestStep(69938) == 3">
-      <GetTo ZoneId="959" XYZ="-453.1275, -168, -618.8707"/>  <!-- Subzone="3968" Area="" -->
-      <LLHandOver ItemId="2003236" NpcId="1038912" XYZ="-455.4055, -168, -620.0504" QuestId="69938" StepId="3"/>
+      <GetTo ZoneId="959" XYZ="-453.1275, -168, -618.8707"/>
+      <LLHandOver ItemId="2003236" NpcId="1038912" XYZ="-455.4055, -168, -620.0504" QuestId="69938" StepId="3"/> 
     </If>
-    <If Condition="GetQuestStep(69938) == 4">
-      <LLToast message="Eat the carrot!"/>
-    </If>		
+    <While Condition="GetQuestStep(69938) == 4">
+			<WaitTimer Waittime="2"/>
+      <RunCode name="A_Taste_of_the_Moon_Eat_Carrot"/>
+			<WaitWhile condition="GetQuestStep(69938) == 4"/>
+    </While>		
     <If Condition="GetQuestStep(69938) == 255">
       <GetTo ZoneId="959" XYZ="-453.1275, -168, -618.8707"/>  <!-- Subzone="3968" Area="" -->
       <LLTurnIn QuestId="69938" NpcId="1038912" XYZ="-455.4055, -168, -620.0504"/>
@@ -1910,27 +1915,35 @@
     </If>
     <If Condition="GetQuestStep(69939) == 2">
 			<!-- Stairs again -->
-      <GetTo ZoneId="959" XYZ="-375.7984, -151.4913, -270.0193"/>  <!-- Subzone="3968" Area="" -->
-      <LLTalkTo NpcId="1038923" XYZ="-376.2722, -151.6717, -267.9026" QuestId="69939" StepId="2"/>
+			<LLToast message="Climb those stairs and do this step manually please."/>
+			<StopBot/>
+			<!--			
+      <GetTo ZoneId="959" XYZ="-375.7984, -151.4913, -270.0193"/>
+      <LLTalkTo NpcId="1038923" XYZ="-376.2722, -151.6717, -267.9026" QuestId="69939" StepId="2"/> -->
     </If>
     <If Condition="GetQuestStep(69939) == 3">
-			<!-- Stairs again -->
-      <GetTo ZoneId="959" XYZ="-331.523, -151.6717, -334.9587"/>  <!-- Subzone="3968" Area="" -->
-      <LLTalkTo NpcId="1038924" XYZ="-329.9763, -151.6717, -333.7606" QuestId="69939" StepId="3"/>
+			<LLToast message="Climb those stairs and do this step manually please."/>
+			<StopBot/>
+			<!--
+      <GetTo ZoneId="959" XYZ="-331.523, -151.6717, -334.9587"/>
+      <LLTalkTo NpcId="1038924" XYZ="-329.9763, -151.6717, -333.7606" QuestId="69939" StepId="3"/> -->
     </If>
 		<!-- Guise 2579 -->
     <If Condition="GetQuestStep(69939) == 4">
-      <GetTo ZoneId="959" XYZ="-516.6047, -161.8454, -283.7932"/>  <!-- Subzone="3968" Area="" -->
-      <LLTalkTo NpcId="1038919" XYZ="-518.3643, -161.8455, -281.941" QuestId="69939" StepId="4"/>
+			<LLToast message="Go downstairs and do this step manually please."/>
+			<StopBot/>
+			<!--
+      <GetTo ZoneId="959" XYZ="-516.6047, -161.8454, -283.7932"/>
+      <LLTalkTo NpcId="1038919" XYZ="-518.3643, -161.8455, -281.941" QuestId="69939" StepId="4"/> -->
     </If>
     <If Condition="GetQuestStep(69939) == 5">
       <GetTo ZoneId="959" XYZ="-504.9607, -161.8438, -261.2337"/>  <!-- Subzone="3968" Area="" -->
       <LLTalkTo NpcId="1038925" XYZ="-506.5233, -161.8438, -258.6863" QuestId="69939" StepId="5"/>
     </If>
     <If Condition="GetQuestStep(69939) == 6">
-      <GetTo ZoneId="959" XYZ="-29.53684, -131.4486, -584.3477"/>  <!-- Subzone="3966" Area="" -->
+      <GetTo ZoneId="959" XYZ="-31.71523, -132.9464, -588.1395"/>  <!-- Subzone="3966" Area="Mare Lamentorum" -->
       <UseTransport NpcId="1038926" XYZ="-28.24445, -131.2988, -585.7481" QuestId="69939" StepId="6"/>
-    </If>		
+    </If>	
     <If Condition="GetQuestStep(69939) == 255">
       <GetTo ZoneId="959" XYZ="0.1065401, -49.5896, -697.8881"/>  <!-- Subzone="3966" Area="" -->
       <LLTurnIn QuestId="69939" NpcId="1038927" XYZ="2.090454, -49.5896, -699.733"/>
@@ -2016,9 +2029,17 @@
       <UseObject NpcId="2012185" XYZ="-5.416992, -49.05786, -269.2455" QuestId="69941" StepId="2"/>
     </If>		
     <If Condition="GetQuestStep(69941) == 3">
-      <LLToast message="Stalk the elf!"/>
+			<RunCode name="TurnOffMount"/>
+			<WaitTimer Waittime="10"/>
+			<GetTo ZoneId="959" XYZ="19.8326, -19.88344, -204.496" Distance="1"/>
+			<WaitTimer Waittime="22"/>
+			<GetTo ZoneId="959" XYZ="12.54666, -0.5566646, -153.5729" Distance="1"/>
+			<WaitTimer Waittime="22"/>
+			<GetTo ZoneId="959" XYZ="-22.66134, 26.31021, -110.1812" />
+			<WaitTimer Waittime="14"/>
 			<GetTo ZoneId="959" XYZ="40.80077, 73.85315, -33.73375" />
 			<WaitWhile condition="GetQuestStep(69941) == 3"/>
+			<RunCode name="TurnOnMount"/>
     </If>	
     <If Condition="GetQuestStep(69941) == 255">
       <GetTo ZoneId="959" XYZ="65.19228, 76.11685, -25.57205"/>  <!-- Subzone="3958" Area="Mare Lamentorum" -->
@@ -2041,6 +2062,8 @@
       <LLTalkTo NpcId="1038936" XYZ="191.4855, 93.90228, -54.30688" QuestId="69942" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69942) == 2">
+      <GetTo ZoneId="959" XYZ="183.137, 87.98729, -32.96252"/>  <!-- Subzone="3963" Area="Mare Lamentorum" -->
+      <UseObject NpcId="2012235" XYZ="183.3065, 87.20532, -30.47229" QuestId="69942" StepId="2"/>
       <WaitWhile condition="GetQuestStep(69942) == 2"/>
     </If>	
     <If Condition="GetQuestStep(69942) == 3">
@@ -2113,7 +2136,7 @@
       <LLTalkTo NpcId="1038960" XYZ="0.9917603, 0, 22.17133" QuestId="69944" StepId="1"/>		
     </If>	
     <If Condition="GetQuestStep(69944) == 2">
-			<If condition="no IsOnMap(958)">
+			<If condition="not IsOnMap(958)">
 				<TeleportTo AetheryteId="172" Force="True"/>
 			</If>
       <GetTo ZoneId="958" XYZ="-339.6964, 23.80361, 407.6213"/>  <!-- Subzone="3903" Area="Garlemald" -->
@@ -2124,7 +2147,7 @@
       <LLTalkTo NpcId="1038965" XYZ="-104.9668, 3.89894, 9.262146" QuestId="69944" StepId="3"/>
     </If>
     <If Condition="GetQuestStep(69944) == 4">
-			<If condition="no IsOnMap(987)">
+			<If condition="not IsOnMap(987)">
 				<GetTo ZoneId="962" XYZ="-107.2086, 3.898939, 5.974595"/>  <!-- Subzone="3816" Area="Old Sharlayan" -->
 				<UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>
 			</If>
@@ -2150,7 +2173,8 @@
     </If>	
     <If Condition="GetQuestStep(69945) == 1">
 			<GetTo ZoneId="962" XYZ="-107.2086, 3.898939, 5.974595"/>  <!-- Subzone="3816" Area="Old Sharlayan" -->
-			<UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>      
+			<UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>    
+			<WaitWhile condition="GetQuestStep(69945) == 1"/>
     </If>		
     <If Condition="GetQuestStep(69945) == 2">
       <TeleportTo AetheryteId="169" Force="True"/>
@@ -2217,6 +2241,17 @@
 				npcId.Interact();		
         await Coroutine.Sleep(7000);
       ]]>
-    </CodeChunk>		
+    </CodeChunk>
+		<CodeChunk Name="A_Taste_of_the_Moon_Eat_Carrot">
+			<![CDATA[
+				foreach(BagSlot slot in InventoryManager.FilledSlots)
+				{
+					if(slot.RawItemId == 2003236)
+					{
+						slot.UseItem();
+					}
+				}
+		    ]]>
+		</CodeChunk>		
   </CodeChunks>
 </Profile>
