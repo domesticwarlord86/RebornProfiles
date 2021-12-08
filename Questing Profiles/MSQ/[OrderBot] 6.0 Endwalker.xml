@@ -21,11 +21,13 @@
 		May get stuck on using item on npc, please report any problems.
 	A Taste of the Moon - Line 1866
 	   Stairs here are going to be an issue
+	Warm Hearts, Rekindled Hopes - Line 2500
+			Need to leave the water here
 -->
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY acceptBeta "0"> 		
+<!ENTITY acceptBeta "1"> 		
 ]> 
 
 <Profile>
@@ -2203,7 +2205,416 @@
     <If Condition="GetQuestStep(69945) == 4">
       <LLToast message="Please complete Vanaspati manually."/>
 			<StopBot/>
+    </If>	
+    <If Condition="GetQuestStep(69945) == 5">
+      <WaitWhile condition="GetQuestStep(69945) == 5"/>
+    </If>
+    <If Condition="GetQuestStep(69945) == 255">
+      <GetTo ZoneId="963" XYZ="4.600305, -1.999996, 95.08058"/>  <!-- Subzone="3860" Area="" -->
+      <LLTurnIn QuestId="69945" NpcId="1038992" XYZ="4.653992, -1.999996, 93.49207"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- The Blasphemy Unmasked -->
+    <If Condition="IsQuestCompleted(69946) and not IsQuestCompleted(69946)">
+      <If Condition="not HasQuest(69946)">
+      <GetTo ZoneId="963" XYZ="8.073995, -1.999996, 94.04496"/>  <!-- Subzone="3860" Area="" -->
+        <If Condition="IsQuestAcceptQualified(69946)">
+          <LLPickupQuest QuestId="69946" NpcId="1038992"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69946) == 1">
+      <GetTo ZoneId="963" XYZ="5.72776, -1.999996, 96.31231"/>  <!-- Subzone="3860" Area="" -->
+      <LLTalkTo NpcId="1038997" XYZ="2.761841, -1.999996, 97.30664" QuestId="69946" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69946) == 2">
+      <MoveTo XYZ="135.5514, 4.783755, -152.4321"/> <!-- Zone: "963" Subzone="3876" Area="" -->
+      <LLTalkTo NpcId="1037313" XYZ="137.7126, 4.783756, -153.9483" QuestId="69946" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69946) == 3 and GetQuestById(69946).QuestI8A == 0">
+      <MoveTo XYZ="13.70596, 0.5999998, -114.1724"/> <!-- Zone: "963" Subzone="3873" Area="" -->
+      <LLTalkTo NpcId="1037314" XYZ="15.70148, 0.9, -115.2209" QuestId="69946" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69946) == 3 and GetQuestById(69946).QuestI8A == 1">
+      <MoveTo XYZ="-45.96252, 0.6437263, -96.45226"/> <!-- Zone: "963" Subzone="3872" Area="" -->
+      <LLTalkTo NpcId="1037316" XYZ="-47.04364, 0.9199997, -94.95697" QuestId="69946" StepId="3"/>
     </If>		
+    <If Condition="GetQuestStep(69946) == 3 and GetQuestById(69946).QuestI8A == 2">
+      <MoveTo XYZ="-21.89998, 0.5999998, -60.3139"/> <!-- Zone: "963" Subzone="3872" Area="" -->
+      <LLTalkTo NpcId="1037315" XYZ="-19.60791, 0.9, -60.68518" QuestId="69946" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69946) == 4">
+      <MoveTo XYZ="-38.52087, -0.0001958609, -138.9991"/> <!-- Zone: "963" Subzone="3869" Area="" -->
+      <LLTalkTo NpcId="1038997" XYZ="-38.42144, -0.0001405463, -136.8233" QuestId="69946" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69946) == 5 and GetQuestById(69946).QuestI8A == 0">
+      <MoveTo XYZ="-21.02495, 3.01, -224.6363"/> <!-- Zone: "963" Subzone="3874" Area="" -->
+      <LLTalkTo NpcId="1039001" XYZ="-20.09619, 3.01, -226.7949" QuestId="69946" StepId="5"/>
+    </If>		
+    <If Condition="GetQuestStep(69946) == 5 and GetQuestById(69946).QuestI8A == 1">
+      <MoveTo XYZ="-22.16821, 1.499997, -188.2464"/> <!-- Zone: "963" Subzone="3874" Area="" -->
+      <LLTalkTo NpcId="1037317" XYZ="-25.31476, 1.799993, -185.9617" QuestId="69946" StepId="5"/>
+    </If>	
+    <If Condition="GetQuestStep(69946) == 255">
+      <MoveTo XYZ="-2.2787, 2.999994, -205.2814"/> <!-- Zone: "963" Subzone="3874" Area="" -->
+      <LLTurnIn QuestId="69946" NpcId="1037318" XYZ="-4.104736, 2.999994, -203.8758"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Amidst the Apocalypse -->
+    <If Condition="IsQuestCompleted(69946) and not IsQuestCompleted(69947)">
+      <If Condition="not HasQuest(69947)">
+      <GetTo ZoneId="963" XYZ="-5.435645, 2.999995, -205.788"/>  <!-- Subzone="3874" Area="" -->
+        <If Condition="IsQuestAcceptQualified(69947)">
+          <LLPickupQuest QuestId="69947" NpcId="1037318"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69947) == 1">
+      <MoveTo XYZ="57.97276, 26.99999, 46.45942"/> <!-- Zone: "963" Subzone="3878" Area="" -->
+      <LLTalkTo NpcId="1039002" XYZ="55.79668, 26.99999, 46.55098" QuestId="69947" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69947) == 2 and GetQuestById(69947).QuestI8A == 0">
+      <MoveTo XYZ="88.92789, 27.05, 29.95927"/> <!-- Zone: "963" Subzone="3878" Area="" -->
+      <LLTalkTo NpcId="1039539" XYZ="87.66296, 27.06, 28.03076" QuestId="69947" StepId="2"/>
+    </If>		
+    <If Condition="GetQuestStep(69947) == 2 and GetQuestById(69947).QuestI8A == 1">
+      <MoveTo XYZ="151.3331, 27.05, 37.16674"/> <!-- Zone: "963" Subzone="3878" Area="" -->
+      <LLTalkTo NpcId="1039540" XYZ="149.7977, 27.05, 39.62769" QuestId="69947" StepId="2"/>
+    </If>		
+    <If Condition="GetQuestStep(69947) == 3">
+      <MoveTo XYZ="-157.4012, 23.99998, 112.986"/> <!-- Zone: "963" Subzone="3868" Area="" -->
+      <LLTalkTo NpcId="1039003" XYZ="-159.3805, 23.99997, 110.6127" QuestId="69947" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69947) == 4">
+      <GetTo ZoneId="963" XYZ="-102.3966, 24, 81.58898"/>  <!-- Subzone="3868" Area="" -->
+      <LLTalkTo NpcId="1039542" XYZ="-101.1216, 24, 79.48425" QuestId="69947" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69947) == 5">
+      <GetTo ZoneId="963" XYZ="-104.4108, 24, 84.33227"/>  <!-- Subzone="3868" Area="" -->
+      <UseObject NpcId="2012194" XYZ="-103.8376, 24.94836, 87.57141" QuestId="69947" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69947) == 6">
+		  <!-- Transporting 404-->
+      <GetTo ZoneId="963" XYZ="-141.0477, 24, 94.85707"/>  <!-- Subzone="3868" Area="" -->
+      <LLTalkTo NpcId="1037321" XYZ="-143.145, 24, 93.00378" QuestId="69947" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(69947) == 7">
+      <GetTo ZoneId="963" XYZ="-105.9856, 24, 86.24238"/>  <!-- Subzone="3868" Area="" -->
+      <UseObject NpcId="2012195" XYZ="-104.5701, 25.19263, 87.63245" QuestId="69947" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(69947) == 8">
+			<!-- Transporting 404-->
+      <GetTo ZoneId="963" XYZ="-121.2143, 24, 88.87548"/>  <!-- Subzone="3868" Area="" -->
+      <LLTalkTo NpcId="1037319" XYZ="-123.4913, 24, 88.57861" QuestId="69947" StepId="8"/>
+    </If>
+    <If Condition="GetQuestStep(69947) == 9">
+      <GetTo ZoneId="963" XYZ="-105.2721, 24, 85.77537"/>  <!-- Subzone="3868" Area="" -->
+      <UseObject NpcId="2012196" XYZ="-104.2344, 24.73486, 87.57141" QuestId="69947" StepId="9"/>
+    </If>
+    <If Condition="GetQuestStep(69947) == 10">
+      <GetTo ZoneId="963" XYZ="-116.9522, 24, 95.64616"/>  <!-- Subzone="3868" Area="" -->
+      <LLTalkTo NpcId="1037320" XYZ="-115.7397, 24, 97.0625" QuestId="69947" StepId="10"/>
+    </If>
+    <If Condition="GetQuestStep(69947) == 11">
+      <GetTo ZoneId="963" XYZ="-103.2977, 24, 82.42744"/>  <!-- Subzone="3868" Area="" -->
+      <LLTalkTo NpcId="1039542" XYZ="-101.1216, 24, 79.48425" QuestId="69947" StepId="11"/>
+    </If>
+    <If Condition="GetQuestStep(69947) == 255">
+      <GetTo ZoneId="963" XYZ="-156.8678, 23.99998, 111.6525"/>  <!-- Subzone="3868" Area="" -->
+      <LLTurnIn QuestId="69947" NpcId="1039003" XYZ="-159.3805, 23.99997, 110.6127"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Beyond the Depths of Despair -->
+    <If Condition="IsQuestCompleted(69947) and not IsQuestCompleted(69948)">
+      <If Condition="not HasQuest(69948)">
+      <GetTo ZoneId="963" XYZ="-156.8678, 23.99998, 111.6525"/>  <!-- Subzone="3868" Area="" -->
+        <If Condition="IsQuestAcceptQualified(69948)">
+          <LLPickupQuest QuestId="69948" NpcId="1039004"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69948) == 1">
+      <GetTo ZoneId="963" XYZ="-206.6847, 36, 78.4323"/>  <!-- Subzone="3864" Area="" -->
+      <LLTalkTo NpcId="1039005" XYZ="-207.7821, 36, 76.79858" QuestId="69948" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69948) == 2">
+      <GetTo ZoneId="957" XYZ="500.3161, 51.78861, -600.6721"/>  <!-- Subzone="3893" Area="Thavnair" -->
+      <LLTalkTo NpcId="1039007" XYZ="499.8702, 51.57471, -597.1924" QuestId="69948" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69948) == 3">
+      <GetTo ZoneId="957" XYZ="454.8775, 29.33861, -492.6383"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+      <UseObject NpcId="2012197" XYZ="454.0626, 29.25146, -491.3253" QuestId="69948" StepId="3"/>
+			<WaitWhile condition="GetQuestStep(69948) == 3"/>
+    </If>	
+    <If Condition="GetQuestStep(69948) == 4">
+      <GetTo ZoneId="957" XYZ="392.087, 14.55647, -445.2827"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+      <UseObject NpcId="2012198" XYZ="391.0734, 14.38922, -444.2969" QuestId="69948" StepId="4"/>
+			<WaitWhile condition="GetQuestStep(69948) == 4"/>
+    </If>	
+    <If Condition="GetQuestStep(69948) == 5">
+      <GetTo ZoneId="957" XYZ="384.26, 3.11688, -273.3324"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLTalkTo NpcId="1039010" XYZ="382.7115, 3.116879, -270.4662" QuestId="69948" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69948) == 6 and GetQuestById(69948).QuestI8A == 0">
+      <GetTo ZoneId="957" XYZ="370.9406, 3.116879, -251.8558"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <UseObject NpcIds="1039015" XYZ="370.9406, 3.116879, -251.8558" QuestId="69948" StepId="6" />
+		</If>
+    <If Condition="GetQuestStep(69948) == 6 and GetQuestById(69948).QuestI8A == 1">
+      <GetTo ZoneId="957" XYZ="371.1744, 3.116879, -249.8703"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <UseObject NpcId="1039014" XYZ="367.3304, 3.116879, -247.6997" QuestId="69948" StepId="6"/>
+    </If>		
+    <If Condition="GetQuestStep(69948) == 6 and GetQuestById(69948).QuestI8A == 2">
+      <GetTo ZoneId="957" XYZ="392.4908, 3.427826, -209.845"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <UseObject NpcId="1039017" XYZ="391.7753, 3.385787, -207.7516" QuestId="69948" StepId="6"/>
+    </If>	
+    <If Condition="GetQuestStep(69948) == 6 and GetQuestById(69948).QuestI8A == 3">
+      <GetTo ZoneId="957" XYZ="437.1818, 3.11688, -221.0501"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <UseObject NpcId="1039016" XYZ="438.2238, 3.117918, -224.1093" QuestId="69948" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(69948) == 255">
+      <GetTo ZoneId="957" XYZ="428.7664, 3.11688, -250.5635"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLTurnIn QuestId="69948" NpcId="1039020" XYZ="430.8689, 3.116879, -251.3314"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- That We Might Live -->
+    <If Condition="IsQuestCompleted(69948) and not IsQuestCompleted(69949)">
+      <If Condition="not HasQuest(69949)">
+      <GetTo ZoneId="957" XYZ="428.7664, 3.116879, -250.5635"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+        <If Condition="IsQuestAcceptQualified(69949)">
+          <LLPickupQuest QuestId="69949" NpcId="1039020"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69949) == 1">
+      <GetTo ZoneId="957" XYZ="402.0853, 3.11688, -270.4164"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLTalkTo NpcId="1039022" XYZ="399.3744, 3.116879, -272.8466" QuestId="69949" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69949) == 2">
+      <GetTo ZoneId="957" XYZ="58.62091, 14.11453, -327.9132"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+      <LLTalkTo NpcId="1039023" XYZ="55.77173, 14.57188, -330.4647" QuestId="69949" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69949) == 3">
+      <GetTo ZoneId="957" XYZ="-29.38801, 21.25905, -224.0243"/>  <!-- Subzone="3896" Area="Thavnair (East)" -->
+			<WaitWhile condition="GetQuestStep(69949) == 3"/>
+    </If>		
+    <If Condition="GetQuestStep(69949) == 4">
+      <GetTo ZoneId="957" XYZ="-29.4168, 21.27548, -223.5604"/>  <!-- Subzone="3896" Area="Thavnair (East)" -->
+      <LLTalkTo NpcId="1039026" XYZ="-29.40417, 21.25598, -224.0482" QuestId="69949" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69949) == 5">
+      <GetTo ZoneId="957" XYZ="53.6624, 18.25575, -293.4237"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+      <UseObject NpcId="2012200" XYZ="53.72693, 18.26495, -291.5847" QuestId="69949" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69949) == 6">
+      <GetTo ZoneId="957" XYZ="236.7779, 7.135552, -272.2595"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+      <UseObject NpcId="2012201" XYZ="237.6287, 7.156433, -273.3348" QuestId="69949" StepId="6"/>
+			<WaitWhile condition="GetQuestStep(69949) == 6"/>
+    </If>		
+    <If Condition="GetQuestStep(69949) == 7">
+      <GetTo ZoneId="957" XYZ="310.4676, 8.09436, -200.2487"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+      <UseObject NpcId="2012202" XYZ="311.4519, 7.766785, -198.23" QuestId="69949" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(69949) == 255">
+      <GetTo ZoneId="957" XYZ="382.4986, 3.11688, -254.9762"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLTurnIn QuestId="69949" NpcId="1039027" XYZ="381.3381, 3.116879, -257.0688"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- When All Hope Seems Lost -->
+    <If Condition="IsQuestCompleted(69949) and not IsQuestCompleted(69950)">
+      <If Condition="not HasQuest(69950)">
+      <GetTo ZoneId="957" XYZ="382.4986, 3.116879, -254.9762"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+        <If Condition="IsQuestAcceptQualified(69950)">
+          <LLPickupQuest QuestId="69950" NpcId="1039028"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69950) == 1">
+      <GetTo ZoneId="957" XYZ="399.2845, 3.116879, -271.3136"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLTalkTo NpcId="1037630" XYZ="401.8158, 3.116879, -273.7621" QuestId="69950" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69950) == 2">
+      <GetTo ZoneId="957" XYZ="409.7921, 13.08836, -184.5615"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLTalkTo NpcId="1039030" XYZ="408.6519, 13.16728, -184.3748" QuestId="69950" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69950) == 3">
+      <GetTo ZoneId="957" XYZ="499.3534, 4.621075, 0.352028"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+      <WaitWhile condition="GetQuestStep(69950) == 3"/>
+    </If>		
+    <If Condition="GetQuestStep(69950) == 4">
+      <GetTo ZoneId="957" XYZ="497.105, 5.076601, 2.365326"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+      <LLTalkTo NpcId="1039034" XYZ="494.8348, 5.376761, 2.731323" QuestId="69950" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69950) == 5">
+      <GetTo ZoneId="957" XYZ="574.7897, 16.69219, 127.789"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+      <LLTalkTo NpcId="1039035" XYZ="573.5714, 16.27277, 130.1136" QuestId="69950" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69950) == 6 and GetQuestById(69950).QuestI8A == 0">
+      <GetTo ZoneId="957" XYZ="660.0513, 44.95513, 196.688"/>  <!-- Subzone="3899" Area="Thavnair (East)" -->
+			<WaitWhile condition="GetQuestStep(69950) == 6 and GetQuestById(69950).QuestI8A == 0"/>
+    </If>
+    <If Condition="GetQuestStep(69950) == 6 and GetQuestById(69950).QuestI8A == 16">
+      <GetTo ZoneId="957" XYZ="520.5213, 11.90695, 266.0111"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+			<WaitWhile condition="GetQuestStep(69950) == 6 and GetQuestById(69950).QuestI8A == 16"/>
+    </If>	
+    <If Condition="GetQuestStep(69950) == 6 and GetQuestById(69950).QuestI8A == 32">
+      <GetTo ZoneId="957" XYZ="571.477, 32.40841, 371.0311"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+      <WaitWhile condition="GetQuestStep(69950) == 6 and GetQuestById(69950).QuestI8A == 32"/>
+    </If>
+    <If Condition="GetQuestStep(69950) == 255">
+      <GetTo ZoneId="957" XYZ="630.6287, 37.85757, 247.6765"/>  <!-- Subzone="3899" Area="Thavnair (East)" -->
+      <LLTurnIn QuestId="69950" NpcId="1039036" XYZ="628.6259, 37.4975, 246.0211"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Warm Hearts, Rekindled Hopes -->
+    <If Condition="IsQuestCompleted(69950) and not IsQuestCompleted(69951)">
+      <If Condition="not HasQuest(69951)">
+      <GetTo ZoneId="957" XYZ="539.7143, 10.26815, 237.579"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+        <If Condition="IsQuestAcceptQualified(69951)">
+          <LLPickupQuest QuestId="69951" NpcId="1039047"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69951) == 1">
+      <GetTo ZoneId="957" XYZ="270.7165, 11.36578, 149.9171"/>  <!-- Subzone="3892" Area="Thavnair (East)" -->
+      <UseObject NpcId="2012207" XYZ="270.0083, 11.55096, 147.6615" QuestId="69951" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69951) == 2">
+      <GetTo ZoneId="957" XYZ="153.3551, -35.89423, 141.2858"/>  <!-- Subzone="3898" Area="Thavnair (East)" -->
+      <LLTalkTo NpcId="1039051" XYZ="153.3379, -35.62988, 141.2527" QuestId="69951" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69951) == 3">
+      <GetTo ZoneId="957" XYZ="164.8287, -60.07338, 133.9723"/>  <!-- Subzone="3898" Area="Thavnair (East)" -->
+      <UseObject NpcId="2012208" XYZ="163.8055, -60.47156, 133.257" QuestId="69951" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69951) == 4">
+      <LLToast message="Get out of the water."/>
+			<StopBot/>
+			<!--
+      <GetTo ZoneId="957" XYZ="153.9926, 11.6642, 220.4503"/>
+      <LLTalkTo NpcId="1039052" XYZ="155.2605, 11.66425, 217.853" QuestId="69951" StepId="4"/>
+			-->
+    </If>	
+    <If Condition="GetQuestStep(69951) == 255">
+      <GetTo ZoneId="957" XYZ="-39.73577, 26.29391, -319.9641"/>  <!-- Subzone="3896" Area="Thavnair (East)" -->
+      <LLTurnIn QuestId="69951" NpcId="1039056" XYZ="-36.48438, 25.65825, -319.8749"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Simple Pleasures -->
+    <If Condition="IsQuestCompleted(69951) and not IsQuestCompleted(69952)">
+      <If Condition="not HasQuest(69952)">
+      <GetTo ZoneId="957" XYZ="-39.73577, 26.29391, -319.9641"/>  <!-- Subzone="3896" Area="Thavnair (East)" -->
+        <If Condition="IsQuestAcceptQualified(69952)">
+          <LLPickupQuest QuestId="69952" NpcId="1039058"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69952) == 1">
+      <GetTo ZoneId="957" XYZ="389.6881, 3.116879, -257.565"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLTalkTo NpcId="1039059" XYZ="381.8875, 3.116879, -262.0432" QuestId="69952" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69952) == 2">
+      <GetTo ZoneId="957" XYZ="424.5369, 3.116879, -257.6818"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLTalkTo NpcId="1039064" XYZ="428.8549, 3.116879, -262.623" QuestId="69952" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69952) == 3">
+      <GetTo ZoneId="957" XYZ="409.0501, 3.11688, -232.5721"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLHandOver ItemId="2003237" NpcId="1037628" XYZ="432.9137, 3.116879, -243.7629" QuestId="69952" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69952) == 3 and GetQuestById(69952).QuestI8A == 0">
+      <GetTo ZoneId="957" XYZ="431.4957, 3.11688, -245.5971"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLHandOver ItemId="2003237" NpcId="1037628" XYZ="432.9137, 3.116879, -243.7629" QuestId="69952" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69952) == 3 and GetQuestById(69952).QuestI8A == 1">
+      <GetTo ZoneId="957" XYZ="427.3773, 13.02741, -198.4289"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLHandOver ItemId="2003237" NpcId="1037629" XYZ="430.0145, 13.02741, -200.8546" QuestId="69952" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69952) == 3 and GetQuestById(69952).QuestI8A == 2">
+      <GetTo ZoneId="957" XYZ="369.251, 3.165864, -235.9699"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLHandOver NpcId="1040449" XYZ="368.6426, 3.585815, -238.3612" QuestId="69952" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69952) == 255">
+      <GetTo ZoneId="957" XYZ="428.7699, 3.11688, -258.8733"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+      <LLTurnIn QuestId="69952" NpcId="1039064" XYZ="428.8549, 3.116879, -262.623"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Under His Wing -->
+    <If Condition="IsQuestCompleted(69952) and not IsQuestCompleted(69953)">
+      <If Condition="not HasQuest(69953)">
+      <GetTo ZoneId="957" XYZ="423.7551, 3.116879, -259.4567"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
+        <If Condition="IsQuestAcceptQualified(69953)">
+          <LLPickupQuest QuestId="69953" NpcId="1039068"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69953) == 1">
+      <GetTo ZoneId="957" XYZ="515.4231, 53.61633, -593.8586"/>  <!-- Subzone="3893" Area="Thavnair" -->
+      <LLTalkTo NpcId="1040351" XYZ="518.2726, 54.34483, -597.8333" QuestId="69953" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69953) == 2">
+      <GetTo ZoneId="963" XYZ="4.132546, -1.999996, 96.36763"/>  <!-- Subzone="3860" Area="" -->
+      <LLTalkTo NpcId="1040354" XYZ="1.815735, -1.999996, 95.75024" QuestId="69953" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69953) == 3">
+      <GetTo ZoneId="963" XYZ="-70.48842, 25.00001, -37.78037"/>  <!-- Subzone="3877" Area="" -->
+      <LLTalkTo NpcId="1040358" XYZ="-69.62695, 25.00001, -35.32471" QuestId="69953" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69953) == 4">
+      <GetTo ZoneId="963" XYZ="-118.276, 30.99997, 9.043637"/>  <!-- Subzone="3877" Area="" -->
+      <LLTalkTo NpcId="1040359" XYZ="-121.2634, 30.99997, 9.109558" QuestId="69953" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69953) == 5">
+      <GetTo ZoneId="963" XYZ="-205.1859, 36, 68.8504"/>  <!-- Subzone="3864" Area="" -->
+      <UseObject NpcId="2012209" XYZ="-206.653, 35.99597, 67.46008" QuestId="69953" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69953) == 255">
+      <GetTo ZoneId="963" XYZ="-205.1859, 36, 68.8504"/>  <!-- Subzone="3864" Area="" -->
+      <LLTurnIn QuestId="69953" NpcId="1040360" XYZ="-207.1718, 36, 71.70203"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- At World's End		-->
+    <If Condition="IsQuestCompleted(69953) and not IsQuestCompleted(69954)">
+      <If Condition="not HasQuest(69954)">
+      <GetTo ZoneId="963" XYZ="-211.7908, 36, 63.86459"/>  <!-- Subzone="3864" Area="" -->
+        <If Condition="IsQuestAcceptQualified(69954)">
+          <LLPickupQuest QuestId="69954" NpcId="1040372"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69954) == 1">
+      <GetTo ZoneId="963" XYZ="-2.169716, -3.576279E-07, -1.552477"/>  <!-- Subzone="3869" Area="" -->
+      <LLTalkTo NpcId="1040373" XYZ="-0.3204956, -1.881272E-07, -2.121033" QuestId="69954" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69954) == 2">
+      <GetTo ZoneId="963" XYZ="-144.2176, 3.999394, -83.94643"/>  <!-- Subzone="3869" Area="" -->
+      <LLTalkTo NpcId="1040374" XYZ="-145.8, 3.999393, -83.9704" QuestId="69954" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69954) == 3">
+      <GetTo ZoneId="963" XYZ="-169.9583, 4.05, -86.52623"/>  <!-- Subzone="3871" Area="" -->
+      <LLTalkTo NpcId="1040375" XYZ="-172.1676, 4.061, -87.90729" QuestId="69954" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69954) == 4">
+      <GetTo ZoneId="963" XYZ="-169.9583, 4.05, -86.52623"/>  <!-- Subzone="3871" Area="" -->
+      <LLTalkTo NpcId="1040375" XYZ="-172.1676, 4.061, -87.90729" QuestId="69954" StepId="4"/>
+    </If>		
+		
 
 	
 
