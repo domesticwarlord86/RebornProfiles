@@ -1179,7 +1179,7 @@
 			<MoveTo XYZ="324.1707, -9.298947, 251.0451" />
 			<WaitTimer Waittime="17"/>
 			<MoveTo XYZ="353.8969, -1.325196, 232.9675" />
-			<WaitTimer Waittime="40"/><!--
+			<WaitTimer Waittime="38"/><!--
 			<MoveTo XYZ="402.4455, 4.064979, 242.5137" />
 			<WaitTimer Waittime="15"/>-->
 			<MoveTo XYZ="497.9082, 20.3584, 151.0306" />
@@ -1554,30 +1554,30 @@
       <LLTalkTo NpcId="1039924" XYZ="547.5089, -35.24417, -192.7368" QuestId="69929" StepId="5"/>
     </If>
 		<!-- Use Chain on npcs -->
-    <If Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 0">
+    <While Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 0">
       <GetTo ZoneId="958" XYZ="507.3714, 8.571986, 62.29583"/>  <!-- Subzone="3910" Area="Garlemald" -->
 			<Dismount/>
       <UseObject NpcId="2012111" XYZ="507.042, 8.865417, 64.68298" QuestId="69929" StepId="6" UseTimes="1"/>
 			<WaitWhile condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 0"/>
       <!-- <LLUseItem ItemId="2003231" NpcId="2012111" XYZ="507.042, 8.865417, 64.68298"  InCombat="True" UseHealthPercent="25" QuestId="69929" StepId="6" UseTimes="1"/>-->
-    </If>		
-    <If Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 16">
+    </While>		
+    <While Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 16">
       <GetTo ZoneId="958" XYZ="340.4011, 2.151342, 95.16756"/>  <!-- Subzone="3914" Area="Garlemald" -->
 			<Dismount/>
 			<RunCode name="Strange_Bedfellows"/>
       <UseItem ItemId="2003231" NpcId="10986" XYZ="338.4907, 2.304016, 94.77368" InCombat="True" UseHealthPercent="10" QuestId="69929" StepId="6" UseTimes="1"/>
-    </If>		
-    <If Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 32">
+    </While>		
+    <While Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 32">
       <GetTo ZoneId="958" XYZ="81.72018, 0.855561, 151.9904"/>  <!-- Subzone="3913" Area="Garlemald" -->
 			<Dismount/>
       <UseObject NpcId="2012108" XYZ="79.42322, 0.6256104, 153.2463" QuestId="69929" StepId="6" UseTimes="1"/>
-    </If>		
-    <If Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 49">
+    </While>		
+    <While Condition="GetQuestStep(69929) == 6 and GetQuestById(69929).QuestI8A == 49">
       <GetTo ZoneId="958" XYZ="-23.89815, -13.05349, 395.8865"/>  <!-- Subzone="3902" Area="Garlemald" -->
 			<Dismount/>
 			<RunCode name="Strange_Bedfellows"/>
       <UseItem ItemId="2003231" NpcId="10986" XYZ="-25.5589, -12.95496, 396.9634" InCombat="True" UseHealthPercent="10" QuestId="69929" StepId="6" UseTimes="1"/>
-    </If>
+    </While>
     <If Condition="GetQuestStep(69929) == 7">
       <GetTo ZoneId="958" XYZ="-207.9491, 14.89283, 452.6305"/>  <!-- Subzone="3902" Area="Garlemald" -->
       <LLTalkTo NpcId="1039930" XYZ="-208.3315, 15.48662, 450.8887" QuestId="69929" StepId="7"/>
