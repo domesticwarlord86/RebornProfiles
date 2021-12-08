@@ -112,6 +112,46 @@ Author: Angles24
 			  <LLTurnIn QuestId="69865" NpcId="1041129" XYZ="-23.57526, -31.53021, 1.846313"/>
 			  <LLSmallTalk/>
 			</If>
+			<!--<If Condition="not IsAetherCurrentCompleted(956,#)">
+			  <GetTo ZoneId="956" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(956,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(956,#)">
+			  <GetTo ZoneId="956" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(956,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(956,#)">
+			  <GetTo ZoneId="956" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(956,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(956,#)">
+			  <GetTo ZoneId="956" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(956,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(956,#)">
+			  <GetTo ZoneId="956" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(956,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(956,#)">
+			  <GetTo ZoneId="956" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(956,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(956,#)">
+			  <GetTo ZoneId="956" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(956,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(956,#)">
+			  <GetTo ZoneId="956" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(956,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(956,#)">
+			  <GetTo ZoneId="956" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(956,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(956,#)">
+			  <GetTo ZoneId="956" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(956,#)"/>
+			</If>-->
 			
 		</If>
 	
@@ -266,6 +306,46 @@ Author: Angles24
 			  <LLTurnIn QuestId="69793" NpcId="1040864" XYZ="462.5162, 14.3201, -219.8673"/>
 			  <LLSmallTalk/>
 			</If>
+			<!--<If Condition="not IsAetherCurrentCompleted(957,#)">
+			  <GetTo ZoneId="957" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(957,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(957,#)">
+			  <GetTo ZoneId="957" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(957,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(957,#)">
+			  <GetTo ZoneId="957" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(957,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(957,#)">
+			  <GetTo ZoneId="957" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(957,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(957,#)">
+			  <GetTo ZoneId="957" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(957,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(957,#)">
+			  <GetTo ZoneId="957" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(957,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(957,#)">
+			  <GetTo ZoneId="957" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(957,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(957,#)">
+			  <GetTo ZoneId="957" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(957,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(957,#)">
+			  <GetTo ZoneId="957" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(957,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(957,#)">
+			  <GetTo ZoneId="957" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(957,#)"/>
+			</If>-->
 			
 		</If>
 	
@@ -410,6 +490,46 @@ Author: Angles24
 			  <LLTurnIn QuestId="69768" NpcId="1040633" XYZ="497.5773, 10.88766, -417.5886"/>
 			  <LLSmallTalk/>
 			</If>
+			<!--<If Condition="not IsAetherCurrentCompleted(958,#)">
+			  <GetTo ZoneId="958" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(958,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(958,#)">
+			  <GetTo ZoneId="958" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(958,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(958,#)">
+			  <GetTo ZoneId="958" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(958,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(958,#)">
+			  <GetTo ZoneId="958" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(958,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(958,#)">
+			  <GetTo ZoneId="958" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(958,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(958,#)">
+			  <GetTo ZoneId="958" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(958,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(958,#)">
+			  <GetTo ZoneId="958" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(958,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(958,#)">
+			  <GetTo ZoneId="958" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(958,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(958,#)">
+			  <GetTo ZoneId="958" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(958,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(958,#)">
+			  <GetTo ZoneId="958" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(958,#)"/>
+			</If>-->
 			
 		</If>
 	
@@ -548,6 +668,46 @@ Author: Angles24
 			  <LLTurnIn ItemId="2003261" QuestId="69789" NpcId="1041123" XYZ="-81.86469, -132.7433, -521.6602"/>
 			  <LLSmallTalk/>
 			</If>
+			<!--<If Condition="not IsAetherCurrentCompleted(959,#)">
+			  <GetTo ZoneId="959" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(959,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(959,#)">
+			  <GetTo ZoneId="959" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(959,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(959,#)">
+			  <GetTo ZoneId="959" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(959,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(959,#)">
+			  <GetTo ZoneId="959" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(959,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(959,#)">
+			  <GetTo ZoneId="959" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(959,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(959,#)">
+			  <GetTo ZoneId="959" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(959,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(959,#)">
+			  <GetTo ZoneId="959" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(959,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(959,#)">
+			  <GetTo ZoneId="959" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(959,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(959,#)">
+			  <GetTo ZoneId="959" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(959,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(959,#)">
+			  <GetTo ZoneId="959" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(959,#)"/>
+			</If>-->
 			
 			
 		</If>
@@ -696,6 +856,46 @@ Author: Angles24
 			  <LLTurnIn QuestId="69849" NpcId="1041847" XYZ="-484.2146, 141.8679, -97.21527"/>
 			  <LLSmallTalk/>
 			</If>
+			<!--<If Condition="not IsAetherCurrentCompleted(961,#)">
+			  <GetTo ZoneId="961" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(961,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(961,#)">
+			  <GetTo ZoneId="961" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(961,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(961,#)">
+			  <GetTo ZoneId="961" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(961,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(961,#)">
+			  <GetTo ZoneId="961" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(961,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(961,#)">
+			  <GetTo ZoneId="961" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(961,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(961,#)">
+			  <GetTo ZoneId="961" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(961,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(961,#)">
+			  <GetTo ZoneId="961" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(961,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(961,#)">
+			  <GetTo ZoneId="961" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(961,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(961,#)">
+			  <GetTo ZoneId="961" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(961,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(961,#)">
+			  <GetTo ZoneId="961" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(961,#)"/>
+			</If>-->
 			
 		</If>
 	
@@ -796,6 +996,46 @@ Author: Angles24
 			  <LLTurnIn ItemId="2003274" QuestId="69890" NpcId="1038043" XYZ="470.4203, 437.0018, 315.8159"/>
 			  <LLSmallTalk/>
 			</If>
+			<!--<If Condition="not IsAetherCurrentCompleted(960,#)">
+			  <GetTo ZoneId="960" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(960,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(960,#)">
+			  <GetTo ZoneId="960" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(960,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(960,#)">
+			  <GetTo ZoneId="960" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(960,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(960,#)">
+			  <GetTo ZoneId="960" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(960,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(960,#)">
+			  <GetTo ZoneId="960" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(960,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(960,#)">
+			  <GetTo ZoneId="960" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(960,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(960,#)">
+			  <GetTo ZoneId="960" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(960,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(960,#)">
+			  <GetTo ZoneId="960" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(960,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(960,#)">
+			  <GetTo ZoneId="960" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(960,#)"/>
+			</If>
+			<If Condition="not IsAetherCurrentCompleted(960,#)">
+			  <GetTo ZoneId="960" XYZ="#"/>
+			  <UseObject NpcId="#" XYZ="#" Condition="not IsAetherCurrentCompleted(960,#)"/>
+			</If>-->
 			
 		</If>
 	
