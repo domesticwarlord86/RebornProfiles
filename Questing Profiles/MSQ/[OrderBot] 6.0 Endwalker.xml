@@ -16,6 +16,9 @@
 		Marked as manual for now.
 	Tracks In The Snow	
 		Should work, may need to adjust timings a bit.
+		Update: tweaked timer from 38 to 40, make sure your combat routine isnt using some sort of sprint.
+	Strange Bedfellows
+		May get stuck on using item on npc, please report any problems.
 	A Taste of the Moon - Line 1866
 	   Stairs here are going to be an issue
 -->
@@ -34,7 +37,7 @@
 	<!-- Profile start here -->	
 
 	<If Condition="&acceptBeta; == 0">
-		<LLToast message="LOL you thought there were quests!"/>
+		<LLToast message="Please see the pinned message in #endwalker-msq on how to use this profile."/>
 		<Log Message="Stay Tuned. ;)" />  
 	</If>	
 	<If Condition="&acceptBeta; == 1">
