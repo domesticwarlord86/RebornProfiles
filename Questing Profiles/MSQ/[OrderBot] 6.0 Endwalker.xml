@@ -23,6 +23,8 @@
 	   Stairs here are going to be an issue
 	Warm Hearts, Rekindled Hopes - Line 2500
 			Need to leave the water here
+	Petalouda Hunt - Line 2703
+		Using the item needs some work.
 -->
 
 <!DOCTYPE Profile [
@@ -2618,6 +2620,157 @@
     <If Condition="GetQuestStep(69954) == 4">
       <GetTo ZoneId="963" XYZ="-169.9583, 4.05, -86.52623"/>  <!-- Subzone="3871" Area="" -->
       <LLTalkTo NpcId="1040375" XYZ="-172.1676, 4.061, -87.90729" QuestId="69954" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69954) == 5">
+      <GetTo ZoneId="963" XYZ="-4.024271, 2.999995, -206.203"/>  <!-- Subzone="3874" Area="" -->
+      <LLTalkTo NpcId="1037318" XYZ="-4.104736, 2.999994, -203.8758" QuestId="69954" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69954) == 6">
+      <GetTo ZoneId="963" XYZ="5.678757, 2.999991, -199.7133"/>  <!-- Subzone="3874" Area="" -->
+      <LLTalkTo NpcId="1040379" XYZ="8.010925, 3.02, -198.1995" QuestId="69954" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(69954) == 255">
+      <GetTo ZoneId="963" XYZ="3.720238, -1.999996, 84.13313"/>  <!-- Subzone="3860" Area="" -->
+      <LLTurnIn QuestId="69954" NpcId="1040382" XYZ="2.945007, -1.999996, 87.44946"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Return to the Crystarium -->
+    <If Condition="IsQuestCompleted(69954) and not IsQuestCompleted(69955)">
+      <If Condition="not HasQuest(69955)">
+      <GetTo ZoneId="963" XYZ="3.780335, -1.999996, 84.32434"/>  <!-- Subzone="3860" Area="" -->
+        <If Condition="IsQuestAcceptQualified(69955)">
+          <LLPickupQuest QuestId="69955" NpcId="1040386"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69955) == 1">
+      <LisbethTravel Zone="813" Subzone="3041" Position="609.9962, 13.12678, 310.7599"/> <!-- Area="Lakeland" -->
+      <LLTalkTo NpcId="1030369" XYZ="614.4961, 13.30975, 305.806" QuestId="69955" StepId="1"/>
+    </If>		
+    <If Condition="GetQuestStep(69955) == 2">
+      <GetTo ZoneId="819" XYZ="-64.52936, -37.7, -212.8049"/>  <!-- Subzone="3252" Area="The Crystarium" -->
+      <UseObject NpcId="2012123" XYZ="-64.04211, -37.70508, -210.5287" QuestId="69955" StepId="2"/>
+			<WaitWhile condition="GetQuestStep(69955) == 2"/>
+    </If>	
+    <If Condition="GetQuestStep(69955) == 255">
+      <GetTo ZoneId="819" XYZ="-64.52936, -37.7, -212.8049"/>  <!-- Subzone="3252" Area="The Crystarium" -->
+      <LLTurnIn QuestId="69955" NpcId="1039992" XYZ="-65.26294, -37.7, -208.8503"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Hope Upon a Flower -->
+    <If Condition="IsQuestCompleted(69955) and not IsQuestCompleted(69956)">
+      <If Condition="not HasQuest(69956)">
+      <GetTo ZoneId="819" XYZ="-64.52936, -37.7, -212.8049"/>  <!-- Subzone="3252" Area="The Crystarium" -->
+        <If Condition="IsQuestAcceptQualified(69956)">
+          <LLPickupQuest QuestId="69956" NpcId="1039992"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69956) == 1">
+      <GetTo ZoneId="819" XYZ="113.6635, 14.64912, 5.516657"/>  <!-- Subzone="3244" Area="The Crystarium" -->
+      <UseTransport NpcId="1030533" XYZ="117.9979, 14.64902, 7.156433" QuestId="69956" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69956) == 2">
+      <WaitWhile condition="GetQuestStep(69956) == 2"/>
+    </If>
+    <If Condition="GetQuestStep(69956) == 3 and GetQuestById(69956).QuestI8A == 0">
+			<GetTo ZoneId="1031" XYZ="1.207746, 2.084996, -7.691468" />
+      <LLToast message="Inspect the Aetheryte."/>
+			<StopBot/>
+    </If>		
+    <If Condition="GetQuestStep(69956) == 3 and GetQuestById(69956).QuestI8A == 16">
+      <GetTo ZoneId="1031" XYZ="-33.83664, 0.9000001, -8.788305"/>  <!-- Subzone="0" Area="" -->
+      <LLTalkTo NpcId="1039995" XYZ="-37.00317, 0.9, -4.16571" QuestId="69956" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69956) == 3 and GetQuestById(69956).QuestI8A == 32">
+      <GetTo ZoneId="1031" XYZ="16.98005, 0.2999945, -11.80808"/>  <!-- Subzone="0" Area="" -->
+      <LLTalkTo NpcId="1039993" XYZ="20.61493, 0.2999945, -9.353821" QuestId="69956" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69956) == 3 and GetQuestById(69956).QuestI8A == 48">
+      <GetTo ZoneId="1031" XYZ="46.68439, 0.9, 0.9209659"/>  <!-- Subzone="0" Area="" -->
+      <LLTalkTo NpcId="1039994" XYZ="51.16345, 0.9, 2.120972" QuestId="69956" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69956) == 4 and GetQuestById(69956).QuestI8A == 0">
+      <GetTo ZoneId="1031" XYZ="-0.2167617, 1.331972, 59.90908"/>  <!-- Subzone="0" Area="" -->
+      <UseObject NpcId="2012129" XYZ="-0.07635498, 2.212463, 61.60059" QuestId="69956" StepId="4"/>
+			<WaitWhile condition="GetQuestStep(69956) == 4"/>
+    </If>	
+    <If Condition="GetQuestStep(69956) == 255">
+      <GetTo ZoneId="961" XYZ="262.7725, 44.32154, 774.3227"/>  <!-- Subzone="3926" Area="" -->
+      <LLTurnIn QuestId="69956" NpcId="1039996" XYZ="262.5314, 44.32154, 771.4198"/>
+      <LLSmallTalk/>
+    </If>	
+
+    <!-- Petalouda Hunt -->
+    <If Condition="IsQuestCompleted(69956) and not IsQuestCompleted(69957)">
+      <If Condition="not HasQuest(69957)">
+      <GetTo ZoneId="961" XYZ="262.7725, 44.32154, 774.3227"/>  <!-- Subzone="3926" Area="" -->
+        <If Condition="IsQuestAcceptQualified(69957)">
+          <LLPickupQuest QuestId="69957" NpcId="1039996"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69957) == 1">
+      <GetTo ZoneId="961" XYZ="209.3301, 20.55042, 633.7807"/>  <!-- Subzone="3927" Area="" -->
+      <LLTalkTo NpcId="1039998" XYZ="206.0426, 20.56111, 629.1447" QuestId="69957" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69957) == 2">
+      <GetTo ZoneId="961" XYZ="220.0089, 20.22273, 645.6842"/>  <!-- Subzone="3927" Area="" -->
+      <UseItem ItemId="2003232" NpcIds="10612,10613" InCombat="True" UseHealthPercent="40" QuestId="69957" StepId="2">
+				<HotSpots>
+					<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487" />
+					<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169" />
+				</HotSpots>
+			</UseItem>
+		</If>
+    <If Condition="GetQuestStep(69957) == 255">
+      <GetTo ZoneId="961" XYZ="205.8584, 20.55042, 631.8403"/>  <!-- Subzone="3927" Area="" -->
+      <LLTurnIn ItemId="2003233" QuestId="69957" NpcId="1039998" XYZ="206.0426, 20.56111, 629.1447"/>
+      <LLSmallTalk/>
+    </If>
+		
+    <!-- In Search of Hermes -->
+    <If Condition="IsQuestCompleted(69957) and not IsQuestCompleted(69958)">
+      <If Condition="not HasQuest(69958)">
+      <GetTo ZoneId="961" XYZ="205.8584, 20.55042, 631.8403"/>  <!-- Subzone="3927" Area="" -->
+        <If Condition="IsQuestAcceptQualified(69958)">
+          <LLPickupQuest QuestId="69958" NpcId="1039998"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69958) == 1 and GetQuestById(69958).QuestI8A == 0">
+      <GetTo ZoneId="961" XYZ="176.7437, 7.385857, 327.2584"/>  <!-- Subzone="3928" Area="" -->
+      <LLTalkTo NpcId="1040000" XYZ="173.2356, 7.47675, 325.6428" QuestId="69958" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69958) == 2">
+      <GetTo ZoneId="961" XYZ="227.968, 7.685856, 198.7866"/>  <!-- Subzone="3928" Area="" -->
+      <LLTalkTo NpcId="1040003" XYZ="229.0226, 8.085857, 195.3917" QuestId="69958" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69958) == 255">
+      <GetTo ZoneId="961" XYZ="365.5532, -0.9669545, 159.1419"/>  <!-- Subzone="3925" Area="" -->
+      <LLTurnIn QuestId="69958" NpcId="1040009" XYZ="366.8422, -1.029705, 157.6104"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Ponder, Warrant, Cherish, Welcome -->
+    <If Condition="IsQuestCompleted(69958) and not IsQuestCompleted(69959)">
+      <If Condition="not HasQuest(69959)">
+      <GetTo ZoneId="961" XYZ="365.5532, -0.9669545, 159.1419"/>  <!-- Subzone="3925" Area="" -->
+        <If Condition="IsQuestAcceptQualified(69959)">
+          <LLPickupQuest QuestId="69959" NpcId="1040014"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69959) == 1">
+      <GetTo ZoneId="961" XYZ="226.8435, 7.385857, 204.3371"/>  <!-- Subzone="3928" Area="" -->
+      <LLTalkTo NpcId="1040015" XYZ="225.7877, 7.385857, 201.3733" QuestId="69959" StepId="1"/>
     </If>		
 		
 

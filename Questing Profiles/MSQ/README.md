@@ -26,7 +26,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/62/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
+[300]: https://progress-bar.dev/66/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [x] Lv. 80 The Next Ship to Sail
@@ -91,10 +91,10 @@ After: https://progress-bar.dev/70
 - [x] Lv. 85 Simple Pleasures
 - [x] Lv. 85 Under His Wing
 - [x] Lv. 85 At World's End
-- [ ] Lv. 86 Return to the Crystarium
-- [ ] Lv. 86 Hope Upon a Flower
-- [ ] Lv. 86 Petalouda Hunt
-- [ ] Lv. 86 In Search of Hermes
+- [X] Lv. 86 Return to the Crystarium
+- [X] Lv. 86 Hope Upon a Flower
+- [X] Lv. 86 Petalouda Hunt
+- [X] Lv. 86 In Search of Hermes
 - [ ] Lv. 86 Ponder, Warrant, Cherish, Welcome
 - [ ] Lv. 86 Lives Apart
 - [ ] Lv. 86 Their Greatest Contribution
