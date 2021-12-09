@@ -2216,7 +2216,7 @@
     </If>
 
     <!-- The Blasphemy Unmasked -->
-    <If Condition="IsQuestCompleted(69946) and not IsQuestCompleted(69946)">
+    <If Condition="IsQuestCompleted(69945) and not IsQuestCompleted(69946)">
       <If Condition="not HasQuest(69946)">
       <GetTo ZoneId="963" XYZ="8.073995, -1.999996, 94.04496"/>  <!-- Subzone="3860" Area="" -->
         <If Condition="IsQuestAcceptQualified(69946)">
