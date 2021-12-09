@@ -903,7 +903,8 @@
     </If>	
     <If Condition="GetQuestStep(69914) == 1">
       <GetTo ZoneId="957" XYZ="204.7848, 60.34319, -602.448"/>  <!-- Subzone="3885" Area="" -->
-			<UseTransport NpcId="1040283" InteractDistance="3.0" XYZ="208.3619, 60.34319, -601.0681"/>		      
+	  <UseTransport NpcId="1040283" InteractDistance="3.0" XYZ="208.3619, 60.34319, -601.0681"/>
+      <WaitWhile Condition="not GetQuestStep(69914) == 2"/>  
     </If>		
     <If Condition="GetQuestStep(69914) == 2">
       <GetTo ZoneId="963" XYZ="56.50447, -27.00001, 179.2234"/>  <!-- Subzone="3858" Area="" -->
