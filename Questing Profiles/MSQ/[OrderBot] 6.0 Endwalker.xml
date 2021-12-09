@@ -406,25 +406,25 @@
     </If>		
 		<!-- Transfiguration 565 -->
     <While Condition="GetQuestStep(69901) == 2">
-			<While condition="not Core.Player.HasAura(565)">
+			<While condition="not Core.Player.HasAura(565) and GetQuestStep(69901) == 2">
 				<GetTo ZoneId="956" XYZ="175.1051, 56.61301, -408.7193"/>  <!-- Subzone="3841" Area="" -->
 				<LLTalkTo NpcId="1038736" XYZ="177.264, 56.63088, -411.5511" QuestId="69901" StepId="2"/>		
 			</While>
-			<While condition="Core.Player.HasAura(565)">
+			<While condition="Core.Player.HasAura(565) and GetQuestStep(69901) == 2">
 				<NoCombatMoveTo XYZ="175.1051, 56.61301, -408.7193"/> <!-- Zone: "956" Subzone="3841" Area="" -->
 				<LLTalkTo NpcId="1038738" XYZ="177.0504, 56.56765, -409.4149" QuestId="69901" StepId="2"/>
 			</While>
     </While>
-    <If Condition="GetQuestStep(69901) == 3">
-			<While condition="not Core.Player.HasAura(565)">
+    <While Condition="GetQuestStep(69901) == 3">
+			<While condition="not Core.Player.HasAura(565) and GetQuestStep(69901) == 3">
 				<GetTo ZoneId="956" XYZ="175.1051, 56.61301, -408.7193"/>  <!-- Subzone="3841" Area="" -->
-				<LLTalkTo NpcId="1038736" XYZ="177.264, 56.63088, -411.5511" QuestId="69901" StepId="2"/>		
+				<LLTalkTo NpcId="1038736" XYZ="177.264, 56.63088, -411.5511" QuestId="69901" StepId="3"/>		
 			</While>
-			<While condition="Core.Player.HasAura(565)">
+			<While condition="Core.Player.HasAura(565) and GetQuestStep(69901) == 3">
 				<NoCombatMoveTo XYZ="-163.9276, 80.92038, -533.9874" />
 				<LLSmallTalk/>
 			</While>			
-    </If>
+    </While>
     <If Condition="GetQuestStep(69901) == 255">
       <GetTo ZoneId="956" XYZ="-257.0063, 79.71155, -499.8534"/>  <!-- Subzone="3841" Area="" -->
       <LLTurnIn QuestId="69901" NpcId="1038740" XYZ="-256.2753, 79.75535, -502.1286"/>
