@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Shared Fate Farming
+  Authors: DomesticWarlord86, nt153133
+-->
+
+
+<Profile>
+  <Name>Shared Fate Farming</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<!-- Thavnair -->
+	<While condition="IsOnMap(957)">
+		<LLFate UseFlight="False" MinLevel="0" MaxLevel="84" BlacklistIds="1772,1773,1774,1776,1777,1778,1779" while="IsOnMap(957)"/>	
+	</While>
+	
+	<!--
+	Upper Zone:
+		ID: 1765 Type: Battle Fate: When Gaja Go Gaga 
+		ID: 1766 Type: Battle Fate: I Am the Valras 
+		ID: 1767 Type: Battle Fate: Shiver and Shock 
+		ID: 1769 Type: Boss Fate: The Accursed Kanabhuti 
+		ID: 1770 Type: ProtectNPC Fate: The Little Nanka That Could 
+		ID: 1771 Type: Battle Fate: Full Petal Alchemist: Risky Return 
+	
+	Lower Zone:
+		ID: 1773 Type: Battle Fate: Peek-a-Bhujamga 
+		ID: 1774 Type: Battle Fate: Stalkers in the Shroud 
+		ID: 1776 Type: Battle Fate: Mesmerizing Moths 
+		ID: 1777 Type: Boss Fate: Return of the Tyrant 
+		ID: 1778 Type: Battle Fate: Monkeys on Your Back 
+	
+	-->
+
+	<!-- Labyrinthos -->
+	<While condition="IsOnMap(956)">
+		<LLFate UseFlight="False" MinLevel="0" MaxLevel="84" BlacklistIds="1751,1752,1753,1754,1755,1756,1757" while="IsOnMap(956)"/>	
+	</While>
+	
+	<!--
+	
+	Upper Zone:		
+		ID: 1744 Type: Boss Fate: Incident Files: Steamed Vegetable 
+		ID: 1745 Type: Battle Fate: Homecrawling 
+		ID: 1746 Type: Battle Fate: The Hills Are Alive 
+		ID: 1747 Type: Battle Fate: Bite the  
+		ID: 1748 Type: Battle Fate: Breakfast, Lunch, and Dinner 
+		ID: 1749 Type: Boss Fate: Let It Grow 
+		ID: 1750 Type: ProtectNPC Fate: Acid in Flight, Shepherd's Fright 
+		
+	Lower Zone:
+		ID: 1751 Type: Battle Fate: Incident Files: Elemental Attraction 
+		ID: 1752 Type: Battle Fate: Incident Files: Ice of the Tiger 
+		ID: 1753 Type: Battle Fate: Residual Complications 
+		ID: 1754 Type: KillHandIn Fate: Moisture Farming	
+		ID: 1755 Type: Battle Fate: Wasted XIV
+		ID: 1756 Type: Battle Fate: Empty the Nest 
+		ID: 1757 Type: Boss Fate: The Frailty of Life 
+
+	
+	-->
+	
+		<!-- Garlemald -->
+	<While condition="IsOnMap(958)">
+		<LLFate UseFlight="False" MinLevel="0" MaxLevel="86" BlacklistIds="1798" while="IsOnMap(958)"/>	
+	</While>
+	
+	<!--
+	
+	ID: 1785 Type: Battle Fate: Trespassers Will Be Eaten 
+	ID: 1786 Type: Battle Fate: A Snowball's Chance 
+	ID: 1787 Type: Battle Fate: Not Yeti 
+	ID: 1788
+	ID: 1789 Type: Boss Fate: Roses Are Red, Violence Is Due 
+	ID: 1790 Type: ProtectNPC Fate: Amazing Crates 
+	ID: 1791
+	ID: 1792
+	ID: 1793 Type: Battle Fate: Rocker, Roller, Out-of-controller 
+	ID: 1794 Type: Battle Fate: Stray Dog Strut 
+	ID: 1796 Type: Battle Fate: A Bit of a Problem 
+	ID: 1797 Type: Boss Fate: The Man with the Golden Son 
+	ID: 1798 Type: KillHandIn Fate: Parts Unknown 
+
+
+	
+	-->
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>	
+	<CodeChunks>
+  </CodeChunks>
+</Profile>  
