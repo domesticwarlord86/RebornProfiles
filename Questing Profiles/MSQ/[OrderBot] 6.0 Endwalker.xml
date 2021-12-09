@@ -670,8 +670,9 @@
     </If>
     <If Condition="GetQuestStep(69908) == 4">
       <GetTo ZoneId="957" XYZ="-485.5554, 48.78896, 155.5085"/>
-      <LLTalkTo NpcId="1038636" XYZ="-485.71, 49.10382, 152.9106" QuestId="69908" StepId="4"/>
-      <MoveTo XYZ="-425.414,38.41502,160.1206" />
+      <!--<LLTalkTo NpcId="1038636" XYZ="-485.71, 49.10382, 152.9106" QuestId="69908" StepId="4"/>-->
+      <MoveTo XYZ="-425.414,38.41502,160.1206" />	  
+	  <WaitTimer WaitTime="15"/>	 
       <MoveTo XYZ="-438.1987, 38.1377, 173.3383" />
       <WaitWhile condition="not GameObjectManager.GetObjectByNPCId(1041219).IsVisible"/>
       <MoveTo XYZ="-425.414,38.41502,160.1206" />
@@ -680,7 +681,8 @@
     <If Condition="GetQuestStep(69908) == 5">
       <GetTo ZoneId="957" XYZ="-426.5075, 38.39244, 161.343"/>
       <LLTalkTo NpcId="1041219" XYZ="-425.4368, 38.41315, 160.1129" QuestId="69908" StepId="5"/>
-      <MoveTo XYZ="-419.6078,43.95012,87.3025" />
+      <MoveTo XYZ="-419.6078,43.95012,87.3025" />  
+	  <WaitTimer WaitTime="15"/>
       <MoveTo XYZ="-423.8852, 43.64464, 103.364" />
       <WaitWhile condition="not GameObjectManager.GetObjectByNPCId(1041220).IsVisible"/>
       <MoveTo XYZ="-419.6078,43.95012,87.3025" />
@@ -690,7 +692,8 @@
       <GetTo ZoneId="957" XYZ="-420.3188, 44.07317, 89.94058"/>
       <LLTalkTo NpcId="1041220" XYZ="-419.6078, 43.9499, 87.29688" QuestId="69908" StepId="6"/>
       <MoveTo XYZ="-452.5342, 58.6748, 70.95951" />
-      <MoveTo XYZ="-444.7032,49.551,97.1969" />
+      <MoveTo XYZ="-444.7032,49.551,97.1969" />  
+	  <WaitTimer WaitTime="15"/>
       <MoveTo XYZ="-452.5342, 58.6748, 70.95951" />
       <WaitWhile condition="not GameObjectManager.GetObjectByNPCId(1041221).IsVisible"/>
       <MoveTo XYZ="-444.7032,49.551,97.1969" />
@@ -700,7 +703,8 @@
       <GetTo ZoneId="957" XYZ="-445.8572, 49.98135, 94.63971"/>
       <LLTalkTo NpcId="1041221" XYZ="-444.7242, 49.55681, 97.18469" QuestId="69908" StepId="7"/>
       <MoveTo XYZ="-460.2699, 51.14045, 128.9878" />
-      <MoveTo XYZ="-484.5909,54.18516,128.3601" />
+      <MoveTo XYZ="-484.5909,54.18516,128.3601" />  
+	  <WaitTimer WaitTime="15"/>
       <MoveTo XYZ="-460.2699, 51.14045, 128.9878" />
       <WaitWhile condition="not GameObjectManager.GetObjectByNPCId(1038637).IsVisible"/>
       <MoveTo XYZ="-484.5909,54.18516,128.3601" />
@@ -796,7 +800,7 @@
         <LLTalkTo NpcId="1038650" XYZ="-555.8404, 9.714635, -558.2208" QuestId="69910" StepId="6" />
       </If>
       <RunCode name="TurnOffMount" />
-      <MoveTo XYZ="-103.3072, 88.84355, -607.3538" />
+      <NoCombatMoveTo XYZ="-103.3072, 88.84355, -607.3538" />
       <RunCode name="TurnOnMount" />
     </If>	
     <If Condition="GetQuestStep(69910) == 255">
