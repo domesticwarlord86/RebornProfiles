@@ -544,7 +544,7 @@
     </If>
     <If Condition="GetQuestStep(69905) == 1 and GetQuestById(69905).QuestI8A == 16">
       <GetTo ZoneId="957" XYZ="202.2221, 1.769984, 715.6663"/>  <!-- Subzone="3880" Area="" -->
-      <UseObject NpcId="2011948" XYZ="204.6692, 2.243042, 715.4192" QuestId="69905" StepId="1"/>
+      <UseObject NpcId="2011948" XYZ="204.6692, 2.243042, 715.4192" QuestId="69905" StepId="1" Condition="GetQuestById(69905).QuestI8A == 16"/>
     </If>	
     <If Condition="GetQuestStep(69905) == 1 and GetQuestById(69905).QuestI8A == 32">
       <GetTo ZoneId="957" XYZ="219.4411, 1.83499, 758.8658"/>  <!-- Subzone="3880" Area="" -->
@@ -2491,20 +2491,24 @@
       <UseObject NpcId="2012207" XYZ="270.0083, 11.55096, 147.6615" QuestId="69951" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69951) == 2">
-      <GetTo ZoneId="957" XYZ="153.3551, -35.89423, 141.2858"/>  <!-- Subzone="3898" Area="Thavnair (East)" -->
+	  <WaitTimer WaitTime="5"/>	  
+	  <RunCode name="699511"/>
+      <!--<GetTo ZoneId="957" XYZ="153.3551, -35.89423, 141.2858"/> --> <!-- Subzone="3898" Area="Thavnair (East)" -->
       <LLTalkTo NpcId="1039051" XYZ="153.3379, -35.62988, 141.2527" QuestId="69951" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69951) == 3">
-      <GetTo ZoneId="957" XYZ="164.8287, -60.07338, 133.9723"/>  <!-- Subzone="3898" Area="Thavnair (East)" -->
+	  <WaitTimer WaitTime="5"/>	  
+	  <RunCode name="699512"/>
+      <!--<GetTo ZoneId="957" XYZ="164.8287, -60.07338, 133.9723"/>-->  <!-- Subzone="3898" Area="Thavnair (East)" -->
       <UseObject NpcId="2012208" XYZ="163.8055, -60.47156, 133.257" QuestId="69951" StepId="3"/>
     </If>
     <If Condition="GetQuestStep(69951) == 4">
-      <LLToast message="Get out of the water."/>
-			<StopBot/>
-			<!--
+      <!--<LLToast message="Get out of the water."/>
+			<StopBot/>-->
+			
       <GetTo ZoneId="957" XYZ="153.9926, 11.6642, 220.4503"/>
       <LLTalkTo NpcId="1039052" XYZ="155.2605, 11.66425, 217.853" QuestId="69951" StepId="4"/>
-			-->
+			
     </If>	
     <If Condition="GetQuestStep(69951) == 255">
       <GetTo ZoneId="957" XYZ="-39.73577, 26.29391, -319.9641"/>  <!-- Subzone="3896" Area="Thavnair (East)" -->
@@ -2883,5 +2887,27 @@
         while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
       ]]>
     </CodeChunk>	
+    <CodeChunk Name="699511">
+      <![CDATA[
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+        await Coroutine.Sleep(5000);
+		
+        var loc1 = new Vector3(153.3379f, -35.62988f, 141.2527f);
+
+        Navigator.PlayerMover.MoveTowards(loc1);
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="699512">
+      <![CDATA[
+        if (Core.Me.IsMounted)  {  ActionManager.Dismount();  }
+        await Coroutine.Sleep(5000);
+		
+        var loc1 = new Vector3(163.8055f, -60.47156f, 133.257f);
+
+        Navigator.PlayerMover.MoveTowards(loc1);
+        while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
+      ]]>
+    </CodeChunk>
   </CodeChunks>
 </Profile>
