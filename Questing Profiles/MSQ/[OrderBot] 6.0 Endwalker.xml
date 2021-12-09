@@ -2363,19 +2363,19 @@
     </If>
     <If Condition="GetQuestStep(69948) == 6 and GetQuestById(69948).QuestI8A == 0">
       <GetTo ZoneId="957" XYZ="370.9406, 3.116879, -251.8558"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
-      <UseObject NpcIds="1039015" XYZ="370.9406, 3.116879, -251.8558" QuestId="69948" StepId="6" />
+      <UseObject NpcIds="1039015" XYZ="370.9406, 3.116879, -251.8558" QuestId="69948" StepId="6" Condition="GetQuestById(69948).QuestI8A == 0"/> 
 		</If>
     <If Condition="GetQuestStep(69948) == 6 and GetQuestById(69948).QuestI8A == 1">
-      <GetTo ZoneId="957" XYZ="371.1744, 3.116879, -249.8703"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
-      <UseObject NpcId="1039014" XYZ="367.3304, 3.116879, -247.6997" QuestId="69948" StepId="6"/>
+      <GetTo ZoneId="957" XYZ="371.1744, 3.116879, -249.8703"/>  <!-- Subzone="3894" Area="Thavnair (East)" --> 
+      <UseObject NpcId="1039014" XYZ="367.3304, 3.116879, -247.6997" QuestId="69948" StepId="6" Condition="GetQuestById(69948).QuestI8A == 1"/> 
     </If>		
     <If Condition="GetQuestStep(69948) == 6 and GetQuestById(69948).QuestI8A == 2">
       <GetTo ZoneId="957" XYZ="392.4908, 3.427826, -209.845"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
-      <UseObject NpcId="1039017" XYZ="391.7753, 3.385787, -207.7516" QuestId="69948" StepId="6"/>
+      <UseObject NpcId="1039017" XYZ="391.7753, 3.385787, -207.7516" QuestId="69948" StepId="6" Condition="GetQuestById(69948).QuestI8A == 2"/> 
     </If>	
     <If Condition="GetQuestStep(69948) == 6 and GetQuestById(69948).QuestI8A == 3">
       <GetTo ZoneId="957" XYZ="437.1818, 3.11688, -221.0501"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
-      <UseObject NpcId="1039016" XYZ="438.2238, 3.117918, -224.1093" QuestId="69948" StepId="6"/>
+      <UseObject NpcId="1039016" XYZ="438.2238, 3.117918, -224.1093" QuestId="69948" StepId="6" Condition="GetQuestById(69948).QuestI8A == 3"/> 
     </If>
     <If Condition="GetQuestStep(69948) == 255">
       <GetTo ZoneId="957" XYZ="428.7664, 3.11688, -250.5635"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
