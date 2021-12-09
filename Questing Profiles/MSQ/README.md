@@ -15,11 +15,19 @@ Using OrderBot, run the `[OrderBot] 5.3-5.58 Shadowbringers.xml` script in this 
 
 ## 6.0 Endwalker (WIP)
 
+![6.0 Endwalker Progress][300]
+
 Using OrderBot, run the `[OrderBot] 6.0 Endwalker.xml` script in this folder.
 
-Scripting Endwalker is still a work in progress -- see below for current status. Do not expect it to fully complete the MSQ yet, and even "finished" quests may not behave correctly.  Please report bugs on Discord, per the [main README][300].
+Scripting Endwalker is still a work in progress -- see below for current status. Do not expect it to fully complete the MSQ yet, and even "finished" quests may not behave correctly.  Please report bugs on Discord, per the [main README][301].
 
-[300]: ../../README.md "README.md#Troubleshooting"
+<!--
+To update progress bar, change the first number in URL:
+Before: https://progress-bar.dev/62
+After: https://progress-bar.dev/70
+-->
+[300]: https://progress-bar.dev/62/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
+[301]: ../../README.md "README.md#troubleshooting"
 
 - [x] Lv. 80 The Next Ship to Sail
 - [x] Lv. 80 Old Sharlayan, New to You
