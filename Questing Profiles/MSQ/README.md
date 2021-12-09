@@ -26,7 +26,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/66/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
+[300]: https://progress-bar.dev/71/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [x] Lv. 80 The Next Ship to Sail
@@ -95,12 +95,12 @@ After: https://progress-bar.dev/70
 - [X] Lv. 86 Hope Upon a Flower
 - [X] Lv. 86 Petalouda Hunt
 - [X] Lv. 86 In Search of Hermes
-- [ ] Lv. 86 Ponder, Warrant, Cherish, Welcome
-- [ ] Lv. 86 Lives Apart
-- [ ] Lv. 86 Their Greatest Contribution
-- [ ] Lv. 86 Aether to Aether
-- [ ] Lv. 86 A Sentimental Gift
-- [ ] Lv. 86 Verdict and Execution
+- [X] Lv. 86 Ponder, Warrant, Cherish, Welcome
+- [X] Lv. 86 Lives Apart
+- [X] Lv. 86 Their Greatest Contribution
+- [X] Lv. 86 Aether to Aether
+- [X] Lv. 86 A Sentimental Gift
+- [X] Lv. 86 Verdict and Execution
 - [ ] Lv. 87 Travelers at the Crossroads
 - [ ] Lv. 87 A Past, Not Yet Come to Pass
 - [ ] Lv. 87 Witness to the Spectacle
