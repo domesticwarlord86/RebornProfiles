@@ -2538,10 +2538,6 @@
       <GetTo ZoneId="957" XYZ="424.5369, 3.116879, -257.6818"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
       <LLTalkTo NpcId="1039064" XYZ="428.8549, 3.116879, -262.623" QuestId="69952" StepId="2"/>
     </If>
-    <If Condition="GetQuestStep(69952) == 3">
-      <GetTo ZoneId="957" XYZ="409.0501, 3.11688, -232.5721"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
-      <LLHandOver ItemId="2003237" NpcId="1037628" XYZ="432.9137, 3.116879, -243.7629" QuestId="69952" StepId="3"/>
-    </If>
     <If Condition="GetQuestStep(69952) == 3 and GetQuestById(69952).QuestI8A == 0">
       <GetTo ZoneId="957" XYZ="431.4957, 3.11688, -245.5971"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
       <LLHandOver ItemId="2003237" NpcId="1037628" XYZ="432.9137, 3.116879, -243.7629" QuestId="69952" StepId="3"/>
@@ -2552,7 +2548,7 @@
     </If>
     <If Condition="GetQuestStep(69952) == 3 and GetQuestById(69952).QuestI8A == 2">
       <GetTo ZoneId="957" XYZ="369.251, 3.165864, -235.9699"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
-      <LLHandOver NpcId="1040449" XYZ="368.6426, 3.585815, -238.3612" QuestId="69952" StepId="3"/>
+      <LLHandOver ItemID="2003237" NpcId="1040449" XYZ="368.6426, 3.585815, -238.3612" QuestId="69952" StepId="3"/>
     </If>
     <If Condition="GetQuestStep(69952) == 255">
       <GetTo ZoneId="957" XYZ="428.7699, 3.11688, -258.8733"/>  <!-- Subzone="3894" Area="Thavnair (East)" -->
