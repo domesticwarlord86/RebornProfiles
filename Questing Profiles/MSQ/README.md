@@ -26,7 +26,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/74/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
+[300]: https://progress-bar.dev/77/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [x] Lv. 80 The Next Ship to Sail
@@ -104,9 +104,9 @@ After: https://progress-bar.dev/70
 - [X] Lv. 87 Travelers at the Crossroads
 - [X] Lv. 87 A Past, Not Yet Come to Pass
 - [X] Lv. 87 Witness to the Spectacle
-- [ ] Lv. 87 Worthy of His Back
-- [ ] Lv. 87 A Flower upon Your Return
-- [ ] Lv. 87 Hunger in the Garden
+- [X] Lv. 87 Worthy of His Back
+- [X] Lv. 87 A Flower upon Your Return
+- [X] Lv. 87 Hunger in the Garden
 - [ ] Lv. 87 Words without Sound
 - [ ] Lv. 87 Follow, Wander, Stumble, Listen
 - [ ] Lv. 87 Caging the Messenger

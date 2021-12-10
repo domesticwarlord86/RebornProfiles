@@ -3147,13 +3147,90 @@
     <If Condition="GetQuestStep(69968) == 2">
       <GetTo ZoneId="961" XYZ="-626.2192, 138.676, 64.52769"/>  
       <LLToast message="Please complete the solo duty manually."/>
+			<StopBot/>
+    </If>
+    <If Condition="GetQuestStep(69968) == 255">
+      <GetTo ZoneId="961" XYZ="-628.6425, 138.676, 64.27361"/>  
+      <LLTurnIn QuestId="69968" NpcId="1040129" XYZ="-629.0532, 138.676, 62.30261"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- A Flower upon Your Return -->
+    <If Condition="IsQuestCompleted(69968) and not IsQuestCompleted(69969)">
+      <If Condition="not HasQuest(69969)">
+      <GetTo ZoneId="961" XYZ="-628.6425, 138.676, 64.27361"/>  
+        <If Condition="IsQuestAcceptQualified(69969)">
+          <LLPickupQuest QuestId="69969" NpcId="1040129"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69969) == 1">
+      <GetTo ZoneId="961" XYZ="-513.9293, 156.7359, 197.2129"/>  
+      <UseTransport NpcId="1040132" XYZ="-513.6339, 156.7207, 198.6876" QuestId="69969" StepId="1"/>
+			<WaitWhile condition="GetQuestStep(69969) == 1"/>
+    </If>	
+    <If Condition="GetQuestStep(69969) == 2">
+      <GetTo ZoneId="961" XYZ="-516.5043, 156.9347, 197.787"/>  
+      <LLTalkTo NpcId="1040134" XYZ="-515.2819, 156.849, 199.3286" QuestId="69969" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69969) == 3">
+      <GetTo ZoneId="961" XYZ="-482.1953, 157.8662, -363.919"/>  
+      <UseTransport NpcId="2012151" XYZ="-481.8647, 157.3662, -367.483" QuestId="69969" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69969) == 4">
+      <GetTo ZoneId="961" XYZ="-342.0568, 294.9572, -556.3016"/>  
+      <LLTalkTo NpcId="1042043" XYZ="-342.5498, 294.9338, -559.6246" QuestId="69969" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69969) == 255">
+      <GetTo ZoneId="961" XYZ="-403.2849, 329.8913, -757.1917"/>  
+      <LLTurnIn QuestId="69969" NpcId="1040135" XYZ="-407.4617, 329.8903, -759.2432"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Hunger in the Garden -->
+    <If Condition="IsQuestCompleted(69969) and not IsQuestCompleted(69970)">
+      <If Condition="not HasQuest(69970)">
+      <GetTo ZoneId="961" XYZ="-403.2849, 329.8913, -757.1917"/>  
+        <If Condition="IsQuestAcceptQualified(69970)">
+          <LLPickupQuest QuestId="69970" NpcId="1040136"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69970) == 1">
+      <GetTo ZoneId="961" XYZ="-210.8936, 307.1234, -653.7499"/>  
+      <UseTransport NpcId="2012153" XYZ="-207.7821, 306.63, -653.132" QuestId="69970" StepId="1"/>
+    </If>		
+    <If Condition="GetQuestStep(69970) == 2">
+      <GetTo ZoneId="961" XYZ="-50.38937, 151.8705, -624.3502"/>  
+      <LLTalkTo NpcId="1040138" XYZ="-47.19617, 151.9429, -624.7196" QuestId="69970" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69970) == 3">
+      <GetTo ZoneId="961" XYZ="245.4238, 165.6101, -606.2949"/>  
+      <LLTalkTo NpcId="1040141" XYZ="242.2064, 165.8485, -608.6061" QuestId="69970" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69970) == 255">
+      <GetTo ZoneId="961" XYZ="-48.18994, 152.0676, -626.1199"/>  
+      <LLTurnIn QuestId="69970" NpcId="1040138" XYZ="-47.19617, 151.9429, -624.7196"/>
+      <LLSmallTalk/>
     </If>		
 
+    <!-- Words without Sound -->
+    <If Condition="IsQuestCompleted(69970) and not IsQuestCompleted(69971)">
+      <If Condition="not HasQuest(69971)">
+      <GetTo ZoneId="961" XYZ="-48.18994, 152.0676, -626.1199"/>  
+        <If Condition="IsQuestAcceptQualified(69971)">
+          <LLPickupQuest QuestId="69971" NpcId="1040140"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
 	
  
  	</If>
   </Order>
-  <GrindAreas>
+  <GrindAreas>	
   </GrindAreas>
   <CodeChunks>
     <CodeChunk Name="TurnOffMount">

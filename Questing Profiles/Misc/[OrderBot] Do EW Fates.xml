@@ -12,7 +12,7 @@
 
 	<!-- Thavnair -->
 	<While condition="IsOnMap(957)">
-		<LLFate UseFlight="False" MinLevel="0" MaxLevel="84" BlacklistIds="1772,1773,1774,1776,1777,1778,1779" while="IsOnMap(957)"/>	
+		<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" BlacklistIds="1772,1773,1774,1776,1777,1778,1779" while="IsOnMap(957)"/>	
 	</While>
 	
 	<!--
@@ -35,7 +35,7 @@
 
 	<!-- Labyrinthos -->
 	<While condition="IsOnMap(956)">
-		<LLFate UseFlight="False" MinLevel="0" MaxLevel="84" BlacklistIds="1751,1752,1753,1754,1755,1756,1757" while="IsOnMap(956)"/>	
+		<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" BlacklistIds="1751,1752,1753,1754,1755,1756,1757" while="IsOnMap(956)"/>	
 	</While>
 	
 	<!--
@@ -61,9 +61,9 @@
 	
 	-->
 	
-		<!-- Garlemald -->
+	<!-- Garlemald -->
 	<While condition="IsOnMap(958)">
-		<LLFate UseFlight="False" MinLevel="0" MaxLevel="86" BlacklistIds="1798" while="IsOnMap(958)"/>	
+		<LLFate UseFlight="True" MinLevel="0" MaxLevel="86" BlacklistIds="1798" while="IsOnMap(958)"/>	
 	</While>
 	
 	<!--
@@ -85,6 +85,47 @@
 
 	
 	-->
+	
+	<!-- Mare Lamentorum -->
+	<While condition="IsOnMap(959)">
+		<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1831" while="IsOnMap(959)"/>	
+	</While>	
+	
+<!--
+
+	ID: 1807 Type: Battle Fate: One Giant Weep 
+	ID: 1809 Type: Battle Fate: Droids Gone Wild 
+
+-->	
+	
+	
+	<!-- Elpis -->
+	<While condition="IsOnMap(961)">
+		<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1831,1832,1833,1834,1835,1836,1837,1838" while="IsOnMap(961)"/>	
+	</While>
+
+<!--
+First Aetheryte:
+ID: 1825 Type: Battle Fate: Ophion-mania 
+ID: 1826 Type: Boss Fate: The Rustling of Murderous Leaves 
+ID: 1829 Type: Battle Fate: Drawing the Thunderstroke 
+ID: 1830 Type: ProtectNPC Fate: Nature's Staunch Protector 
+
+Second Aetheryte:
+ID: 1824 Type: Boss Fate: Grand Designs: Io 
+ID: 1825 Type: Battle Fate: Ophion-mania
+ID: 1827 Type: Battle Fate: Butterfly Kisses of Death  
+ID: 1828 Type: Battle Fate: You Hurt My Researcher, Prepare to Die 
+
+Third Aetheryte:
+ID: 1831 Type: Battle Fate: Grand Designs: Unknown Execution 
+ID: 1834 Type: Battle Fate: King of the Hill  
+ID: 1835 Type: Battle Fate: Why Did It Have to Be Medusae? 
+ID: 1837 Type: Boss Fate: Eurydike: All Bark, No Bite 
+ID: 1836 Type: Battle Fate: There's a Snake in My Water Supply! 
+ID: 1838 Type: KillHandIn Fate: So Sorry, Sokles 
+
+-->	
   
   </Order>
   <GrindAreas>
