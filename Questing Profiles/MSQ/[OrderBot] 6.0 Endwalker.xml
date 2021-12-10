@@ -2967,13 +2967,13 @@
     <If Condition="GetQuestStep(69963) == 6">
 			<RunCode name="TurnOffMount"/>
       <MoveTo XYZ="-730.058, -26.9112, 459.943"/> <!-- Zone: "961" Subzone="3925" Area="" -->
-      <UseObject NpcId="2012140" XYZ="-731.7464, -27.08478, 460.7767" QuestId="69963" StepId="6"/>
+      <LLTalkTo DialogOption="0" NpcId="2012140" XYZ="-731.7464, -27.08478, 460.7767" QuestId="69963" StepId="6"/>
 			<RunCode name="TurnOnMount"/>
     </If>		
     <If Condition="GetQuestStep(69963) == 7">
 			<RunCode name="TurnOffMount"/>
       <MoveTo XYZ="-788.1658, -36.08907, 485.085"/> <!-- Zone: "961" Subzone="3925" Area="" -->
-      <UseObject NpcId="2012141" XYZ="-789.0898, -36.05713, 486.4119" QuestId="69963" StepId="7"/>
+      <LLTalkTo DialogOption="0" NpcId="2012141" XYZ="-789.0898, -36.05713, 486.4119" QuestId="69963" StepId="7"/>
 			<RunCode name="TurnOnMount"/>
     </If>		
     <If Condition="GetQuestStep(69963) == 8">
