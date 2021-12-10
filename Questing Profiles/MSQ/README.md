@@ -26,7 +26,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/71/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
+[300]: https://progress-bar.dev/74/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [x] Lv. 80 The Next Ship to Sail
@@ -101,9 +101,9 @@ After: https://progress-bar.dev/70
 - [X] Lv. 86 Aether to Aether
 - [X] Lv. 86 A Sentimental Gift
 - [X] Lv. 86 Verdict and Execution
-- [ ] Lv. 87 Travelers at the Crossroads
-- [ ] Lv. 87 A Past, Not Yet Come to Pass
-- [ ] Lv. 87 Witness to the Spectacle
+- [X] Lv. 87 Travelers at the Crossroads
+- [X] Lv. 87 A Past, Not Yet Come to Pass
+- [X] Lv. 87 Witness to the Spectacle
 - [ ] Lv. 87 Worthy of His Back
 - [ ] Lv. 87 A Flower upon Your Return
 - [ ] Lv. 87 Hunger in the Garden

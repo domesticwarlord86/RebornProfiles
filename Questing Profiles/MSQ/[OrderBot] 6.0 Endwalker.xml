@@ -25,6 +25,8 @@
 			Need to leave the water here
 	Petalouda Hunt - Line 2703
 		Using the item needs some work.
+	Their Greatest Contribution - Line 2888
+		Unable to navigate over the ledge.
 -->
 
 <!DOCTYPE Profile [
@@ -3026,10 +3028,126 @@
           <LLSmallTalk/>
         </If>
       </If>
+    </If>	
+    <If Condition="GetQuestStep(69965) == 1">
+      <GetTo ZoneId="961" XYZ="-102.9485, -10.11684, 234.4682"/>  
+      <LLTalkTo NpcId="1040102" XYZ="-106.6149, -10.28143, 236.0723" QuestId="69965" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69965) == 2">
+      <GetTo ZoneId="961" XYZ="-178.9711, 12.38059, -9.697802"/>  
+      <LLTalkTo NpcId="1040104" XYZ="-182.1775, 12.50002, -10.97125" QuestId="69965" StepId="2"/>
+			<WaitWhile condition="GetQuestStep(69965) == 2"/>
+    </If>	
+    <If Condition="GetQuestStep(69965) == 3">
+      <GetTo ZoneId="961" XYZ="-347.7851, 161.7871, 27.53702"/>  
+      <LLTalkTo NpcId="1040106" XYZ="-350.2098, 161.7871, 26.10815" QuestId="69965" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69965) == 4">
+      <GetTo ZoneId="961" XYZ="-553.6187, 147.4066, 96.71661"/>  
+      <UseObject NpcId="2012146" XYZ="-554.345, 147.4479, 98.25281" QuestId="69965" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69965) == 255">
+      <GetTo ZoneId="961" XYZ="-489.6435, 140.4051, -112.7845"/>  
+      <LLTurnIn ItemId="2003235" QuestId="69965" NpcId="1040109" XYZ="-491.1117, 140.3918, -113.8171"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- A Past, Not Yet Come to Pass -->
+    <If Condition="IsQuestCompleted(69965) and not IsQuestCompleted(69966)">
+      <If Condition="not HasQuest(69966)">
+      <GetTo ZoneId="961" XYZ="-489.6435, 140.4051, -112.7845"/>  
+        <If Condition="IsQuestAcceptQualified(69966)">
+          <LLPickupQuest QuestId="69966" NpcId="1040109"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69966) == 1">
+      <GetTo ZoneId="961" XYZ="-584.0568, 167.9957, -264.6983"/>  
+      <LLTalkTo NpcId="1040112" XYZ="-586.5721, 167.9957, -265.4918" QuestId="69966" StepId="1"/>
+			<WaitWhile condition="GetQuestStep(69966) == 1"/>
+    </If>		
+    <If Condition="GetQuestStep(69966) == 2">
+      <GetTo ZoneId="961" XYZ="-584.0568, 167.9957, -264.6983"/>  
+      <LLTalkTo NpcId="1040112" XYZ="-586.5721, 167.9957, -265.4918" QuestId="69966" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69966) == 3">
+      <GetTo ZoneId="961" XYZ="-593.7681, 159.4989, -175.403"/>  
+      <LLTalkTo NpcId="1040115" XYZ="-595.0561, 159.7036, -175.2499" QuestId="69966" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69966) == 4">
+      <GetTo ZoneId="961" XYZ="-581.1402, 159.6539, -174.1696"/>  
+      <UseTransport NpcId="1040116" XYZ="-578.4542, 159.6654, -173.7546" QuestId="69966" StepId="4"/>
+    </If>		
+    <If Condition="GetQuestStep(69966) == 5">
+      <GetTo ZoneId="961" XYZ="-592.7675, 159.3308, -174.6231"/>  
+      <LLTalkTo NpcId="1040115" XYZ="-595.0561, 159.7036, -175.2499" QuestId="69966" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69966) == 6">
+      <GetTo ZoneId="961" XYZ="-441.0637, 140.8665, -152.8439"/>  
+      <UseTransport NpcId="1040117" XYZ="-442.4354, 140.5691, -155.5047" QuestId="69966" StepId="6"/>
+    </If>		
+    <If Condition="GetQuestStep(69966) == 255">
+      <GetTo ZoneId="961" XYZ="-594.0099, 159.5134, -174.5038"/>  
+      <LLTurnIn QuestId="69966" NpcId="1040115" XYZ="-595.0561, 159.7036, -175.2499"/>
+      <LLSmallTalk/>
     </If>		
 		
-
-	
+    <!-- Witness to the Spectacle -->
+    <If Condition="IsQuestCompleted(69966) and not IsQuestCompleted(69967)">
+      <If Condition="not HasQuest(69967)">
+      <GetTo ZoneId="961" XYZ="-594.0099, 159.5134, -174.5038"/>  
+        <If Condition="IsQuestAcceptQualified(69967)">
+          <LLPickupQuest QuestId="69967" NpcId="1040115"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+		<If Condition="GetQuestStep(69967) == 1">
+      <GetTo ZoneId="961" XYZ="-812.1571, 169.5298, -195.3699"/>  
+      <LLTalkTo NpcId="1040118" XYZ="-814.5114, 169.5298, -194.3542" QuestId="69967" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69967) == 2">
+      <GetTo ZoneId="961" XYZ="-831.1217, 169.5293, -63.0007"/>  
+      <LLTalkTo NpcId="1040121" XYZ="-833.9513, 169.5293, -61.90588" QuestId="69967" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69967) == 3">
+      <GetTo ZoneId="961" XYZ="-832.0222, 169.5293, -62.97727"/>  
+      <LLTalkTo NpcId="1040121" XYZ="-833.9513, 169.5293, -61.90588" QuestId="69967" StepId="3"/>
+    </If>		
+    <If Condition="GetQuestStep(69967) == 4">
+      <MoveTo XYZ="-850.9689, 286.976, -173.0992"/> 
+      <LLTalkTo NpcId="1040124" XYZ="-848.3864, 286.976, -175.8602" QuestId="69967" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69967) == 5">
+      <GetTo ZoneId="961" XYZ="-723.7787, 365.2834, -336.2415"/>  
+      <LLTalkTo NpcId="1040126" XYZ="-719.7833, 365.2834, -334.6456" QuestId="69967" StepId="5"/>
+			<WaitWhile condition="GetQuestStep(69967) == 5"/>
+		</If>	
+    <If Condition="GetQuestStep(69967) == 255">
+      <GetTo ZoneId="961" XYZ="-666.6382, 178.0787, -336.7835"/>  
+      <LLTurnIn QuestId="69967" NpcId="1040128" XYZ="-664.4236, 178.0787, -334.5846"/>
+      <LLSmallTalk/>
+    </If>		
+		
+    <!-- Worthy of His Back -->
+    <If Condition="IsQuestCompleted(69967) and not IsQuestCompleted(69968)">
+      <If Condition="not HasQuest(69968)">
+      <GetTo ZoneId="961" XYZ="-666.6382, 178.0787, -336.7835"/>  
+        <If Condition="IsQuestAcceptQualified(69968)">
+          <LLPickupQuest QuestId="69968" NpcId="1040128"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69968) == 1">
+      <GetTo ZoneId="961" XYZ="-354.3624, 146.9392, 142.1011"/>  
+      <UseObject NpcId="2012149" XYZ="-353.1396, 146.9291, 143.5721" QuestId="69968" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69968) == 2">
+      <GetTo ZoneId="961" XYZ="-626.2192, 138.676, 64.52769"/>  
+      <LLToast message="Please complete the solo duty manually."/>
+    </If>		
 
 	
  
