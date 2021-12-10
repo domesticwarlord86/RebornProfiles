@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 Author: Angles24, Manta
-
-Line 139 issue.
 -->
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY debugClickables "0">
+<!ENTITY debugClickables "1">
 ]>
 <Profile>
   <Name>Endwalker Aether Currents</Name>
@@ -136,57 +134,47 @@ Line 139 issue.
         <LLTurnIn QuestId="69865" NpcId="1041129" XYZ="-23.57526, -31.53021, 1.846313"/>
         <LLSmallTalk/>
       </If>
-      <If Condition="&debugClickables;">
-        <If Condition="&debugClickables; or not IsAetherCurrentCompleted(956, 5)">
-          <!-- TODO: Verify pathing works -->
-          <GetTo Zone="956" XYZ="346.529, 209.352, -767.739" />
-          <UseObject NpcId="2011980" XYZ="346.529, 209.352, -767.739" Condition="not IsAetherCurrentCompleted(956, 5)" />
-        </If>
-        <If Condition="&debugClickables; or not IsAetherCurrentCompleted(956, 6)">
-          <!-- TODO: Verify pathing works -->
-          <GetTo Zone="956" XYZ="748.562, 106.712, 66.7589" />
-          <UseObject NpcId="2011981" XYZ="748.562, 106.712, 66.7589" Condition="not IsAetherCurrentCompleted(956, 6)" />
-        </If>
-        <If Condition="&debugClickables; or not IsAetherCurrentCompleted(956, 7)">
-          <!-- TODO: Verify pathing works -->
-          <GetTo Zone="956" XYZ="-547.726, -18.0226, 661.873" />
-          <UseObject NpcId="2011985" XYZ="-547.726, -18.0226, 661.873" Condition="not IsAetherCurrentCompleted(956, 7)" />
-        </If>
-        <If Condition="&debugClickables; or not IsAetherCurrentCompleted(956, 8)">
-          <!-- TODO: Verify pathing works -->
-          <GetTo Zone="956" XYZ="-128.069, -20.5234, 676.722" />
-          <UseObject NpcId="2011986" XYZ="-128.069, -20.5234, 676.722" Condition="not IsAetherCurrentCompleted(956, 8)" />
-        </If>
-        <If Condition="&debugClickables; or not IsAetherCurrentCompleted(956, 9)">
-          <!-- TODO: Verify pathing works -->
-          <GetTo Zone="956" XYZ="-316.276, 79.7614, -395.312" />
-          <UseObject NpcId="2011982" XYZ="-316.276, 79.7614, -395.312" Condition="not IsAetherCurrentCompleted(956, 9)" />
-        </If>
-        <If Condition="&debugClickables; or not IsAetherCurrentCompleted(956, 10)">
-          <!-- TODO: Verify pathing works -->
-          <GetTo Zone="956" XYZ="32.3334, 72.8314, -286.272" />
-          <UseObject NpcId="2011983" XYZ="32.3334, 72.8314, -286.272" Condition="not IsAetherCurrentCompleted(956, 10)" />
-        </If>
-        <If Condition="&debugClickables; or not IsAetherCurrentCompleted(956, 11)">
-          <!-- TODO: Verify pathing works -->
-          <GetTo Zone="956" XYZ="497.115, 73.4197, -267.231" />
-          <UseObject NpcId="2011984" XYZ="497.115, 73.4197, -267.231" Condition="not IsAetherCurrentCompleted(956, 11)" />
-        </If>
-        <If Condition="&debugClickables; or not IsAetherCurrentCompleted(956, 12)">
-          <!-- TODO: Verify pathing works -->
-          <GetTo Zone="956" XYZ="-176.381, -10.101, -242.245" />
-          <UseObject NpcId="2011987" XYZ="-176.381, -10.101, -242.245" Condition="not IsAetherCurrentCompleted(956, 12)" />
-        </If>
-        <If Condition="&debugClickables; or not IsAetherCurrentCompleted(956, 13)">
-          <!-- TODO: Verify pathing works -->
-          <GetTo Zone="956" XYZ="-505.14, -21.8212, -122.596" />
-          <UseObject NpcId="2011988" XYZ="-505.14, -21.8212, -122.596" Condition="not IsAetherCurrentCompleted(956, 13)" />
-        </If>
-        <If Condition="&debugClickables; or not IsAetherCurrentCompleted(956, 14)">
-          <!-- TODO: Verify pathing works -->
-          <GetTo Zone="956" XYZ="46.2823, -29.7999, 178.875" />
-          <UseObject NpcId="2011989" XYZ="46.2823, -29.7999, 178.875" Condition="not IsAetherCurrentCompleted(956, 14)" />
-        </If>
+      <If Condition="not IsAetherCurrentCompleted(956, 14)">
+        <GetTo ZoneId="956" XYZ="346.529, 209.352, -767.739" />
+        <UseObject NpcId="2011980" XYZ="346.529, 209.352, -767.739" Condition="not IsAetherCurrentCompleted(956, 14)" />
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(956, 13)">
+        <GetTo ZoneId="956" XYZ="748.562, 106.712, 66.7589" />
+        <UseObject NpcId="2011981" XYZ="748.562, 106.712, 66.7589" Condition="not IsAetherCurrentCompleted(956, 13)" />
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(956, 12)">
+        <GetTo ZoneId="956" XYZ="-547.726, -18.0226, 661.873" />
+        <UseObject NpcId="2011985" XYZ="-547.726, -18.0226, 661.873" Condition="not IsAetherCurrentCompleted(956, 12)" />
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(956, 11)">
+        <GetTo ZoneId="956" XYZ="-141.4134, -25.05096, 713.8115" />
+        <LLClimbHill Start="-141.4134, -25.05096, 713.8115" End="-136.0235, -19.54328, 697.3575" Distance="2.5" />
+        <UseObject NpcId="2011986" XYZ="-128.069, -20.5234, 676.722" Condition="not IsAetherCurrentCompleted(956, 11)" />
+        <LLClimbHill Start="-128.069, -20.5234, 676.722" End="-114.2654, -30.44403, 669.1144" Distance="2.5" />
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(956, 10)">
+        <GetTo ZoneId="956" XYZ="-316.276, 79.7614, -395.312" />
+        <UseObject NpcId="2011982" XYZ="-316.276, 79.7614, -395.312" Condition="not IsAetherCurrentCompleted(956, 10)" />
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(956, 9)">
+        <GetTo ZoneId="956" XYZ="32.3334, 72.8314, -286.272" />
+        <UseObject NpcId="2011983" XYZ="32.3334, 72.8314, -286.272" Condition="not IsAetherCurrentCompleted(956, 9)" />
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(956, 8)">
+        <GetTo ZoneId="956" XYZ="497.115, 73.4197, -267.231" />
+        <UseObject NpcId="2011984" XYZ="497.115, 73.4197, -267.231" Condition="not IsAetherCurrentCompleted(956, 8)" />
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(956, 7)">
+        <GetTo ZoneId="956" XYZ="-176.381, -10.101, -242.245" />
+        <UseObject NpcId="2011987" XYZ="-176.381, -10.101, -242.245" Condition="not IsAetherCurrentCompleted(956, 7)" />
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(956, 6)">
+        <GetTo ZoneId="956" XYZ="-505.14, -21.8212, -122.596" />
+        <UseObject NpcId="2011988" XYZ="-505.14, -21.8212, -122.596" Condition="not IsAetherCurrentCompleted(956, 6)" />
+      </If>
+      <If Condition="not IsAetherCurrentCompleted(956, 5)">
+        <GetTo ZoneId="956" XYZ="46.2823, -29.7999, 178.875" />
+        <UseObject NpcId="2011989" XYZ="46.2823, -29.7999, 178.875" Condition="not IsAetherCurrentCompleted(956, 5)" />
       </If>
     </If>
 
