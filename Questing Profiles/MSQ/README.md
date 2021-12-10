@@ -26,7 +26,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/80/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
+[300]: https://progress-bar.dev/87/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [x] Lv. 80 The Next Ship to Sail
@@ -110,13 +110,13 @@ After: https://progress-bar.dev/70
 - [X] Lv. 87 Words without Sound
 - [X] Lv. 87 Follow, Wander, Stumble, Listen
 - [X] Lv. 87 Caging the Messenger
-- [ ] Lv. 87 Thou Must Live, Die, and Know
-- [ ] Lv. 88 As the Heavens Burn
-- [ ] Lv. 88 Outside Help
-- [ ] Lv. 88 Going Underground
-- [ ] Lv. 88 No Job Too Small
-- [ ] Lv. 88 Wise Guides
-- [ ] Lv. 88 Agriculture Shock
+- [X] Lv. 87 Thou Must Live, Die, and Know
+- [X] Lv. 88 As the Heavens Burn
+- [X] Lv. 88 Outside Help
+- [X] Lv. 88 Going Underground
+- [X] Lv. 88 No Job Too Small
+- [X] Lv. 88 Wise Guides
+- [X] Lv. 88 Agriculture Shock
 - [ ] Lv. 88 Sage Council
 - [ ] Lv. 88 Hither and Yarns
 - [ ] Lv. 88 Once Forged
