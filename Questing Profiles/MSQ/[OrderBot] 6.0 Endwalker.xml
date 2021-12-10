@@ -1728,9 +1728,9 @@
       <GetTo ZoneId="959" XYZ="-191.6207, 58.26021, 418.0667"/>  <!-- Subzone="3951" Area="" -->
       <LLTalkTo NpcId="1039985" XYZ="-189.9291, 58.22994, 419.7605" QuestId="69933" StepId="5"/>
 			<RunCode name="TurnOffMount"/>
-			<MoveTo XYZ="88.78321, 36.85228, 448.7666" />
+			<NoCombatMoveTo XYZ="88.78321, 36.85228, 448.7666" />
 			<WaitTimer Waittime="5"/>
-      <MoveTo XYZ="43.03872, 59.14194, 523.963"/> <!-- Zone: "959" Subzone="3953" Area="" -->
+      <NoCombatMoveTo XYZ="43.03872, 59.14194, 523.963"/> <!-- Zone: "959" Subzone="3953" Area="" -->
       <LLTalkTo NpcId="1039986" XYZ="43.9917, 59.05299, 523.5217" QuestId="69933" StepId="5"/>
 			<RunCode name="TurnOnMount"/>
 		</If>
