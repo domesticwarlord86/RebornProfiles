@@ -3249,7 +3249,7 @@
     </If>
 
     <!-- Follow, Wander, Stumble, Listen -->
-    <If Condition="IsQuestCompleted(69971) Aand not IsQuestCompleted(69972)">
+    <If Condition="IsQuestCompleted(69971) and not IsQuestCompleted(69972)">
       <If Condition="not HasQuest(69972)">
       <GetTo ZoneId="961" XYZ="411.2883, 148.3925, -419.9044"/>  
         <If Condition="IsQuestAcceptQualified(69972)">
@@ -3305,6 +3305,22 @@
     <If Condition="GetQuestStep(69973) == 2">
       <LLToast message="Please complete the Ktisis Hyperboreia duty."/>
 			<StopBot/>
+    </If>
+    <If Condition="GetQuestStep(69973) == 255">
+      <GetTo ZoneId="961" XYZ="475.585, -17.55379, 52.03789"/>  
+      <LLTurnIn QuestId="69973" NpcId="1040159" XYZ="473.1975, -17.13116, 49.66809"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Thou Must Live, Die, and Know -->
+    <If Condition="IsQuestCompleted(69973) and not IsQuestCompleted(69974)">
+      <If Condition="not HasQuest(69974)">
+      <GetTo ZoneId="961" XYZ="475.585, -17.55379, 52.03789"/>  
+        <If Condition="IsQuestAcceptQualified(69974)">
+          <LLPickupQuest QuestId="69974" NpcId="1040159"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
     </If>		
 	
  
