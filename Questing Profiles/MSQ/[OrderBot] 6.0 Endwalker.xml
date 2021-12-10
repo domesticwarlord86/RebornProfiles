@@ -3226,6 +3226,86 @@
         </If>
       </If>
     </If>
+    <If Condition="GetQuestStep(69971) == 1">
+      <GetTo ZoneId="961" XYZ="13.118, 128.7936, -550.4741"/>  
+      <UseObject NpcId="2012155" XYZ="16.52545, 128.4352, -549.8894" QuestId="69971" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69971) == 2">
+      <GetTo ZoneId="961" XYZ="196.7917, 91.083, -655.2584"/>  
+      <UseObject NpcId="2012158" XYZ="197.3143, 91.56934, -656.9161" QuestId="69971" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69971) == 3">
+      <GetTo ZoneId="961" XYZ="301.6639, 138.3811, -748.6103"/>  
+      <UseObject NpcId="2012161" XYZ="306.8436, 138.4756, -749.4774" QuestId="69971" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69971) == 4">
+      <GetTo ZoneId="961" XYZ="410.4879, 148.3509, -421.2609"/>  
+      <UseObject NpcId="2012164" XYZ="413.5653, 148.6381, -418.6923" QuestId="69971" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69971) == 255">
+      <GetTo ZoneId="961" XYZ="411.2883, 148.3925, -419.9044"/>  
+      <LLTurnIn QuestId="69971" NpcId="1040147" XYZ="412.2834, 148.7695, -417.3495"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Follow, Wander, Stumble, Listen -->
+    <If Condition="IsQuestCompleted(69971) Aand not IsQuestCompleted(69972)">
+      <If Condition="not HasQuest(69972)">
+      <GetTo ZoneId="961" XYZ="411.2883, 148.3925, -419.9044"/>  
+        <If Condition="IsQuestAcceptQualified(69972)">
+          <LLPickupQuest QuestId="69972" NpcId="1040148"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69972) == 1">
+      <RunCode Name="TurnOffMount" />
+      <MoveTo XYZ="436.1958, 149.1965, -362.5172"/> 
+      <RunCode Name="TurnOnMount" />
+      <UseObject NpcId="2012167" XYZ="436.057, 149.1263, -360.2503" QuestId="69972" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69972) == 2">
+      <RunCode Name="TurnOffMount" />
+      <MoveTo XYZ="525.7611, 138.5854, -188.439"/> 
+      <RunCode Name="TurnOnMount" />
+      <LLTalkTo NpcId="2012169" XYZ="523.7352, 139.2996, -186.9383" QuestId="69972" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69972) == 3">
+      <RunCode Name="TurnOffMount" />
+      <MoveTo XYZ="803.407, 153.4156, -212.1224"/> 
+      <RunCode Name="TurnOnMount" />
+      <UseObject NpcId="2012170" XYZ="805.0812, 153.521, -210.5593" QuestId="69972" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69972) == 4">
+      <RunCode Name="TurnOffMount" />
+      <MoveTo XYZ="744.7173, 148.537, -356.7769"/> 
+      <RunCode Name="TurnOnMount" />
+      <UseObject NpcId="2012171" XYZ="741.39, 148.0582, -356.5576" QuestId="69972" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69972) == 255">
+      <GetTo ZoneId="961" XYZ="506.5868, 151.481, -306.5848"/>  
+      <LLTurnIn QuestId="69972" NpcId="1040151" XYZ="504.3563, 151.5689, -303.8834"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Caging the Messenger -->
+    <If Condition="IsQuestCompleted(69972) and not IsQuestCompleted(69973)">
+      <If Condition="not HasQuest(69973)">
+      <GetTo ZoneId="961" XYZ="506.5868, 151.481, -306.5848"/>  
+        <If Condition="IsQuestAcceptQualified(69973)">
+          <LLPickupQuest QuestId="69973" NpcId="1040152"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69973) == 1">
+      <GetTo ZoneId="961" XYZ="-398.6021, 329.7876, -759.5569"/>  
+      <LLTalkTo NpcId="1040154" XYZ="-401.236, 329.783, -760.3418" QuestId="69973" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69973) == 2">
+      <LLToast message="Please complete the Ktisis Hyperboreia duty."/>
+			<StopBot/>
+    </If>		
 	
  
  	</If>
