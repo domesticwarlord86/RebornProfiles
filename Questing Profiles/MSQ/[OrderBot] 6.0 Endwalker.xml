@@ -2730,13 +2730,13 @@
       <LLTalkTo NpcId="1039998" XYZ="206.0426, 20.56111, 629.1447" QuestId="69957" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69957) == 2">
-      <GetTo ZoneId="961" XYZ="220.0089, 20.22273, 645.6842"/>  <!-- Subzone="3927" Area="" -->
-      <UseItem ItemId="2003232" NpcIds="10612,10613" InCombat="True" UseHealthPercent="40" QuestId="69957" StepId="2">
+      <GetTo ZoneId="961" XYZ="220.0089, 20.22273, 645.6842"/>  <!-- Subzone="3927" Area="" -->	  
+      <LLUseItem ItemId="2003232" NpcIds="10612,10613" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" QuestId="69957" StepId="2">
 				<HotSpots>
 					<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487" />
 					<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169" />
 				</HotSpots>
-			</UseItem>
+			</LLUseItem>
 		</If>
     <If Condition="GetQuestStep(69957) == 255">
       <GetTo ZoneId="961" XYZ="205.8584, 20.55042, 631.8403"/>  <!-- Subzone="3927" Area="" -->
