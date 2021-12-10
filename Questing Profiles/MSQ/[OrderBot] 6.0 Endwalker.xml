@@ -2885,7 +2885,8 @@
 			<WaitWhile condition="GetQuestStep(69961) == 5"/>
     </If>
     <If Condition="GetQuestStep(69961) == 6">
-      <GetTo ZoneId="961" XYZ="-63.71304, -15.33698, -84.45352" />
+	  <ClimbHill Start="-37.64533, -11.16602, -70.62399" End="-64.05479, -15.33671, -84.72186"/>
+	  <!--<GetTo ZoneId="961" XYZ="-63.71304, -15.33698, -84.45352" />-->
       <LLSendChat Emote="wave" XYZ="-63.71304, -15.33698, -84.45352" />
 			<WaitWhile condition="GetQuestStep(69961) == 6"/>			
     </If>	
