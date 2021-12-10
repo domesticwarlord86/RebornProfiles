@@ -1892,12 +1892,17 @@
 		<!-- Navigating these stairs is going to be rough -->
     <If Condition="GetQuestStep(69938) == 2">
 			<WaitTimer Waittime="2"/>
-			<GetTo ZoneId="959" XYZ="-448.3959, -168, -623.5699"/>
+			<GetTo ZoneId="959" XYZ="-451.1168, -168, -622.8315"/>  <!-- Subzone="3968" Area="" -->
+			<LLClimbHill Start="-451.1168, -168, -622.8315" End="-443.8529, -160.7644, -646.6092" SpamJump="true" />
+			<LLClimbHill Start="-443.8529, -160.7644, -646.6092" End="-450.065, -155.3644, -663.3547" SpamJump="true" />
+			<LLClimbHill Start="-450.065, -155.3644, -663.3547" End="-460.5311, -155.5657, -661.1524" SpamJump="true" />
+			<!--<GetTo ZoneId="959" XYZ="-448.3959, -168, -623.5699"/>
 			<WaitTimer Waittime="2"/>
-			<RunCode name="699381"/>				
+			<RunCode name="699381"/>	-->			
 			<LLTalkTo NpcId="2012178" XYZ="-456.1074, -168, -618.7686" QuestId="69938" StepId="4"/>
 			<WaitTimer Waittime="2"/>
-			<RunCode name="699382"/>	
+			<LLClimbHill Start="-489.2837, -154.8231, -689.4819" End="-501.3929, -168, -701.2598" SpamJump="true" />
+			<!--<RunCode name="699382"/>-->
 			<!--<LLToast message="Climb those stairs and do this step manually please."/>
 			<StopBot/>
       <GetTo ZoneId="959" XYZ="-484.7618, -154.94, -688.9039"/>
@@ -1933,12 +1938,16 @@
     <If Condition="GetQuestStep(69939) == 2">
 			<!-- Stairs again -->
 			<GetTo ZoneId="959" XYZ="-376.7693, -161.8438, -238.0391"/>  <!-- Subzone="3968" Area="" -->
-			<GetTo ZoneId="959" XYZ="-357.4525, -161.8438, -256.2293"/>  <!-- Subzone="3968" Area="" -->
+			<GetTo ZoneId="959" XYZ="-356.272, -161.8438, -256.1834"/>  <!-- Subzone="3968" Area="" -->
 			<WaitTimer Waittime="2"/>
-			<RunCode name="699391"/>			
+			<LLClimbHill Start="-356.272, -161.8438, -256.1834" End="-357.9919, -156.3147, -267.7834" SpamJump="true" />
+			<LLClimbHill Start="-357.9919, -156.3147, -267.7834" End="-363.3863, -153.3146, -272.9346" SpamJump="true" />
+			<LLClimbHill Start="-363.3863, -153.3146, -272.9346" End="-375.733, -151.6717, -269.0102" SpamJump="true" />
+			<!--<RunCode name="699391"/>	-->		
 			<LLTalkTo NpcId="1038923" XYZ="-376.2722, -151.6717, -267.9026" QuestId="69939" StepId="2"/>
 			<WaitTimer Waittime="2"/>
-			<RunCode name="699392"/>	
+			<LLClimbHill Start="-375.733, -151.6717, -269.0102" End="-383.0093, -161.8438, -281.614" SpamJump="false" />
+			<!--<RunCode name="699392"/>-->	
 			<!--<LLToast message="Climb those stairs and do this step manually please."/>
 			<StopBot/>
       <GetTo ZoneId="959" XYZ="-375.7984, -151.4913, -270.0193"/>
@@ -1947,10 +1956,15 @@
     <If Condition="GetQuestStep(69939) == 3">
 		<GetTo ZoneId="959" XYZ="-331.909, -161.8438, -363.095" Distance="0.5"/>
 			<WaitTimer Waittime="5"/>
-			<RunCode name="699393"/>			
+			<LLClimbHill Start="-331.909, -161.8438, -363.095" End="-333.2318, -160.8146, -360.018" SpamJump="true" />
+			<LLClimbHill Start="-333.2318, -160.8146, -360.018" End="-340.6486, -156.3146, -353.9218" SpamJump="true" />
+			<LLClimbHill Start="-340.6486, -156.3146, -353.9218" End="-341.7104, -153.3146, -348.3445" SpamJump="true" />
+			<LLClimbHill Start="-341.7104, -153.3146, -348.3445" End="-331.8872, -151.6717, -334.9886" SpamJump="true" />
+			<!--<RunCode name="699393"/>-->			
 			<LLTalkTo NpcId="1038924" XYZ="-329.9763, -151.6717, -333.7606" QuestId="69939" StepId="3"/>
 			<WaitTimer Waittime="2"/>
-			<RunCode name="699394"/>	
+			<LLClimbHill Start="-331.8872, -151.6717, -334.9886" End="-347.7405, -161.8438, -330.9621" SpamJump="false" />
+			<!--<RunCode name="699394"/>	-->
 			<!--<LLToast message="Climb those stairs and do this step manually please."/>
 			<StopBot/>
       <GetTo ZoneId="959" XYZ="-331.523, -151.6717, -334.9587"/>
@@ -2057,7 +2071,7 @@
     </If>		
     <If Condition="GetQuestStep(69941) == 3">
 			<RunCode name="TurnOffMount"/>
-			<WaitTimer Waittime="10"/>
+			<WaitTimer Waittime="12"/>
 			<GetTo ZoneId="959" XYZ="19.8326, -19.88344, -204.496" Distance="1"/>
 			<WaitTimer Waittime="22"/>
 			<GetTo ZoneId="959" XYZ="12.54666, -0.5566646, -153.5729" Distance="1"/>
@@ -2648,7 +2662,7 @@
       </If>
     </If>
     <If Condition="GetQuestStep(69955) == 1">
-      <LisbethTravel Zone="813" Subzone="3041" Position="609.9962, 13.12678, 310.7599"/> <!-- Area="Lakeland" -->
+      <GetTo ZoneID="813" XYZ="609.9962, 13.12678, 310.7599"/> <!-- Subzone="3041" Area="Lakeland" -->
       <LLTalkTo NpcId="1030369" XYZ="614.4961, 13.30975, 305.806" QuestId="69955" StepId="1"/>
     </If>		
     <If Condition="GetQuestStep(69955) == 2">
@@ -2707,9 +2721,11 @@
 	  <MoveTo XYZ="-0.2167617, 1.331972, 59.90908" UseMesh="False"/>
       <!--<GetTo ZoneId="1031" XYZ="-0.2167617, 1.331972, 59.90908"/>-->  <!-- Subzone="0" Area="" -->
       <LLTalkTo NpcId="2012129" XYZ="-0.07635498, 2.212463, 61.60059" QuestId="69956" StepId="4"/>
-			<WaitWhile condition="GetQuestStep(69956) == 4"/>
+      <LLSmallTalk/>
+	  <WaitWhile condition="GetQuestStep(69956) == 4"/>
     </If>	
     <If Condition="GetQuestStep(69956) == 255">
+      <LLSmallTalk/>
       <GetTo ZoneId="961" XYZ="262.7725, 44.32154, 774.3227"/>  <!-- Subzone="3926" Area="" -->
       <LLTurnIn QuestId="69956" NpcId="1039996" XYZ="262.5314, 44.32154, 771.4198"/>
       <LLSmallTalk/>
