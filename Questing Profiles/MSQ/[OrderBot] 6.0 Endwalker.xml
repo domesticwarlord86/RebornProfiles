@@ -2720,7 +2720,7 @@
     <If Condition="GetQuestStep(69956) == 4 and GetQuestById(69956).QuestI8A == 0">
 	  <MoveTo XYZ="-0.2167617, 1.331972, 59.90908" UseMesh="False"/>
       <!--<GetTo ZoneId="1031" XYZ="-0.2167617, 1.331972, 59.90908"/>-->  <!-- Subzone="0" Area="" -->
-      <LLTalkTo NpcId="2012129" XYZ="-0.07635498, 2.212463, 61.60059" QuestId="69956" StepId="4"/>
+      <UseObject DialogOption="0" NpcId="2012129" XYZ="-0.07635498, 2.212463, 61.60059" QuestId="69956" StepId="4" BlacklistAfter="True"/>
       <LLSmallTalk/>
 	  <WaitWhile condition="GetQuestStep(69956) == 4"/>
     </If>	
