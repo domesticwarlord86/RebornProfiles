@@ -1896,15 +1896,15 @@
 			<GetTo ZoneId="959" XYZ="-451.1168, -168, -622.8315"/>  <!-- Subzone="3968" Area="" -->
 			<Dismount/>
 			<WaitTimer Waittime="2"/>
-			<LLClimbHill Start="-451.1168, -168, -622.8315" End="-443.8529, -160.7644, -646.6092" SpamJump="true" />
-			<LLClimbHill Start="-443.8529, -160.7644, -646.6092" End="-450.065, -155.3644, -663.3547" SpamJump="true" />
-			<LLClimbHill Start="-450.065, -155.3644, -663.3547" End="-460.5311, -155.5657, -661.1524" SpamJump="true" />
+			<LLClimbHill Start="-451.1168, -168, -622.8315" End="-443.8529, -160.7644, -646.6092" Distance="2.5" SpamJump="true" />
+			<LLClimbHill Start="-443.8529, -160.7644, -646.6092" End="-450.065, -155.3644, -663.3547" Distance="2.5" SpamJump="true" />
+			<LLClimbHill Start="-450.065, -155.3644, -663.3547" End="-460.5311, -155.5657, -661.1524" Distance="2.5" SpamJump="true" />
 			<!--<GetTo ZoneId="959" XYZ="-448.3959, -168, -623.5699"/>
 			<WaitTimer Waittime="2"/>
 			<RunCode name="699381"/>	-->			
 			<LLTalkTo NpcId="2012178" XYZ="-456.1074, -168, -618.7686" QuestId="69938" StepId="4"/>
 			<WaitTimer Waittime="2"/>
-			<LLClimbHill Start="-489.2837, -154.8231, -689.4819" End="-501.3929, -168, -701.2598" SpamJump="true" />
+			<LLClimbHill Start="-489.2837, -154.8231, -689.4819" End="-501.3929, -168, -701.2598" Distance="2.5" SpamJump="true" />
 			<!--<RunCode name="699382"/>-->
 			<!--<LLToast message="Climb those stairs and do this step manually please."/>
 			<StopBot/>
