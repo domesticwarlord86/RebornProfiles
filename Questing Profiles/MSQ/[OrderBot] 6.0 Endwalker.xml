@@ -1893,6 +1893,8 @@
     <If Condition="GetQuestStep(69938) == 2">
 			<WaitTimer Waittime="2"/>
 			<GetTo ZoneId="959" XYZ="-451.1168, -168, -622.8315"/>  <!-- Subzone="3968" Area="" -->
+			<Dismount/>
+			<WaitTimer Waittime="2"/>
 			<LLClimbHill Start="-451.1168, -168, -622.8315" End="-443.8529, -160.7644, -646.6092" SpamJump="true" />
 			<LLClimbHill Start="-443.8529, -160.7644, -646.6092" End="-450.065, -155.3644, -663.3547" SpamJump="true" />
 			<LLClimbHill Start="-450.065, -155.3644, -663.3547" End="-460.5311, -155.5657, -661.1524" SpamJump="true" />
@@ -1940,6 +1942,8 @@
 			<GetTo ZoneId="959" XYZ="-376.7693, -161.8438, -238.0391"/>  <!-- Subzone="3968" Area="" -->
 			<GetTo ZoneId="959" XYZ="-356.272, -161.8438, -256.1834"/>  <!-- Subzone="3968" Area="" -->
 			<WaitTimer Waittime="2"/>
+			<Dismount/>
+			<WaitTimer Waittime="2"/>
 			<LLClimbHill Start="-356.272, -161.8438, -256.1834" End="-357.9919, -156.3147, -267.7834" SpamJump="true" />
 			<LLClimbHill Start="-357.9919, -156.3147, -267.7834" End="-363.3863, -153.3146, -272.9346" SpamJump="true" />
 			<LLClimbHill Start="-363.3863, -153.3146, -272.9346" End="-375.733, -151.6717, -269.0102" SpamJump="true" />
@@ -1956,6 +1960,8 @@
     <If Condition="GetQuestStep(69939) == 3">
 		<GetTo ZoneId="959" XYZ="-331.909, -161.8438, -363.095" Distance="0.5"/>
 			<WaitTimer Waittime="5"/>
+			<Dismount/>
+			<WaitTimer Waittime="2"/>
 			<LLClimbHill Start="-331.909, -161.8438, -363.095" End="-333.2318, -160.8146, -360.018" SpamJump="true" />
 			<LLClimbHill Start="-333.2318, -160.8146, -360.018" End="-340.6486, -156.3146, -353.9218" SpamJump="true" />
 			<LLClimbHill Start="-340.6486, -156.3146, -353.9218" End="-341.7104, -153.3146, -348.3445" SpamJump="true" />
