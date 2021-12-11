@@ -1154,7 +1154,8 @@ Author: Angles24, Manta
         </If>
       </If>
       <If Condition="GetQuestStep(69890) == 1">
-        <GetTo ZoneId="960" XYZ="657.2791, 437.885, 303.7708"/>
+        <GetTo ZoneId="960" XYZ="469.4522, 437.0018, 317.3898"/>
+        <MoveTo XYZ="657.2791, 437.885, 303.7708"/>
         <!-- Subzone="3981" Area="" -->
         <UseItem ItemId="2003273" NpcId="11017" XYZ="338.4907, 2.304016, 94.77368" InCombat="True" UseHealthPercent="10" QuestId="69890" StepId="1" UseTimes="1"/>
         <WaitWhile Condition="not GetQuestStep(69890) == 255"/>
