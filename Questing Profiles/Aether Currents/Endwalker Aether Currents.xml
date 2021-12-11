@@ -8,7 +8,11 @@ Author: Angles24, Manta
 
     <!-- Labyrinthos - 88 - Bonds of Adamant(ite) - 69984 -->
 
-    <If Condition="IsQuestCompleted(69984) and not IsAetherCurrentCompleted(956, 5)">
+    <If Condition="IsQuestCompleted(69984) and not (IsAetherCurrentCompleted(956,0) and IsAetherCurrentCompleted(956,1) and IsAetherCurrentCompleted(956,2)
+				and IsAetherCurrentCompleted(956,3) and IsAetherCurrentCompleted(956,4) and IsAetherCurrentCompleted(956,5)
+				and IsAetherCurrentCompleted(956,6)	and IsAetherCurrentCompleted(956,7) and IsAetherCurrentCompleted(956,8)
+				and IsAetherCurrentCompleted(956,9) and IsAetherCurrentCompleted(956,10) and IsAetherCurrentCompleted(956,11)
+				and IsAetherCurrentCompleted(956,12) and IsAetherCurrentCompleted(956,13) and IsAetherCurrentCompleted(956,14))">
       <LogMessage Message="Going to unlock Labyrinthos Flying."/>
       <LLToast message="Going to unlock Labyrinthos Flying."/>
 
@@ -176,7 +180,11 @@ Author: Angles24, Manta
 
     <!-- Thavnair - 85 - Simple Pleasures - 69952 -->
 
-    <If Condition="IsQuestCompleted(69952) and not IsAetherCurrentCompleted(957, 5)">
+    <If Condition="IsQuestCompleted(69952) and not (IsAetherCurrentCompleted(957,0) and IsAetherCurrentCompleted(957,1) and IsAetherCurrentCompleted(957,2)
+				and IsAetherCurrentCompleted(957,3) and IsAetherCurrentCompleted(957,4) and IsAetherCurrentCompleted(957,5)
+				and IsAetherCurrentCompleted(957,6) and IsAetherCurrentCompleted(957,7) and IsAetherCurrentCompleted(957,8)
+				and IsAetherCurrentCompleted(957,9) and IsAetherCurrentCompleted(957,10) and IsAetherCurrentCompleted(957,11)
+				and IsAetherCurrentCompleted(957,12) and IsAetherCurrentCompleted(957,13) and IsAetherCurrentCompleted(957,14))">
       <LogMessage Message="Going to unlock Thavnair Flying."/>
       <LLToast message="Going to unlock Thavnair Flying."/>
 
@@ -396,7 +404,11 @@ Author: Angles24, Manta
 
     <!-- Garlemald - 83 - Gateway of the Gods - 69931 -->
 
-    <If Condition="IsQuestCompleted(69931) and not IsAetherCurrentCompleted(958, 5)">
+    <If Condition="IsQuestCompleted(69931) and not (IsAetherCurrentCompleted(958,0) and IsAetherCurrentCompleted(958,1) and IsAetherCurrentCompleted(958,2)
+				and IsAetherCurrentCompleted(958,3) and IsAetherCurrentCompleted(958,4) and IsAetherCurrentCompleted(958,5)
+				and IsAetherCurrentCompleted(958,6) and IsAetherCurrentCompleted(958,7) and IsAetherCurrentCompleted(958,8)
+				and IsAetherCurrentCompleted(958,9) and IsAetherCurrentCompleted(958,10) and IsAetherCurrentCompleted(958,11)
+				and IsAetherCurrentCompleted(958,12) and IsAetherCurrentCompleted(958,13) and IsAetherCurrentCompleted(958,14))">
       <LogMessage Message="Going to unlock Garlemald Flying."/>
       <LLToast message="Going to unlock Garlemald Flying."/>
 
@@ -620,7 +632,11 @@ Author: Angles24, Manta
 
     <!-- Mare Lamentorum - 84 - Heart of the Matter - 69943 -->
 
-    <If Condition="IsQuestCompleted(69943) and not IsAetherCurrentCompleted(959, 5)">
+    <If Condition="IsQuestCompleted(69943) and not (IsAetherCurrentCompleted(959,0) and IsAetherCurrentCompleted(959,1) and IsAetherCurrentCompleted(959,2)
+				and IsAetherCurrentCompleted(959,3) and IsAetherCurrentCompleted(959,4) and IsAetherCurrentCompleted(959,5)
+				and IsAetherCurrentCompleted(959,6) and IsAetherCurrentCompleted(959,7) and IsAetherCurrentCompleted(959,8)
+				and IsAetherCurrentCompleted(959,9) and IsAetherCurrentCompleted(959,10) and IsAetherCurrentCompleted(959,11)
+				and IsAetherCurrentCompleted(959,12) and IsAetherCurrentCompleted(959,13) and IsAetherCurrentCompleted(959,14))">
       <LogMessage Message="Going to unlock Mare Lamentorum Flying."/>
       <LLToast message="Going to unlock Mare Lamentorum Flying."/>
 
@@ -835,7 +851,11 @@ Author: Angles24, Manta
 
     <!-- Elpis - 87 - Caging the Messenger - 69973 -->
 
-    <If Condition="IsQuestCompleted(69973) and not IsAetherCurrentCompleted(961, 5)">
+    <If Condition="IsQuestCompleted(69973) and not (IsAetherCurrentCompleted(961,0) and IsAetherCurrentCompleted(961,1) and IsAetherCurrentCompleted(961,2)
+				and IsAetherCurrentCompleted(961,3) and IsAetherCurrentCompleted(961,4) and IsAetherCurrentCompleted(961,5)
+				and IsAetherCurrentCompleted(961,6) and IsAetherCurrentCompleted(961,7) and IsAetherCurrentCompleted(961,8)
+				and IsAetherCurrentCompleted(961,9) and IsAetherCurrentCompleted(961,10) and IsAetherCurrentCompleted(961,11)
+				and IsAetherCurrentCompleted(961,12) and IsAetherCurrentCompleted(961,13) and IsAetherCurrentCompleted(961,14))">
       <LogMessage Message="Going to unlock Elpis Flying."/>
       <LLToast message="Going to unlock Elpis Flying."/>
 
@@ -1044,7 +1064,11 @@ Author: Angles24, Manta
 
     <!-- Ultima Thule - 90 - You're Not Alone - 69999 -->
 
-    <If Condition="IsQuestCompleted(69999) and not IsAetherCurrentCompleted(960, 5)">
+    <If Condition="IsQuestCompleted(69999) and not (IsAetherCurrentCompleted(960,0) and IsAetherCurrentCompleted(960,1) and IsAetherCurrentCompleted(960,2)
+				and IsAetherCurrentCompleted(960,3) and IsAetherCurrentCompleted(960,4) and IsAetherCurrentCompleted(960,5)
+				and IsAetherCurrentCompleted(960,6)	and IsAetherCurrentCompleted(960,7) and IsAetherCurrentCompleted(960,8)
+				and IsAetherCurrentCompleted(960,9) and IsAetherCurrentCompleted(960,10) and IsAetherCurrentCompleted(960,11)
+				and IsAetherCurrentCompleted(960,12) and IsAetherCurrentCompleted(960,13) and IsAetherCurrentCompleted(960,14))">
       <LogMessage Message="Going to unlock Ultima Thule Flying."/>
       <LLToast message="Going to unlock Ultima Thule Flying."/>
 
