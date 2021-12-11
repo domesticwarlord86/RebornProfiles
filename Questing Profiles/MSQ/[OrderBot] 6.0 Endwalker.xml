@@ -907,7 +907,8 @@
     </If>	
     <If Condition="GetQuestStep(69914) == 1">
       <GetTo ZoneId="957" XYZ="204.7848, 60.34319, -602.448"/>  <!-- Subzone="3885" Area="" -->
-	  <UseTransport NpcId="1040283" InteractDistance="3.0" XYZ="208.3619, 60.34319, -601.0681"/>
+	  <LLTalkTo NpcId="1040283" InteractDistance="3.0" XYZ="208.3619, 60.34319, -601.0681" UseTimes="1"/>	
+	  <WaitTimer WaitTime="10"/>
       <WaitWhile Condition="not GetQuestStep(69914) == 2"/>  
     </If>		
     <If Condition="GetQuestStep(69914) == 2">
