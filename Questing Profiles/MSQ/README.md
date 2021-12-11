@@ -26,7 +26,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/87/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
+[300]: https://progress-bar.dev/106/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [x] Lv. 80 The Next Ship to Sail
@@ -117,23 +117,23 @@ After: https://progress-bar.dev/70
 - [X] Lv. 88 No Job Too Small
 - [X] Lv. 88 Wise Guides
 - [X] Lv. 88 Agriculture Shock
-- [ ] Lv. 88 Sage Council
-- [ ] Lv. 88 Hither and Yarns
-- [ ] Lv. 88 Once Forged
-- [ ] Lv. 88 Bonds of Adamant(ite)
-- [ ] Lv. 89 Her Children, One and All
-- [ ] Lv. 89 A Bold Decision
-- [ ] Lv. 89 Friends Gathered
-- [ ] Lv. 89 Unto the Heavens
-- [ ] Lv. 89 A §trαnge New World
-- [ ] Lv. 89 On Burdεned ωings
-- [ ] Lv. 89 Α Test of Wιll
-- [ ] Lv. 89 Roads Pαved││Sacri┣ice
-- [ ] Lv. 89 F//εsh AbanΔon┨Δ
-- [ ] Lv. 89 Where Kn∞wledge Leads
-- [ ] Lv. 90 Vic┨οry  ̈ ̈ ̈╳, │̆││ε Lost
-- [ ] Lv. 90 ┣┨̈//̈ No┨ΦounΔ•••
-- [ ] Lv. 90 Hello, World
-- [ ] Lv. 90 Forge Ahead
-- [ ] Lv. 90 You're Not Alone
-- [ ] Lv. 90 Endwalker
+- [X] Lv. 88 Sage Council
+- [X] Lv. 88 Hither and Yarns
+- [X] Lv. 88 Once Forged
+- [X] Lv. 88 Bonds of Adamant(ite)
+- [X] Lv. 89 Her Children, One and All
+- [X] Lv. 89 A Bold Decision
+- [X] Lv. 89 Friends Gathered
+- [X] Lv. 89 Unto the Heavens
+- [X] Lv. 89 A §trαnge New World
+- [X] Lv. 89 On Burdεned ωings
+- [X] Lv. 89 Α Test of Wιll
+- [X] Lv. 89 Roads Pαved││Sacri┣ice
+- [X] Lv. 89 F//εsh AbanΔon┨Δ
+- [X] Lv. 89 Where Kn∞wledge Leads
+- [X] Lv. 90 Vic┨οry  ̈ ̈ ̈╳, │̆││ε Lost
+- [X] Lv. 90 ┣┨̈//̈ No┨ΦounΔ•••
+- [X] Lv. 90 Hello, World
+- [X] Lv. 90 Forge Ahead
+- [X] Lv. 90 You're Not Alone
+- [X] Lv. 90 Endwalker
