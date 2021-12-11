@@ -148,9 +148,9 @@ Author: Angles24, Manta
       </If>
       <If Condition="not IsAetherCurrentCompleted(956, 11)">
         <GetTo ZoneId="956" XYZ="-141.4134, -25.05096, 713.8115" />
-        <LLClimbHill Distance="0.5" Start="-141.4134, -25.05096, 713.8115" End="-136.0235, -19.54328, 697.3575" Distance="2.5" />
+        <LLClimbHill Start="-141.4134, -25.05096, 713.8115" End="-136.0235, -19.54328, 697.3575" Distance="2.5" />
         <UseObject NpcId="2011986" XYZ="-128.069, -20.5234, 676.722" Condition="not IsAetherCurrentCompleted(956, 11)" />
-        <LLClimbHill Distance="0.5" Start="-128.069, -20.5234, 676.722" End="-114.2654, -30.44403, 669.1144" Distance="2.5" />
+        <LLClimbHill Start="-128.069, -20.5234, 676.722" End="-114.2654, -30.44403, 669.1144" Distance="2.5" />
       </If>
       <If Condition="not IsAetherCurrentCompleted(956, 10)">
         <GetTo ZoneId="956" XYZ="-316.276, 79.7614, -395.312" />
@@ -1212,9 +1212,9 @@ Author: Angles24, Manta
       </If>
       <If Condition="not IsAetherCurrentCompleted(960, 6)">
         <GetTo ZoneId="960" XYZ="628.9454, 438.6276, 293.3263" />
-        <LLClimbHill Distance="0.5" Start="628.9454, 438.6276, 293.3263" End="637.195, 439.241, 289.665" Distance="2.5" SpamJump="true" />
+        <LLClimbHill Start="628.9454, 438.6276, 293.3263" End="637.195, 439.241, 289.665" Distance="2.5" SpamJump="true" />
         <UseObject NpcId="2012038" XYZ="637.195, 439.241, 289.665" Condition="not IsAetherCurrentCompleted(960, 6)" />
-        <LLClimbHill Distance="0.5" Start="637.195, 439.241, 289.665" End="628.9454, 438.6276, 293.3263" Distance="2.5" />
+        <LLClimbHill Start="637.195, 439.241, 289.665" End="628.9454, 438.6276, 293.3263" Distance="2.5" />
       </If>
       <If Condition="not IsAetherCurrentCompleted(960, 5)">
         <GetTo ZoneId="960" XYZ="567.498, 440.93, 402.135" />
