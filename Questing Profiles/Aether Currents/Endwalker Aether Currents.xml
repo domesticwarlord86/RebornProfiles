@@ -8,7 +8,7 @@ Author: Angles24, Manta
 
     <!-- Labyrinthos - 88 - Bonds of Adamant(ite) - 69984 -->
 
-    <If Condition="IsQuestCompleted(69984)">
+    <If Condition="IsQuestCompleted(69984) and not IsAetherCurrentCompleted(956, 5)">
       <LogMessage Message="Going to unlock Labyrinthos Flying."/>
       <LLToast message="Going to unlock Labyrinthos Flying."/>
 
@@ -176,7 +176,7 @@ Author: Angles24, Manta
 
     <!-- Thavnair - 85 - Simple Pleasures - 69952 -->
 
-    <If Condition="IsQuestCompleted(69952)">
+    <If Condition="IsQuestCompleted(69952) and not IsAetherCurrentCompleted(957, 5)">
       <LogMessage Message="Going to unlock Thavnair Flying."/>
       <LLToast message="Going to unlock Thavnair Flying."/>
 
@@ -396,7 +396,7 @@ Author: Angles24, Manta
 
     <!-- Garlemald - 83 - Gateway of the Gods - 69931 -->
 
-    <If Condition="IsQuestCompleted(69931)">
+    <If Condition="IsQuestCompleted(69931) and not IsAetherCurrentCompleted(958, 5)">
       <LogMessage Message="Going to unlock Garlemald Flying."/>
       <LLToast message="Going to unlock Garlemald Flying."/>
 
@@ -620,7 +620,7 @@ Author: Angles24, Manta
 
     <!-- Mare Lamentorum - 84 - Heart of the Matter - 69943 -->
 
-    <If Condition="IsQuestCompleted(69943)">
+    <If Condition="IsQuestCompleted(69943) and not IsAetherCurrentCompleted(959, 5)">
       <LogMessage Message="Going to unlock Mare Lamentorum Flying."/>
       <LLToast message="Going to unlock Mare Lamentorum Flying."/>
 
@@ -835,7 +835,7 @@ Author: Angles24, Manta
 
     <!-- Elpis - 87 - Caging the Messenger - 69973 -->
 
-    <If Condition="IsQuestCompleted(69973)">
+    <If Condition="IsQuestCompleted(69973) and not IsAetherCurrentCompleted(961, 5)">
       <LogMessage Message="Going to unlock Elpis Flying."/>
       <LLToast message="Going to unlock Elpis Flying."/>
 
@@ -1044,7 +1044,7 @@ Author: Angles24, Manta
 
     <!-- Ultima Thule - 90 - You're Not Alone - 69999 -->
 
-    <If Condition="IsQuestCompleted(69999)">
+    <If Condition="IsQuestCompleted(69999) and not IsAetherCurrentCompleted(960, 5)">
       <LogMessage Message="Going to unlock Ultima Thule Flying."/>
       <LLToast message="Going to unlock Ultima Thule Flying."/>
 
