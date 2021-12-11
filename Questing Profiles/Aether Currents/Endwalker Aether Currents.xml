@@ -1191,7 +1191,7 @@ Author: Angles24, Manta
         <UseObject NpcId="2012038" XYZ="637.195, 439.241, 289.665" Condition="not IsAetherCurrentCompleted(960, 6)" />
         <LLClimbHill Start="637.195, 439.241, 289.665" End="628.9454, 438.6276, 293.3263" Distance="2.5" />
       </If>
-      <If Condition="not IsAetherCurrentCompleted(960, 5)">=
+      <If Condition="not IsAetherCurrentCompleted(960, 5)">
         <GetTo ZoneId="960" XYZ="567.498, 440.93, 402.135" />
         <UseObject NpcId="2012039" XYZ="567.498, 440.93, 402.135" Condition="not IsAetherCurrentCompleted(960, 5)" />
       </If>
