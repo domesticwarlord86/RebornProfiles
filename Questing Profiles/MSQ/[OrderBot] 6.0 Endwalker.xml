@@ -31,7 +31,7 @@
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY acceptBeta "0"> 		
+<!ENTITY acceptBeta "1"> 		
 ]> 
 
 <Profile>
@@ -3980,7 +3980,7 @@
     </If>
     <If Condition="GetQuestStep(69990) == 5">
 			<GetTo ZoneId="960" XYZ="-576.2001, 64.91466, -195.6136" />
-      <WaitWhile condition="GetQuestStep(69988) == 3"/>
+      <WaitWhile condition="GetQuestStep(69990) == 5"/>
     </If>				
     <If Condition="GetQuestStep(69990) == 255">
       <GetTo ZoneId="960" XYZ="-576.2001, 64.91466, -195.6136"/>  
@@ -4013,7 +4013,8 @@
     <If Condition="GetQuestStep(69991) == 255">
 			<If condition="not IsOnSubMap(3975)">
 				<GetTo ZoneId="960" XYZ="-613.6968, 92.12069, -206.1768"/>  
-				<UseTransport NpcId="2012544" InteractDistance="3.0" XYZ="-608.7807, 92.12769, -208"/>					
+				<UseObject NpcId="2012544" InteractDistance="3.0" XYZ="-608.7807, 92.12769, -208" UseTimes="1"/>	
+			<WaitTimer WaitTime="10"/>
 			</If>
       <GetTo ZoneId="960" XYZ="-470.2373, 232.1049, -255.6039"/>  
       <LLTurnIn QuestId="69991" NpcId="2012429" XYZ="-471.275, 232.1964, -253.1014"/>
