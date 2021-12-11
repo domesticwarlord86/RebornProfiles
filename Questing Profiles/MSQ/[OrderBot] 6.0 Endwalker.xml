@@ -4358,10 +4358,51 @@
       </If>
     </If>
     <If Condition="GetQuestStep(70000) == 1">
-			<LLToast message="Please complete the Dead Ends duty manually."/>
+			<LLToast message="Please complete the Next few Scenarios manually util you arrive back at The Rising Stones."/>
 			<StopBot/>
-    </If>		
+    </If>	
+    <If Condition="GetQuestStep(70000) == 7 and GetQuestById(69999).QuestI8A == 0">
+      <GetTo ZoneId="351" XYZ="0.6265226, 0, -2.114728"/>  <!-- Subzone="0" Area="" -->
+      <LLTalkTo NpcId="1041188" XYZ="-0.1679077, 0, 0.8086548" QuestId="70000" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(70000) == 7 and GetQuestById(69999).QuestI8A == 1">
+      <GetTo ZoneId="351" XYZ="0.4473896, 0, -1.043545"/>  <!-- Subzone="0" Area="" -->
+      <LLTalkTo NpcId="1041181" XYZ="-1.236023, 0, 0.6560669" QuestId="70000" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(70000) == 7 and GetQuestById(69999).QuestI8A == 2">
+      <GetTo ZoneId="351" XYZ="-2.015419, 0, -4.968011"/>  <!-- Subzone="0" Area="" -->
+      <LLTalkTo NpcId="1041182" XYZ="-6.424072, 0.009977884, -4.745544" QuestId="70000" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(70000) == 7 and GetQuestById(69999).QuestI8A == 3">
+      <GetTo ZoneId="351" XYZ="-4.331911, 0.009977883, -5.073711"/>  <!-- Subzone="0" Area="" -->
+      <LLTalkTo NpcId="1041184" XYZ="-7.034485, 0, -5.844238" QuestId="70000" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(70000) == 7 and GetQuestById(69999).QuestI8A == 4">
+      <GetTo ZoneId="351" XYZ="3.986319, 0, -5.565928"/>  <!-- Subzone="0" Area="" -->
+      <LLTalkTo NpcId="1041183" XYZ="6.637634, 0, -6.790344" QuestId="70000" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(70000) == 7 and GetQuestById(69999).QuestI8A == 5">
+      <GetTo ZoneId="351" XYZ="10.50737, 0, -6.292212"/>  <!-- Subzone="0" Area="" -->
+      <LLTalkTo NpcId="1041187" XYZ="10.48285, 0, -8.255188" QuestId="70000" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(70000) == 7 and GetQuestById(69999).QuestI8A == 6">
+      <GetTo ZoneId="351" XYZ="23.47241, -1, -5.563991"/>  <!-- Subzone="0" Area="" -->
+      <LLTalkTo NpcId="1041185" XYZ="25.86401, -1, -5.752686" QuestId="70000" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(70000) == 7 and GetQuestById(69999).QuestI8A == 7">
+      <GetTo ZoneId="351" XYZ="27.97505, -1, -2.695353"/>  <!-- Subzone="0" Area="" -->
+      <LLTalkTo NpcId="1041186" XYZ="29.98401, -1, 0.1373291" QuestId="70000" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(70000) == 255">
+      <GetTo ZoneId="351" XYZ="0.7164606, 0, -6.079161"/>  <!-- Subzone="0" Area="" -->
+      <LLTurnIn QuestId="70000" NpcId="1041189" XYZ="-0.01531982, 0, -7.187073"/>
+      <LLSmallTalk/>
+    </If>	
 
+	<If Condition="IsQuestCompleted(70000)">
+	  <LLToast message="Massive thanks to DomesticWarlord86 and the people that contributed,"/>
+	  <LLToast message="Stay tuned for more MSQ in the future!"/>
+	</If>  
 		
  	</If>
   </Order>
