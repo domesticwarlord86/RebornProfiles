@@ -674,7 +674,7 @@
     </If>
     <If Condition="GetQuestStep(69908) == 4">
       <GetTo ZoneId="957" XYZ="-485.5554, 48.78896, 155.5085"/>
-      <!--<LLTalkTo NpcId="1038636" XYZ="-485.71, 49.10382, 152.9106" QuestId="69908" StepId="4"/>-->
+      <LLTalkTo NpcId="1038636" XYZ="-485.71, 49.10382, 152.9106" QuestId="69908" StepId="4"/>
       <MoveTo XYZ="-425.414,38.41502,160.1206" />	  
 	  <WaitTimer WaitTime="15"/>	 
       <MoveTo XYZ="-438.1987, 38.1377, 173.3383" />
