@@ -17,8 +17,8 @@
 
 	<If Condition="&Rank3Done; == 1">
 		<LLToast message="This requires you to have Rank 3 Shared Fates in all Endwalker zones."/>
-		<LogMessage Message="This requires you to have Rank 3 Shared Fates in all Endwalker zones. Please change Rank3Done '0' to Rank3Done '0' if you have."/>
-		<LLToast message="Please change Rank3Done '0' to Rank3Done '0' if you have."/>		
+		<LogMessage Message="This requires you to have Rank 3 Shared Fates in all Endwalker zones. Please change Rank3Done '1' to Rank3Done '0' if you have."/>
+		<LLToast message="Please change Rank3Done '1' to Rank3Done '0' if you have."/>		
 		<StopBot/>
 	</If>
 	
