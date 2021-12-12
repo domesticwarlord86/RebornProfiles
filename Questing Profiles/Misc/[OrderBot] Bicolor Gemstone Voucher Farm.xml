@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Bicolor Gemstone Voucher Farm
+  Authors: Angles24, DomesticWarlord86, nt153133
+  
+  Current Issue - Can't handle buying the Vouchers, upon getting 1000 Gemstones bot will TP to the vendor and stop the bot so you can buy the Vouchers.
+-->
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY Vouchers "500">
+<!ENTITY Rank3Done "1">
+]>
+<Profile>
+  <Name>Bicolor Gemstone Voucher Farm</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<If Condition="&Rank3Done; == 1">
+		<LLToast message="This requires you to have Rank 3 Shared Fates in all Endwalker zones."/>
+		<LogMessage Message="This requires you to have Rank 3 Shared Fates in all Endwalker zones. Please change Rank3Done '0' to Rank3Done '0' if you have."/>
+		<LLToast message="Please change Rank3Done '0' to Rank3Done '0' if you have."/>		
+		<StopBot/>
+	</If>
+	
+	<While Condition="ItemCount(35833) &lt; &Vouchers;"> <!-- 35833 = Bicolor Gemstone Voucher -->
+		<While condition="ItemCount(26807) &gt; 999">
+			<GetTo ZoneId="962" XYZ="75.72826, 5.15, -36.62057"/>
+			<LLToast message="Please buy Bicolor Gemstone Vouchers and then restart the bot."/>
+			<LogMessage Message="Please buy Bicolor Gemstone Vouchers and then restart the bot."/>
+			<!--<BuyItem NpcId="1037055" ItemIds="35833" ItemCount="1" XYZ="78.3551, 5.15, -36.78955"/>-->
+			<LLStopBot/>
+		</While>
+		<!-- Garlemald -->
+		<If condition="not IsOnMap(958)">
+			<TeleportTo Name="Camp Broken Glass" AetheryteId="172"/>
+		</If>
+		<If condition="IsOnMap(958)">
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798" while="IsOnMap(958)" While="ItemCount(26807) &lt; 999"/>	
+		</If>
+	</While>
+	
+	<!--	
+	ID: 1785 Type: Battle Fate: Trespassers Will Be Eaten 
+	ID: 1786 Type: Battle Fate: A Snowball's Chance 
+	ID: 1787 Type: Battle Fate: Not Yeti 
+	ID: 1788
+	ID: 1789 Type: Boss Fate: Roses Are Red, Violence Is Due 
+	ID: 1790 Type: ProtectNPC Fate: Amazing Crates 
+	ID: 1791
+	ID: 1792
+	ID: 1793 Type: Battle Fate: Rocker, Roller, Out-of-controller 
+	ID: 1794 Type: Battle Fate: Stray Dog Strut 
+	ID: 1796 Type: Battle Fate: A Bit of a Problem 
+	ID: 1797 Type: Boss Fate: The Man with the Golden Son 
+	ID: 1798 Type: KillHandIn Fate: Parts Unknown 	
+	-->	
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>	
+	<CodeChunks>
+  </CodeChunks>
+</Profile>      
+
