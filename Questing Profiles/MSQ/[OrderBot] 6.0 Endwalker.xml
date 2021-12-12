@@ -29,31 +29,20 @@
 		Unable to navigate over the ledge.
 -->
 
-<!DOCTYPE Profile [
-<!-- Profile Settings -->
-<!ENTITY acceptBeta "1"> 		
-]> 
 
 <Profile>
   <Name>Endwalker Main Story Quests</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
 
-	<!-- and GetQuestById(66098).QuestI8A == 0-->
-	<!-- Profile start here -->	
-
-	<If Condition="&acceptBeta; == 0">
-		<LLToast message="Please see the pinned message in #endwalker-msq on how to use this profile."/>
-		<Log Message="Stay Tuned. ;)" />  
-	</If>	
-	<If Condition="&acceptBeta; == 1">
 	
 		<If Condition="not IsQuestCompleted(69601)">
 			<LLToast message="Please complete all the post Shadowbringers content before starting this profile!"/>
 			<StopBot/>
 		</If>
 		
-		<LLToast message="Welcome to Endwalker!"/>
+		<LLToast message="This profile is still in beta. Do not run it unattended!"/>
+	  	<LLToast message="There will be bugs!"/>
 
     <!-- The Next Ship to Sail -->
     <If Condition="IsQuestCompleted(69601) and not HasQuest(69893) and not IsQuestCompleted(69893)">
@@ -4405,7 +4394,6 @@
 	  <LLToast message="Stay tuned for more MSQ in the future!"/>
 	</If>  
 		
- 	</If>
   </Order>
   <GrindAreas>	
   </GrindAreas>
