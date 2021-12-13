@@ -20,7 +20,29 @@
 
 Want **automatic installation and updates**, including prerequisites?
 
-Install the [RepoBuddy][12] plugin -- RebornProfiles is configured by default!
+Install the [RepoBuddy][12] plugin -- `RebornProfiles `is configured by default!
+
+#### Adding `RebornProfiles` to RepoBuddy
+
+ℹ️ New users can skip this step.
+
+In case your repoBuddy config is too old or otherwise missing `RebornProfiles`, you can add it via repoBuddy's settings menu:
+
+- **Name:** RebornProfiles
+- **Type:** Profile
+- **URL:** `https://github.com/domesticwarlord86/RebornProfiles.git/trunk`
+
+![repBuddy Settings](https://i.imgur.com/KJhwxtw.png)
+
+OR by closing the bot and editing `RebornBuddy\Plugins\repoBuddy\repoBuddyRepos.xml`
+
+```xml
+<Repo>
+  <Name>RebornProfiles</Name>
+  <Type>Profile</Type>
+  <URL>https://github.com/domesticwarlord86/RebornProfiles.git/trunk</URL>
+</Repo>
+```
 
 ### Manual Setup
 
