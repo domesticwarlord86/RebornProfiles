@@ -34,7 +34,7 @@ In case your repoBuddy config is too old or otherwise missing `RebornProfiles`, 
 
 ![repBuddy Settings](https://i.imgur.com/KJhwxtw.png)
 
-OR by closing the bot and editing `RebornBuddy\Plugins\repoBuddy\repoBuddyRepos.xml`
+OR by closing the bot and editing `RebornBuddy\Plugins\repoBuddy\repoBuddyRepos.xml`:
 
 ```xml
 <Repo>

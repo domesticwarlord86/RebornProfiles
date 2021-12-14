@@ -1285,6 +1285,7 @@ Author: Angles24, Manta
 				and IsAetherCurrentCompleted(960,12) and IsAetherCurrentCompleted(960,13) and IsAetherCurrentCompleted(960,14))">
       <LogMessage Message="Congrats on Endwalker Flying."/>
       <LLToast message="Congrats on Endwalker Flying."/>
+      <TeleportTo AetheryteId="182" />
     </If>
 
 
