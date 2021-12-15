@@ -4,6 +4,16 @@
   Authors: DomesticWarlord86, nt153133
 -->
 
+<!DOCTYPE Profile [
+<!-- Select Zone To Farm -->
+<!ENTITY Thavnair "0"> 
+<!ENTITY Labyrinthos "0">
+<!ENTITY Garlemald "0">
+<!ENTITY MareLamentorum "0">
+<!ENTITY Elpis "0">
+
+]>
+
 
 <Profile>
   <Name>Shared Fate Farming</Name>
@@ -11,10 +21,26 @@
   <Order>
 
 	<!-- Thavnair -->
-	<While condition="IsOnMap(957)">
-		<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" BlacklistIds="1772,1773,1774,1776,1777,1778,1779" while="IsOnMap(957)"/>	
+	<While Condition="&Thavnair; == 1">
+		<If condition="not AetherCurrentManager.IsZoneComplete(957)">
+			<If condition="not IsOnMap(957)">
+				<TeleportTo AetheryteId="170"/> <!-- The Great Work -->
+			</If>		
+			<Log Message="Starting Thavnair Fates without flight support." /> 
+			<While condition="IsOnMap(957)">
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" MinProgress="10" BlacklistIds="1772,1773,1774,1775,1776,1777,1778,1779" while="IsOnMap(957)"/>	
+			</While>
+		</If>
+		<If condition="AetherCurrentManager.IsZoneComplete(957)">
+			<If condition="not IsOnMap(957)">
+				<TeleportTo AetheryteId="170"/> <!-- The Great Work -->
+			</If>			
+			<Log Message="Starting Thavnair Fates with flight support." /> 
+			<While condition="IsOnMap(957)">
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" MinProgress="10" while="IsOnMap(957)"/>	
+			</While>
+		</If>		
 	</While>
-	
 	<!--
 	Upper Zone:
 		ID: 1765 Type: Battle Fate: When Gaja Go Gaga 
@@ -27,16 +53,36 @@
 	Lower Zone:
 		ID: 1773 Type: Battle Fate: Peek-a-Bhujamga 
 		ID: 1774 Type: Battle Fate: Stalkers in the Shroud 
+		ID: 1775 Type: Battle Fate: Swipe Eft 
 		ID: 1776 Type: Battle Fate: Mesmerizing Moths 
 		ID: 1777 Type: Boss Fate: Return of the Tyrant 
 		ID: 1778 Type: Battle Fate: Monkeys on Your Back 
 	
 	-->
 
+
 	<!-- Labyrinthos -->
-	<While condition="IsOnMap(956)">
-		<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" BlacklistIds="1751,1752,1753,1754,1755,1756,1757" while="IsOnMap(956)"/>	
+	<While Condition="&Labyrinthos; == 1">
+		<If condition="not AetherCurrentManager.IsZoneComplete(956)">
+			<If condition="not IsOnMap(956)">
+				<TeleportTo AetheryteId="166"/> <!-- The Archeion -->
+			</If>	
+			<Log Message="Starting Thavnair Fates without flight support." /> 
+			<While condition="IsOnMap(956)">
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" BlacklistIds="1751,1752,1753,1754,1755,1756,1757" while="IsOnMap(956)"/>	
+			</While>
+		</If>
+		<If condition="AetherCurrentManager.IsZoneComplete(956)">
+			<If condition="not IsOnMap(956)">
+				<TeleportTo AetheryteId="166"/> <!-- The Archeion -->
+			</If>		
+			<Log Message="Starting Thavnair Fates with flight support." /> 
+			<While condition="IsOnMap(956)">
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" BlacklistIds="1754" while="IsOnMap(956)"/>	
+			</While>
+		</If>		
 	</While>
+
 	
 	<!--
 	
@@ -62,9 +108,27 @@
 	-->
 	
 	<!-- Garlemald -->
-	<While condition="IsOnMap(958)">
-		<LLFate UseFlight="True" MinLevel="0" MaxLevel="86" BlacklistIds="1798" while="IsOnMap(958)"/>	
+	<While Condition="&Garlemald; == 1">
+		<If condition="not AetherCurrentManager.IsZoneComplete(958)">
+			<If condition="not IsOnMap(958)">
+				<TeleportTo AetheryteId="172"/> <!-- Camp Broken Glass -->
+			</If>
+			<Log Message="Starting Garlemald Fates without flight support." /> 	
+			<While condition="IsOnMap(958)">
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="86" BlacklistIds="1798" while="IsOnMap(958)"/>	
+			</While>
+		</If>
+		<If condition="AetherCurrentManager.IsZoneComplete(958)">
+			<If condition="not IsOnMap(958)">
+				<TeleportTo AetheryteId="172"/> <!-- Camp Broken Glass -->
+			</If>
+			<Log Message="Starting Garlemald Fates with flight support." /> 	
+			<While condition="IsOnMap(958)">
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="86" BlacklistIds="1798" while="IsOnMap(958)"/>	
+			</While>
+		</If>	
 	</While>
+
 	
 	<!--
 	
@@ -87,9 +151,27 @@
 	-->
 	
 	<!-- Mare Lamentorum -->
-	<While condition="IsOnMap(959)">
-		<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1831" while="IsOnMap(959)"/>	
-	</While>	
+	<While Condition="&MareLamentorum; == 1">
+		<If condition="not AetherCurrentManager.IsZoneComplete(959)">
+			<If condition="not IsOnMap(959)">
+				<TeleportTo AetheryteId="174"/> <!-- Sinus Lacrimarum -->
+			</If>
+			<Log Message="Starting Mare Lamentorum Fates without flight support." /> 	
+			<While condition="IsOnMap(959)">
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1831" while="IsOnMap(959)"/>	
+			</While>	
+		</If>
+		<If condition="AetherCurrentManager.IsZoneComplete(959)">
+			<If condition="not IsOnMap(959)">
+				<TeleportTo AetheryteId="174"/> <!-- Sinus Lacrimarum -->
+			</If>
+			<Log Message="Starting Mare Lamentorum Fates with flight support." /> 	
+			<While condition="IsOnMap(959)">
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1831" while="IsOnMap(959)"/>	
+			</While>	
+		</If>	
+	</While>
+
 	
 <!--
 
@@ -100,10 +182,26 @@
 	
 	
 	<!-- Elpis -->
-	<While condition="IsOnMap(961)">
-		<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1831,1832,1833,1834,1835,1836,1837,1838" while="IsOnMap(961)"/>	
+	<While Condition="&Elpis; == 1">
+		<If condition="not AetherCurrentManager.IsZoneComplete(961)">
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>
+			<Log Message="Starting Elpis Fates without flight support." /> 	
+			<While condition="IsOnMap(961)">
+				<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="1831,1832,1833,1834,1835,1836,1837,1838" while="IsOnMap(961)"/>	
+			</While>
+		</If>
+		<If condition="AetherCurrentManager.IsZoneComplete(961)">
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>
+			<Log Message="Starting Elpis Fates with flight support." /> 	
+			<While condition="IsOnMap(961)">
+				<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="1838" while="IsOnMap(961)"/>	
+			</While>
+		</If>		
 	</While>
-
 <!--
 First Aetheryte:
 ID: 1825 Type: Battle Fate: Ophion-mania 
