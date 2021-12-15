@@ -2742,6 +2742,14 @@
       <LLTalkTo NpcId="1039998" XYZ="206.0426, 20.56111, 629.1447" QuestId="69957" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69957) == 2">
+			<If condition="961">
+				<If condition="844">
+					<GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>  
+					<UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>	
+				</If>
+				<GetTo ZoneId="844" XYZ="-0.1556183, 0.9000003, -12.02959"/>  
+				<UseTransport NpcId="2012532" DialogOption="0" InteractDistance="3.0" XYZ="-0.01531982, 1.907349, -13.77893"/>		
+			</If>
       <GetTo ZoneId="961" XYZ="220.0089, 20.22273, 645.6842"/>  <!-- Subzone="3927" Area="" -->	  
       <LLUseItem ItemId="2003232" NpcIds="10612,10613" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" QuestId="69957" StepId="2">
 				<HotSpots>
@@ -2751,6 +2759,14 @@
 			</LLUseItem>
 		</If>
     <If Condition="GetQuestStep(69957) == 255">
+			<If condition="961">
+				<If condition="844">
+					<GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>  
+					<UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>	
+				</If>
+				<GetTo ZoneId="844" XYZ="-0.1556183, 0.9000003, -12.02959"/>  
+				<UseTransport NpcId="2012532" DialogOption="0" InteractDistance="3.0" XYZ="-0.01531982, 1.907349, -13.77893"/>		
+			</If>		
       <GetTo ZoneId="961" XYZ="205.8584, 20.55042, 631.8403"/>  <!-- Subzone="3927" Area="" -->
       <LLTurnIn ItemId="2003233" QuestId="69957" NpcId="1039998" XYZ="206.0426, 20.56111, 629.1447"/>
       <LLSmallTalk/>
@@ -2759,6 +2775,14 @@
     <!-- In Search of Hermes -->
     <If Condition="IsQuestCompleted(69957) and not IsQuestCompleted(69958)">
       <If Condition="not HasQuest(69958)">
+			<If condition="961">
+				<If condition="844">
+					<GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>  
+					<UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>	
+				</If>
+				<GetTo ZoneId="844" XYZ="-0.1556183, 0.9000003, -12.02959"/>  
+				<UseTransport NpcId="2012532" DialogOption="0" InteractDistance="3.0" XYZ="-0.01531982, 1.907349, -13.77893"/>		
+			</If>			
       <GetTo ZoneId="961" XYZ="205.8584, 20.55042, 631.8403"/>  <!-- Subzone="3927" Area="" -->
         <If Condition="IsQuestAcceptQualified(69958)">
           <LLPickupQuest QuestId="69958" NpcId="1039998"/>
@@ -2766,11 +2790,27 @@
         </If>
       </If>
     </If>
-    <If Condition="GetQuestStep(69958) == 1 and GetQuestById(69958).QuestI8A == 0">
+    <If Condition="GetQuestStep(69958) == 1">
+			<If condition="961">
+				<If condition="844">
+					<GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>  
+					<UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>	
+				</If>
+				<GetTo ZoneId="844" XYZ="-0.1556183, 0.9000003, -12.02959"/>  
+				<UseTransport NpcId="2012532" DialogOption="0" InteractDistance="3.0" XYZ="-0.01531982, 1.907349, -13.77893"/>		
+			</If>		
       <GetTo ZoneId="961" XYZ="176.7437, 7.385857, 327.2584"/>  <!-- Subzone="3928" Area="" -->
       <LLTalkTo NpcId="1040000" XYZ="173.2356, 7.47675, 325.6428" QuestId="69958" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69958) == 2">
+			<If condition="961">
+				<If condition="844">
+					<GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>  
+					<UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>	
+				</If>
+				<GetTo ZoneId="844" XYZ="-0.1556183, 0.9000003, -12.02959"/>  
+				<UseTransport NpcId="2012532" DialogOption="0" InteractDistance="3.0" XYZ="-0.01531982, 1.907349, -13.77893"/>		
+			</If>		
       <GetTo ZoneId="961" XYZ="227.968, 7.685856, 198.7866"/>  <!-- Subzone="3928" Area="" -->
       <LLTalkTo NpcId="1040003" XYZ="229.0226, 8.085857, 195.3917" QuestId="69958" StepId="2"/>
     </If>
@@ -2911,7 +2951,10 @@
     <!-- Aether to Aether -->
     <If Condition="IsQuestCompleted(69961) and not IsQuestCompleted(69962)">
       <If Condition="not HasQuest(69962)">
-      <GetTo ZoneId="961" XYZ="134.3271, 10.38586, 91.58142"/>  <!-- Subzone="3928" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>	
+      <MoveTo ZoneId="961" XYZ="134.3271, 10.38586, 91.58142"/>  <!-- Subzone="3928" Area="" -->
         <If Condition="IsQuestAcceptQualified(69962)">
           <LLPickupQuest QuestId="69962" NpcId="1040071"/>
           <LLSmallTalk/>
@@ -2919,11 +2962,17 @@
       </If>
     </If>	
     <If Condition="GetQuestStep(69962) == 1">
-      <GetTo ZoneId="961" XYZ="-162.289, -40.20119, 374.1307"/>  <!-- Subzone="3925" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>			
+      <MoveTo ZoneId="961" XYZ="-162.289, -40.20119, 374.1307"/>  <!-- Subzone="3925" Area="" -->
       <LLTalkTo NpcId="1040073" XYZ="-164.1108, -41.02881, 377.3707" QuestId="69962" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69962) == 2">
-      <GetTo ZoneId="961" XYZ="-530.166, -26.19235, 488.9732"/>  <!-- Subzone="3925" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>			
+      <MoveTo ZoneId="961" XYZ="-530.166, -26.19235, 488.9732"/>  <!-- Subzone="3925" Area="" -->
       <LLTalkTo NpcId="1040080" XYZ="-530.2358, -26.21444, 490.6233" QuestId="69962" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69962) == 3">
@@ -2933,7 +2982,10 @@
 			<RunCode name="TurnOnMount"/>
     </If>
     <If Condition="GetQuestStep(69962) == 255">
-      <GetTo ZoneId="961" XYZ="-657.7022, -22.39482, 526.1999"/>  <!-- Subzone="3929" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>			
+      <MoveTo ZoneId="961" XYZ="-657.7022, -22.39482, 526.1999"/>  <!-- Subzone="3929" Area="" -->
       <LLTurnIn QuestId="69962" NpcId="1040084" XYZ="-661.1277, -22.39482, 527.8857"/>
       <LLSmallTalk/>
     </If>
@@ -2941,7 +2993,10 @@
     <!-- A Sentimental Gift -->
     <If Condition="IsQuestCompleted(69962) and not IsQuestCompleted(69963)">
       <If Condition="not HasQuest(69963)">
-      <GetTo ZoneId="961" XYZ="-657.7022, -22.39482, 526.1999"/>  <!-- Subzone="3929" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>				
+      <MoveTo ZoneId="961" XYZ="-657.7022, -22.39482, 526.1999"/>  <!-- Subzone="3929" Area="" -->
         <If Condition="IsQuestAcceptQualified(69963)">
           <LLPickupQuest QuestId="69963" NpcId="1040083"/>
           <LLSmallTalk/>
@@ -2949,7 +3004,10 @@
       </If>
     </If>	
     <If Condition="GetQuestStep(69963) == 1">
-      <GetTo ZoneId="961" XYZ="-657.9775, -22.39482, 526.3884"/>  <!-- Subzone="3929" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>			
+      <MoveTo ZoneId="961" XYZ="-657.9775, -22.39482, 526.3884"/>  <!-- Subzone="3929" Area="" -->
       <LLTalkTo NpcId="1040084" XYZ="-661.1277, -22.39482, 527.8857" QuestId="69963" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69963) == 2">
@@ -2995,7 +3053,10 @@
 			<RunCode name="TurnOnMount"/>
     </If>		
     <If Condition="GetQuestStep(69963) == 255">
-      <GetTo ZoneId="961" XYZ="-661.332, -22.39482, 535.1597"/>  <!-- Subzone="3929" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>			
+      <MoveTo ZoneId="961" XYZ="-661.332, -22.39482, 535.1597"/>  <!-- Subzone="3929" Area="" -->
       <LLTurnIn QuestId="69963" NpcId="1040087" XYZ="-664.1489, -22.39482, 533.8368"/>
       <LLSmallTalk/>
     </If>		
@@ -3003,7 +3064,10 @@
     <!-- Verdict and Execution -->
     <If Condition="IsQuestCompleted(69963) and not IsQuestCompleted(69964)">
       <If Condition="not HasQuest(69964)">
-      <GetTo ZoneId="961" XYZ="-654.5966, -22.39482, 525.8521"/>  <!-- Subzone="3929" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>				
+      <MoveTo ZoneId="961" XYZ="-654.5966, -22.39482, 525.8521"/>  <!-- Subzone="3929" Area="" -->
         <If Condition="IsQuestAcceptQualified(69964)">
           <LLPickupQuest QuestId="69964" NpcId="1040088"/>
           <LLSmallTalk/>
@@ -3011,23 +3075,38 @@
       </If>
     </If>
     <If Condition="GetQuestStep(69964) == 1">
-      <GetTo ZoneId="961" XYZ="-342.2115, -40.0354, 370.6165"/>  <!-- Subzone="3925" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>			
+      <MoveTo ZoneId="961" XYZ="-342.2115, -40.0354, 370.6165"/>  <!-- Subzone="3925" Area="" -->
       <LLTalkTo NpcId="1040092" XYZ="-340.9629, -39.97391, 368.0627" QuestId="69964" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69964) == 2">
-      <GetTo ZoneId="961" XYZ="-217.9019, -33.97935, 241.6793"/>  <!-- Subzone="3925" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>			
+      <MoveTo ZoneId="961" XYZ="-217.9019, -33.97935, 241.6793"/>  <!-- Subzone="3925" Area="" -->
       <LLTalkTo NpcId="1040097" XYZ="-213.7941, -33.40141, 242.359" QuestId="69964" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69964) == 3">
-      <GetTo ZoneId="961" XYZ="-208.6841, -31.30587, 232.8105"/>  <!-- Subzone="3925" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>			
+      <MoveTo ZoneId="961" XYZ="-208.6841, -31.30587, 232.8105"/>  <!-- Subzone="3925" Area="" -->
       <WaitWhile condition="GetQuestStep(69964) == 3"/>
     </If>		
     <If Condition="GetQuestStep(69964) == 4">
-      <GetTo ZoneId="961" XYZ="-210.3848, -31.55387, 232.7455"/>  <!-- Subzone="3925" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>			
+      <MoveTo ZoneId="961" XYZ="-210.3848, -31.55387, 232.7455"/>  <!-- Subzone="3925" Area="" -->
       <UseObject NpcId="2012145" XYZ="-212.2377, -31.8761, 233.6614" QuestId="69964" StepId="4"/>
     </If>
     <If Condition="GetQuestStep(69964) == 255">
-      <GetTo ZoneId="961" XYZ="-636.6211, -22.39482, 507.8998"/>  <!-- Subzone="3929" Area="" -->
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>			
+      <MoveTo ZoneId="961" XYZ="-636.6211, -22.39482, 507.8998"/>  <!-- Subzone="3929" Area="" -->
       <LLTurnIn QuestId="69964" NpcId="1040100" XYZ="-638.1476, -22.39482, 504.9058"/>
       <LLSmallTalk/>
     </If>
@@ -3035,6 +3114,9 @@
     <!-- Travelers at the Crossroads -->
     <If Condition="IsQuestCompleted(69964) and not IsQuestCompleted(69965)">
       <If Condition="not HasQuest(69965)">
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>			
       <GetTo ZoneId="961" XYZ="-636.6211, -22.39482, 507.8998"/>  <!-- Subzone="3929" Area="" -->
         <If Condition="IsQuestAcceptQualified(69965)">
           <LLPickupQuest QuestId="69965" NpcId="1040101"/>
@@ -3043,24 +3125,43 @@
       </If>
     </If>	
     <If Condition="GetQuestStep(69965) == 1">
-      <GetTo ZoneId="961" XYZ="-102.9485, -10.11684, 234.4682"/>  
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>
+      <MoveTo ZoneId="961" XYZ="-102.9485, -10.11684, 234.4682"/>  
       <LLTalkTo NpcId="1040102" XYZ="-106.6149, -10.28143, 236.0723" QuestId="69965" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69965) == 2">
-      <GetTo ZoneId="961" XYZ="-178.9711, 12.38059, -9.697802"/>  
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>		
+      <MoveTo ZoneId="961" XYZ="-178.9711, 12.38059, -9.697802"/>  
       <LLTalkTo NpcId="1040104" XYZ="-182.1775, 12.50002, -10.97125" QuestId="69965" StepId="2"/>
 			<WaitWhile condition="GetQuestStep(69965) == 2"/>
     </If>	
     <If Condition="GetQuestStep(69965) == 3">
-      <GetTo ZoneId="961" XYZ="-347.7851, 161.7871, 27.53702"/>  
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>		
+      <MoveTo ZoneId="961" XYZ="-347.7851, 161.7871, 27.53702"/>  
       <LLTalkTo NpcId="1040106" XYZ="-350.2098, 161.7871, 26.10815" QuestId="69965" StepId="3"/>
     </If>
     <If Condition="GetQuestStep(69965) == 4">
-      <GetTo ZoneId="961" XYZ="-553.6187, 147.4066, 96.71661"/>  
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>		
+      <MoveTo ZoneId="961" XYZ="-553.6187, 147.4066, 96.71661"/>  
       <UseObject NpcId="2012146" XYZ="-554.345, 147.4479, 98.25281" QuestId="69965" StepId="4"/>
     </If>
     <If Condition="GetQuestStep(69965) == 255">
-      <GetTo ZoneId="961" XYZ="-489.6435, 140.4051, -112.7845"/>  
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>
+			<If condition="not IsOnSubMap(3934)">
+				<MoveTo ZoneId="961" XYZ="-186.326, 13.04376, -11.35803"/>  
+				<UseTransport NpcId="2012147" InteractDistance="3.0" XYZ="-192.0043, 12.58862, -13.16864"/>	
+			</If>						
+      <MoveTo ZoneId="961" XYZ="-489.6435, 140.4051, -112.7845"/>  
       <LLTurnIn ItemId="2003235" QuestId="69965" NpcId="1040109" XYZ="-491.1117, 140.3918, -113.8171"/>
       <LLSmallTalk/>
     </If>
@@ -3526,10 +3627,8 @@
       <LLTalkTo NpcId="1040392" XYZ="187.396, -23.53043, 281.4221" QuestId="69979" StepId="5"/>
     </If>
     <If Condition="GetQuestStep(69979) == 255">
-			<If condition="not IsOnSubMap(3849)">
-				<GetTo ZoneId="956" XYZ="226.6824, -18.74197, 299.5362"/>  
-				<UseTransport NpcId="1039549" InteractDistance="3.0" XYZ="229.8771, -18.74202, 298.7258"/>				
-			</If>
+			<GetTo ZoneId="956" XYZ="226.6824, -18.74197, 299.5362"/>  
+			<UseTransport NpcId="1039549" InteractDistance="3.0" XYZ="229.8771, -18.74202, 298.7258"/>				
       <GetTo ZoneId="956" XYZ="369.7417, 79.69138, 302.2793"/> 
       <LLTurnIn QuestId="69979" NpcId="1040397" XYZ="372.3964, 79.69138, 299.1836"/>
       <LLSmallTalk/>
