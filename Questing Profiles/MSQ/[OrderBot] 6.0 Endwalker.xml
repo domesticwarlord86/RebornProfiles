@@ -2713,8 +2713,8 @@
       <LLTalkTo NpcId="1039998" XYZ="206.0426, 20.56111, 629.1447" QuestId="69957" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69957) == 2">
-      <If condition="961">
-        <If condition="844">
+      <If Condition="not IsOnMap(961)">
+        <If Condition="not IsOnMap(844)">
           <GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>
           <UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>
         </If>
@@ -2730,8 +2730,8 @@
       </LLUseItem>
     </If>
     <If Condition="GetQuestStep(69957) == 255">
-      <If condition="961">
-        <If condition="844">
+      <If Condition="not IsOnMap(961)">
+        <If Condition="not IsOnMap(844)">
           <GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>
           <UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>
         </If>
@@ -2746,8 +2746,8 @@
     <!-- In Search of Hermes -->
     <If Condition="IsQuestCompleted(69957) and not IsQuestCompleted(69958)">
       <If Condition="not HasQuest(69958)">
-        <If condition="961">
-          <If condition="844">
+        <If Condition="not IsOnMap(961)">
+          <If Condition="not IsOnMap(844)">
             <GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>
             <UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>
           </If>
@@ -2762,8 +2762,8 @@
       </If>
     </If>
     <If Condition="GetQuestStep(69958) == 1">
-      <If condition="961">
-        <If condition="844">
+      <If Condition="not IsOnMap(961)">
+        <If Condition="not IsOnMap(844)">
           <GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>
           <UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>
         </If>
@@ -2774,8 +2774,8 @@
       <LLTalkTo NpcId="1040000" XYZ="173.2356, 7.47675, 325.6428" QuestId="69958" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69958) == 2">
-      <If condition="961">
-        <If condition="844">
+      <If Condition="not IsOnMap(961)">
+        <If Condition="not IsOnMap(844)">
           <GetTo ZoneId="819" XYZ="113.8898, 14.64912, 5.156064"/>
           <UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>
         </If>
