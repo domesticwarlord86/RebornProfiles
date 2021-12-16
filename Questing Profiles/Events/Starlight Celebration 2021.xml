@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Starlight Celebration 2021
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Starlight Celebration 2021</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- A Very Yeti Starlight -->
+    <If Condition="not IsQuestCompleted(70004)">
+      <If Condition="not HasQuest(70004)">
+      <GetTo ZoneId="133" XYZ="-50.91406, 6.499983, -92.42272"/>  
+        <If Condition="IsQuestAcceptQualified(70004)">
+          <LLPickupQuest QuestId="70004" NpcId="1040593"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70004) == 1">
+      <GetTo ZoneId="133" XYZ="0.8072671, 7.060428, -138.5917"/>  
+      <LLTalkTo NpcId="1040597" XYZ="2.487183, 6.911581, -139.5133" QuestId="70004" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(70004) == 2">
+      <GetTo ZoneId="132" XYZ="26.96396, -8, 112.5257"/>  
+      <LLTalkTo NpcId="1040599" XYZ="25.4978, -8, 112.5658" QuestId="70004" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(70004) == 3">
+      <GetTo ZoneId="133" XYZ="-89.16748, 6.999999, -170.9595"/>  
+      <LLTalkTo NpcId="1040601" XYZ="-88.42603, 7, -170.1839" QuestId="70004" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(70004) == 4">
+      <GetTo ZoneId="133" XYZ="-236.829, 8, -148.6788"/>  
+      <LLTalkTo NpcId="1040603" XYZ="-235.1263, 8, -148.1804" QuestId="70004" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(70004) == 5">
+      <GetTo ZoneId="132" XYZ="26.96928, -8, 111.7739"/>  
+      <LLTalkTo NpcId="1040598" XYZ="25.25366, -8, 111.5281" QuestId="70004" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(70004) == 255">
+      <GetTo ZoneId="133" XYZ="-50.36895, 6.499984, -92.05554"/>  
+      <LLTurnIn QuestId="70004" NpcId="1040593" XYZ="-50.00385, 6.5, -89.58569"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!-- Time to Shine -->
+    <If Condition="IsQuestCompleted(70004) and not IsQuestCompleted(70005)">
+      <If Condition="not HasQuest(70005)">
+      <GetTo ZoneId="133" XYZ="-50.36895, 6.499984, -92.05554"/>  
+        <If Condition="IsQuestAcceptQualified(70005)">
+          <LLPickupQuest QuestId="70005" NpcId="1040593"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70005) == 1">
+      <GetTo ZoneId="148" XYZ="39.62145, -6.750959, 18.27409"/>  
+      <LLTalkTo NpcId="1040609" XYZ="37.70496, -6.751466, 18.29553" QuestId="70005" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(70005) == 2">
+      <GetTo ZoneId="148" XYZ="20.16882, -8, 91.4846"/>  
+      <LLTalkTo NpcId="1040612" XYZ="21.10321, -8.000001, 93.85815" QuestId="70005" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(70005) == 3">
+      <GetTo ZoneId="148" XYZ="-43.69074, -0.0001666546, 24.03798"/>  
+      <LLTalkTo NpcId="1040616" XYZ="-45.24304, -4.658905E-10, 23.69727" QuestId="70005" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(70005) == 4">
+      <GetTo ZoneId="148" XYZ="37.65535, -6.751608, 15.45677"/>  
+      <LLTalkTo NpcId="1040609" XYZ="37.70496, -6.751466, 18.29553" QuestId="70005" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(70005) == 5">
+      <GetTo ZoneId="148" XYZ="5.688719, -8, 86.73576"/>  
+      <LLTalkTo NpcId="1040618" XYZ="5.508484, -8, 88.85327" QuestId="70005" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(70005) == 255">
+      <GetTo ZoneId="133" XYZ="-49.46711, 6.499991, -92.39545"/>  
+      <LLTurnIn QuestId="70005" NpcId="1040593" XYZ="-50.00385, 6.5, -89.58569"/>
+      <LLSmallTalk/>
+    </If>		
+ 
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
