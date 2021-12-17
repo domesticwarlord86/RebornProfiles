@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Ultima Thule Sidequests
+  Authors: Angles24
+-->
+<Profile>
+	<Name>Ultima Thule Sidequests</Name>
+	<Order>	 
+	
+	<!--  Stars Like Gems -->
+    <If Condition="not IsQuestCompleted(69876)">
+      <If Condition="not HasQuest(69876)">
+        <GetTo ZoneId="960" XYZ="-519.4174, 72.40839, 328.8075"/> <!-- Area="Ultima Thule (Ostrakon Deka-okto)" -->
+        <If Condition="IsQuestAcceptQualified(69876)">
+          <LLPickupQuest QuestId="69876" NpcId="1038010"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <!--  Left Alive -->
+    <If Condition="not IsQuestCompleted(69884)">
+      <If Condition="not HasQuest(69884)">
+      <GetTo ZoneId="960" XYZ="-572.3991, 77.12434, 323.3286"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+        <If Condition="IsQuestAcceptQualified(69884)">
+          <LLPickupQuest QuestId="69884" NpcId="1041058"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <!--  Loud and Proud -->
+    <If Condition="not IsQuestCompleted(69885)">
+      <If Condition="not HasQuest(69885)">
+      <GetTo ZoneId="960" XYZ="-565.7151, 72.29902, 285.0783"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+        <If Condition="IsQuestAcceptQualified(69885)">
+          <LLPickupQuest QuestId="69885" NpcId="1042067"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <!--  Aimless Protector -->
+    <If Condition="not IsQuestCompleted(69877)">
+      <If Condition="not HasQuest(69877)">
+      <GetTo ZoneId="960" XYZ="-595.3379, 77.29686, 270.8686"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+        <If Condition="IsQuestAcceptQualified(69877)">
+          <LLPickupQuest QuestId="69877" NpcId="1038009"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <!--  Futures Lost -->
+    <If Condition="not IsQuestCompleted(69873)">
+      <If Condition="not HasQuest(69873)">
+      <GetTo ZoneId="960" XYZ="-602.088, 78.6382, 301.7354"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+        <If Condition="IsQuestAcceptQualified(69873)">
+          <LLPickupQuest QuestId="69873" NpcId="1038008"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69884) == 1 and GetQuestById(69884).QuestI8A == 0">
+      <GetTo ZoneId="960" XYZ="-652.0748, 71.20464, 301.675"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTalkTo DialogOption="0" NpcId="1038012" XYZ="-655.9396, 70.96863, 302.9067" QuestId="69884" StepId="1"/>
+    </If>
+    <!--  The Sound of Fear -->
+    <If Condition="not IsQuestCompleted(69875)">
+      <If Condition="not HasQuest(69875)">
+      <GetTo ZoneId="960" XYZ="-652.7927, 74.19386, 249.28"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+        <If Condition="IsQuestAcceptQualified(69875)">
+          <LLPickupQuest QuestId="69875" NpcId="1040883"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <!--  A Parent's Love -->
+    <If Condition="not IsQuestCompleted(69886)">
+      <If Condition="not HasQuest(69886)">
+      <GetTo ZoneId="960" XYZ="-613.9767, 77.84599, 230.5626"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+        <If Condition="IsQuestAcceptQualified(69886)">
+          <LLPickupQuest QuestId="69886" NpcId="1042070"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69884) == 1 and GetQuestById(69884).QuestI8A == 1">
+      <GetTo ZoneId="960" XYZ="-557.5723, 72.716, 234.1771"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTalkTo DialogOption="0" NpcId="1038013" XYZ="-551.8425, 72.58038, 232.6543" QuestId="69884" StepId="1"/>
+    </If>
+    <!--  That Once Rang Clear -->
+    <If Condition="not IsQuestCompleted(69874)">
+      <If Condition="not HasQuest(69874)">
+      <GetTo ZoneId="960" XYZ="-557.5723, 72.716, 234.1771"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+        <If Condition="IsQuestAcceptQualified(69874)">
+          <LLPickupQuest QuestId="69874" NpcId="1038013"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69875) == 1 and GetQuestById(69875).QuestI8A == 0">
+      <GetTo ZoneId="960" XYZ="-676.9552, 72.04537, 118.2289"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <UseObject NpcId="2012307" XYZ="-678.0042, 72.06836, 119.0356" QuestId="69875" StepId="1" Condition="GetQuestById(69875).QuestI8A == 0"/>
+    </If>
+    <If Condition="GetQuestStep(69875) == 1 and GetQuestById(69875).QuestI8A == 1">
+      <GetTo ZoneId="960" XYZ="-634.603, 77.68983, 45.48005"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <UseObject NpcId="2012308" XYZ="-635.4926, 77.40894, 46.61621" QuestId="69875" StepId="1" Condition="GetQuestById(69875).QuestI8A == 1"/>
+    </If>
+    <If Condition="GetQuestStep(69877) == 1">
+      <GetTo ZoneId="960" XYZ="-748.1606, 63.05392, 7.97572"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <UseObject NpcId="2012311" XYZ="-746.9749, 63.1875, 7.248047" QuestId="69877" StepId="1" Condition="GetQuestStep(69877) == 1"/>
+    </If>
+    <If Condition="GetQuestStep(69877) == 2">
+      <WaitWhile condition="GetQuestStep(69877) == 2"/>
+    </If>
+    <If Condition="GetQuestStep(69886) == 1">
+      <GetTo ZoneId="960" XYZ="-754.7291, 67.35458, -30.43537"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTalkTo NpcId="1042071" XYZ="-754.696, 67.5721, -32.51703" QuestId="69886" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69874) == 1">
+      <GetTo ZoneId="960" XYZ="-721.0644, 66.79634, -120.7127"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTalkTo NpcId="1040875" XYZ="-717.6166, 66.99921, -121.6603" QuestId="69874" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69874) == 2">
+      <GetTo ZoneId="960" XYZ="-721.0644, 66.79634, -120.7127"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <EmoteNPC Emote="pet" NpcId="1040875" XYZ="-717.6166, 66.99921, -121.6603" UseTimes="1" BlacklistAfter="true"/>
+	  <LLTalkTo DialogOption="0" NpcId="1040875" XYZ="-717.6166, 66.99921, -121.6603" QuestId="69874" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69886) == 2">
+      <GetTo ZoneId="960" XYZ="-608.0347, 77.65517, 228.061"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTalkTo NpcId="1042070" XYZ="-610.1931, 77.92013, 229.1752" QuestId="69886" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69877) == 255">
+      <GetTo ZoneId="960" XYZ="-593.6136, 77.16158, 265.6017"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTurnIn QuestId="69877" NpcId="1038009" XYZ="-597.2534, 76.98927, 268.0857"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69874) == 255">
+      <GetTo ZoneId="960" XYZ="-555.7863, 72.76112, 232.0835"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTurnIn QuestId="69874" NpcId="1038013" XYZ="-551.8425, 72.58038, 232.6543"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69886) == 3">
+      <GetTo ZoneId="960" XYZ="-466.6495, 79.15791, 244.7179"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTalkTo NpcId="1042072" XYZ="-464.4999, 79.1747, 247.0892" QuestId="69886" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69886) == 4">
+      <GetTo ZoneId="960" XYZ="-752.8231, 67.35025, -30.41726"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTalkTo NpcId="1042071" XYZ="-754.696, 67.5721, -32.51703" QuestId="69886" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69886) == 255">
+      <GetTo ZoneId="960" XYZ="-465.0912, 79.3448, 245.1016"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTurnIn QuestId="69886" NpcId="1042072" XYZ="-464.4999, 79.1747, 247.0892"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69875) == 1 and GetQuestById(69875).QuestI8A == 2">
+      <GetTo ZoneId="960" XYZ="-642.9946, 78.88908, 444.6763"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <UseObject NpcId="2012306" XYZ="-641.8402, 78.93494, 445.2125" QuestId="69875" StepId="1" Condition="GetQuestById(69875).QuestI8A == 2"/>
+    </If>
+    <If Condition="GetQuestStep(69875) == 1 and GetQuestById(69875).QuestI8A == 3">
+      <GetTo ZoneId="960" XYZ="-397.5913, 88.78685, 314.554"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <UseObject NpcId="2012305" XYZ="-398.3368, 88.85327, 314.4426" QuestId="69875" StepId="1" Condition="GetQuestById(69875).QuestI8A == 3"/>
+    </If>
+    <If Condition="GetQuestStep(69876) == 1 and GetQuestById(69876).QuestI8A == 0">
+      <GetTo ZoneId="960" XYZ="-347.2906, 86.64305, 284.226"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <UseObject NpcId="2012309" XYZ="-346.0289, 86.44226, 283.7109" QuestId="69876" StepId="1" Condition="GetQuestById(69876).QuestI8A == 0"/>
+    </If>
+    <If Condition="GetQuestStep(69876) == 1 and GetQuestById(69876).QuestI8A == 16">
+      <GetTo ZoneId="960" XYZ="-342.7516, 86.11181, 278.9005"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <UseObject NpcId="2012310" XYZ="-342.1226, 86.10657, 278.0956" QuestId="69876" StepId="1" Condition="GetQuestById(69876).QuestI8A == 16"/>
+    </If>
+    <If Condition="GetQuestStep(69876) == 1 and GetQuestById(69876).QuestI8A == 32">
+      <GetTo ZoneId="960" XYZ="-292.7264, 86.71299, 325.6526"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLClimbHill SpamJump="true" Start="-292.7264, 86.71299, 325.6526" End="-292.7748, 91.38623, 317.0977" Distance="2.5"/>
+	  <UseObject NpcId="2012312" XYZ="-292.7748, 91.38623, 317.0977" QuestId="69876" StepId="1" Condition="GetQuestById(69876).QuestI8A == 32"/>
+    </If>
+    <If Condition="GetQuestStep(69884) == 2">
+      <GetTo ZoneId="960" XYZ="-115.4346, 53.45389, 538.4906"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <UseObject NpcId="2012685" XYZ="-115.0989, 55.52759, 537.5295" QuestId="69884" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69873) == 1">
+      <GetTo ZoneId="960" XYZ="-61.91288, 61.05664, 792.1334"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <WaitWhile condition="GetQuestStep(69873) == 1"/>
+    </If>
+    <If Condition="GetQuestStep(69876) == 255">
+      <GetTo ZoneId="960" XYZ="-514.176, 72.42265, 331.4419"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTurnIn ItemIds="2003258,2003257" QuestId="69876" NpcId="1038010" XYZ="-517.9065, 72.52988, 332.2346"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69884) == 255">
+      <GetTo ZoneId="960" XYZ="-570.3458, 76.83167, 321.7611"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTurnIn QuestId="69884" NpcId="1041058" XYZ="-574.3038, 77.29004, 324.3304"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69873) == 255">
+      <GetTo ZoneId="960" XYZ="-599.4514, 78.9426, 306.3216"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTurnIn QuestId="69873" NpcId="1038008" XYZ="-603.9369, 78.6382, 303.8529"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69875) == 255">
+      <GetTo ZoneId="960" XYZ="-652.455, 74.25094, 249.2521"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTurnIn QuestId="69875" NpcId="1040883" XYZ="-653.3761, 73.71124, 244.3121"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69885) == 1">
+      <GetTo ZoneId="960" XYZ="-608.1996, 70.94988, 55.14058"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTalkTo DialogOption="0" NpcId="1042068" XYZ="-609.1554, 71.0035, 57.17554" QuestId="69885" StepId="1"/>
+    </If>
+    <!--  Work Woes -->
+    <If Condition="not IsQuestCompleted(69892)">
+      <If Condition="not HasQuest(69892)">
+      <GetTo ZoneId="960" XYZ="483.7071, 437.0015, 314.7411"/>  <!-- Subzone="3983" Area="Ultima Thule (Ostrakon Deka-hexi)" -->
+        <If Condition="IsQuestAcceptQualified(69892)">
+          <LLPickupQuest QuestId="69892" NpcId="1041660"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69892) == 1">
+      <GetTo ZoneId="960" XYZ="483.7071, 437.0015, 314.7411"/>  <!-- Subzone="3983" Area="Ultima Thule (Ostrakon Deka-hexi)" -->
+      <EmoteNPC Emote="dance" NpcId="1041660" XYZ="482.3529, 437.0012, 311.9402" QuestId="69892" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69892) == 2">
+      <GetTo ZoneId="960" XYZ="618.483, 440.4633, 382.3437"/>  <!-- Subzone="3981" Area="Ultima Thule (Ostrakon Deka-hexi)" -->
+      <LLTalkTo NpcId="1041661" XYZ="618.7991, 440.4633, 381.3992" QuestId="69892" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69892) == 255">
+      <GetTo ZoneId="960" XYZ="483.7162, 437.0013, 312.8342"/>  <!-- Subzone="3983" Area="Ultima Thule (Ostrakon Deka-hexi)" -->
+      <LLTurnIn QuestId="69892" NpcId="1041660" XYZ="482.3529, 437.0012, 311.9402"/>
+      <LLSmallTalk/>
+    </If>
+    <!--  Eat Like an Ea -->
+    <If Condition="not IsQuestCompleted(69881)">
+      <If Condition="not HasQuest(69881)">
+      <GetTo ZoneId="960" XYZ="47.31617, 269.113, -665.6703"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+        <If Condition="IsQuestAcceptQualified(69881)">
+          <LLPickupQuest QuestId="69881" NpcId="1038031"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <!--  A Life of Regret -->
+    <If Condition="not IsQuestCompleted(69889)">
+      <If Condition="not HasQuest(69889)">
+      <GetTo ZoneId="960" XYZ="6.208313, 268.9999, -677.5702"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+        <If Condition="IsQuestAcceptQualified(69889)">
+          <LLPickupQuest QuestId="69889" NpcId="1042075"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69889) == 1">
+      <GetTo ZoneId="960" XYZ="6.885603, 272.3613, -683.7731"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+      <UseObject NpcId="2012688" XYZ="6.729187, 272.3278, -685.4506" QuestId="69889" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69889) == 2">
+      <GetTo ZoneId="960" XYZ="5.413511, 269.915, -679.9237"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+      <LLTalkTo NpcId="1042075" XYZ="3.768982, 269.768, -679.6521" QuestId="69889" StepId="2"/>
+    </If>
+    <!--  Remember Me -->
+    <If Condition="not IsQuestCompleted(69887)">
+      <If Condition="not HasQuest(69887)">
+      <GetTo ZoneId="960" XYZ="189.2204, 268.8325, -688.7903"/>  <!-- Subzone="3979" Area="Ultima Thule (Ostrakon Tria)" -->
+        <If Condition="IsQuestAcceptQualified(69887)">
+          <LLPickupQuest QuestId="69887" NpcId="1038025"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <!--  Final Words, Final Thoughts -->
+    <If Condition="not IsQuestCompleted(69879)">
+      <If Condition="not HasQuest(69879)">
+      <GetTo ZoneId="960" XYZ="161.2809, 269.0452, -665.9045"/>  <!-- Subzone="3979" Area="Ultima Thule (Ostrakon Tria)" -->
+        <If Condition="IsQuestAcceptQualified(69879)">
+          <LLPickupQuest QuestId="69879" NpcId="1038026"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69879) == 1">
+      <GetTo ZoneId="960" XYZ="161.2809, 269.0452, -665.9045"/>  <!-- Subzone="3979" Area="Ultima Thule (Ostrakon Tria)" -->
+      <LLTalkTo NpcId="1038026" XYZ="161.3945, 269.0288, -664.7898" QuestId="69879" StepId="1"/>
+    </If>
+    <While Condition="GetQuestStep(69879) == 2">	 
+      <While condition="not Core.Player.HasAura(2727) and GetQuestStep(69879) == 2">
+        <GetTo ZoneId="960" XYZ="161.2809, 269.0452, -665.9045"/>
+        <LLTalkTo NpcId="1038026" XYZ="161.3945, 269.0288, -664.7898" QuestId="69879" StepId="2"/>
+      </While>
+      <While condition="Core.Player.HasAura(2727) and GetQuestStep(69879) == 2">
+		<GetTo ZoneId="960" XYZ="178.5542, 269.0682, -660.3266"/>  <!-- Subzone="3979" Area="Ultima Thule (Ostrakon Tria)" -->
+		<UseObject NpcId="2012318" XYZ="179.3392, 271.0459, -660.029" QuestId="69879" StepId="2" Condition="GetQuestById(69879).QuestI8A == 0"/>
+		<UseObject NpcId="2012320" XYZ="200.1219, 270.9849, -677.4243" QuestId="69879" StepId="2" Condition="GetQuestById(69879).QuestI8A == 1"/>
+		<UseObject NpcId="2012319" XYZ="209.9489, 270.7407, -656.733" QuestId="69879" StepId="2" Condition="GetQuestById(69879).QuestI8A == 2"/>
+      </While>
+	</While>
+    <If Condition="GetQuestStep(69879) == 3">
+      <GetTo ZoneId="960" XYZ="162.4488, 269.0191, -664.0428"/>  <!-- Subzone="3979" Area="Ultima Thule (Ostrakon Tria)" -->
+      <LLTalkTo NpcId="1038026" XYZ="161.3945, 269.0288, -664.7898" QuestId="69879" StepId="3"/>
+    </If>
+    <While Condition="GetQuestStep(69879) == 4">
+      <While condition="not Core.Player.HasAura(2727) and GetQuestStep(69879) == 4">
+        <GetTo ZoneId="960" XYZ="161.2809, 269.0452, -665.9045"/>
+        <LLTalkTo NpcId="1038026" XYZ="161.3945, 269.0288, -664.7898" QuestId="69879" StepId="4"/>
+      </While>
+      <While condition="Core.Player.HasAura(2727) and GetQuestStep(69879) == 4">
+	    <NoCombatMoveTo XYZ="409.4955, 310.2614, -534.812"/>
+        <UseObject NpcId="2012321" XYZ="409.9946, 312.6726, -534.5083" QuestId="69879" StepId="4"/>
+      </While>
+	</While>
+    <If Condition="GetQuestStep(69879) == 255">
+      <GetTo ZoneId="960" XYZ="162.8147, 269.0127, -663.5826"/>  <!-- Subzone="3979" Area="Ultima Thule (Ostrakon Tria)" -->
+      <LLTurnIn QuestId="69879" NpcId="1038026" XYZ="161.3945, 269.0288, -664.7898"/>
+      <LLSmallTalk/>
+    </If>
+    <!--  Come Back to Us -->
+    <If Condition="not IsQuestCompleted(69880)">
+      <If Condition="not HasQuest(69880)">
+      <GetTo ZoneId="960" XYZ="95.1523, 269.8591, -597.0673"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+        <If Condition="IsQuestAcceptQualified(69880)">
+          <LLPickupQuest QuestId="69880" NpcId="1038030"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <!--  Bodily Curiosity-->
+    <If Condition="not IsQuestCompleted(69888)">
+      <If Condition="not HasQuest(69888)">
+      <GetTo ZoneId="960" XYZ="125.2484, 269.3245, -510.153"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+        <If Condition="IsQuestAcceptQualified(69888)">
+          <LLPickupQuest QuestId="69888" NpcId="1042074"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69888) == 1">
+      <GetTo ZoneId="960" XYZ="125.2484, 269.3245, -510.153"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+      <EmoteNPC Emote="joy" NpcId="1042074" XYZ="124.1016, 269.3743, -509.6971" QuestId="69888" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69888) == 255">
+      <GetTo ZoneId="960" XYZ="125.2484, 269.3245, -510.153"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->	  
+      <EmoteNPC Emote="slap" NpcId="1042074" XYZ="124.1016, 269.3743, -509.6971" UseTimes="1" BlacklistAfter="true"/>
+      <LLTurnIn QuestId="69888" NpcId="1042074" XYZ="124.1016, 269.3743, -509.6971"/>
+      <LLSmallTalk/>
+    </If>
+    <!--  The Body Beautiful -->
+    <If Condition="not IsQuestCompleted(69883)">
+      <If Condition="not HasQuest(69883)">
+      <GetTo ZoneId="960" XYZ="66.68929, 269.9406, -450.0181"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+        <If Condition="IsQuestAcceptQualified(69883)">
+          <LLPickupQuest QuestId="69883" NpcId="1040882"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69887) == 1">
+      <GetTo ZoneId="960" XYZ="-26.56265, 272.1721, -436.6831"/>  <!-- Subzone="3975" Area="Ultima Thule (Ostrakon Tria)" -->
+      <UseObject NpcId="2012333" XYZ="-27.57306, 272.3583, -437.2778" UseTimes="1" BlacklistAfter="true"/>
+	  <UseItem ItemId="2003386" NpcId="11016" XYZ="-27.39001, 272.7197, -439.9023" InCombat="True" UseHealthPercent="10" QuestId="69887" StepId="1" UseTimes="1"/>
+    </If>
+    <If Condition="GetQuestStep(69883) == 1">
+      <GetTo ZoneId="960" XYZ="-128.5898, 291.8611, -449.7223"/>
+      <Grind GrindRef="Luminion" PostCombatDelay="3.0" While="not GetQuestStep(69883) == 255"/>
+    </If>
+    <If Condition="GetQuestStep(69889) == 3">
+      <GetTo ZoneId="960" XYZ="-330.1551, 266.285, -430.7464"/>
+      <Grind GrindRef="OtherOne" PostCombatDelay="3.0" While="not GetQuestStep(69889) == 255"/>
+    </If>      
+    <If Condition="GetQuestStep(69889) == 255">
+      <GetTo ZoneId="960" XYZ="1.93805, 269.4845, -674.8737"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+      <LLTurnIn ItemId="2003385" QuestId="69889" NpcId="1042075" XYZ="3.768982, 269.768, -679.6521"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69887) == 255">
+      <GetTo ZoneId="960" XYZ="189.4845, 268.8174, -690.064"/>  <!-- Subzone="3979" Area="Ultima Thule (Ostrakon Tria)" -->
+      <LLTurnIn ItemId="2003387" QuestId="69887" NpcId="1038025" XYZ="191.4855, 268.9127, -689.1737"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69880) == 1">
+      <GetTo ZoneId="960" XYZ="356.0387, 282.2461, -628.6565"/>  <!-- Subzone="3975" Area="Ultima Thule (Ostrakon Tria)" -->
+      <NoCombatMoveTo XYZ="356.0387, 282.2461, -628.6565"/>  <!-- Subzone="3975" Area="Ultima Thule (Ostrakon Tria)" -->	  
+      <LLSendChat Say="coo" NpcId="2012313" XYZ="356.0387, 282.2461, -628.6565" QuestId="69880" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69880) == 2">
+      <GetTo ZoneId="960" XYZ="397.6293, 281.6888, -738.332"/>  <!-- Subzone="3975" Area="Ultima Thule (Ostrakon Tria)" -->
+      <LLTalkTo NpcId="1040877" XYZ="398.5503, 281.7753, -739.1928" QuestId="69880" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69881) == 1">
+      <GetTo ZoneId="960" XYZ="580.5912, 286.0012, -520.6807"/>  <!-- Subzone="3975" Area="Ultima Thule (Ostrakon Tria)" -->
+      <LLTalkTo DialogOption="0" NpcId="1040878" XYZ="581.2924, 286.0777, -520.3174" QuestId="69881" StepId="1"/>
+	  <WaitWhile condition="GetQuestStep(69881) == 1"/>
+    </If>
+    <If Condition="GetQuestStep(69881) == 255">
+      <GetTo ZoneId="960" XYZ="44.76115, 269.0002, -666.5419"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+      <LLTurnIn QuestId="69881" NpcId="1038031" XYZ="43.74756, 269.0001, -666.4377"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69880) == 255">
+      <GetTo ZoneId="960" XYZ="92.91465, 270.1393, -598.1451"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+      <LLTurnIn QuestId="69880" NpcId="1038030" XYZ="92.85107, 270.1307, -597.1008"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69883) == 255">
+      <GetTo ZoneId="960" XYZ="66.59309, 269.806, -452.6411"/>  <!-- Subzone="3978" Area="Ultima Thule (Ostrakon Tria)" -->
+      <LLTurnIn ItemId="2003255" QuestId="69883" NpcId="1040882" XYZ="65.69006, 270.0883, -448.9662"/>
+      <LLSmallTalk/>
+    </If>
+    <If Condition="GetQuestStep(69885) == 1">
+      <GetTo ZoneId="960" XYZ="-608.1996, 70.94988, 55.14058"/>  <!-- Subzone="3970" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTalkTo DialogOption="0" NpcId="1042068" XYZ="-609.1554, 71.0035, 57.17554" QuestId="69885" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69885) == 2">		
+      <LLToast message="Fly the dragon manually."/>
+	  <LLStopBot/>
+    </If>
+    <If Condition="GetQuestStep(69885) == 255">
+      <GetTo ZoneId="960" XYZ="-557.5793, 72.29552, 284.4528"/>  <!-- Subzone="3973" Area="Ultima Thule (Ostrakon Deka-okto)" -->
+      <LLTurnIn QuestId="69885" NpcId="1042067" XYZ="-564.5686, 72.34819, 281.3306"/>
+      <LLSmallTalk/>
+    </If>
+	
+  </Order>   
+     <GrindAreas>  
+   <GrindArea name="Luminion">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-127.5195, 291.4588, -449.4951" name="Luminion"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="10432" Weight="1"/> <!-- Luminion -->
+      </TargetMobs>
+    </GrindArea>
+	    <GrindArea name="OtherOne">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-330.1551, 266.285, -430.7464" name="OtherOne"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="10435" Weight="1"/> <!-- Other One -->
+      </TargetMobs>
+    </GrindArea>
+     </GrindAreas> 
+</Profile>    
