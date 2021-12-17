@@ -2049,9 +2049,9 @@
       <GetTo ZoneId="959" XYZ="19.8326, -19.88344, -204.496" Distance="1"/>
       <WaitTimer Waittime="22"/>
       <GetTo ZoneId="959" XYZ="12.54666, -0.5566646, -153.5729" Distance="1"/>
-      <WaitTimer Waittime="22"/>
+      <WaitTimer Waittime="20"/>
       <GetTo ZoneId="959" XYZ="-22.66134, 26.31021, -110.1812" />
-      <WaitTimer Waittime="14"/>
+      <WaitTimer Waittime="10"/>
       <GetTo ZoneId="959" XYZ="40.80077, 73.85315, -33.73375" />
       <WaitWhile condition="GetQuestStep(69941) == 3"/>
       <RunCode name="TurnOnMount"/>
