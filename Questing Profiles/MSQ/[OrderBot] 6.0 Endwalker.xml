@@ -873,6 +873,12 @@
       <UseObject NpcId="2011956" XYZ="-632.0439, -0.01531982, -659.6018" QuestId="69913" StepId="2"/>
     </If>
     <If Condition="GetQuestStep(69913) == 3">
+		<Dismount />
+		<WaitTimer WaitTime="3" />
+		<RunCode Name="Coffer" />
+		<WaitTimer waitTime="1" />
+		<AutoInventoryEquip/>
+		<WaitTimer waitTime="1" />
       <LLToast message="Please manually complete the dungeon: Lv. 81 Tower of Zot."/>
     </If>
     <If Condition="GetQuestStep(69913) == 4">
@@ -1630,6 +1636,12 @@
       <UseObject NpcId="2012112" XYZ="-516.7163, -190.0206, -675.288" QuestId="69931" StepId="3"/>
     </If>
     <If Condition="GetQuestStep(69931) == 4">
+		<Dismount />
+		<WaitTimer WaitTime="3" />
+		<RunCode Name="Coffer" />
+		<WaitTimer waitTime="1" />
+		<AutoInventoryEquip/>
+		<WaitTimer waitTime="1" />
       <LLToast message="Please manually complete the dungeon: Lv. 83 The Tower of Babil."/>
     </If>
     <If Condition="GetQuestStep(69931) == 5">
@@ -1761,6 +1773,12 @@
       <WaitWhile condition="GetQuestStep(69934) == 1"/>
     </If>
     <If Condition="GetQuestStep(69934) == 2">
+		<Dismount />
+		<WaitTimer WaitTime="3" />
+		<RunCode Name="Coffer" />
+		<WaitTimer waitTime="1" />
+		<AutoInventoryEquip/>
+		<WaitTimer waitTime="1" />
       <LLToast message="Please manually complete the trial: Lv. 83 The Dark Inside."/>
     </If>
     <If Condition="GetQuestStep(69934) == 255">
@@ -2199,6 +2217,12 @@
       <LLTalkTo NpcId="1038978" XYZ="202.3499, 1.769995, 757.7172" QuestId="69945" StepId="3"/>
     </If>
     <If Condition="GetQuestStep(69945) == 4">
+		<Dismount />
+		<WaitTimer WaitTime="3" />
+		<RunCode Name="Coffer" />
+		<WaitTimer waitTime="1" />
+		<AutoInventoryEquip/>
+		<WaitTimer waitTime="1" />
       <LLToast message="Please manually complete the dungeon: Lv. 85 Vanaspati."/>
       <StopBot/>
     </If>
@@ -3407,6 +3431,12 @@
       <LLTalkTo NpcId="1040154" XYZ="-401.236, 329.783, -760.3418" QuestId="69973" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69973) == 2">
+		<Dismount />
+		<WaitTimer WaitTime="3" />
+		<RunCode Name="Coffer" />
+		<WaitTimer waitTime="1" />
+		<AutoInventoryEquip/>
+		<WaitTimer waitTime="1" />
       <LLToast message="Please manually complete the dungeon: Lv. 87 Ktisis Hyperboreia."/>
       <StopBot/>
     </If>
@@ -3865,6 +3895,12 @@
       <LLTalkTo NpcId="1040487" XYZ="-234.6991, -224.3827, 349.0195" QuestId="69985" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69985) == 2">
+		<Dismount />
+		<WaitTimer WaitTime="3" />
+		<RunCode Name="Coffer" />
+		<WaitTimer waitTime="1" />
+		<AutoInventoryEquip/>
+		<WaitTimer waitTime="1" />
       <LLToast message="Please manually complete the dungeon: Lv. 89 The Aitiascope."/>
       <StopBot/>
     </If>
@@ -4437,9 +4473,26 @@
       </If>
     </If>
     <If Condition="GetQuestStep(70000) == 1">
+		<Dismount />
+		<WaitTimer WaitTime="3" />
+		<RunCode Name="Coffer" />
+		<WaitTimer waitTime="1" />
+		<AutoInventoryEquip/>
+		<WaitTimer waitTime="1" />
       <LLToast message="Please manually complete the following duties:"/>
       <LLToast message="Dungeon: Lv. 90 The Dead Ends "/>
       <LLToast message="Trial: Lv. 90 The Final Day"/>
+      <LLToast message="Solo Duty: Fight Zenos"/>
+      <StopBot/>
+    </If>
+    <If Condition="GetQuestStep(70000) == 3">
+      <LLToast message="Please manually complete the following duties:"/>
+      <LLToast message="Trial: Lv. 90 The Final Day"/>
+      <LLToast message="Solo Duty: Fight Zenos"/>
+      <StopBot/>
+    </If>
+    <If Condition="GetQuestStep(70000) == 5">
+      <LLToast message="Please manually complete the following duty:"/>
       <LLToast message="Solo Duty: Fight Zenos"/>
       <StopBot/>
     </If>
@@ -4798,5 +4851,14 @@
         Navigator.PlayerMover.MoveStop();
       ]]>
     </CodeChunk>
+	<CodeChunk Name="Coffer">
+	  <![CDATA[		
+		foreach (var bagslot in InventoryManager.FilledSlots.Where(bagslot => bagslot.Item.ItemAction == 388))
+        {
+        bagslot.UseItem();
+        await Coroutine.Sleep(5000);
+        }
+	  ]]> 
+	</CodeChunk>
   </CodeChunks>
 </Profile>
