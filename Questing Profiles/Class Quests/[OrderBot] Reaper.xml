@@ -11,8 +11,10 @@
     <!-- Lisbeth check -->
 	<If condition="not LisbethPresent">
 	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <WaitTimer WaitTime="1"/>
 	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
-	  <StopBot/>
+	  <WaitTimer WaitTime="1"/>
+	  <LLStopBot/>
 	</If>
 	<If condition="LisbethPresent">
 	  <Log Message="Lisbeth found. Starting profile..." />
@@ -34,57 +36,201 @@
     </If>
     <If Condition="GetQuestStep(69609) == 2">
       <GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
-			<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>	
-			<WaitWhile condition="GetQuestStep(69609) == 255"/>	
+	  <UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>	
+	  <WaitWhile condition="GetQuestStep(69609) == 255"/>	
     </If>
     <If Condition="GetQuestStep(69609) == 255">
-			<If condition="not IsOnMap(971)">
-				<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
-				<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
-			</If>
+	  <If condition="not IsOnMap(971)">
+	    <GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+	    <UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+	  </If>
       <LLTurnIn NpcId="1037014" XYZ="0.9002075, 0.01480778, -4.379395" QuestId="69609" StepId="255"/>
-			<If Condition="IsQuestCompleted(69609)">
-				<If Condition="not ClassName == ((ClassJobType.Reaper))"> 
-					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 35760">
-						<RunCode name="UseCoffer"/>
-						<Log Message="Equipping Deepgold War Scythe" />
-						<EquipWeapon ItemID="35760"/>
-						<WaitTimer WaitTime="3" />
-					</While>
-				</If>
-				<AutoInventoryEquip/>
-			</If>			
-    </If>		
+	  <If Condition="IsQuestCompleted(69609)">
+	    <If Condition="not ClassName == ((ClassJobType.Reaper))"> 
+	  	  <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 35760">
+		    <RunCode name="UseCoffer"/>
+		    <Log Message="Equipping Deepgold War Scythe" />
+		    <EquipWeapon ItemID="35760"/>
+	        <WaitTimer WaitTime="3" />
+		  </While>
+	    </If>
+	    <AutoInventoryEquip/>
+	  </If>			
+    </If>
+		
+	<!-- Change To Reaper If Not Already -->
+	<If Condition="IsQuestCompleted(69603) and not ClassName == ClassJobType.Reaper">	
+		<ChangeClass Job="Reaper" />
+	</If>		
 			
     <!-- The Harvest Begins -->
     <If Condition="IsQuestCompleted(69609) and not HasQuest(69610) and not IsQuestCompleted(69610)">
-			<If condition="not IsOnMap(971)">
-				<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
-				<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
-			</If>		
+	  <If condition="not IsOnMap(971)">
+		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+	  </If>		
       <If Condition="IsQuestAcceptQualified(69610)">
         <LLPickupQuest QuestId="69610" NpcId="1037014"/>
         <LLSmallTalk/>
       </If>
     </If>
     <If Condition="GetQuestStep(69610) == 1">
-      <If Condition="LisbethPresent">
-        <LisbethTravel Zone="141" Subzone="293" Position="-263.1554, -4.808921, -369.3814"/> <!-- Area="Central Thanalan" -->
-      </If>
-      <If Condition="not LisbethPresent">
-        <GetTo ZoneId="141" XYZ="-263.1554, -4.808921, -369.3814"/>  <!-- Subzone="293" Area="Central Thanalan" -->
-      </If>
+      <LisbethTravel Zone="141" Subzone="293" Position="-263.1554, -4.808921, -369.3814"/> <!-- Area="Central Thanalan" -->
       <LLTalkTo NpcId="1036636" XYZ="-264.9119, -5.052193, -371.3893" QuestId="69610" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69610) == 2">
-      <If Condition="LisbethPresent">
-        <LisbethTravel Zone="141" Subzone="293" Position="-263.1554, -4.808921, -369.3814"/> <!-- Area="Central Thanalan" -->
-      </If>
-      <If Condition="not LisbethPresent">
-        <GetTo ZoneId="141" XYZ="-263.1554, -4.808921, -369.3814"/>  <!-- Subzone="293" Area="Central Thanalan" -->
-      </If>
+      <LisbethTravel Zone="141" Subzone="293" Position="-263.1554, -4.808921, -369.3814"/> <!-- Area="Central Thanalan" -->
       <LLToast message="Please complete the solo duty manually."/>
-    </If>		
+	  <WaitTimer WaitTime="1"/>	  
+    </If>	
+    <If Condition="GetQuestStep(69610) == 255">
+	  <If condition="not IsOnMap(971)">
+		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+	  </If>	
+      <LLTurnIn QuestId="69610" NpcId="1036629" XYZ="0.7781982, 0.01480778, -1.968445"/>
+      <LLSmallTalk/>
+    </If>	
+    <!-- On The Hunt -->
+    <If Condition="IsQuestCompleted(69610) and not IsQuestCompleted(69611) and not HasQuest(69611) and Core.Player.ClassLevel &gt; 72">
+	  <If condition="not IsOnMap(971)">
+		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+	  </If>	
+      <If Condition="IsQuestAcceptQualified(69611)">
+        <LLPickupQuest QuestId="69611" NpcId="1036629"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69611) == 1">
+      <LisbethTravel Zone="148" Subzone="94" Position="-11.22911, -3.002187, 57.41217"/> <!-- Area="Central Shroud" -->
+      <LLTalkTo NpcId="1036638" XYZ="-9.384338, -3.002005, 58.54883" QuestId="69611" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69611) == 2">
+      <LisbethTravel Zone="148" Subzone="70" Position="-274.2083, 19.58968, 67.3505"/> <!-- Area="Central Shroud" -->
+      <LLUseItem ItemId="2003077" NpcId="2011546" XYZ="-274.342, 19.82141, 66.453" QuestId="69611" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69611) == 3">
+      <LisbethTravel Zone="148" Subzone="94" Position="-9.707943, -3.001461, 57.18336"/> <!-- Area="Central Shroud" -->
+      <LLHandOver ItemId="2003078" NpcId="1036638" XYZ="-9.384338, -3.002005, 58.54883" QuestId="69611" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69611) == 255">
+	  <If condition="not IsOnMap(971)">
+		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+	  </If>	
+      <LLTurnIn QuestId="69611" NpcId="1036629" XYZ="0.7781982, 0.01480778, -1.968445"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- Dark Days -->
+    <If Condition="IsQuestCompleted(69611) and not IsQuestCompleted(69612) and not HasQuest(69612) and Core.Player.ClassLevel &gt; 74">
+	  <If condition="not IsOnMap(971)">
+		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+	  </If>	
+      <If Condition="IsQuestAcceptQualified(69612)">
+        <LLPickupQuest QuestId="69612" NpcId="1036629"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69612) == 1">
+      <GetTo ZoneId="130" XYZ="-151.4361, 14.005, 56.1377"/>  <!-- Subzone="0" Area="Ul'dah (Steps of Nald)" -->
+      <LLTalkTo NpcId="1036641" XYZ="-149.9504, 14.005, 54.8562" QuestId="69612" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69612) == 2">
+      <LisbethTravel Zone="141" Subzone="247" Position="-150.1314, 15.98279, 304.7783"/> <!-- Area="Central Thanalan" -->
+      <LLTalkTo NpcId="1036642" XYZ="-151.1712, 15.98279, 302.2965" QuestId="69612" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69612) == 3">
+      <LisbethTravel Zone="141" Subzone="247" Position="-67.60298, -3.658191, 180.4065"/> <!-- Area="Central Thanalan" -->
+      <LLTalkTo NpcId="1036644" XYZ="-68.10101, -3.658191, 179.6139" QuestId="69612" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69612) == 4">
+      <LisbethTravel Zone="141" Subzone="248" Position="-60.5584, -3.658241, 150.0761"/> <!-- Area="Central Thanalan" -->
+      <LLTalkTo NpcId="1040918" XYZ="-59.89172, -3.658254, 147.7225" QuestId="69612" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(69612) == 255">
+	  <If condition="not IsOnMap(971)">
+		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+	  </If>	
+      <LLTurnIn QuestId="69612" NpcId="1036629" XYZ="0.7781982, 0.01480778, -1.968445"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- Thicker Than Blood -->
+    <If Condition="IsQuestCompleted(69612) and not IsQuestCompleted(69613) and not HasQuest(69613) and Core.Player.ClassLevel &gt; 77">
+	  <If condition="not IsOnMap(971)">
+		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+	  </If>	
+      <If Condition="IsQuestAcceptQualified(69613)">
+        <LLPickupQuest QuestId="69613" NpcId="1036629"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69613) == 1">
+      <LisbethTravel Zone="141" Subzone="248" Position="-64.97748, -2.019064, -168.6801"/> <!-- Area="Central Thanalan" -->
+      <LLTalkTo NpcId="1036645" XYZ="-65.23236, -2.004327, -170.0618" QuestId="69613" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69613) == 2">
+      <GetTo ZoneId="141" XYZ="83.22336, 0.2634652, -279.5608"/> <!-- Area="Central Thanalan" -->
+      <LLTalkTo NpcId="1036646" XYZ="84.33655, 0.2746339, -279.8657" QuestId="69613" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69613) == 3">
+      <LisbethTravel Zone="141" Subzone="249" Position="155.5822, 1.965353, -166.1365"/> <!-- Area="Central Thanalan" -->
+      <LLTalkTo NpcId="1036647" XYZ="154.8943, 1.956494, -166.6743" QuestId="69613" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(69613) == 4">
+      <LisbethTravel Zone="141" Subzone="249" Position="159.8045, -0.5333039, -155.0473"/> <!-- Area="Central Thanalan" -->
+	  <WaitWhile condition="GetQuestStep(69613) == 4"/>
+    </If>
+    <If Condition="GetQuestStep(69613) == 5">
+      <LisbethTravel Zone="141" Subzone="249" Position="155.4376, 1.896393, -165.345"/> <!-- Area="Central Thanalan" -->
+      <LLTalkTo NpcId="1036647" XYZ="154.8943, 1.956494, -166.6743" QuestId="69613" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(69613) == 6">
+      <LisbethTravel Zone="141" Subzone="278" Position="-137.3407, 3.992526, 212.9682"/> <!-- Area="Central Thanalan" -->
+      <LLTalkTo NpcId="1036654" XYZ="-136.6141, 3.926157, 212.5734" QuestId="69613" StepId="6"/>
+    </If>
+    <If Condition="GetQuestStep(69613) == 7">
+	  <If condition="not IsOnMap(971)">
+		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>	
+	    <WaitWhile condition="GetQuestStep(69613) == 7"/>			
+	  </If>	
+    </If>
+    <If Condition="GetQuestStep(69613) == 255">
+	  <If condition="not IsOnMap(971)">
+		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+	  </If>	
+      <LLTurnIn QuestId="69613" NpcId="1036631" XYZ="2.792297, -2.740355E-07, -0.4425049"/>
+      <LLSmallTalk/>
+    </If>
+    <!-- The Killing Act -->
+    <If Condition="IsQuestCompleted(69613) and not IsQuestCompleted(69614) and not HasQuest(69614) and Core.Player.ClassLevel &gt; 79">
+	  <If condition="not IsOnMap(971)">
+		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+	  </If>	
+      <If Condition="IsQuestAcceptQualified(69614)">
+        <LLPickupQuest QuestId="69614" NpcId="1036631"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69614) == 1">
+      <LisbethTravel Zone="397" Subzone="2214" Position="-92.20562, 87.189, -735.9736"/> <!-- Area="Coerthas Western Highlands" -->
+      <LLToast message="Please complete the solo duty manually."/>
+	  <WaitTimer WaitTime="1"/>	  
+    </If>
+    <If Condition="GetQuestStep(69614) == 255">
+	  <If condition="not IsOnMap(971)">
+		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
+		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
+	  </If>	
+      <LLTurnIn QuestId="69614" NpcId="10366309" XYZ="0.7781982, 0.01480778, -1.968445"/>
+      <LLSmallTalk/>
+    </If>
 		
   </Order>
   <GrindAreas>
@@ -101,4 +247,4 @@
 		]]>
 		</CodeChunk>
   </CodeChunks>
-</Profile>  
+</Profile>
