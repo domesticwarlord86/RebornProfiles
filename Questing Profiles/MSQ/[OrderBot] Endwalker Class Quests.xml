@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Profile: Endwalker Class Quests
+Author: Angles24
+-->
+<Profile>
+	<Name>Endwalker Class Quests</Name>
+	<Order>	 
+	
+	<EnablePlugin Name="Enable Flight"/>
+
+	<!-- Magical Range DPS (BLM/SMN/RDM) -->
+	<If Condition="(ClassName == ClassJobType.BlackMage) or (ClassName == ClassJobType.Summoner) or (ClassName == ClassJobType.RedMage)">
+	  <LLToast message="Magical Range DPS quests are not currently supported."/>	 
+	  <WaitTimer WaitTime="1"/>
+	  <LLStopBot/>
+	</If>
+
+	<!-- Melee DPS (MNK/DRG/NIN/SAM/RPR) -->
+	<If Condition="(ClassName == ClassJobType.Monk) or (ClassName == ClassJobType.Dragoon) or (ClassName == ClassJobType.Ninja) or (ClassName == ClassJobType.Samurai) or (ClassName == ClassJobType.Reaper)">
+	  <LLToast message="Melee DPS quests are not currently supported."/>	 
+	  <WaitTimer WaitTime="1"/>
+	  <LLStopBot/>
+	</If>
+
+	<!-- Tanks (PLD/WAR/DRK/GNB) -->
+	<If Condition="(ClassName == ClassJobType.Paladin) or (ClassName == ClassJobType.Warrior) or (ClassName == ClassJobType.DarkNight) or (ClassName == ClassJobType.Gunbreaker)">
+	  <LLToast message="Tank quests are not currently supported."/>	 
+	  <WaitTimer WaitTime="1"/>
+	  <LLStopBot/>
+	</If>
+
+	<!-- Healers (WHM/SCH/AST/SGE) -->
+	<If Condition="(ClassName == ClassJobType.WhiteMage) or (ClassName == ClassJobType.Scholar) or (ClassName == ClassJobType.Astrologian) or (ClassName == ClassJobType.Sage)">
+	  <LLToast message="Healer quests are not currently supported."/>	 
+	  <WaitTimer WaitTime="1"/>
+	  <LLStopBot/>
+	</If>
+		
+	<If Condition="Core.Player.ClassLevel &lt; 85">		
+      <LLToast message="These quests require you to be level 85 or higher."/>	  
+	  <WaitTimer WaitTime="1"/>
+	  <LLStopBot/>
+	</If>
+		
+	<If Condition="not IsQuestCompleted(69954)">		
+      <LLToast message="Please complete the MSQ 'At World's End' to unlock access to quests."/>	  
+	  <WaitTimer WaitTime="1"/>
+	  <LLStopBot/>
+	</If>
+
+	<!-- Physical Range DPS (BRD/MCH/DNC) -->
+	<If Condition="(ClassName == ClassJobType.Bard) or (ClassName == ClassJobType.Machinist) or (ClassName == ClassJobType.Dancer)">
+		<!-- Seeds of Disquiet -->
+		<If Condition="IsQuestCompleted(69954) and not IsQuestCompleted(69656) and Core.Player.ClassLevel &gt; 84">
+		  <If Condition="not HasQuest(69656)">
+			<GetTo ZoneId="963" XYZ="-174.2929, 4.061, -88.55746"/> <!-- Area="" -->
+			<If Condition="IsQuestAcceptQualified(69656)">
+			  <LLPickupQuest QuestId="69656" NpcId="1039102"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69656) == 1">
+          <GetTo ZoneId="759" XYZ="0.4934967, 0, 7.410453"/> <!-- Area="The Doman Enclave" -->
+		  <LLTalkTo NpcId="1038458" XYZ="-0.9613647, 0, 7.217468" QuestId="69656" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69656) == 2">
+		  <GetTo ZoneId="614" XYZ="469.7408, 15.8139, 321.2261"/> <!-- Area="Yanxia (Namai)" -->
+		  <LLTalkTo NpcId="1038459" XYZ="472.0989, 16.27617, 318.2573" QuestId="69656" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69656) == 3">
+		  <GetTo ZoneId="614" XYZ="320.8069, 29.65085, 222.372"/> <!-- Area="Yanxia (Namai)" -->
+		  <WaitWhile condition="GetQuestStep(69656) == 3"/>
+		</If>
+		<If Condition="GetQuestStep(69656) == 4">
+			<GetTo ZoneId="614" XYZ="321.2039, 29.87193, 221.2337"/> <!-- Area="Yanxia (Namai)" -->
+		  <LLTalkTo NpcId="1038462" XYZ="319.9359, 29.41258, 224.4143" QuestId="69656" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(69656) == 255">
+			<GetTo ZoneId="759" XYZ="1.322733, 0, 9.036406"/> <!-- Area="The Doman Enclave" -->
+		  <LLTurnIn QuestId="69656" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- When the Kami Answer -->
+		<If Condition="IsQuestCompleted(69656) and not IsQuestCompleted(69657) and Core.Player.ClassLevel &gt; 85">
+		  <If Condition="not HasQuest(69657)">
+			<GetTo ZoneId="759" XYZ="2.382383, 1.481369E-12, 7.39793"/> <!-- Area="The Doman Enclave" -->
+			<If Condition="IsQuestAcceptQualified(69657)">
+			  <LLPickupQuest QuestId="69657" NpcId="1038458"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69657) == 1">
+		  <GetTo ZoneId="613" XYZ="-738.937, 1.259545, -364.6158"/>  <!-- Subzone="2785" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038464" XYZ="-738.5519, 1.199262, -365.5604" QuestId="69657" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69657) == 2 and GetQuestById(69657).QuestI8A == 0">
+		  <GetTo ZoneId="613" XYZ="-754.7877, 4.763456, -479.3042"/>  <!-- Subzone="2785" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038467" XYZ="-753.7805, 4.763457, -479.3927" QuestId="69657" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69657) == 2 and GetQuestById(69657).QuestI8A == 1">
+		  <GetTo ZoneId="613" XYZ="-779.0794, 8.915203, -496.4908"/>  <!-- Subzone="2785" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038466" XYZ="-778.2254, 8.915216, -497.0627" QuestId="69657" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69657) == 2 and GetQuestById(69657).QuestI8A == 2">
+		  <GetTo ZoneId="613" XYZ="-815.2897, 19.56589, -461.4916"/>  <!-- Subzone="2785" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038468" XYZ="-815.8846, 19.56589, -461.3871" QuestId="69657" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69657) == 3">
+		  <GetTo ZoneId="613" XYZ="-738.9078, 1.252764, -364.8486"/>  <!-- Subzone="2785" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038464" XYZ="-738.5519, 1.199262, -365.5604" QuestId="69657" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69657) == 4">
+		  <GetTo ZoneId="613" XYZ="-738.9078, 1.252764, -364.8486"/>  <!-- Subzone="2785" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038464" XYZ="-738.5519, 1.199262, -365.5604" QuestId="69657" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(69657) == 5">
+		  <GetTo ZoneId="613" XYZ="-586.9168, 19.08121, -705.7706"/>  <!-- Subzone="2751" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038469" XYZ="-585.0461, 19.14314, -708.0339" QuestId="69657" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(69657) == 255">
+		  <GetTo ZoneId="759" XYZ="1.233511, 0, 8.707384"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
+		  <LLTurnIn QuestId="69657" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- Home No Longer -->
+		<If Condition="IsQuestCompleted(69657) and not IsQuestCompleted(69658) and Core.Player.ClassLevel &gt; 86">
+		  <If Condition="not HasQuest(69658)">
+		  <GetTo ZoneId="759" XYZ="1.058628, 0, 7.270153"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
+			<If Condition="IsQuestAcceptQualified(69658)">
+			  <LLPickupQuest QuestId="69658" NpcId="1038458"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69658) == 1">
+		  <GetTo ZoneId="613" XYZ="200.9382, 1.151002, -575.3417"/>  <!-- Subzone="2774" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038471" XYZ="201.77, 1.151003, -574.8837" QuestId="69658" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69658) == 2">
+		  <GetTo ZoneId="613" XYZ="11.65529, -198.1737, -153.3114"/>  <!-- Subzone="2772" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038475" XYZ="12.71069, -198.1417, -155.8404" QuestId="69658" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69658) == 3">
+		  <RunCode Name="TurnOffMount" />
+		  <DisablePlugin Name="Enable Flight"/>
+		  <Dismount/>
+		  <MoveTo XYZ="16.98328, -195.7451, -105.9739"/>
+		  <LLTalkTo NpcId="1038476" XYZ="16.98328, -195.7451, -105.9739" QuestId="69658" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69658) == 4">
+		  <MoveTo XYZ="-34.62274, -198.5641, -69.16919"/>
+		  <LLTalkTo NpcId="1038477" XYZ="-34.62274, -198.5641, -69.16919" QuestId="69658" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(69658) == 5">
+		  <MoveTo XYZ="-90.25714, -198.9535, -129.6559"/>	  
+		  <RunCode Name="TurnOnMount" />
+		  <EnablePlugin Name="Enable Flight"/>
+		  <LLTalkTo NpcId="1038478" XYZ="-90.25714, -198.9535, -129.6559" QuestId="69658" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(69658) == 6">
+		  <GetTo ZoneId="613" XYZ="200.9248, 1.151003, -575.3288"/>  <!-- Subzone="2774" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038474" XYZ="203.1128, 1.151003, -574.1207" QuestId="69658" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(69658) == 255">
+		  <GetTo ZoneId="759" XYZ="0.1667996, 0, 9.36346"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
+		  <LLTurnIn QuestId="69658" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- The Devoted Daughter -->
+		<If Condition="IsQuestCompleted(69658) and not IsQuestCompleted(69659) and Core.Player.ClassLevel &gt; 87">
+		  <If Condition="not HasQuest(69659)">
+		  <GetTo ZoneId="759" XYZ="1.924749, 1.732127E-12, 8.651213"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
+			<If Condition="IsQuestAcceptQualified(69659)">
+			  <LLPickupQuest QuestId="69659" NpcId="1038458"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69659) == 1">
+		  <GetTo ZoneId="613" XYZ="80.41842, 33.00897, -668.452"/>  <!-- Subzone="2774" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1021505" XYZ="79.42322, 33.00897, -669.9474" QuestId="69659" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69659) == 2">
+		  <GetTo ZoneId="613" XYZ="422.3332, 0.2716919, -684.3195"/>  <!-- Subzone="2750" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038480" XYZ="422.1713, -0.003129845, -685.298" QuestId="69659" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69659) == 3">
+		  <GetTo ZoneId="613" XYZ="568.2789, -0.02680721, -515.0847"/>  <!-- Subzone="2750" Area="The Ruby Sea" -->
+		  <LLTalkTo NpcId="1038482" XYZ="569.7261, 0.7321513, -517.4792" QuestId="69659" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69659) == 255">
+		  <GetTo ZoneId="759" XYZ="1.014674, 0, 8.963577"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
+		  <LLTurnIn QuestId="69659" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- A Singular Gift -->
+		<If Condition="IsQuestCompleted(69659) and not IsQuestCompleted(69660) and Core.Player.ClassLevel &gt; 88">
+		  <If Condition="not HasQuest(69660)">
+		  <GetTo ZoneId="759" XYZ="2.678487, 1.661289E-12, 8.297858"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
+			<If Condition="IsQuestAcceptQualified(69660)">
+			  <LLPickupQuest QuestId="69660" NpcId="1038458"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69660) == 1">
+		  <GetTo ZoneId="614" XYZ="443.3264, 68.02853, -82.57426"/>  <!-- Subzone="2793" Area="Yanxia (Namai)" -->
+		  <LLTalkTo NpcId="1038484" XYZ="442.2522, 68.02853, -81.31531" QuestId="69660" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69660) == 2 and GetQuestById(69660).QuestI8A == 0">
+		  <RunCode Name="TurnOffMount" />
+		  <DisablePlugin Name="Enable Flight"/>
+		  <Dismount/>
+		  <MoveTo XYZ="475.1038, 68.02853, -113.2751"/>  <!-- Subzone="2793" Area="Yanxia (Namai)" -->
+		  <LLTalkTo NpcId="1038488" XYZ="476.585, 68.02853, -114.7937" QuestId="69660" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69660) == 2 and GetQuestById(69660).QuestI8A == 1">
+		  <MoveTo XYZ="429.0074, 68.0285, -124.923"/>  <!-- Subzone="2793" Area="Yanxia (Namai)" -->
+		  <LLTalkTo NpcId="1038489" XYZ="427.8781, 68.02852, -126.1769" QuestId="69660" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69660) == 2 and GetQuestById(69660).QuestI8A == 2">
+		  <MoveTo XYZ="445.7894, 58.66646, -181.3488"/>  <!-- Subzone="2793" Area="Yanxia (Namai)" --> 
+		  <RunCode Name="TurnOnMount" />
+		  <EnablePlugin Name="Enable Flight"/>
+		  <LLTalkTo NpcId="1038490" XYZ="443.6865, 58.7244, -181.6281" QuestId="69660" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69660) == 3">
+		  <GetTo ZoneId="614" XYZ="626.9303, 81.0663, -211.8628"/>  <!-- Subzone="2752" Area="Yanxia (Namai)" -->
+		  <LLTalkTo NpcId="1038491" XYZ="626.9779, 81.0615, -211.5359" QuestId="69660" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69660) == 4">
+		  <GetTo ZoneId="614" XYZ="626.9303, 81.0663, -211.8628"/>  <!-- Subzone="2752" Area="Yanxia (Namai)" -->
+		  <LLTalkTo NpcId="1038491" XYZ="626.9779, 81.0615, -211.5359" QuestId="69660" StepId="4"/>
+		  <WaitWhile condition="GetQuestStep(69660) == 4"/>
+		</If>
+		<If Condition="GetQuestStep(69660) == 255">
+		  <GetTo ZoneId="759" XYZ="1.636931, 1.423018E-12, 7.105349"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
+		  <LLTurnIn QuestId="69660" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- Laid to Rest -->
+		<If Condition="IsQuestCompleted(69660) and not IsQuestCompleted(69661) and Core.Player.ClassLevel &gt; 89">
+		  <If Condition="not HasQuest(69661)">
+		  <GetTo ZoneId="759" XYZ="0.966931, 1.541967E-12, 7.699349"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
+			<If Condition="IsQuestAcceptQualified(69661)">
+			  <LLPickupQuest QuestId="69661" NpcId="1038458"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69661) == 1">
+		  <GetTo ZoneId="614" XYZ="-449.2283, 53.78469, 304.9551"/>  <!-- Subzone="2801" Area="Yanxia (Namai)" -->
+		  <LLToast message="Please do the Solo Duty manually."/>	 
+		  <WaitTimer WaitTime="1"/>
+		  <LLStopBot/>
+		</If>
+		<If Condition="GetQuestStep(69661) == 2">
+		  <GetTo ZoneId="614" XYZ="-448.3848, 53.7844, 304.0721"/>  <!-- Subzone="2801" Area="Yanxia (Namai)" -->
+		  <LLTalkTo NpcId="1038494" XYZ="-449.6376, 53.78236, 303.6088" QuestId="69661" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69661) == 3">
+		  <GetTo ZoneId="614" XYZ="-450.4371, 53.7857, 306.8751"/>  <!-- Subzone="2801" Area="Yanxia (Namai)" -->
+		  <LLTalkTo NpcId="1038494" XYZ="-449.6376, 53.78236, 303.6088" QuestId="69661" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69661) == 4">
+		  <GetTo ZoneId="759" XYZ="1.671808, 0, 8.807616"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
+		  <LLTalkTo NpcId="1038457" XYZ="-0.8392944, 0, 8.865417" QuestId="69661" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(69661) == 255">
+		  <GetTo ZoneId="963" XYZ="-175.8056, 4.061, -89.37521"/>  <!-- Subzone="3871" Area="" -->
+		  <LLTurnIn QuestId="69661" NpcId="1039102" XYZ="-177.9661, 4.05, -90.44025"/>
+		  <LLSmallTalk/>
+		</If>
+	</If>
+	
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="TurnOffMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="TurnOnMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>
