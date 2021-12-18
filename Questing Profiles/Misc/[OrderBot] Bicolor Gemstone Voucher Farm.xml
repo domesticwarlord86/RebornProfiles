@@ -22,10 +22,10 @@
 	</If>
 	
 	<While Condition="ItemCount(35833) &lt; &Vouchers;"> <!-- 35833 = Bicolor Gemstone Voucher -->
-		<If condition="ItemCount(26807) &gt; 999 and &Rank3Done; == 0">
+		<While condition="ItemCount(26807) &gt; 999 and &Rank3Done; == 0">
 			<GetTo ZoneId="962" XYZ="75.72826, 5.15, -36.62057"/>
-			<BuyShopExchangeCurrency NpcId="1037055" ItemIds="35833" ItemCount="1" XYZ="78.3551, 5.15, -36.78955"/>	
-		</If>
+			<BuyShopExchangeCurrency NpcId="1037055" ItemId="35833" Count="10"  XYZ="78.3551, 5.15, -36.78955"/>	
+		</While>
 		
 		<If Condition="&Leveling; == 0">
 			<!-- Garlemald -->
@@ -33,7 +33,7 @@
 				<TeleportTo Name="Camp Broken Glass" AetheryteId="172"/>
 			</If>
 			<If condition="IsOnMap(958)">
-				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798" while="IsOnMap(958)" While="ItemCount(26807) &lt; 999"/>	
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798" while="IsOnMap(958)" While="ItemCount(26807) &lt; 1000"/>	
 			</If>
 		</If>
 		
