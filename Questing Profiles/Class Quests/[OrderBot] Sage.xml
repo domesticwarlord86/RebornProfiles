@@ -11,7 +11,9 @@
     <!-- Lisbeth check -->
 	<If condition="not LisbethPresent">
 	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <WaitTimer WaitTime="1"/>
 	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <WaitTimer WaitTime="1"/>
 	  <StopBot/>
 	</If>
 	<If condition="LisbethPresent">
@@ -36,17 +38,17 @@
       <GetTo ZoneId="134" XYZ="-25.89312, 42.59772, 161.6769"/>  <!-- Subzone="179" Area="Middle La Noscea" -->
       <LLTurnIn QuestId="69603" NpcId="1039265" XYZ="-27.5426, 42.59772, 163.7445"/>			
       <LLSmallTalk/>
-			<If Condition="IsQuestCompleted(69603)">
-				<If Condition="not ClassName == ((ClassJobType.Sage))"> 
-					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 35778">
-						<RunCode name="UseCoffer"/>
-						<Log Message="Equipping Stonegold Milpreves" />
-						<EquipWeapon ItemID="35778"/>
-						<WaitTimer WaitTime="3" />
-					</While>
-				</If>
-				<AutoInventoryEquip/>
-			</If>				
+	  <If Condition="IsQuestCompleted(69603)">
+		<If Condition="not ClassName == ((ClassJobType.Sage))"> 
+		  <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 35778">
+			<RunCode name="UseCoffer"/>
+			<Log Message="Equipping Stonegold Milpreves" />
+			<EquipWeapon ItemID="35778"/>
+			<WaitTimer WaitTime="3" />
+		  </While>
+		</If>
+		<AutoInventoryEquip/>
+	  </If>				
     </If>
 		
 	<!-- Change To Sage If Not Already -->
