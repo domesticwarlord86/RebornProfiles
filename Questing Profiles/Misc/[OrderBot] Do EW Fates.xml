@@ -11,6 +11,7 @@
 <!ENTITY Garlemald "0">
 <!ENTITY MareLamentorum "0">
 <!ENTITY Elpis "0">
+<!ENTITY UltimaThule "0">
 
 ]>
 
@@ -224,6 +225,29 @@ ID: 1836 Type: Battle Fate: There's a Snake in My Water Supply!
 ID: 1838 Type: KillHandIn Fate: So Sorry, Sokles 
 
 -->	
+
+
+	<!-- Ultima Thule -->
+	<While Condition="&UltimaThule; == 1">
+		<!--<If condition="not AetherCurrentManager.IsZoneComplete(960)">
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/>--> <!-- The Twelve Wonders -->
+			<!-- </If>
+			<Log Message="Starting Ultima Thule Fates without flight support." /> 	
+			<While condition="IsOnMap(961)">
+				<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="0" while="IsOnMap(961)"/>	
+			</While>
+		</If>-->
+		<If condition="AetherCurrentManager.IsZoneComplete(960)">
+			<If condition="not IsOnMap(960)">
+				<TeleportTo AetheryteId="179"/> <!-- Reah Tahra -->
+			</If>
+			<Log Message="Starting Ultima THule Fates with flight support." /> 	
+			<While condition="IsOnMap(960)">
+				<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="0" while="IsOnMap(960)"/>	
+			</While>
+		</If>		
+	</While>
   
   </Order>
   <GrindAreas>
