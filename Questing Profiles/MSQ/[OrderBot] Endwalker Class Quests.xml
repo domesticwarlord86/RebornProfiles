@@ -9,13 +9,6 @@ Author: Angles24
 	
 	<EnablePlugin Name="Enable Flight"/>
 
-	<!-- Magical Range DPS (BLM/SMN/RDM) -->
-	<If Condition="(ClassName == ClassJobType.BlackMage) or (ClassName == ClassJobType.Summoner) or (ClassName == ClassJobType.RedMage)">
-	  <LLToast message="Magical Range DPS quests are not currently supported."/>	 
-	  <WaitTimer WaitTime="1"/>
-	  <LLStopBot/>
-	</If>
-
 	<!-- Melee DPS (MNK/DRG/NIN/SAM/RPR) -->
 	<If Condition="(ClassName == ClassJobType.Monk) or (ClassName == ClassJobType.Dragoon) or (ClassName == ClassJobType.Ninja) or (ClassName == ClassJobType.Samurai) or (ClassName == ClassJobType.Reaper)">
 	  <LLToast message="Melee DPS quests are not currently supported."/>	 
@@ -24,7 +17,7 @@ Author: Angles24
 	</If>
 
 	<!-- Tanks (PLD/WAR/DRK/GNB) -->
-	<If Condition="(ClassName == ClassJobType.Paladin) or (ClassName == ClassJobType.Warrior) or (ClassName == ClassJobType.DarkNight) or (ClassName == ClassJobType.Gunbreaker)">
+	<If Condition="(ClassName == ClassJobType.Paladin) or (ClassName == ClassJobType.Warrior) or (ClassName == ClassJobType.DarkKnight) or (ClassName == ClassJobType.Gunbreaker)">
 	  <LLToast message="Tank quests are not currently supported."/>	 
 	  <WaitTimer WaitTime="1"/>
 	  <LLStopBot/>
@@ -272,6 +265,261 @@ Author: Angles24
 		<If Condition="GetQuestStep(69661) == 255">
 		  <GetTo ZoneId="963" XYZ="-175.8056, 4.061, -89.37521"/>  <!-- Subzone="3871" Area="" -->
 		  <LLTurnIn QuestId="69661" NpcId="1039102" XYZ="-177.9661, 4.05, -90.44025"/>
+		  <LLSmallTalk/>
+		</If>
+	</If>
+
+	<!-- Magical Range DPS (BLM/SMN/RDM) -->
+	<If Condition="(ClassName == ClassJobType.BlackMage) or (ClassName == ClassJobType.Summoner) or (ClassName == ClassJobType.RedMage)">
+		<!-- Our Aching Souls -->
+		<If Condition="IsQuestCompleted(69954) and not IsQuestCompleted(69662) and Core.Player.ClassLevel &gt; 84">
+		  <If Condition="not HasQuest(69662)">
+		  <GetTo ZoneId="963" XYZ="-168.7868, 4.05, -90.36634"/>  <!-- Subzone="3871" Area="" -->
+			<If Condition="IsQuestAcceptQualified(69662)">
+			  <LLPickupQuest QuestId="69662" NpcId="1039101"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69662) == 1">
+		  <GetTo ZoneId="418" XYZ="-35.46025, 5.474271, 45.31253"/>  <!-- Subzone="0" Area="Ishgard (Foundation)" -->
+		  <LLTalkTo NpcId="1037018" XYZ="-34.04291, 5.474271, 45.30396" QuestId="69662" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69662) == 2">
+		  <GetTo ZoneId="419" XYZ="-147.3906, 14.95305, -167.8299"/>  <!-- Subzone="2328" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037019" XYZ="-148.7908, 14.95305, -167.9255" QuestId="69662" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69662) == 3">
+		  <GetTo ZoneId="419" XYZ="-147.3906, 14.95305, -167.8299"/>  <!-- Subzone="2328" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037019" XYZ="-148.7908, 14.95305, -167.9255" QuestId="69662" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69662) == 4">
+		  <GetTo ZoneId="397" XYZ="484.3711, 162.3711, -544.4384"/>  <!-- Subzone="2207" Area="Coerthas Western Highlands" -->
+		  <LLTalkTo NpcId="1037022" XYZ="483.9703, 162.3972, -545.7695" QuestId="69662" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(69662) == 5">
+		  <GetTo ZoneId="397" XYZ="666.5452, 184.9031, -453.312"/>  <!-- Subzone="2201" Area="Coerthas Western Highlands" -->
+		  <WaitWhile condition="GetQuestStep(69662) == 5"/>
+		</If>
+		<If Condition="GetQuestStep(69662) == 6">
+		  <GetTo ZoneId="397" XYZ="483.3128, 162.362, -541.9368"/>  <!-- Subzone="2207" Area="Coerthas Western Highlands" -->
+		  <LLTalkTo NpcId="1037027" XYZ="483.0548, 162.3463, -544.0299" QuestId="69662" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(69662) == 7">
+		  <GetTo ZoneId="418" XYZ="112.3034, 24.39218, -9.536032"/>  <!-- Subzone="2312" Area="Ishgard (Foundation)" -->
+		  <LLTalkTo NpcId="1011223" XYZ="114.58, 24.41283, -11.06281" QuestId="69662" StepId="7"/>
+		</If>
+		<If Condition="GetQuestStep(69662) == 255">
+		  <If condition="not IsOnMap(1001)">
+			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+		  </If>	
+		  <LLTurnIn QuestId="69662" NpcId="1037016" XYZ="1.174927, 0, -6.393555"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- No Forgiveness, No Deliverance -->
+		<If Condition="IsQuestCompleted(69662) and not IsQuestCompleted(69663) and Core.Player.ClassLevel &gt; 85">
+		  <If Condition="not HasQuest(69663)">
+			<If condition="not IsOnMap(1001)">
+			  <GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			  <UseTransport DialogOption="0" NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+			</If>	
+			<If Condition="IsQuestAcceptQualified(69663)">
+			  <LLPickupQuest QuestId="69663" NpcId="1037016"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69663) == 1 and GetQuestById(69663).QuestI8A == 0">
+		  <GetTo ZoneId="419" XYZ="10.28282, 15.96506, -30.63994"/>  <!-- Subzone="0" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037030" XYZ="11.82568, 15.96506, -30.1366" QuestId="69663" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69663) == 1 and GetQuestById(69663).QuestI8A == 1">
+		  <GetTo ZoneId="419" XYZ="-8.130558, 27.96465, -168.4268"/>  <!-- Subzone="2326" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037031" XYZ="-8.98761, 27.96488, -170.5806" QuestId="69663" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69663) == 1 and GetQuestById(69663).QuestI8A == 2">
+		  <GetTo ZoneId="419" XYZ="54.00357, 14.45325, -98.22093"/>  <!-- Subzone="0" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037032" XYZ="52.65881, 14.76884, -97.30682" QuestId="69663" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69663) == 2">
+		  <GetTo ZoneId="419" XYZ="71.40243, -4.690317, -41.70388"/>  <!-- Subzone="0" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037033" XYZ="69.77942, -4.690317, -41.39777" QuestId="69663" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69663) == 3">
+		  <GetTo ZoneId="418" XYZ="143.1549, -20, 61.79491"/>  <!-- Subzone="2309" Area="Ishgard (Foundation)" -->
+		  <UseObject NpcId="2011698" XYZ="142.7787, -20.00464, 60.83765" QuestId="69663" StepId="3" Condition="GetQuestStep(69663) == 3"/>
+		</If>
+		<If Condition="GetQuestStep(69663) == 255">
+		  <If condition="not IsOnMap(1001)">
+			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+		  </If>	
+		  <LLTurnIn QuestId="69663" NpcId="1037016" XYZ="1.174927, 0, -6.393555"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- Only Justice, Only Vengeance -->
+		<If Condition="IsQuestCompleted(69663) and not IsQuestCompleted(69664) and Core.Player.ClassLevel &gt; 86">
+		  <If Condition="not HasQuest(69664)">
+			<If condition="not IsOnMap(1001)">
+			  <GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			  <UseTransport DialogOption="0" NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+			</If>	
+			<If Condition="IsQuestAcceptQualified(69664)">
+			  <LLPickupQuest QuestId="69664" NpcId="1037016"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69664) == 1">
+		  <GetTo ZoneId="419" XYZ="-104.8311, 14.95313, -142.2458"/>  <!-- Subzone="2328" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037036" XYZ="-105.3636, 14.95313, -142.7482" QuestId="69664" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69664) == 2">
+		  <GetTo ZoneId="419" XYZ="-70.50562, -4.734931, -43.85509"/>  <!-- Subzone="0" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037039" XYZ="-69.47443, -4.734931, -42.00812" QuestId="69664" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69664) == 255">
+		  <If condition="not IsOnMap(1001)">
+			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+		  </If>
+		  <LLTurnIn QuestId="69664" NpcId="1037015" XYZ="0.04577637, 0, -7.126038"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- Wills Unending, Faith Unbending -->
+		<If Condition="IsQuestCompleted(69664) and not IsQuestCompleted(69665) and Core.Player.ClassLevel &gt; 87">
+		  <If Condition="not HasQuest(69665)">
+			<If condition="not IsOnMap(1001)">
+			  <GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			  <UseTransport DialogOption="0" NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+			</If>	
+			<If Condition="IsQuestAcceptQualified(69665)">
+			  <LLPickupQuest QuestId="69665" NpcId="1037016"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69665) == 1 and GetQuestById(69665).QuestI8A == 0">
+		  <GetTo ZoneId="155" XYZ="205.9528, 302.0953, -272.3175"/>  <!-- Subzone="388" Area="Coerthas Central Highlands" -->
+		  <Dismount/>
+		  <MoveTo XYZ="206.8138, 303.115, -294.983"/>  <!-- Subzone="388" Area="Coerthas Central Highlands" -->
+		  <LLTalkTo NpcId="1006395" XYZ="206.8666, 303.115, -296.2539" QuestId="69665" StepId="1"/>
+		  <MoveTo XYZ="205.9528, 302.0953, -272.3175"/>  <!-- Subzone="388" Area="Coerthas Central Highlands" -->
+		</If>
+		<If Condition="GetQuestStep(69665) == 1 and GetQuestById(69665).QuestI8A == 1">
+		  <GetTo ZoneId="155" XYZ="185.9795, 319.0841, -238.2445"/>  <!-- Subzone="388" Area="Coerthas Central Highlands" -->
+		  <LLTalkTo NpcId="1006392" XYZ="184.222, 319.0841, -238.3307" QuestId="69665" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69665) == 1 and GetQuestById(69665).QuestI8A == 2">
+		  <GetTo ZoneId="155" XYZ="235.6335, 302, -201.0286"/>  <!-- Subzone="388" Area="Coerthas Central Highlands" -->
+		  <Dismount/>
+		  <MoveTo XYZ="257.1598, 303.1613, -205.8672"/>  <!-- Subzone="388" Area="Coerthas Central Highlands" -->
+		  <LLTalkTo NpcId="1006401" XYZ="257.8011, 303.1581, -204.4252" QuestId="69665" StepId="1"/>
+		  <MoveTo XYZ="235.6335, 302, -201.0286"/>  <!-- Subzone="388" Area="Coerthas Central Highlands" -->
+		</If>
+		<If Condition="GetQuestStep(69665) == 2">
+		  <GetTo ZoneId="155" XYZ="200.388, 302.2, -170.3421"/>  <!-- Subzone="388" Area="Coerthas Central Highlands" -->
+		  <LLHandOver ItemIds="2003095,2003096,2003094" NpcId="1037041" XYZ="197.6805, 302.3135, -167.5898" QuestId="69665" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69665) == 3">
+		  <GetTo ZoneId="155" XYZ="200.388, 302.2, -170.3421"/>  <!-- Subzone="388" Area="Coerthas Central Highlands" -->
+		  <LLTalkTo NpcId="1037041" XYZ="197.6805, 302.3135, -167.5898" QuestId="69665" StepId="3"/>
+		  <WaitWhile condition="GetQuestStep(69665) == 3"/>
+		</If>
+		<If Condition="GetQuestStep(69665) == 255">
+		  <If condition="not IsOnMap(1001)">
+			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+		  </If>
+		  <LLTurnIn QuestId="69665" NpcId="1037016" XYZ="0.04577637, 0, -7.126038"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- O Mighty Fury, Guide Us to Victory -->
+		<If Condition="IsQuestCompleted(69665) and not IsQuestCompleted(69666) and Core.Player.ClassLevel &gt; 88">
+		  <If Condition="not HasQuest(69666)">
+			<If condition="not IsOnMap(1001)">
+			  <GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			  <UseTransport DialogOption="0" NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+			</If>	
+			<If Condition="IsQuestAcceptQualified(69666)">
+			  <LLPickupQuest QuestId="69666" NpcId="1037016"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69666) == 1">
+		  <GetTo ZoneId="419" XYZ="10.77335, 11.96514, 50.58206"/>  <!-- Subzone="2330" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037043" XYZ="11.00171, 11.96515, 52.38416" QuestId="69666" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69666) == 2">
+		  <GetTo ZoneId="419" XYZ="10.77335, 11.96514, 50.58206"/>  <!-- Subzone="2330" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037043" XYZ="11.00171, 11.96515, 52.38416" QuestId="69666" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69666) == 3">
+		  <GetTo ZoneId="419" XYZ="10.16651, 15.96505, -8.677383"/>  <!-- Subzone="2320" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037043" XYZ="9.015969, 16.01504, -6.808994" QuestId="69666" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69666) == 4">
+		  <GetTo ZoneId="419" XYZ="0.6768347, 26.96506, -99.79725"/>  <!-- Subzone="2329" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037043" XYZ="-0.2024707, 26.96506, -97.88638" QuestId="69666" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(69666) == 5">
+		  <GetTo ZoneId="419" XYZ="-1.688986, 35.34491, -185.7324"/>  <!-- Subzone="2327" Area="Ishgard (The Pillars)" -->
+		  <LLTalkTo NpcId="1037044" XYZ="-1.632751, 35.3449, -188.5558" QuestId="69666" StepId="5"/>
+		  <WaitWhile condition="GetQuestStep(69666) == 5"/>
+		</If>
+		<If Condition="GetQuestStep(69666) == 255">
+		  <If condition="not IsOnMap(1001)">
+			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+		  </If>
+		  <LLTurnIn QuestId="69666" NpcId="1037015" XYZ="0.04577637, 0, -7.126038"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- Ever March Heavensward -->
+		<If Condition="IsQuestCompleted(69666) and not IsQuestCompleted(69667) and Core.Player.ClassLevel &gt; 89">
+		  <If Condition="not HasQuest(69667)">
+			<If condition="not IsOnMap(1001)">
+			  <GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			  <UseTransport DialogOption="0" NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+			</If>	
+			<If Condition="IsQuestAcceptQualified(69667)">
+			  <LLPickupQuest QuestId="69667" NpcId="1037016"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69667) == 1">
+		  <GetTo ZoneId="419" XYZ="0.444257, 35.34491, -186.8499"/>  <!-- Subzone="2327" Area="Ishgard (The Pillars)" -->
+		  <LLToast message="Please do the Solo Duty manually."/>	 
+		  <WaitTimer WaitTime="1"/>
+		  <LLStopBot/>
+		</If>
+		<If Condition="GetQuestStep(69667) == 3">
+		  <If condition="not IsOnMap(1001)">
+			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+		  </If>
+		  <LLTalkTo NpcId="1038486" XYZ="1.174927, 0, -6.393555" QuestId="69667" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69667) == 4">
+		  <If condition="not IsOnMap(1001)">
+			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+		  </If>
+		  <LLTalkTo NpcId="1037017" XYZ="-1.266479, 0, -5.752686" QuestId="69667" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(69667) == 5">
+		  <If condition="not IsOnMap(1001)">
+			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
+			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
+		  </If>
+		  <LLTalkTo NpcId="1037015" XYZ="0.04577637, 0, -7.126038" QuestId="69667" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(69667) == 255">
+		  <GetTo ZoneId="963" XYZ="-168.2771, 4.05, -91.04063"/>  <!-- Subzone="3871" Area="" -->
+		  <LLTurnIn QuestId="69667" NpcId="1039101" XYZ="-168.0781, 4.05, -91.66095"/>
 		  <LLSmallTalk/>
 		</If>
 	</If>
