@@ -1306,7 +1306,7 @@
 			<If condition="LisbethPresent">
 				<LisbethTravel Zone="958" Subzone="3902" Position="-310.1345, 22.49282, 366.7542"/>
 			</If>
-			<If condition="LisbethPresent">
+			<If condition="not LisbethPresent">
 				<GetTo ZoneId="958" Subzone="3902" Position="-310.1345, 22.49282, 366.7542"/>
 			</If>
       <!-- Area="Garlemald" -->
