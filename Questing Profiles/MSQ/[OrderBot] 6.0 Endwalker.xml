@@ -1303,12 +1303,7 @@
       <LLTalkTo NpcId="1039878" XYZ="-362.1729, 22.07107, 434.0123" QuestId="69923" StepId="3"/>
     </If>
     <If Condition="GetQuestStep(69923) == 4">
-			<If condition="LisbethPresent">
-				<LisbethTravel Zone="958" Subzone="3902" Position="-310.1345, 22.49282, 366.7542"/>
-			</If>
-			<If condition="not LisbethPresent">
-				<GetTo ZoneId="958" Subzone="3902" Position="-310.1345, 22.49282, 366.7542"/>
-			</If>
+	<GetTo ZoneId="958" Subzone="3902" Position="-310.1345, 22.49282, 366.7542"/>
       <!-- Area="Garlemald" -->
       <LLTalkTo NpcId="1039880" XYZ="-308.3696, 22.46834, 365.7129" QuestId="69923" StepId="4"/>
     </If>
@@ -1321,24 +1316,14 @@
       <RunCode name="TurnOnMount"/>
     </If>
     <If Condition="GetQuestStep(69923) == 255">
-			<If condition="LisbethPresent">
-				<LisbethTravel Zone="958" XYZ="65.88302, 0.04138899, 150.071"/>
-			</If>
-			<If condition="not LisbethPresent">
-				<GetTo ZoneId="958" XYZ="65.88302, 0.04138899, 150.071"/>
-			</If>
+	<GetTo ZoneId="958" XYZ="65.88302, 0.04138899, 150.071"/>
       <LLTurnIn QuestId="69923" NpcId="1039883" XYZ="64.65234, 0.2142759, 147.8446"/>
       <LLSmallTalk/>
     </If>
 
     <!-- The Last Bsstion -->
     <If Condition="IsQuestCompleted(69923) and not HasQuest(69924) and not IsQuestCompleted(69924)">
-			<If condition="LisbethPresent">
-				<LisbethTravel Zone="958" XYZ="65.88302, 0.04138899, 150.071"/>
-			</If>
-			<If condition="not LisbethPresent">
-				<GetTo ZoneId="958" XYZ="65.88302, 0.04138899, 150.071"/>
-			</If>      
+	<GetTo ZoneId="958" XYZ="65.88302, 0.04138899, 150.071"/>
       <If Condition="IsQuestAcceptQualified(69924)">
         <LLPickupQuest QuestId="69924" NpcId="1039883"/>
         <LLSmallTalk/>
