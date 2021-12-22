@@ -7,8 +7,8 @@
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
 <!ENTITY Vouchers "500">
-<!ENTITY Rank3Done "1">
-<!ENTITY Leveling "1">
+<!ENTITY Rank3Done 0">
+<!ENTITY Leveling "0">
 ]>
 <Profile>
   <Name>Bicolor Gemstone Voucher Farm</Name>
@@ -22,10 +22,10 @@
 	</If>
 	
 	<While Condition="ItemCount(35833) &lt; &Vouchers;"> <!-- 35833 = Bicolor Gemstone Voucher -->
-		<While condition="ItemCount(26807) &gt; 999 and &Rank3Done; == 0">
+		<If condition="ItemCount(26807) &gt; 999 and &Rank3Done; == 0">
 			<GetTo ZoneId="962" XYZ="75.72826, 5.15, -36.62057"/>
-			<BuyShopExchangeCurrency NpcId="1037055" ItemId="35833" Count="10"  XYZ="78.3551, 5.15, -36.78955"/>	
-		</While>
+			<BuyShopExchangeCurrency Dialog="True" NpcId="1037055" ItemId="35833" Count="10"  XYZ="78.3551, 5.15, -36.78955"/>	
+		</If>
 		
 		<If Condition="&Leveling; == 0">
 			<!-- Garlemald -->
