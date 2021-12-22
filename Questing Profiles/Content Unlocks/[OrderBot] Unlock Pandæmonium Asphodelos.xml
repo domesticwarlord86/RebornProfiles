@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: [OrderBot] Unlock Pandæmonium Asphodelos
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Unlock Pandæmonium: Asphodelos</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+	<If Condition="not IsQuestCompleted(70000)">
+		<UserDialog DialogText="Please complete MSQ for 6.0 before running this profile." DialogTitle="Please Complete MSQ"/> 
+	</If>
+	
+	<If Condition="IsQuestCompleted(70000)">
+    <!-- The Crystal from Beyond -->
+    <If Condition="not IsQuestCompleted(70011)">
+      <If Condition="not HasQuest(70011)">
+      <GetTo ZoneId="962" XYZ="-83.37029, 1.059484, 36.12111"/>  
+        <If Condition="IsQuestAcceptQualified(70011)">
+          <LLPickupQuest QuestId="70011" NpcId="1041268"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(70011) == 1">
+				<GetTo ZoneId="956" XYZ="-642.2553, -27.1706, 301.3975"/>  
+				<LLTalkTo NpcId="1039508" XYZ="-639.704, -27.17583, 301.0757" QuestId="70011" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(70011) == 2">
+				<If condition="not IsOnMap(844)">
+					<GetTo ZoneId="819" XYZ="115.3024, 14.64911, 4.564951"/>  
+					<UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433"/>				
+				</If>
+				<GetTo ZoneId="844" XYZ="-0.02745688, 0, -6.554644"/>  
+				<UseObject NpcId="2012425" XYZ="0.1067505, -0.01531982, -8.163635" QuestId="70011" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70011) == 255">
+				<GetTo ZoneId="961" XYZ="543.2932, 7.735289, 48.16505"/>  
+				<LLTurnIn QuestId="70011" NpcId="1041271" XYZ="542.5345, 7.66426, 50.91931"/>
+				<LLSmallTalk/>
+			</If>	
+    </If>
+		
+    <!-- Where Familiars Dare -->
+    <If Condition="IsQuestCompleted(70011) and not IsQuestCompleted(70012)">
+      <If Condition="not HasQuest(70012)">
+      <GetTo ZoneId="961" XYZ="543.2932, 7.735289, 48.16505"/>  
+        <If Condition="IsQuestAcceptQualified(70012)">
+          <LLPickupQuest QuestId="70012" NpcId="1041271"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(70012) == 1">
+				<LisbethTravel ZoneId="961" XYZ="226.5144, 7.385857, 238.521"/> 
+				<LLTalkTo NpcId="1041272" XYZ="228.1986, 7.385857, 239.9481" QuestId="70012" StepId="1"/>
+			</If>			
+			<If Condition="GetQuestStep(70012) == 2">
+				<LisbethTravel ZoneId="961" XYZ="805.8878, 152.2225, -239.8296"/> 
+				<UseTransport NpcId="1041273" XYZ="808.3772, 152.2224, -240.4975" QuestId="70012" StepId="2"/>
+				<WaitWhile condition="GetQuestStep(70012) == 2"/>
+			</If>
+			<If Condition="GetQuestStep(70012) == 3">
+				<UserDialog DialogText="Please complete the Duty Asphodelos: The First Circle" /> 
+			</If>
+			
+    </If>		
+		
+		
+		
+		
+	</If>
+ 
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

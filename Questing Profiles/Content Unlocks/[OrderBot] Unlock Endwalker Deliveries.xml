@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- GetQuestById(66098).QuestI8AH == 2-->
+	<!-- Profile start here -->	
+	
+	<If Condition="not IsQuestCompleted(69916)">
+		<LLToast message="Please complete MSQ 'Sound the Bell, School's In.'"/>
+	</If>
+	<If Condition="IsQuestCompleted(69916)">
+    <!-- The Faculty -->
+    <If Condition="not IsQuestCompleted(70009)">
+      <If Condition="not HasQuest(70009)">
+        <LisbethTravel Zone="962" Subzone="3803" Position="-355.8746, 21.84602, -93.05553"/> <!-- Area="Old Sharlayan" -->
+        <If Condition="IsQuestAcceptQualified(70009)">
+          <LLPickupQuest QuestId="70009" NpcId="1038500"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70009) == 255">
+      <LisbethTravel Zone="962" Subzone="3803" Position="-355.8746, 21.84602, -93.05553"/> <!-- Area="Old Sharlayan" -->
+      <LLTurnIn QuestId="70009" NpcId="1038500" XYZ="-357.8394, 21.84602, -91.32526"/>
+      <LLSmallTalk/>
+    </If>
+
+
+	</If>
+ 
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
