@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Unlock Smileton And Stigma Dreamscape
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Unlock Smileton And Stigma Dreamscape</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->
+	<If Condition="not IsQuestCompleted(70000)">
+		<UserDialog DialogText="Please complete MSQ for 6.0 before running this profile." DialogTitle="Please Complete MSQ"/> 
+	</If>
+	
+	<If Condition="IsQuestCompleted(70000)">
+		<!-- Smileton -->
+    <!-- Cutting the Cheese -->
+    <If Condition="not IsQuestCompleted(69703)">
+      <If Condition="not HasQuest(69703)">
+      <GetTo ZoneId="962" XYZ="23.72796, 2.372941, 8.954927"/>  
+        <If Condition="IsQuestAcceptQualified(69703)">
+          <LLPickupQuest QuestId="69703" NpcId="1041861"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69703) == 1">
+				<LisbethTravel ZoneId="959" XYZ="-486.4293, 139.8982, 71.48449"/> 
+				<LLTalkTo NpcId="1041862" XYZ="-484.5197, 139.8458, 69.38269" QuestId="69703" StepId="1"/>
+			</If>			
+			<If Condition="GetQuestStep(69703) == 2">
+				<UserDialog DialogText="Please complete the Duty Smileton" QuestRequirementInLog="InLog" IsBotContinueAllowed="True" QuestId="69703" StepId="2"/>       
+			</If>		
+		</If>
+	
+	
+		<!-- Sigma Dreamscape -->
+    <!-- Where No Loporrit Has Gone Before -->
+    <If Condition="not IsQuestCompleted(69704)">
+      <If Condition="not HasQuest(69704)">
+      <GetTo ZoneId="962" XYZ="-9.39877, -16.247, 126.8756"/>  
+        <If Condition="IsQuestAcceptQualified(69704)">
+          <LLPickupQuest QuestId="69704" NpcId="1041891"/>
+          <LLSmallTalk/>
+        </If>
+      </If> 
+			<If Condition="GetQuestStep(69704) == 1">
+				<If condition="not IsOnSubMap(3848)">
+					<GetTo ZoneId="956" XYZ="-622.6026, -27.6706, 301.9657"/>  
+					<UseTransport NpcId="1039550" InteractDistance="3.0" XYZ="-620.7218, -27.6706, 302.1743"/>				
+				</If>
+				<GetTo ZoneId="956" XYZ="-353.2205, -224.1977, 308.003"/> 
+				<LLTalkTo NpcId="1041892" XYZ="-350.3014, -224.2927, 309.7123" QuestId="69704" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69704) == 2">
+				<LisbethTravel ZoneId="960" XYZ="-387.7263, 80.71336, 610.7572"/> 
+				<LLTalkTo NpcId="1041893" XYZ="-390.8599, 80.78265, 605.4321" QuestId="69704" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69704) == 3">
+				<LisbethTravel ZoneId="960" XYZ="475.7544, 438, 280.8382"/> 
+				<LLTalkTo NpcId="1041894" XYZ="472.8312, 438, 281.6052" QuestId="69704" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(69704) == 4">
+				<LisbethTravel ZoneId="960" XYZ="662.0645, 440.4633, 366.6458"/> 
+				<LLTalkTo NpcId="1041904" XYZ="665.4001, 440.4633, 366.3232" QuestId="69704" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(69704) == 5">
+				<UserDialog DialogText="Please complete the duty Stigma Dreamscape" QuestRequirementInLog="InLog" IsBotContinueAllowed="True" QuestId="69704" StepId="5"/>       
+			</If>			
+    </If>	
+	</If>
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
