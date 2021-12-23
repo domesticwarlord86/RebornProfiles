@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Bicolor Gemstone Milk Farm
+  Authors: Angles24, DomesticWarlord86, nt153133
+  
+-->
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY Vouchers "500">
+<!ENTITY Rank3Done "0">
+<!ENTITY Leveling "0">
+]>
+<Profile>
+  <Name>Bicolor Gemstone Milk Farm</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<If Condition="&Rank3Done; == 1">
+		<LLToast message="Buying vouchers requires you to have Rank 3 Shared Fates in all Endwalker zones."/>
+		<LogMessage Message="Buying vouchers requires you to have Rank 3 Shared Fates in all Endwalker zones. Please change Rank3Done '1' to Rank3Done '0' if you have."/>
+		<LLToast message="Please change Rank3Done '1' to Rank3Done '0' if you have."/>		
+	</If>
+	
+	<While Condition="ItemCount(35833) &lt; &Vouchers;"> <!-- 35833 = Bicolor Gemstone Voucher -->
+		<While condition="ItemCount(26807) &gt; 950 and &Rank3Done; == 0">
+			<LisbethTravel Area="Garlemald" Position="-423.0033, 22.20428, 430.1808"/>
+			<BuyShopExchangeCurrency Dialog="True" NpcId="1037724" ItemId="36255" Count="300"  XYZ="-426.8712,22.27852,430.106"/>	
+		</While>
+		
+		<If Condition="&Leveling; == 0">
+			<!-- Garlemald -->
+			<If condition="not IsOnMap(958)">
+				<TeleportTo Name="Camp Broken Glass" AetheryteId="172"/>
+			</If>
+			<If condition="IsOnMap(958)">
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798" while="IsOnMap(958)" While="ItemCount(26807) &lt; 951"/>	
+			</If>
+		</If>
+		
+		<!--	
+		Garlemald Fates
+		ID: 1785 Type: Battle Fate: Trespassers Will Be Eaten 
+		ID: 1786 Type: Battle Fate: A Snowball's Chance 
+		ID: 1787 Type: Battle Fate: Not Yeti 
+		ID: 1788
+		ID: 1789 Type: Boss Fate: Roses Are Red, Violence Is Due 
+		ID: 1790 Type: ProtectNPC Fate: Amazing Crates 
+		ID: 1791
+		ID: 1792
+		ID: 1793 Type: Battle Fate: Rocker, Roller, Out-of-controller 
+		ID: 1794 Type: Battle Fate: Stray Dog Strut 
+		ID: 1796 Type: Battle Fate: A Bit of a Problem 
+		ID: 1797 Type: Boss Fate: The Man with the Golden Son 
+		ID: 1798 Type: KillHandIn Fate: Parts Unknown 	
+		-->		
+		
+		<If Condition="&Leveling; == 1">
+			<If Condition="Core.Me.ClassLevel &lt; 83">
+				<!-- Labyrinthos -->
+				<If condition="not IsOnMap(956)">
+					<TeleportTo Name="The Archeion" AetheryteId="166"/>
+				</If>
+				<If condition="IsOnMap(956)">
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="83" BlacklistIds="1750,1754" while="IsOnMap(956)" While="ItemCount(26807) &lt; 999 and Core.Me.ClassLevel &lt; 83"/>	
+				</If>
+			</If>
+			<If Condition="Core.Me.ClassLevel &lt; 86">
+				<!-- Garlemald -->
+				<If condition="not IsOnMap(958)">
+					<TeleportTo Name="Camp Broken Glass" AetheryteId="172"/>
+				</If>
+				<If condition="IsOnMap(958)">
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="86" BlacklistIds="1798" while="IsOnMap(958)" While="ItemCount(26807) &lt; 999 and Core.Me.ClassLevel &lt; 86"/>	
+				</If>
+			</If>
+			<If Condition="Core.Me.ClassLevel &lt; 91">
+				<!-- Elpis -->
+				<If condition="not IsOnMap(961)">
+					<TeleportTo Name="Anagnorisis" AetheryteId="176"/>
+				</If>
+				<If condition="IsOnMap(961)">
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1830,1838" while="IsOnMap(961)" While="ItemCount(26807) &lt; 999"/>	
+				</If>
+			</If>
+		</If>
+	</While>
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>	
+	<CodeChunks>
+  </CodeChunks>
+</Profile>      
+
