@@ -40,7 +40,12 @@
 			</If>			
 			<If Condition="GetQuestStep(69703) == 2">
 				<UserDialog DialogText="Please complete the Duty Smileton" QuestRequirementInLog="InLog" IsBotContinueAllowed="True" QuestId="69703" StepId="2"/>       
-			</If>		
+			</If>
+			<If Condition="GetQuestStep(69703) == 255">
+				<LisbethTravel ZoneId="959" XYZ="-484.4448, 139.8306, 72.64782"/> 
+				<LLTurnIn QuestId="69703" NpcId="1041862" XYZ="-484.5197, 139.8458, 69.38269"/>
+				<LLSmallTalk/>
+			</If>			
 		</If>
 	
 	
@@ -76,6 +81,15 @@
 			</If>
 			<If Condition="GetQuestStep(69704) == 5">
 				<UserDialog DialogText="Please complete the duty Stigma Dreamscape" QuestRequirementInLog="InLog" IsBotContinueAllowed="True" QuestId="69704" StepId="5"/>       
+			</If>
+			<If Condition="GetQuestStep(69704) == 6">
+				<LisbethTravel ZoneId="960" XYZ="663.9443, 440.4633, 368.9894"/> 
+				<LLTalkTo NpcId="1041904" XYZ="665.4001, 440.4633, 366.3232" QuestId="69704" StepId="6"/>
+			</If>
+			<If Condition="GetQuestStep(69704) == 255">
+					<LisbethTravel ZoneId="960" XYZ="202.2263, 567.5001, 245.5617"/> 
+				<LLTurnIn QuestId="69704" NpcId="1041896" XYZ="200.4883, 567.5001, 242.7863"/>
+				<LLSmallTalk/>
 			</If>			
     </If>	
 	</If>
