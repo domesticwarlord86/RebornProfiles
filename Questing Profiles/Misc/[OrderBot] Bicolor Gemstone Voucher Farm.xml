@@ -7,7 +7,7 @@
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
 <!ENTITY Vouchers "500">
-<!ENTITY Rank3Done 0">
+<!ENTITY Rank3Done "0">
 <!ENTITY Leveling "0">
 ]>
 <Profile>
