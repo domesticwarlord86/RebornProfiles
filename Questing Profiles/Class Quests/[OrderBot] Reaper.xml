@@ -108,7 +108,8 @@
     </If>
     <If Condition="GetQuestStep(69611) == 2">
       <LisbethTravel Zone="148" Subzone="70" Position="-274.2083, 19.58968, 67.3505"/> <!-- Area="Central Shroud" -->
-      <LLUseItem ItemId="2003077" NpcId="2011546" XYZ="-274.342, 19.82141, 66.453" QuestId="69611" StepId="2"/>
+      <LLUseItem ItemId="2003077" NpcId="2011546" XYZ="-274.342, 19.82141, 66.453" QuestId="69611" StepId="2" UseTimes="1" BlacklistAfter="True"/>
+	  <WaitWhile condition="GetQuestStep(69611) == 2"/>
     </If>
     <If Condition="GetQuestStep(69611) == 3">
       <LisbethTravel Zone="148" Subzone="94" Position="-9.707943, -3.001461, 57.18336"/> <!-- Area="Central Shroud" -->
@@ -228,7 +229,7 @@
 		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
 		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
 	  </If>	
-      <LLTurnIn QuestId="69614" NpcId="10366309" XYZ="0.7781982, 0.01480778, -1.968445"/>
+      <LLTurnIn QuestId="69614" NpcId="1036630" XYZ="0.7781982, 0.01480778, -1.968445"/>
       <LLSmallTalk/>
     </If>
 		
