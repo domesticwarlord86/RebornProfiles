@@ -17,8 +17,8 @@
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY AnnounceFates "0"> 
-<!ENTITY StopBot "0">
+<!ENTITY AnnounceFates "1"> 
+<!ENTITY StopBot "1">
 
 <!-- Select NMs to farm -->
 <!ENTITY TheSnowQueen "0">
@@ -57,7 +57,7 @@
 				<Grind GrindRef="Yukinko" while="not IsFateActive(1351)"/>
 				<MoveTo XYZ="53.07406, -737.6741, 324.4169" />				
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Brothers spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="The Snow Queen spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
