@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Shared Fate Farming
+  Profile: Endwalker Fate Farming
   Authors: DomesticWarlord86, nt153133
 -->
 
@@ -17,10 +17,15 @@
 
 
 <Profile>
-  <Name>Shared Fate Farming</Name>
+  <Name>Endwalker Fate Farming</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
 
+	  
+	<If condition="&Thavnair; == 0 and &Labyrinthos; == 0 and &Garlemald; == 0 and &MareLamentorum; == 0 and &Elpis; == 0 and &UltimaThule; == 0">
+	  <LLToast message="Please open the profile and set a zone to 1."/>	
+	</If>	
+	  
 	<!-- Thavnair -->
 	<While Condition="&Thavnair; == 1">
 		<If condition="not AetherCurrentManager.IsZoneComplete(957)">
