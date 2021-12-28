@@ -1826,7 +1826,7 @@
 				<WaitTimer Waittime="3"/>
 				<NoCombatMoveTo XYZ="216.4895, 74.8235, 525.1127"/>
 				<WaitTimer Waittime="1"/>
-				<NoMoveTo XYZ="191.9045, 63.59433, 467.9334"/>
+				<NoCombatMoveTo XYZ="191.9045, 63.59433, 467.9334"/>
 				<LLTalkTo NpcId="1039987" XYZ="189.2577, 63.36112, 467.4601" QuestId="69933" StepId="8"/>
 				<RunCode name="TurnOnMount"/>
 			</If>
