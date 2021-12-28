@@ -3741,35 +3741,35 @@
     </If>
     <If Condition="GetQuestStep(69981) == 3 and GetQuestById(69981).QuestI8A == 0">
       <GetTo ZoneId="956" XYZ="-23.26567, -31.53032, 35.79078"/>
-      <LLTalkTo NpcId="1040423" XYZ="-22.23242, -31.53036, 38.07117" QuestId="69981" StepId="3"/>
+      <LLTalkTo NpcId="1040423" XYZ="-22.23242, -31.53036, 38.07117" QuestId="69981" StepId="3" Condition="GetQuestById(69981).QuestI8A == 0"/>
     </If>
     <If Condition="GetQuestStep(69981) == 3 and GetQuestById(69981).QuestI8A == 1">
       <GetTo ZoneId="956" XYZ="-17.67904, -29.53043, 8.162125"/>
-      <LLTalkTo NpcId="1040418" XYZ="-19.39423, -29.53043, 10.2998" QuestId="69981" StepId="3"/>
+      <LLTalkTo NpcId="1040418" XYZ="-19.39423, -29.53043, 10.2998" QuestId="69981" StepId="3" Condition="GetQuestById(69981).QuestI8A == 1"/>
     </If>
     <If Condition="GetQuestStep(69981) == 3 and GetQuestById(69981).QuestI8A == 2">
       <GetTo ZoneId="956" XYZ="-37.32614, -29.53017, -167.0055"/>
-      <LLTalkTo NpcId="1040422" XYZ="-37.12524, -29.53008, -169.1462" QuestId="69981" StepId="3"/>
+      <LLTalkTo NpcId="1040422" XYZ="-37.12524, -29.53008, -169.1462" QuestId="69981" StepId="3" Condition="GetQuestById(69981).QuestI8A == 2"/>
     </If>
     <If Condition="GetQuestStep(69981) == 3 and GetQuestById(69981).QuestI8A == 3">
       <GetTo ZoneId="956" XYZ="1.59411, -29.53034, -128.0283"/>
-      <LLTalkTo NpcId="1040416" XYZ="3.067017, -29.53036, -126.1769" QuestId="69981" StepId="3"/>
+      <LLTalkTo NpcId="1040416" XYZ="3.067017, -29.53036, -126.1769" QuestId="69981" StepId="3" Condition="GetQuestById(69981).QuestI8A == 3"/>
     </If>
     <If Condition="GetQuestStep(69981) == 3 and GetQuestById(69981).QuestI8A == 4">
       <GetTo ZoneId="956" XYZ="46.94585, -31.53043, -46.48566"/>
-      <LLTalkTo NpcId="1040421" XYZ="48.14221, -31.53043, -48.11176" QuestId="69981" StepId="3"/>
+      <LLTalkTo NpcId="1040421" XYZ="48.14221, -31.53043, -48.11176" QuestId="69981" StepId="3" Condition="GetQuestById(69981).QuestI8A == 4"/>
     </If>
     <If Condition="GetQuestStep(69981) == 3 and GetQuestById(69981).QuestI8A == 5">
       <GetTo ZoneId="956" XYZ="58.21506, -29.53043, -27.70899"/>
-      <LLTalkTo NpcId="1040417" XYZ="59.31177, -29.53042, -24.42969" QuestId="69981" StepId="3"/>
+      <LLTalkTo NpcId="1040417" XYZ="59.31177, -29.53042, -24.42969" QuestId="69981" StepId="3" Condition="GetQuestById(69981).QuestI8A == 5"/>
     </If>
     <If Condition="GetQuestStep(69981) == 3 and GetQuestById(69981).QuestI8A == 6">
       <GetTo ZoneId="956" XYZ="-13.58764, -31.53043, -54.13599"/>
-      <LLTalkTo NpcId="1040419" XYZ="-15.76257, -31.53043, -51.59082" QuestId="69981" StepId="3"/>
+      <LLTalkTo NpcId="1040419" XYZ="-15.76257, -31.53043, -51.59082" QuestId="69981" StepId="3" Condition="GetQuestById(69981).QuestI8A == 6"/>
     </If>
     <If Condition="GetQuestStep(69981) == 3 and GetQuestById(69981).QuestI8A == 7">
       <GetTo ZoneId="956" XYZ="40.77831, -17.53038, -72.38631"/>
-      <LLTalkTo NpcId="1040420" XYZ="40.63477, -17.53038, -69.62695" QuestId="69981" StepId="3"/>
+      <LLTalkTo NpcId="1040420" XYZ="40.63477, -17.53038, -69.62695" QuestId="69981" StepId="3" Condition="GetQuestById(69981).QuestI8A == 7"/>
     </If>
     <If Condition="GetQuestStep(69981) == 4">
       <GetTo ZoneId="956" XYZ="-77.02654, -29.53, -56.80101"/>
@@ -3906,21 +3906,21 @@
       <LLTalkTo NpcId="1040487" XYZ="-234.6991, -224.3827, 349.0195" QuestId="69985" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69985) == 2">
-		<Dismount />
-		<WaitTimer WaitTime="3" />
-		<RunCode Name="Coffer" />
-		<WaitTimer waitTime="1" />
-		<AutoInventoryEquip/>
-		<WaitTimer waitTime="1" />
+	  <Dismount />
+	  <WaitTimer WaitTime="1" />
+	  <RunCode Name="Coffer" />
+	  <WaitTimer waitTime="1" />
+	  <AutoInventoryEquip/>
+	  <WaitTimer waitTime="1" />
       <LLToast message="Please manually complete the dungeon: Lv. 89 The Aitiascope."/>
-      <StopBot/>
     </If>
     <If Condition="GetQuestStep(69985) == 3">
       <WaitWhile condition="GetQuestStep(69985) == 3"/>
     </If>
     <If Condition="GetQuestStep(69985) == 4">
+	  <WaitTimer waitTime="1" />
+	  <AutoInventoryEquip/>
       <LLToast message="Please manually complete the trial: Lv. 89 The Mothercrystal."/>
-      <StopBot/>
     </If>
     <If Condition="GetQuestStep(69985) == 5">
       <WaitWhile condition="GetQuestStep(69985) == 5"/>
@@ -4431,27 +4431,27 @@
     </If>
     <If Condition="GetQuestStep(69999) == 1 and GetQuestById(69999).QuestI8A == 0">
       <GetTo ZoneId="960" XYZ="198.7116, 566, 298.0895"/>
-      <LLTalkTo NpcId="2012364" XYZ="203.9978, 565.9723, 296.9863" QuestId="69999" StepId="1"/>
+      <LLTalkTo NpcId="2012364" XYZ="203.9978, 565.9723, 296.9863" QuestId="69999" StepId="1" Condition="GetQuestById(69999).QuestI8A == 0"/>
     </If>
     <If Condition="GetQuestStep(69999) == 1 and GetQuestById(69999).QuestI8A == 16">
       <GetTo ZoneId="960" XYZ="165.176, 565.8563, 283.1898"/>
-      <LLTalkTo NpcId="2012368" XYZ="163.1647, 567.132, 280.9338" QuestId="69999" StepId="1"/>
+      <LLTalkTo NpcId="2012368" XYZ="163.1647, 567.132, 280.9338" QuestId="69999" StepId="1" Condition="GetQuestById(69999).QuestI8A == 16"/>
     </If>
     <If Condition="GetQuestStep(69999) == 1 and GetQuestById(69999).QuestI8A == 32">
       <GetTo ZoneId="960" XYZ="159.5447, 564.9565, 292.8408"/>
-      <LLTalkTo NpcId="2012366" XYZ="157.2441, 566.0334, 295.9792" QuestId="69999" StepId="1"/>
+      <LLTalkTo NpcId="2012366" XYZ="157.2441, 566.0334, 295.9792" QuestId="69999" StepId="1" Condition="GetQuestById(69999).QuestI8A == 32"/>
     </If>
     <If Condition="GetQuestStep(69999) == 1 and GetQuestById(69999).QuestI8A == 49">
       <GetTo ZoneId="960" XYZ="183.9781, 567.5001, 243.304"/>
-      <LLTalkTo NpcId="2012367" XYZ="185.748, 568.902, 240.0396" QuestId="69999" StepId="1"/>
+      <LLTalkTo NpcId="2012367" XYZ="185.748, 568.902, 240.0396" QuestId="69999" StepId="1" Condition="GetQuestById(69999).QuestI8A == 49"/>
     </If>
     <If Condition="GetQuestStep(69999) == 1 and GetQuestById(69999).QuestI8A == 65">
       <GetTo ZoneId="960" XYZ="81.55273, 566.2979, 242.3754"/>
-      <LLTalkTo NpcId="2012365" XYZ="78.99597, 566.2775, 241.9928" QuestId="69999" StepId="1"/>
+      <LLTalkTo NpcId="2012365" XYZ="78.99597, 566.2775, 241.9928" QuestId="69999" StepId="1" Condition="GetQuestById(69999).QuestI8A == 65"/>
     </If>
     <If Condition="GetQuestStep(69999) == 1 and GetQuestById(69999).QuestI8A == 81">
       <GetTo ZoneId="960" XYZ="103.1902, 567.4999, 298.5372"/>
-      <LLTalkTo NpcId="2012369" XYZ="104.2954, 569.2682, 297.1694" QuestId="69999" StepId="1"/>
+      <LLTalkTo NpcId="2012369" XYZ="104.2954, 569.2682, 297.1694" QuestId="69999" StepId="1" Condition="GetQuestById(69999).QuestI8A == 81"/>
     </If>
     <If Condition="GetQuestStep(69999) == 2">
       <GetTo ZoneId="960" XYZ="40.63432, 567.5, 194.0578"/>
