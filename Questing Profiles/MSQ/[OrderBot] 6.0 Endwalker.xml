@@ -29,6 +29,10 @@
     Unable to navigate over the ledge.
 -->
 
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY OpenCoffers "0">
+]>
 
 <Profile>
   <Name>Endwalker Main Story Quests</Name>
@@ -917,7 +921,9 @@
 			<If Condition="GetQuestStep(69913) == 3">
 				<Dismount />
 				<WaitTimer WaitTime="3" />
-				<RunCode Name="Coffer" />
+								<If condition="&OpenCoffers; == 1">
+					<RunCode Name="Coffer" />
+				</If>	
 				<WaitTimer waitTime="1" />
 				<AutoInventoryEquip/>
 				<WaitTimer waitTime="1" />
@@ -1702,7 +1708,9 @@
 			<If Condition="GetQuestStep(69931) == 4">
 			<Dismount />
 			<WaitTimer WaitTime="3" />
-			<RunCode Name="Coffer" />
+							<If condition="&OpenCoffers; == 1">
+					<RunCode Name="Coffer" />
+				</If>	
 			<WaitTimer waitTime="1" />
 			<AutoInventoryEquip/>
 			<WaitTimer waitTime="1" />
@@ -1855,7 +1863,9 @@
 			<If Condition="GetQuestStep(69934) == 2">
 			<Dismount />
 			<WaitTimer WaitTime="3" />
-			<RunCode Name="Coffer" />
+							<If condition="&OpenCoffers; == 1">
+					<RunCode Name="Coffer" />
+				</If>	
 			<WaitTimer waitTime="1" />
 			<AutoInventoryEquip/>
 			<WaitTimer waitTime="1" />
@@ -2311,7 +2321,9 @@
 			<If Condition="GetQuestStep(69945) == 4">
 			<Dismount />
 			<WaitTimer WaitTime="3" />
-			<RunCode Name="Coffer" />
+							<If condition="&OpenCoffers; == 1">
+					<RunCode Name="Coffer" />
+				</If>	
 			<WaitTimer waitTime="1" />
 			<AutoInventoryEquip/>
 			<WaitTimer waitTime="1" />
@@ -3506,7 +3518,9 @@
 			<If Condition="GetQuestStep(69973) == 2">
 			<Dismount />
 			<WaitTimer WaitTime="3" />
-			<RunCode Name="Coffer" />
+							<If condition="&OpenCoffers; == 1">
+					<RunCode Name="Coffer" />
+				</If>	
 			<WaitTimer waitTime="1" />
 			<AutoInventoryEquip/>
 			<WaitTimer waitTime="1" />
@@ -3970,7 +3984,9 @@
 			<If Condition="GetQuestStep(69985) == 2">
 				<Dismount />
 				<WaitTimer WaitTime="1" />
-				<RunCode Name="Coffer" />
+								<If condition="&OpenCoffers; == 1">
+					<RunCode Name="Coffer" />
+				</If>	
 				<WaitTimer waitTime="1" />
 				<AutoInventoryEquip/>
 				<WaitTimer waitTime="1" />
@@ -4550,7 +4566,9 @@
 			<If Condition="GetQuestStep(70000) == 1">
 				<Dismount />
 				<WaitTimer WaitTime="3" />
-				<RunCode Name="Coffer" />
+								<If condition="&OpenCoffers; == 1">
+					<RunCode Name="Coffer" />
+				</If>	
 				<WaitTimer waitTime="1" />
 				<AutoInventoryEquip/>
 				<WaitTimer waitTime="1" />
