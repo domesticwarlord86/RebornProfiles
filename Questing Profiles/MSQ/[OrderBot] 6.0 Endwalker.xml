@@ -2818,6 +2818,9 @@
 				<LLSmallTalk/>
 				<WaitWhile condition="GetQuestStep(69956) == 4"/>
 			</If>
+			<If Condition="GetQuestStep(69956) == 5">
+				<WaitWhile condition="GetQuestStep(69956) == 5"/>
+			</If>			
 			<If Condition="GetQuestStep(69956) == 255">
 				<LLSmallTalk/>
 				<GetTo ZoneId="961" XYZ="262.7725, 44.32154, 774.3227"/>
@@ -2849,12 +2852,22 @@
 					<UseTransport NpcId="2012532" DialogOption="0" InteractDistance="3.0" XYZ="-0.01531982, 1.907349, -13.77893"/>
 				</If>
 				<GetTo ZoneId="961" XYZ="220.0089, 20.22273, 645.6842"/>
-				<LLUseItem ItemId="2003232" NpcIds="10612,10613" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" QuestId="69957" StepId="2">
-					<HotSpots>
-						<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487" />
-						<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169" />
-					</HotSpots>
-				</LLUseItem>
+				<If Condition="GetQuestStep(69957) == 2 and GetQuestById(69957).QuestI8A == 0">
+					<UseItem ItemId="2003232" NpcIds="10612" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" while="GetQuestById(69957).QuestI8A == 0">
+						<HotSpots>
+							<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487" />
+							<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169" />
+						</HotSpots>
+					</UseItem>
+				</If>
+				<If Condition="GetQuestStep(69957) == 2 and GetQuestById(69957).QuestI8A == 16">
+					<UseItem ItemId="2003232" NpcIds="10613" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" while="GetQuestById(69957).QuestI8A == 16">
+						<HotSpots>
+							<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487" />
+							<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169" />
+						</HotSpots>
+					</UseItem>
+				</If>
 			</If>
 			<If Condition="GetQuestStep(69957) == 255">
 				<If Condition="not IsOnMap(961)">
