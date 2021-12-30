@@ -7,7 +7,7 @@
 	<Name>Mare Lamentorum Sidequests</Name>
 	<Order>	 
 	
-	<LLToast message="May get stuck on Big Doors."/>
+	<LLToast message="May get stuck on Big Moon Doors."/>
     <WaitTimer WaitTime="1"/>
 	
     <!--  All Fun and Games -->
@@ -727,8 +727,174 @@
       <LLTurnIn QuestId="70053" NpcId="1041557" XYZ="292.2865, -144, -477.8363"/>
       <LLSmallTalk/>
     </If>
+    <!--  One Way or Another -->
+    <If Condition="not IsQuestCompleted(70054)">
+      <If Condition="not HasQuest(70054)">
+        <If Condition="LisbethPresent">
+          <LisbethTravel ZoneId="959" XYZ="291.5865, -144, -480.3321"/> 
+        </If>
+        <If Condition="not LisbethPresent">
+          <GetTo ZoneId="959" XYZ="291.5865, -144, -480.3321"/>  
+        </If>
+        <If Condition="IsQuestAcceptQualified(70054)">
+          <LLPickupQuest QuestId="70054" NpcId="1041558"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70054) == 1">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="304.9849, 106.5504, 36.73883"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="304.9849, 106.5504, 36.73883"/>  
+      </If>
+      <LLTalkTo NpcId="1041560" XYZ="304.219, 106.4386, 37.00305" QuestId="70054" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(70054) == 2">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="479.2123, 140.9113, 108.4817"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="479.2123, 140.9113, 108.4817"/>  
+      </If>
+      <LLTalkTo NpcId="1041817" XYZ="477.3784, 140.6724, 109.453" QuestId="70054" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(70054) == 3">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="479.2123, 140.9113, 108.4817"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="479.2123, 140.9113, 108.4817"/>  
+      </If> 
+      <LLTalkTo NpcId="2012510" XYZ="477.2869, 140.6423, 109.4224" QuestId="70054" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(70054) == 4">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="626.1335, 143.994, 55.82742"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="626.1335, 143.994, 55.82742"/>  
+      </If>
+	  <WaitWhile condition="GetQuestStep(70054) == 4"/>
+    </If>
+    <If Condition="GetQuestStep(70054) == 5">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="627.1989, 144.046, 55.9158"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="627.1989, 144.046, 55.9158"/>  
+      </If>
+      <LLTalkTo NpcId="1041561" XYZ="625.0857, 143.8522, 56.32104" QuestId="70054" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(70054) == 255">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="-340.3284, -168, -612.0158"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="-340.3284, -168, -612.0158"/>  
+      </If>
+      <LLTurnIn QuestId="70054" NpcId="1041564" XYZ="-338.3688, -168, -613.7637"/>
+      <LLSmallTalk/>
+    </If>
+    <!--  Dream a Little Dream -->
+    <If Condition="not IsQuestCompleted(70055)">
+      <If Condition="not HasQuest(70055)">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="-334.7495, -168, -611.3703"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="-334.7495, -168, -611.3703"/>  
+      </If>
+        <If Condition="IsQuestAcceptQualified(70055)">
+          <LLPickupQuest QuestId="70055" NpcId="1041903"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70055) == 1">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="-458.6024, -158.1175, -587.0775"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="-458.6024, -158.1175, -587.0775"/>  
+      </If>
+	  <UseItem ItemId="2003328" NpcId="2012512" XYZ="-457.2977, -158.1293, -585.7786" QuestId="70055" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(70055) == 2">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="-326.1765, -151.2613, -749.7024"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="-326.1765, -151.2613, -749.7024"/>  
+      </If>
+      <LLTalkTo NpcId="2012513" XYZ="-326.8025, -151.2628, -748.5008" QuestId="70055" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(70055) == 3">
+	  <RunCode Name="TurnOffMount" />
+	  <DisablePlugin Name="Enable Flight"/>
+	  <Dismount/>
+	  <MoveTo XYZ="-321.6371, -161.8502, -721.7668" UseMesh="False"/>
+	  <MoveTo XYZ="-433.1753, -168, -676.0515"/>
+	  <LLClimbHill Start="-433.1753, -168, -676.0515" End="-432.0476, -166.5541, -679.9138" Distance="2.5" SpamJump="true" />
+	  <LLClimbHill Start="-432.0476, -166.5541, -679.9138" End="-427.6171, -162.0541, -687.2523" Distance="2.5" SpamJump="true" />
+	  <LLClimbHill Start="-427.6171, -162.0541, -687.2523" End="-428.5435, -159.0541, -694.2441" Distance="2.5" SpamJump="true" />
+	  <LLClimbHill Start="-428.5435, -159.0541, -694.2441" End="-436.7499, -158.8933, -697.6969" Distance="2.5" SpamJump="true" />
+	  <RunCode Name="TurnOnMount" />
+	  <EnablePlugin Name="Enable Flight"/>
+      <LLTalkTo NpcId="2012611" XYZ="-450.3395, -158.1293, -694.4229" QuestId="70055" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(70055) == 4 and GetQuestById(70055).QuestI8A == 0">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="-549.7712, -158.8924, -651.5951"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="-549.7712, -158.8924, -651.5951"/>  
+      </If>
+      <UseObject NpcId="2012514" XYZ="-549.1265, -158.8618, -649.2866" QuestId="70055" StepId="4" Condition="GetQuestById(70055).QuestI8A == 0"/>
+    </If>
+    <If Condition="GetQuestStep(70055) == 4 and GetQuestById(70055).QuestI8A == 1">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="-546.7728, -158.8988, -464.6391"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="-546.7728, -158.8988, -464.6391"/>  
+      </If>
+      <UseObject NpcId="2012515" XYZ="-549.157, -158.8922, -465.8732" QuestId="70055" StepId="4" Condition="GetQuestById(70055).QuestI8A == 1"/>
+    </If>
+    <If Condition="GetQuestStep(70055) == 5">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="-297.0706, -144, -546.7418"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="-297.0706, -144, -546.7418"/>  
+      </If>
+      <LLHandOver ItemId="2003329" NpcId="1041818" XYZ="-295.7656, -144, -547.0817" QuestId="70055" StepId="5"/>
+    </If>
+    <If Condition="GetQuestStep(70055) == 255">
+      <If Condition="LisbethPresent">
+        <LisbethTravel ZoneId="959" XYZ="-297.0706, -144, -546.7418"/> 
+      </If>
+      <If Condition="not LisbethPresent">
+        <GetTo ZoneId="959" XYZ="-297.0706, -144, -546.7418"/>  
+      </If>
+      <LLTurnIn QuestId="70055" NpcId="1041819" XYZ="-295.6436, -144, -546.2882"/>
+      <LLSmallTalk/>
+    </If>
 	
   </Order>
+  <CodeChunks>
+    <CodeChunk Name="TurnOffMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="TurnOnMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
   <GrindAreas>    
     <GrindArea name="Daphnia">
       <Hotspots>
