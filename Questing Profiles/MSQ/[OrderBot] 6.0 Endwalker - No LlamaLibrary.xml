@@ -482,7 +482,7 @@
     <!-- Thavnair Branch -->
     <!-- For Thavnair Bound -->
     <If Condition="IsQuestCompleted(69903) and not IsQuestCompleted(69904)">
-      <If condition="ot HasQuest(69904)">
+      <If condition="not HasQuest(69904)">
 				<If condition="not IsOnMap(987)">
 					<GetTo ZoneId="962" XYZ="-108.0241, 3.898939, 5.788384"/>
 					<UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>
