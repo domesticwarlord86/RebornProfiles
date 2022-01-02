@@ -5,7 +5,13 @@ Author: Angles24
 -->
 <Profile>
 	<Name>Endwalker Class Quests</Name>
-	<Order>	 
+	<Order>	 	
+			
+	<If Condition="not IsQuestCompleted(69954)">		
+      <LLToast message="Please complete the MSQ 'At World's End' to unlock access to quests."/>	  
+	  <WaitTimer WaitTime="1"/>
+	  <LLStopBot/>
+	</If>
 	
 	<EnablePlugin Name="Enable Flight"/>
 
@@ -191,6 +197,63 @@ Author: Angles24
 		  <LLTurnIn QuestId="69654" NpcId="1040166" XYZ="68.74182, 40, 66.30042"/>
 		  <LLSmallTalk/>
 		</If>
+		<!-- To Calmer Seas -->
+		<If Condition="IsQuestCompleted(69654) and not IsQuestCompleted(69655) and Core.Player.ClassLevel &gt; 89">
+		  <If Condition="not HasQuest(69655)">
+			<GetTo ZoneId="128" XYZ="68.31924, 40, 67.82864"/> 
+			<If Condition="IsQuestAcceptQualified(69655)">
+			  <LLPickupQuest QuestId="69655" NpcId="1040166"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69655) == 1">
+		  <GetTo ZoneId="128" XYZ="-50.75542, 39.99999, 21.77235"/>  
+		  <LLToast message="Please do the Solo Duty manually."/>	 
+		  <WaitTimer WaitTime="1"/>
+		  <LLStopBot/>
+		</If>
+		<If Condition="GetQuestStep(69655) == 3">
+		  <GetTo ZoneId="128" XYZ="-57.61456, 39.99992, 23.86748"/>  
+		  <LLTalkTo NpcId="1040214" XYZ="-59.40338, 39.99992, 24.09399" QuestId="69655" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69655) == 4 and GetQuestById(69655).QuestI8A == 0">
+		  <GetTo ZoneId="128" XYZ="-58.12439, 39.99992, 22.8683"/>  
+		  <LLTalkTo DialogOption="0" NpcId="1040190" XYZ="-58.88464, 39.99992, 21.22528" QuestId="69655" StepId="4" Condition="GetQuestById(69655).QuestI8A == 0"/>
+		</If>
+		<If Condition="GetQuestStep(69655) == 4 and GetQuestById(69655).QuestI8A == 16">
+		  <GetTo ZoneId="128" XYZ="-58.12439, 39.99992, 22.8683"/>  
+		  <LLTalkTo DialogOption="0" NpcId="1040191" XYZ="-57.06451, 39.99999, 18.81687" QuestId="69655" StepId="4" Condition="GetQuestById(69655).QuestI8A == 16"/>
+		</If>
+		<If Condition="GetQuestStep(69655) == 4 and GetQuestById(69655).QuestI8A == 33">
+		  <GetTo ZoneId="128" XYZ="-56.62065, 39.99999, 21.32801"/>  
+		  <LLTalkTo DialogOption="0" NpcId="1040192" XYZ="-56.16852, 39.99999, 19.63837" QuestId="69655" StepId="4" Condition="GetQuestById(69655).QuestI8A == 33"/>
+		</If>
+		<If Condition="GetQuestStep(69655) == 4 and GetQuestById(69655).QuestI8A == 49">
+		  <GetTo ZoneId="128" XYZ="-56.62065, 39.99999, 21.32801"/>  
+		  <LLTalkTo DialogOption="0" NpcId="1040193" XYZ="-55.00885, 39.99999, 19.4552" QuestId="69655" StepId="4" Condition="GetQuestById(69655).QuestI8A == 49"/>
+		</If>
+		<If Condition="GetQuestStep(69655) == 4 and GetQuestById(69655).QuestI8A == 65">
+		  <GetTo ZoneId="128" XYZ="-55.72297, 39.99999, 20.53358"/>  
+		  <LLTalkTo DialogOption="0" NpcId="1040194" XYZ="-53.8186, 39.99999, 19.51624" QuestId="69655" StepId="4" Condition="GetQuestById(69655).QuestI8A == 65"/>
+		</If>
+		<If Condition="GetQuestStep(69655) == 5">
+		  <GetTo ZoneId="128" XYZ="-57.75433, 39.99992, 23.88435"/>  
+		  <LLTalkTo NpcId="1040214" XYZ="-59.40338, 39.99992, 24.09399" QuestId="69655" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(69655) == 6">
+		  <GetTo ZoneId="128" XYZ="-57.0654, 39.99994, 25.00479"/>  
+		  <LLTalkTo NpcId="1040213" XYZ="-54.45947, 39.99999, 25.98608" QuestId="69655" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(69655) == 7">
+		  <GetTo ZoneId="128" XYZ="-53.78986, 39.99999, 23.29995"/>  
+		  <LLTalkTo NpcId="1040189" XYZ="-52.14008, 39.99999, 21.80505" QuestId="69655" StepId="7"/>
+		</If>
+		<If Condition="GetQuestStep(69655) == 255">
+		  <GetTo ZoneId="963" XYZ="-173.366, 4.061, -81.14206"/>  
+		  <LLTurnIn QuestId="69655" NpcId="1040165" XYZ="-175.0058, 4.061, -81.22388"/>
+		  <LLSmallTalk/>
+		</If>
 	</If>
 
 	<!-- Tanks (PLD/WAR/DRK/GNB) -->
@@ -202,21 +265,230 @@ Author: Angles24
 
 	<!-- Healers (WHM/SCH/AST/SGE) -->
 	<If Condition="(ClassName == ClassJobType.WhiteMage) or (ClassName == ClassJobType.Scholar) or (ClassName == ClassJobType.Astrologian) or (ClassName == ClassJobType.Sage)">
-	  <LLToast message="Healer quests are not currently supported."/>	 
-	  <WaitTimer WaitTime="1"/>
-	  <LLStopBot/>
-	</If>
-		
-	<If Condition="Core.Player.ClassLevel &lt; 85">		
-      <LLToast message="These quests require you to be level 85 or higher."/>	  
-	  <WaitTimer WaitTime="1"/>
-	  <LLStopBot/>
-	</If>
-		
-	<If Condition="not IsQuestCompleted(69954)">		
-      <LLToast message="Please complete the MSQ 'At World's End' to unlock access to quests."/>	  
-	  <WaitTimer WaitTime="1"/>
-	  <LLStopBot/>
+		<!-- Far from Free -->
+		<If Condition="IsQuestCompleted(69954) and not IsQuestCompleted(69644) and Core.Player.ClassLevel &gt; 84">
+		  <If Condition="not HasQuest(69644)">
+		  <GetTo ZoneId="963" XYZ="-181.7955, 4.059999, -82.42902"/>  
+			<If Condition="IsQuestAcceptQualified(69644)">
+			  <LLPickupQuest QuestId="69644" NpcId="1039411"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69644) == 1">
+		  <GetTo ZoneId="621" XYZ="740.0128, 70, 511.9412"/>  
+		  <LLTalkTo NpcId="1039402" XYZ="741.0239, 70, 510.6127" QuestId="69644" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69644) == 2">
+		  <GetTo ZoneId="620" XYZ="-1.611956, 115.8711, -577.7408"/>  
+		  <LLTalkTo NpcId="1039403" XYZ="-2.059998, 115.8696, -576.9589" QuestId="69644" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69644) == 3 and GetQuestById(69644).QuestI8A == 0">
+		  <GetTo ZoneId="620" XYZ="-0.03523821, 115.9647, -577.2026"/>  
+		  <LLTalkTo NpcId="1039404" XYZ="2.27356, 116.1211, -577.9355" QuestId="69644" StepId="3" Condition="GetQuestById(69644).QuestI8A == 0"/>
+		</If>
+		<If Condition="GetQuestStep(69644) == 3 and GetQuestById(69644).QuestI8A == 1">
+		  <GetTo ZoneId="620" XYZ="-0.03523821, 115.9647, -577.2026"/>  
+		  <LLTalkTo NpcId="1039405" XYZ="2.120972, 116.1529, -574.4259" QuestId="69644" StepId="3" Condition="GetQuestById(69644).QuestI8A == 1"/>
+		</If>
+		<If Condition="GetQuestStep(69644) == 4">
+		  <GetTo ZoneId="620" XYZ="143.045, 118.1921, -729.4677"/>  
+		  <LLTalkTo NpcId="1039408" XYZ="144.1213, 118.1921, -728.6946" QuestId="69644" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(69644) == 255">
+		  <GetTo ZoneId="621" XYZ="738.9022, 70, 513.0149"/>  
+		  <LLTurnIn QuestId="69644" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- The Butcher's Blade -->
+		<If Condition="IsQuestCompleted(69644) and not IsQuestCompleted(69645) and Core.Player.ClassLevel &gt; 85">
+		  <If Condition="not HasQuest(69645)">
+		  <GetTo ZoneId="621" XYZ="738.9022, 70, 513.0149"/>   
+			<If Condition="IsQuestAcceptQualified(69645)">
+			  <LLPickupQuest QuestId="69645" NpcId="1039402"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69645) == 1">
+		  <GetTo ZoneId="620" XYZ="142.8717, 118.1921, -730.1248"/>  
+		  <LLTalkTo NpcId="1039413" XYZ="144.7318, 118.1921, -729.0303" QuestId="69645" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69645) == 2">
+		  <GetTo ZoneId="620" XYZ="576.641, 221.4137, -629.6263"/>  
+		  <LLTalkTo NpcId="2011775" XYZ="577.6608, 221.4541, -629.3279" QuestId="69645" StepId="2"/>
+		  <WaitWhile condition="GetQuestStep(69645) == 2"/>
+		</If>
+		<If Condition="GetQuestStep(69645) == 3">
+		  <GetTo ZoneId="620" XYZ="590.1125, 222.2074, -631.1379"/>  
+		  <LLTalkTo NpcId="2011776" XYZ="591.6074, 222.2477, -630.9453" QuestId="69645" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69645) == 4">
+		  <GetTo ZoneId="620" XYZ="161.1532, 118.4733, -470.6057"/>  
+		  <LLTalkTo NpcId="2011777" XYZ="161.4862, 118.3641, -471.7021" QuestId="69645" StepId="4"/>
+		  <WaitWhile condition="GetQuestStep(69645) == 4"/>
+		</If>
+		<If Condition="GetQuestStep(69645) == 5">
+		  <GetTo ZoneId="620" XYZ="147.6489, 118.1864, -470.6567"/>  
+		  <LLTalkTo NpcId="2011778" XYZ="146.746, 118.12, -470.9087" QuestId="69645" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(69645) == 6">
+		  <GetTo ZoneId="620" XYZ="144.9772, 118.1921, -729.0766"/>  
+		  <LLHandOver ItemIds="2003104,2003105" NpcId="1020841" XYZ="146.0135, 118.1921, -730.4951" QuestId="69645" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(69645) == 7">
+		  <GetTo ZoneId="620" XYZ="6.256576, 113.437, -754.1548"/>  
+		  <LLTalkTo NpcId="1039414" XYZ="5.477966, 113.4047, -755.581" QuestId="69645" StepId="7"/>
+		</If>
+		<If Condition="GetQuestStep(69645) == 8">
+		  <GetTo ZoneId="620" XYZ="6.256576, 113.437, -754.1548"/>  
+		  <LLTalkTo NpcId="1039414" XYZ="5.477966, 113.4047, -755.581" QuestId="69645" StepId="8"/>
+		</If>
+		<If Condition="GetQuestStep(69645) == 255">
+		  <GetTo ZoneId="621" XYZ="738.5493, 70, 512.9842"/>  
+		  <LLTurnIn QuestId="69645" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- A New Battleground -->
+		<If Condition="IsQuestCompleted(69645) and not IsQuestCompleted(69646) and Core.Player.ClassLevel &gt; 86">
+		  <If Condition="not HasQuest(69646)">
+		  <GetTo ZoneId="621" XYZ="738.2766, 70, 513.2906"/>  
+			<If Condition="IsQuestAcceptQualified(69646)">
+			  <LLPickupQuest QuestId="69646" NpcId="1039402"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69646) == 1">
+		  <GetTo ZoneId="131" XYZ="6.952273, 29.99994, 24.34443"/>  
+		  <LLTalkTo NpcId="1039415" XYZ="6.912292, 29.99993, 25.55884" QuestId="69646" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69646) == 2">
+		  <GetTo ZoneId="131" XYZ="146.4473, 3.999999, 15.14169"/>  
+		  <LLTalkTo NpcId="1039418" XYZ="144.9453, 4, 16.46442" QuestId="69646" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69646) == 3">
+		  <MoveTo XYZ="147.389, 3.999999, -6.67463"/>    
+		  <WaitTimer WaitTime="10"/>
+		  <MoveTo XYZ="133.8366, 4, -64.99568"/>    
+		  <WaitTimer WaitTime="20"/>
+		  <MoveTo XYZ="117.6953, 4, -72.26182"/>    
+		  <WaitTimer WaitTime="20"/>
+		  <LLTalkTo NpcId="1039419" XYZ="102.3116, 4, -102.6475" QuestId="69646" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69646) == 4">
+		  <GetTo ZoneId="131" XYZ="105.0628, 4, -97.33519"/>  
+		  <LLTalkTo NpcId="1039419" XYZ="102.3116, 4, -102.6475" QuestId="69646" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(69646) == 5">
+		  <GetTo ZoneId="131" XYZ="102.6724, 4, -101.539"/>  
+		  <LLTalkTo NpcId="1039419" XYZ="101.4874, 4, -102.2727" QuestId="69646" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(69646) == 5">
+		  <MoveTo ZoneId="131" XYZ="72.94037, 12.73112, 48.09771"/>  
+		  <LLTalkTo NpcId="1039419" XYZ="75.18355, 12.30619, 47.76925" QuestId="69646" StepId="5"/>
+		</If>
+		<If Condition="GetQuestStep(69646) == 6">
+		  <GetTo ZoneId="131" XYZ="6.888748, 29.99994, 24.27445"/>  
+		  <LLTalkTo NpcId="1039415" XYZ="6.912292, 29.99993, 25.55884" QuestId="69646" StepId="6"/>
+		</If>
+		<If Condition="GetQuestStep(69646) == 255">
+		  <GetTo ZoneId="621" XYZ="737.3214, 70, 513.5985"/>  
+		  <LLTurnIn QuestId="69646" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- Laying the Past to Rest -->
+		<If Condition="IsQuestCompleted(69646) and not IsQuestCompleted(69647) and Core.Player.ClassLevel &gt; 87">
+		  <If Condition="not HasQuest(69647)">
+		  <GetTo ZoneId="621" XYZ="738.9086, 69.99999, 513.4608"/>  
+			<If Condition="IsQuestAcceptQualified(69647)">
+			  <LLPickupQuest QuestId="69647" NpcId="1039402"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69647) == 1">
+		  <GetTo ZoneId="621" XYZ="612.1599, 80.00001, 626.2986"/>  
+		  <LLTalkTo NpcId="1039421" XYZ="611.0779, 80.00002, 624.6891" QuestId="69647" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69647) == 2 and GetQuestById(69647).QuestI8A == 0">
+		  <GetTo ZoneId="612" XYZ="441.0362, 114.2435, 214.0095"/>  
+		  <LLHandOver ItemId="2003106" NpcId="1021565" XYZ="440.1158, 114.2544, 212.848" QuestId="69647" StepId="2" Condition="GetQuestById(69647).QuestI8A == 0"/>
+		</If>
+		<If Condition="GetQuestStep(69647) == 2 and GetQuestById(69647).QuestI8A == 16">
+		  <GetTo ZoneId="612" XYZ="417.1907, 114.2729, 238.5705"/>  
+		  <GetTo ZoneId="612" XYZ="326.3506, 83.52567, -102.284"/>  
+		  <LLHandOver ItemId="2003106" NpcId="1020817" XYZ="327.5348, 83.45976, -103.0747" QuestId="69647" StepId="2" Condition="GetQuestById(69647).QuestI8A == 16"/>
+		</If>
+		<If Condition="GetQuestStep(69647) == 3">
+		  <GetTo ZoneId="621" XYZ="611.9992, 80.00001, 627.4017"/>  
+		  <LLTalkTo NpcId="1039421" XYZ="611.0779, 80.00002, 624.6891" QuestId="69647" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69647) == 4">
+		  <GetTo ZoneId="621" XYZ="747.9805, 69.99994, 516.4539"/>  
+		  <LLTalkTo NpcId="1039422" XYZ="748.989, 69.99995, 516.0448" QuestId="69647" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(69647) == 255">
+		  <GetTo ZoneId="621" XYZ="738.6639, 70, 515.4063"/>  
+		  <LLTurnIn QuestId="69647" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- Trail of Skulls -->
+		<If Condition="IsQuestCompleted(69647) and not IsQuestCompleted(69648) and Core.Player.ClassLevel &gt; 88">
+		  <If Condition="not HasQuest(69648)">
+		  <GetTo ZoneId="621" XYZ="739.3264, 69.99999, 514.2615"/>  
+			<If Condition="IsQuestAcceptQualified(69648)">
+			  <LLPickupQuest QuestId="69648" NpcId="1039402"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69648) == 1">
+		  <GetTo ZoneId="620" XYZ="257.575, 133.9112, -734.8026"/>  
+		  <LLTalkTo NpcId="1039423" XYZ="257.1908, 133.8877, -735.9274" QuestId="69648" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69648) == 2">
+		  <GetTo ZoneId="620" XYZ="146.8451, 118.1921, -732.2133"/>  
+		  <LLTalkTo NpcId="1020841" XYZ="146.0135, 118.1921, -730.4951" QuestId="69648" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69648) == 3">
+		  <GetTo ZoneId="620" XYZ="780.2676, 256.4607, -453.7998"/>  
+		  <LLTalkTo NpcId="1039428" XYZ="781.3381, 256.4593, -453.666" QuestId="69648" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69648) == 4">
+		  <GetTo ZoneId="620" XYZ="141.9948, 118.1921, -729.5112"/>  
+		  <LLTalkTo NpcId="1039427" XYZ="142.2292, 118.1921, -730.0679" QuestId="69648" StepId="4"/>
+		</If>
+		<If Condition="GetQuestStep(69648) == 255">
+		  <GetTo ZoneId="621" XYZ="738.991, 70, 512.8589"/>  
+		  <LLTurnIn QuestId="69648" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
+		  <LLSmallTalk/>
+		</If>
+		<!-- Trail of Skulls -->
+		<If Condition="IsQuestCompleted(69648 and not IsQuestCompleted(69649) and Core.Player.ClassLevel &gt; 89">
+		  <If Condition="not HasQuest(69649)">
+		  <GetTo ZoneId="621" XYZ="738.4757, 70, 512.698"/>  
+			<If Condition="IsQuestAcceptQualified(69649)">
+			  <LLPickupQuest QuestId="69649" NpcId="1039402"/>
+			  <LLSmallTalk/>
+			</If>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(69649) == 1">
+		  <GetTo ZoneId="621" XYZ="736.3098, 70, 440.5721"/>  
+		  <LLToast message="Please do the Solo Duty manually."/>	 
+		  <WaitTimer WaitTime="1"/>
+		  <LLStopBot/>
+		</If>
+		<If Condition="GetQuestStep(69649) == 3">
+		  <GetTo ZoneId="621" XYZ="606.2938, 80.00002, 626.6268"/>  
+		  <LLTalkTo NpcId="1039432" XYZ="606.1035, 80.00002, 623.7736" QuestId="69649" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69649) == 255">
+		  <GetTo ZoneId="963" XYZ="-181.9732, 4.059999, -79.10074"/>  
+		  <LLTurnIn QuestId="69649" NpcId="1039411" XYZ="-182.208, 4.06, -80.73547"/>
+		  <LLSmallTalk/>
+		</If>
 	</If>
 
 	<!-- Physical Range DPS (BRD/MCH/DNC) -->
