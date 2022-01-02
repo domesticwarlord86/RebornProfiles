@@ -57,7 +57,7 @@
 				<Grind GrindRef="Yukinko" while="not IsFateActive(1351)"/>
 				<MoveTo XYZ="53.07406, -737.6741, 324.4169" />				
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Brothers spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Snow Queen spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
