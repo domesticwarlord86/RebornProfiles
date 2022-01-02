@@ -16,11 +16,12 @@
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY AnnounceFates "0"> 
-<!ENTITY StopBot "0">
+<!ENTITY AnnounceFates "1"> 
+<!ENTITY StopBot "1">
 
 <!-- Select NMs to farm -->
 <!ENTITY Leucosia "0">
+<!ENTITY Sophist "0">
 <!ENTITY Graffiacane "0">
 <!ENTITY Askalaphos "0">
 <!ENTITY GrandDukeBatym "0">
@@ -58,6 +59,26 @@
 				<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />	
 				<RunCode name="LevelSync"/>
 				<LLFate FateId="1388" MinLevel="1" MaxLevel="80" while="IsFateActive(1388)"/>					
+			</While>	
+		</If>
+		
+		<!-- On the Non-existent 1390 - The Sophist -->
+		<If Condition="&Sophist; == 1">
+			<While condition="not IsFateActive(1390)">
+				<NoCombatMoveTo XYZ="480.0917, 724.0006, 486.5677" />
+				<Grind GrindRef="Pyros Apanda" while="not IsFateActive(1390)"/>
+				<MoveTo XYZ="531.2957, 724.0927, 529.2436" />				
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Sophist spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>				
+			</While>
+			<While condition="IsFateActive(1390)">
+				<NoCombatMoveTo XYZ="531.2957, 724.0927, 529.2436" />	
+				<RunCode name="LevelSync"/>
+				<LLFate FateId="1390" MinLevel="1" MaxLevel="80" while="IsFateActive(1390)"/>					
 			</While>	
 		</If>
 		
@@ -213,7 +234,15 @@
       <TargetMobs>
         <TargetMob Id="7776" Weight="1"/> <!-- Pyros Bhoot -->
       </TargetMobs>
-    </GrindArea>	
+    </GrindArea>
+    <GrindArea name="Pyros Apanda">
+      <Hotspots>
+        <Hotspot Radius="70" XYZ="480.0917, 724.0006, 486.5677" name="Pyros Apanda"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7808" Weight="1"/> <!-- Pyros Apanda -->
+      </TargetMobs>
+    </GrindArea>
     <GrindArea name="Valking">
       <Hotspots>
         <Hotspot Radius="90" XYZ="139.6219, 753.207, 793.9164" name="Name"/>
