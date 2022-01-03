@@ -21,89 +21,102 @@
 		<If Condition="ClassName == ((ClassJobType.Astrologian))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13609">
 				<Log Message="Equipping Atlas Awoken" />
-				<RunCode Name="AtlasAwoken" />
+				<EquipWeapon ItemID="13609"/>
+				<!--<RunCode Name="AtlasAwoken" />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 		</If>
 		<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13606">
 				<Log Message="Equipping Lunaris Rod Awoken" />
-				<RunCode Name="LunarisRodAwoken" />
+				<EquipWeapon ItemID="13606"/>
+				<!--<RunCode Name="LunarisRodAwoken" />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 		</If>			
 		<If Condition="ClassName == ((ClassJobType.Bard))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13601">
 				<Log Message="Equipping Berimbau Awoken" />
-				<RunCode Name="BerimbauAwoken" />
+				<EquipWeapon ItemID="13601"/>
+				<!--<RunCode Name="BerimbauAwoken" />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 		</If>
 		<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13600">
 				<Log Message="Equipping Brionac Awoken" />
-				<RunCode Name="BrionacAwoken" />
+				<EquipWeapon ItemID="13600"/>
+				<!--<RunCode Name="BrionacAwoken" />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 		</If>
 		<If Condition="ClassName == ((ClassJobType.Machinist))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13604">
 				<Log Message="Equipping Ferdinand Awoken" />
-				<RunCode Name="FerdinandAwoken" />
+				<EquipWeapon ItemID="13604"/>
+				<!--<RunCode Name="FerdinandAwoken" />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 		</If>
 		<If Condition="ClassName == ((ClassJobType.Monk))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13598">
 				<Log Message="Equipping Rising Suns Awoken" />
-				<RunCode Name="RisingSunsAwoken" />
+				<EquipWeapon ItemID="13598"/>
+				<!--<RunCode Name="RisingSunsAwoken" />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 		</If>
 		<If Condition="ClassName == ((ClassJobType.Ninja))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13602">
 				<Log Message="Equipping Yukimitsu Awoken" />
-				<RunCode Name="YukimitsuAwoken" />
+				<EquipWeapon ItemID="13602"/>
+				<!--<RunCode Name="YukimitsuAwoken" />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 		</If>
 		<If Condition="ClassName == ((ClassJobType.Paladin))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13597">
 				<Log Message="Equipping Hauteclaire Awoken" />
-				<RunCode Name="HauteclaireAwoken" />
+				<EquipWeapon ItemID="13597"/>
+				<!--<RunCode Name="HauteclaireAwoken" />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 13610">
 				<Log Message="Equipping Prytwen Awoken" />
-				<RunCode Name="PrytwenAwoken" />
+				<EquipWeapon ItemID="13610"/>
+				<!--<RunCode Name="PrytwenAwoken" />-->
 				<WaitTimer WaitTime="3" />
 			</While>				
 		</If>
 		<If Condition="ClassName == ((ClassJobType.Scholar))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13608">
 				<Log Message="Equipping Elements Awoken" />
-				<RunCode Name="ElementsAwoken" />
+				<EquipWeapon ItemID="13608"/>
+				<!--<RunCode Name="ElementsAwoken" />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 		</If>
 		<If Condition="ClassName == ((ClassJobType.Summoner))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13607">
 				<Log Message="Equipping Almandal Awoken " />
-				<RunCode Name="AlmandalAwoken " />
+				<EquipWeapon ItemID="13607"/>
+				<!--<RunCode Name="AlmandalAwoken " />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 		</If>		
 		<If Condition="ClassName == ((ClassJobType.Warrior))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13599">
 				<Log Message="Equipping Parashu Awoken" />
-				<RunCode Name="ParashuAwoken" />
+				<EquipWeapon ItemID="13599"/>
+				<!--<RunCode Name="ParashuAwoken" />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 		</If>
 		<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
 			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13605">
 				<Log Message="Equipping Seraph Cane Awoken" />
-				<RunCode Name="SeraphCaneAwoken " />
+				<EquipWeapon ItemID="13605"/>
+				<!--<RunCode Name="SeraphCaneAwoken " />-->
 				<WaitTimer WaitTime="3" />
 			</While>
 		</If>				  

@@ -56,7 +56,8 @@
 			<If Condition="ClassName == ((ClassJobType.Ninja))"> 
 				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13616">
 					<Log Message="Equipping Animated Yukimitsu" />
-					<RunCode Name="AnimatedYukimitsu" />
+					<EquipWeapon ItemID="13616"/>
+					<!--<RunCode Name="AnimatedYukimitsu" />-->
 					<WaitTimer WaitTime="3" />
 				</While>
 			</If>
