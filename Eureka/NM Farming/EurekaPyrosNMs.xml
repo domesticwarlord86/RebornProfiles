@@ -85,9 +85,9 @@
 		<!-- Creepy Doll 1391 - Graffiacane -->
 		<If Condition="&Graffiacane; == 1">
 			<While condition="not IsFateActive(1391)">
-				<NoCombatMoveTo XYZ="143.4327, 753.3129, 803.0896" />
+				<NoCombatMoveTo XYZ="112.5862, 753.9977, 794.3955" />
 				<Grind GrindRef="Valking" while="not IsFateActive(1391)"/>
-				<NoCombatMoveTo XYZ="143.4327, 753.3129, 803.0896" />			
+				<NoCombatMoveTo XYZ="99.03325, 754.2161, 811.0286" />			
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Creepy Doll spawned &lt;pos&gt;"/>
 				</If>
@@ -96,7 +96,7 @@
 				</If>				
 			</While>
 			<While condition="IsFateActive(1391)">
-				<NoCombatMoveTo XYZ="143.4327, 753.3129, 803.0896" />
+				<NoCombatMoveTo XYZ="92.61153, 754.2357, 806.4505" />
 				<RunCode name="LevelSync"/>
 				<LLFate FateId="1391" MinLevel="1" MaxLevel="80" while="IsFateActive(1391)"/>					
 			</While>	
