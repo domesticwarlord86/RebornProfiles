@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Heavensturn 2022
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Heavensturn 2022</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+	
+    <!-- Tangle with a Tora -->
+    <If Condition="not IsQuestCompleted(69559)">
+      <If Condition="not HasQuest(69559)">
+      <GetTo ZoneId="128" XYZ="15.6847, 45.656, 131.8898"/>  
+        <If Condition="IsQuestAcceptQualified(69559)">
+          <LLPickupQuest QuestId="69559" NpcId="1035552"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69559) == 1">
+				<LisbethTravel ZoneId="134" XYZ="133.2021, 58.16837, 223.6633"/> 
+				<WaitWhile condition="not IsFateActive(1667)"/>
+				<LLFate FateId="1667" while="GetQuestStep(69559) == 1" MinLevel="0" MaxLevel="91"/>
+			</If>
+			<If Condition="GetQuestStep(69559) == 255">
+				<GetTo ZoneId="128" XYZ="15.1736, 45.66599, 130.327"/>  
+				<LLTurnIn QuestId="69559" NpcId="1035552" XYZ="16.28131, 45.656, 133.9285"/>
+				<LLSmallTalk/>
+			</If>		
+    </If>	
+ 
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
