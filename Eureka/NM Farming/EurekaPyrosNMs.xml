@@ -102,8 +102,13 @@
 		
 		<!-- Quiet, Please 1392 - Askalaphos -->
 		<If Condition="&Askalaphos; == 1">
-			<While condition="not IsFateActive(1392)">
-				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
+			<While condition="not WorldManager.CurrentWeatherId == 49">
+				<NoCombatMoveTo XYZ="-127.547, 761.5078, 449.6907" />
+				<Log Message="Waiting for Umbral Wind weather..." />
+				<WaitWhile condition="not WorldManager.CurrentWeatherId == 49"/>
+			</While>
+			<While condition="WorldManager.CurrentWeatherId == 49">
+				<While condition="not IsFateActive(1392)">
 				<Grind GrindRef="Overdue Tome" while="not IsFateActive(1392)"/>
 				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
 				<If Condition="&AnnounceFates; == 1">
@@ -112,6 +117,7 @@
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
+			    </While>
 			</While>
 			<While condition="IsFateActive(1392)">
 				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
@@ -291,7 +297,7 @@
     </GrindArea>
     <GrindArea name="Overdue Tome">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="-106.6789, 757.7323, 379.5572" name="Name"/>
+        <Hotspot Radius="90" XYZ="-108.0526, 760.4666, 425.4297" name="Overdue Tome"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="7814" Weight="1"/> <!-- Overdue Tome -->
