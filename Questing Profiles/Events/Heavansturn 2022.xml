@@ -50,6 +50,7 @@
 					<If condition="GameObjectManager.GetObjectByNPCId(9691) and not IsFateActive(1667)">
 						<UseTransport InteractDistance="3.0" NpcId="9691" XYZ="120.4632,59.38345,240.5383"/>
 					</If>
+				<LLFate FateId="1667" while="not HasAtLeast(32870,&FateUntil;) and IsFateActive(1667)" MinLevel="0" MaxLevel="91"/>
 			</If>
 			<If Condition="GetQuestStep(69559) == 255">
 				<GetTo ZoneId="128" XYZ="15.1736, 45.66599, 130.327"/>  
