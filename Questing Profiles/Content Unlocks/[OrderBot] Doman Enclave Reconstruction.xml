@@ -201,7 +201,7 @@
       <LLTalkTo NpcId="1024793" XYZ="66.66663, -7.579447E-09, -59.67804" QuestId="68677" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(68677) == 255">
-			<If condition="not IsOnMap(759)"/>
+			<If condition="not IsOnMap(759)">
 				<TeleportTo Name="Camp Bronze Lake" AetheryteId="15"/>
 			</If>
       <MoveTo ZoneId="759" XYZ="31.24518, 0.2657571, 26.82043"/>
