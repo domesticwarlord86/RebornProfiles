@@ -3,24 +3,20 @@
   Profile: Eureka Pyros NM Farm
   Authors: Zamphire
   
-  Settings a NM to one will cause the bot to tagart the mobs that spawn that NM until the NM spawns and 
-  then fights the NM. The profile will go down the list targetting from bottom to top anything set to 1.
-  So if you have to stop the profile it will start back at the top when you start it again. To avoid that,
-  set anything you kill to 0.
+  Setting a NM to one will cause the bot to target the mobs that spawn that NM until the NM spawns and then fights the NM. The profile will go down the list targetting from bottom to top anything set to 1.
+  So if you have to stop the profile it will start back at the top when you start it again. To avoid that, set anything you kill to 0.
   
-  I also recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned 
-  again.
+  I also recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned again.
   
-
 -->
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY AnnounceFates "1"> 
+<!ENTITY AnnounceFates "1">
 <!ENTITY StopBot "1">
 
 <!-- Select NMs to farm -->
-<!ENTITY Leucosia "0">
+<!ENTITY Leucosia "1">
 <!ENTITY Sophist "0">
 <!ENTITY Graffiacane "0">
 <!ENTITY Askalaphos "0">
@@ -29,8 +25,10 @@
 <!ENTITY Eldthurs "0">
 <!ENTITY Iris "0">
 <!ENTITY Dux "0">
+<!ENTITY Glaukopis "0">
+<!ENTITY Skoll "0">
 
-]> 
+]>
 
 <Profile>
   <Name>Eureka Pyros NM Farm</Name>
@@ -40,26 +38,26 @@
 		<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
 		<RunCode name="EnterPyros"/>
 	</If>
-	<If Condition="IsOnMap(795)">	
+	<If Condition="IsOnMap(795)">
 		
 		<!-- Medias Res 1388 - Leucosia -->
 		<If Condition="&Leucosia; == 1">
 			<While condition="not IsFateActive(1388)">
 				<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />
 				<Grind GrindRef="Pyros Bhoot" while="not IsFateActive(1388)"/>
-				<MoveTo XYZ="213.9021, 719.7639, 180.1597" />				
+				<MoveTo XYZ="213.9021, 719.7639, 180.1597" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Medias Res spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
-				</If>				
+				</If>
 			</While>
 			<While condition="IsFateActive(1388)">
-				<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />	
+				<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />
 				<RunCode name="LevelSync"/>
-				<LLFate FateId="1388" MinLevel="1" MaxLevel="80" while="IsFateActive(1388)"/>					
-			</While>	
+				<LLFate FateId="1388" MinLevel="1" MaxLevel="80" while="IsFateActive(1388)"/>
+			</While>
 		</If>
 		
 		<!-- On the Non-existent 1390 - The Sophist -->
@@ -67,19 +65,19 @@
 			<While condition="not IsFateActive(1390)">
 				<NoCombatMoveTo XYZ="480.0917, 724.0006, 486.5677" />
 				<Grind GrindRef="Pyros Apanda" while="not IsFateActive(1390)"/>
-				<MoveTo XYZ="531.2957, 724.0927, 529.2436" />				
+				<MoveTo XYZ="531.2957, 724.0927, 529.2436" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Sophist spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
-				</If>				
+				</If>
 			</While>
 			<While condition="IsFateActive(1390)">
-				<NoCombatMoveTo XYZ="531.2957, 724.0927, 529.2436" />	
+				<NoCombatMoveTo XYZ="531.2957, 724.0927, 529.2436" />
 				<RunCode name="LevelSync"/>
-				<LLFate FateId="1390" MinLevel="1" MaxLevel="80" while="IsFateActive(1390)"/>					
-			</While>	
+				<LLFate FateId="1390" MinLevel="1" MaxLevel="80" while="IsFateActive(1390)"/>
+			</While>
 		</If>
 		
 		<!-- Creepy Doll 1391 - Graffiacane -->
@@ -87,140 +85,180 @@
 			<While condition="not IsFateActive(1391)">
 				<NoCombatMoveTo XYZ="109.5317, 754.0673, 797.4719" />
 				<Grind GrindRef="Valking" while="not IsFateActive(1391)"/>
-				<NoCombatMoveTo XYZ="99.03325, 754.2161, 811.0286" />			
+				<NoCombatMoveTo XYZ="99.03325, 754.2161, 811.0286" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Creepy Doll spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
-				</If>				
+				</If>
 			</While>
 			<While condition="IsFateActive(1391)">
 				<NoCombatMoveTo XYZ="92.61153, 754.2357, 806.4505" />
 				<RunCode name="LevelSync"/>
-				<LLFate FateId="1391" MinLevel="1" MaxLevel="80" while="IsFateActive(1391)"/>					
-			</While>	
-		</If>		
+				<LLFate FateId="1391" MinLevel="1" MaxLevel="80" while="IsFateActive(1391)"/>
+			</While>
+		</If>
 		
 		<!-- Quiet, Please 1392 - Askalaphos -->
 		<If Condition="&Askalaphos; == 1">
 			<While condition="not IsFateActive(1392)">
 				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
 				<Grind GrindRef="Overdue Tome" while="not IsFateActive(1392)"/>
-				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />			
+				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Quiet, Please spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
-				</If>				
+				</If>
 			</While>
 			<While condition="IsFateActive(1392)">
 				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
 				<RunCode name="LevelSync"/>
-				<LLFate FateId="1392" MinLevel="1" MaxLevel="80" while="IsFateActive(1392)"/>					
-			</While>	
-		</If>	
-
+				<LLFate FateId="1392" MinLevel="1" MaxLevel="80" while="IsFateActive(1392)"/>
+			</While>
+		</If>
+		
 		<!-- Up and Batym 1393 - Grand Duke Batym -->
 		<If Condition="&GrandDukeBatym; == 1">
 			<While condition="not IsFateActive(1393)">
-				<NoCombatMoveTo XYZ="-448.4793, 673.0787, -592.7371" />
+				<NoCombatMoveTo XYZ="-214.6292, 668.9334, -323.0862" />
 				<Grind GrindRef="Dark Troubadour" while="not IsFateActive(1393)"/>
-				<NoCombatMoveTo XYZ="-448.4793, 673.0787, -592.7371" />			
+				<NoCombatMoveTo XYZ="-207.5929, 668.9334, -367.6457" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Up and Batym spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
-				</If>				
+				</If>
 			</While>
 			<While condition="IsFateActive(1393)">
-				<NoCombatMoveTo XYZ="-448.4793, 673.0787, -592.7371" />
+				<NoCombatMoveTo XYZ="-207.5929, 668.9334, -367.6457" />
 				<RunCode name="LevelSync"/>
-				<LLFate FateId="1393" MinLevel="1" MaxLevel="80" while="IsFateActive(1393)"/>					
-			</While>	
-		</If>		
-
-		<!-- Scorchpion King 1393 - Lesath -->
+				<LLFate FateId="1393" MinLevel="1" MaxLevel="80" while="IsFateActive(1393)"/>
+			</While>
+		</If>
+		
+		<!-- Scorchpion King 1395 - Lesath -->
 		<If Condition="&Lesath; == 1">
-			<While condition="not IsFateActive(1393)">
-				<NoCombatMoveTo XYZ="-448.4793, 673.0787, -592.7371" />
-				<Grind GrindRef="Bird Eater" while="not IsFateActive(1393)"/>
-				<NoCombatMoveTo XYZ="-448.4793, 673.0787, -592.7371" />			
+			<While condition="not IsFateActive(1395)">
+				<NoCombatMoveTo XYZ="-450.1188, 676.7542, -514.2713" />
+				<Grind GrindRef="Bird Eater" while="not IsFateActive(1395)"/>
+				<NoCombatMoveTo XYZ="-438.4123, 676.1708, -493.2013" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Scorchpion King spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
-				</If>				
+				</If>
 			</While>
-			<While condition="IsFateActive(1393)">
-				<NoCombatMoveTo XYZ="-448.4793, 673.0787, -592.7371" />
+			<While condition="IsFateActive(1395)">
+				<NoCombatMoveTo XYZ="-443.3739, 676.5285, -508.8704" />
 				<RunCode name="LevelSync"/>
-				<LLFate FateId="1393" MinLevel="1" MaxLevel="80" while="IsFateActive(1393)"/>					
-			</While>	
+				<LLFate FateId="1395" MinLevel="1" MaxLevel="80" while="IsFateActive(1395)"/>
+			</While>
 		</If>
-
+		
 		<!-- Burning Hunger 1396 - Eldthurs -->
 		<If Condition="&Eldthurs; == 1">
 			<While condition="not IsFateActive(1396)">
-				<NoCombatMoveTo XYZ="-375.3877, 658.0246, -747.3553" />
+				<NoCombatMoveTo XYZ="-331.5598, 658.0245, -770.2502" />
 				<Grind GrindRef="Bird Eater" while="not IsFateActive(1396)"/>
-				<NoCombatMoveTo XYZ="-375.3877, 658.0246, -747.3553" />			
+				<NoCombatMoveTo XYZ="-340.8927, 658.0245, -754.2782" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Burning Hunger spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
-				</If>				
+				</If>
 			</While>
 			<While condition="IsFateActive(1396)">
-				<NoCombatMoveTo XYZ="-375.3877, 658.0246, -747.3553" />
+				<NoCombatMoveTo XYZ="-316.3983, 658.0245, -759.317" />
 				<RunCode name="LevelSync"/>
-				<LLFate FateId="1396" MinLevel="1" MaxLevel="80" while="IsFateActive(1396)"/>					
-			</While>	
+				<LLFate FateId="1396" MinLevel="1" MaxLevel="80" while="IsFateActive(1396)"/>
+			</While>
 		</If>
-
+		
 		<!-- Dry Iris 1397 - Iris -->
 		<If Condition="&Iris; == 1">
 			<While condition="not IsFateActive(1397)">
 				<NoCombatMoveTo XYZ="-7.583427, 686.3918, -465.6089" />
 				<Grind GrindRef="Northern Swallow" while="not IsFateActive(1397)"/>
-				<NoCombatMoveTo XYZ="-7.583427, 686.3918, -465.6089" />			
+				<NoCombatMoveTo XYZ="-7.583427, 686.3918, -465.6089" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Dry Iris spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
-				</If>				
+				</If>
 			</While>
 			<While condition="IsFateActive(1397)">
 				<NoCombatMoveTo XYZ="-7.583427, 686.3918, -465.6089" />
 				<RunCode name="LevelSync"/>
-				<LLFate FateId="1397" MinLevel="1" MaxLevel="80" while="IsFateActive(1397)"/>					
-			</While>	
-		</If>		
+				<LLFate FateId="1397" MinLevel="1" MaxLevel="80" while="IsFateActive(1397)"/>
+			</While>
+		</If>
 		
 		<!-- Put Up Your Dux 1399 - Dux -->
 		<If Condition="&Dux; == 1">
 			<While condition="not IsFateActive(1399)">
 				<NoCombatMoveTo XYZ="293.7856, 680.2284, -628.4229" />
 				<Grind GrindRef="Matanga Castaway" while="not IsFateActive(1399)"/>
-				<NoCombatMoveTo XYZ="293.7856, 680.2284, -628.4229" />			
+				<NoCombatMoveTo XYZ="293.7856, 680.2284, -628.4229" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Put Up Your Dux spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
-				</If>				
+				</If>
 			</While>
 			<While condition="IsFateActive(1399)">
 				<NoCombatMoveTo XYZ="293.7856, 680.2284, -628.4229" />
 				<RunCode name="LevelSync"/>
-				<LLFate FateId="1399" MinLevel="1" MaxLevel="80" while="IsFateActive(1399)"/>					
-			</While>	
-		</If>		
+				<LLFate FateId="1399" MinLevel="1" MaxLevel="80" while="IsFateActive(1399)"/>
+			</While>
+		</If>
+		
+		<!-- Mister Bright-eyes 1401 - Glaukopis -->
+		<If Condition="&Glaukopis; == 1">
+			<While condition="not IsFateActive(1401)">
+				<NoCombatMoveTo XYZ="486.9262, 672.2675, -355.179" />
+				<Grind GrindRef="Val Skatene" while="not IsFateActive(1401)"/>
+				<MoveTo XYZ="486.9262, 672.2675, -355.179" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Mister Bright-eyes spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+			</While>
+			<While condition="IsFateActive(1401)">
+				<NoCombatMoveTo XYZ="486.9262, 672.2675, -355.179" />
+				<RunCode name="LevelSync"/>
+				<LLFate FateId="1401" MinLevel="1" MaxLevel="80" while="IsFateActive(1401)"/>
+			</While>
+		</If>
+		
+		<!-- Heavens Warg 1403 - Skoll -->
+		<If Condition="&Skoll; == 1">
+			<While condition="not IsFateActive(1403)">
+				<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />
+				<Grind GrindRef="Pyros Shuck" while="not IsFateActive(1403)"/>
+				<MoveTo XYZ="213.9021, 719.7639, 180.1597" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Skoll spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+			</While>
+			<While condition="IsFateActive(1403)">
+				<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />
+				<RunCode name="LevelSync"/>
+				<LLFate FateId="1403" MinLevel="1" MaxLevel="80" while="IsFateActive(1403)"/>
+			</While>
+		</If>
 		
 		
 	</If>
@@ -258,10 +296,10 @@
       <TargetMobs>
         <TargetMob Id="7814" Weight="1"/> <!-- Overdue Tome -->
       </TargetMobs>
-    </GrindArea>		
+    </GrindArea>
     <GrindArea name="Dark Troubadour">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="-182.134, 668.9334, -345.9253" name="Name"/>
+        <Hotspot Radius="90" XYZ="-192.4133, 668.9334, -333.615" name="Dark Troubadour"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="7771" Weight="1"/> <!-- Dark Troubadour -->
@@ -269,7 +307,7 @@
     </GrindArea>
     <GrindArea name="Bird Eater">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="-448.4793, 673.0787, -592.7371" name="Name"/>
+        <Hotspot Radius="90" XYZ="-456.1881, 676.8059, -532.1068" name="Bird Eater"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="7824" Weight="1"/> <!-- Bird Eater -->
@@ -277,12 +315,12 @@
     </GrindArea>
     <GrindArea name="Pyros Crab">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="-375.3877, 658.0246, -747.3553" name="Name"/>
+        <Hotspot Radius="90" XYZ="-350.684, 658.0245, -742.058" name="Pyros Crab"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="7825" Weight="1"/> <!-- Pyros Crab -->
       </TargetMobs>
-    </GrindArea>		
+    </GrindArea>
     <GrindArea name="Northern Swallow">
       <Hotspots>
         <Hotspot Radius="90" XYZ="-7.583427, 686.3918, -465.6089" name="Name"/>
@@ -298,14 +336,30 @@
       <TargetMobs>
         <TargetMob Id="7836" Weight="1"/> <!-- Matanga Castaway -->
       </TargetMobs>
-    </GrindArea>		
-	</GrindAreas>	
+    </GrindArea>
+    <GrindArea name="Val Skatene">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="493.752, 669.0067, -328.1657" name="Val Skatene"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7841" Weight="1"/> <!-- Val Skatene -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Pyros Shuck">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-257.325, 615.1545, 756.7135" name="Pyros Shuck"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7848" Weight="1"/> <!-- Pyros Shuck -->
+      </TargetMobs>
+    </GrindArea>
+	</GrindAreas>
 	<CodeChunks>
 		<CodeChunk Name="LevelSync">
 			<![CDATA[
 				ff14bot.RemoteWindows.ToDoList.LevelSync();
-			]]>			
-		</CodeChunk>			
+			]]>
+		</CodeChunk>
 		<CodeChunk Name="EnterPyros">
 			<![CDATA[
 				var npcId = GameObjectManager.GetObjectByNPCId(1024517);
@@ -330,20 +384,20 @@
 					{
 						Logging.WriteDiagnostic("Choosing Eureka Pyros.");
 						SelectString.ClickLineContains("Pyros");;
-					}					
-							
+					}
+					
 					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
 						{
 							Logging.WriteDiagnostic("Selecting Yes.");
-							ff14bot.RemoteWindows.SelectYesno.ClickYes();	
+							ff14bot.RemoteWindows.SelectYesno.ClickYes();
 						}
 
 					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
-				   
-					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+					
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)
 						{
 							Logging.WriteDiagnostic("Commencing Duty.");
 							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
@@ -351,9 +405,9 @@
 							   if (CommonBehaviors.IsLoading)
 							   {
 								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
-							   }									
-						}			
-			]]>			
-		</CodeChunk>		
+							   }
+						}
+			]]>
+		</CodeChunk>
 	</CodeChunks>
-</Profile>	
+</Profile>
