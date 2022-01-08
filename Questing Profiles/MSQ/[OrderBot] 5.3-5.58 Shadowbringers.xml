@@ -281,7 +281,7 @@
       <TalkTo NpcId="1034902" XYZ="51.28552, -2.607703E-07, -1.480164" QuestId="69315" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69315) == 2">
-      <If Condition="not IsOnMap(819)">
+      <If Condition="not IsOnMap(815)">
         <TeleportTo AetheryteId="161"/>
       </If>
       <MoveTo XYZ="385.0558, -28.36043, 320.9923"/>
@@ -301,7 +301,7 @@
       <LLSmallTalk/>
     </If>
     <If Condition="GetQuestStep(69315) == 255">
-      <FlyTo XYZ="19.3978, 82.78207, 46.4575" Land="True"/>
+      <FlyTo AllowedVariance="0" XYZ="18.1126, 82.78206, 47.9288" Land="True"/>
       <TurnIn QuestId="69315" NpcId="1033868" XYZ="19.57727, 82.78207, 48.53894"/>
     </If>
 
