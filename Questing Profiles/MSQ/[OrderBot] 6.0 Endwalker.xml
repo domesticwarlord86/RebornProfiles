@@ -1801,7 +1801,8 @@
 			</If>
 			<If Condition="GetQuestStep(69933) == 5">
 				<GetTo ZoneId="959" XYZ="-191.6207, 58.26021, 418.0667"/>
-				<LLTalkTo NpcId="1039985" XYZ="-189.9291, 58.22994, 419.7605" QuestId="69933" StepId="5"/>
+				<UseObject NpcId="1039985" XYZ="-189.9291, 58.22994, 419.7605" UseTimes="1" BlacklistAfter="True"/>
+				<!--<LLTalkTo NpcId="1039985" XYZ="-189.9291, 58.22994, 419.7605" QuestId="69933" StepId="5"/>
 				<RunCode name="TurnOffMount"/>
 				<WaitTimer Waittime="1"/>
 				<NoCombatMoveTo XYZ="-143.2284, 57.27193, 460.3226"/>
@@ -1811,7 +1812,7 @@
 				<NoCombatMoveTo XYZ="18.86062, 34.2903, 427.7223"/>
 				<WaitTimer Waittime="2"/>
 				<NoCombatMoveTo XYZ="105.0767, 42.03614, 455.4755"/>
-				<WaitTimer Waittime="1"/>
+				<WaitTimer Waittime="1"/>-->
 				<LLTalkTo NpcId="1039986" XYZ="43.9917, 59.05299, 523.5217" QuestId="69933" StepId="5"/>
 				<RunCode name="TurnOnMount"/>
 			</If>
@@ -1826,7 +1827,8 @@
 			</If>
 			<If Condition="GetQuestStep(69933) == 8">
 				<GetTo ZoneId="959" XYZ="40.22904, 59.17518, 523.4526"/>
-				<LLTalkTo NpcId="1039986" XYZ="43.9917, 59.05299, 523.5217" QuestId="69933" StepId="8"/>
+				<UseObject NpcId="1039986" XYZ="43.9917, 59.05299, 523.5217" UseTimes="1" BlacklistAfter="True"/>
+				<!--<LLTalkTo NpcId="1039986" XYZ="43.9917, 59.05299, 523.5217" QuestId="69933" StepId="8"/>
 				<RunCode name="TurnOffMount"/>
 				<WaitTimer Waittime="4"/>
 				<NoCombatMoveTo XYZ="98.60246, 67.04815, 569.1266"/>
@@ -1834,7 +1836,7 @@
 				<WaitTimer Waittime="3"/>
 				<NoCombatMoveTo XYZ="216.4895, 74.8235, 525.1127"/>
 				<WaitTimer Waittime="1"/>
-				<NoCombatMoveTo XYZ="191.9045, 63.59433, 467.9334"/>
+				<NoCombatMoveTo XYZ="191.9045, 63.59433, 467.9334"/>-->
 				<LLTalkTo NpcId="1039987" XYZ="189.2577, 63.36112, 467.4601" QuestId="69933" StepId="8"/>
 				<RunCode name="TurnOnMount"/>
 			</If>
