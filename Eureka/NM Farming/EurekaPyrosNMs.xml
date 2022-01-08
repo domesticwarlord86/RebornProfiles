@@ -8,6 +8,13 @@
   
   I also recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned again.
   
+  Required Nightfall:
+  Leucosia
+  Grand Duke Batym
+  
+  Required Weather:
+  Askalaphos
+  
 -->
 
 <!DOCTYPE Profile [
@@ -42,16 +49,23 @@
 		
 		<!-- Medias Res 1388 - Leucosia -->
 		<If Condition="&Leucosia; == 1">
-			<While condition="not IsFateActive(1388)">
+			<While condition="not (IsTimeBetween(17,23) or IsTimeBetween(0,5))">
 				<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />
-				<Grind GrindRef="Pyros Bhoot" while="not IsFateActive(1388)"/>
-				<MoveTo XYZ="213.9021, 719.7639, 180.1597" />
-				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Medias Res spawned &lt;pos&gt;"/>
-				</If>
-				<If Condition="&StopBot; == 1">
-					<StopBot/>
-				</If>
+				<Log Message="Waiting for Night fall..." />
+				<WaitWhile condition="not (IsTimeBetween(17,23) or IsTimeBetween(0,5))"/>
+			</While>
+			<While condition="(IsTimeBetween(17,23) or IsTimeBetween(0,5))">
+				<While condition="not IsFateActive(1388)">
+					<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />
+					<Grind GrindRef="Pyros Bhoot" while="not IsFateActive(1388)"/>
+					<MoveTo XYZ="213.9021, 719.7639, 180.1597" />
+					<If Condition="&AnnounceFates; == 1">
+						<LLSendChat Shout="Medias Res spawned &lt;pos&gt;"/>
+					</If>
+					<If Condition="&StopBot; == 1">
+						<StopBot/>
+					</If>
+				</While>		
 			</While>
 			<While condition="IsFateActive(1388)">
 				<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />
@@ -102,8 +116,13 @@
 		
 		<!-- Quiet, Please 1392 - Askalaphos -->
 		<If Condition="&Askalaphos; == 1">
-			<While condition="not IsFateActive(1392)">
-				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
+			<While condition="not WorldManager.CurrentWeatherId == 49">
+				<NoCombatMoveTo XYZ="-127.547, 761.5078, 449.6907" />
+				<Log Message="Waiting for Umbral Wind weather..." />
+				<WaitWhile condition="not WorldManager.CurrentWeatherId == 49"/>
+			</While>
+			<While condition="WorldManager.CurrentWeatherId == 49">
+				<While condition="not IsFateActive(1392)">
 				<Grind GrindRef="Overdue Tome" while="not IsFateActive(1392)"/>
 				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
 				<If Condition="&AnnounceFates; == 1">
@@ -112,6 +131,7 @@
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
+			    </While>
 			</While>
 			<While condition="IsFateActive(1392)">
 				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
@@ -122,16 +142,23 @@
 		
 		<!-- Up and Batym 1393 - Grand Duke Batym -->
 		<If Condition="&GrandDukeBatym; == 1">
-			<While condition="not IsFateActive(1393)">
+			<While condition="not (IsTimeBetween(17,23) or IsTimeBetween(0,5))">
 				<NoCombatMoveTo XYZ="-214.6292, 668.9334, -323.0862" />
-				<Grind GrindRef="Dark Troubadour" while="not IsFateActive(1393)"/>
-				<NoCombatMoveTo XYZ="-207.5929, 668.9334, -367.6457" />
-				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Up and Batym spawned &lt;pos&gt;"/>
-				</If>
-				<If Condition="&StopBot; == 1">
-					<StopBot/>
-				</If>
+				<Log Message="Waiting for Night fall..." />
+				<WaitWhile condition="not (IsTimeBetween(17,23) or IsTimeBetween(0,5))"/>
+			</While>
+			<While condition="(IsTimeBetween(17,23) or IsTimeBetween(0,5))">
+				<While condition="not IsFateActive(1393)">
+					<NoCombatMoveTo XYZ="-214.6292, 668.9334, -323.0862" />
+					<Grind GrindRef="Dark Troubadour" while="not IsFateActive(1393)"/>
+					<NoCombatMoveTo XYZ="-207.5929, 668.9334, -367.6457" />
+					<If Condition="&AnnounceFates; == 1">
+						<LLSendChat Shout="Up and Batym spawned &lt;pos&gt;"/>
+					</If>
+					<If Condition="&StopBot; == 1">
+						<StopBot/>
+					</If>
+				</While>
 			</While>
 			<While condition="IsFateActive(1393)">
 				<NoCombatMoveTo XYZ="-207.5929, 668.9334, -367.6457" />
