@@ -2862,8 +2862,8 @@
 						</HotSpots>
 					</UseItem>
 				</If>
-				<If Condition="GetQuestStep(69957) == 2 and GetQuestById(69957).QuestI8A == 16">
-					<UseItem ItemId="2003232" NpcIds="10613" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" while="GetQuestById(69957).QuestI8A == 16">
+				<If Condition="GetQuestStep(69957) == 2 and GetQuestById(69957).QuestI8A == 17">
+					<UseItem ItemId="2003232" NpcIds="10613" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" while="GetQuestById(69957).QuestI8A == 17">
 						<HotSpots>
 							<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487" />
 							<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169" />
