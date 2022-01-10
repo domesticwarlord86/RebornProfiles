@@ -100,8 +100,11 @@
 
 		<!-- Down the Rabbit Hole 1367 - Bunny -->
 		<If Condition="&Bunny; == 1">
-			<WaitWhile condition="not IsFateActive(1367)"/>
-			<Log Message="Waiting for bunny fate to pop..." />
+			<NoCombatMoveTo XYZ="-143.2709, -739.2262, 281.5927" />
+			<While condition="not IsFateActive(1367)">
+				<Log Message="Waiting for bunny fate to pop..." />
+				<WaitWhile condition="not IsFateActive(1367)"/>
+			</While>
 			<While condition="IsFateActive(1367)">
 				<NoCombatMoveTo XYZ="-140.5771, -739.2425, 280.4189" />
 				<RunCode name="LevelSync"/>
