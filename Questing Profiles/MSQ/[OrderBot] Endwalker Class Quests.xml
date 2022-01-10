@@ -458,7 +458,7 @@ Author: Angles24
 		  <LLSmallTalk/>
 		</If>
 		<!-- Trail of Skulls -->
-		<If Condition="IsQuestCompleted(69648 and not IsQuestCompleted(69649) and Core.Player.ClassLevel &gt; 89">
+		<If Condition="IsQuestCompleted(69648) and not IsQuestCompleted(69649) and Core.Player.ClassLevel &gt; 89">
 		  <If Condition="not HasQuest(69649)">
 		  <GetTo ZoneId="621" XYZ="738.4757, 70, 512.698"/>  
 			<If Condition="IsQuestAcceptQualified(69649)">
