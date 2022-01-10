@@ -8,6 +8,14 @@
   
   I also recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned again.
   
+  Required Nightfall:
+  Leucosia
+  Grand Duke Batym
+  
+  Required Weather:
+  Askalaphos
+  Flauros
+  
 -->
 
 <!DOCTYPE Profile [
@@ -17,10 +25,12 @@
 
 <!-- Select NMs to farm -->
 <!ENTITY Leucosia "1">
+<!ENTITY Flauros "0">
 <!ENTITY Sophist "0">
 <!ENTITY Graffiacane "0">
 <!ENTITY Askalaphos "0">
 <!ENTITY GrandDukeBatym "0">
+<!ENTITY Aetolus "0">
 <!ENTITY Lesath "0">
 <!ENTITY Eldthurs "0">
 <!ENTITY Iris "0">
@@ -77,6 +87,32 @@
 				<NoCombatMoveTo XYZ="531.2957, 724.0927, 529.2436" />
 				<RunCode name="LevelSync"/>
 				<LLFate FateId="1390" MinLevel="1" MaxLevel="80" while="IsFateActive(1390)"/>
+			</While>
+		</If>
+		
+		<!-- High Voltage 1389 - Flauros -->
+		<If Condition="&Flauros; == 1">
+			<While condition="not WorldManager.CurrentWeatherId == 9">
+				<NoCombatMoveTo XYZ="403.2022, 726.4537, 395.7892" />
+				<Log Message="Waiting for Thunder weather..." />
+				<WaitWhile condition="not WorldManager.CurrentWeatherId == 9"/>
+			</While>
+			<While condition="WorldManager.CurrentWeatherId == 9">
+				<While condition="not IsFateActive(1389)">
+					<Grind GrindRef="Thunder Sprite" while="not IsFateActive(1389)"/>
+					<NoCombatMoveTo XYZ="411.5801, 723.3504, 373.5631" />
+					<If Condition="&AnnounceFates; == 1">
+						<LLSendChat Shout="High Voltage spawned &lt;pos&gt;"/>
+					</If>
+					<If Condition="&StopBot; == 1">
+						<StopBot/>
+					</If>
+				</While>
+			</While>
+			<While condition="IsFateActive(1389)">
+				<NoCombatMoveTo XYZ="395.0323, 727.1099, 393.8266" />
+				<RunCode name="LevelSync"/>
+				<LLFate FateId="1389" MinLevel="1" MaxLevel="80" while="IsFateActive(1389)"/>
 			</While>
 		</If>
 		
@@ -137,6 +173,26 @@
 				<NoCombatMoveTo XYZ="-207.5929, 668.9334, -367.6457" />
 				<RunCode name="LevelSync"/>
 				<LLFate FateId="1393" MinLevel="1" MaxLevel="80" while="IsFateActive(1393)"/>
+			</While>
+		</If>
+		
+		<!-- Rondo Aetolus 1394 - Aetolus -->
+		<If Condition="&Aetolus; == 1">
+			<While condition="not IsFateActive(1394)">
+				<NoCombatMoveTo XYZ="-594.8768, 673.6906, -307.2647" />
+				<Grind GrindRef="Islandhander" while="not IsFateActive(1394)"/>
+				<NoCombatMoveTo XYZ="-545.4955, 676.4792, -336.9178" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Rondo Aetolus spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+			</While>
+			<While condition="IsFateActive(1394)">
+				<NoCombatMoveTo XYZ="-560.5287, 674.8784, -355.8627" />
+				<RunCode name="LevelSync"/>
+				<LLFate FateId="1394" MinLevel="1" MaxLevel="80" while="IsFateActive(1394)"/>
 			</While>
 		</If>
 		
@@ -273,6 +329,14 @@
         <TargetMob Id="7776" Weight="1"/> <!-- Pyros Bhoot -->
       </TargetMobs>
     </GrindArea>
+    <GrindArea name="Thunder Sprite">
+      <Hotspots>
+	<Hotspot Radius="90" XYZ="433.92, 723.1207, 354.6075" name="Thunder Sprite"/>
+      </Hotspots>
+      <TargetMobs>
+	<TargetMob Id="7772" Weight="1"/> <!-- Thunder Sprite -->
+      </TargetMobs>
+    </GrindArea>
     <GrindArea name="Pyros Apanda">
       <Hotspots>
         <Hotspot Radius="70" XYZ="480.0917, 724.0006, 486.5677" name="Pyros Apanda"/>
@@ -305,6 +369,14 @@
         <TargetMob Id="7771" Weight="1"/> <!-- Dark Troubadour -->
       </TargetMobs>
     </GrindArea>
+    <GrindArea name="Islandhander">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-582.0459, 675.6428, -327.8875" name="Islandhander"/>
+      </Hotspots>
+      <TargetMobs>
+	<TargetMob Id="7821" Weight="1"/> <!-- Islandhander -->
+      </TargetMobs>
+    </GrindArea> 
     <GrindArea name="Bird Eater">
       <Hotspots>
         <Hotspot Radius="90" XYZ="-456.1881, 676.8059, -532.1068" name="Bird Eater"/>

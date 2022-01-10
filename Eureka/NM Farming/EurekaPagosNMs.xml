@@ -17,13 +17,14 @@
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY AnnounceFates "0"> 
-<!ENTITY StopBot "0">
+<!ENTITY AnnounceFates "1"> 
+<!ENTITY StopBot "1">
 
 <!-- Select NMs to farm -->
-<!ENTITY TheSnowQueen "0">
+<!ENTITY TheSnowQueen "1">
+<!ENTITY Bunny "0">
 <!ENTITY Taxim "0">
-<!ENTITY AshDragon "1">
+<!ENTITY AshDragon "0">
 <!ENTITY Glavoid "0">
 <!ENTITY Anapos "0">
 <!ENTITY Hakutaku "0">
@@ -97,6 +98,22 @@
 			</While>	
 		</If>		
 
+		<!-- Down the Rabbit Hole 1367 - Bunny -->
+		<If Condition="&Bunny; == 1">
+			<WaitWhile condition="not IsFateActive(1367)"/>
+			<Log Message="Waiting for bunny fate to pop..." />
+			<While condition="IsFateActive(1367)">
+				<NoCombatMoveTo XYZ="-140.5771, -739.2425, 280.4189" />
+				<RunCode name="LevelSync"/>
+				<LLFate FateId="1367" MinLevel="1" MaxLevel="80" while="IsFateActive(1367)"/>
+			</While>
+			<While condition="not IsFateActive(1367)">
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+			</While>
+		</If>
+		
 		<!-- Conqueror Worm 1354 - Glavoid -  -->
 		<If Condition="&Glavoid; == 1">
 			<While condition="not IsFateActive(1354)">
