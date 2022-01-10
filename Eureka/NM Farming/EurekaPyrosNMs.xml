@@ -25,8 +25,8 @@
 
 <!-- Select NMs to farm -->
 <!ENTITY Leucosia "1">
-<!ENTITY Flauros "0">
 <!ENTITY Sophist "0">
+<!ENTITY Flauros "0">
 <!ENTITY Graffiacane "0">
 <!ENTITY Askalaphos "0">
 <!ENTITY GrandDukeBatym "0">
@@ -52,16 +52,23 @@
 		
 		<!-- Medias Res 1388 - Leucosia -->
 		<If Condition="&Leucosia; == 1">
-			<While condition="not IsFateActive(1388)">
+			<While condition="not (IsTimeBetween(17,23) or IsTimeBetween(0,5))">
 				<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />
-				<Grind GrindRef="Pyros Bhoot" while="not IsFateActive(1388)"/>
-				<MoveTo XYZ="213.9021, 719.7639, 180.1597" />
-				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Medias Res spawned &lt;pos&gt;"/>
-				</If>
-				<If Condition="&StopBot; == 1">
-					<StopBot/>
-				</If>
+				<Log Message="Waiting for Night fall..." />
+				<WaitWhile condition="not (IsTimeBetween(17,23) or IsTimeBetween(0,5))"/>
+			</While>
+			<While condition="(IsTimeBetween(17,23) or IsTimeBetween(0,5))">
+				<While condition="not IsFateActive(1388)">
+					<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />
+					<Grind GrindRef="Pyros Bhoot" while="not IsFateActive(1388)"/>
+					<MoveTo XYZ="213.9021, 719.7639, 180.1597" />
+					<If Condition="&AnnounceFates; == 1">
+						<LLSendChat Shout="Medias Res spawned &lt;pos&gt;"/>
+					</If>
+					<If Condition="&StopBot; == 1">
+						<StopBot/>
+					</If>
+				</While>
 			</While>
 			<While condition="IsFateActive(1388)">
 				<NoCombatMoveTo XYZ="213.9021, 719.7639, 180.1597" />
@@ -138,16 +145,22 @@
 		
 		<!-- Quiet, Please 1392 - Askalaphos -->
 		<If Condition="&Askalaphos; == 1">
-			<While condition="not IsFateActive(1392)">
-				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
-				<Grind GrindRef="Overdue Tome" while="not IsFateActive(1392)"/>
-				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
-				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Quiet, Please spawned &lt;pos&gt;"/>
-				</If>
-				<If Condition="&StopBot; == 1">
-					<StopBot/>
-				</If>
+			<While condition="not WorldManager.CurrentWeatherId == 49">
+				<NoCombatMoveTo XYZ="-127.547, 761.5078, 449.6907" />
+				<Log Message="Waiting for Umbral Wind weather..." />
+				<WaitWhile condition="not WorldManager.CurrentWeatherId == 49"/>
+			</While>
+			<While condition="WorldManager.CurrentWeatherId == 49">
+				<While condition="not IsFateActive(1392)">
+					<Grind GrindRef="Overdue Tome" while="not IsFateActive(1392)"/>
+					<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
+					<If Condition="&AnnounceFates; == 1">
+						<LLSendChat Shout="Quiet, Please spawned &lt;pos&gt;"/>
+					</If>
+					<If Condition="&StopBot; == 1">
+						<StopBot/>
+					</If>
+				</While>
 			</While>
 			<While condition="IsFateActive(1392)">
 				<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572" />
@@ -158,16 +171,23 @@
 		
 		<!-- Up and Batym 1393 - Grand Duke Batym -->
 		<If Condition="&GrandDukeBatym; == 1">
-			<While condition="not IsFateActive(1393)">
+			<While condition="not (IsTimeBetween(17,23) or IsTimeBetween(0,5))">
 				<NoCombatMoveTo XYZ="-214.6292, 668.9334, -323.0862" />
-				<Grind GrindRef="Dark Troubadour" while="not IsFateActive(1393)"/>
-				<NoCombatMoveTo XYZ="-207.5929, 668.9334, -367.6457" />
-				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Up and Batym spawned &lt;pos&gt;"/>
-				</If>
-				<If Condition="&StopBot; == 1">
-					<StopBot/>
-				</If>
+				<Log Message="Waiting for Night fall..." />
+				<WaitWhile condition="not (IsTimeBetween(17,23) or IsTimeBetween(0,5))"/>
+			</While>
+			<While condition="(IsTimeBetween(17,23) or IsTimeBetween(0,5))">
+				<While condition="not IsFateActive(1393)">
+					<NoCombatMoveTo XYZ="-214.6292, 668.9334, -323.0862" />
+					<Grind GrindRef="Dark Troubadour" while="not IsFateActive(1393)"/>
+					<NoCombatMoveTo XYZ="-207.5929, 668.9334, -367.6457" />
+					<If Condition="&AnnounceFates; == 1">
+						<LLSendChat Shout="Up and Batym spawned &lt;pos&gt;"/>
+					</If>
+					<If Condition="&StopBot; == 1">
+						<StopBot/>
+					</If>
+				</While>
 			</While>
 			<While condition="IsFateActive(1393)">
 				<NoCombatMoveTo XYZ="-207.5929, 668.9334, -367.6457" />
@@ -323,7 +343,8 @@
   <GrindAreas>
     <GrindArea name="Pyros Bhoot">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="213.9021, 719.7639, 180.1597" name="Name"/>
+        <Hotspot Radius="90" XYZ="213.9021, 719.7639, 180.1597" name="Pyros Bhoot"/>
+	   <Hotspot Radius="90" XYZ="297.301, 723.1207, 258.7961" name="Pyros Bhoot"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="7776" Weight="1"/> <!-- Pyros Bhoot -->
@@ -355,7 +376,7 @@
     </GrindArea>
     <GrindArea name="Overdue Tome">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="-106.6789, 757.7323, 379.5572" name="Name"/>
+        <Hotspot Radius="90" XYZ="-106.6789, 757.7323, 379.5572" name="Overdue Tome"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="7814" Weight="1"/> <!-- Overdue Tome -->
@@ -395,7 +416,7 @@
     </GrindArea>
     <GrindArea name="Northern Swallow">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="-7.583427, 686.3918, -465.6089" name="Name"/>
+        <Hotspot Radius="90" XYZ="-7.583427, 686.3918, -465.6089" name="Northern Swallow"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="7830" Weight="1"/> <!-- Northern Swallow -->
@@ -403,7 +424,7 @@
     </GrindArea>
     <GrindArea name="Matanga Castaway">
       <Hotspots>
-        <Hotspot Radius="90" XYZ="293.7856, 680.2284, -628.4229" name="Name"/>
+        <Hotspot Radius="90" XYZ="293.7856, 680.2284, -628.4229" name="Matanga Castaway"/>
       </Hotspots>
       <TargetMobs>
         <TargetMob Id="7836" Weight="1"/> <!-- Matanga Castaway -->
