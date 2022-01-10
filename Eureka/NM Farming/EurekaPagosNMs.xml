@@ -98,6 +98,7 @@
 			</While>	
 		</If>		
 
+		<!-- Down the Rabbit Hole 1367 - Bunny -->
 		<If Condition="&Bunny; == 1">
 			<WaitWhile condition="not IsFateActive(1367)"/>
 			<Log Message="Waiting for bunny fate to pop..." />
