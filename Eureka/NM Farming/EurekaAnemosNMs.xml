@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  Profile: Eureka Anemos NM Farm
-  Authors: Zamphire
-  
-  Settings a NM to one will cause the bot to target the mobs that spawn that NM until the NM spawns and
-  then fights the NM. The profile will go down the list targeting from bottom to top anything set to 1.
-  So if you have to stop the profile it will start back at the top when you start it again. To avoid that,
-  set anything you dont want to kill to 0.
-  
-  I also recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned
-  again.
-  
-  Require Nightfall:
-  Bombadeel
-  The White Rider
-  Fafnir
-  Lamashtu
-  Pazuzu - Prep requires night, Fate can spawn only during Gales weather.
-  
-  Required Weather:
-  Jahannam - Prep during Gales weather, Fate spawn anytime.
-  Pazuzu - Prep requires night, Fate can spawn only during Gales weather.
-  
-  I would not recommend doing Amarok, Lamashtu or Pazuzu solo.
-	They are level 20+ mobs and will kill you synced at 20.
+	Profile: Eureka Anemos NM Farm
+	Authors: Zamphire, ripsnortntear
 	
+	Settings a NM to one will cause the bot to target the mobs that spawn that NM until the NM spawns and
+	then fights the NM. The profile will go down the list targeting from bottom to top anything set to 1.
+	So if you have to stop the profile it will start back at the top when you start it again. To avoid that,
+	set anything you dont want to kill to 0.
+	
+	I also recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned
+	again.
+	
+	Require Nightfall:
+	Bombadeel
+	The White Rider
+	Fafnir
+	Lamashtu
+	Pazuzu - Prep requires night, Fate can spawn only during Gales weather.
+	
+	Required Weather:
+	Jahannam - Prep during Gales weather, Fate spawn anytime.
+	Pazuzu - Prep requires night, Fate can spawn only during Gales weather.
+	
+	I would not recommend doing Amarok, Lamashtu or Pazuzu solo.
+	They are level 20+ mobs and will kill you synced at 20.
+
 -->
 
 <!DOCTYPE Profile [
@@ -57,9 +57,9 @@
 ]>
 
 <Profile>
-  <Name>Eureka Anemos NM Farm</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
+	<Name>Eureka Anemos NM Farm</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
 		<If condition="not DutyManager.InInstance">
 			<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
 			<RunCode name="EnterAnemos"/>
@@ -70,15 +70,15 @@
 			<!-- Unsafety Dance 1332 - Sabotender Corrido -->
 			<If Condition="&Sabotender; == 1">
 				<Grind GrindRef="Flowering Sabotender" while="not IsFateActive(1332)"/>
-				<NoCombatMoveTo XYZ="-391.1138, 84.86238, 2.259108"/>
+				<NoCombatMoveTo XYZ="-387.4209, 79.996, 32.33087"/>
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Unsafety Dance spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Sabo spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1332)">
-					<NoCombatMoveTo XYZ="-363.6261, 80.38705, 41.75959" />
+					<MoveTo XYZ="-375.412, 80.25177, 45.40539" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1332" MinLevel="1" MaxLevel="80" while="IsFateActive(1332)"/>
 				</While>
@@ -89,13 +89,13 @@
 				<Grind GrindRef="Sea Bishop" while="not IsFateActive(1348)"/>
 				<NoCombatMoveTo XYZ="416.1757, 30.27323, 302.081" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="The Shadow over Anemos spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Lord of Anemos spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1348)">
-					<NoCombatMoveTo XYZ="416.1757, 30.27323, 302.081" />
+					<MoveTo XYZ="416.1757, 30.27323, 302.081" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1348" MinLevel="1" MaxLevel="80" while="IsFateActive(1348)"/>
 				</While>
@@ -106,13 +106,13 @@
 				<Grind GrindRef="Anemos Harpeia" while="not IsFateActive(1333)"/>
 				<NoCombatMoveTo XYZ="198.1079,62.37432,263.8438" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Teles House spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Teles spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1333)">
-					<NoCombatMoveTo XYZ="229.9248, 61.39744, 268.9462" />
+					<MoveTo XYZ="229.9248, 61.39744, 268.9462" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1333" MinLevel="1" MaxLevel="80" while="IsFateActive(1333)"/>
 				</While>
@@ -123,7 +123,7 @@
 				<Grind GrindRef="Darner" while="not IsFateActive(1328)"/>
 				<NoCombatMoveTo XYZ="-233.3811, 43.41474, 49.77538" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="The Swarm Never Sets spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Emperor spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
@@ -140,13 +140,13 @@
 				<Grind GrindRef="Val Bear" while="not IsFateActive(1344)"/>
 				<NoCombatMoveTo XYZ="234.461, 39.74908, 43.12562" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="One Missed Callisto spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Callisto spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1344)">
-					<NoCombatMoveTo XYZ="230.3155, 37.57598, 83.42776" />
+					<MoveTo XYZ="230.3155, 37.57598, 83.42776" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1344" MinLevel="1" MaxLevel="80" while="IsFateActive(1344)"/>
 				</While>
@@ -157,13 +157,13 @@
 				<Grind GrindRef="Pneumaflayer" while="not IsFateActive(1347)"/>
 				<NoCombatMoveTo XYZ="93.20559, 36.08199, 59.52175" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="By Numbers spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Numbers spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1347)">
-					<NoCombatMoveTo XYZ="108.9033, 35.23862, 42.58965" />
+					<MoveTo XYZ="108.9033, 35.23862, 42.58965" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1347" MinLevel="1" MaxLevel="80" while="IsFateActive(1347)"/>
 				</While>
@@ -174,13 +174,13 @@
 				<Grind GrindRef="Typhoon Sprite" while="not IsFateActive(1345)"/>
 				<MoveTo XYZ="-126.9408, 42.7272, -72.87053" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Disinherit the Wind spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Jahannam spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1345)">
-					<NoCombatMoveTo XYZ="-122.7138, 42.95346, -87.11588" />
+					<MoveTo XYZ="-122.7138, 42.95346, -87.11588" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1345" MinLevel="1" MaxLevel="80" while="IsFateActive(1345)"/>
 				</While>
@@ -191,13 +191,13 @@
 				<Grind GrindRef="Abraxas" while="not IsFateActive(1334)"/>
 				<NoCombatMoveTo XYZ="-335.4391,64.92942,-306.3859" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Prove Your Amemettle spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Amemet spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1334)">
-					<NoCombatMoveTo XYZ="-349.7575, 67.83452, -287.6657" />
+					<MoveTo XYZ="-349.7575, 67.83452, -287.6657" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1334" MinLevel="1" MaxLevel="80" while="IsFateActive(1334)"/>
 				</While>
@@ -208,13 +208,13 @@
 				<Grind GrindRef="Stalker Ziz" while="not IsFateActive(1335)"/>
 				<NoCombatMoveTo XYZ="-483.4977, 64.83803, -355.5995" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Caym What May spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Caym spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1335)">
-					<NoCombatMoveTo XYZ="-439.2465, 63.15067, -399.555" />
+					<MoveTo XYZ="-439.2465, 63.15067, -399.555" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1335" MinLevel="1" MaxLevel="80" while="IsFateActive(1335)"/>
 				</While>
@@ -225,13 +225,13 @@
 				<Grind GrindRef="Traveling Gourmand" while="not IsFateActive(1336)"/>
 				<NoCombatMoveTo XYZ="351.5403, 30.27229, -60.03669" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="The Killing of a Sacred Bombadier spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Bombadeel spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1336)">
-					<NoCombatMoveTo XYZ="351.5403, 30.27229, -60.03669" />
+					<MoveTo XYZ="351.5403, 30.27229, -60.03669" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1336" MinLevel="1" MaxLevel="80" while="IsFateActive(1336)"/>
 				</While>
@@ -242,13 +242,13 @@
 				<Grind GrindRef="Khor Claw" while="not IsFateActive(1339)"/>
 				<NoCombatMoveTo XYZ="159.4795, 34.13159, -174.8837" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Short Serket 2 spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Serket spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1339)">
-					<NoCombatMoveTo XYZ="159.4795, 34.13159, -174.8837" />
+					<MoveTo XYZ="159.4795, 34.13159, -174.8837" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1339" MinLevel="1" MaxLevel="80" while="IsFateActive(1339)"/>
 				</While>
@@ -265,7 +265,7 @@
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1346)">
-					<NoCombatMoveTo XYZ="21.95968, 30.26769, -350.8168" />
+					<MoveTo XYZ="21.95968, 30.26769, -350.8168" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1346" MinLevel="1" MaxLevel="80" while="IsFateActive(1346)"/>
 				</While>
@@ -276,13 +276,13 @@
 				<Grind GrindRef="Duskfall Dullahan" while="not IsFateActive(1343)"/>
 				<NoCombatMoveTo XYZ="-88.01479, 41.93786, -410.5361" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="When You Ride Alone spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="White Rider spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1343)">
-					<NoCombatMoveTo XYZ="-88.01479, 41.93786, -410.5361" />
+					<MoveTo XYZ="-88.01479, 41.93786, -410.5361" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1343" MinLevel="1" MaxLevel="80" while="IsFateActive(1343)"/>
 				</While>
@@ -293,13 +293,13 @@
 				<Grind GrindRef="Monoeye" while="not IsFateActive(1337)"/>
 				<NoCombatMoveTo XYZ="262.6284, 33.02279, -351.3528" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Sing, Muse spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Poly spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1337)">
-					<NoCombatMoveTo XYZ="262.6284, 33.02279, -351.3528" />
+					<MoveTo XYZ="262.6284, 33.02279, -351.3528" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1337" MinLevel="1" MaxLevel="80" while="IsFateActive(1337)"/>
 				</While>
@@ -310,13 +310,13 @@
 				<Grind GrindRef="Old World Zu" while="not IsFateActive(1342)"/>
 				<NoCombatMoveTo XYZ="374.0203, 37.69758, -408.5449" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Simurghasbord spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Strider spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1342)">
-					<NoCombatMoveTo XYZ="374.0203, 37.69758, -408.5449" />
+					<MoveTo XYZ="374.0203, 37.69758, -408.5449" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1342" MinLevel="1" MaxLevel="80" while="IsFateActive(1342)"/>
 				</While>
@@ -327,13 +327,13 @@
 				<Grind GrindRef="Anemos Anala" while="not IsFateActive(1341)"/>
 				<NoCombatMoveTo XYZ="672.4192,38.07274,-112.5964" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="King Hazmat spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Hazmat spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1341)">
-					<NoCombatMoveTo XYZ="672.4192,38.07274,-112.5964" />
+					<MoveTo XYZ="672.4192,38.07274,-112.5964" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1341" MinLevel="1" MaxLevel="80" while="IsFateActive(1341)"/>
 				</While>
@@ -342,15 +342,15 @@
 			<!-- Wind and Honey 1331 - Fafnir -->
 			<If Condition="&Fafnir; == 1">
 				<Grind GrindRef="Fossil Dragon" while="not IsFateActive(1331)"/>
+				<NoCombatMoveTo XYZ="698.7631, 40.17636, -3.008595" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Fafnir spawned &lt;pos&gt;"/>
 				</If>
-				<NoCombatMoveTo XYZ="698.7631, 40.17636, -3.008595" />
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1331)">
-					<NoCombatMoveTo XYZ="698.7631, 40.17636, -3.008595" />
+					<MoveTo XYZ="698.7631, 40.17636, -3.008595" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1331" MinLevel="1" MaxLevel="80" while="IsFateActive(1331)"/>
 				</While>
@@ -359,15 +359,15 @@
 			<!-- I Amarok 1340 - Amarok -->
 			<If Condition="&Amarok; == 1">
 				<Grind GrindRef="Voidscale" while="not IsFateActive(1340)"/>
+				<NoCombatMoveTo XYZ="-668.6353, 38.57068, -170.7857" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Amarok spawned &lt;pos&gt;"/>
 				</If>
-				<NoCombatMoveTo XYZ="-668.6353, 38.57068, -170.7857" />
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1340)">
-					<NoCombatMoveTo XYZ="-668.6353, 38.57068, -170.7857" />
+					<MoveTo XYZ="-668.6353, 38.57068, -170.7857" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1340" MinLevel="1" MaxLevel="80" while="IsFateActive(1340)"/>
 				</While>
@@ -376,15 +376,15 @@
 			<!-- Drama Lamashtu 1343 - Lamashtu -->
 			<If Condition="&Lamashtu; == 1">
 				<Grind GrindRef="Val Specter" while="not IsFateActive(1343)"/>
+				<NoCombatMoveTo XYZ="-689.367, 22.77899, 249.3274" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Lamashtu spawned &lt;pos&gt;"/>
 				</If>
-				<NoCombatMoveTo XYZ="-689.367, 22.77899, 249.3274" />
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1343)">
-					<NoCombatMoveTo XYZ="698.7631, 40.17636, -3.008595" />
+					<MoveTo XYZ="698.7631, 40.17636, -3.008595" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1343" MinLevel="1" MaxLevel="80" while="IsFateActive(1343)"/>
 				</While>
@@ -393,15 +393,15 @@
 			<!-- Wail in the Willows 1329 - Pazuzu -->
 			<If Condition="&Pazuzu; == 1">
 				<Grind GrindRef="Shadow Wraith" while="not IsFateActive(1329)"/>
-				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Wail in the Willows spawned &lt;pos&gt;"/>
-				</If>
 				<NoCombatMoveTo XYZ="-658.7548, 39.75124, -48.28179" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Paz spawned &lt;pos&gt;"/>
+				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1329)">
-					<NoCombatMoveTo XYZ="-658.7548, 39.75124, -48.28179" />
+					<MoveTo XYZ="-658.7548, 39.75124, -48.28179" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1329" MinLevel="1" MaxLevel="80" while="IsFateActive(1329)"/>
 				</While>
@@ -409,8 +409,8 @@
 			
 		</If>
 		
-  </Order>
-  <GrindAreas>
+	</Order>
+	<GrindAreas>
 		<GrindArea name="Flowering Sabotender">
 			<Hotspots>
 				<Hotspot Radius="200" XYZ="-382.6127, 80.33707, 35.69761" name="Flowering Sabotender"/>
@@ -511,7 +511,7 @@
 		</GrindArea>
 		<GrindArea name="Duskfall Dullahan">
 			<Hotspots>
-				<Hotspot Radius="200" XYZ="-77.47066, 41.34025, -413.951"  name="Duskfall Dullahan"/>
+				<Hotspot Radius="200" XYZ="-77.47066, 41.34025, -413.951" name="Duskfall Dullahan"/>
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="7185" Weight="1" /> <!-- Duskfall Dullahan -->
@@ -519,7 +519,7 @@
 		</GrindArea>	
 		<GrindArea name="Monoeye">
 			<Hotspots>
-				<Hotspot Radius="200" XYZ="262.6284, 33.02279, -351.3528"  name="Monoeye"/>
+				<Hotspot Radius="200" XYZ="262.6284, 33.02279, -351.3528" name="Monoeye"/>
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="6843" Weight="1" /> <!-- Monoeye -->
@@ -623,10 +623,10 @@
 							Logging.WriteDiagnostic("Commencing Duty.");
 							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
 							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
-							   if (CommonBehaviors.IsLoading)
-							   {
-								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
-							   }
+								if (CommonBehaviors.IsLoading)
+									{
+										await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+									}
 						}
 			]]>
 		</CodeChunk>
