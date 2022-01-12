@@ -19,7 +19,7 @@
   Dux - Fate spawn during Lightning weather, prep anytime.
 	Skoll - Fate spawn during Blizzards weather, prep anytime.
 	Penthesilea - Fate spawn during Heatwaves weather, prep anytime.
-  
+	
 -->
 
 <!DOCTYPE Profile [
@@ -62,7 +62,7 @@
 			<!-- Medias Res 1388 - Leucosia -->
 			<If Condition="&Leucosia; == 1">
 				<Grind GrindRef="Pyros Bhoot" while="not IsFateActive(1388)"/>
-				<MoveTo XYZ="265.7146, 722.9924, 244.3209" />
+				<NoCombatMoveTo XYZ="265.7146, 722.9924, 244.3209" />
 				<If Condition="&AnnounceFates; == 1">
 					<LLSendChat Shout="Leucosia spawned &lt;pos&gt;"/>
 				</If>
@@ -133,7 +133,7 @@
 				<If condition="WorldManager.CurrentWeatherId == 49 and IsFateActive(1392)">
 					<NoCombatMoveTo XYZ="-106.6789, 757.7323, 379.5572"/>
 					<If Condition="&AnnounceFates; == 1">
-						<LLSendChat Shout="Quiet, Please spawned &lt;pos&gt;"/>
+						<LLSendChat Shout="Askalaphos spawned &lt;pos&gt;"/>
 					</If>
 					<If Condition="&StopBot; == 1">
 						<StopBot/>
@@ -185,7 +185,7 @@
 				<Grind GrindRef="Bird Eater" while="not IsFateActive(1395)"/>
 				<NoCombatMoveTo XYZ="-438.4123, 676.1708, -493.2013"/>
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Scorchpion King spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Lesath spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
@@ -254,7 +254,7 @@
         <If condition="WorldManager.CurrentWeatherId == 9 and IsFateActive(1399)">
 					<NoCombatMoveTo XYZ="313.0401, 680.198, -583.2634"/>
 					<If Condition="&AnnounceFates; == 1">
-						<LLSendChat Shout="Put Up Your Dux spawned &lt;pos&gt;"/>
+						<LLSendChat Shout="Dux spawned &lt;pos&gt;"/>
 					</If>
 					<If Condition="&StopBot; == 1">
 						<StopBot/>
@@ -272,7 +272,7 @@
 				<Grind GrindRef="Pyros Treant" while="not IsFateActive(1400)"/>
 				<MoveTo XYZ="458.2373, 660.6139, -461.8196"/>
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="You Do Know Jack spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Lumberjack spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
@@ -289,7 +289,7 @@
 				<Grind GrindRef="Val Skatene" while="not IsFateActive(1401)"/>
 				<MoveTo XYZ="542.4608, 669.1736, -346.8687"/>
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Mister Bright-eyes spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Glaukopis spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
@@ -497,12 +497,11 @@
 			</TargetMobs>
 		</GrindArea>
 	</GrindAreas>
-<CodeChunks>
+	<CodeChunks>
 		<CodeChunk Name="LevelSync">
 			<![CDATA[
 				ff14bot.RemoteWindows.ToDoList.LevelSync();
-			]]>
-		</CodeChunk>
+			]]></CodeChunk>
 		<CodeChunk Name="EnterPyros">
 			<![CDATA[
 				var npcId = GameObjectManager.GetObjectByNPCId(1024517);
@@ -550,7 +549,6 @@
 								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
 							   }
 						}
-			]]>
-		</CodeChunk>
+			]]></CodeChunk>
 	</CodeChunks>
 </Profile>
