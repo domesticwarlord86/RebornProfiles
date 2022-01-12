@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	Profile: Eureka Anemos NM Farm
-	Authors: Zamphire, ripsnortntear
-	
-	Settings a NM to one will cause the bot to target the mobs that spawn that NM until the NM spawns and
-	then fights the NM. The profile will go down the list targeting from bottom to top anything set to 1.
-	So if you have to stop the profile it will start back at the top when you start it again. To avoid that,
-	set anything you dont want to kill to 0.
-	
-	I also recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned
-	again.
-	
-	Require Nightfall:
-	Bombadeel
-	The White Rider
-	Fafnir
-	Lamashtu
-	Pazuzu - Prep requires night, Fate can spawn only during Gales weather.
-	
-	Required Weather:
-	Jahannam - Prep during Gales weather, Fate spawn anytime.
-	Pazuzu - Prep requires night, Fate can spawn only during Gales weather.
-	
-	I would not recommend doing Amarok, Lamashtu or Pazuzu solo.
-	They are level 20+ mobs and will kill you synced at 20.
+  Profile: Eureka Anemos NM Farm
+  Authors: Zamphire, ripsnortntear
+  
+  Settings a NM to one will cause the bot to target the mobs that spawn that NM until the NM spawns and
+  then fights the NM. The profile will go down the list targeting from bottom to top anything set to 1.
+  So if you have to stop the profile it will start back at the top when you start it again. To avoid that,
+  set anything you dont want to kill to 0.
+  
+  I also recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned
+  again.
+  
+  Require Nightfall:
+  Bombadeel
+  The White Rider
+  Fafnir
+  Lamashtu
+  Pazuzu - Prep requires night, Fate can spawn only during Gales weather.
+  
+  Required Weather:
+  Jahannam - Prep during Gales weather, Fate spawn anytime.
+  Pazuzu - Prep requires night, Fate can spawn only during Gales weather.
+  
+  I would not recommend doing Amarok, Lamashtu or Pazuzu solo.
+  They are level 20+ mobs and will kill you synced at 20.
 
 -->
 
@@ -33,8 +33,8 @@
 <!ENTITY StopBot "1">
 
 <!-- Profile Settings -->
-<!ENTITY Sabotender "1">
-<!ENTITY LordOfAnemos "0">
+<!ENTITY Sabotender "0">
+<!ENTITY LordOfAnemos "1">
 <!ENTITY Teles "0">
 <!ENTITY EmperorOfAnemos "0">
 <!ENTITY Callisto "0">
