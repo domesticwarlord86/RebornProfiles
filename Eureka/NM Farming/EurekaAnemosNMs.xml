@@ -552,7 +552,7 @@
 		</GrindArea>
 		<GrindArea name="Voidscale">
 			<Hotspots>
-				<Hotspot Radius="200" XYZ="-668.6353, 38.57068, -170.7857" name="Voidscale"/>
+				<Hotspot Radius="30" XYZ="-551.8371, 45.49207, -135.0479" name="Voidscale"/>
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="6977" Weight="1" /> <!-- Voidscale -->
