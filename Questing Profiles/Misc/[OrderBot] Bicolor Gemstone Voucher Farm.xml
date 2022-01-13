@@ -56,11 +56,11 @@
 		</If>
 		
 			<!-- Garlemald -->
-		<If Condition="&Labyrinthos; == 1">	
+		<If Condition="&Garlemald; == 1">	
 			<If condition="not IsOnMap(958)">
 				<TeleportTo Name="Camp Broken Glass" AetheryteId="172"/>
 			</If>
-			<Log Message="Starting Mare Lamentorum FATE grind." /> 	
+			<Log Message="Starting Garlemald FATE grind." /> 	
 			<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798,1793" while="IsOnMap(958) and ItemCount(26807) &lt; 1000"/>	
 		</If>
 
