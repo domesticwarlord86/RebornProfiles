@@ -12,6 +12,9 @@
 <!-- How many GC Seals do we want before we stop? -->
 <!ENTITY GCSeals "50000">	
 
+<!-- All gear in Inventory will be traded to GC. Please make sure your important gear is saved else where and set this to 1 -->
+<!ENTITY AcceptRisk "0">	
+
 ]>
 
 <Profile>
@@ -91,9 +94,18 @@
 				</While>
 			</If>
 		</If>
+
+		<If condition="&AcceptRisk; == 0">
+			<UserDialog DialogText="We are coming to the part of the profile where we will do dungeon runs for Seals.\n
+			When turning in items to the Great Company, ALL gear in your inventory will be traded in.\n
+			Please remove any important gear from your inventory and store it somewhere safe.\n
+			Then open the profile and change AcceptRisk to 1." QuestRequirementInLog="InLog" IsBotContinueAllowed="False"/>       
+		</If>
 	
-		<If condition="not DutyManager.InInstance">
-			<GCExpertTurnin/>
+		<If condition="&AcceptRisk; == 0">
+			<If condition="not DutyManager.InInstance">
+				<GCExpertTurnin/>
+			</If>
 		</If>
 	
 	</While>
