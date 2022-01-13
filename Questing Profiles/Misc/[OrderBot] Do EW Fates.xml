@@ -43,7 +43,7 @@
 			</If>			
 			<Log Message="Starting Thavnair Fates with flight support." /> 
 			<While condition="IsOnMap(957)">
-				<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" MinProgress="10" while="IsOnMap(957)"/>	
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" MinProgress="10" while="IsOnMap(957)"/>	
 			</While>
 		</If>		
 	</While>
@@ -84,7 +84,7 @@
 			</If>		
 			<Log Message="Starting Thavnair Fates with flight support." /> 
 			<While condition="IsOnMap(956)">
-				<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" BlacklistIds="1754" while="IsOnMap(956)"/>	
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1754" while="IsOnMap(956)"/>	
 			</While>
 		</If>		
 	</While>
@@ -130,7 +130,7 @@
 			</If>
 			<Log Message="Starting Garlemald Fates with flight support." /> 	
 			<While condition="IsOnMap(958)">
-				<LLFate UseFlight="True" MinLevel="0" MaxLevel="86" BlacklistIds="1798" while="IsOnMap(958)"/>	
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798" while="IsOnMap(958)"/>	
 			</While>
 		</If>	
 	</While>
