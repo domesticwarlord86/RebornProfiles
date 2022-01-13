@@ -4,8 +4,9 @@
   Authors: Zamphire, ripsnortntear
   
   Setting a NM to one will cause the bot to target the mobs that spawn that NM until the NM spawns and then fights the NM. 
-	The profile will go down the list targetting from bottom to top anything set to 1.
-  So if you have to stop the profile it will start back at the top when you start it again. To avoid that, set anything you don't want to kill to 0.
+  The profile will go down the list targetting from bottom to top anything set to 1.
+  So if you have to stop the profile it will start back at the top when you start it again. To avoid that,
+  set anything you don't want to kill to 0.
   
   I also recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned again.
   
@@ -17,9 +18,9 @@
   Flauros - Only prepped during lightning weather, fate spawn anytime.
   Askalaphos - Fate spawn during umbral wind weather, prep anytime.
   Dux - Fate spawn during Lightning weather, prep anytime.
-	Skoll - Fate spawn during Blizzards weather, prep anytime.
-	Penthesilea - Fate spawn during Heatwaves weather, prep anytime.
-	
+  Skoll - Fate spawn during Blizzards weather, prep anytime.
+  Penthesilea - Fate spawn during Heatwaves weather, prep anytime.
+
 -->
 
 <!DOCTYPE Profile [
@@ -249,9 +250,9 @@
 			</If>
 			
 			<!-- Put Up Your Dux 1399 - Dux -->
-      <If Condition="&Dux; == 1">
-        <Grind GrindRef="Matanga Castaway" while="not IsFateActive(1399)"/>
-        <If condition="WorldManager.CurrentWeatherId == 9 and IsFateActive(1399)">
+			<If Condition="&Dux; == 1">
+				<Grind GrindRef="Matanga Castaway" while="not IsFateActive(1399)"/>
+				<If condition="WorldManager.CurrentWeatherId == 9 and IsFateActive(1399)">
 					<NoCombatMoveTo XYZ="313.0401, 680.198, -583.2634"/>
 					<If Condition="&AnnounceFates; == 1">
 						<LLSendChat Shout="Dux spawned &lt;pos&gt;"/>
@@ -259,13 +260,13 @@
 					<If Condition="&StopBot; == 1">
 						<StopBot/>
 					</If>
-        </If>
-        <While condition="IsFateActive(1399)">
+				</If>
+				<While condition="IsFateActive(1399)">
 					<NoCombatMoveTo XYZ="304.2035, 680.13, -606.0622" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1399" MinLevel="1" MaxLevel="80" while="IsFateActive(1399)"/>
-        </While>
-      </If>
+				</While>
+			</If>
 			
 			<!-- You Do Know Jack 1400 - Lumber Jack -->
 			<If Condition="&Lumberjack; == 1">
@@ -320,41 +321,41 @@
 			
 			<!-- Heavens Warg 1403 - Skoll -->
 			<If Condition="&Skoll; == 1">
-        <Grind GrindRef="Pyros Shuck" while="not IsFateActive(1403)"/>
-        <If condition="WorldManager.CurrentWeatherId == 16 and IsFateActive(1403)">
+				<Grind GrindRef="Pyros Shuck" while="not IsFateActive(1403)"/>
+				<If condition="WorldManager.CurrentWeatherId == 16 and IsFateActive(1403)">
 					<NoCombatMoveTo XYZ="92.94986, 721.2747, 408.8749"/>
 					<If Condition="&AnnounceFates; == 1">
 						<LLSendChat Shout="Skoll spawned &lt;pos&gt;"/>
-          </If>
-          <If Condition="&StopBot; == 1">
+					</If>
+					<If Condition="&StopBot; == 1">
 						<StopBot/>
-          </If>
-        </If>
+					</If>
+				</If>
 				<While condition="IsFateActive(1403)">
 					<NoCombatMoveTo XYZ="114.8515, 720.9213, 417.543" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1403" MinLevel="1" MaxLevel="80" while="IsFateActive(1403)"/>
-        </While>
-      </If>
+				</While>
+			</If>
 			
 			<!-- Lost Epic 1404 - Penthesilea -->
 			<If Condition="&Penthesilea; == 1">
-        <Grind GrindRef="Val Bloodglider" while="not IsFateActive(1404)"/>
-        <If condition="WorldManager.CurrentWeatherId == 14 and IsFateActive(1404)">
+				<Grind GrindRef="Val Bloodglider" while="not IsFateActive(1404)"/>
+				<If condition="WorldManager.CurrentWeatherId == 14 and IsFateActive(1404)">
 					<NoCombatMoveTo XYZ="693.7227, 661.6157, -761.0351"/>
 					<If Condition="&AnnounceFates; == 1">
 						<LLSendChat Shout="Penthesilea spawned &lt;pos&gt;"/>
-          </If>
-          <If Condition="&StopBot; == 1">
+					</If>
+					<If Condition="&StopBot; == 1">
 						<StopBot/>
-          </If>
+					</If>
 				</If>
-        <While condition="IsFateActive(1404)">
+				<While condition="IsFateActive(1404)">
 					<NoCombatMoveTo XYZ="712.867, 661.6157, -771.2234" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1404" MinLevel="1" MaxLevel="80" while="IsFateActive(1404)"/>
-        </While>
-      </If>
+				</While>
+			</If>
 			
 		</If>
 		
@@ -501,13 +502,14 @@
 		<CodeChunk Name="LevelSync">
 			<![CDATA[
 				ff14bot.RemoteWindows.ToDoList.LevelSync();
-			]]></CodeChunk>
+			]]>
+		</CodeChunk>
 		<CodeChunk Name="EnterPyros">
 			<![CDATA[
 				var npcId = GameObjectManager.GetObjectByNPCId(1024517);
-
+				
 					if (!npcId.IsWithinInteractRange)
-
+					
 						{
 							var _target = npcId.Location;
 							Navigator.PlayerMover.MoveTowards(_target);
@@ -518,9 +520,9 @@
 								}
 									Navigator.PlayerMover.MoveStop();
 								}
-
+								
 					npcId.Interact();
-
+					
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
@@ -535,7 +537,7 @@
 							Logging.WriteDiagnostic("Selecting Yes.");
 							ff14bot.RemoteWindows.SelectYesno.ClickYes();
 						}
-
+						
 					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					
@@ -544,11 +546,12 @@
 							Logging.WriteDiagnostic("Commencing Duty.");
 							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
 							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
-							   if (CommonBehaviors.IsLoading)
-							   {
-								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
-							   }
+								if (CommonBehaviors.IsLoading)
+									{
+										await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+									}
 						}
-			]]></CodeChunk>
+			]]>
+		</CodeChunk>
 	</CodeChunks>
 </Profile>
