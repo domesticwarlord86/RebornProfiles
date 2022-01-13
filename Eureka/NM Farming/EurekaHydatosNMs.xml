@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Eureka Hydatos NM Farm
+  Authors: ripsnortntear
+  
+  Setting a NM to one will cause the bot to target the mobs that spawn that NM until the NM spawns and then fights the NM. 
+  The profile will go down the list targetting from bottom to top anything set to 1.
+  So if you have to stop the profile it will start back at the top when you start it again. To avoid that,
+  set anything you don't want to kill to 0.
+  
+  I also recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned again.
+  
+  Required Nightfall:
+  Golde - Only prepped at night, fate spawn anytime.
+  
+  Notes:
+  Special fate named I Don't Want to Believe will spawn when it's time to open a special raid as part of the quest line.
+  You only need to farm this fate when you are looking to get into the raid. Profile will not look for portals.
+    
+  todo: 24/7 fate   IsValid: True | Level: 50 | Status: ACTIVE | Name: Drink Me | ID: 1425
+
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY AnnounceFates "1">
+<!ENTITY StopBot "1">
+
+<!-- Select NMs to farm -->
+<!ENTITY Khalamari "1">    <!-- NO DATA | NOT TESTED -->
+<!ENTITY Stegodon "0">    <!-- NO DATA | NOT TESTED -->
+<!ENTITY Molech "0">    <!-- NO DATA | NOT TESTED -->
+<!ENTITY Piasa "0">    <!-- NO DATA | NOT TESTED -->
+<!ENTITY Frostmane "0">    <!-- NO DATA | NOT TESTED -->
+<!ENTITY Daphne "0">    <!-- NO DATA | NOT TESTED -->
+<!ENTITY Golde "0">          <!-- IsValid: True | Level: 56 | Status: ACTIVE | Name: Duty-free | ID: 1418 -->
+<!ENTITY Leuke "0">    <!-- NO DATA | NOT TESTED -->
+<!ENTITY Barong "0">   <!-- DONE | NOT TESTED -->
+<!ENTITY Ceto "0">      <!--      IsValid: True | Level: 59 | Status: ACTIVE | Name: Stone-cold Killer | ID: 1421  -->
+<!ENTITY Onvi "0">    <!--    IsValid: True | Level: 60 | Status: ACTIVE | Name: I Don't Want to Believe | ID: 1424 |  nocombatmoveto 294.7177, 494, -143.5532  |  fight fate at 275.6029, 494, -111.7626  -->
+<!ENTITY PW "0">    <!-- NO DATA | NOT TESTED -->
+
+]>
+
+<Profile>
+	<Name>Eureka Hydatos NM Farm</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
+		<If condition="not DutyManager.InInstance">
+			<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617"/>
+			<RunCode name="EnterHydatos"/>
+		</If>
+		
+		<If Condition="IsOnMap(795)">
+		
+			<!-- Robber Barong 1420 - Barong -->
+			<If Condition="&Barong; == 1">
+				<Grind GrindRef="Laboratory Lion" while="not IsFateActive(1420)"/>
+				<NoCombatMoveTo XYZ="594.233, 515.2236, -294.5056" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Barong spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1420)">
+					<NoCombatMoveTo XYZ="561.6548, 515.0914, -322.574" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1420" MinLevel="1" MaxLevel="80" while="IsFateActive(1420)"/>
+				</While>
+			</If>
+			
+		</If>
+		
+	</Order>
+	<GrindAreas>
+		<GrindArea name="Laboratory Lion">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="623.6972, 509.8594, -301.9978" name="Laboratory Lion"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="8047" Weight="1"/> <!-- Laboratory Lion -->
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+		<CodeChunk Name="LevelSync">
+			<![CDATA[
+				ff14bot.RemoteWindows.ToDoList.LevelSync();
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="EnterHydatos">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1024517);
+				
+					if (!npcId.IsWithinInteractRange)
+					
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+								
+					npcId.Interact();
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Eureka Hydatos.");
+						SelectString.ClickLineContains("Hydatos");;
+					}
+					
+					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+						{
+							Logging.WriteDiagnostic("Selecting Yes.");
+							ff14bot.RemoteWindows.SelectYesno.ClickYes();
+						}
+					
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+								if (CommonBehaviors.IsLoading)
+									{
+										await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+									}
+						}
+			]]>
+		</CodeChunk>
+	</CodeChunks>
+</Profile>
