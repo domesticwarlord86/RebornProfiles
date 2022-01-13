@@ -537,7 +537,7 @@
 							Logging.WriteDiagnostic("Selecting Yes.");
 							ff14bot.RemoteWindows.SelectYesno.ClickYes();
 						}
-						
+					
 					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					
