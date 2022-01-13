@@ -8,86 +8,112 @@
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
 <!ENTITY openchest "1">
+
+<!-- How many GC Seals do we want before we stop? -->
+<!ENTITY GCSeals "50000">	
+
 ]>
 
 <Profile>
   <Name>Sohm Al</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
- 	<If condition="not DutyManager.InInstance">
-		<LLJoinDuty DutyId="37"/>
-	</If>
-	<If condition="DutyManager.InInstance">
-		<!-- Defeat Raskovnik 0/1 -->
-		<If Condition="not GetInstanceTodo(0) == 1">
-			<Log Message="Defeat Raskovnik 0/1" />
-			<BotSettings AutoEquip="1" />	
-			<MoveTo XYZ="-257.2819, -3.558736, 193.1647"/>
-			<MoveTo XYZ="-166.1877, 3.651725, 199.8692"/>
-			<MoveTo XYZ="-140.7917, 11.99939, 185.2002"/>
-			<Grind GrindRef="Firstboss" While="not GameObjectManager.GetObjectByNPCId(3791).CurrentHealth == 0"/> <!-- Fight first boss -->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="-126.8483,11.97827,149.0653" />
-				<LLOpenChest/>
-			</If>
-			<MoveTo XYZ="-93.73286, 18.69949, 124.4259"/>
-			<LLChangeZone Heading="1.472318"/>
+	
+	<While condition="CurrentGCSeals() &lt; &GCSeals;">
+	
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="37"/>
 		</If>
-		
-		<!-- Defeat Myath 0/1 -->
-		<If Condition="not GetInstanceTodo(1) == 1">
-			<Log Message="Defeat Myath 0/1" />	
-			<MoveTo XYZ="347.8081, 112.3573, -69.31239"/>
-			<Grind GrindRef="Pyrodragon" While="GameObjectManager.GetObjectByNPCId(3809)"/> <!-- Clear Pyrodragon -->
-			<WaitTimer WaitTime="5" />
-			<Grind GrindRef="Pyrodragon" While="GameObjectManager.GetObjectByNPCId(3809)"/> <!-- Clear Pyrodragon -->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="271.9665, 120.9482, -100.9838"/>
-				<LLOpenChest/>
-			</If>			
-			<MoveTo XYZ="269.2288, 126.5839, -35.07988"/>
-			<Grind GrindRef="Cryodragon" While="GameObjectManager.GetObjectByNPCId(3810)"/> <!-- Clear Cryodragon -->
-			<WaitTimer WaitTime="5" />
-			<Grind GrindRef="Cryodragon" While="GameObjectManager.GetObjectByNPCId(3810)"/> <!-- Clear Cryodragon -->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="164.4028, 135.8241, -35.9251"/>
-				<LLOpenChest/>
+		<If condition="DutyManager.InInstance">
+			<!-- Defeat Raskovnik 0/1 -->
+			<If Condition="not GetInstanceTodo(0) == 1">
+				<Log Message="Defeat Raskovnik 0/1" />\
+				<Grind GrindRef="ClearToBoss" While="NumAttackableEnemies(100, Array[int]([3800,3799,3802,3803])) &gt; 0"/> 
+				<MoveTo XYZ="-140.7917, 11.99939, 185.2002"/>
+				<Grind GrindRef="Firstboss" While="not GameObjectManager.GetObjectByNPCId(3791).CurrentHealth == 0"/> <!-- Fight first boss -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-126.8483,11.97827,149.0653" />
+					<LLOpenChest/>
+				</If>
+				<MoveTo XYZ="-93.73286, 18.69949, 124.4259"/>
+				<LLChangeZone Heading="1.472318"/>
 			</If>
-			<MoveTo XYZ="164.1431, 137.6078, -64.30367"/>
-			<MoveTo XYZ="142.0083, 137.6078, -73.54874" usemesh="false" />	
-			<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(3793).CurrentHealth == 0"/> <!-- Fight second boss -->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="174.1511,137.5906,-110.4907" />
-				<LLOpenChest/>
-			</If>
-			<MoveTo XYZ="194.9788, 140.1169, -138.6691"/>
-			<LLChangeZone Heading="2.670952"/>			
-		</If>
-		
-		<!-- Defeat Tioman 0/1-->
-		<If Condition="not GetInstanceTodo(2) == 1">
-			<Log Message="Defeat Tioman 0/1" />	
-			<MoveTo XYZ="-201.6142, 329.154, -298.9766"/>
-			<Grind GrindRef="Ergodragon" While="not GameObjectManager.GetObjectByNPCId(3811).CurrentHealth == 0"/> <!-- Clear Ergodragon Fight -->
-			<Grind GrindRef="WoundedDragon" While="not GameObjectManager.GetObjectByNPCId(3816).CurrentHealth == 0"/> <!-- Clear Wounded Dragons Fight -->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="-91.31446, 344.1454, -358.5639"/>
-				<LLOpenChest/>
-			</If>					
-			<MoveTo XYZ="-110.3985, 348.2341, -374.2008"/>
-			<Grind GrindRef="FinalBoss" While="GetInstanceTodo(2) == 1"/> <!-- Fight second boss -->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="-95.44525,348.1649,-406.4241" />
-				<LLOpenChest/>
-			</If>
-			<While condition="DutyManager.InInstance">	
+			
+			<!-- Defeat Myath 0/1 -->
+			<If Condition="not GetInstanceTodo(1) == 1">
+				<Log Message="Defeat Myath 0/1" />	
+				<MoveTo XYZ="347.8081, 112.3573, -69.31239"/>
+				<Grind GrindRef="Pyrodragon" While="GameObjectManager.GetObjectByNPCId(3809)"/> <!-- Clear Pyrodragon -->
 				<WaitTimer WaitTime="5" />
-				<LLLeaveDuty/>
-			</While>
+				<Grind GrindRef="Pyrodragon" While="GameObjectManager.GetObjectByNPCId(3809)"/> <!-- Clear Pyrodragon -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="271.9665, 120.9482, -100.9838"/>
+					<LLOpenChest/>
+				</If>			
+				<MoveTo XYZ="269.2288, 126.5839, -35.07988"/>
+				<Grind GrindRef="Cryodragon" While="GameObjectManager.GetObjectByNPCId(3810)"/> <!-- Clear Cryodragon -->
+				<WaitTimer WaitTime="5" />
+				<Grind GrindRef="Cryodragon" While="GameObjectManager.GetObjectByNPCId(3810)"/> <!-- Clear Cryodragon -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="164.4028, 135.8241, -35.9251"/>
+					<LLOpenChest/>
+				</If>
+				<MoveTo XYZ="164.1431, 137.6078, -64.30367"/>
+				<MoveTo XYZ="142.0083, 137.6078, -73.54874" usemesh="false" />	
+				<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(3793).CurrentHealth == 0"/> <!-- Fight second boss -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="174.1511,137.5906,-110.4907" />
+					<LLOpenChest/>
+				</If>
+				<MoveTo XYZ="194.9788, 140.1169, -138.6691"/>
+				<LLChangeZone Heading="2.670952"/>			
+			</If>
+			
+			<!-- Defeat Tioman 0/1-->
+			<If Condition="not GetInstanceTodo(2) == 1">
+				<Log Message="Defeat Tioman 0/1" />	
+				<MoveTo XYZ="-201.6142, 329.154, -298.9766"/>
+				<Grind GrindRef="Ergodragon" While="not GameObjectManager.GetObjectByNPCId(3811).CurrentHealth == 0"/> <!-- Clear Ergodragon Fight -->
+				<Grind GrindRef="WoundedDragon" While="not GameObjectManager.GetObjectByNPCId(3816).CurrentHealth == 0"/> <!-- Clear Wounded Dragons Fight -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-91.31446, 344.1454, -358.5639"/>
+					<LLOpenChest/>
+				</If>					
+				<MoveTo XYZ="-110.3985, 348.2341, -374.2008"/>
+				<Grind GrindRef="FinalBoss" While="GetInstanceTodo(2) == 1"/> <!-- Fight second boss -->
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-95.44525,348.1649,-406.4241" />
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>
+			</If>
 		</If>
-	</If>	
+	
+		<If condition="not DutyManager.InInstance">
+			<GCExpertTurnin/>
+		</If>
+	
+	</While>
+
+	
   </Order>
   <GrindAreas>
+    <GrindArea name="ClearToBoss">
+      <Hotspots>
+				<Hotspot Radius="90" XYZ="-270.0937, -4.0326, 202.8648" name="Name"/>
+        <Hotspot Radius="90" XYZ="-177.5151, 2.681096, 200.0955" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3800" Weight="1"/> <!-- Flying Killer -->
+        <TargetMob Id="3799" Weight="1"/> <!-- Blooming Ochu -->
+        <TargetMob Id="3802" Weight="1"/> <!-- Pollen Cluster -->
+        <TargetMob Id="3803" Weight="1"/> <!-- Drakespur -->
+      </TargetMobs>
+    </GrindArea>
+	
 	<GrindArea name="Firstboss">
         <Hotspots>
 			<Hotspot Radius="200" XYZ="-126.9843,11.99944,168.3082" />
@@ -143,8 +169,8 @@
         </Hotspots>
         <TargetMobs>
 						<TargetMob Id="3798" Weight="1" />	<!-- Tioman -->
-            <TargetMob Id="4388" Weight="2" />    <!-- Left Wing -->
-            <TargetMob Id="4389" Weight="3" />    <!-- Right Wing -->			
+            <TargetMob Id="4388" Weight="100" />    <!-- Left Wing -->
+            <TargetMob Id="4389" Weight="100" />    <!-- Right Wing -->			
         </TargetMobs>
 	</GrindArea>	
   </GrindAreas>

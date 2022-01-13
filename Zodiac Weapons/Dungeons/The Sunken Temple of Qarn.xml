@@ -52,25 +52,25 @@
 			<Log Message="Tip the Scales of Judgment 0/1" />
 			<MoveTo XYZ="54.83727, -18.63602, -4.507351"/>
 			<If condition="GameObjectManager.GetObjectByNPCId(2000653).IsVisible">
-				<MoveTo XYZ="54.83727, -18.63602, -4.507351"/>
+				<NoCombatMoveTo XYZ="54.83727, -18.63602, -4.507351"/>
 				<WaitTimer WaitTime="15" />
 			</If>			
 			<If condition="GameObjectManager.GetObjectByNPCId(2000653).IsVisible">
-				<MoveTo XYZ="45.29537, -19.00007, 4.398224"/>
+				<NoCombatMoveTo XYZ="45.29537, -19.00007, 4.398224"/>
 				<WaitTimer WaitTime="15" />
 			</If>				
 			<If condition="GameObjectManager.GetObjectByNPCId(2000653).IsVisible">
-				<MoveTo XYZ="46.17144, -19.00012, -5.009572"/>
+				<NoCombatMoveTo XYZ="46.17144, -19.00012, -5.009572"/>
 				<WaitTimer WaitTime="15" />
 			</If>			
 			<If condition="GameObjectManager.GetObjectByNPCId(2000653).IsVisible">
-				<MoveTo XYZ="54.32559, -18.76464, 3.84428"/>
+				<NoCombatMoveTo XYZ="54.32559, -18.76464, 3.84428"/>
 				<WaitTimer WaitTime="15" />
 			</If>		
 			<Grind GrindRef="AvoirdupoisCourtyard" While="GameObjectManager.GetObjectByNPCId(2000434).IsVisible"/> <!-- Open courtyard Door -->	
-			<MoveTo XYZ="129.6967, -4.000001, -0.1147157" distance="1"/>	
+			<NoCombatMoveTo XYZ="129.6967, -4.000001, -0.1147157" distance="1"/>	
 			<Grind GrindRef="AvoirdupoisFinal" While="GameObjectManager.GetObjectByNPCId(2000435).IsVisible"/> <!-- Open final Door -->	
-			<MoveTo XYZ="190.142, -3.682699, -0.04042793"/>
+			<NoCombatMoveTo XYZ="190.142, -3.682699, -0.04042793"/>
 			<RunCode name="Scales"/>
 		</If>
 		

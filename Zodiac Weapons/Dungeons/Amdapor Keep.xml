@@ -14,6 +14,23 @@
   <Name>Amdapor Keep</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
+	
+	<!-- Unlock Amdapor Keep -->
+   <!-- [Amdapor Keep] Ghosts of Amdapor -->
+   <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(66406) and not HasQuest(66671) and not IsQuestCompleted(66671)">
+     <LisbethTravel ZoneId="140" XYZ="-470.821, 23.03532, -355.408"/>
+     <If Condition="not IsQuestAcceptQualified(66671)">
+       <LogMessage Message="[OrderBot] Unlock Dungeons: You must complete Aurum Vale to proceed."/>
+     </If>
+     <If Condition="IsQuestAcceptQualified(66671)">
+       <PickupQuest QuestId="66671" NpcId="1005021" XYZ="-472.4957, 23.02878, -355.0012"/>
+     </If>
+   </If>
+	<If Condition="HasQuest(66671) and not IsQuestCompleted(66671) and GetQuestStep(66671) == 255">
+		<LisbethTravel ZoneId="153" XYZ="160.7478, 37.67024, 174.0806"/>
+		<TurnIn QuestId="66671" NpcId="1007574" XYZ="163.4088, 37.62593, 175.0363"/>
+	</If>		
+	
  	<If condition="not DutyManager.InInstance">
 		<LLJoinDuty DutyId="14"/>
 	</If>
@@ -38,7 +55,7 @@
 				<LLOpenChest/>
 			</If>	
 			<MoveTo XYZ="-10.23611,-1.192093E-07,-0.01531982" usemesh="false"/>
-			<RunCode name="AstralFlow1"/>	
+			<UseTransport NpcId="2000500" InteractDistance="3.0" XYZ="-10.23611, -1.192093E-07, -0.01531982"/>			
 		</If>
 		
 		<!-- Clear the Bloody Transept 0/1 -->
@@ -53,7 +70,7 @@
 				<LLOpenChest/>
 			</If>
 			<MoveTo XYZ="200.061,22,-165.266" usemesh="false"/> <!-- Move Astral Flow 2 -->
-			<RunCode name="AstralFlow2"/>
+			<UseTransport NpcId="2000501" InteractDistance="3.0" XYZ="200.061,22,-165.266"/>	
 		</If>
 		
 		<!-- Defeat Anantaboga 0/1-->
@@ -148,7 +165,7 @@
 			<While condition="DutyManager.InInstance">	
 				<WaitTimer WaitTime="10" />
 				<LLLeaveDuty/>
-			</While>
+			</While>			
 		</If>
 	</If>
 
@@ -182,34 +199,6 @@
         </TargetMobs>
 	</GrindArea>	
   </GrindAreas>
-  <CodeChunks>
-  	<CodeChunk Name="AstralFlow1">
-		<![CDATA[
-			var x = GameObjectManager.GetObjectByNPCId(2000500);
-			var pos = new Vector3(x.Location.X, x.Location.Y, x.Location.Z);
-			Navigator.PlayerMover.MoveTowards(pos);
-			await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 3f);
-			Navigator.PlayerMover.MoveStop();
-			await Coroutine.Sleep(1000);
-			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(x.NpcId).Interact();		
-			await Coroutine.Wait(10000, () => SelectYesno.IsOpen);
-			ff14bot.RemoteWindows.SelectYesno.ClickYes();
-			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }		
-      ]]>
-	</CodeChunk>  
-  	<CodeChunk Name="AstralFlow2">
-		<![CDATA[
-			var x = GameObjectManager.GetObjectByNPCId(2000501);
-			var pos = new Vector3(x.Location.X, x.Location.Y, x.Location.Z);
-			Navigator.PlayerMover.MoveTowards(pos);
-			await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 3f);
-			Navigator.PlayerMover.MoveStop();
-			await Coroutine.Sleep(1000);
-			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(x.NpcId).Interact();		
-			await Coroutine.Wait(10000, () => SelectYesno.IsOpen);
-			ff14bot.RemoteWindows.SelectYesno.ClickYes();
-			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }			
-      ]]>
-	</CodeChunk> 	
+  <CodeChunks> 	
   </CodeChunks>
 </Profile>	
