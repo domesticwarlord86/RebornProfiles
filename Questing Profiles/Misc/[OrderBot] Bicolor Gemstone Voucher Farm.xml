@@ -9,51 +9,91 @@
 <!ENTITY Vouchers "500">
 <!ENTITY Rank3Done "0">
 <!ENTITY Leveling "0">
+
+<!-- What zone should we grind in if not using Leveling? -->
+<!ENTITY Thavnair "0"> 
+<!ENTITY Labyrinthos "0">
+<!ENTITY Garlemald "1">
+<!ENTITY MareLamentorum "0">
+<!ENTITY Elpis "0">
+<!ENTITY UltimaThule "0">
 ]>
 <Profile>
   <Name>Bicolor Gemstone Voucher Farm</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
 
-	<If Condition="&Rank3Done; == 1">
+	<If Condition="&Rank3Done; == 0">
 		<LLToast message="Buying vouchers requires you to have Rank 3 Shared Fates in all Endwalker zones."/>
-		<LogMessage Message="Buying vouchers requires you to have Rank 3 Shared Fates in all Endwalker zones. Please change Rank3Done '1' to Rank3Done '0' if you have."/>
-		<LLToast message="Please change Rank3Done '1' to Rank3Done '0' if you have."/>		
+		<LogMessage Message="Buying vouchers requires you to have Rank 3 Shared Fates in all Endwalker zones. Please change Rank3Done '0' to Rank3Done '1' if you have."/>
+		<LLToast message="Please change Rank3Done '0' to Rank3Done '1' if you have."/>		
 	</If>
 	
 	<While Condition="ItemCount(35833) &lt; &Vouchers;"> <!-- 35833 = Bicolor Gemstone Voucher -->
-		<If condition="ItemCount(26807) &gt; 999 and &Rank3Done; == 0">
+		<If condition="ItemCount(26807) &gt; 999 and &Rank3Done; == 1">
 			<GetTo ZoneId="962" XYZ="75.72826, 5.15, -36.62057"/>
 			<BuyShopExchangeCurrency Dialog="True" NpcId="1037055" ItemId="35833" Count="10"  XYZ="78.3551, 5.15, -36.78955"/>	
 		</If>
 		
 		<If Condition="&Leveling; == 0">
+		
+		<!-- Thavnair -->
+		<If Condition="&Thavnair; == 1">
+			<If condition="not IsOnMap(957)">
+				<TeleportTo AetheryteId="170"/> <!-- The Great Work -->
+			</If>			
+			<Log Message="Starting Thavnair FATE grind." /> 
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="90" MinProgress="10" while="IsOnMap(957) and ItemCount(26807) &lt; 1000"/>		
+		</If>
+
+		<!-- Labyrinthos -->
+		<If Condition="&Labyrinthos; == 1">
+			<If condition="not IsOnMap(956)">
+				<TeleportTo AetheryteId="166"/> <!-- The Archeion -->
+			</If>		
+			<Log Message="Starting Labyrinthos FATE grind." /> 
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" BlacklistIds="1754" while="IsOnMap(956) and ItemCount(26807) &lt; 1000"/>	
+		</If>
+		
 			<!-- Garlemald -->
+		<If Condition="&Labyrinthos; == 1">	
 			<If condition="not IsOnMap(958)">
 				<TeleportTo Name="Camp Broken Glass" AetheryteId="172"/>
 			</If>
-			<If condition="IsOnMap(958)">
-				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798" while="IsOnMap(958)" While="ItemCount(26807) &lt; 1000"/>	
+			<Log Message="Starting Mare Lamentorum FATE grind." /> 	
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798,1793" while="IsOnMap(958) and ItemCount(26807) &lt; 1000"/>	
+		</If>
+
+		<!-- Mare Lamentorum -->
+		<If Condition="&MareLamentorum; == 1">
+			<If condition="not IsOnMap(959)">
+				<TeleportTo AetheryteId="174"/> <!-- Sinus Lacrimarum -->
 			</If>
+			<Log Message="Starting Mare Lamentorum FATE grind." /> 	
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1817,1831" while="IsOnMap(959) and ItemCount(26807) &lt; 1000"/>	
 		</If>
 		
-		<!--	
-		Garlemald Fates
-		ID: 1785 Type: Battle Fate: Trespassers Will Be Eaten 
-		ID: 1786 Type: Battle Fate: A Snowball's Chance 
-		ID: 1787 Type: Battle Fate: Not Yeti 
-		ID: 1788
-		ID: 1789 Type: Boss Fate: Roses Are Red, Violence Is Due 
-		ID: 1790 Type: ProtectNPC Fate: Amazing Crates 
-		ID: 1791
-		ID: 1792
-		ID: 1793 Type: Battle Fate: Rocker, Roller, Out-of-controller 
-		ID: 1794 Type: Battle Fate: Stray Dog Strut 
-		ID: 1796 Type: Battle Fate: A Bit of a Problem 
-		ID: 1797 Type: Boss Fate: The Man with the Golden Son 
-		ID: 1798 Type: KillHandIn Fate: Parts Unknown 	
-		-->		
-		
+		<!-- Elpis -->
+		<If Condition="&Elpis; == 1">
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>
+			<Log Message="Starting Elpis FATE grind." /> 	
+			<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="1838" while="IsOnMap(961) and ItemCount(26807) &lt; 1000"/>	
+		</If>		
+
+		<!-- Ultima Thule -->
+		<If Condition="&UltimaThule; == 1">
+			<If condition="not IsOnMap(960)">
+				<TeleportTo AetheryteId="179"/> <!-- Reah Tahra -->
+			</If>
+			<Log Message="Starting Ultima THule FATE grind." /> 	
+			<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="0" while="IsOnMap(960) and ItemCount(26807) &lt; 1000"/>	
+		</If>		
+
+
+	</If>
+
 		<If Condition="&Leveling; == 1">
 			<If Condition="Core.Me.ClassLevel &lt; 83">
 				<!-- Labyrinthos -->
