@@ -374,7 +374,7 @@
 				<Hotspot Radius="90" XYZ="393.2352, 727.6575, 397.9339" name="Thunderstorm Sprite"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7772" Weight="1"/>	<!-- Thunderstorm Sprite -->
+				<TargetMob Id="7772" Weight="1"/> <!-- Thunderstorm Sprite -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Pyros Apanda">
@@ -382,7 +382,7 @@
 				<Hotspot Radius="70" XYZ="480.0917, 724.0006, 486.5677" name="Pyros Apanda"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7808" Weight="1"/>	<!-- Pyros Apanda -->
+				<TargetMob Id="7808" Weight="1"/> <!-- Pyros Apanda -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Valking">
@@ -390,7 +390,7 @@
 				<Hotspot Radius="90" XYZ="113.8488, 753.97, 793.6543" name="Valking"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7812" Weight="1"/>	<!-- Valking -->
+				<TargetMob Id="7812" Weight="1"/> <!-- Valking -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Overdue Tome">
@@ -398,7 +398,7 @@
 				<Hotspot Radius="90" XYZ="-104.6339, 759.4752, 414.0952" name="Overdue Tome"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7814" Weight="1"/>	<!-- Overdue Tome -->
+				<TargetMob Id="7814" Weight="1"/> <!-- Overdue Tome -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Dark Troubadour">
@@ -406,7 +406,7 @@
 				<Hotspot Radius="90" XYZ="-174.3635, 668.9334, -361.5984" name="Dark Troubadour"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7779" Weight="1"/>	<!-- Dark Troubadour -->
+				<TargetMob Id="7779" Weight="1"/> <!-- Dark Troubadour -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Islandhander">
@@ -414,7 +414,7 @@
 				<Hotspot Radius="90" XYZ="-582.0459, 675.6428, -327.8875" name="Islandhander"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7821" Weight="1"/>	<!-- Islandhander -->
+				<TargetMob Id="7821" Weight="1"/> <!-- Islandhander -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Bird Eater">
@@ -422,7 +422,7 @@
 				<Hotspot Radius="90" XYZ="-456.1881, 676.8059, -532.1068" name="Bird Eater"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7824" Weight="1"/>	<!-- Bird Eater -->
+				<TargetMob Id="7824" Weight="1"/> <!-- Bird Eater -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Pyros Crab">
@@ -430,7 +430,7 @@
 				<Hotspot Radius="90" XYZ="-326.4003, 658.0245, -743.0737" name="Pyros Crab"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7825" Weight="1"/>	<!-- Pyros Crab -->
+				<TargetMob Id="7825" Weight="1"/> <!-- Pyros Crab -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Northern Swallow">
@@ -438,7 +438,7 @@
 				<Hotspot Radius="90" XYZ="1.146207, 686.3918, -480.7573" name="Northern Swallow"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7830" Weight="1"/>	<!-- Northern Swallow -->
+				<TargetMob Id="7830" Weight="1"/> <!-- Northern Swallow -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Illuminati Escapee">
@@ -454,7 +454,7 @@
 				<Hotspot Radius="90" XYZ="309.6639, 680.1943, -630.4494" name="Matanga Castaway"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7836" Weight="1"/>	<!-- Matanga Castaway -->
+				<TargetMob Id="7836" Weight="1"/> <!-- Matanga Castaway -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Pyros Treant">
@@ -462,7 +462,7 @@
 				<Hotspot Radius="90" XYZ="431.3199, 659.9396, -492.3007" name="Pyros Treant"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7837" Weight="1"/>	<!-- Pyros Treant -->
+				<TargetMob Id="7837" Weight="1"/> <!-- Pyros Treant -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Val Skatene">
@@ -470,7 +470,7 @@
 				<Hotspot Radius="90" XYZ="525.2595, 669.6033, -314.4482" name="Val Skatene"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7841" Weight="1"/>	<!-- Val Skatene -->
+				<TargetMob Id="7841" Weight="1"/> <!-- Val Skatene -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Pyros Hecteyes">
@@ -478,7 +478,7 @@
 				<Hotspot Radius="90" XYZ="-463.1781, 651.399, 596.3222" name="Pyros Hecteyes"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7845" Weight="1"/>	<!-- Pyros Hecteyes -->
+				<TargetMob Id="7845" Weight="1"/> <!-- Pyros Hecteyes -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Pyros Shuck">
@@ -486,7 +486,7 @@
 				<Hotspot Radius="90" XYZ="-257.7799, 613.2378, 760.9648" name="Pyros Shuck"/>
 			</Hotspots>
 			<TargetMobs>
-				<TargetMob Id="7848" Weight="1"/>	<!-- Pyros Shuck -->
+				<TargetMob Id="7848" Weight="1"/> <!-- Pyros Shuck -->
 			</TargetMobs>
 		</GrindArea>
 		<GrindArea name="Val Bloodglider">
