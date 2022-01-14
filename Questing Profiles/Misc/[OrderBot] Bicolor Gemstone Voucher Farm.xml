@@ -10,6 +10,9 @@
 <!ENTITY Rank3Done "0">
 <!ENTITY Leveling "0">
 
+<!-- What quantity should we get to before cashing in gemstnoes? -->
+<!ENTITY GemStones "950">
+
 <!-- What zone should we grind in if not using Leveling? -->
 <!ENTITY Thavnair "0"> 
 <!ENTITY Labyrinthos "0">
@@ -30,7 +33,7 @@
 	</If>
 	
 	<While Condition="ItemCount(35833) &lt; &Vouchers;"> <!-- 35833 = Bicolor Gemstone Voucher -->
-		<If condition="ItemCount(26807) &gt; 999 and &Rank3Done; == 1">
+		<If condition="ItemCount(26807) &gt; &GemStones; and &Rank3Done; == 1">
 			<GetTo ZoneId="962" XYZ="75.72826, 5.15, -36.62057"/>
 			<BuyShopExchangeCurrency Dialog="True" NpcId="1037055" ItemId="35833" Count="10"  XYZ="78.3551, 5.15, -36.78955"/>	
 		</If>
@@ -43,7 +46,7 @@
 				<TeleportTo AetheryteId="170"/> <!-- The Great Work -->
 			</If>			
 			<Log Message="Starting Thavnair FATE grind." /> 
-			<LLFate UseFlight="True" MinLevel="0" MaxLevel="90" MinProgress="10" while="IsOnMap(957) and ItemCount(26807) &lt; 1000"/>		
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="90" MinProgress="10" while="IsOnMap(957) and ItemCount(26807) &lt; &GemStones;"/>		
 		</If>
 
 		<!-- Labyrinthos -->
@@ -52,7 +55,7 @@
 				<TeleportTo AetheryteId="166"/> <!-- The Archeion -->
 			</If>		
 			<Log Message="Starting Labyrinthos FATE grind." /> 
-			<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" BlacklistIds="1754" while="IsOnMap(956) and ItemCount(26807) &lt; 1000"/>	
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" BlacklistIds="1754" while="IsOnMap(956) and ItemCount(26807) &lt; &GemStones;"/>	
 		</If>
 		
 			<!-- Garlemald -->
@@ -61,7 +64,7 @@
 				<TeleportTo Name="Camp Broken Glass" AetheryteId="172"/>
 			</If>
 			<Log Message="Starting Garlemald FATE grind." /> 	
-			<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798,1793" while="IsOnMap(958) and ItemCount(26807) &lt; 1000"/>	
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798,1793" while="IsOnMap(958) and ItemCount(26807) &lt; &GemStones;"/>	
 		</If>
 
 		<!-- Mare Lamentorum -->
@@ -70,7 +73,7 @@
 				<TeleportTo AetheryteId="174"/> <!-- Sinus Lacrimarum -->
 			</If>
 			<Log Message="Starting Mare Lamentorum FATE grind." /> 	
-			<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1817,1831" while="IsOnMap(959) and ItemCount(26807) &lt; 1000"/>	
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1817,1831" while="IsOnMap(959) and ItemCount(26807) &lt; &GemStones;"/>	
 		</If>
 		
 		<!-- Elpis -->
@@ -79,7 +82,7 @@
 				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
 			</If>
 			<Log Message="Starting Elpis FATE grind." /> 	
-			<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="1838" while="IsOnMap(961) and ItemCount(26807) &lt; 1000"/>	
+			<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="1838" while="IsOnMap(961) and ItemCount(26807) &lt; &GemStones;"/>	
 		</If>		
 
 		<!-- Ultima Thule -->
@@ -88,7 +91,7 @@
 				<TeleportTo AetheryteId="179"/> <!-- Reah Tahra -->
 			</If>
 			<Log Message="Starting Ultima THule FATE grind." /> 	
-			<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="0" while="IsOnMap(960) and ItemCount(26807) &lt; 1000"/>	
+			<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="0" while="IsOnMap(960) and ItemCount(26807) &lt; &GemStones;"/>	
 		</If>		
 
 
@@ -101,7 +104,7 @@
 					<TeleportTo Name="The Archeion" AetheryteId="166"/>
 				</If>
 				<If condition="IsOnMap(956)">
-					<LLFate UseFlight="True" MinLevel="0" MaxLevel="83" BlacklistIds="1750,1754" while="IsOnMap(956)" While="ItemCount(26807) &lt; 999 and Core.Me.ClassLevel &lt; 83"/>	
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="83" BlacklistIds="1750,1754" while="IsOnMap(956)" While="ItemCount(26807) &lt; &GemStones; and Core.Me.ClassLevel &lt; 83"/>	
 				</If>
 			</If>
 			<If Condition="Core.Me.ClassLevel &lt; 86">
@@ -110,7 +113,7 @@
 					<TeleportTo Name="Camp Broken Glass" AetheryteId="172"/>
 				</If>
 				<If condition="IsOnMap(958)">
-					<LLFate UseFlight="True" MinLevel="0" MaxLevel="86" BlacklistIds="1798" while="IsOnMap(958)" While="ItemCount(26807) &lt; 999 and Core.Me.ClassLevel &lt; 86"/>	
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="86" BlacklistIds="1798" while="IsOnMap(958)" While="ItemCount(26807) &lt; &GemStones; and Core.Me.ClassLevel &lt; 86"/>	
 				</If>
 			</If>
 			<If Condition="Core.Me.ClassLevel &lt; 91">
@@ -119,7 +122,7 @@
 					<TeleportTo Name="Anagnorisis" AetheryteId="176"/>
 				</If>
 				<If condition="IsOnMap(961)">
-					<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1830,1838" while="IsOnMap(961)" While="ItemCount(26807) &lt; 999"/>	
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1830,1838" while="IsOnMap(961)" While="ItemCount(26807) &lt; &GemStones;"/>	
 				</If>
 			</If>
 		</If>
