@@ -15,9 +15,7 @@
   
   Notes:
   Special fate named I Don't Want to Believe will spawn when it's time to open a special raid as part of the quest line.
-  You only need to farm this fate when you are looking to get into the raid. Profile will not look for portals.
-    
-  todo: 24/7 fate   IsValid: True | Level: 50 | Status: ACTIVE | Name: Drink Me | ID: 1425
+  You only need to farm this fate when you are looking to get into the raid. This fate will pop on its own.
 
 -->
 
@@ -27,18 +25,18 @@
 <!ENTITY StopBot "1">
 
 <!-- Select NMs to farm -->
-<!ENTITY Khalamari "1">    <!-- NO DATA | NOT TESTED -->
-<!ENTITY Stegodon "0">    <!-- NO DATA | NOT TESTED -->
-<!ENTITY Molech "0">    <!-- NO DATA | NOT TESTED -->
-<!ENTITY Piasa "0">    <!-- NO DATA | NOT TESTED -->
-<!ENTITY Frostmane "0">    <!-- NO DATA | NOT TESTED -->
-<!ENTITY Daphne "0">    <!-- NO DATA | NOT TESTED -->
-<!ENTITY Golde "0">          <!-- IsValid: True | Level: 56 | Status: ACTIVE | Name: Duty-free | ID: 1418 -->
-<!ENTITY Leuke "0">    <!-- NO DATA | NOT TESTED -->
-<!ENTITY Barong "0">   <!-- DONE | NOT TESTED -->
-<!ENTITY Ceto "0">      <!--      IsValid: True | Level: 59 | Status: ACTIVE | Name: Stone-cold Killer | ID: 1421  -->
-<!ENTITY Onvi "0">    <!--    IsValid: True | Level: 60 | Status: ACTIVE | Name: I Don't Want to Believe | ID: 1424 |  nocombatmoveto 294.7177, 494, -143.5532  |  fight fate at 275.6029, 494, -111.7626  -->
-<!ENTITY PW "0">    <!-- NO DATA | NOT TESTED -->
+<!ENTITY Khalamari "1">
+<!ENTITY Stegodon "0">
+<!ENTITY Molech "0">
+<!ENTITY Piasa "0">
+<!ENTITY Frostmane "0">
+<!ENTITY Daphne "0">
+<!ENTITY Golde "0">
+<!ENTITY Leuke "0">
+<!ENTITY Barong "0">
+<!ENTITY Ceto "0">
+<!ENTITY Onvi "0">
+<!ENTITY Provenance "0">
 
 ]>
 
@@ -51,8 +49,144 @@
 			<RunCode name="EnterHydatos"/>
 		</If>
 		
-		<If Condition="IsOnMap(795)">
+		<If Condition="IsOnMap(827)">
 		
+			<!-- I Ink, Therefore I Am 1412 - Khalamari -->
+			<If Condition="&Khalamari; == 1">
+				<Grind GrindRef="Xzomit" while="not IsFateActive(1412)"/>
+				<NoCombatMoveTo XYZ="-534.0733, 505.2716, -300.6847" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Khalamari spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1412)">
+					<NoCombatMoveTo XYZ="-525.6797, 505.4321, -288.2705" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1412" MinLevel="1" MaxLevel="80" while="IsFateActive(1412)"/>
+				</While>
+			</If>
+			
+			<!-- From Tusk till Dawn 1413 - Stegodon -->
+			<If Condition="&Stegodon; == 1">
+				<Grind GrindRef="Hydatos Primelephas" while="not IsFateActive(1413)"/>
+				<NoCombatMoveTo XYZ="-572.4703, 506.6675, -694.8395" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Stegodon spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1413)">
+					<NoCombatMoveTo XYZ="-570.2211, 506.679, -678.4907" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1413" MinLevel="1" MaxLevel="80" while="IsFateActive(1413)"/>
+				</While>
+			</If>
+			
+			<!-- Bullheaded Berserker 1414 - Molech -->
+			<If Condition="&Molech; == 1">
+				<Grind GrindRef="Val Nullchu" while="not IsFateActive(1414)"/>
+				<NoCombatMoveTo XYZ="-701.8063, 508.3078, -501.3264" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Molech spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1414)">
+					<NoCombatMoveTo XYZ="-692.7639, 508.1202, -487.9519" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1414" MinLevel="1" MaxLevel="80" while="IsFateActive(1414)"/>
+				</While>
+			</If>
+			
+			<!-- Mad, Bad, and Fabulous to Know 1415 - Piasa -->
+			<If Condition="&Piasa; == 1">
+				<Grind GrindRef="Vivid Gastornis" while="not IsFateActive(1415)"/>
+				<NoCombatMoveTo XYZ="-769.5586, 512.7335, -803.5674" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Piasa spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1415)">
+					<NoCombatMoveTo XYZ="-747.9606, 512.797, -825.3033" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1415" MinLevel="1" MaxLevel="80" while="IsFateActive(1415)"/>
+				</While>
+			</If>
+			
+			<!-- Fearful Symmetry 1416 - Frostmane -->
+			<If Condition="&Frostmane; == 1">
+				<Grind GrindRef="Northern Tiger" while="not IsFateActive(1416)"/>
+				<NoCombatMoveTo XYZ="-725.3666, 513.3977, -212.2266" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Frostmane spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1416)">
+					<NoCombatMoveTo XYZ="-695.8403, 513.4392, -231.6467" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1416" MinLevel="1" MaxLevel="80" while="IsFateActive(1416)"/>
+				</While>
+			</If>
+			
+			<!-- Crawling Chaos 1417 - Daphne -->
+			<If Condition="&Daphne; == 1">
+				<Grind GrindRef="Dark Void Monk" while="not IsFateActive(1417)"/>
+				<NoCombatMoveTo XYZ="235.6945, 503.6319, -751.7366" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Daphne spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1417)">
+					<NoCombatMoveTo XYZ="214.0998, 504.2657, -750.9111" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1417" MinLevel="1" MaxLevel="80" while="IsFateActive(1417)"/>
+				</While>
+			</If>
+			
+			<!-- Duty-free 1418 - King Goldemar -->
+			<If Condition="&Golde; == 1">
+				<Grind GrindRef="Hydatos Wraith" while="not IsFateActive(1418)"/>
+				<NoCombatMoveTo XYZ="377.5094, 505.7909, -401.2179" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Provenance spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1418)">
+					<NoCombatMoveTo XYZ="370.2927, 505.3933, -365.615" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1418" MinLevel="1" MaxLevel="80" while="IsFateActive(1418)"/>
+				</While>
+			</If>
+			
+			<!-- Leukewarm Reception 1419 - Leuke -->
+			<If Condition="&Leuke; == 1">
+				<Grind GrindRef="Tigerhawk" while="not IsFateActive(1419)"/>
+				<NoCombatMoveTo XYZ="752.4146, 518.8267, -215.9009" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Leuke spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1419)">
+					<NoCombatMoveTo XYZ="786.7964, 517.6402, -202.7368" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1419" MinLevel="1" MaxLevel="80" while="IsFateActive(1419)"/>
+				</While>
+			</If>
+			
 			<!-- Robber Barong 1420 - Barong -->
 			<If Condition="&Barong; == 1">
 				<Grind GrindRef="Laboratory Lion" while="not IsFateActive(1420)"/>
@@ -64,9 +198,60 @@
 					<StopBot/>
 				</If>
 				<While condition="IsFateActive(1420)">
-					<NoCombatMoveTo XYZ="561.6548, 515.0914, -322.574" />
+					<NoCombatMoveTo XYZ="564.4332, 513.872, -276.1193" />
 					<RunCode name="LevelSync"/>
 					<LLFate FateId="1420" MinLevel="1" MaxLevel="80" while="IsFateActive(1420)"/>
+				</While>
+			</If>
+			
+			<!-- Stone-cold Killer 1421 - Ceto -->
+			<If Condition="&Ceto; == 1">
+				<Grind GrindRef="Hydatos Delphyne" while="not IsFateActive(1421)"/>
+				<NoCombatMoveTo XYZ="775.1934, 514.9912, -853.4476" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Ceto spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1421)">
+					<NoCombatMoveTo XYZ="751.5989, 515.6048, -864.277" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1421" MinLevel="1" MaxLevel="80" while="IsFateActive(1421)"/>
+				</While>
+			</If>
+			
+			<!-- I Don't Want to Believe 1424 - Onvi -->
+			<If Condition="&Onvi; == 1">
+				<NoCombatMoveTo XYZ="294.7177, 494, -143.5532" />
+				<WaitWhile condition="not IsFateActive(1424)"/>
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Onvi spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1412)">
+					<NoCombatMoveTo XYZ="275.6029, 494, -111.7626" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1412" MinLevel="1" MaxLevel="80" while="IsFateActive(1412)"/>
+				</While>
+			</If>
+			
+			<!-- Crystalline Provenance 1423 - Provenance Watcher -->
+			<If Condition="&Provenance; == 1">
+				<Grind GrindRef="Crystal Claw" while="not IsFateActive(1423)"/>
+				<NoCombatMoveTo XYZ="581.3687, 503.294, -525.3956" />
+				<If Condition="&AnnounceFates; == 1">
+					<LLSendChat Shout="Provenance spawned &lt;pos&gt;"/>
+				</If>
+				<If Condition="&StopBot; == 1">
+					<StopBot/>
+				</If>
+				<While condition="IsFateActive(1423)">
+					<NoCombatMoveTo XYZ="558.4119, 503.294, -557.2913" />
+					<RunCode name="LevelSync"/>
+					<LLFate FateId="1423" MinLevel="1" MaxLevel="80" while="IsFateActive(1423)"/>
 				</While>
 			</If>
 			
@@ -74,12 +259,95 @@
 		
 	</Order>
 	<GrindAreas>
+		<GrindArea name="Xzomit">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-505.5291, 504.8613, -316.2712" name="Xzomit"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="8024" Weight="1"/> <!-- Xzomit -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Hydatos Primelephas">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-545.6219, 508.4482, -781.9976" name="Hydatos Primelephas"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="8028" Weight="1"/> <!-- Hydatos Primelephas -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Val Nullchu">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-675.7899, 509.5182, -441.7635" name="Val Nullchu"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="8031" Weight="1"/> <!-- Val Nullchu -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Vivid Gastornis">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-814.7608, 513.5092, -813.5487" name="Vivid Gastornis"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="8032" Weight="1"/> <!-- Vivid Gastornis -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Northern Tiger">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-758.3316, 508.2069, -197.3225" name="Northern Tiger"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="8037" Weight="1"/> <!-- Northern Tiger -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Dark Void Monk">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="213.4053, 504.3246, -752.649" name="Dark Void Monk"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="8038" Weight="1"/> <!-- Dark Void Monk -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Hydatos Wraith">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="193.8273, 501.7091, -624.5089" name="Hydatos Wraith"/>
+				<Hotspot Radius="200" XYZ="229.3098, 503.4652, -800.8802" name="Hydatos Wraith"/>
+				<Hotspot Radius="200" XYZ="393.2703, 511.0845, -652.9692" name="Hydatos Wraith"/>
+				<Hotspot Radius="200" XYZ="367.7656, 505.4732, -366.3532" name="Hydatos Wraith"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="8058" Weight="1"/> <!-- Hydatos Wraith -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Tigerhawk">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="761.7857, 514.707, -184.1478" name="Tigerhawk"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="8045" Weight="1"/> <!-- Tigerhawk -->
+			</TargetMobs>
+		</GrindArea>
 		<GrindArea name="Laboratory Lion">
 			<Hotspots>
 				<Hotspot Radius="90" XYZ="623.6972, 509.8594, -301.9978" name="Laboratory Lion"/>
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="8047" Weight="1"/> <!-- Laboratory Lion -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Hydatos Delphyne">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="770.8029, 515.7572, -872.4028" name="Hydatos Delphyne"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="8050" Weight="1"/> <!-- Hydatos Delphyne -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Crystal Claw">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="534.8809, 501.1091, -445.2171" name="Crystal Claw"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="8054" Weight="1"/> <!-- Crystal Claw -->
 			</TargetMobs>
 		</GrindArea>
 	</GrindAreas>
