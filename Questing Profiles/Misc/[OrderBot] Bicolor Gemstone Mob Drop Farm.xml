@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Bicolor Gemstone Mob Drops Farm
+  Authors: Angles24, DomesticWarlord86, nt153133
+  
+  This only has the mob drops to level DoH classes from 80-90.
+-->
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY Leveling "1">
+
+<!-- What quantity of mob drops should we stock? -->
+<!ENTITY GajaHide "280"> 
+<!ENTITY KumbhiraSkin "240">
+<!ENTITY LuncheonToadSkin "360">
+<!ENTITY BerkananSap "30">
+<!ENTITY AlmastyFur "200">
+<!ENTITY SaigaHide "160">
+<!ENTITY MousseFlesh "40"> 
+<!ENTITY LunatenderBlossom "40">
+<!ENTITY PetaloudaScales "30">
+<!ENTITY OphiotaurosHide "160">
+<!ENTITY VampireCupVine "20">
+<!ENTITY VampireVineSap "20">
+<!ENTITY SeaSwallowSkin "80">
+<!ENTITY CubusFlesh "10">
+
+<!-- What quantity should we get to before cashing in gemstnoes? -->
+<!ENTITY GemStones "200">
+
+<!-- What zone should we grind in if not using Leveling? -->
+<!ENTITY Thavnair "0"> 
+<!ENTITY Labyrinthos "0">
+<!ENTITY Garlemald "0">
+<!ENTITY MareLamentorum "0">
+<!ENTITY Elpis "0">
+<!ENTITY UltimaThule "0">
+]>
+<Profile>
+  <Name>Bicolor Gemstone Mob Drop Farm</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<While Condition="True"> 
+		<If Condition="ItemCount(26807) &gt; 99">		
+			<If condition="ItemCount(36242) &lt; &GajaHide;">	<!-- Gaja Hide -->
+				<While Condition="ItemCount(26807) &gt; 9 and ItemCount(36242) &lt; &GajaHide;">
+					<GetTo ZoneId="957" XYZ="218.6465, 4.763732, 658.8082"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1037635" ItemId="36242" Count="5"  XYZ="218.6465, 4.763732, 658.8082"/>
+				</While>
+			</If>
+			<If condition="ItemCount(36245) &lt; &KumbhiraSkin;">	<!-- Kumbhira Skin -->
+				<While Condition="ItemCount(26807) &gt; 9 and ItemCount(36245) &lt; &KumbhiraSkin;">
+					<GetTo ZoneId="957" XYZ="218.6465, 4.763732, 658.8082"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1037635" ItemId="36245" Count="5"  XYZ="218.6465, 4.763732, 658.8082"/>
+				</While>
+			</If>
+			<If condition="ItemCount(36243) &lt; &LuncheonToadSkin;">	<!-- Luncheon Toad Skin -->
+				<While Condition="ItemCount(26807) &gt; 9 and ItemCount(36243) &lt; &LuncheonToadSkin;">
+					<GetTo ZoneId="956" XYZ="423.5447, 166.2835, -424.0025"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1037484" ItemId="36243" Count="5"  XYZ="423.5447, 166.2835, -424.0025"/>
+				</While>
+			</If>
+			<If condition="ItemCount(36261) &lt; &BerkananSap;">	<!-- Berkanan Sap -->
+				<While Condition="ItemCount(26807) &gt; 9 and ItemCount(36261) &lt; &BerkananSap;">
+					<GetTo ZoneId="956" XYZ="423.5447, 166.2835, -424.0025"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1037484" ItemId="36261" Count="5"  XYZ="423.5447, 166.2835, -424.0025"/>
+				</While>
+			</If>
+			<If condition="ItemCount(36203) &lt; &AlmastyFur;">	<!-- Almasty Fur -->
+				<While Condition="ItemCount(26807) &gt; 9 and ItemCount(36203) &lt; &AlmastyFur;">
+					<GetTo ZoneId="958" XYZ="-426.8712, 22.27852, 430.106"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1037724" ItemId="36203" Count="5"  XYZ="-426.8712, 22.27852, 430.106"/>
+				</While>
+			</If>
+			<If condition="ItemCount(36244) &lt; &SaigaHide;">	<!-- Saiga Hide -->
+				<While Condition="ItemCount(26807) &gt; 9 and ItemCount(36244) &lt; &SaigaHide;">
+					<GetTo ZoneId="958" XYZ="-426.8712, 22.27852, 430.106"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1037724" ItemId="36244" Count="5"  XYZ="-426.8712, 22.27852, 430.106"/>
+				</While>
+			</If>
+			<If condition="ItemCount(36257) &lt; &MousseFlesh;">	<!-- Mousse Flesh -->
+				<While Condition="ItemCount(26807) &gt; 9 and ItemCount(36257) &lt; &MousseFlesh;">
+					<GetTo ZoneId="959" XYZ="19.63837, -132.9464, -460.7767"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1037793" ItemId="36257" Count="5"  XYZ="19.63837, -132.9464, -460.7767"/>
+				</While>
+			</If>
+			<If condition="ItemCount(36258) &lt; &LunatenderBlossom;">	<!-- Lunatender Blossom -->
+				<While Condition="ItemCount(26807) &gt; 9 and ItemCount(36258) &lt; &LunatenderBlossom;">
+					<GetTo ZoneId="959" XYZ="19.63837, -132.9464, -460.7767"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1037793" ItemId="36258" Count="5"  XYZ="19.63837, -132.9464, -460.7767"/>
+				</While>
+			</If>
+			<If condition="ItemCount(36260) &lt; &PetaloudaScales;">	<!-- Petalouda Scales -->
+				<While Condition="ItemCount(26807) &gt; 9 and ItemCount(36260) &lt; &PetaloudaScales;">
+					<GetTo ZoneId="961" XYZ="146.8375, 10.38586, 100.7247"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1037909" ItemId="36260" Count="5"  XYZ="146.8375, 10.38586, 100.7247"/>
+				</While>
+			</If>
+			<If condition="ItemCount(36246) &lt; &OphiotaurosHide;">	<!-- Ophiotauros Hide -->
+				<While Condition="ItemCount(26807) &gt; 9 and ItemCount(36246) &lt; &OphiotaurosHide;">
+					<GetTo ZoneId="961" XYZ="146.8375, 10.38586, 100.7247"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1037909" ItemId="36246" Count="5"  XYZ="146.8375, 10.38586, 100.7247"/>
+				</While>
+			</If>
+			<If condition="ItemCount(27773) &lt; &VampireCupVine;">	<!-- Vampire Cup Vine -->
+				<While Condition="ItemCount(26807) &gt; 4 and ItemCount(27773) &lt; &VampireCupVine;">
+					<GetTo ZoneId="817" XYZ="323.0792, 33.76286, -162.0356"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1027709" ItemId="27773" Count="5"  XYZ="323.0792, 33.76286, -162.0356"/>
+				</While>
+			</If>
+			<If condition="ItemCount(27774) &lt; &VampireVineSap;">	<!-- Vampire Vine Sap -->
+				<While Condition="ItemCount(26807) &gt; 4 and ItemCount(27774) &lt; &VampireVineSap;">
+					<GetTo ZoneId="817" XYZ="323.0792, 33.76286, -162.0356"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1027709" ItemId="27774" Count="5"  XYZ="323.0792, 33.76286, -162.0356"/>
+				</While>
+			</If>
+			<If condition="ItemCount(27736) &lt; &SeaSwallowSkin;">	<!-- Sea Swallow Skin -->
+				<While Condition="ItemCount(26807) &gt; 4 and ItemCount(27736) &lt; &SeaSwallowSkin;">
+					<GetTo ZoneId="818" XYZ="586.6024, 348.98, -173.6324"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1027766" ItemId="27736" Count="5"  XYZ="586.6024, 348.98, -173.6324"/>
+				</While>
+			</If>
+			<If condition="ItemCount(27799) &lt; &CubusFlesh;">	<!-- Cubus Flesh -->
+				<While Condition="ItemCount(26807) &gt; 4 and ItemCount(27799) &lt; &CubusFlesh;">
+					<GetTo ZoneId="818" XYZ="586.6024, 348.98, -173.6324"/>
+					<BuyShopExchangeCurrency Dialog="True" NpcId="1027766" ItemId="27799" Count="5"  XYZ="586.6024, 348.98, -173.6324"/>
+				</While>
+			</If>
+			<If condition="ItemCount(26807) &gt; 9">
+				<LLToast message="Seems like we have finished collecting items."/>	
+				<LLStopBot/>
+			</If>
+		</If>
+		
+		<If Condition="&Leveling; == 0">
+		
+		<!-- Thavnair -->
+		<If Condition="&Thavnair; == 1">
+			<If condition="not IsOnMap(957)">
+				<TeleportTo AetheryteId="170"/> <!-- The Great Work -->
+			</If>			
+			<Log Message="Starting Thavnair FATE grind." /> 
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="90" MinProgress="10" while="IsOnMap(957) and ItemCount(26807) &lt; &GemStones;"/>		
+		</If>
+
+		<!-- Labyrinthos -->
+		<If Condition="&Labyrinthos; == 1">
+			<If condition="not IsOnMap(956)">
+				<TeleportTo AetheryteId="166"/> <!-- The Archeion -->
+			</If>		
+			<Log Message="Starting Labyrinthos FATE grind." /> 
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" BlacklistIds="1754" while="IsOnMap(956) and ItemCount(26807) &lt; &GemStones;"/>	
+		</If>
+		
+			<!-- Garlemald -->
+		<If Condition="&Garlemald; == 1">	
+			<If condition="not IsOnMap(958)">
+				<TeleportTo Name="Camp Broken Glass" AetheryteId="172"/>
+			</If>
+			<Log Message="Starting Garlemald FATE grind." /> 	
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798,1793" while="IsOnMap(958) and ItemCount(26807) &lt; &GemStones;"/>	
+		</If>
+
+		<!-- Mare Lamentorum -->
+		<If Condition="&MareLamentorum; == 1">
+			<If condition="not IsOnMap(959)">
+				<TeleportTo AetheryteId="174"/> <!-- Sinus Lacrimarum -->
+			</If>
+			<Log Message="Starting Mare Lamentorum FATE grind." /> 	
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1817,1831" while="IsOnMap(959) and ItemCount(26807) &lt; &GemStones;"/>	
+		</If>
+		
+		<!-- Elpis -->
+		<If Condition="&Elpis; == 1">
+			<If condition="not IsOnMap(961)">
+				<TeleportTo AetheryteId="177"/> <!-- The Twelve Wonders -->
+			</If>
+			<Log Message="Starting Elpis FATE grind." /> 	
+			<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="1838" while="IsOnMap(961) and ItemCount(26807) &lt; &GemStones;"/>	
+		</If>		
+
+		<!-- Ultima Thule -->
+		<If Condition="&UltimaThule; == 1">
+			<If condition="not IsOnMap(960)">
+				<TeleportTo AetheryteId="179"/> <!-- Reah Tahra -->
+			</If>
+			<Log Message="Starting Ultima THule FATE grind." /> 	
+			<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="0" while="IsOnMap(960) and ItemCount(26807) &lt; &GemStones;"/>	
+		</If>		
+
+
+	</If>
+
+		<If Condition="&Leveling; == 1">
+			<If Condition="Core.Me.ClassLevel &gt; 79 and Core.Me.ClassLevel &lt; 83">
+				<!-- Labyrinthos -->
+				<If condition="not IsOnMap(956)">
+					<TeleportTo Name="The Archeion" AetheryteId="166"/>
+				</If>
+				<If condition="IsOnMap(956)">
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="83" BlacklistIds="1750,1754" while="IsOnMap(956)" While="ItemCount(26807) &lt; &GemStones; and Core.Me.ClassLevel &lt; 83"/>	
+				</If>
+			</If>
+			<If Condition="Core.Me.ClassLevel &gt; 82 and Core.Me.ClassLevel &lt; 86">
+				<!-- Garlemald -->
+				<If condition="not IsOnMap(958)">
+					<TeleportTo Name="Camp Broken Glass" AetheryteId="172"/>
+				</If>
+				<If condition="IsOnMap(958)">
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="86" BlacklistIds="1798" while="IsOnMap(958)" While="ItemCount(26807) &lt; &GemStones; and Core.Me.ClassLevel &lt; 86"/>	
+				</If>
+			</If>
+			<If Condition="Core.Me.ClassLevel &gt; 85 and Core.Me.ClassLevel &lt; 91">
+				<!-- Elpis -->
+				<If condition="not IsOnMap(961)">
+					<TeleportTo Name="Anagnorisis" AetheryteId="176"/>
+				</If>
+				<If condition="IsOnMap(961)">
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1830,1838" while="IsOnMap(961)" While="ItemCount(26807) &lt; &GemStones;"/>	
+				</If>
+			</If>
+		</If>
+	</While>
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>	
+	<CodeChunks>
+  </CodeChunks>
+</Profile>      
+
