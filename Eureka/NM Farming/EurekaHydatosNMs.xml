@@ -158,7 +158,7 @@
 				<Grind GrindRef="Hydatos Wraith" while="not IsFateActive(1418)"/>
 				<NoCombatMoveTo XYZ="377.5094, 505.7909, -401.2179" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Provenance spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Goldemar spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
