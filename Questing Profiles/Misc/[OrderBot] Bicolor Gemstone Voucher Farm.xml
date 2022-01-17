@@ -33,7 +33,7 @@
 	</If>
 	
 	<While Condition="ItemCount(35833) &lt; &Vouchers;"> <!-- 35833 = Bicolor Gemstone Voucher -->
-		<If condition="ItemCount(26807) &gt; &GemStones; and &Rank3Done; == 1">
+		<If condition="ItemCount(26807) &gt; &GemStones; or ItemCount(26807) == &GemStones; and &Rank3Done; == 1">
 			<GetTo ZoneId="962" XYZ="75.72826, 5.15, -36.62057"/>
 			<BuyShopExchangeCurrency Dialog="True" NpcId="1037055" ItemId="35833" Count="10"  XYZ="78.3551, 5.15, -36.78955"/>	
 		</If>
