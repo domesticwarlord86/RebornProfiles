@@ -31,6 +31,7 @@
 		<If Condition="GetQuestStep(66661) == 3">
 			<While Condition="not HasAtLeast(2201,1)">
 				<RunCode name="NeedBaseWeapon"/>
+				<WaitTimer WaitTime="26" />
 			</While>
 			<If Condition="HasAtLeast(2201,1)">			
 				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
@@ -816,7 +817,7 @@
 			</If>	
 			<If Condition="HasAtLeast(1670,1)">
 				<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
-				<HandOver ItemId="1670" StepId="3" QuestId="66656" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
+				<LLHandOver ItemId="1670" StepId="3" QuestId="66656" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
 			</If>			
 		</If>				 
 		<If Condition="GetQuestStep(66656) == 4">

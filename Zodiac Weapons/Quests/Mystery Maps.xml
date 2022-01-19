@@ -254,7 +254,7 @@
 				{
 					var bagslot = InventoryManager.FilledInventoryAndArmory.First(x => x.RawItemId == 7884);
 					LlamaLibrary.Helpers.ActionHelper.DoActionDecipher(bagslot);
-					await Coroutine.Sleep(3000);
+					await Coroutine.Sleep(5000);
 				}
 				else
 				{
