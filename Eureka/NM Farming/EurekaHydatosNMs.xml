@@ -158,7 +158,7 @@
 				<Grind GrindRef="Hydatos Wraith" while="not IsFateActive(1418)"/>
 				<NoCombatMoveTo XYZ="377.5094, 505.7909, -401.2179" />
 				<If Condition="&AnnounceFates; == 1">
-					<LLSendChat Shout="Provenance spawned &lt;pos&gt;"/>
+					<LLSendChat Shout="Goldemar spawned &lt;pos&gt;"/>
 				</If>
 				<If Condition="&StopBot; == 1">
 					<StopBot/>
@@ -277,7 +277,7 @@
 		</GrindArea>
 		<GrindArea name="Val Nullchu">
 			<Hotspots>
-				<Hotspot Radius="90" XYZ="-675.7899, 509.5182, -441.7635" name="Val Nullchu"/>
+				<Hotspot Radius="90" XYZ="-736.9524, 508.9972, -432.5751" name="Val Nullchu"/>
 			</Hotspots>
 			<TargetMobs>
 				<TargetMob Id="8031" Weight="1"/> <!-- Val Nullchu -->
