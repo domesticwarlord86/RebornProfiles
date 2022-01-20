@@ -46,7 +46,7 @@
 				<TeleportTo AetheryteId="170"/> <!-- The Great Work -->
 			</If>			
 			<Log Message="Starting Thavnair FATE grind." /> 
-			<LLFate UseFlight="True" MinLevel="0" MaxLevel="90" MinProgress="10" while="IsOnMap(957) and ItemCount(26807) &lt; &GemStones;"/>		
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="90" MinProgress="10" BlacklistIds="1764" while="IsOnMap(957) and ItemCount(26807) &lt; &GemStones;"/>		
 		</If>
 
 		<!-- Labyrinthos -->
