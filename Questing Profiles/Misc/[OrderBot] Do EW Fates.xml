@@ -34,7 +34,7 @@
 			</If>		
 			<Log Message="Starting Thavnair Fates without flight support." /> 
 			<While condition="IsOnMap(957)">
-				<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" MinProgress="10" BlacklistIds="1772,1773,1774,1775,1776,1777,1778,1779" while="IsOnMap(957)"/>	
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="84" MinProgress="10" BlacklistIds="1764,1772,1773,1774,1775,1776,1777,1778,1779" while="IsOnMap(957)"/>	
 			</While>
 		</If>
 		<If condition="AetherCurrentManager.IsZoneComplete(957)">
@@ -43,7 +43,7 @@
 			</If>			
 			<Log Message="Starting Thavnair Fates with flight support." /> 
 			<While condition="IsOnMap(957)">
-				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" MinProgress="10" while="IsOnMap(957)"/>	
+				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" MinProgress="10" BlacklistIds="1764" while="IsOnMap(957)"/>	
 			</While>
 		</If>		
 	</While>
