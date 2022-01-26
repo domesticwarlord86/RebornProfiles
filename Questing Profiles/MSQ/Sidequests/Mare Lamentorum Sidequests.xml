@@ -346,7 +346,7 @@
         <GetTo ZoneId="959" XYZ="191.489, -49.58959, -401.1022"/>  
       </If>
       <LLSendChat Emote="battlestance" DialogOption="0" NpcId="1041801" XYZ="192.3398, -49.58959, -399.8016" />
-      <LLSmallTalk/>
+      <WaitWhile condition="GetQuestStep(69782) == 3"/>
     </If>
     <If Condition="GetQuestStep(69788) == 1">
       <If Condition="LisbethPresent">
@@ -772,6 +772,7 @@
     <If Condition="GetQuestStep(70054) == 4">
       <If Condition="LisbethPresent">
         <LisbethTravel ZoneId="959" XYZ="626.1335, 143.994, 55.82742"/> 
+				<Dismount/>
       </If>
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="626.1335, 143.994, 55.82742"/>  
