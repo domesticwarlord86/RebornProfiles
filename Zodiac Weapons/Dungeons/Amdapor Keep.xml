@@ -160,7 +160,7 @@
 			</If>		
 			<Grind GrindRef="Anantaboga" While="not GameObjectManager.GetObjectByNPCId(1696).CurrentHealth == 0"/> <!-- Fight final boss -->
 			<If Condition="&openchest; == 1">
-				<RunCode name="OpenChest" />
+				<LLOpenChest/>
 			</If>
 			<While condition="DutyManager.InInstance">	
 				<WaitTimer WaitTime="10" />
