@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Profile>
+  <Name>[OrderBot][Trust] The Qitana Ravel</Name>
+  <Author>Sodimm</Author>
+  <BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
+  <Order>
+    <While Condition="GetQuestStep(68876) == 2">
+      <If Condition="not IsOnMap(823)">
+        <RunCode Name="Enable_Trust_Plugin"/>
+        <WaitTimer WaitTime="3"/>
+        <RunCode Name="EnterDuty"/>
+        <WaitTimer WaitTime="3"/>
+        <If Condition="ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen">
+          <CommenceDuty/>
+          <WaitTimer WaitTime="3"/>
+        </If>
+        <WaitWhile Condition="ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+      </If>
+      <If Condition="IsOnMap(823)">
+	    <NoCombatMoveTo Name="Ronkan Dreamer 1" XYZ="-0.4071958, 0.001103483, 642.8863" Distance="1"/>
+		<MoveTo Name="Before Ronkan Dreamer 2" XYZ="-1.268942, 0.007194041, 496.8788"/>
+	    <NoCombatMoveTo Name="Ronkan Dreamer 2" XYZ="-0.2170058, 2.004962, 436.7645" Distance="1"/>
+        <MoveTo Name="Boss Arena 1" XYZ="-0.1977494, 5.35, 332.2419" Distance="1" />
+        <Grind GrindRef="Lozatl" PostCombatDelay="3.0" While="ObjectExistsWithId(8231)"/>
+        <MoveTo Name="Coffer 2" XYZ="135.5234, -8.097571, 181.667"/>
+        <MoveTo Name="Coffer 3" XYZ="48.21133, -10.99838, 80.66925"/>
+        <MoveTo Name="Boss Arena 2" XYZ="61.7597, -21.29998, -17.4502" Distance="1"/>
+        <Grind GrindRef="Batsquatch" PostCombatDelay="3.0" While="ObjectExistsWithId(8232)"/>
+        <MoveTo Name="Transition 1" XYZ="39.30347, -22.1, -160.7087"/>
+        <MoveTo Name="Over Transition 1" XYZ="38.68969, -40.1, -198.0262" UseMesh="False"/>
+        <MoveTo Name="Over Transition 2" XYZ="38.45206, -70.33002, -217.7523" UseMesh="False"/>
+        <MoveTo Name="Coffer 5" XYZ="39.47579, -60.00004, -300.5245"/>
+        <MoveTo Name="Coffer 6" XYZ="-9.365652, -57.00002, -417.532"/>
+        <MoveTo Name="Transition 3" XYZ="17.13791, -56.56843, -428.3203"/>
+        <MoveTo Name="Over Transition 3" XYZ="17.41052, -77, -520.7446" UseMesh="False"/>
+        <WaitTimer WaitTime="5"/>
+        <MoveTo Name="Boss Arena 3" XYZ="17.57202, -77, -527.48" Distance="1"/>
+        <Grind GrindRef="Eros" PostCombatDelay="3.0" While="ObjectExistsWithId(8233)"/>
+        <RunCode Name="LeaveDuty"/>
+        <WaitTimer WaitTime="5"/>
+        <RunCode Name="Handle_Cutscene_Talking"/>
+        <WaitTimer WaitTime="5"/>
+      </If>
+    </While>
+    <While Condition="IsQuestCompleted(68876) and Core.Player.ClassLevel &lt; 77">
+      <If Condition="not IsOnMap(823)">
+        <RunCode Name="Enable_Trust_Plugin"/>
+        <WaitTimer WaitTime="3"/>
+        <RunCode Name="EnterDuty"/>
+        <WaitTimer WaitTime="3"/>
+        <If Condition="ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen">
+          <CommenceDuty/>
+          <WaitTimer WaitTime="3"/>
+        </If>
+        <WaitWhile Condition="ff14bot.Behavior.CommonBehaviors.IsLoading"/>
+      </If>
+      <If Condition="IsOnMap(823)">
+	    <NoCombatMoveTo Name="Ronkan Dreamer 1" XYZ="-0.4071958, 0.001103483, 642.8863" Distance="1"/>
+		<MoveTo Name="Before Ronkan Dreamer 2" XYZ="-1.268942, 0.007194041, 496.8788"/>
+	    <NoCombatMoveTo Name="Ronkan Dreamer 2" XYZ="-0.2170058, 2.004962, 436.7645" Distance="1"/>
+        <MoveTo Name="Boss Arena 1" XYZ="-0.1977494, 5.35, 332.2419" Distance="1" />
+        <Grind GrindRef="Lozatl" PostCombatDelay="3.0" While="ObjectExistsWithId(8231)"/>
+        <MoveTo Name="Coffer 2" XYZ="135.5234, -8.097571, 181.667"/>
+        <MoveTo Name="Coffer 3" XYZ="48.21133, -10.99838, 80.66925"/>
+        <MoveTo Name="Boss Arena 2" XYZ="61.7597, -21.29998, -17.4502" Distance="1"/>
+        <Grind GrindRef="Batsquatch" PostCombatDelay="3.0" While="ObjectExistsWithId(8232)"/>
+        <MoveTo Name="Transition 1" XYZ="39.30347, -22.1, -160.7087"/>
+        <MoveTo Name="Over Transition 1" XYZ="38.68969, -40.1, -198.0262" UseMesh="False"/>
+        <MoveTo Name="Over Transition 2" XYZ="38.45206, -70.33002, -217.7523" UseMesh="False"/>
+        <MoveTo Name="Coffer 5" XYZ="39.47579, -60.00004, -300.5245"/>
+        <MoveTo Name="Coffer 6" XYZ="-9.365652, -57.00002, -417.532"/>
+        <MoveTo Name="Transition 3" XYZ="17.13791, -56.56843, -428.3203"/>
+        <MoveTo Name="Over Transition 3" XYZ="17.41052, -77, -520.7446" UseMesh="False"/>
+        <WaitTimer WaitTime="5"/>
+        <MoveTo Name="Boss Arena 3" XYZ="17.57202, -77, -527.48" Distance="1"/>
+        <Grind GrindRef="Eros" PostCombatDelay="3.0" While="ObjectExistsWithId(8233)"/>
+        <RunCode Name="LeaveDuty"/>
+        <WaitTimer WaitTime="5"/>
+        <RunCode Name="Handle_Cutscene_Talking"/>
+        <WaitTimer WaitTime="5"/>
+      </If>
+    </While>
+    <RunCode Name="Disable_Trust_Plugin"/>
+    <LLoadProfile Path="../MSQ/[OrderBot] ShB MSQ Automation.xml"/>
+  </Order>
+  <GrindAreas>
+    <GrindArea Name="Lozatl">
+      <Hotspots>
+        <Hotspot XYZ="0.1204627, 5.35, 314.8164" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8231"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="Batsquatch">
+      <Hotspots>
+        <Hotspot XYZ="61.52977, -21, -33.87738" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8232"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+    <GrindArea Name="Eros">
+      <Hotspots>
+        <Hotspot XYZ="17.01977, -77, -538.0156" Radius="120"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8233"/>
+      </TargetMobs>
+      <MinLevel/>
+      <MaxLevel/>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="Enable_Trust_Plugin">
+      <![CDATA[
+        var sideStep = PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep");
+        try
+        {
+          if (!sideStep.Any())
+          {
+            Logging.Write("Error enabling SideStep.");
+            TreeRoot.Stop();
+          }
+          else if (!sideStep.FirstOrDefault().Enabled)
+          {
+            Logging.Write("Enabling SideStep.");
+            sideStep.FirstOrDefault().Enabled = true;
+          }
+          else { Logging.Write("SideStep already enabled."); }
+        }
+        catch (Exception ex)
+        {
+          Logging.Write("Error enabling SideStep.");
+          TreeRoot.Stop();
+        }
+        
+        await Coroutine.Sleep(500);
+        
+        var trustPlugin = PluginManager.Plugins.Where(p => p.Plugin.Name == "Trust");
+        try
+        {
+          if (!trustPlugin.Any())
+          {
+            Logging.Write("Error enabling Trust Plugin.");
+            TreeRoot.Stop();
+          }
+          else if (!trustPlugin.FirstOrDefault().Enabled)
+          {
+            Logging.Write("Enabling Trust Plugin.");
+            trustPlugin.FirstOrDefault().Enabled = true;
+          }
+          else { Logging.Write("Trust Plugin already enabled."); }
+        }
+        catch (Exception ex)
+        {
+          Logging.Write("Error enabling Trust Plugin.");
+          TreeRoot.Stop();
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Disable_Trust_Plugin">
+      <![CDATA[
+        var trustPlugin = PluginManager.Plugins.Where(p => p.Plugin.Name == "Trust");
+        try
+        {
+          if (!trustPlugin.Any())
+          {
+            Logging.Write("Error enabling Trust Plugin.");
+            TreeRoot.Stop();
+          }
+          else if (trustPlugin.FirstOrDefault().Enabled)
+          {
+            Logging.Write("Disabling Trust Plugin.");
+            trustPlugin.FirstOrDefault().Enabled = false;
+          }
+          else { Logging.Write("Trust Plugin already disabled."); }
+        }
+        catch (Exception ex)
+        {
+          Logging.Write("Error enabling Trust Plugin.");
+          TreeRoot.Stop();
+        }
+        
+        await Coroutine.Sleep(500);
+      
+        var sideStep = PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep");
+        try
+        {
+          if (!sideStep.Any())
+          {
+            Logging.Write("Error enabling SideStep.");
+            TreeRoot.Stop();
+          }
+          else if (!sideStep.FirstOrDefault().Enabled)
+          {
+            Logging.Write("Enabling SideStep.");
+            sideStep.FirstOrDefault().Enabled = true;
+          }
+          else { Logging.Write("SideStep already enabled."); }
+        }
+        catch (Exception ex)
+        {
+          Logging.Write("Error enabling SideStep.");
+          TreeRoot.Stop();
+        }
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="EnterDuty">
+      <![CDATA[
+        Logging.Write("Commencing Trust duty.");
+        string[] scions = { "Minfilia", "Ryne", "Thancred", "Urianger", "Alphinaud", "Alisaie", "Crystal Exarch", "Lyna", "Y'shtola" };
+        var dutyNpc = GameObjectManager.GameObjects.Where(x => x.IsTargetable && x.Distance() < 15f && scions.Contains(x.Name.ToString())).OrderBy(x => x.Distance()).FirstOrDefault();
+        while (Core.Me.Location.Distance2D(dutyNpc.Location) > 1.5f)
+        {
+          await Coroutine.Yield();
+          Navigator.PlayerMover.MoveTowards(dutyNpc.Location);
+        }
+        Navigator.PlayerMover.MoveStop();
+        dutyNpc.Interact();
+        await Coroutine.Wait(5000, () => SelectString.IsOpen);
+        SelectString.ClickSlot(1);
+        await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("Dawn") != null);
+        
+        if (RaptureAtkUnitManager.GetWindowByName("Dawn") == null) { TreeRoot.Stop(); }
+        
+        RaptureAtkUnitManager.GetWindowByName("Dawn").SendAction(2,3,15,4,0);
+        await Coroutine.Sleep(100);
+        RaptureAtkUnitManager.GetWindowByName("Dawn").SendAction(1,3,14);
+        await Coroutine.Wait(10000, () => ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Handle_Cutscene_Talking">
+      <![CDATA[
+        await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading || QuestLogManager.InCutscene);
+        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        while (QuestLogManager.InCutscene || Talk.DialogOpen || CommonBehaviors.IsLoading)
+        {
+          ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
+          if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
+          if (Talk.DialogOpen) { Talk.Next(); }
+          await Coroutine.Yield();
+        }
+        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        await Coroutine.Wait(10000, () => !Core.Me.HasAura(1268));
+        await Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="LeaveDuty">
+      <![CDATA[
+        DutyManager.LeaveActiveDuty();
+        await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
+        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        await Coroutine.Sleep(5000);
+      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>
