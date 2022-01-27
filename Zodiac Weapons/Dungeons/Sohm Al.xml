@@ -102,7 +102,7 @@
 			Then open the profile and change AcceptRisk to 1." QuestRequirementInLog="InLog" IsBotContinueAllowed="False"/>       
 		</If>
 	
-		<If condition="&AcceptRisk; == 0">
+		<If condition="&AcceptRisk; == 1">
 			<If condition="not DutyManager.InInstance">
 				<GCExpertTurnin/>
 			</If>
