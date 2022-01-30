@@ -13,6 +13,8 @@
 <!ENTITY RaktikaGreatwood "1"> 
 <!ENTITY TheTempest "1"> 
 
+<!ENTITY DoesntWork "1"> 
+
 ]>
 
 
@@ -33,6 +35,11 @@
 	</If>
 
 	<!-- Profile start here -->	
+	<If Condition="&DoesntWork; == 1">
+		<LLToast message="This profile doesn't work due to shared fates offset not updated."/>
+		<StopBot/>
+	</If>
+	
 	<RunCode name="UpdateFates"/>
 	
 	<!-- Lakeland -->

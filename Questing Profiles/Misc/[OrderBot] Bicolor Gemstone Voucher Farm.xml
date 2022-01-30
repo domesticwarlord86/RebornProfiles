@@ -7,19 +7,19 @@
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
 <!ENTITY Vouchers "500">
-<!ENTITY Rank3Done "0">
+<!ENTITY Rank3Done "1">
 <!ENTITY Leveling "0">
 
 <!-- What quantity should we get to before cashing in gemstnoes? -->
-<!ENTITY GemStones "950">
+<!ENTITY GemStones "400">
 
 <!-- What zone should we grind in if not using Leveling? -->
 <!ENTITY Thavnair "0"> 
 <!ENTITY Labyrinthos "0">
-<!ENTITY Garlemald "1">
+<!ENTITY Garlemald "0">
 <!ENTITY MareLamentorum "0">
 <!ENTITY Elpis "0">
-<!ENTITY UltimaThule "0">
+<!ENTITY UltimaThule "1">
 ]>
 <Profile>
   <Name>Bicolor Gemstone Voucher Farm</Name>
@@ -35,7 +35,7 @@
 	<While Condition="ItemCount(35833) &lt; &Vouchers;"> <!-- 35833 = Bicolor Gemstone Voucher -->
 		<If condition="ItemCount(26807) &gt; &GemStones; or ItemCount(26807) == &GemStones; and &Rank3Done; == 1">
 			<GetTo ZoneId="962" XYZ="75.72826, 5.15, -36.62057"/>
-			<BuyShopExchangeCurrency Dialog="True" NpcId="1037055" ItemId="35833" Count="10"  XYZ="78.3551, 5.15, -36.78955"/>	
+			<BuyShopExchangeCurrency Dialog="True" NpcId="1037055" ItemId="35833" Count="4"  XYZ="78.3551, 5.15, -36.78955"/>	
 		</If>
 		
 		<If Condition="&Leveling; == 0">
@@ -91,7 +91,7 @@
 				<TeleportTo AetheryteId="179"/> <!-- Reah Tahra -->
 			</If>
 			<Log Message="Starting Ultima THule FATE grind." /> 	
-			<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="0" while="IsOnMap(960) and ItemCount(26807) &lt; &GemStones;"/>	
+			<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="1843" while="IsOnMap(960) and ItemCount(26807) &lt; &GemStones;"/>	
 		</If>		
 
 
