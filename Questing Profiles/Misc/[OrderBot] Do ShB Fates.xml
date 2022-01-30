@@ -64,7 +64,7 @@
 			<TeleportTo AetheryteId="140"/> <!-- Mord Souq -->
 		</If>	
 		<While condition="IsOnMap(815)">
-			<LLFate UseFlight="True" CheckShareFate="True" MinLevel="0" MaxLevel="81" while="IsOnMap(815)"/>	
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="81" while="IsOnMap(815)"/>	
 		</While>	
 	</If>	
 
@@ -74,7 +74,7 @@
 			<TeleportTo AetheryteId="144"/> <!-- Lydha Lran -->
 		</If>	
 		<While condition="IsOnMap(816)">
-			<LLFate UseFlight="True" CheckShareFate="True" MinLevel="0" MaxLevel="81" while="IsOnMap(816)"/>	
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="81" while="IsOnMap(816)"/>	
 		</While>
 	</If>	
 	
@@ -84,7 +84,7 @@
 			<TeleportTo AetheryteId="142"/> <!-- Slitherbough -->
 		</If>
 		<While condition="IsOnMap(817)">
-			<LLFate UseFlight="True" CheckShareFate="True" MinLevel="0" MaxLevel="81" while="IsOnMap(817) and SharedFateRank(817) &lt; 3"/>	
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="81" while="IsOnMap(817)"/>	
 		</While>	
 	</If>	
 	
@@ -94,7 +94,7 @@
 			<TeleportTo AetheryteId="147"/> <!-- The Ondo Cups -->
 		</If>
 		<While condition="IsOnMap(818)">		
-			<LLFate UseFlight="False" CheckShareFate="True" MinLevel="0" MaxLevel="81" while="IsOnMap(818) and SharedFateRank(818) &lt; 3"/>	
+			<LLFate UseFlight="False" MinLevel="0" MaxLevel="81" while="IsOnMap(818)"/>	
 		</While>	
 	</If>	
   
