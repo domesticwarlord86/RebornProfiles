@@ -46,7 +46,6 @@
 		<While condition="IsOnMap(813)">
 			<LLFate UseFlight="True" BlacklistIds="1504" MinLevel="0" MaxLevel="81" while="IsOnMap(813)"/>	
 		</While>
-		</While>
 	</If>	
 	
 	<!-- Kolusia -->
