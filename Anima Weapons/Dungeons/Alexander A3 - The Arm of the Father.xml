@@ -41,7 +41,6 @@
 			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
 				<Log Message="Defeat the living liquid" />
 				<MoveTo XYZ="57.99951, -8.999996, -41.79449" usemesh="false" />
-				<WaitWhile Condition="not IsPartyInCombat() or GetInstanceTodo(2) == 1"/>
 				<Grind GrindRef="FinalBoss" while="not GetInstanceTodo(2) == 1"/>
 				<If Condition="&openchest; == 1">
 					<MoveTo XYZ="71.29106, -8.999998, -63.49583" />
