@@ -254,7 +254,7 @@ Author: Angles24, Manta
       <If Condition="GetQuestStep(69739) == 2 and GetQuestById(69739).QuestI8A == 0">
         <GetTo ZoneId="957" XYZ="61.61014, 94.60124, -160.3575"/>
         <!-- Subzone="3887" Area="Thavnair (West)" -->
-        <LLTalkTo NpcId="2011914" XYZ="63.09595, 98.98523, -157.6105" QuestId="69739" StepId="2"/>
+        <UseObject UseDistance="10" NpcId="2011914" XYZ="63.09595, 94.98523, -157.6105" QuestId="69739" StepId="2" Condition="GetQuestById(69739).QuestI8A == 0"/>
       </If>
       <If Condition="GetQuestStep(69739) == 2 and GetQuestById(69739).QuestI8A == 16">
         <GetTo ZoneId="957" XYZ="76.9185, 93.84843, -157.2751"/>
@@ -264,7 +264,7 @@ Author: Angles24, Manta
       <If Condition="GetQuestStep(69739) == 2 and GetQuestById(69739).QuestI8A == 33">
         <GetTo ZoneId="957" XYZ="65.51837, 94.60124, -130.9786"/>
         <!-- Subzone="3887" Area="Thavnair (West)" -->
-        <LLTalkTo NpcId="2011912" XYZ="65.29333, 96.29968, -130.2358" QuestId="69739" StepId="2"/>
+        <UseObject NpcId="2011912" XYZ="65.29333, 96.29968, -130.2358" QuestId="69739" StepId="2" Condition="GetQuestById(69739).QuestI8A == 33"/>
       </If>
       <If Condition="GetQuestStep(69739) == 3">
         <GetTo ZoneId="957" XYZ="18.23678, 90.24879, -133.3266"/>
@@ -938,10 +938,10 @@ Author: Angles24, Manta
           </If>
         </If>
       </If>
-      <If Condition="GetQuestStep(69824) == 1">
+      <While Condition="GetQuestStep(69824) == 1">
         <GetTo ZoneId="961" XYZ="-614.5603, -22.39482, 510.7697"/>
         <!-- Subzone="3929" Area="" -->
-        <UseObject InteractDistance="0.5" NpcId="1041141" XYZ="-614.313, -22.39482, 509.7277" UseTimes="1"/>
+        <LLTalkTo InteractDistance="0.5" NpcId="1041141" XYZ="-614.313, -22.39482, 509.7277" UseTimes="1" BlacklistAfter="True"/>
         <WaitTimer WaitTime="2"/>
         <MoveTo XYZ="-654.0692, -22.39482, 501.2624" Distance="0.5"/>
         <WaitTimer WaitTime="2"/>
@@ -951,10 +951,12 @@ Author: Angles24, Manta
         <WaitTimer WaitTime="2"/>
         <GetTo ZoneId="961" XYZ="-819.6994, -38.65795, 506.4315"/>
         <WaitTimer WaitTime="2"/>
-        <LLTalkTo InteractDistance="0.5" NpcId="1041141" XYZ="-819.6994, -38.65795, 506.4315" QuestId="69824" StepId="1"/>
-        <LLSmallTalk/>
-        <WaitTimer WaitTime="2"/>
-      </If>
+		<If Condition="ObjectExistsWithId(1041141) and GameObjectManager.GetObjectByNPCId(1041141).IsTargetable">	
+          <LLTalkTo InteractDistance="0.5" NpcId="1041141" XYZ="-819.6994, -38.65795, 506.4315" QuestId="69824" StepId="1"/>
+          <LLSmallTalk/>
+          <WaitTimer WaitTime="2"/>
+		</If>
+      </While>
       <If Condition="GetQuestStep(69824) == 2">
         <GetTo ZoneId="961" XYZ="-836.1776, -39.54974, 518.0913"/>
         <!-- Subzone="3928" Area="" -->
