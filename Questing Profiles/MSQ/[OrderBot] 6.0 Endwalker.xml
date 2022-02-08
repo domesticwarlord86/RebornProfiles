@@ -900,15 +900,17 @@
     <!-- In the Dark of the Tower -->
     <If Condition="IsQuestCompleted(69903) and IsQuestCompleted(69912) and not IsQuestCompleted(69913)">
 			<If Condition="IsQuestCompleted(69903) and IsQuestCompleted(69912)">
-				<If condition="not IsOnMap(987)">
-					<GetTo ZoneId="962" XYZ="-107.2913, 3.898939, 5.505816"/>
-					<UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>
-				</If>
-				<MoveTo XYZ="-1.236338, 1.907582E-06, 3.405902"/>
-				<If Condition="IsQuestAcceptQualified(69913)">
-					<LLPickupQuest QuestId="69913" NpcId="1040291"/>
-					<LLSmallTalk/>
-				</If>
+				<If Condition="not HasQuest(69913)">
+					<If condition="not IsOnMap(987)">
+						<GetTo ZoneId="962" XYZ="-107.2913, 3.898939, 5.505816"/>
+						<UseTransport NpcId="2011936" InteractDistance="3.0" XYZ="-108.568, 5.020142, 4.53186"/>
+					</If>
+					<MoveTo XYZ="-1.236338, 1.907582E-06, 3.405902"/>
+					<If Condition="IsQuestAcceptQualified(69913)">
+						<LLPickupQuest QuestId="69913" NpcId="1040291"/>
+						<LLSmallTalk/>
+					</If>
+				</If>	
 			</If>
 			<If Condition="GetQuestStep(69913) == 1">
 				<GetTo ZoneId="957" XYZ="-569.1623, 9.817484, -571.8511"/>
