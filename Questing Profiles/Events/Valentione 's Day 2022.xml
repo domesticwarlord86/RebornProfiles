@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Valentione's Day 2022
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Valentione's Day 2022</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<!-- Profile start here -->	
+    <!-- No Love Lost -->
+    <If Condition="not IsQuestCompleted(70001)">
+      <If Condition="not HasQuest(70001)">
+      <GetTo ZoneId="133" XYZ="-49.5767, 6.499995, -91.50231"/>  
+        <If Condition="IsQuestAcceptQualified(70001)">
+          <PickupQuest QuestId="70001" NpcId="1040551"/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(70001) == 1">
+				<GetTo ZoneId="132" XYZ="-18.39467, -3.25, 37.82327"/>  
+				<TalkTo NpcId="1040555" XYZ="-19.66895, -3.25, 38.65112" QuestId="70001" StepId="1"/>
+			</If>	
+			<If Condition="GetQuestStep(70001) == 2">
+				<GetTo ZoneId="133" XYZ="-234.2613, 6.120137, -163.0004"/>  
+				<TalkTo NpcId="1040558" XYZ="-231.22, 6.332533, -162.4934" QuestId="70001" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70001) == 3">
+				<GetTo ZoneId="133" XYZ="-108.2598, 5.105421, -171.6707"/>  
+				<TalkTo NpcId="1040562" XYZ="-107.0116, 5.138813, -171.2521" QuestId="70001" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(70001) == 4">
+				<GetTo ZoneId="133" XYZ="-46.04934, 10.82067, -226.8788"/>  
+				<TalkTo NpcId="1040566" XYZ="-44.93781, 10.85339, -226.7338" QuestId="70001" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(70001) == 255">
+				<GetTo ZoneId="133" XYZ="-49.62595, 6.49998, -93.56022"/>  
+				<TurnIn QuestId="70001" NpcId="1040553" XYZ="-48.32532, 6.499992, -91.02008"/>
+			</If>			
+    </If>
+		
+    <!-- Love's Labors -->
+    <If Condition="IsQuestCompleted(70001) and not IsQuestCompleted(70002)">
+      <If Condition="not HasQuest(70002)">
+      <GetTo ZoneId="133" XYZ="-49.51654, 5.911386, -95.34254"/>  
+        <If Condition="IsQuestAcceptQualified(70002)">
+          <PickupQuest QuestId="70002" NpcId="1040553"/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(70002) == 1">
+				<GetTo ZoneId="133" XYZ="-148.5991, 4.605076, -43.95224"/>  
+				<TalkTo NpcId="1040572" XYZ="-148.5771, 4.792, -46.31122" QuestId="70002" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(70002) == 2">
+				<GetTo ZoneId="133" XYZ="-49.53275, 5.548458, -96.29536"/>  
+				<TalkTo NpcId="1040573" XYZ="-49.69867, 6.499983, -92.97333" QuestId="70002" StepId="2"/>
+			</If>	
+			<If Condition="GetQuestStep(70002) == 3">
+				<GetTo ZoneId="133" XYZ="-49.53275, 5.548459, -96.29536"/>  
+				<TalkTo NpcId="1040573" XYZ="-49.69867, 6.499983, -92.97333" QuestId="70002" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(70002) == 4">
+				<GetTo ZoneId="133" XYZ="29.98999, 15.8631, -317.9978"/>  
+				<TalkTo NpcId="1040578" XYZ="29.49561, 16.0956, -320.3632" QuestId="70002" StepId="4"/>
+			</If>	
+			<If Condition="GetQuestStep(70002) == 255">
+				<GetTo ZoneId="133" XYZ="-49.608, 6.124633, -94.97943"/>  
+				<TurnIn QuestId="70002" NpcId="1040551" XYZ="-50.00385, 6.499998, -90.013"/>
+			</If>			
+    </If>		
+		
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
