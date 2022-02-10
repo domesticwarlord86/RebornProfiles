@@ -94,7 +94,7 @@
 			<TeleportTo AetheryteId="147"/> <!-- The Ondo Cups -->
 		</If>
 		<While condition="IsOnMap(818)">		
-			<LLFate UseFlight="False" BlacklistIds="1436" MinLevel="0" MaxLevel="81" while="IsOnMap(818)"/>	
+			<LLFate UseFlight="False" BlacklistIds="1436,1435" MinLevel="0" MaxLevel="81" while="IsOnMap(818)"/>	
 		</While>	
 	</If>	
   
