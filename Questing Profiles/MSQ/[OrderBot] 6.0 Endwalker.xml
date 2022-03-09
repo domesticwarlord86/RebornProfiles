@@ -2857,7 +2857,7 @@
 				</If>
 				<GetTo ZoneId="961" XYZ="220.0089, 20.22273, 645.6842"/>
 				<If Condition="GetQuestStep(69957) == 2 and GetQuestById(69957).GetTodoArgs(0).Item1 == 0">
-					<UseItem ItemId="2003232" NpcIds="10614" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" while="GetQuestById(69957).GetTodoArgs(1, 0).Item1 == 0">
+					<UseItem ItemId="2003232" NpcIds="10614" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" while="GetQuestById(69957).GetTodoArgs(0).Item1 == 0">
 						<HotSpots>
 							<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487" />
 							<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169" />
@@ -2865,7 +2865,7 @@
 					</UseItem>
 				</If>
 				<If Condition="GetQuestStep(69957) == 2 and GetQuestById(69957).GetTodoArgs(0).Item1 == 1">
-					<UseItem ItemId="2003232" NpcIds="10613,10612" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" while="GetQuestById(69957).GetTodoArgs(1, 0).Item1 == 1">
+					<UseItem ItemId="2003232" NpcIds="10613,10612" InCombatOnly="True" BlacklistAfter="True" UseHealthPercent="40" while="GetQuestById(69957).GetTodoArgs(0).Item1 == 1">
 						<HotSpots>
 							<HotSpot Radius="100" XYZ="216.4235, 17.61816, 672.2487" />
 							<HotSpot Radius="100" XYZ="241.5191,19.60258,624.7169" />
