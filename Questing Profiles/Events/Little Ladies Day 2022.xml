@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Little Ladies Day 2022
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Little Ladies Day 2022</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Fashion Face-off -->
+    <If Condition="not IsQuestCompleted(70007)">
+      <If Condition="not HasQuest(70007)">
+      <GetTo ZoneId="130" XYZ="-57.20681, 4, -127.2863"/>  
+        <If Condition="IsQuestAcceptQualified(70007)">
+          <LLPickupQuest QuestId="70007" NpcId="1041574"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(70007) == 1">
+				<While condition="GetQuestStep(70007) == 1 and GetQuestById(70007).GetTodoArgs(0).Item1 &lt; 2">
+					<GetTo ZoneId="130" XYZ="24.24941, 3.999999, -147.611"/>  
+					<LLTalkTo NpcId="1041575" XYZ="24.82642, 4, -151.3543" QuestId="70007" StepId="1"/>
+					<LLTalkTo NpcId="1041576" XYZ="76.646, 4, -123.0945" QuestId="70007" StepId="1"/>			
+				</While>	
+				<While condition="GetQuestStep(70007) == 1 and GetQuestById(70007).GetTodoArgs(1).Item1 &lt; 2">
+					<GetTo ZoneId="131" XYZ="142.4606, 4, -36.43788"/>  
+					<LLTalkTo NpcId="1041577" XYZ="141.7106, 4, -37.94922" QuestId="70007" StepId="1"/>		
+					<LLTalkTo NpcId="1041578" XYZ="140.3982, 4, 35.59924" QuestId="70007" StepId="1"/>
+				</While>
+			</If>	
+			<If Condition="GetQuestStep(70007) == 2">
+				<GetTo ZoneId="131" XYZ="-51.75208, 18, 60.15079"/>  
+				<LLTalkTo NpcId="1041579" XYZ="-51.86548, 18, 61.84473" QuestId="70007" StepId="2"/>
+			</If>	
+	    <If Condition="GetQuestStep(70007) == 3">
+				<GetTo ZoneId="131" XYZ="-51.75208, 18, 60.15079"/>  
+				<UseObject NpcId="2012426" XYZ="-51.86548, 17.99036, 61.84473" QuestId="70007" StepId="3"/>
+			</If>	
+			<If Condition="GetQuestStep(70007) == 4">
+				<GetTo ZoneId="130" XYZ="-30.21568, 3.999999, -150.6416"/>  
+				<LLTalkTo NpcId="1041580" XYZ="-29.61786, 4.099995, -152.8496" QuestId="70007" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(70007) == 255">
+				<GetTo ZoneId="130" XYZ="-30.21568, 3.999999, -150.6416"/>  
+				<LLTurnIn QuestId="70007" NpcId="1041580" XYZ="-29.61786, 4.099995, -152.8496"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>	
+  
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
