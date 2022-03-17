@@ -4721,7 +4721,12 @@
 	</CodeChunk>
 	<CodeChunk Name="Their_Greatest_Contributions1">
 	  <![CDATA[		
+			#if !RB_CN
 			ChatManager.SendChat("/s I have a favor to ask");
+			#endif
+			#if RB_CN
+			ChatManager.SendChat("/s 我有个请求");
+			#endif			
 			await Coroutine.Wait(10000, () => Talk.DialogOpen);
 			await Buddy.Coroutines.Coroutine.Sleep(500);
 			while (Talk.DialogOpen)
@@ -4735,7 +4740,12 @@
 	</CodeChunk>	
 	<CodeChunk Name="Their_Greatest_Contributions2">
 	  <![CDATA[		
+			#if !RB_CN	
 			ChatManager.SendChat("/s Please, Emet-Selch");
+			#endif
+			#if RB_CN
+			ChatManager.SendChat("/s 求你了，爱梅特赛尔克");
+			#endif
 			await Coroutine.Wait(10000, () => Talk.DialogOpen);
 			await Buddy.Coroutines.Coroutine.Sleep(500);
 			while (Talk.DialogOpen)

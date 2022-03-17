@@ -3043,12 +3043,12 @@
 			</If>
 			<If Condition="GetQuestStep(69961) == 4">
 				<GetTo ZoneId="961" XYZ="1.426369, -15.52369, -104.424"/>
-				<LLSendChat Say="I have a favor to ask" NpcId="1040061" XYZ="-2.121033, -15.84744, -104.6312" />
+				<RunCode name="Their_Greatest_Contributions1"/>
 				<WaitWhile condition="GetQuestStep(69961) == 4"/>
 			</If>
 			<If Condition="GetQuestStep(69961) == 5">
 				<GetTo ZoneId="961" XYZ="1.028306, -15.56015, -104.4472"/>
-				<LLSendChat Say="Please, Emet-Selch" NpcId="1040061" XYZ="-2.121033, -15.84744, -104.6312" />
+				<RunCode name="Their_Greatest_Contributions2"/>
 				<WaitWhile condition="GetQuestStep(69961) == 5"/>
 			</If>
 			<If Condition="GetQuestStep(69961) == 6">
@@ -4724,7 +4724,7 @@
         var loc7 = new Vector3(-449.9744f, -155.3644f, -663.8145f);
         var loc8 = new Vector3(-459.2833f, -155.5661f, -659.4713f);
 
-        Navigator.PlayerMover.MoveTowards(loc1);
+Navigator.PlayerMover.MoveTowards(loc1);
         await Coroutine.Sleep(1000);
         MovementManager.Jump();
         while (Core.Me.Location.Distance2D(loc1) > 1) {  await Coroutine.Yield();  }
@@ -4971,5 +4971,43 @@
         }
 	  ]]> 
 	</CodeChunk>
+	<CodeChunk Name="Their_Greatest_Contributions1">
+	  <![CDATA[		
+			#if !RB_CN
+			ChatManager.SendChat("/s I have a favor to ask");
+			#endif
+			#if RB_CN
+			ChatManager.SendChat("/s 我有个请求");
+			#endif			
+			await Coroutine.Wait(10000, () => Talk.DialogOpen);
+			await Buddy.Coroutines.Coroutine.Sleep(500);
+			while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+					await Coroutine.Wait(1000, () => Talk.DialogOpen);
+					await Coroutine.Yield();
+				}
+	  ]]> 
+	</CodeChunk>	
+	<CodeChunk Name="Their_Greatest_Contributions2">
+	  <![CDATA[		
+			#if !RB_CN	
+			ChatManager.SendChat("/s Please, Emet-Selch");
+			#endif
+			#if RB_CN
+			ChatManager.SendChat("/s 求你了，爱梅特赛尔克");
+			#endif
+			await Coroutine.Wait(10000, () => Talk.DialogOpen);
+			await Buddy.Coroutines.Coroutine.Sleep(500);
+			while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+					await Coroutine.Wait(1000, () => Talk.DialogOpen);
+					await Coroutine.Yield();
+				}
+	  ]]> 
+	</CodeChunk>	
   </CodeChunks>
 </Profile>
