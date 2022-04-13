@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Hatching Tide 2022
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Hatching Tide 2022</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- Profile start here -->	
+    <!-- Hippity, Hoppity, Happily -->
+    <If Condition="not IsQuestCompleted(70126)">
+      <If Condition="not HasQuest(70126)">
+      <GetTo ZoneId="133" XYZ="-50.32435, 6.499979, -92.70242"/>  
+        <If Condition="IsQuestAcceptQualified(70126)">
+          <LLPickupQuest QuestId="70126" NpcId="1042432"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(70126) == 1">
+				<GetTo ZoneId="133" XYZ="-297.3739, 7.099148, -171.6895"/>  
+				<LLTalkTo NpcId="1042433" XYZ="-296.2234, 7.361351, -169.3294" QuestId="70126" StepId="1"/>
+			</If>	
+			<If Condition="GetQuestStep(70126) == 2">
+				<GetTo ZoneId="133" XYZ="-141.2203, 7.103436, -129.4312"/>  
+				<LLTalkTo NpcId="1042892" XYZ="-144.03, 7.240272, -129.1067" QuestId="70126" StepId="2"/>
+			</If>	
+			<If Condition="GetQuestStep(70126) == 3">
+				<GetTo ZoneId="132" XYZ="67.56609, -8.000278, 108.2455"/>  
+				<LLTalkTo NpcId="1042436" XYZ="67.12439, -8.073155, 110.5211" QuestId="70126" StepId="3"/>
+			</If>
+			<While Condition="GetQuestStep(70126) == 4">
+				<LisbethTravel ZoneId="148" XYZ="186.2484, -33.00643, 387.6313"/> 
+				<UserDialog DialogText="Please complete the seaonal event fate 'Happiness Is a Warm Bunny' manually.\n Then press continue." QuestRequirementInLog="InLog" IsBotContinueAllowed="True" QuestId="70126" StepId="4"/>       				
+			</While>
+			<If Condition="GetQuestStep(70126) == 5">
+				<GetTo ZoneId="133" XYZ="-49.70609, 6.499985, -92.65524"/>  
+				<LLTalkTo NpcId="1042432" XYZ="-49.91229, 6.5, -89.89093" QuestId="70126" StepId="5"/>
+			</If>
+			<If Condition="GetQuestStep(70126) == 6">
+				<GetTo ZoneId="133" XYZ="-49.69076, 6.499986, -92.65192"/>  
+				<LLTalkTo NpcId="1042439" XYZ="-48.47797, 6.499994, -90.5318" QuestId="70126" StepId="6"/>
+			</If>
+			<If Condition="GetQuestStep(70126) == 255">
+				<GetTo ZoneId="133" XYZ="-49.98195, 6.49998, -92.57915"/>  
+				<LLTurnIn QuestId="70126" NpcId="1042432" XYZ="-49.91229, 6.5, -89.89093"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>
+		
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
