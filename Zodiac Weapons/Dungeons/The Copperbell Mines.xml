@@ -6,7 +6,7 @@
 
 <!DOCTYPE Profile [
 <!-- Profile Settings -->
-<!ENTITY openchest "0">
+<!ENTITY openchest "1">
 ]>
 
 <Profile>
@@ -31,8 +31,8 @@
 			<RunCode name="LifeLever1"/>
 			<WaitTimer WaitTime="13" />
 			<MoveTo XYZ="-145.0382, -9.442417, -208.1714" usemesh="false"/>
-			<MoveTo XYZ="-20.34212, -8.936714, -158.5612"/>
-			<UseObject NpcIds="2000169" XYZ="-20.82861,-8.071711,-161.6389" Radius="50" condition="GetInstanceTodo(0) == 0"/>
+			<MoveTo XYZ="52.00195, -8.740185, -136.6019"/>
+			<UseObject NpcIds="2000169" XYZ="52.00195, -8.740185, -136.6019" Radius="50" condition="GetInstanceTodo(0) == 0"/>
 			<MoveTo XYZ="53.10145,-3.845266,-153.8264"/>
 			<UseObject NpcIds="2000172" XYZ="53.10145,-3.845266,-153.8264" Radius="50" condition="GetInstanceTodo(0) == 1"/>
 			<MoveTo XYZ="43.8211,-8.8478,-128.3291"/>
@@ -43,13 +43,13 @@
 			<While condition="GetInstanceTodo(1) == 0">
 				<RunCode name="BlastingDevice1"/>
 			</While>			
+			<MoveTo XYZ="43.02126, -9.934, -99.82539" usemesh="false" />
 		</If>
 		
 		<!-- Clear shaft E1 of rubble 0/1 -->
 		<If Condition="GetInstanceTodo(2) == 0">
 			<Log Message="Clear shaft E1 of rubble 0/1" />
-			<MoveTo XYZ="43.65644, -9.942099, -107.0623" usemesh="false"/>
-			<MoveTo XYZ="51.90644, -9.245893, -87.23203"/>
+			<MoveTo XYZ="43.02126, -9.934, -99.82539" />
 			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(2000178).IsVisible"/> <!-- Fight First Boss -->
 			<If Condition="&openchest; == 1">
 				<LLOpenChest />
@@ -75,20 +75,20 @@
 
 		<!-- Arrive in shaft E2 0/1 -->
 		<If Condition="GetInstanceTodo(3) == 0">
-			<MoveTo XYZ="57.51021, -38.87397, 66.95765" usemesh="false" />		
+		<MoveTo XYZ="57.51021, -38.87397, 66.95765" usemesh="false" />		
 			<MoveTo XYZ="38.06453,-38.71266,60.51177" />
 			<UseObject NpcIds="2001532" XYZ="38.06453,-38.71266,60.51177" Radius="20" condition="GetInstanceTodo(0) == 0"/>
 			<MoveTo XYZ="35.85096, -37.8271, 90.57168"/>
 			<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(2001533).IsVisible"/> <!-- Fight Second Boss -->
 			<UseObject NpcIds="2001533" XYZ="31.75593,-37.93879,114.6466" Radius="100" condition="GetInstanceTodo(0) == 1"/>
 			<If Condition="&openchest; == 1">
-				<LLOpenChest />
-			</If>			
-			<MoveTo XYZ="6.485046,-37.17156,113.6339" />
+				<LLOpenChest/>
+			</If>	
+			<MoveTo XYZ="1.825666, -37.62003, 112.8472" />
 			<While condition="GetInstanceTodo(0) == 2">
 				<RunCode name="PowderChamber3"/>
 			</While>
-			<MoveTo XYZ="10.16271,-36.84641,106.697" />	
+			<MoveTo XYZ="4.2986, -36.84641, 110.489" />	
 			<While condition="GameObjectManager.GetObjectByNPCId(2001534).IsVisible">
 				<RunCode name="BlastingDevice3"/>
 			</While>			
@@ -96,7 +96,7 @@
 
 		<!-- Defeat Gyges the Great 0/1 -->
 		<If Condition="GetInstanceTodo(4) == 0">
-			<MoveTo XYZ="-92.62537, -59.29224, 41.44617"/>
+			<MoveTo XYZ="-100.4114, -57.878, 6.672525"/>
 			<BotSettings AutoEquip="0" />	
 				<If Condition="ClassName == ((ClassJobType.Bard))"> 
 					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
@@ -174,7 +174,7 @@
 						<EquipWeapon ItemID="7829"/>
 						<WaitTimer WaitTime="3" />
 					</While>
-				</If>									
+				</If>				
 			<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(101).CurrentHealth == 0"/> <!-- Fight final Boss -->
 			<If Condition="&openchest; == 1">
 				<LLOpenChest />
@@ -186,7 +186,6 @@
 		</If>				
 	</If>
 	
-	<LLoadProfile Path="../Start.xml"/>		
 	
   </Order>
   <GrindAreas>
