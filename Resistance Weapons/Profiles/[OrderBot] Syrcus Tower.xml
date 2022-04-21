@@ -123,7 +123,7 @@
 					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-374.567, 500.0322, -200.096" />
 					<WaitWhile Condition="not IsPartyInCombat()"/>
 					<Grind GrindRef="Xande" PostCombatDelay="3.0" While="GetInstanceTodo(8) == 0" /> 
-					<PassOnLoot/>
+					<!--<PassOnLoot/>-->
 				</If>
 				
 				<If Condition="GetInstanceTodo(8) == 1">
