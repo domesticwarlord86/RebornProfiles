@@ -40,7 +40,8 @@
 				<BotSettings AutoEquip="1" />	
 				<MoveTo XYZ="225.7066, 39.96008, -168.2137" />
 				<MoveTo XYZ="225.6939, 40.27448, -157.4729" usemesh="false" />
-				<MoveTo XYZ="179.2332,33.91116,-25.2256" distnace="2"/>
+				<MoveTo XYZ="189.0403, 31.06693, -25.26886" Distance="1"/>
+				<LLClimbHill Start="189.0403, 31.06693, -25.26886" End="181.4148, 32.95156, -25.33693" />
 				<While condition="GameObjectManager.GetObjectByNPCId(2004406).IsTargetable">
 					<RunCode name="DraingagePump"/>
 				</While>
