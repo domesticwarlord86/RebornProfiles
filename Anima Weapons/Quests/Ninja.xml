@@ -62,7 +62,7 @@
 				</While>
 			</If>
 		<!--  Toughening Up -->
-		<If Condition="not HasQuest(67749) and not IsQuestCompleted(67749)">
+		<If Condition="not HasQuest(67749)">
 			<LisbethTravel Area="Azys Lla (Alpha Quadrant)" Position="-753.8531, -182.9606, -552.8411"/>
 			<If Condition="IsQuestAcceptQualified(67749)">
 				<PickupQuest QuestId="67749" NpcId="1016135"/>
