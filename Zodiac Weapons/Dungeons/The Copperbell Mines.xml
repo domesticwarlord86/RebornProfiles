@@ -15,7 +15,7 @@
   <Order>
 	
 	<If condition="not DutyManager.InInstance">
-		<JoinSupportDuty DutyId="3"/>
+		<LLJoinDuty DutyId="3"/>
 	</If>
 	
 	<If condition="DutyManager.InInstance">
