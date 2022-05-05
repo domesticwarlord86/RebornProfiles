@@ -13,54 +13,58 @@
   <Name>Brayflox's Longstop</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
+	
 	<If condition="not DutyManager.InInstance">
 		<LLJoinDuty DutyId="8"/>
 	</If>
+	
 	<If condition="DutyManager.InInstance">
-		<!-- Meet a Longstop ally 0/1 -->
+		<!-- Meet a Longstop ally: 0/1 -->
 		<If Condition="GetInstanceTodo(0) == 0">
-			<BotSettings AutoEquip="1" />	
-			<MoveTo XYZ="21.54947, 7.105875, 27.33947"/>
+			<Log Message="Meet a Longstop ally: 0/1" />
 			<TalkTo NpcId="1004346" XYZ="20.64305,7.105875,27.7913"/>
 		</If>
 		
 		<!-- Access Brayflox's Runstop 0/1 -->
-		<If Condition="GetInstanceTodo(1) == 0">
-			<MoveTo XYZ="105.282, -0.1312774, 12.01039"/>		
+		<If Condition="GetInstanceTodo(1) == 0">	
+			<Log Message="Access Brayflox's Runstop: 0/1" />
 			<While condition="GameObjectManager.GetObjectByNPCId(2001462).IsTargetable">
-				<MoveTo XYZ="105.282, -0.1312774, 12.01039"/>
-				<RunCode name="RunstopHeadgate"/> 
+				<UseTransport NpcId="2001462" XYZ="105.282, -0.1312774, 12.01039" /> <!-- Runstop Headgate  -->	
 			</While>	
-			<MoveTo XYZ="109.2574, -1.952292, -0.2141497"/>
-			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(1280).CurrentHealth == 0"/> <!-- Fight First Boss -->
+			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Fight First Boss -->
 			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="113.9696,-3.189148,-25.68097" />
 				<LLOpenChest/>
 			</If>
 		</If>
 		
-		<!-- Access Mudstop Watergush 0/1 -->
+		<!-- Access Mudstop Watergush: 0/1 -->
 		<If Condition="GetInstanceTodo(2) == 0">
-			<MoveTo XYZ="3.697756, 5.745567, -68.86022"/>
-			<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(1284).CurrentHealth == 0"/> <!-- Fight Second Boss -->			
+			<Log Message="Access Mudstop Watergush: 0/1" />
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(2) == 0"/> <!-- Fight Second Boss -->			
 			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-15.18274,5.722107,-92.8512" />
 				<LLOpenChest/>
 			</If>
 		</If>
 		
-		<!-- Arrive in the heart of the Longstop 0/1 -->
+		<!-- Arrive in the heart of the Longstop: 0/1 -->
 		<If Condition="GetInstanceTodo(3) == 0">
+			<Log Message="Arrive in the heart of the Longstop: 0/1" />
 			<MoveTo XYZ="-105.4545, -2.381622, -13.3266"/>
 			<Grind GrindRef="Hellbender" While="GameObjectManager.GetObjectByNPCId(1286)"/> <!-- Fight Hellbender -->
 			<Grind GrindRef="Aiatar" While="GameObjectManager.GetObjectByNPCId(1279)"/> <!-- Fight Aiatar Boss -->	
 			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-113.2678,-1.419189,-51.01099" />
 				<LLOpenChest/>
-			</If>
-			<MoveTo XYZ="-90.13525, 10.94317, -95.86838"/>
+			</If>	
 			<UseObject NpcId="2001466" XYZ="-89.83136,14.04251,-96.67622" condition="GameObjectManager.GetObjectByNPCId(2001466).IsTargetable"/>
 		</If>
 		
-		<!-- Defeat Aiatar 0/1 -->
+		<!-- Defeat Aiatar: 0/1 -->
 		<If Condition="GetInstanceTodo(4) == 0">
+			<Log Message="Defeat Aiatar: 0/1" />
+			<MoveTo XYZ="-41.55581, 35.5, -236.0251" />
 			<BotSettings AutoEquip="0" />	
 				<If Condition="ClassName == ((ClassJobType.Bard))"> 
 					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
@@ -139,19 +143,22 @@
 						<WaitTimer WaitTime="3" />
 					</While>
 				</If>		
-			<MoveTo XYZ="-51.49282, 34.69901, -235.3141"/>
-			<WaitTimer WaitTime="2" />
-			<Grind GrindRef="FinalBoss" While="GameObjectManager.GetObjectByNPCId(1279)"/> <!-- Fight Final Boss -->			
+			
+			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Fight Final Boss -->			
 			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-18.72284,35.47717,-234.8517" />
 				<LLOpenChest/>
 			</If>
-			<While condition="DutyManager.InInstance">	
-				<WaitTimer WaitTime="10" />
-				<LLLeaveDuty/>
-			</While>
-		</If>				
+		</If>
+		
 	</If>
-	
+
+		<While condition="DutyManager.InInstance and IsDutyEnded()">	
+			<WaitTimer WaitTime="5" />
+			<LLLeaveDuty/>
+		</While>
+		
+			
 	<LLoadProfile Path="../Start.xml"/>
 	
   </Order>
