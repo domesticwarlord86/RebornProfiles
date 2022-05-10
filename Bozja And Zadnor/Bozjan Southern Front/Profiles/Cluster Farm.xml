@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Bozjan Cluster Farm
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Bozjan Cluster Farm</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+  <While condition="PartyManager.IsPartyLeader ">
+    <Log Message="I'm party leader, starting farm..." />
+	<LisbethTravel Area="Bozjan Southern Front" Position="-7.741169, 18.87123, 617.9328"/> <!-- Base Camp Point -->
+	<If condition="not Core.Player.IsMounted">
+		<RunCode name="GiddyUp"/>
+	</If>
+	<RunCode name="Gather Mobs"/>
+	<WaitTimer WaitTime="1" />
+	<Grind GrindRef="Cluster Farm" While="NumAttackableEnemies(10, Array[int]([9517,9519,9522,9523])) &gt; 0 and DutyManager.InInstance"/>
+  </While>
+	
+  <If condition="not PartyManager.IsPartyLeader ">
+	<Log Message="I'm not party leader, waiting for mobs..." />
+	<LisbethTravel Area="Bozjan Southern Front" Position="-6.17241, 20.15829, 609.0333"/> <!-- Base Camp Point -->
+	<Grind GrindRef="Cluster Farm" While="DutyManager.InInstance"/>
+	<!--NumAttackableEnemies(10, Array[int]([9517,9519,9522,9523])) &gt; 0 and -->
+  </If>
+  
+  </Order>
+  <GrindAreas>
+    <GrindArea name="Cluster Farm">
+      <Hotspots>
+        <Hotspot Radius="20" XYZ="-6.17241, 20.15829, 609.0333" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="9517" Weight="1"/> <!-- 4th Legion Slasher -->
+        <TargetMob Id="9519" Weight="1"/> <!-- 4th Legion Nimrod -->
+        <TargetMob Id="9522" Weight="1"/> <!-- 4th Legion Death Claw -->
+        <TargetMob Id="9523" Weight="1"/> <!-- 4th Legion Roader -->
+      </TargetMobs>
+    </GrindArea>  
+  </GrindAreas>
+  <CodeChunks>
+  <CodeChunk Name="Gather Mobs">
+      <![CDATA[
+            Vector3[] navPoints =
+            {
+                new Vector3(-7.741169f, 18.87123f, 617.9328f),
+                new Vector3(-58.12164f, 20.15414f, 645.9297f),
+                new Vector3(-39.15756f, 17.73399f, 659.2332f),
+                new Vector3(-38.13239f, 19.20744f, 697.3829f),
+                new Vector3(-43.74768f, 20.33521f, 713.9237f),
+                new Vector3(24.88745f, 21.45314f, 691.0046f),
+                new Vector3(26.77954f, 20.73202f, 677.6378f),
+                new Vector3(50.94983f, 23.14198f, 666.926f),
+                new Vector3(74.72339f, 24.50255f, 666.865f),
+                new Vector3(91.02002f, 24.39377f, 666.5903f),
+                new Vector3(87.724f, 23.91223f, 721.3701f),
+                new Vector3(74.08252f, 21.48386f, 725.307f),
+                new Vector3(58.97607f, 20f, 735.7137f),
+                new Vector3(53.17761f, 20.87798f, 727.1992f),				
+                new Vector3(-7.741169f, 18.87123f, 617.9328f),				
+            };
+
+            foreach (var pos in navPoints)
+            {
+                while (Core.Me.Location.Distance2D(pos) > 1.5f)
+                {
+                    await Coroutine.Yield();
+                    Navigator.PlayerMover.MoveTowards(pos);
+                }
+            }
+            Navigator.PlayerMover.MoveStop();
+            await Coroutine.Wait(10000, () => GameObjectManager.Attackers.Count(x => x.Distance(Core.Me.Location) < 4.5f) > 3);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="GiddyUp">
+		<![CDATA[
+			ActionManager.Mount();
+			await Coroutine.Sleep(3000);
+		]]>
+    </CodeChunk>	
+  </CodeChunks>
+</Profile>  

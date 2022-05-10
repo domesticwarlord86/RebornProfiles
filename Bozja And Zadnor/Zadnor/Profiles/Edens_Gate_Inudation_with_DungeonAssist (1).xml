@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Eden's Gate: Inudation
+  Authors: DomesticWarlord86
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Eden's Gate: Inudation</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<RunCode name="PluginLoad"/>
+	
+	<While condition="not HasAtLeast(33764,30)">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="682" Undersized="False"/>
+		</If>
+		
+		<If condition="DutyManager.InInstance">
+
+			<!-- Defeat Leviathan 0/1 -->
+			<If Condition="IsOnMap(851)">
+				<Log Message="Defeat Leviathan" />
+				<WaitWhile Condition="not IsPartyInCombat()"/>
+				<Grind GrindRef="Leviathan" while="not GameObjectManager.GetObjectByNPCId(8486).CurrentHealth == 0"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>			
+			</If>
+		</If>
+		
+	</While>
+  </Order>
+  <GrindAreas>	
+    <GrindArea name="Leviathan">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="98.85033, 0, 100.3539" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8486" Weight="1"/> <!-- Leviathan -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  <CodeChunk name="PluginLoad">
+      <![CDATA[
+        var Plugin = PluginManager.Plugins.Where(p => p.Plugin.Name == "DungeonAssist");
+        var Plugin2 = PluginManager.Plugins.Where(p => p.Plugin.Name == "Osiris");
+		var Plugin3 = PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep");
+		
+	
+		
+		var text1 = string.Empty;
+        var text2 = string.Empty;
+		var text3 = string.Empty;
+        var text4 = string.Empty;
+		var text5 = string.Empty;
+        var text6 = string.Empty;
+		
+		
+		text1 = "Plug-In Dungeon Assist is installed and enabled";
+		text2 = "You Need the Dungeon Assist Plug-In to Operate this Profile";
+		text3 = "Plug-In Osiris  is installed and enabled";
+		text4 = "You Need the Osiris Plug-In to Operate this Profile";
+		text5 = "Plug-In SideStep  is installed and disabled";
+		text6 = "SideStep Plug-In is not needed to Operate this Profile";
+		
+					
+			if(Plugin.Any()){
+				
+				if (Plugin != null)
+				{
+					PluginManager.SetEnabledPlugins("DungeonAssist");
+					Core.OverlayManager.AddToast(() => text1, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+					
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text2, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+			else
+				{
+					Core.OverlayManager.AddToast(() => text2, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			if(Plugin2.Any()){
+				
+				if (Plugin2 != null)
+				{
+					PluginManager.SetEnabledPlugins("Osiris");
+					Core.OverlayManager.AddToast(() => text3, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text4, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text4, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			if(Plugin3.Any()){
+				
+				if (Plugin3 != null)
+				{
+					
+					Core.OverlayManager.AddToast(() => text5, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+					
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text6, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+		else
+				{
+					Core.OverlayManager.AddToast(() => text6, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+        await Coroutine.Sleep(6000);
+      ]]>	
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

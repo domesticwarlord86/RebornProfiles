@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Eden's Gate: Inudation
+  Authors: DomesticWarlord86
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Eden's Gate: Inudation</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	
+	<While condition="not HasAtLeast(33764,30)">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="682" Undersized="False"/>
+		</If>
+		
+		<If condition="DutyManager.InInstance">
+
+			<!-- Defeat Leviathan 0/1 -->
+			<If Condition="IsOnMap(851)">
+				<Log Message="Defeat Leviathan" />
+				<WaitWhile Condition="not IsPartyInCombat()"/>
+				<Grind GrindRef="Leviathan" while="not GameObjectManager.GetObjectByNPCId(8486).CurrentHealth == 0"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>			
+			</If>
+		</If>
+		
+	</While>
+  </Order>
+  <GrindAreas>	
+    <GrindArea name="Leviathan">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="98.85033, 0, 100.3539" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8486" Weight="1"/> <!-- Leviathan -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>

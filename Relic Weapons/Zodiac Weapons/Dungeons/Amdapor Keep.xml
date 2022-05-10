@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Amdapor Keep
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Amdapor Keep</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<!-- Unlock Amdapor Keep -->
+   <!-- [Amdapor Keep] Ghosts of Amdapor -->
+   <If Condition="IsQuestCompleted(66060) and IsQuestCompleted(66406) and not HasQuest(66671) and not IsQuestCompleted(66671)">
+     <LisbethTravel ZoneId="140" XYZ="-470.821, 23.03532, -355.408"/>
+     <If Condition="not IsQuestAcceptQualified(66671)">
+       <LogMessage Message="[OrderBot] Unlock Dungeons: You must complete Aurum Vale to proceed."/>
+     </If>
+     <If Condition="IsQuestAcceptQualified(66671)">
+       <PickupQuest QuestId="66671" NpcId="1005021" XYZ="-472.4957, 23.02878, -355.0012"/>
+     </If>
+   </If>
+	<If Condition="HasQuest(66671) and not IsQuestCompleted(66671) and GetQuestStep(66671) == 255">
+		<LisbethTravel ZoneId="153" XYZ="160.7478, 37.67024, 174.0806"/>
+		<TurnIn QuestId="66671" NpcId="1007574" XYZ="163.4088, 37.62593, 175.0363"/>
+	</If>		
+	
+ 	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="14"/>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<!-- Clear the Gier Hall 0/1 -->
+		<If Condition="not GetInstanceTodo(0) == 1">
+			<Log Message="Clear the Gier Hall 0/1" />
+			<BotSettings AutoEquip="1" />	
+			<MoveTo XYZ="-196.265, -4.200005, 13.03519"/> <!-- Move to bridge -->
+			<MoveTo XYZ="-193.4538, -3.800007, 63.08482" usemesh="false"/> <!-- Move across bridge -->
+			<MoveTo XYZ="-153.0291, -4, 87.56704" usemesh="false"/>
+			<MoveTo XYZ="-49.44293, 0.1620599, 85.68034" usemesh="false"/>
+			<MoveTo XYZ="-45.23792, 0, 68.82082" usemesh="false"/>
+			<MoveTo XYZ="-70.51669, -2, 49.46097" usemesh="false"/>
+			<MoveTo XYZ="-134.2573, -2.000006, 43.35908" usemesh="false"/>
+			<MoveTo XYZ="-146.8705, -2, 29.05991" usemesh="false"/>
+			<MoveTo XYZ="-134.8821, -2.4, 14.71817" usemesh="false"/>	
+			<MoveTo XYZ="-83.99593, 3.099442E-06, -0.1227691" usemesh="false"/> <!-- Move to sealed gate -->
+			<MoveTo XYZ="-73.51895, 0.1999929, 0.2118544" usemesh="false"/>
+			<Grind GrindRef="LunaticPriest" While="not GameObjectManager.GetObjectByNPCId(1690).CurrentHealth == 0"/> <!-- Fight first boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>	
+			<MoveTo XYZ="-10.23611,-1.192093E-07,-0.01531982" usemesh="false"/>
+			<UseTransport NpcId="2000500" InteractDistance="3.0" XYZ="-10.23611, -1.192093E-07, -0.01531982"/>			
+		</If>
+		
+		<!-- Clear the Bloody Transept 0/1 -->
+		<If Condition="not GetInstanceTodo(1) == 1">
+			<LogMessage Message="Clear the Bloody Transept 0/1"/>
+			<MoveTo XYZ="115.199, 22.43723, -0.4705639"/> <!-- Move into first room -->		
+			<MoveTo XYZ="199.4624, 22.4248, -70.63486"/> <!-- Move outside bosses room -->	
+			<MoveTo XYZ="200.4684, 22, -112.2056" usemesh="false"/> <!-- Move into boss's room -->
+			<MoveTo XYZ="199.5795, 22, -133.268" usemesh="false"/> <!-- Move into boss's room -->
+			<Grind GrindRef="DemonWall" While="not GameObjectManager.GetObjectByNPCId(1694).CurrentHealth == 0"/> <!-- Fight second boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+			<MoveTo XYZ="200.061,22,-165.266" usemesh="false"/> <!-- Move Astral Flow 2 -->
+			<UseTransport NpcId="2000501" InteractDistance="3.0" XYZ="200.061,22,-165.266"/>	
+		</If>
+		
+		<!-- Defeat Anantaboga 0/1-->
+		<If Condition="not GetInstanceTodo(2) == 1">
+			<LogMessage Message="Defeat Anantaboga 0/1"/>	
+			<MoveTo XYZ="136.8121, 44, -0.5193871"/> <!-- Move to first big door -->
+			<MoveTo XYZ="25.36752, 48, 0.3284818" /> <!-- Move into bosses room -->
+			<BotSettings AutoEquip="0" />
+			<If Condition="HasAtLeast(2001302,1) or HasAtLeast(2001306,1)">		
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
+						<Log Message="Equipping Artemis Bow Atma" />
+						<EquipWeapon ItemID="7828"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7830">
+						<Log Message="Equipping Stardust Rod Atma" />
+						<EquipWeapon ItemID="7830"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7827">
+						<Log Message="Equipping Gae Bolg Atma" />
+						<EquipWeapon ItemID="7827"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7825">
+						<Log Message="Equipping Sphairai Atma" />
+						<EquipWeapon ItemID="7825"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9251">
+						<Log Message="Equipping Yoshimitsu Atma" />
+						<EquipWeapon ItemID="9251"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7824">
+						<Log Message="Equipping Curtana Atma" />
+						<EquipWeapon ItemID="7824"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7833">
+						<Log Message="Equipping Holy Shield Atma" />
+						<EquipWeapon ItemID="7833"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7832">
+						<Log Message="Equipping Omnilex Atma" />
+						<EquipWeapon ItemID="7832"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7831">
+						<Log Message="Equipping Veil of Wiyu Atma" />
+						<EquipWeapon ItemID="7831"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7826">
+						<Log Message="Equipping Bravura Atma" />
+						<EquipWeapon ItemID="7826"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7829">
+						<Log Message="Equipping Thyrus Atma" />
+						<EquipWeapon ItemID="7829"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+			</If>		
+			<Grind GrindRef="Anantaboga" While="not GameObjectManager.GetObjectByNPCId(1696).CurrentHealth == 0"/> <!-- Fight final boss -->
+			<If Condition="&openchest; == 1">
+				<RunCode name="OpenChest" />
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>			
+		</If>
+	</If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="LunaticPriest">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-33.37984,0.0999999,0.07623291" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Lunatic Priest" Id="1690" Weight="1" />
+			<TargetMob Name="Psycheflayer " Id="1689" Weight="2" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="DemonWall">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="200.0683,21.99992,-152" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Demon Wall" Id="1694" Weight="1" />	
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Anantaboga">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-0.04577636,48.2028,0" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Demon Wall" Id="1696" Weight="1" />	
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks> 	
+  </CodeChunks>
+</Profile>	

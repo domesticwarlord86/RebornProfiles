@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Real Folk Blues
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>The Real Folk Blues</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+
+    <!-- The Real Folk Blues -->
+    <If Condition="not HasQuest(68734) and not IsQuestCompleted(68734)">
+      <LisbethTravel Zone="131" Subzone="0" Position="66.06499, 14.005, 89.21887"/>
+      <If Condition="IsQuestAcceptQualified(68734)">
+        <LLPickupQuest QuestId="68734" NpcId="1026924"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(68734) == 1">
+      <LisbethTravel Zone="147" Subzone="331" Position="-11.3304, 47, -29.80681"/>
+      <LLTalkTo NpcId="1026955" XYZ="-10.05573, 47, -29.8009" QuestId="68734" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68734) == 2">
+      <LisbethTravel Zone="131" Subzone="0" Position="67.04472, 14.005, 88.94469"/>
+      <LLTalkTo NpcId="1026937" XYZ="65.7511, 14.005, 90.44019" QuestId="68734" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(68734) == 255">
+      <LisbethTravel Zone="131" Subzone="0" Position="67.04472, 14.005, 88.94469"/>
+      <LLTurnIn QuestId="68734" NpcId="1026937" XYZ="65.7511, 14.005, 90.44019"/>
+      <LLSmallTalk/>
+    </If>		
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

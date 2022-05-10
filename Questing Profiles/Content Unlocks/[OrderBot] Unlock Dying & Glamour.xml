@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Unlock Dying & Glamour
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Unlock Dying And Glamour</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<!-- GetQuestById(66098).QuestI8AH == 2-->
+	<!-- Profile start here -->	
+	
+	    <!-- Color Your World -->
+    <If Condition="not IsQuestCompleted(66235)">
+      <If Condition="not HasQuest(66235)">
+      <GetTo ZoneId="140" XYZ="-439.4404, 23.66992, -356.8109"/>  
+        <If Condition="IsQuestAcceptQualified(66235)">
+          <LLPickupQuest QuestId="66235" NpcId="1004990"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+		
+    <!-- If I Had a Glamour -->
+    <If Condition="not IsQuestCompleted(68553)">
+      <If Condition="not HasQuest(68553)">
+      <GetTo ZoneId="140" XYZ="-439.4404, 23.66992, -356.8109"/>  
+        <If Condition="IsQuestAcceptQualified(68553)">
+          <LLPickupQuest QuestId="68553" NpcId="1004990"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+		
+		<If Condition="GetQuestStep(66235) == 255">
+			<If condition="not HasAtLeast(4745,1)">
+				<GetTo ZoneId="140" XYZ="-463.3136, 23.02035, -380.1093"/>  
+				<BuyItem ItemIds="4745" DialogOption="2" ItemCount="1" NpcId="1004038" XYZ="-466.4225, 23.47034, -379.8734"/>
+			</If>	 
+			<If condition="HasAtLeast(4745,1)">
+				<GetTo ZoneId="140" XYZ="-439.6739, 23.66992, -356.869"/>  
+				<LLTurnIn ItemId="4745" QuestId="66235" NpcId="1004990" XYZ="-441.6419, 23.66986, -358.9685"/>
+				<LLSmallTalk/>
+			</If>
+    </If>
+		
+    <If Condition="GetQuestStep(68553) == 1">
+      <GetTo ZoneId="140" XYZ="-446.0208, 25, -324.995"/>  
+      <LLTalkTo NpcId="1004096" XYZ="-444.7548, 25, -324.2695" QuestId="68553" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68553) == 255">
+      <GetTo ZoneId="140" XYZ="-440.8651, 23.6699, -355.9759"/>  
+      <LLTurnIn ItemId="2002416" QuestId="68553" NpcId="1004990" XYZ="-441.6419, 23.66986, -358.9685"/>
+      <LLSmallTalk/>
+    </If>		
+ 
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Thornmarch Extreme
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+<Profile>
+  <Name>Thornmarch Extreme</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+ 	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="67" trial="true" Undersized="True"/>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<Grind GrindRef="Thornmarch" While="not GameObjectManager.GetObjectByNPCId(2752).CurrentHealth == 0"/> <!-- Kill Hydra -->
+		<While condition="DutyManager.InInstance">	
+			<WaitTimer WaitTime="10" />
+			<LLLeaveDuty/>
+		</While>
+	</If>
+
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="Thornmarch">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="0,0,-8" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2752" Weight="1"/> <!-- Good King Moggle Mog XII -->
+        <TargetMob Id="719" Weight="100"/> <!-- Ruffletuft Kupta Kapa -->
+        <TargetMob Id="718" Weight="100"/> <!-- Whiskerwall Kupdi Koop -->
+        <TargetMob Id="2752" Weight="100"/> <!-- Good King Moggle Mog XII -->
+        <TargetMob Id="723" Weight="100"/> <!-- Puksi Piko the Shaggysong -->
+        <TargetMob Id="722" Weight="100"/> <!-- Pukla Puki the Pomburner -->
+        <TargetMob Id="721" Weight="100"/> <!-- Woolywart Kupqu Kogi -->
+        <TargetMob Id="720" Weight="100"/> <!-- Furryfoot Kupli Kipp -->
+        <TargetMob Id="724" Weight="100"/> <!-- Pukna Pako the Tailturner -->				
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>		
+  <CodeChunks>
+  </CodeChunks>  
+</Profile>  

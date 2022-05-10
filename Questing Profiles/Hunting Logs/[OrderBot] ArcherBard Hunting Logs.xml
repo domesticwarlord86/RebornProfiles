@@ -39,10 +39,11 @@
         <LisbethTravel ZoneId="148" xyz="120.5706, 0.647573, -169.7976" name="Archer_1_2"/>
         <Grind grindRef="Archer_1_2" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 2, 0)"/>
       </If>
-      <If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 3, 0)">
-        <LisbethTravel ZoneId="154" xyz="226.9634, -27.85979, 342.9897" name="Archer_1_3"/>
-        <Grind grindRef="Archer_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 3, 0)"/>
-      </If>
+				<!-- Miteling -->
+				<If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 3, 0)">
+					<GetTo ZoneId="154" xyz="226.9634, -27.85979, 342.9897" name="Archer_1_3"/>
+					<Grind grindRef="Archer_1_3" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 3, 0)"/>
+				</If>	
       <If condition="not HuntSubEntryCompleted(1, ClassJobType.Archer, 4, 0)">
         <LisbethTravel ZoneId="154" xyz="279.7798, -14.28025, 103.8638" name="Archer_1_4"/>
         <Grind grindRef="Archer_1_4" postCombatDelay="1" while="not HuntSubEntryCompleted(1, ClassJobType.Archer, 4, 0)"/>
@@ -427,15 +428,13 @@
             </TargetMobs>
         </GrindArea>
         <GrindArea name="Archer_2_0">
-            <minLevel>10</minLevel>
-            <maxLevel>80</maxLevel>
-            <Hotspots>
-                <Hotspot radius="90" xyz="-391.869, 9.165998, 308.7953" name="Archer_2_0"/>
-            </Hotspots>
-            <TargetMobs>
-                <TargetMob id="54"/>
-            </TargetMobs>
-        </GrindArea>
+						<Hotspots>
+							<Hotspot Radius="200" XYZ="-10.94299, -32.25789, 290.5542" name="Name"/>
+						</Hotspots>
+						<TargetMobs>
+							<TargetMob Id="54" Weight="1"/> <!-- Hornet Swarm -->
+						</TargetMobs>
+					</GrindArea>
         <GrindArea name="Archer_2_1">
             <minLevel>11</minLevel>
             <maxLevel>80</maxLevel>

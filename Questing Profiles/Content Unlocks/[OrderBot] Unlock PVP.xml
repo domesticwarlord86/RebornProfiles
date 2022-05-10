@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<LisbethCheck />
+
+	<!-- GetQuestById(66098).QuestI8AH == 2-->
+	<!-- Profile start here -->	
+    <!-- A Pup No Longer (Maelstrom) -->
+    <If Condition="not IsQuestCompleted(66640)">
+      <If Condition="not HasQuest(66640)">
+      <GetTo ZoneId="128" XYZ="93.61198, 40.24944, 80.47021"/>  
+        <If Condition="IsQuestAcceptQualified(66640)">
+          <LLPickupQuest QuestId="66640" NpcId="1003281"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(66640) == 255">
+				<If condition="not IsOnMap(250)">		
+					<GetTo ZoneId="135" XYZ="269.3709, 4.403121, 719.0811"/>  
+					<UseTransport NpcId="1002484" InteractDistance="3.0" XYZ="270.7103, 4.403121, 719.9968"/>					
+				</If>
+				<GetTo ZoneId="250" XYZ="0.5236655, 3.583684, -27.8054"/>  
+				<LLTurnIn QuestId="66640" NpcId="1005184" XYZ="0.01519775, 3.583684, -30.38074"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>	
+ 
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

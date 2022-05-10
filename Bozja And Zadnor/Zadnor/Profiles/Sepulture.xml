@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Eden's Gate: Sepulture
+  Authors: DomesticWarlord86
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Eden's Gate: Sepulture</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	
+	<While condition="not HasAtLeast(33764,30)">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="689" Undersized="False"/>
+		</If>
+		
+		<If condition="DutyManager.InInstance">
+
+			<!-- Defeat Titan 0/1 -->
+			<If Condition="IsOnMap(852)">
+				<Log Message="Defeat Titan" />
+				<WaitWhile Condition="not IsPartyInCombat() or not GameObjectManager.GetObjectByNPCId(8350).CurrentHealth == 0"/>
+				<Grind GrindRef="Titan" while="GetInstanceTodo(0) == 0"/>
+				<If Condition="&openchest; == 1">
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>			
+			</If>
+		</If>
+		
+	</While>
+  </Order>
+  <GrindAreas>	
+    <GrindArea name="Titan">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="98.44595, 0, 105.5273" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8350" Weight="1"/> <!-- Titan -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>

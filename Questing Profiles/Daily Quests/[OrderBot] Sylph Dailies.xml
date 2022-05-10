@@ -116,14 +116,53 @@ Modified: DomesticWarlord86
       <GetTo ZoneId="152" XYZ="23.61268, -6.07478, 250.6139"/>
       <LLTurnIn QuestId="66790" NpcId="1005565" XYZ="22.47644, -6.21051, 252.552"/>
       <LLSmallTalk/>
-    </If>		
+    </If>
+
+		<!-- Recognized to Friendly-->
+    <!-- Idle Hands -->
+    <If Condition="not IsQuestCompleted(66791)">
+      <If Condition="not HasQuest(66791)">
+      <GetTo ZoneId="152" XYZ="47.2515, 6.073439, 250.2005"/>  
+        <If Condition="IsQuestAcceptQualified(66791)">
+          <LLPickupQuest QuestId="66791" NpcId="1005564"/>
+          <LLSmallTalk/>
+        </If>
+			<GetTo ZoneId="152" XYZ="31.09737, -5.906188, 249.6026" />	
+      </If>
+			<If Condition="HasQuest(66791)">
+				<If Condition="GetQuestStep(66791) == 1">
+					<LisbethTravel ZoneId="152" XYZ="102.3257, 8.12367, 189.6425"/> 
+					<LLTalkTo NpcId="1000277" XYZ="102.7694, 8.161996, 187.9453" QuestId="66791" StepId="1"/>
+				</If>
+				<If Condition="GetQuestStep(66791) == 2">
+					<LisbethTravel ZoneId="152" XYZ="274.3136, -10.01679, -72.3674"/> 
+					<LLTalkTo NpcId="1005572" XYZ="274.1283, -10.38654, -70.20685" QuestId="66791" StepId="2"/>
+				</If>	
+				<If Condition="GetQuestStep(66791) == 3">
+					<LisbethTravel ZoneId="152" XYZ="32.39859, -5.8442, 251.0332"/> 
+					<LLTalkTo NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913" QuestId="66791" StepId="3"/>
+					<GetTo ZoneId="152" XYZ="31.09737, -5.906188, 249.6026" />	
+				</If>
+				<If Condition="GetQuestStep(66791) == 4">
+					<LisbethTravel ZoneId="152" XYZ="28.80509, -3.598788, 213.2296"/> 
+					<LLTalkTo NpcId="1005577" XYZ="28.48853, -3.631957, 210.6202" QuestId="66791" StepId="4"/>
+				</If>
+				<If Condition="GetQuestStep(66791) == 255">
+					<LisbethTravel ZoneId="152" XYZ="33.84829, -5.498399, 250.4499"/> 
+					<LLTurnIn QuestId="66791" NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913"/>
+					<LLSmallTalk/>
+					<GetTo ZoneId="152" XYZ="31.09737, -5.906188, 249.6026" />	
+				</If>				
+			</If>		
+    </If>
+		
 	
 	<If Condition="not HasAtLeastOneQuest(Array[int]([66790,66788,66793,66794,66795,66796,66797,66798,66799,66800,66801,66802,66803,66804,66805,66806,66807,66808,66809,66810,66811,66812,66813,66814,66815,66816,66817,66818,66819,66820,66821,66822]))">
       
 			<If Condition="not HasAtLeastOneQuest(Array[int]([66789,66793,66794,66795,66796,66797,66798,66799,66800,66801,66802,66803,66804,66805,66806,66807,66808,66809,66810,66811,66812,66813,66814,66815,66816,66817,66818,66819,66820,66821,66822]))">
 				<LisbethTravel ZoneId="152" XYZ="21.53701, -6.152399, 250.1149"/>
 			</If>
-			<If condition="not ClassName == ClassJobType.Astrologian and not ClassName == ClassJobType.Bard and not ClassName == ClassJobType.BlackMage and not ClassName == ClassJobType.Dancer and not ClassName == ClassJobType.DarkKnight and not ClassName == ClassJobType.Dragoon and not ClassName == ClassJobType.Gunbreaker and not ClassName == ClassJobType.Machinist and not ClassName == ClassJobType.Monk and not ClassName == ClassJobType.Ninja and not ClassName == ClassJobType.Paladin and not ClassName == ClassJobType.RedMage and not ClassName == ClassJobType.Samurai and not ClassName == ClassJobType.Scholar and not ClassName == ClassJobType.Summoner and not ClassName == ClassJobType.Warrior and not ClassName == ClassJobType.WhiteMage">
+			<If condition="not ClassName == ClassJobType.Sage and not ClassName == ClassJobType.Reaper and not ClassName == ClassJobType.Astrologian and not ClassName == ClassJobType.Bard and not ClassName == ClassJobType.BlackMage and not ClassName == ClassJobType.Dancer and not ClassName == ClassJobType.DarkKnight and not ClassName == ClassJobType.Dragoon and not ClassName == ClassJobType.Gunbreaker and not ClassName == ClassJobType.Machinist and not ClassName == ClassJobType.Monk and not ClassName == ClassJobType.Ninja and not ClassName == ClassJobType.Paladin and not ClassName == ClassJobType.RedMage and not ClassName == ClassJobType.Samurai and not ClassName == ClassJobType.Scholar and not ClassName == ClassJobType.Summoner and not ClassName == ClassJobType.Warrior and not ClassName == ClassJobType.WhiteMage">
         <LogMessage Message="Not already on a DoW/M class, swapping."/>
         <RunCode name="SwitchDoWMJob"/>
       </If>
@@ -380,7 +419,7 @@ Modified: DomesticWarlord86
     <!-- Imperial Intruders -->
     <If Condition="HasQuest(66799) and GetQuestStep(66799) == 1">
         <LisbethTravel ZoneId="152" XYZ="1.045496, 20.0913, 12.34394"/>
-      <UseItem ItemId="2001179" NpcIds="1005805,1005818,1005819,1005820,1005821,1005822,1005823" QuestId="66799" StepId="1">
+      <UseItem ItemId="2001179" NpcIds="1005805,1005818,1005819,1005820,1005821,1005822,1005823" InCombat="True" QuestId="66799" StepId="1">
         <HotSpots>
           <HotSpot XYZ="1.045496, 20.0913, 12.34394" Radius="10"/>
           <HotSpot XYZ="105.8441, 6.354829, -8.547185" Radius="10"/>
@@ -396,7 +435,7 @@ Modified: DomesticWarlord86
     <!-- Not Who They Seem -->
     <If Condition="HasQuest(66801) and GetQuestStep(66801) == 1">
         <LisbethTravel ZoneId="152" XYZ="218.7075, -2.617561, 86.53394"/>
-      <UseItem ItemId="2001153" NpcIds="1008302,1008303,1008304,1008305,2003037,2003038,2003039" QuestId="66801" StepId="1">
+      <UseItem ItemId="2001153" NpcIds="1008302,1008303,1008304,1008305,2003037,2003038,2003039" InCombat="True" QuestId="66801" StepId="1">
         <HotSpots>
           <HotSpot XYZ="218.7075, -2.617561, 86.53394" Radius="10"/>
           <HotSpot XYZ="201.6785, 3.594171, 127.0923" Radius="10"/>
@@ -555,7 +594,7 @@ Modified: DomesticWarlord86
           <HotSpot XYZ="64.37781, 2.151489, 221.271" Radius="10"/>
         </HotSpots>
       </UseObject>
-      <UseItem ItemId="2001181" UseHealthPercent="2" UseTimes="1" NpcIds="2312">
+      <UseItem ItemId="2001181" UseHealthPercent="10" InCombat="True" UseTimes="1" NpcIds="2312">
         <HotSpots>
           <HotSpot XYZ="62.69922, 3.92157, 159.0142" Radius="10"/>
           <HotSpot XYZ="7.431091, -2.059998, 184.7715" Radius="10"/>
@@ -578,7 +617,7 @@ Modified: DomesticWarlord86
           <HotSpot XYZ="64.37781, 2.151489, 221.271" Radius="10"/>
         </HotSpots>
       </UseObject>
-      <UseItem ItemId="2001181" UseHealthPercent="2" UseTimes="1" NpcIds="2312">
+      <UseItem ItemId="2001181" UseHealthPercent="2" InCombat="True" UseTimes="1" NpcIds="2312">
         <HotSpots>
           <HotSpot XYZ="62.69922, 3.92157, 159.0142" Radius="10"/>
           <HotSpot XYZ="7.431091, -2.059998, 184.7715" Radius="10"/>
@@ -601,7 +640,7 @@ Modified: DomesticWarlord86
           <HotSpot XYZ="64.37781, 2.151489, 221.271" Radius="10"/>
         </HotSpots>
       </UseObject>
-      <UseItem ItemId="2001181" UseHealthPercent="2" UseTimes="1" NpcIds="2312">
+      <UseItem ItemId="2001181" UseHealthPercent="2" InCombat="True" UseTimes="1" NpcIds="2312">
         <HotSpots>
           <HotSpot XYZ="62.69922, 3.92157, 159.0142" Radius="10"/>
           <HotSpot XYZ="7.431091, -2.059998, 184.7715" Radius="10"/>
@@ -635,7 +674,7 @@ Modified: DomesticWarlord86
     <!-- Mushroom Madness -->
     <If Condition="HasQuest(66805) and GetQuestStep(66805) == 1">
         <LisbethTravel ZoneId="152" XYZ="272.9381, -8.224609, -81.92572"/>
-      <UseItem ItemId="2001180" NpcIds="2003242,2003243,2003244,2003245,2003246,2003247,2003248" QuestId="66805" StepId="1">
+      <UseItem ItemId="2001180" NpcIds="2003242,2003243,2003244,2003245,2003246,2003247,2003248" InCombat="True" QuestId="66805" StepId="1">
         <HotSpots>
           <HotSpot XYZ="272.9381, -8.224609, -81.92572" Radius="80"/>
           <HotSpot XYZ="202.6604, -5.784055, -168.7919" Radius="80"/>
@@ -653,7 +692,7 @@ Modified: DomesticWarlord86
     <!-- Shocking Developments -->
     <If Condition="HasQuest(66808) and GetQuestStep(66808) == 1">
         <LisbethTravel ZoneId="152" XYZ="286.5186, -13.68738, -124.6815"/>
-      <UseItem ItemId="2001175" NpcIds="2003142,2003143,2003144" QuestId="66808" StepId="1">
+      <UseItem ItemId="2001175" NpcIds="2003142,2003143,2003144" InCombat="True" QuestId="66808" StepId="1">
         <HotSpots>
           <HotSpot XYZ="286.5186, -13.68738, -124.6815" Radius="5"/>
           <HotSpot XYZ="259.0829, -11.15442, -167.6204" Radius="5"/>
@@ -669,7 +708,7 @@ Modified: DomesticWarlord86
     <!-- In The Sylphlands, Treasure Hunts You -->
     <If Condition="HasQuest(66810) and GetQuestStep(66810) == 1">
         <LisbethTravel ZoneId="152" XYZ="286.5186, -13.68738, -124.6815"/>
-      <UseItem ItemId="2001154" NpcIds="2003040,2003041,2003042,2003491,2003492,2003493,2003494" QuestId="66810" StepId="1">
+      <UseItem ItemId="2001154" NpcIds="2003040,2003041,2003042,2003491,2003492,2003493,2003494" InCombat="True" QuestId="66810" StepId="1">
         <HotSpots>
           <HotSpot XYZ="326.7719, -18.11255, -235.9503" Radius="5"/>
           <HotSpot XYZ="386.099, -20.18774, -200.763" Radius="5"/>
@@ -998,7 +1037,6 @@ Modified: DomesticWarlord86
     <!-- Rank 3 -->
 	
 	<LisbethTravel Area="East Shroud" Position="31.09737, -5.906188, 249.6026"/>
-	<GetTo ZoneId="152" XYZ="45.31163, 6.073485, 250.6366" />
 	
     <!-- Ripe for the Picking -->
     <If Condition="HasQuest(66813) and GetQuestStep(66813) == 255">

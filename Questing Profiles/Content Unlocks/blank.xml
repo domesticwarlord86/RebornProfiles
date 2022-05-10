@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- GetQuestById(66098).QuestI8AH == 2-->
+	<!-- Profile start here -->	
+ 
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

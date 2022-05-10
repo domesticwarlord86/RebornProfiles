@@ -9,6 +9,9 @@
 <!ENTITY Vouchers "500">
 <!ENTITY Rank3Done "0">
 <!ENTITY Leveling "0">
+
+<!-- What quantity should we get to before cashing in gemstnoes? -->
+<!ENTITY GemStones "950">
 ]>
 <Profile>
   <Name>Bicolor Gemstone Milk Farm</Name>
@@ -28,13 +31,11 @@
 		</While>
 		
 		<If Condition="&Leveling; == 0">
-			<!-- Garlemald -->
 			<If condition="not IsOnMap(958)">
 				<TeleportTo Name="Camp Broken Glass" AetheryteId="172"/>
 			</If>
-			<If condition="IsOnMap(958)">
-				<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798" while="IsOnMap(958)" While="ItemCount(26807) &lt; 951"/>	
-			</If>
+			<Log Message="Starting Garlemald FATE grind." /> 	
+			<LLFate UseFlight="True" MinLevel="0" MaxLevel="91" BlacklistIds="1798,1793" while="IsOnMap(958) and ItemCount(26807) &lt; &GemStones;"/>	
 		</If>
 		
 		<!--	

@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Snowcloak
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Snowcloak</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+ 	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="27"/>>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<!-- Tiny Key 0/1 -->
+		<If Condition="not GetInstanceTodo(0) == 1">
+			<BotSettings AutoEquip="1" />
+			<Log Message="Tiny Key 0/1" />
+			<MoveTo XYZ="68.58003, 5.705406, -42.91619" />
+			<Grind GrindRef="WhiteBear" While="not GameObjectManager.GetObjectByNPCId(3028).CurrentHealth == 0"/> <!-- Fight White Bear -->	
+			<UseObject NpcId="2004225" XYZ="68.6021,5.705543,-41.4147" Radius="100" condition="not HasAtLeast(2001447,1)"/>
+		</If>
+
+		<!-- Clear Silence 0/1 -->
+		<If Condition="not GetInstanceTodo(1) == 1 and GetInstanceTodo(0) == 1">		
+			<Log Message="Clear Silence 0/1" />
+			<While condition="GameObjectManager.GetObjectByNPCId(2004203).IsTargetable">
+				<MoveTo XYZ="57.11437,4.48007,-45.93763" distance="2"/>
+				<RunCode name="DoortoSilence"/>
+			</While>
+			<MoveTo XYZ="48.03999, -2.5, -73.68185" distance="1"/>
+			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(3038).CurrentHealth == 0"/> <!-- Fight first boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+		</If>
+
+		<!-- Clear Conviction 0/1 -->
+		<If Condition="not GetInstanceTodo(2) == 1 and GetInstanceTodo(1) == 1">
+			<Log Message="Clear Conviction 0/1" />
+			<MoveTo XYZ="-49.34208, 3.723128, -101.3631" />	
+			<MoveTo XYZ="-81.03928, 10.52773, -110.2759" distance="1"/>
+			<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(3040).CurrentHealth == 0"/> <!-- Fight second boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>			
+		</If>
+		
+		<!-- Finger of the Apostate 0/1 -->
+		<If Condition="not GetInstanceTodo(3) == 1 and GetInstanceTodo(2) == 1">
+			<Log Message="Finger of the Apostate 0/1" />
+			<MoveTo XYZ="-57.41408, 28.4, -9.616822" />
+			<Grind GrindRef="ClearRoom" while="not GameObjectManager.GetObjectByNPCId(3032)"/>
+			<Grind GrindRef="ClearRoom" while="not GameObjectManager.GetObjectByNPCId(3032).CurrentHealth == 0"/>
+			<MoveTo XYZ="-68.24632, 40.78313, 65.11944" />
+			<UseObject NpcId="2004226" XYZ="-74.95443,40.51212,64.15948" Radius="100" condition="not HasAtLeast(2001448,1)"/>			
+		</If>		
+		
+		<!-- Defeat Fenrir 0/1-->
+		<If Condition="not GetInstanceTodo(4) == 1 and GetInstanceTodo(3) == 1">
+			<Log Message="Defeat Fenrir 0/1" />
+			<While condition="GameObjectManager.GetObjectByNPCId(2004224).IsTargetable">
+				<MoveTo XYZ="-52.0605,40,65.06619" distance="2"/>
+				<RunCode name="DoortoOblivion"/>
+			</While>
+			<MoveTo XYZ="-18.50113, 40.06769, 65.8017" />	
+			<BotSettings AutoEquip="0" />
+			<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(3044).CurrentHealth == 0"/> <!-- Fight final boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Astrologian))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13623">
+					<Log Message="Equipping Animated Berimbau" />
+					<RunCode Name="AnimatedAtlas" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+			<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13620">
+					<Log Message="Equipping Animated Lunaris Rod" />
+					<RunCode Name="AnimatedLunarisRod" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>			
+			<If Condition="ClassName == ((ClassJobType.Bard))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13615">
+					<Log Message="Equipping Animated Berimbau" />
+					<RunCode Name="AnimatedBerimbau" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13614">
+					<Log Message="Equipping Animated Brionac" />
+					<RunCode Name="AnimatedBrionac" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Machinist))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13618">
+					<Log Message="Equipping Animated Ferdinand" />
+					<RunCode Name="AnimatedFerdinand" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Monk))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13612">
+					<Log Message="Equipping Animated Rising Suns" />
+					<RunCode Name="AnimatedRisingSuns" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13616">
+					<Log Message="Equipping Animated Yukimitsu" />
+					<RunCode Name="AnimatedYukimitsu" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13616">
+					<Log Message="Equipping Animated Hauteclaire" />
+					<RunCode Name="AnimatedHauteclaire" />
+					<WaitTimer WaitTime="3" />
+				</While>
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 13624">
+					<Log Message="Equipping Animated Prytwen" />
+					<RunCode Name="AnimatedPrytwen" />
+					<WaitTimer WaitTime="3" />
+				</While>				
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13622">
+					<Log Message="Equipping Animated Elements" />
+					<RunCode Name="AnimatedElements" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13621">
+					<Log Message="Equipping Animated Almandal" />
+					<RunCode Name="AnimatedAlmandal" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>			
+			<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13613">
+					<Log Message="Equipping Animated Parashu" />
+					<RunCode Name="AnimatedParashu" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+			<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13613">
+					<Log Message="Equipping Animated Seraph Cane " />
+					<RunCode Name="AnimatedSeraphCane" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+			<If Condition="ClassName == ((ClassJobType.DarkKnight))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13617">
+					<Log Message="Equipping Animated Deathbringer " />
+					<RunCode Name="AnimatedDeathbringer" />
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty/>
+			</While>			
+		</If>
+	</If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+ 	<GrindArea name="WhiteBear">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="68.58003, 5.705406, -42.91619" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="White Bear" Id="3028" Weight="1" />		
+        </TargetMobs>
+	</GrindArea> 
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="59.66056,-2.5,-92.66923" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Wandil" Id="3038" Weight="1" />
+			<TargetMob Name="Psycheflayer " Id="1689" Weight="2" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-105.7092,10.49999,-119.6159" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Yeti" Id="3040" Weight="1" />	
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="ClearRoom">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-57.41408, 28.4, -9.616822" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Snowclops" Id="3032" Weight="1" />
+			<TargetMob Name="Hrimthurs" Id="3031" Weight="1" />
+			<TargetMob Name="Spriggan Tumbler" Id="3037" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>	
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="5.630803,40.06769,66.31503" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Fenrir" Id="3044" Weight="1" />	
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+	<CodeChunk Name="DoortoSilence">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004203).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="DoortoOblivion">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004224).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedAtlas">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13623)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedLunarisRod">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13620)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedBrionac">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13614)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>	
+ 	<CodeChunk Name="AnimatedBerimbau">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13615)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedFerdinand">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13618)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedRisingSuns">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13612)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedYukimitsu">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13616)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedHauteclaire">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13611)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedPrytwen">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13624)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedElements">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13622)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedAlmandal">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13621)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>		
+ 	<CodeChunk Name="AnimatedParashu">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13613)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>
+ 	<CodeChunk Name="AnimatedSeraphCane">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13619)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>	
+ 	<CodeChunk Name="AnimatedDeathbringer">
+		<![CDATA[ 
+			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
+			
+			foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+			{
+				if(slot.RawItemId == 13617)
+				{
+					slot.Move(EquipSlot);
+				}
+			}
+		]]>
+	</CodeChunk>	
+  </CodeChunks>
+</Profile>	

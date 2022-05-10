@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Gunblade Class Quests
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Gunblade Class Quests</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Hired Gunblades -->
+    <If Condition="not HasQuest(68798) and not IsQuestCompleted(68798)">
+      <LisbethTravel Zone="152" Subzone="75" Position="-215.8656, 12.16891, 27.11123"/>
+      <If Condition="IsQuestAcceptQualified(68798)">
+        <LLPickupQuest QuestId="68798" NpcId="1029033"/>
+        <LLSmallTalk/>
+      </If>
+    </If>  
+    <If Condition="GetQuestStep(68798) == 1">
+      <LisbethTravel Zone="132" Subzone="545" Position="34.54893, -8, 114.0369"/>
+      <LLTalkTo NpcId="1029035" XYZ="35.50769, -8, 115.3124" QuestId="68798" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(68798) == 2">
+      <LisbethTravel Zone="133" Subzone="0" Position="72.17311, 13.99036, -269.5352"/>
+      <LLTalkTo NpcId="1029037" XYZ="73.65515, 13.99409, -270.8325" QuestId="68798" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(68798) == 3">
+	  <If Condition="GetQuestStep(68798) == 3 and GetQuestById(68798).QuestI8AH == 0">	
+		  <LisbethTravel Zone="133" Subzone="0" Position="-61.97766, 7.197846, -120.0684"/>
+		  <LLTalkTo NpcId="1000288" XYZ="-62.02802, 7.175424, -117.6013" QuestId="68798" StepId="3"/>
+	  </If>
+      <If Condition="GetQuestStep(68798) == 3 and GetQuestById(68798).QuestI8AH == 1">
+        <LisbethTravel Zone="133" Subzone="0" Position="-53.39128, 7.208014, -119.1754"/>
+        <LLTalkTo NpcId="1000286" XYZ="-53.57446, 7.202537, -118.3643" QuestId="68798" StepId="3"/>
+      </If>	
+      <If Condition="GetQuestStep(68798) == 3 and GetQuestById(68798).QuestI8AH == 2">
+        <LisbethTravel Zone="133" Subzone="0" Position="-38.96622, 7.281901, -138.2608"/>
+        <LLTalkTo NpcId="1003063" XYZ="-37.9798, 7.439375, -139.6049" QuestId="68798" StepId="3"/>
+      </If>	  
+    </If>
+    <If Condition="GetQuestStep(68798) == 4">
+      <LisbethTravel Zone="133" Subzone="0" Position="-92.57104, 7.104803, -130.6822"/>
+      <LLTalkTo NpcId="1029041" XYZ="-93.98035, 7.111186, -131.3345" QuestId="68798" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(68798) == 5">
+  	  <If condition="not DutyManager.InInstance">
+	    <LisbethTravel Area="Gridania (Old Gridania)" Position="73.15961, 13.99284, -269.188"/>
+		<RunCode name="DutyCommence"/>
+	  </If>
+	  <While condition="DutyManager.InInstance and GetQuestStep(68798) == 5">
+		<MoveTo XYZ="-27.32331, 10, -255.0612" />
+		<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(2010642)"/>
+		<UseObject NpcId="2010642" XYZ="-24.0025,10.17773,-258.0148" UseTimes="1"/>
+		<UseObject NpcId="2010643" XYZ="-20.34033,10.17773,-256.1227" UseTimes="1"/>
+		<UseObject NpcId="2010644" XYZ="-21.01172,10.17773,-252.5216" UseTimes="1"/>
+		<UseObject NpcId="2010645" XYZ="-24.36871,10.2,-250.1412" UseTimes="1"/>
+		<UseObject NpcId="2010646" XYZ="-27.17633,10.2,-250.66" UseTimes="1"/>
+		<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(8861).IsTargetable"/>
+		<Grind GrindRef="Hired Gunblades1" While="NumAttackableEnemies(30, Array[int]([8861,8862])) &gt; 0 and DutyManager.InInstance"/> <!-- Clear First Wave -->
+		<MoveTo XYZ="-49.43342, 10.78478, -225.0633" />	
+		<Grind GrindRef="Hired Gunblades2" While="not GameObjectManager.GetObjectByNPCId(8860)"/> <!-- Clear First Wave -->
+		<Grind GrindRef="Head Bandit" While="not QuestLogManager.InCutscene"/> <!-- Clear First Wave -->
+		<Grind GrindRef="Hired Gunblades Duty" While="DutyManager.InInstance"/> <!-- Clear Duty -->
+		<While condition="DutyManager.InInstance">
+			<LLSmallTalk/>
+		</While>
+	  </While>      
+    </If>
+	<If Condition="GetQuestStep(68798) == 6">
+		<RunCode name="Handle_Cutscene_Talking"/>
+	</If>
+    <If Condition="GetQuestStep(68798) == 7">
+      <LisbethTravel Zone="133" Subzone="581" Position="-233.2018, 2.418689, -210.1371"/>
+      <LLTalkTo NpcId="1029043" XYZ="-232.2576, 2.41869, -210.9865" QuestId="68798" StepId="7"/>
+    </If>
+    <If Condition="GetQuestStep(68798) == 255">
+      <LisbethTravel Zone="130" Subzone="615" Position="20.10262, 7.999987, -114.629"/>
+      <LLTurnIn QuestId="68798" NpcId="1029044" XYZ="18.44812, 7.999983, -115.3124"/>
+      <LLSmallTalk/>
+    </If>	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="Hired Gunblades1">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-26.84036, 10, -253.5554" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8861" Weight="1"/> <!-- Bandit Executioner -->
+        <TargetMob Id="8862" Weight="1"/> <!-- Bandit Cutthroat -->		
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Hired Gunblades2">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-49.43342, 10.78478, -225.0633" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8861" Weight="1"/> <!-- Bandit Executioner -->
+        <TargetMob Id="8862" Weight="1"/> <!-- Bandit Cutthroat -->
+        <TargetMob Id="8860" Weight="1"/> <!-- Head Bandit -->		
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Head Bandit">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-49.43342, 10.78478, -225.0633" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8861" Weight="1"/> <!-- Bandit Executioner -->
+        <TargetMob Id="8862" Weight="1"/> <!-- Bandit Cutthroat -->
+        <TargetMob Id="8860" Weight="1"/> <!-- Head Bandit -->		
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Hired Gunblades Duty">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-52.5705, 6.773035, -136.3876" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="8863" Weight="1"/> <!-- Bandit Swordsman -->
+        <TargetMob Id="8861" Weight="1"/> <!-- Bandit Executioner -->
+        <TargetMob Id="8862" Weight="1"/> <!-- Bandit Cutthroat -->
+		<TargetMob Id="8858" Weight="100"/> <!-- Gorib -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="DutyCommence">
+      <![CDATA[
+        Logging.Write("Commencing duty.");
+        uint[] npcIds = { 1029089 };
+        var dutyNpc = GameObjectManager.GameObjects.Where(r => r.IsTargetable && npcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+        while (Core.Me.Location.Distance2D(dutyNpc.Location) > 1.5f)
+        {
+          await Coroutine.Yield();
+          Navigator.PlayerMover.MoveTowards(dutyNpc.Location);
+        }
+        Navigator.PlayerMover.MoveStop();
+        dutyNpc.Interact();
+        await Coroutine.Wait(5000, () => Talk.DialogOpen || DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen);
+        while (!(DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen))
+        {
+          Talk.Next();
+          await Coroutine.Yield();
+        }
+        await Coroutine.Wait(5000, () => DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen);
+        if (DifficultySelectYesNo.IsOpen) { DifficultySelectYesNo.Proceed(2); }
+        else if (SelectYesno.IsOpen) { SelectYesno.Yes(); }
+        else
+        {
+         Logging.Write("Duty window didn't open.");
+         TreeRoot.Stop();
+        }
+        await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
+        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        while (QuestLogManager.InCutscene)
+        {
+          ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
+          if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
+          if (Talk.DialogOpen) { Talk.Next(); }
+          await Coroutine.Yield();
+        }
+        await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
+        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        await Coroutine.Wait(10000, () => !Core.Me.HasAura(1268));
+        Logging.Write("Duty commenced.");
+        await Coroutine.Sleep(1500);
+      ]]>
+    </CodeChunk> 
+    <CodeChunk Name="Handle_Cutscene_Talking">
+      <![CDATA[
+        await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading || QuestLogManager.InCutscene);
+        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        while (QuestLogManager.InCutscene || Talk.DialogOpen || CommonBehaviors.IsLoading)
+        {
+          ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
+          if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
+          if (Talk.DialogOpen) { Talk.Next(); }
+          await Coroutine.Yield();
+        }
+        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        await Coroutine.Wait(10000, () => !Core.Me.HasAura(1268));
+        await Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>	
+  </CodeChunks>
+</Profile>  

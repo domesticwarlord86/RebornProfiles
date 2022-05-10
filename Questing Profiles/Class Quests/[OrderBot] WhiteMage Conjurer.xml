@@ -1,0 +1,1557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: White Mage & Conjurer Class Quests
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>White Mage Conjurer Class Quests</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- GetQuestById(66098).QuestI8AH == 2-->
+	<!-- Profile start here -->	
+	
+			<!-- Conjurer -->
+
+			<If Condition="ClassName == ClassJobType.Conjurer">
+
+				<LogMessage Message="[Class and Job Quests] Checking Conjurer class quests..." />
+
+				<!-- My First Cane -->
+
+				<If Condition="not IsQuestCompleted(65747) and not IsQuestCompleted(65558)">
+					<If Condition="not HasQuest(65747)">
+						<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+						<If Condition="IsQuestAcceptQualified(65747)">
+							<PickupQuest NpcId="1000692" QuestId="65747" XYZ="-258.8083, -5.773526, -27.26788" />
+						</If>
+					</If>
+					<If Condition="HasQuest(65747)">
+						<If Condition="GetQuestStep(65747) == 1">
+							<If Condition="not IsTodoChecked(65747, 1, 0)">
+								<LisbethTravel ZoneId="148" XYZ="-15.06914, 0.5223025, -172.5426" /> <!-- Grinding Area -->
+								<Grind grindRef="My_First_Cane" while="not IsTodoChecked(65747, 1, 0)" />
+							</If>
+							<If Condition="not IsTodoChecked(65747, 1, 1)">
+								<LisbethTravel ZoneId="148" XYZ="-15.06914, 0.5223025, -172.5426" /> <!-- Grinding Area -->
+								<Grind grindRef="My_First_Cane2" while="not IsTodoChecked(65747, 1, 1)" />
+							</If>
+							<If Condition="not IsTodoChecked(65747, 1, 2)">
+								<LisbethTravel ZoneId="148" XYZ="-15.06914, 0.5223025, -172.5426" /> <!-- Grinding Area -->
+								<Grind grindRef="My_First_Cane3" while="not IsTodoChecked(65747, 1, 2)" />
+							</If>
+						</If>
+						<If Condition="GetQuestStep(65747) == 255">
+							<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+							<TurnIn QuestId="65747" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" />
+						</If>
+					</If>
+				</If>
+
+				<!-- Trial by Earth -->
+
+				<If Condition="not IsQuestCompleted(65584)">
+					<If Condition="Core.Player.ClassLevel &gt; 4">
+						<If Condition="not HasQuest(65584)">
+							<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+							<If Condition="IsQuestAcceptQualified(65584)">
+								<PickupQuest NpcId="1000692" QuestId="65584" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+						<If Condition="HasQuest(65584)">
+							<If Condition="GetQuestStep(65584) == 1">
+								<LisbethTravel ZoneId="154" XYZ="218.8906, -28.25249, 338.3992" /> <!-- Nolanel -->
+								<TalkTo NpcId="1000764" XYZ="218.8906, -28.25249, 338.3992" QuestId="65584" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(65584) == 2">
+								<LisbethTravel ZoneId="154" XYZ="325.307, -4.898254, 390.4631" /> <!-- Corrupted Soil -->
+								<UseObject NpcId="2000883" XYZ="325.307, -4.898254, 390.4631" Radius="10" QuestId="65584" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(65584) == 3">
+								<LisbethTravel ZoneId="154" XYZ="218.8906, -28.25249, 338.3992" /> <!-- Nolanel -->
+								<TalkTo NpcId="1000764" XYZ="218.8906, -28.25249, 338.3992" QuestId="65584" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(65584) == 255">
+								<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+								<TurnIn QuestId="65584" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Trial by Wind (Primary) -->
+
+				<If Condition="not IsQuestCompleted(65627) and not IsQuestCompleted(65747)">
+					<If Condition="Core.Player.ClassLevel &gt; 9">
+						<If Condition="not HasQuest(65627)">
+							<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+							<If Condition="IsQuestAcceptQualified(65627)">
+								<PickupQuest NpcId="1000692" QuestId="65627" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+						<If Condition="HasQuest(65627)">
+							<If Condition="GetQuestStep(65627) == 1">
+								<LisbethTravel ZoneId="152" XYZ="-483.4211, 10.13082, 209.4606" /> <!-- Wulfiue -->
+								<TalkTo NpcId="1000767" XYZ="-483.4211, 10.13082, 209.4606" QuestId="65627" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(65627) == 2">
+								<LisbethTravel ZoneId="152" XYZ="-510.6432, 6.301941, 35.78235" /> <!-- Spring -->
+								<UseObject NpcId="2000885" XYZ="-510.6432, 6.301941, 35.78235" Radius="10" QuestId="65627" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(65627) == 3">
+								<LisbethTravel ZoneId="152" XYZ="-483.4211, 10.13082, 209.4606" /> <!-- Wulfiue -->
+								<TalkTo NpcId="1000767" XYZ="-483.4211, 10.13082, 209.4606" QuestId="65627" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(65627) == 4">
+								<LisbethTravel ZoneId="152" XYZ="-510.7653, 6.17981, 35.56873" /> <!-- Corrupted Air -->
+								<SimpleDuty InteractNpcId="2000887" XYZ="-510.7653, 6.17981, 35.56873" QuestId="65627" StepId="4">
+									<HotSpots>
+										<HotSpot XYZ="297.8851, -1.165445, -282.7312" Radius="90" />
+									</HotSpots>
+									<TargetMobs>
+										<TargetMob Id="1910" Weight="3000" /> <!-- Raw Sludge -->
+										<TargetMob Id="115" Weight="2000" /> <!-- Wind Sprite -->
+										<TargetMob Id="1420" Weight="1000" /> <!-- Tainted Wind Sprite -->
+									</TargetMobs>
+								</SimpleDuty>
+							</If>
+							<If Condition="GetQuestStep(65627) == 5">
+								<LisbethTravel ZoneId="152" XYZ="-483.4211, 10.13082, 209.4606" /> <!-- Wulfiue -->
+								<TalkTo NpcId="1000767" XYZ="-483.4211, 10.13082, 209.4606" QuestId="65627" StepId="5" />
+							</If>
+							<If Condition="GetQuestStep(65627) == 255">
+								<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+								<TurnIn QuestId="65627" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Trial by Wind (Secondary) -->
+
+				<If Condition="not IsQuestCompleted(65683) and IsQuestCompleted(65747)">
+					<If Condition="Core.Player.ClassLevel &gt; 9">
+						<If Condition="not HasQuest(65683)">
+							<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+							<If Condition="IsQuestAcceptQualified(65683)">
+								<PickupQuest NpcId="1000692" QuestId="65683" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+						<If Condition="HasQuest(65683)">
+							<If Condition="GetQuestStep(65683) == 1">
+								<LisbethTravel ZoneId="152" XYZ="-483.4211, 10.13082, 209.4606" /> <!-- Wulfiue -->
+								<TalkTo NpcId="1000767" XYZ="-483.4211, 10.13082, 209.4606" QuestId="65683" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(65683) == 2">
+								<LisbethTravel ZoneId="152" XYZ="-510.6432, 6.301941, 35.78235" /> <!-- Spring -->
+								<UseObject NpcId="2001229" XYZ="-510.6432, 6.301941, 35.78235" Radius="10" QuestId="65683" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(65683) == 3">
+								<LisbethTravel ZoneId="152" XYZ="-483.4211, 10.13082, 209.4606" /> <!-- Wulfiue -->
+								<TalkTo NpcId="1000767" XYZ="-483.4211, 10.13082, 209.4606" QuestId="65683" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(65683) == 4">
+								<LisbethTravel ZoneId="152" XYZ="-510.7653, 6.17981, 35.56873" /> <!-- Corrupted Air -->
+								<SimpleDuty InteractNpcId="2001230" XYZ="-510.7653, 6.17981, 35.56873" QuestId="65683" StepId="4">
+									<HotSpots>
+										<HotSpot XYZ="297.8851, -1.165445, -282.7312" Radius="90" />
+									</HotSpots>
+									<TargetMobs>
+										<TargetMob Id="1910" Weight="3000" /> <!-- Raw Sludge -->
+										<TargetMob Id="115" Weight="2000" /> <!-- Wind Sprite -->
+										<TargetMob Id="1420" Weight="1000" /> <!-- Tainted Wind Sprite -->
+									</TargetMobs>
+								</SimpleDuty>
+							</If>
+							<If Condition="GetQuestStep(65683) == 5">
+								<LisbethTravel ZoneId="152" XYZ="-483.4211, 10.13082, 209.4606" /> <!-- Wulfiue -->
+								<TalkTo NpcId="1000767" XYZ="-483.4211, 10.13082, 209.4606" QuestId="65683" StepId="5" />
+							</If>
+							<If Condition="GetQuestStep(65683) == 255">
+								<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+								<TurnIn QuestId="65683" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Trial by Water -->
+
+				<If Condition="not IsQuestCompleted(65628)">
+					<If Condition="Core.Player.ClassLevel &gt; 14">
+						<If Condition="not HasQuest(65628)">
+							<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+							<If Condition="IsQuestAcceptQualified(65628)">
+								<PickupQuest NpcId="1000692" QuestId="65628" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+						<If Condition="HasQuest(65628)">
+							<If Condition="GetQuestStep(65628) == 1">
+								<LisbethTravel ZoneId="152" XYZ="-276.936, 11.73413, 367.2083" /> <!-- Corrupted Water -->
+								<UseItem NpcId="2000889" ItemId="2000121" QuestId="65628" StepId="1" PostCombatDelay="2" XYZ="-276.936, 11.73413, 367.2083" Radius="5" />
+							</If>
+							<If Condition="GetQuestStep(65628) == 2">
+								<LisbethTravel ZoneId="152" XYZ="-230.1824, 3.544826, 279.0721" /> <!-- Joacin -->
+								<TalkTo NpcId="1000561" XYZ="-230.1824, 3.544826, 279.0721" QuestId="65628" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(65628) == 3">
+								<LisbethTravel ZoneId="152" XYZ="-209.0639, 22.81337, 245.3497" /> <!-- Joacin -->
+								<TalkTo NpcId="1000619" XYZ="-209.0639, 22.81337, 245.3497" QuestId="65628" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(65628) == 4">
+								<LisbethTravel ZoneId="152" XYZ="-234.3328, 18.31007, 245.6854" /> <!-- Wounded Wood Wailer -->
+								<LLUseSpell Distance="25" SpellId="120" NpcId="1003001" XYZ="-234.3328, 18.31007, 245.6854" QuestId="65628" StepId="4" />
+							</If>
+							<If Condition="GetQuestStep(65628) == 5">
+								<LisbethTravel ZoneId="152" XYZ="-237.6593, 17.85008, 243.4882" /> <!-- Joacin -->
+								<TalkTo NpcId="1003057" XYZ="-237.6593, 17.85008, 243.4882" QuestId="65628" StepId="5" />
+							</If>
+							<If Condition="GetQuestStep(65628) == 6">
+								<LisbethTravel ZoneId="152" XYZ="-66.05634, -7.982881, 231.1589" /> <!-- Gods' Quiver Bow -->
+								<SimpleDuty InteractNpcId="1001213" XYZ="-66.05634, -7.982881, 231.1589" QuestId="65628" StepId="6">
+									<HotSpots>
+										<HotSpot XYZ="-51.9531, -9.74921, 232.8587" Radius="90" />
+									</HotSpots>
+									<TargetMobs>
+										<TargetMob Id="56" Weight="2000" /> <!-- Water Sprite -->
+										<TargetMob Id="142" Weight="1000" /> <!-- Young Antelope Stag -->
+									</TargetMobs>
+								</SimpleDuty>
+							</If>
+							<If Condition="GetQuestStep(65628) == 7">
+								<LisbethTravel ZoneId="152" XYZ="-76.64612, -9.205918, 283.2227" /> <!-- Sylphie -->
+								<TalkTo NpcId="1003006" XYZ="-76.64612, -9.205918, 283.2227" QuestId="65628" StepId="7" />
+							</If>
+							<If Condition="GetQuestStep(65628) == 255">
+								<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+								<TurnIn QuestId="65628" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Sylphie's Trials -->
+
+				<If Condition="not IsQuestCompleted(65629)">
+					<If Condition="Core.Player.ClassLevel &gt; 19">
+						<If Condition="not HasQuest(65629)">
+							<If Condition="not IsOnMap(133)">
+								<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+							<MoveTo Name="E-Sumi-Yan" XYZ="-258.8083, -5.773526, -27.26788" />
+							<If Condition="IsQuestAcceptQualified(65629)">
+								<PickupQuest NpcId="1000692" QuestId="65629" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+						<If Condition="HasQuest(65629)">
+							<If Condition="GetQuestStep(65629) == 1">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="-74.50989, 1.449585, -32.76117" />
+								</If>
+								<NoCombatMoveTo Name="Corrupted Soil" XYZ="-74.50989, 1.449585, -32.76117" />
+								<UseObject NpcId="2000891" QuestId="65629" StepId="1" XYZ="-74.50989, 1.449585, -32.76117" Radius="5" />
+							</If>
+							<If Condition="GetQuestStep(65629) == 2">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="-66.7583, 0.9667693, -38.4375" />
+								</If>
+								<NoCombatMoveTo Name="Sylphie" XYZ="-66.7583, 0.9667693, -38.4375" />
+								<TalkTo NpcId="1002961" XYZ="-66.7583, 0.9667693, -38.4375" QuestId="65629" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(65629) == 3">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="147.0206, -5.69165, -35.50775" />
+								</If>
+								<NoCombatMoveTo Name="Corrupted Air" XYZ="147.0206, -5.69165, -35.50775" />
+								<UseObject NpcId="2000893" QuestId="65629" StepId="3" XYZ="147.0206, -5.69165, -35.50775" Radius="5" />
+							</If>
+							<If Condition="GetQuestStep(65629) == 4">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="156.3899, -6.405189, -35.56514" />
+								</If>
+								<NoCombatMoveTo Name="Sylphie" XYZ="156.3899, -6.405189, -35.56514" />
+								<TalkTo NpcId="1002962" XYZ="156.3899, -6.405189, -35.56514" QuestId="65629" StepId="4" />
+							</If>
+							<If Condition="GetQuestStep(65629) == 5">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="332.3567, -31.54041, 414.6943" />
+								</If>
+								<NoCombatMoveTo Name="Corrupted Soil" XYZ="332.3567, -31.54041, 414.6943" />
+								<UseObject NpcId="2000895" QuestId="65629" StepId="5" XYZ="332.3567, -31.54041, 414.6943" Radius="5" />
+							</If>
+							<If Condition="GetQuestStep(65629) == 6">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="335.9578, -31.68247, 423.6362" />
+								</If>
+								<NoCombatMoveTo Name="Sylphie" XYZ="335.9578, -31.68247, 423.6362" />
+								<TalkTo NpcId="1002963" XYZ="335.9578, -31.68247, 423.6362" QuestId="65629" StepId="6" />
+							</If>
+							<If Condition="GetQuestStep(65629) == 255">
+								<If Condition="not IsOnMap(133)">
+									<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" />
+								</If>
+								<MoveTo Name="E-Sumi-Yan" XYZ="-258.8083, -5.773526, -27.26788" />
+								<TurnIn QuestId="65629" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Like Mother, Like Daughter -->
+
+				<If Condition="not IsQuestCompleted(65976)">
+					<If Condition="Core.Player.ClassLevel &gt; 24">
+						<If Condition="not HasQuest(65976)">
+							<If Condition="not IsOnMap(133)">
+								<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+							<MoveTo Name="E-Sumi-Yan" XYZ="-258.8083, -5.773526, -27.26788" />
+							<If Condition="IsQuestAcceptQualified(65976)">
+								<PickupQuest NpcId="1000692" QuestId="65976" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+						<If Condition="HasQuest(65976)">
+							<If Condition="GetQuestStep(65976) == 1">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-172.839, 8.492639, -55.22247" />
+								</If>
+								<NoCombatMoveTo Name="Wulfiue" XYZ="-172.839, 8.492639, -55.22247" />
+								<TalkTo NpcId="1008149" XYZ="-172.839, 8.492639, -55.22247" QuestId="65976" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(65976) == 2">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-183.1846, 9.869224, -76.52399" />
+								</If>
+								<NoCombatMoveTo Name="Sylphie" XYZ="-183.1846, 9.869224, -76.52399" />
+								<LLTalkTo NpcId="1008146" XYZ="-183.1846, 9.869224, -76.52399" QuestId="65976" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(65976) == 3">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="28.30542, 3.654446, 35.38562" />
+								</If>
+								<NoCombatMoveTo Name="Sylphie" XYZ="28.30542, 3.654446, 35.38562" />
+								<SimpleDuty InteractNpcId="1008150" XYZ="28.30542, 3.654446, 35.38562" QuestId="65976" StepId="3">
+									<HotSpots>
+										<HotSpot XYZ="33.68612, 3.115365, 34.98961" Radius="90" />
+									</HotSpots>
+									<TargetMobs>
+										<TargetMob Id="1424" Weight="6000" /> <!-- Tainted Earth Sprite -->
+										<TargetMob Id="1923" Weight="5000" /> <!-- Mud Pie Princess -->
+										<TargetMob Id="1919" Weight="4000" /> <!-- Mud Pie -->
+										<TargetMob Id="113" Weight="3000" /> <!-- Earth Sprite -->
+										<TargetMob Id="1921" Weight="2000" /> <!-- Sewer Rat -->
+										<TargetMob Id="1920" Weight="1000" /> <!-- Decaying Treant -->
+									</TargetMobs>
+								</SimpleDuty>
+							</If>
+							<If Condition="GetQuestStep(65976) == 4">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="42.40479, 3.246965, 32.88318" />
+								</If>
+								<NoCombatMoveTo Name="Sylphie" XYZ="42.40479, 3.246965, 32.88318" />
+								<TalkTo NpcId="1008157" XYZ="42.40479, 3.246965, 32.88318" QuestId="65976" StepId="4" />
+							</If>
+							<If Condition="GetQuestStep(65976) == 255">
+								<If Condition="not IsOnMap(133)">
+									<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" />
+								</If>
+								<MoveTo Name="E-Sumi-Yan" XYZ="-258.8083, -5.773526, -27.26788" />
+								<TurnIn QuestId="65976" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- In Nature's Embrace -->
+
+				<If Condition="not IsQuestCompleted(65977)">
+					<If Condition="Core.Player.ClassLevel &gt; 29">
+						<If Condition="not HasQuest(65977)">
+							<If Condition="not IsOnMap(133)">
+								<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+							<MoveTo Name="E-Sumi-Yan" XYZ="-258.8083, -5.773526, -27.26788" />
+							<If Condition="IsQuestAcceptQualified(65977)">
+								<PickupQuest NpcId="1000692" QuestId="65977" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+						<If Condition="HasQuest(65977)">
+							<If Condition="GetQuestStep(65977) == 1">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="43.90015, 6.546082, -1.937927" />
+								</If>
+								<NoCombatMoveTo Name="Corrupted Soil" XYZ="43.90015, 6.546082, -1.937927" />
+								<UseObject NpcId="2000899" QuestId="65977" StepId="1" XYZ="43.90015, 6.546082, -1.937927" Radius="5" />
+							</If>
+							<If Condition="GetQuestStep(65977) == 2">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="49.42395, 6.578118, -3.280701" />
+								</If>
+								<NoCombatMoveTo Name="Sylphie" XYZ="49.42395, 6.578118, -3.280701" />
+								<TalkTo NpcId="1002965" XYZ="49.42395, 6.578118, -3.280701" QuestId="65977" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(65977) == 3">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="122.3621, 17.8988, -136.8582" />
+								</If>
+								<NoCombatMoveTo Name="Corrupted Soil" XYZ="122.3621, 17.8988, -136.8582" />
+								<UseObject NpcId="2000901" QuestId="65977" StepId="3" XYZ="122.3621, 17.8988, -136.8582" Radius="5" />
+							</If>
+							<If Condition="GetQuestStep(65977) == 4">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="124.1931, 17.55036, -129.9001" />
+								</If>
+								<NoCombatMoveTo Name="Sylphie" XYZ="124.1931, 17.55036, -129.9001" />
+								<TalkTo NpcId="1002966" XYZ="124.1931, 17.55036, -129.9001" QuestId="65977" StepId="4" />
+							</If>
+							<If Condition="GetQuestStep(65977) == 5">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="292.0424, 15.36578, -107.2862" />
+								</If>
+								<NoCombatMoveTo Name="Corrupted Soil" XYZ="292.0424, 15.36578, -107.2862" />
+								<UseObject NpcId="2000906" QuestId="65977" StepId="5" XYZ="292.0424, 15.36578, -107.2862" Radius="5" />
+							</If>
+							<If Condition="GetQuestStep(65977) == 6">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="293.2936, 16.18192, -112.6879" />
+								</If>
+								<NoCombatMoveTo Name="Sylphie" XYZ="293.2936, 16.18192, -112.6879" />
+								<TalkTo NpcId="1002967" XYZ="293.2936, 16.18192, -112.6879" QuestId="65977" StepId="6" />
+							</If>
+							<If Condition="GetQuestStep(65977) == 7">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="332.1431, 4.136264, -85.64893" />
+								</If>
+								<NoCombatMoveTo Name="Sylphie" XYZ="332.1431, 4.136264, -85.64893" />
+								<SimpleDuty InteractNpcId="1002968" XYZ="332.1431, 4.136264, -85.64893" QuestId="65977" StepId="7">
+									<HotSpots>
+										<HotSpot XYZ="319.1471, 4.249999, -82.1616" Radius="90" />
+									</HotSpots>
+									<TargetMobs>
+										<TargetMob Id="1424" Weight="3000" /> <!-- Tainted Earth Sprite -->
+										<TargetMob Id="1930" Weight="2000" /> <!-- Grotty Imp -->
+										<TargetMob Id="596" Weight="1000" /> <!-- Akoman -->
+									</TargetMobs>
+								</SimpleDuty>
+							</If>
+							<If Condition="GetQuestStep(65977) == 255">
+								<If Condition="not IsOnMap(133)">
+									<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" />
+								</If>
+								<MoveTo Name="E-Sumi-Yan" XYZ="-258.8083, -5.773526, -27.26788" />
+								<TurnIn QuestId="65977" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Unicorn Power -->
+
+				<!-- TO DO -->
+
+				<!-- Figure out how to un-equip the WHM Soul Crystal. -->
+
+				<!-- TO DO -->
+
+				<!-- <If Condition="not IsQuestCompleted(65730)">
+					<If Condition="Core.Player.ClassLevel &gt; 29">
+						<If Condition="not HasQuest(65730)">
+							<If Condition="not IsOnMap(133)">
+								<LisbethTravel ZoneId="133" XYZ="-243.1525, -4.000004, -7.950012" />
+							</If>
+							<If Condition="ClassName == ClassJobType.WhiteMage">
+								<RunCode Name="UnequipWHMCrystal" />
+								<WaitTimer WaitTime="3" />
+							</If>
+							<StopBot />
+							<MoveTo Name="Braya" XYZ="-243.1525, -4.000004, -7.950012" />
+							<If Condition="IsQuestAcceptQualified(65730)">
+								<PickupQuest NpcId="1000705" QuestId="65730" XYZ="-243.1525, -4.000004, -7.950012" />
+							</If>
+						</If>
+						<If Condition="HasQuest(65730)">
+							<If Condition="GetQuestStep(65730) == 1">
+								<If Condition="not IsOnMap(154)">
+									<LisbethTravel ZoneId="154" XYZ="-248.6763, -79.66112, 475.0286" />
+								</If>
+								<NoCombatMoveTo Name="Injured Mare" XYZ="-248.6763, -79.66112, 475.0286" />
+								<UseSpell Distance="25" SpellId="120" NpcId="1008174" XYZ="-248.6763, -79.66112, 475.0286" QuestId="65730" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(65730) == 255">
+								<If Condition="not IsOnMap(133)">
+									<LisbethTravel ZoneId="133" XYZ="-243.1525, -4.000004, -7.950012" />
+								</If>
+								<MoveTo Name="Braya" XYZ="-243.1525, -4.000004, -7.950012" />
+								<TurnIn QuestId="65730" NpcId="1000705" XYZ="-243.1525, -4.000004, -7.950012" />
+							</If>
+						</If>
+					</If>
+				</If> -->
+
+				<!-- Learn the Unicorn Mount -->
+
+				<If Condition="ItemCount(6269) &gt; 0">
+					<LogMessage Message="[Class and Job Quests] Learning the Unicorn mount..." />
+					<RunCode Name="Learn_Unicorn" />
+					<WaitTimer WaitTime="3" />
+				</If>
+
+				<!-- Seer Folly -->
+
+				<If Condition="not IsQuestCompleted(66615)">
+					<If Condition="Core.Player.ClassLevel &gt; 29">
+
+						<LogMessage Message="[Class and Job Quests] Unlocking your White Mage job!" />
+						<LogMessage Message="[Class and Job Quests] If this message appears more than once, ensure you have a Lv15 Arcanist secondary class..." />
+
+						<If Condition="not HasQuest(66615)">
+							<If Condition="not IsOnMap(133)">
+								<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+							<MoveTo Name="E-Sumi-Yan" XYZ="-258.8083, -5.773526, -27.26788" />
+							<If Condition="IsQuestAcceptQualified(66615)">
+								<PickupQuest NpcId="1000692" QuestId="66615" XYZ="-258.8083, -5.773526, -27.26788" />
+							</If>
+						</If>
+						<If Condition="HasQuest(66615)">
+							<If Condition="GetQuestStep(66615) == 1">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="-271.87, 19.66337, 97.42883" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-271.87, 19.66337, 97.42883" />
+								<SimpleDuty InteractNpcId="1007850" XYZ="-271.87, 19.66337, 97.42883" QuestId="66615" StepId="1">
+									<HotSpots>
+										<HotSpot XYZ="-284.5786, 19.63926, 119.8471" Radius="90" />
+									</HotSpots>
+									<TargetMobs>
+										<TargetMob Id="56" Weight="5000" /> <!-- Water Sprite -->
+										<TargetMob Id="201" Weight="4000" /> <!-- Syrphid Cloud -->
+										<TargetMob Id="130" Weight="3000" /> <!-- Lindwurm -->
+										<TargetMob Id="40" Weight="2000" /> <!-- Shroud Hare -->
+										<TargetMob Id="11" Weight="1000" /> <!-- Banemite -->
+									</TargetMobs>
+								</SimpleDuty>
+							</If>
+							<If Condition="GetQuestStep(66615) == 255">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+								<TurnIn QuestId="66615" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<If Condition="ClassName == ClassJobType.Conjurer and Core.Player.ClassLevel &gt; 29">
+					<LogMessage Message="[Job Check] Equipping your White Mage Soul Crystal now..." />
+					<RunCode Name="EquipWHMCrystal" />
+					<WaitTimer WaitTime="3" />
+				</If>
+
+			</If>
+			
+			<!-- White Mage -->
+
+			<If Condition="ClassName == ClassJobType.WhiteMage">
+
+				<LogMessage Message="[Class and Job Quests] Checking White Mage job quests..." />
+
+				<!-- Only You Can Prevent Forest Ire -->
+
+				<If Condition="not IsQuestCompleted(66616)">
+					<If Condition="Core.Player.ClassLevel &gt; 34">
+						<If Condition="not HasQuest(66616)">
+							<If Condition="not IsOnMap(153)">
+								<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+							</If>
+							<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+								<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+								<RunCode Name="Camp_Tranquil_Jump" />
+							</If>
+							<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+							<If Condition="IsQuestAcceptQualified(66616)">
+								<PickupQuest NpcId="1006751" QuestId="66616" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+						<If Condition="HasQuest(66616)">
+							<While Condition="GetQuestStep(66616) == 1">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="-400.1706, 61.59623, -151.2466" />
+								</If>
+								<NoCombatMoveTo Name="Destination" XYZ="-400.1706, 61.59623, -151.2466" />
+								<Dismount />
+								<UseObject NpcId="2002392" XYZ="-416.5561, 60.99023, -148.6381" Radius="10" QuestId="66616" StepId="1" />
+							</While>
+							<If Condition="GetQuestStep(66616) == 255">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+								<TurnIn NpcId="1006751" QuestId="66616" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- O Brother, Where Art Thou -->
+
+				<If Condition="not IsQuestCompleted(66617)">
+					<If Condition="Core.Player.ClassLevel &gt; 39">
+						<If Condition="not HasQuest(66617)">
+							<If Condition="not IsOnMap(153)">
+								<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+							</If>
+							<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+								<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+								<RunCode Name="Camp_Tranquil_Jump" />
+							</If>
+							<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+							<If Condition="IsQuestAcceptQualified(66617)">
+								<PickupQuest NpcId="1006751" QuestId="66617" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+						<If Condition="HasQuest(66617)">
+							<If Condition="GetQuestStep(66617) == 1">
+								<If Condition="not IsOnMap(152)">
+									<LisbethTravel ZoneId="152" XYZ="-272.3889, 12.93542, -46.28064" />
+								</If>
+								<NoCombatMoveTo Name="A-Ruhn-Senna" XYZ="-272.3889, 12.93542, -46.28064" />
+								<TalkTo NpcId="1007852" XYZ="-272.3889, 12.93542, -46.28064" QuestId="66617" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(66617) == 2">
+								<If Condition="not IsOnMap(152)">
+									<LisbethTravel ZoneId="152" XYZ="-271.5343, 13.74835, -51.77393" />
+								</If>
+								<NoCombatMoveTo Name="Destination" XYZ="-271.5343, 13.74835, -51.77393" />
+								<UseObject NpcId="2002394" XYZ="-271.5343, 13.74835, -51.77393" Radius="10" UseDistance="1" QuestId="66617" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(66617) == 255">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+								<TurnIn NpcId="1006751" QuestId="66617" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Following in His Footsteps -->
+
+				<If Condition="not IsQuestCompleted(66618)">
+					<If Condition="Core.Player.ClassLevel &gt; 44">
+						<If Condition="not HasQuest(66618)">
+							<If Condition="not IsOnMap(153)">
+								<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+							</If>
+							<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+								<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+								<RunCode Name="Camp_Tranquil_Jump" />
+							</If>
+							<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+							<If Condition="IsQuestAcceptQualified(66618)">
+								<PickupQuest NpcId="1006751" QuestId="66618" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+						<If Condition="HasQuest(66618)">
+							<If Condition="GetQuestStep(66618) == 1">
+								<If Condition="not IsTodoChecked(66618, 1, 0)">
+									<If Condition="not IsOnMap(138)">
+										<LisbethTravel ZoneId="138" XYZ="-347.3411, -36.24023, -249.652" />
+									</If>
+									<NoCombatMoveTo Name="Epitaph to Philosophy" XYZ="-347.3411, -36.24023, -249.6529" />
+									<LLEmoteNpc NpcId="2002396" Emote="pray" XYZ="-347.3411, -36.24023, -249.6529" Radius="10" UseTimes="1" QuestId="66618" StepId="1" />
+								</If>
+								<If Condition="not IsTodoChecked(66618, 1, 1)">
+									<If Condition="not IsOnMap(156)">
+										<LisbethTravel ZoneId="156" XYZ="-339.4675, -15.06073, -403.2197" />
+									</If>
+									<NoCombatMoveTo Name="Epitaph to Discovery" XYZ="-339.4675, -15.06073, -403.2197" />
+									<LLEmoteNpc NpcId="2002397" Emote="pray" XYZ="-339.4675, -15.06073, -403.2197" Radius="10" UseTimes="1" QuestId="66618" StepId="1" />
+								</If>
+								<If Condition="not IsTodoChecked(66618, 1, 2)">
+									<If Condition="not IsOnMap(147)">
+										<LisbethTravel ZoneId="147" XYZ="-253.4677, 60.68506, -43.90027" />
+									</If>
+									<NoCombatMoveTo Name="Epitaph to Fluidity" XYZ="-253.4677, 60.68506, -43.90027" />
+									<LLEmoteNpc NpcId="2002398" Emote="pray" XYZ="-253.4677, 60.68506, -43.90027" Radius="10" QuestId="66618" StepId="1" />
+								</If>
+							</If>
+							<If Condition="GetQuestStep(66618) == 2">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+								<TalkTo NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968" QuestId="66618" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(66618) == 3">
+								<If Condition="not IsOnMap(154)">
+									<LisbethTravel ZoneId="154" XYZ="107.8354, 7.70575, -45.15149" />
+								</If>
+								<NoCombatMoveTo Name="Epitaph to Infancy" XYZ="107.8354, 7.70575, -45.15149" />
+								<UseObject NpcId="2002399" XYZ="107.8354, 7.70575, -45.15149" Radius="10" QuestId="66618" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(66618) == 4">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+								<HandOver ItemId="2000943" QuestId="66618" StepId="4" NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+							<If Condition="GetQuestStep(66618) == 5">
+								<If Condition="not IsOnMap(180)">
+									<LisbethTravel ZoneId="180" XYZ="117.3265, 75.39478, -246.54" />
+								</If>
+								<NoCombatMoveTo Name="Epitaph to Expiry" XYZ="117.3265, 75.39478, -246.54" />
+								<LLEmoteNpc NpcId="2002400" Emote="pray" XYZ="117.3265, 75.39478, -246.54" Radius="10" QuestId="66618" StepId="5" />
+							</If>
+							<If Condition="GetQuestStep(66618) == 255">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+								<TurnIn NpcId="1006751" QuestId="66618" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Yearn for the Urn -->
+
+				<If Condition="not IsQuestCompleted(66619)">
+					<If Condition="Core.Player.ClassLevel &gt; 44">
+						<If Condition="not HasQuest(66619)">
+							<If Condition="not IsOnMap(153)">
+								<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+							</If>
+							<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+								<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+								<RunCode Name="Camp_Tranquil_Jump" />
+							</If>
+							<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+							<If Condition="IsQuestAcceptQualified(66619)">
+								<PickupQuest NpcId="1006751" QuestId="66619" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+						<If Condition="HasQuest(66619)">
+							<If Condition="GetQuestStep(66619) == 1">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Kupcha Kupa" XYZ="-138.5978, 8.561091, 281.2085" />
+								<TalkTo NpcId="1007861" XYZ="-138.5978, 8.561091, 281.2085" QuestId="66619" StepId="1" />
+								<MoveTo Name="Jump" XYZ="-129.4763, 0.4033523, 285.6855" UseMesh="False" />
+							</If>
+							<While Condition="GetQuestStep(66619) == 2">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="42.51701, 9.193242, -95.36703" />
+								</If>
+								<NoCombatMoveTo Name="Pukno Poki" XYZ="42.51701, 9.193242, -95.36703" />
+								<MoveTo Name="Pukno Poki" Distance="1" UseMesh="False" XYZ="46.02802, 9.400466, -98.49544" />
+								<RunCode Name="Yearn_for_the_Urn" />
+								<TalkTo NpcId="1007853" XYZ="53.72693, 8.86706, -111.2535" QuestId="66619" StepId="2" />
+								<MoveTo Name="Jump" XYZ="52.23595, 8.851002, -92.05247" UseMesh="False" />
+							</While>
+							<If Condition="GetQuestStep(66619) == 3">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="138.3972, 18.28326, -126.5813" />
+								</If>
+								<NoCombatMoveTo Name="Overloaded Wain" Distance="3" XYZ="138.3972, 18.28326, -126.5813" />
+								<Dismount />
+								<UseObject NpcId="2002403" XYZ="151.5374, 18.11243, -127.306" Radius="10" QuestId="66619" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(66619) == 255">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+								<TurnIn QuestId="66619" NpcId="1006751" ItemId="2000944" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Heart of the Forest -->
+
+				<If Condition="not IsQuestCompleted(66620)">
+					<If Condition="Core.Player.ClassLevel &gt; 49">
+						<If Condition="not HasQuest(66620)">
+							<If Condition="not IsOnMap(153)">
+								<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+							</If>
+							<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+								<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+								<RunCode Name="Camp_Tranquil_Jump" />
+							</If>
+							<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+							<If Condition="IsQuestAcceptQualified(66620)">
+								<PickupQuest NpcId="1006751" QuestId="66620" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+						<If Condition="HasQuest(66620)">
+							<If Condition="GetQuestStep(66620) == 1">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="-316.2737, 21.19476, 179.7054" />
+								</If>
+								<NoCombatMoveTo Name="Destination" XYZ="-316.2737, 21.19476, 179.7054" />
+								<RunCode Name="Heart_of_the_Forest" />
+								<StopBot />
+
+								<!-- TO DO -->
+
+								<!-- Heal the Guardian Tree. -->
+
+								<!-- TO DO -->
+
+								<SimpleDuty InteractNpcId="2002408" XYZ="-316.2737, 21.19476, 179.7054" QuestId="66620" StepId="1">
+									<HotSpots>
+										<HotSpot XYZ="-318.4406, 22.01197, 185.4734" Radius="90" />
+									</HotSpots>
+									<TargetMobs>
+										<TargetMob Id="1451" Weight="4000" /> <!-- Brightwisp  -->
+										<TargetMob Id="1929" Weight="3000" /> <!-- Flintshell -->
+										<TargetMob Id="213" Weight="2000" /> <!-- Strangling Ivy -->
+										<TargetMob Id="1927" Weight="1000" /> <!-- Ancient Oak -->
+									</TargetMobs>
+								</SimpleDuty>
+							</If>
+							<If Condition="GetQuestStep(66620) == 2">
+								<WaitWhile Condition="GetQuestStep(66620) == 2" />
+							</If>
+							<If Condition="GetQuestStep(66620) == 255">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+								<TurnIn NpcId="1006751" QuestId="66620" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Taint Misbehaving -->
+
+				<If Condition="not IsQuestCompleted(67255) and IsQuestCompleted(65964)">
+					<If Condition="Core.Player.ClassLevel &gt; 49">
+						<If Condition="not HasQuest(67255)">
+							<If Condition="not IsOnMap(153)">
+								<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+							</If>
+							<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+								<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+								<RunCode Name="Camp_Tranquil_Jump" />
+							</If>
+							<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+							<If Condition="IsQuestAcceptQualified(67255)">
+								<PickupQuest NpcId="1006751" QuestId="67255" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67255)">
+							<If Condition="GetQuestStep(67255) == 1">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="-317.1283, 21.68653, 183.032" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-317.1283, 21.68653, 183.032" />
+								<TalkTo NpcId="1013606" XYZ="-317.1283, 21.68653, 183.032" QuestId="67255" StepId="1" />
+							</If>
+							<While Condition="GetQuestStep(67255) == 2">
+								<If Condition="not IsOnMap(154)">
+									<LisbethTravel ZoneId="154" XYZ="-59.31189, -40.90982, 232.6238" />
+								</If>
+								<NoCombatMoveTo Name="Thierrand" XYZ="-59.31189, -40.90982, 232.6238" />
+								<TalkTo NpcId="1007092" XYZ="-59.31189, -40.90982, 232.6238" QuestId="67255" StepId="2" />
+								<TalkTo NpcId="1002804" XYZ="-26.2608, -40.70508, 172.7473" QuestId="67255" StepId="2" />
+								<TalkTo NpcId="1006245" XYZ="4.959106, -46.51798, 248.493" QuestId="67255" StepId="2" />
+							</While>
+							<If Condition="GetQuestStep(67255) == 3">
+								<If Condition="not IsOnMap(154)">
+									<LisbethTravel ZoneId="154" XYZ="108.5068, 7.167203, -47.01306" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="108.5068, 7.167203, -47.01306" />
+								<TalkTo NpcId="1013605" XYZ="108.5068, 7.167203, -47.01306" QuestId="67255" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(67255) == 4">
+								<If Condition="not IsOnMap(154)">
+									<LisbethTravel ZoneId="154" XYZ="108.5068, 7.167203, -47.01306" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="108.5068, 7.167203, -47.01306" />
+								<HandOver ItemId="2001686" QuestId="67255" StepId="4" NpcId="1013605" XYZ="108.5068, 7.167203, -47.01306" />
+							</If>
+							<If Condition="GetQuestStep(67255) == 5">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="-317.1283, 21.68653, 183.032" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-317.1283, 21.68653, 183.032" />
+								<TalkTo NpcId="1013606" XYZ="-317.1283, 21.68653, 183.032" QuestId="67255" StepId="5" />
+							</If>
+							<If Condition="GetQuestStep(67255) == 6">
+								<If Condition="not IsOnMap(148)">
+									<LisbethTravel ZoneId="148" XYZ="-314.9615, 21.60926, 182.8794" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="-314.9615, 21.60926, 182.8794" />
+								<TalkTo NpcId="1013608" XYZ="-314.9615, 21.60926, 182.8794" QuestId="67255" StepId="6" />
+							</If>
+							<If Condition="GetQuestStep(67255) == 255">
+								<If Condition="not IsOnMap(154)">
+									<LisbethTravel ZoneId="154" XYZ="-45.02942, -40.95, 174.3037" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="-45.02942, -40.95, 174.3037" />
+								<TurnIn QuestId="67255" NpcId="1013609" XYZ="-45.02942, -40.95, 174.3037" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- A Journey of Purification -->
+
+				<If Condition="not IsQuestCompleted(67256)">
+					<If Condition="Core.Player.ClassLevel &gt; 51">
+						<If Condition="not HasQuest(67256)">
+							<If Condition="not IsOnMap(154)">
+								<LisbethTravel ZoneId="154" XYZ="-45.02942, -40.95, 174.3037" />
+							</If>
+							<NoCombatMoveTo Name="Eschiva" XYZ="-45.02942, -40.95, 174.3037" />
+							<If Condition="IsQuestAcceptQualified(67256)">
+								<PickupQuest NpcId="1013609" QuestId="67256" XYZ="-45.02942, -40.95, 174.3037" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67256)">
+							<If Condition="GetQuestStep(67256) == 1">
+								<If Condition="not IsOnMap(155)">
+									<LisbethTravel ZoneId="155" XYZ="209.2164, 302, -204.8524" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="209.2164, 302, -204.8524" />
+								<TalkTo NpcId="1013610" XYZ="209.2164, 302, -204.8524" QuestId="67256" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(67256) == 2">
+								<If Condition="not IsOnMap(155)">
+									<LisbethTravel ZoneId="155" XYZ="161.9135, 275.3795, 16.40344" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="161.9135, 275.3795, 16.40344" />
+								<RunCode Name="A_Journey_of_Purification" />
+								<StopBot />
+
+								<!-- TO DO -->
+
+								<!-- Heal the friendly NPCs. -->
+
+								<!-- TO DO -->
+
+								<SimpleDuty InteractNpcId="1013663" XYZ="161.9135, 275.3795, 16.40344" QuestId="67256" StepId="2">
+									<HotSpots>
+										<HotSpot XYZ="161.9135, 275.3795, 16.40344" Radius="90" />
+									</HotSpots>
+									<TargetMobs>
+										<TargetMob Id="4181" Weight="4000" /> <!-- Foaming Wolf -->
+										<TargetMob Id="4182" Weight="3000" /> <!-- Foaming Croc -->
+										<TargetMob Id="445" Weight="2000" /> <!-- Stagnant Water Sprite -->
+										<TargetMob Id="4183" Weight="1000" /> <!-- Foaming Goobbue -->
+									</TargetMobs>
+								</SimpleDuty>
+							</If>
+							<If Condition="GetQuestStep(67256) == 3">
+								<If Condition="not IsOnMap(155)">
+									<LisbethTravel ZoneId="155" XYZ="143.7856, 280.0183, 19.88251" />
+								</If>
+								<NoCombatMoveTo Name="Foul Taint" XYZ="143.7856, 280.0183, 19.88251" />
+								<UseObject NpcId="2005889" XYZ="143.7856, 280.0183, 19.88251" Radius="10" QuestId="67256" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(67256) == 255">
+								<If Condition="not IsOnMap(155)">
+									<LisbethTravel ZoneId="155" XYZ="209.2164, 302, -204.8524" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="209.2164, 302, -204.8524" />
+								<TurnIn QuestId="67256" NpcId="1013610" XYZ="209.2164, 302, -204.8524" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- The Girl with the Dragon Tissue -->
+
+				<If Condition="not IsQuestCompleted(67257)">
+					<If Condition="Core.Player.ClassLevel &gt; 53">
+						<If Condition="not HasQuest(67257)">
+							<If Condition="not IsOnMap(155)">
+								<LisbethTravel ZoneId="155" XYZ="209.2164, 302, -204.8524" />
+							</If>
+							<NoCombatMoveTo Name="Eschiva" XYZ="209.2164, 302, -204.8524" />
+							<If Condition="IsQuestAcceptQualified(67257)">
+								<PickupQuest NpcId="1013610" QuestId="67257" XYZ="209.2164, 302, -204.8524" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67257)">
+							<If Condition="GetQuestStep(67257) == 1">
+								<If Condition="not IsOnMap(397)">
+									<LisbethTravel ZoneId="397" XYZ="479.9114, 226.624, 817.0442" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="479.9114, 226.624, 817.0442" />
+								<TalkTo NpcId="1013613" XYZ="479.9114, 226.624, 817.0442" QuestId="67257" StepId="1" />
+							</If>
+							<While Condition="GetQuestStep(67257) == 2">
+								<If Condition="not IsOnMap(397)">
+									<LisbethTravel ZoneId="397" XYZ="506.8589, 217.9515, 792.4772" />
+								</If>
+								<NoCombatMoveTo Name="Tourcenet" XYZ="506.8589, 217.9515, 792.4772" />
+								<TalkTo NpcId="1011232" XYZ="506.8589, 217.9515, 792.4772" QuestId="67257" StepId="2" />
+								<TalkTo NpcId="1011237" XYZ="447.3181, 212.5398, 725.0018" QuestId="67257" StepId="2" />
+							</While>
+							<If Condition="GetQuestStep(67257) == 3">
+								<If Condition="not IsOnMap(397)">
+									<LisbethTravel ZoneId="397" XYZ="463.5232, 200.2377, 651.911" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="463.5232, 200.2377, 651.911" />
+								<TalkTo NpcId="1013614" XYZ="463.5232, 200.2377, 651.911" QuestId="67257" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(67257) == 4">
+								<If Condition="not IsOnMap(397)">
+									<LisbethTravel ZoneId="397" XYZ="-513.0846, 101.579, -653.3456" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="-513.0846, 101.579, -653.3456" />
+								<TalkTo NpcId="1013617" XYZ="-513.0846, 101.579, -653.3456" QuestId="67257" StepId="4" />
+							</If>
+							<If Condition="GetQuestStep(67257) == 5">
+								<If Condition="not IsOnMap(397)">
+									<LisbethTravel ZoneId="397" XYZ="-336.4157, 89.00586, -586.5721" />
+								</If>
+								<NoCombatMoveTo Name="Foul Taint" XYZ="-336.4157, 89.00586, -586.5721" />
+								<UseObject NpcId="2005855" XYZ="-336.4157, 89.00586, -586.5721" Radius="10" QuestId="67257" StepId="5" />
+							</If>
+							<If Condition="GetQuestStep(67257) == 6">
+								<If Condition="not IsOnMap(397)">
+									<LisbethTravel ZoneId="397" XYZ="-402.121, 90.9028, -688.5328" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="-402.121, 90.9028, -688.5328" />
+								<TalkTo NpcId="1013618" XYZ="-402.121, 90.9028, -688.5328" QuestId="67257" StepId="6" />
+							</If>
+							<If Condition="GetQuestStep(67257) == 255">
+								<If Condition="not IsOnMap(397)">
+									<LisbethTravel ZoneId="397" XYZ="463.5232, 200.2377, 651.911" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="463.5232, 200.2377, 651.911" />
+								<TurnIn QuestId="67257" NpcId="1013614" XYZ="463.5232, 200.2377, 651.911" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- The Dark Blight Writhes -->
+
+				<If Condition="not IsQuestCompleted(67258)">
+					<If Condition="Core.Player.ClassLevel &gt; 55">
+						<If Condition="not HasQuest(67258)">
+							<If Condition="not IsOnMap(397)">
+								<LisbethTravel ZoneId="397" XYZ="463.5232, 200.2377, 651.911" />
+							</If>
+							<NoCombatMoveTo Name="Eschiva" XYZ="463.5232, 200.2377, 651.911" />
+							<If Condition="IsQuestAcceptQualified(67258)">
+								<PickupQuest NpcId="1013614" QuestId="67258" XYZ="463.5232, 200.2377, 651.911" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67258)">
+							<If Condition="GetQuestStep(67258) == 1">
+								<If Condition="not IsOnMap(397)">
+									<LisbethTravel ZoneId="397" XYZ="-274.4946, 125.3322, -13.87048" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="-274.4946, 125.3322, -13.87048" />
+								<TalkTo NpcId="1013619" XYZ="-274.4946, 125.3322, -13.87048" QuestId="67258" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(67258) == 2">
+								<If Condition="not IsOnMap(397)">
+									<LisbethTravel ZoneId="397" XYZ="-275.2575, 125.5969, -11.21539" />
+								</If>
+								<NoCombatMoveTo Name="Wounded Knight" XYZ="-275.2575, 125.5969, -11.21539" />
+								<LLUseSpell SpellId="135" NpcId="1013620" XYZ="-275.2575, 125.5969, -11.21539" QuestId="67258" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(67258) == 3">
+								<If Condition="not IsOnMap(397)">
+									<LisbethTravel ZoneId="397" XYZ="-336.4157, 89.00586, -586.5721" />
+								</If>
+								<NoCombatMoveTo Name="Foul Taint" XYZ="-336.4157, 89.00586, -586.5721" />
+								<UseObject NpcId="2005857" XYZ="-336.4157, 89.00586, -586.5721" Radius="10" QuestId="67258" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(67258) == 255">
+								<If Condition="not IsOnMap(398)">
+									<LisbethTravel ZoneId="398" XYZ="486.9305, -51.1414, 25.98608" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="486.9305, -51.1414, 25.98608" />
+								<TurnIn QuestId="67258" NpcId="1013623" XYZ="486.9305, -51.1414, 25.98608" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- In the Wake of Death -->
+
+				<If Condition="not IsQuestCompleted(67259)">
+					<If Condition="Core.Player.ClassLevel &gt; 57">
+						<If Condition="not HasQuest(67259)">
+							<If Condition="not IsOnMap(398)">
+								<LisbethTravel ZoneId="398" XYZ="486.9305, -51.1414, 25.98608" />
+							</If>
+							<NoCombatMoveTo Name="Eschiva" XYZ="486.9305, -51.1414, 25.98608" />
+							<If Condition="IsQuestAcceptQualified(67259)">
+								<PickupQuest NpcId="1013623" QuestId="67259" XYZ="486.9305, -51.1414, 25.98608" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67259)">
+							<If Condition="GetQuestStep(67259) == 1">
+								<If Condition="not IsOnMap(398)">
+									<LisbethTravel ZoneId="398" XYZ="-183.6118, -104.7082, 505.6077" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="-183.6118, -104.7082, 505.6077" />
+								<TalkTo NpcId="1013624" XYZ="-183.6118, -104.7082, 505.6077" QuestId="67259" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(67259) == 2">
+								<If Condition="not IsOnMap(398)">
+									<LisbethTravel ZoneId="398" XYZ="-561.822, -46.70789, 300.4653" />
+								</If>
+								<NoCombatMoveTo Name="Foul Taint" XYZ="-561.822, -46.70789, 300.4653" />
+								<UseObject NpcId="2005859" XYZ="-561.822, -46.70789, 300.4653" Radius="10" QuestId="67259" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(67259) == 3">
+								<If Condition="not IsOnMap(398)">
+									<LisbethTravel ZoneId="398" XYZ="-679.9573, -100.524, 775.1736" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="-679.9573, -100.524, 775.1736" />
+								<TalkTo NpcId="1013625" XYZ="-679.9573, -100.524, 775.1736" QuestId="67259" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(67259) == 4">
+								<If Condition="not IsOnMap(398)">
+									<LisbethTravel ZoneId="398" XYZ="-678.4009, -100.6028, 778.1337" />
+								</If>
+								<NoCombatMoveTo Name="Foul Taint" XYZ="-678.4009, -100.6028, 778.1337" />
+								<UseObject NpcId="2005861" XYZ="-678.4009, -100.6028, 778.1337" Radius="10" QuestId="67259" StepId="4" />
+							</If>
+							<If Condition="GetQuestStep(67259) == 255">
+								<If Condition="not IsOnMap(398)">
+									<LisbethTravel ZoneId="398" XYZ="-679.9573, -100.524, 775.1736" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="-679.9573, -100.524, 775.1736" />
+								<TurnIn QuestId="67259" NpcId="1013625" XYZ="-679.9573, -100.524, 775.1736" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Trials of the Padjals -->
+
+				<If Condition="not IsQuestCompleted(67260)">
+					<If Condition="Core.Player.ClassLevel &gt; 57">
+						<If Condition="not HasQuest(67260)">
+							<If Condition="not IsOnMap(398)">
+								<LisbethTravel ZoneId="398" XYZ="-679.9573, -100.524, 775.1736" />
+							</If>
+							<NoCombatMoveTo Name="Eschiva" XYZ="-679.9573, -100.524, 775.1736" />
+							<If Condition="IsQuestAcceptQualified(67260)">
+								<PickupQuest NpcId="1013627" QuestId="67260" XYZ="-679.9573, -100.524, 775.1736" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67260)">
+							<If Condition="GetQuestStep(67260) == 255">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+								<TurnIn QuestId="67260" NpcId="1006751" ItemId="2001688" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Hands of Healing -->
+
+				<If Condition="not IsQuestCompleted(67261)">
+					<If Condition="Core.Player.ClassLevel &gt; 59">
+						<If Condition="not HasQuest(67261)">
+							<If Condition="not IsOnMap(153)">
+								<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+							</If>
+							<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+								<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+								<RunCode Name="Camp_Tranquil_Jump" />
+							</If>
+							<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+							<If Condition="IsQuestAcceptQualified(67261)">
+								<PickupQuest NpcId="1006751" QuestId="67261" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67261)">
+							<If Condition="GetQuestStep(67261) == 1">
+								<If Condition="not IsOnMap(154)">
+									<LisbethTravel ZoneId="154" XYZ="-45.02942, -40.95, 174.3037" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="-45.02942, -40.95, 174.3037" />
+								<TalkTo NpcId="1013609" XYZ="-45.02942, -40.95, 174.3037" QuestId="67261" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(67261) == 2">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+								<TalkTo NpcId="1006751" XYZ="-139.4522, 8.712891, 281.6968" QuestId="67261" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(67261) == 3">
+								<If Condition="not IsOnMap(398)">
+									<LisbethTravel ZoneId="398" XYZ="491.3862, -51.09138, 34.56165" />
+								</If>
+								<NoCombatMoveTo Name="Eschiva" XYZ="491.3862, -51.09138, 34.56165" />
+								<TalkTo NpcId="1013632" XYZ="491.3862, -51.09138, 34.56165" QuestId="67261" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(67261) == 4">
+								<If Condition="not IsOnMap(398)">
+									<LisbethTravel ZoneId="398" XYZ="-122.4537, 0.7213898, -615.8083" />
+								</If>
+								<NoCombatMoveTo Name="Alaqa" XYZ="-122.4537, 0.7213898, -615.8083" />
+								<RunCode Name="Hands_of_Healing" />
+								<StopBot />
+
+								<!-- TO DO -->
+
+								<!-- Heal the friendly NPC. -->
+
+								<!-- TO DO -->
+
+								<SimpleDuty InteractNpcId="1013635" XYZ="-122.4537, 0.7213898, -615.8083" QuestId="67261" StepId="4">
+									<HotSpots>
+										<HotSpot XYZ="-122.4537, 0.7213898, -615.8083" Radius="90" />
+									</HotSpots>
+									<TargetMobs>
+										<TargetMob Id="4188" Weight="2000" /> <!-- Soulless Page -->
+										<TargetMob Id="4185" Weight="1000" /> <!-- Zombie Dragon -->
+									</TargetMobs>
+								</SimpleDuty>
+							</If>
+							<If Condition="GetQuestStep(67261) == 5">
+								<If Condition="not IsOnMap(398)">
+									<LisbethTravel ZoneId="398" XYZ="-120.7447, 0.5554657, -616.6323" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-120.7447, 0.5554657, -616.6323" />
+								<TalkTo NpcId="1013639" XYZ="-120.7447, 0.5554657, -616.6323" QuestId="67261" StepId="5" />
+							</If>
+							<If Condition="GetQuestStep(67261) == 6">
+								<If Condition="not IsOnMap(398)">
+									<LisbethTravel ZoneId="398" XYZ="-120.7447, 0.5554657, -616.6323" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-120.7447, 0.5554657, -616.6323" />
+								<TalkTo NpcId="1013639" XYZ="-120.7447, 0.5554657, -616.6323" QuestId="67261" StepId="6" />
+							</If>
+							<If Condition="GetQuestStep(67261) == 255">
+								<If Condition="not IsOnMap(153)">
+									<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+								</If>
+								<If Condition="IsOnMap(153) and Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+									<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+									<RunCode Name="Camp_Tranquil_Jump" />
+								</If>
+								<NoCombatMoveTo Name="Raya-O-Senna" XYZ="-139.4522, 8.712891, 281.6968" />
+								<TurnIn QuestId="67261" NpcId="1006751" ItemId="2001688" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- Unease in East End -->
+
+				<If Condition="not IsQuestCompleted(67950) and IsQuestCompleted(67895)">
+					<If Condition="Core.Player.ClassLevel &gt; 59">
+						<If Condition="not HasQuest(67950)">
+							<If Condition="not IsOnMap(153)">
+								<LisbethTravel ZoneId="153" XYZ="-143.6555, 8.149665, 269.7762" />
+							</If>
+							<If Condition="Clio.Utilities.Vector3.Distance(Core.Player.Location, Vector3(-139.4522, 8.712891, 281.6968)) &gt; 7">
+								<NoCombatMoveTo Name="Jump Spot" XYZ="-143.6555, 8.149665, 269.7762" />
+								<RunCode Name="Camp_Tranquil_Jump" />
+							</If>
+							<LisbethTravel ZoneId="153" XYZ="-139.4522, 8.712891, 281.6968" /> <!-- Raya-O-Senna -->
+							<If Condition="IsQuestAcceptQualified(67950)">
+								<PickupQuest NpcId="1006751" QuestId="67950" XYZ="-139.4522, 8.712891, 281.6968" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67950)">
+							<If Condition="GetQuestStep(67950) == 1">
+								<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+								<TalkTo NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" QuestId="67950" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(67950) == 2">
+								<LisbethTravel ZoneId="152" XYZ="87.96814, 5.94581, 490.5621" /> <!-- E-Sumi-Yan -->
+								<TalkTo NpcId="1018744" XYZ="87.96814, 5.94581, 490.5621" QuestId="67950" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(67950) == 3">
+								<LisbethTravel ZoneId="612" XYZ="-651.3619, 130, -527.8248" /> <!-- E-Sumi-Yan -->
+								<TalkTo NpcId="1018746" XYZ="-651.3619, 130, -527.8248" QuestId="67950" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(67950) == 4">
+								<LisbethTravel ZoneId="612" XYZ="-640.8331, 120.3479, -291.5236" /> <!-- Destination -->
+								<UseObject NpcId="2007687" XYZ="-640.8331, 120.3479, -291.5236" Radius="10" QuestId="67950" StepId="4" />
+							</If>
+							<If Condition="GetQuestStep(67950) == 255">
+								<LisbethTravel ZoneId="612" XYZ="-622.5834, 130.265, -473.7469" /> <!-- E-Sumi-Yan -->
+								<TurnIn QuestId="67950" NpcId="1018752" XYZ="-622.5834, 130.265, -473.7469" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- An Aura for Trouble -->
+
+				<If Condition="not IsQuestCompleted(67951)">
+					<If Condition="Core.Player.ClassLevel &gt; 62">
+						<If Condition="not HasQuest(67951)">
+							<LisbethTravel ZoneId="612" XYZ="-623.621, 130.2421, -474.7234" /> <!-- Sylphie -->
+							<If Condition="IsQuestAcceptQualified(67951)">
+								<PickupQuest NpcId="1018753" QuestId="67951" XYZ="-623.621, 130.2421, -474.7234" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67951)">
+							<If Condition="GetQuestStep(67951) == 1">
+								<LisbethTravel ZoneId="612" XYZ="-437.2168, 73.07981, -100.2366" /> <!-- Sylphie -->
+								<TalkTo NpcId="1018757" XYZ="-437.2168, 73.07981, -100.2366" QuestId="67951" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(67951) == 2">
+								<LisbethTravel ZoneId="612" XYZ="-586.0533, 54.95936, 204.8218" /> <!-- Strange Child -->
+								<TalkTo NpcId="1018758" XYZ="-586.0533, 54.95936, 204.8218" QuestId="67951" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(67951) == 3">
+								<LisbethTravel ZoneId="133" XYZ="-258.8083, -5.773526, -27.26788" /> <!-- E-Sumi-Yan -->
+								<TalkTo NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" QuestId="67951" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(67951) == 255">
+								<LisbethTravel ZoneId="612" XYZ="-623.621, 130.2421, -474.7234" /> <!-- Sylphie -->
+								<TurnIn QuestId="67951" NpcId="1018753" XYZ="-623.621, 130.2421, -474.7234" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- A Beacon for Bad Things -->
+
+				<If Condition="not IsQuestCompleted(67952)">
+					<If Condition="Core.Player.ClassLevel &gt; 64">
+						<If Condition="not HasQuest(67952)">
+							<LisbethTravel ZoneId="612" XYZ="-623.621, 130.2421, -474.7234" /> <!-- Sylphie -->
+							<If Condition="IsQuestAcceptQualified(67952)">
+								<PickupQuest NpcId="1018753" QuestId="67952" XYZ="-623.621, 130.2421, -474.7234" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67952)">
+							<If Condition="GetQuestStep(67952) == 1">
+								<LisbethTravel ZoneId="612" XYZ="-488.0293, 50.94983, 86.96118" /> <!-- Destination -->
+								<UseObject NpcId="2007711" XYZ="-488.0293, 50.94983, 86.96118" Radius="10" QuestId="67952" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(67952) == 2">
+								<LisbethTravel ZoneId="612" XYZ="-461.6312, 57.14502, 186.0837" /> <!-- Destination -->
+								<UseObject NpcId="2007712" XYZ="-461.6312, 57.14502, 186.0837" Radius="10" QuestId="67952" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(67952) == 3">
+								<LisbethTravel ZoneId="612" XYZ="-529.9306, 36.88098, 451.1635" /> <!-- Destination -->
+								<UseObject NpcId="2007713" XYZ="-529.9306, 36.88098, 451.1635" Radius="10" QuestId="67952" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(67952) == 4">
+                    			<LisbethTravel ZoneId="612" XYZ="-638.3002, 38.30705, 374.9293" /> <!-- Sylphie -->
+								<SimpleDuty InteractNpcId="1019090" XYZ="-638.3002, 38.30705, 374.9293" QuestId="67952" StepId="4">
+									<HotSpots>
+										<HotSpot XYZ="-645.5243, 39.40442, 372.364" Radius="90" />
+									</HotSpots>
+									<TargetMobs>
+										<TargetMob Id="2096" Weight="4000" /> <!-- Planar Fissure -->
+										<TargetMob Id="6017" Weight="3000" /> <!-- Aether-starved Vodoriga -->
+										<TargetMob Id="6018" Weight="2000" /> <!-- Aether-starved Gargoyle -->
+										<TargetMob Id="6019" Weight="1000" /> <!-- Aether-starved Imp -->
+									</TargetMobs>
+								</SimpleDuty>
+							</If>
+							<If Condition="GetQuestStep(67952) == 5">
+								<WaitWhile Condition="GetQuestStep(67952) == 5" />
+							</If>
+							<If Condition="GetQuestStep(67952) == 255">
+								<LisbethTravel ZoneId="612" XYZ="-623.621, 130.2421, -474.7234" /> <!-- Sylphie -->
+								<TurnIn QuestId="67952" NpcId="1018753" XYZ="-623.621, 130.2421, -474.7234" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- The Problem with Padjals -->
+
+				<If Condition="not IsQuestCompleted(67953)">
+					<If Condition="Core.Player.ClassLevel &gt; 67">
+						<If Condition="not HasQuest(67953)">
+							<LisbethTravel ZoneId="612" XYZ="-623.621, 130.2421, -474.7234" /> <!-- Sylphie -->
+							<If Condition="IsQuestAcceptQualified(67953)">
+								<PickupQuest NpcId="1018753" QuestId="67953" XYZ="-623.621, 130.2421, -474.7234" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67953)">
+							<If Condition="GetQuestStep(67953) == 1">
+								<LisbethTravel ZoneId="612" XYZ="-651.8196, 40.06705, 370.8094" /> <!-- E-Sumi-Yan -->
+								<TalkTo NpcId="1019125" XYZ="-651.8196, 40.06705, 370.8094" QuestId="67953" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(67953) == 2">
+								<LisbethTravel ZoneId="612" XYZ="-175.0668, 59.7798, -558.8312" /> <!-- Gatty -->
+								<TalkTo NpcId="1019128" XYZ="-175.0668, 59.7798, -558.8312" QuestId="67953" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(67953) == 3">
+								<LisbethTravel ZoneId="612" XYZ="-663.7522, 43.59454, 363.7598" /> <!-- E-Sumi-Yan -->
+								<TalkTo NpcId="1019131" XYZ="-663.7522, 43.59454, 363.7598" QuestId="67953" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(67953) == 255">
+								<LisbethTravel ZoneId="612" XYZ="-655.024, 40.43195, 375.967" /> <!-- Sylphie -->
+								<TurnIn QuestId="67953" NpcId="1019132" XYZ="-655.024, 40.43195, 375.967" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+				<!-- What She Always Wanted -->
+
+				<If Condition="not IsQuestCompleted(67954)">
+					<If Condition="Core.Player.ClassLevel &gt; 69">
+						<If Condition="not HasQuest(67954)">
+							<LisbethTravel ZoneId="612" XYZ="-655.024, 40.43195, 375.967" /> <!-- Sylphie -->
+							<If Condition="IsQuestAcceptQualified(67954)">
+								<PickupQuest NpcId="1019132" QuestId="67954" XYZ="-655.024, 40.43195, 375.967" />
+							</If>
+						</If>
+						<If Condition="HasQuest(67954)">
+							<If Condition="GetQuestStep(67954) == 1">
+								<LisbethTravel ZoneId="612" XYZ="-636.8048, 130, -528.6183" /> <!-- Independent Sutler -->
+								<TalkTo NpcId="1018759" XYZ="-636.8048, 130, -528.6183" QuestId="67954" StepId="1" />
+							</If>
+							<If Condition="GetQuestStep(67954) == 2">
+								<LisbethTravel ZoneId="612" XYZ="-665.3696, 43.59457, 364.4006" /> <!-- Sylphie -->
+								<TalkTo NpcId="1019130" XYZ="-665.3696, 43.59457, 364.4006" QuestId="67954" StepId="2" />
+							</If>
+							<If Condition="GetQuestStep(67954) == 3">
+								<LisbethTravel ZoneId="612" XYZ="-665.3696, 43.59457, 364.4006" /> <!-- Sylphie -->
+								<LLEmoteNpc NpcId="1019130" Emote="soothe" XYZ="-665.3696, 43.59457, 364.4006" Radius="10" QuestId="67954" StepId="3" />
+							</If>
+							<If Condition="GetQuestStep(67954) == 4">
+								<LisbethTravel ZoneId="612" XYZ="-381.8876, 40.28381, 484.8248" /> <!-- Sanche -->
+								<WaitWhile Condition="GetQuestStep(67954) == 4" />
+							</If>
+							<If Condition="GetQuestStep(67954) == 5">
+								<LisbethTravel ZoneId="612" XYZ="-381.8876, 40.28381, 484.8248" /> <!-- Sanche -->
+								<RunCode Name="What_She_Always_Wanted" />
+								<StopBot />
+
+								<!-- TO DO -->
+
+								<!-- Heal the friendly NPC. -->
+
+								<!-- TO DO -->
+
+								<ExtendedDuty InteractNpcId="1019127" XYZ="-381.8876, 40.28381, 484.8248" QuestId="67954" StepId="5">
+									<HotSpots>
+										<HotSpot XYZ="-381.2671, 40.29111, 485.4266" Radius="90" />
+									</HotSpots>
+									<TargetMobs>
+										<TargetMob Id="2096" Weight="4000" /> <!-- Planar Fissure -->
+										<TargetMob Id="6016" Weight="3000" /> <!-- Aether-starved Hecteyes -->
+										<TargetMob Id="6020" Weight="4000" /> <!-- Aether-starved Arch Demon -->
+										<TargetMob Id="5664" Weight="1000" /> <!-- Camazotz -->
+									</TargetMobs>
+								</ExtendedDuty>
+							</If>
+							<If Condition="GetQuestStep(67954) == 255">
+								<LisbethTravel ZoneId="612" XYZ="-382.7115, 40.27582, 484.3669" /> <!-- Gatty -->
+								<TurnIn QuestId="67954" NpcId="1019588" XYZ="-382.7115, 40.27582, 484.3669" />
+							</If>
+						</If>
+					</If>
+				</If>
+
+			</If>
+
+  
+  </Order>
+  <GrindAreas>
+		<GrindArea name="My_First_Cane">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="78.65437, 5.179691, -211.1119" name="Ground Squirrels" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="37" /> <!-- Ground Squirrel -->
+			</TargetMobs>
+			<MinLevel>1</MinLevel>
+			<MaxLevel>61</MaxLevel>
+		</GrindArea>
+		<GrindArea name="My_First_Cane2">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="78.65437, 5.179691, -211.1119" name="Little Ladybugs" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="49" /> <!-- Little Ladybug -->
+			</TargetMobs>
+			<MinLevel>1</MinLevel>
+			<MaxLevel>61</MaxLevel>
+		</GrindArea>
+		<GrindArea name="My_First_Cane3">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="78.65437, 5.179691, -211.1119" name="Forest Funguars" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="47" /> <!-- Forest Funguar -->
+			</TargetMobs>
+			<MinLevel>1</MinLevel>
+			<MaxLevel>61</MaxLevel>
+		</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

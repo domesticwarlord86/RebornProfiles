@@ -1,0 +1,1069 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: [OrderBot] Dark Knight Class Quests
+  Authors: y2krazy
+  Modifications: DomesticWarlord86
+-->
+<Profile>
+  <Name>[OrderBot] Dark Knight Class Quests</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+			<!-- Dark Knight -->
+
+			<LogMessage Message="[Class and Job Quests] Checking Dark Knight job quests..." />
+
+			<!-- Ishgardian Justice -->
+
+			<If Condition="not IsQuestCompleted(67590)">
+				<If Condition="Core.Player.ClassLevel &gt; 29">
+					<If Condition="not HasQuest(67590)">
+						<If Condition="not IsOnMap(418)">
+							<GetTo ZoneId="418" XYZ="6.912292, -1.921014, 47.2876" />
+						</If>
+						<MoveTo Name="Fray" XYZ="6.912292, -1.921014, 47.2876" />
+						<If Condition="IsQuestAcceptQualified(67590)">
+							<PickupQuest NpcId="1014875" QuestId="67590" XYZ="6.912292, -1.921014, 47.2876" />
+						</If>
+					</If>
+					<If Condition="HasQuest(67590)">
+						<If Condition="GetQuestStep(67590) == 1">
+							<If Condition="not IsOnMap(418)">
+								<GetTo ZoneId="418" XYZ="134.0504, -20.02087, 73.74683" />
+							</If>
+							<MoveTo Name="Lowborn Crone" XYZ="134.0504, -20.02087, 73.74683" />
+							<TalkTo NpcId="1014879" XYZ="134.0504, -20.02087, 73.74683" QuestId="67590" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(67590) == 2">
+							<If Condition="not IsOnMap(418)">
+								<GetTo ZoneId="418" XYZ="136.9802, -20.02088, 69.84058" />
+							</If>
+							<MoveTo Name="Fray" XYZ="136.9802, -20.02088, 69.84058" />
+							<TalkTo NpcId="1014880" XYZ="136.9802, -20.02088, 69.84058" QuestId="67590" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(67590) == 3">
+							<If Condition="not IsOnMap(419)">
+								<GetTo ZoneId="419" XYZ="244.0985, -13.73494, -95.50629" />
+							</If>
+							<MoveTo Name="Fray" XYZ="244.0985, -13.73494, -95.50629" />
+							<TalkTo NpcId="1014882" XYZ="244.0985, -13.73494, -95.50629" QuestId="67590" StepId="3" />
+						</If>
+						<While Condition="GetQuestStep(67590) == 4">
+							<GetTo ZoneId="419" Name="Pernicious Temple Knight" XYZ="151.6289, -9.190303, -64.9577" />
+							<If condition="not DutyManager.InInstance">
+								<RunCode name="DutyCommence"/>
+							</If>
+							<While condition="DutyManager.InInstance">
+								<Grind GrindRef="GrindArea1" While="NumAttackableEnemies(30, Array[int]([2080,2076])) &gt; 0 and DutyManager.InInstance"/> <!-- Clear First Wave -->
+								<WaitWhile Condition="not GameObjectManager.GetObjectByNPCId(4256)"/>
+								<MoveTo XYZ="147.8882, -9.190303, -62.8279"/>
+								<MoveTo XYZ="90.28759, -4.73493, -47.76824"/>
+								<Grind GrindRef="GrindArea2" While="NumAttackableEnemies(30, Array[int]([2080,2076,2077])) &gt; 0 and DutyManager.InInstance"/> <!-- Clear second Wave -->
+								<MoveTo XYZ="94.88863, -4.73493, -36.66328" Distance="1"/>	
+								<MoveTo XYZ="79.74705, 10.19437, -102.1645"/>
+								<Grind GrindRef="GrindArea3" While="NumAttackableEnemies(30, Array[int]([2076,2077,4258,2080])) &gt; 0 and DutyManager.InInstance"/> <!-- Clear third Wave -->
+								<MoveTo XYZ="66.85455, 10.0549, -105.4754"/>
+								<MoveTo XYZ="107.7702, 14.95312, -139.5868"/>
+								<Grind GrindRef="GrindArea4" While="NumAttackableEnemies(90, Array[int]([2080,4258,2077])) &gt; 0 and DutyManager.InInstance"/> <!-- Clear Fourth Wave -->
+								<MoveTo XYZ="135.9473, 14.55313, -149.6351"/>
+								<UseObject NpcId="2006125" XYZ="137.2391, 14.55313, -150.3288" UseTimes="1"/>
+								<WaitWhile Condition="DutyManager.InInstance"/>
+							</While>
+						</While>
+						<If Condition="GetQuestStep(67590) == 5">
+							<GetTo ZoneId="419" Name="Frightened Maid" XYZ="40.39063, 16.0801, -85.9541" />
+							<TalkTo NpcId="1014888" XYZ="40.39063, 16.0801, -85.9541" QuestId="67590" StepId="5" />
+						</If>
+						<If Condition="GetQuestStep(67590) == 255">
+							<GetTo ZoneId="419" Name="Fray" XYZ="43.38135, 16.0801, -86.04565" />
+							<TurnIn QuestId="67590" NpcId="1014889" XYZ="43.38135, 16.0801, -86.04565" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- The Voice in the Abyss -->
+			<If Condition="IsQuestCompleted(67590) and Core.Player.ClassLevel &lt; 35">
+				<LLToast message="The next Dark Knight Quest is avaialble at level 35"/>
+			</If>
+			<If Condition="IsQuestCompleted(67590) and Core.Player.ClassLevel &gt; 34">
+				<If Condition="IsQuestCompleted(67590) and not IsQuestCompleted(67591)">			
+					<If Condition="not HasQuest(67591)">
+						<GetTo ZoneId="418" XYZ="6.912292, -1.921014, 47.2876" />
+						<If Condition="IsQuestAcceptQualified(67591)">
+							<LLPickupQuest NpcId="1014890" QuestId="67591" XYZ="6.912292, -1.921014, 47.2876" />
+						</If>
+					</If>
+					<If Condition="HasQuest(67591)">
+						<If Condition="GetQuestStep(67591) == 1">
+							<LisbethTravel ZoneId="146" Name="Fray" XYZ="-173.1747, 27.89954, -397.6959" />
+							<TalkTo NpcId="1014891" XYZ="-173.1747, 27.89954, -397.6959" QuestId="67591" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(67591) == 2">
+							<LisbethTravel ZoneId="146" XYZ="-227.3442, 26.16842, -352.9869" />
+							<TalkTo NpcId="1006215" XYZ="-227.3442, 26.16842, -352.9869" QuestId="67591" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(67591) == 3">
+							<LisbethTravel ZoneId="146" XYZ="-415.0302, 3.695741, -42.34387" />
+							<TalkTo NpcId="1014892" XYZ="-415.0302, 3.695741, -42.34387" QuestId="67591" StepId="3" />
+						</If>
+						<If Condition="GetQuestStep(67591) == 4">
+							<LisbethTravel ZoneId="146" XYZ="-389.1204, 3.433289, -57.57239" />
+							<UseItem NpcId="2006291" ItemId="2001812" XYZ="-389.1204, 3.433289, -57.57239" Radius="10" QuestId="67591" StepId="4" />
+						</If>
+						<If Condition="GetQuestStep(67591) == 5">
+							<GetTo ZoneId="146" XYZ="-383.4536, 6.127883, -43.64426" />
+							<UseObject NpcId="2006293" XYZ="-384.9088, 6.088318, -45.21252" Radius="10" QuestId="67591" StepId="5" />
+						</If>
+						<If Condition="GetQuestStep(67591) == 6">
+							<LisbethTravel ZoneId="146" XYZ="-415.0302, 3.695741, -42.34387" />
+							<TalkTo NpcId="1014892" XYZ="-415.0302, 3.695741, -42.34387" QuestId="67591" StepId="6" />
+						</If>
+						<If Condition="GetQuestStep(67591) == 7">
+							<LisbethTravel ZoneId="146" XYZ="-215.7168, 16.84427, -270.6493" />
+							<TalkTo NpcId="1014893" XYZ="-215.7168, 16.84427, -270.6493" QuestId="67591" StepId="7" />
+						</If>
+						<If Condition="GetQuestStep(67591) == 255">
+							<LisbethTravel ZoneId="146" XYZ="-215.7168, 16.84427, -270.6493" />
+							<TurnIn QuestId="67591" NpcId="1014893" XYZ="-215.7168, 16.84427, -270.6493" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- Heroic Reprise -->
+			<If Condition="IsQuestCompleted(67591) and Core.Player.ClassLevel &lt; 40">
+				<LLToast message="The next Dark Knight Quest is avaialble at level 35"/>
+			</If>
+			<If Condition="IsQuestCompleted(67591) and Core.Player.ClassLevel &gt; 39">
+				<If Condition="not IsQuestCompleted(67592)">
+					<If Condition="not HasQuest(67592)">
+						<LisbethTravel ZoneId="418" XYZ="6.912292, -1.921014, 47.2876" />
+						<If Condition="IsQuestAcceptQualified(67592)">
+							<LLPickupQuest NpcId="1014890" QuestId="67592" XYZ="6.912292, -1.921014, 47.2876" />
+						</If>
+					</If>
+					<If Condition="HasQuest(67592)">
+						<If Condition="GetQuestStep(67592) == 1">
+							<LisbethTravel ZoneId="145" XYZ="329.5795, -11.10536, 157.6409" />
+							<TalkTo NpcId="1014894" XYZ="329.5795, -11.10536, 157.6409" QuestId="67592" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(67592) == 2">
+							<LisbethTravel ZoneId="145" XYZ="298.6648, -11.76477, 159.9603" />
+							<UseObject NpcId="2006295" XYZ="298.6648, -11.76477, 159.9603" Radius="10" QuestId="67592" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(67592) == 3">
+							<LisbethTravel ZoneId="145" XYZ="329.5795, -11.10536, 157.6409" />
+							<TalkTo NpcId="1014894" XYZ="329.5795, -11.10536, 157.6409" QuestId="67592" StepId="3" />
+						</If>
+						<If Condition="GetQuestStep(67592) == 4">
+							<LisbethTravel ZoneId="145" XYZ="-367.1473, -55.99894, 107.103" />
+							<LLTalkTo NpcId="1014895" XYZ="-367.1473, -55.99894, 107.103" QuestId="67592" StepId="4" />
+						</If>
+						<If Condition="GetQuestStep(67592) == 5">
+							<If condition="not DutyManager.InInstance">
+								<LisbethTravel ZoneId="145" XYZ="-200.3052, -28.35069, 324.7576" />
+								<RunCode name="DutyCommence"/>
+							</If>
+							<While condition="DutyManager.InInstance and GetQuestStep(67592) == 5">
+								<Grind GrindRef="67592" While="NumAttackableEnemies(90, Array[int]([4261,4262,4260,1724])) &gt; 0 and DutyManager.InInstance"/> <!-- Clear First Wave -->
+								<MoveTo XYZ="-72.8243,-22.26728,264.8702"/>
+								<UseObject NpcId="2005823" XYZ="-72.8243,-22.26728,264.8702" UseTimes="1"/>
+								<MoveTo XYZ="-114.6743, -29.83969, 285.9187"/>
+								<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(4262)"/>
+								<Grind GrindRef="67592" While="NumAttackableEnemies(90, Array[int]([4261,4262,4260,1724])) &gt; 0 and DutyManager.InInstance"/> <!-- Clear First Wave -->
+								<WaitWhile condition="not GameObjectManager.GetObjectByNPCId(4262)"/>
+								<Grind GrindRef="67592" While="NumAttackableEnemies(90, Array[int]([4261,4262,4260,1724])) &gt; 0 and DutyManager.InInstance"/> <!-- Clear First Wave -->
+								<WaitWhile condition="GetQuestStep(67592) == 5"/>
+							</While>
+						</If>
+						<If Condition="GetQuestStep(67592) == 6">
+							<LisbethTravel ZoneId="145" XYZ="-177.0505, -31.36518, 310.6888" />
+							<TalkTo NpcId="1015329" XYZ="-177.0505, -31.36518, 310.6888" QuestId="67592" StepId="6" />
+						</If>
+						<If Condition="GetQuestStep(67592) == 7">
+							<LisbethTravel ZoneId="145" XYZ="-378.6526, -55.75492, 106.7979" />
+							<TalkTo NpcId="1003929" XYZ="-378.6526, -55.75492, 106.7979" QuestId="67592" StepId="7" />
+						</If>
+						<If Condition="GetQuestStep(67592) == 8">
+							<LisbethTravel ZoneId="145" XYZ="-367.1473, -55.99894, 107.103" />
+							<TalkTo NpcId="1014895" XYZ="-367.1473, -55.99894, 107.103" QuestId="67592" StepId="8" />
+						</If>
+						<If Condition="GetQuestStep(67592) == 255">
+							<LisbethTravel ZoneId="145" XYZ="-367.1473, -55.99894, 107.103" />
+							<TurnIn QuestId="67592" NpcId="1014895" XYZ="-367.1473, -55.99894, 107.103" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- Declaration of Blood -->
+
+			<If Condition="not IsQuestCompleted(67593)">
+				<If Condition="Core.Player.ClassLevel &gt; 44">
+					<If Condition="not HasQuest(67593)">
+						<LisbethTravel ZoneId="418" Name="Fray" XYZ="6.912292, -1.921014, 47.2876" />
+						<If Condition="IsQuestAcceptQualified(67593)">
+							<LLPickupQuest NpcId="1014890" QuestId="67593" XYZ="6.912292, -1.921014, 47.2876" />
+						</If>
+					</If>
+					<If Condition="HasQuest(67593)">
+						<If Condition="GetQuestStep(67593) == 1">
+							<LisbethTravel ZoneId="135" Name="Fray" XYZ="168.7495, 8.973653, 583.856" />
+							<TalkTo NpcId="1014897" XYZ="168.7495, 8.973653, 583.856" QuestId="67593" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(67593) == 2">
+							<LisbethTravel ZoneId="135" Name="Fray" XYZ="-97.76465, 2.982128, 713.0693" />
+							<ExtendedDuty InteractNpcId="1014899" XYZ="-97.76465, 2.982128, 713.0693" GuardianNPCId="4259" QuestId="67593" StepId="2">
+								<HotSpots>
+									<HotSpot XYZ="-148.8293, 3.515815, 671.529" Radius="90" />
+								</HotSpots>
+								<TargetMobs>
+									<TargetMob Id="4266" Weight="3000" /> <!-- Qiqirn Yolkshaker -->
+									<TargetMob Id="4265" Weight="2000" /> <!-- Qiqirn Eggcandler -->
+									<TargetMob Id="4267" Weight="1000" /> <!-- Yoyoroon Softhands -->
+								</TargetMobs>
+							</ExtendedDuty>
+						</If>
+						<If Condition="GetQuestStep(67593) == 3">>
+							<LisbethTravel ZoneId="135" Name="Fray" XYZ="-110.8874, 9.73618, 672.7245" />
+							<TalkTo NpcId="1014900" XYZ="-110.8874, 9.73618, 672.7245" QuestId="67593" StepId="3" />
+						</If>
+						<If Condition="GetQuestStep(67593) == 4">
+							<LisbethTravel ZoneId="135" Name="Overbearing Trader" XYZ="162.005, 8.973654, 583.8254" />
+							<HandOver ItemId="2001813" QuestId="67593" StepId="4" NpcId="1014898" XYZ="162.005, 8.973654, 583.8254" />
+						</If>
+						<If Condition="GetQuestStep(67593) == 5">
+							<LisbethTravel ZoneId="135" Name="Fray" XYZ="235.6755, 7.999999, 698.207" />
+							<TalkTo NpcId="1014901" XYZ="235.6755, 7.999999, 698.207" QuestId="67593" StepId="5" />
+						</If>
+						<If Condition="GetQuestStep(67593) == 255">
+							<LisbethTravel ZoneId="135" Name="Fray" XYZ="235.6755, 7.999999, 698.207" />
+							<TurnIn QuestId="67593" NpcId="1014901" XYZ="235.6755, 7.999999, 698.207" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- Our Answer -->
+
+			<If Condition="not IsQuestCompleted(67594)">
+				<If Condition="Core.Player.ClassLevel &gt; 49">
+					<If Condition="not HasQuest(67594)">
+						<LisbethTravel ZoneId="418" Name="Fray" XYZ="6.912292, -1.921014, 47.2876" />
+						<If Condition="IsQuestAcceptQualified(67594)">
+							<LLPickupQuest NpcId="1014890" QuestId="67594" XYZ="6.912292, -1.921014, 47.2876" />
+						</If>
+					</If>
+					<If Condition="HasQuest(67594)">
+						<If Condition="GetQuestStep(67594) == 1">
+							<LisbethTravel ZoneId="155" Name="Destination" XYZ="-94.95697, 298.6343, -212.665" />
+							<Dismount />
+							<LLSendChat Say="Fray!" QuestId="67594" StepId="1" />
+							<WaitWhile Condition="Managers.QuestLogManager.InCutscene" />
+						</If>
+						<If Condition="GetQuestStep(67594) == 2">
+							<LisbethTravel ZoneId="155" Name="Unbending Knight" XYZ="-313.5271, 244.5048, 33.31042" />
+							<TalkTo NpcId="1015328" XYZ="-313.5271, 244.5048, 33.31042" QuestId="67594" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(67594) == 3">
+							<LisbethTravel ZoneId="155" Name="Destination" XYZ="-405.5391, 274.7081, 79.08752" />
+							<UseObject NpcId="2006306" XYZ="-405.5391, 274.7081, 79.08752" Radius="10" QuestId="67594" StepId="3" />
+						</If>
+						<If Condition="GetQuestStep(67594) == 4">
+							<LisbethTravel ZoneId="155" Name="Unbending Knight" XYZ="-313.5271, 244.5048, 33.31042" />
+							<TalkTo NpcId="1014906" XYZ="-313.5271, 244.5048, 33.31042" QuestId="67594" StepId="4" />
+						</If>
+						<If Condition="GetQuestStep(67594) == 5">
+							<LisbethTravel ZoneId="155" Name="Untiring Knight" XYZ="-314.6258, 244.6202, 32.27283" />
+							<SimpleDuty InteractNpcId="1014907" XYZ="-314.6258, 244.6202, 32.27283" QuestId="67594" StepId="5">
+								<HotSpots>
+									<HotSpot XYZ="-463.3011, 211, -222.198" Radius="90" /> <!-- Esteem -->
+								</HotSpots>
+								<TargetMobs>
+									<TargetMob Id="4272" Weight="4000" /> <!-- Dark Plasma -->
+									<TargetMob Id="4271" Weight="3000" /> <!-- Dark Sprite -->
+									<TargetMob Id="4269" Weight="2000" /> <!-- Esteem -->
+									<TargetMob Id="4270" Weight="1000" /> <!-- Anguish -->
+								</TargetMobs>
+							</SimpleDuty>
+						</If>
+						<If Condition="GetQuestStep(67594) == 255">
+							<LisbethTravel ZoneId="155" Name="Untiring Knight" XYZ="-431.2657, 211, -251.2093" />
+							<TurnIn QuestId="67594" NpcId="1014908" XYZ="-431.2657, 211, -251.2093" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- The Wages of Mercy -->
+
+			<If Condition="not IsQuestCompleted(67595)">
+				<If Condition="Core.Player.ClassLevel &gt; 49">
+					<If Condition="not HasQuest(67595)">
+						<LisbethTravel ZoneId="155" Name="Unflinching Temple Knight" XYZ="-427.1153, 211, -267.2618" />
+						<If Condition="IsQuestAcceptQualified(67595)">
+							<LLPickupQuest NpcId="1014909" QuestId="67595" XYZ="-427.1153, 211, -267.2618" />
+						</If>
+					</If>
+					<If Condition="HasQuest(67595)">
+						<If Condition="GetQuestStep(67595) == 1">
+							<LisbethTravel ZoneId="155" Name="Unflinching Temple Knight" XYZ="-824.979, 243.968, -215.8694" />
+							<TalkTo NpcId="1015030" XYZ="-824.979, 243.968, -215.8694" QuestId="67595" StepId="1" />
+							<Grind grindRef="The_Wages_of_Mercy" while="HasQuest(67595) and GetQuestStep(67595) == 1" />
+						</If>
+						<If Condition="GetQuestStep(67595) == 2">
+							<LisbethTravel ZoneId="155" Name="Unflinching Temple Knight" XYZ="-824.979, 243.968, -215.8694" />
+							<TalkTo NpcId="1015030" XYZ="-824.979, 243.968, -215.8694" QuestId="67595" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(67595) == 255">
+							<LisbethTravel Area="Ishgard (Foundation)" Position="102.9188, 15.00001, 41.72738"/>
+							<TurnIn QuestId="67595" NpcId="1013969" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- The Knight and the Maiden Fair -->
+
+			<If Condition="not IsQuestCompleted(67596)">
+				<If Condition="Core.Player.ClassLevel &gt; 51">
+					<If Condition="not HasQuest(67596)">
+						<LisbethTravel ZoneId="418" Name="Sidurgu" XYZ="104.2344, 14.99999, 40.78735" />
+						<If Condition="IsQuestAcceptQualified(67596)">
+							<LLPickupQuest NpcId="1013969" QuestId="67596" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+					<If Condition="HasQuest(67596)">
+						<If Condition="GetQuestStep(67596) == 1">
+							<LisbethTravel ZoneId="418" Name="Rielle" XYZ="103.4104, 15.00001, 41.30615" />
+							<LLTalkTo NpcId="1013970" XYZ="103.4104, 15.00001, 41.30615" DialogOption="3" QuestId="67596" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(67596) == 2">
+							<LisbethTravel ZoneId="401" Name="Sidurgu" XYZ="-634.699, -119.4718, 476.2491" />
+							<TalkTo NpcId="1015034" XYZ="-634.699, -119.4718, 476.2491" QuestId="67596" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(67596) == 3">
+							<LisbethTravel ZoneId="401" Name="Gastornises" XYZ="-417.1678, -175.9712, 648.1967" />
+							<Grind grindRef="The_Knight_and_the_Maiden_Fair" while="HasQuest(67596) and GetQuestStep(67596) == 3" />
+						</If>
+						<If Condition="GetQuestStep(67596) == 4">
+							<LisbethTravel ZoneId="401" Name="Vanu Healer" XYZ="571.8928, -113.9987, 326.7413" />
+							<HandOver ItemId="2001874" QuestId="67596" StepId="4" NpcId="1015033" XYZ="571.8928, -113.9987, 326.7413" />
+						</If>
+						<If Condition="GetQuestStep(67596) == 5">
+							<LisbethTravel ZoneId="401" Name="Destination" XYZ="533.5317, -100.145, 367.5441" />
+							<UseObject NpcId="2006342" XYZ="533.5317, -100.145, 367.5441" Radius="10" QuestId="67596" StepId="5" />
+						</If>
+						<If Condition="GetQuestStep(67596) == 6">
+							<LisbethTravel ZoneId="401" Name="Sidurgu" XYZ="571.4349, -113.9451, 331.4106" />
+							<TalkTo NpcId="1015036" XYZ="571.4349, -113.9451, 331.4106" QuestId="67596" StepId="6" />
+						</If>
+						<If Condition="GetQuestStep(67596) == 255">
+							<LisbethTravel ZoneId="418" Name="Sidurgu" XYZ="104.2344, 14.99999, 40.78735" />
+							<TurnIn QuestId="67596" NpcId="1013969" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- Kindred Spirits -->
+
+			<If Condition="not IsQuestCompleted(67597)">
+				<If Condition="Core.Player.ClassLevel &gt; 53">
+					<If Condition="not HasQuest(67597)">
+						<LisbethTravel ZoneId="418" Name="Sidurgu" XYZ="104.2344, 14.99999, 40.78735" />
+						<If Condition="IsQuestAcceptQualified(67597)">
+							<LLPickupQuest NpcId="1013969" QuestId="67597" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+					<If Condition="HasQuest(67597)">
+						<If Condition="GetQuestStep(67597) == 1">
+							<LisbethTravel ZoneId="155" Name="Sidurgu" XYZ="210.4982, 302.2458, -166.888" />
+							<TalkTo NpcId="1015038" XYZ="210.4982, 302.2458, -166.888" QuestId="67597" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(67597) == 2">							
+							<If condition="not DutyManager.InInstance">
+								<LisbethTravel ZoneId="155" Name="Rielle" XYZ="209.4301, 302.2567, -166.888" />
+								<RunCode name="DutyCommence"/>
+							</If>
+							<While condition="DutyManager.InInstance and GetQuestStep(67597) == 2">
+								<Grind GrindRef="67597" While="DutyManager.InInstance"/> <!-- Clear First Wave -->
+							</While>							
+						</If>
+						<If Condition="GetQuestStep(67597) == 3">
+							<LisbethTravel ZoneId="155" Name="Sidurgu" XYZ="221.9424, 222.0014, 320.9734" />
+							<TalkTo NpcId="1015040" XYZ="221.9424, 222.0014, 320.9734" QuestId="67597" StepId="3" />
+						</If>
+						<If Condition="GetQuestStep(67597) == 4">
+							<LisbethTravel ZoneId="133" Name="E-Sumi-Yan" XYZ="-258.8083, -5.773526, -27.26788" />
+							<TalkTo NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788" QuestId="67597" StepId="4" />
+						</If>
+						<If Condition="GetQuestStep(67597) == 5">
+							<LisbethTravel ZoneId="132" Name="Rielle" XYZ="29.67871, -7.8, 89.61609" />
+							<LLTalkTo NpcId="1015043" XYZ="29.67871, -7.8, 89.61609" QuestId="67597" StepId="5" />
+						</If>
+						<If Condition="GetQuestStep(67597) == 6">
+							<LisbethTravel ZoneId="132" Name="Rielle" XYZ="29.67871, -7.8, 89.61609" />
+							<TalkTo NpcId="1015432" XYZ="29.67871, -7.8, 89.61609" QuestId="67597" StepId="6" />
+						</If>
+						<If Condition="GetQuestStep(67597) == 7">
+							<LisbethTravel ZoneId="132" Name="Sidurgu" XYZ="47.44019, -8.046949, 110.7346" />
+							<TalkTo NpcId="1015066" XYZ="47.44019, -8.046949, 110.7346" QuestId="67597" StepId="7" />
+						</If>
+						<If Condition="GetQuestStep(67597) == 255">
+							<LisbethTravel ZoneId="418" Name="Sidurgu" XYZ="104.2344, 14.99999, 40.78735" />
+							<TurnIn QuestId="67597" NpcId="1013969" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- Original Sins -->
+
+			<If Condition="not IsQuestCompleted(67598)">
+				<If Condition="Core.Player.ClassLevel &gt; 55">
+					<If Condition="not HasQuest(67598)">
+						<LisbethTravel ZoneId="148" Name="Sidurgu" XYZ="104.2344, 14.99999, 40.78735" />
+						<If Condition="IsQuestAcceptQualified(67598)">
+							<LLPickupQuest NpcId="1013969" QuestId="67598" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+					<If Condition="HasQuest(67598)">
+						<If Condition="GetQuestStep(67598) == 1">
+							<LisbethTravel ZoneId="398" Name="Vidofnir" XYZ="-285.6337, 39.04305, 53.72693" />
+							<TalkTo NpcId="1011935" XYZ="-285.6337, 39.04305, 53.72693" QuestId="67598" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(67598) == 2">
+							<LisbethTravel ZoneId="398" Name="Sidurgu" XYZ="-282.1546, 39.04307, 46.03638" />
+							<TalkTo NpcId="1015044" XYZ="-282.1546, 39.04307, 46.03638" QuestId="67598" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(67598) == 3">
+							<LisbethTravel Area="The Dravanian Forelands" Position="-548.7722, -91.98595, 583.0471"/>
+							<UseObject NpcId="2006344" XYZ="-557.8241, -92.24078, 595.1781" Radius="10" QuestId="67598" StepId="3" />
+						</If>
+						<If Condition="GetQuestStep(67598) == 4">
+							<LisbethTravel ZoneId="398" Name="Vidofnir" XYZ="-285.6337, 39.04305, 53.72693" />
+							<HandOver ItemId="2001875" QuestId="67598" StepId="4" NpcId="1011935" XYZ="-285.6337, 39.04305, 53.72693" />
+						</If>
+						<If Condition="GetQuestStep(67598) == 5">
+							<LisbethTravel ZoneId="398" Name="Dying Dragon" XYZ="-460.0137, -9.639713, -294.7891" />
+							<HandOver ItemId="2001875" QuestId="67598" StepId="5" NpcId="1015046" XYZ="-460.0137, -9.639713, -294.7891" />
+						</If>
+						<If Condition="GetQuestStep(67598) == 255">
+							<LisbethTravel ZoneId="418" Name="Sidurgu" XYZ="104.2344, 14.99999, 40.78735" />
+							<TurnIn QuestId="67598" NpcId="1013969" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- The Flame in the Abyss -->
+
+			<If Condition="not IsQuestCompleted(67599)">
+				<If Condition="Core.Player.ClassLevel &gt; 57">
+					<If Condition="not HasQuest(67599)">
+						<LisbethTravel ZoneId="418" Name="Sidurgu" XYZ="104.2344, 14.99999, 40.78735" />
+						<If Condition="IsQuestAcceptQualified(67599)">
+							<LLPickupQuest NpcId="1013969" QuestId="67599" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+					<If Condition="HasQuest(67599)">
+						<If Condition="GetQuestStep(67599) == 1">
+							<LisbethTravel ZoneId="400" Name="Moggie" XYZ="254.1389, -43.16044, 626.3981" />
+							<LLTalkTo NpcId="1012076" XYZ="254.1389, -43.16044, 626.3981" QuestId="67599" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(67599) == 2">
+							<LisbethTravel ZoneId="400" Name="Tussock" XYZ="429.9839, -10.11676, 708.1864" />
+							<UseObject NpcIds="2006346,2006347,2006348,2006349" QuestId="67599" StepId="2">
+								<HotSpots>
+									<HotSpot XYZ="429.9839, -10.11676, 708.1864" Radius="10" />
+									<HotSpot XYZ="346.4866, 0.2593384, 565.6061" Radius="10" />
+									<HotSpot XYZ="312.1842, 17.86829, 718.8982" Radius="10" />
+									<HotSpot XYZ="204.7607, 4.745544, 736.3545" Radius="10" />
+								</HotSpots>
+							</UseObject>
+						</If>
+						<If Condition="GetQuestStep(67599) == 3">
+							<LisbethTravel Area="The Churning Mists" Position="253.5549, -42.94777, 622.5801"/>
+							<HandOver ItemId="2001876" QuestId="67599" StepId="3" NpcId="1012076" XYZ="254.1389, -43.16044, 626.3981" />
+						</If>
+						<If Condition="GetQuestStep(67599) == 4">
+							<LisbethTravel ZoneId="400" Name="Destination" XYZ="173.8459, -22.14087, 160.7843" />
+							<UseObject NpcId="2006350" XYZ="173.8459, -22.14087, 160.7843" Radius="10" QuestId="67599" StepId="4" />
+						</If>
+						<If Condition="GetQuestStep(67599) == 5">
+							<LisbethTravel ZoneId="400" Name="Sidurgu" XYZ="-158.8007, -23.01701, 282.124" />
+							<SimpleDuty InteractNpcId="1015049" XYZ="-158.8007, -23.01701, 282.124" QuestId="67599" StepId="5">
+								<HotSpots>
+									<HotSpot XYZ="-158.8007, -23.01701, 282.124" Radius="90" /> <!-- Observatorium -->
+								</HotSpots>
+								<TargetMobs>
+									<TargetMob Id="4326" Weight="7000" /> <!-- Matted Moogle -->
+									<TargetMob Id="4328" Weight="6000" /> <!-- Melodramatic Moogle -->
+									<TargetMob Id="4327" Weight="5000" /> <!-- Mordacious Moogle -->
+									<TargetMob Id="4329" Weight="4000" /> <!-- Merry Moogle Moogle -->
+									<TargetMob Id="4330" Weight="3000" /> <!-- One-minded Moogle -->
+									<TargetMob Id="4325" Weight="2000" /> <!-- Malcontent Moogle -->
+									<TargetMob Id="4324" Weight="1000" /> <!-- Unmoving Moogle -->
+								</TargetMobs>
+							</SimpleDuty>
+						</If>
+						<If Condition="GetQuestStep(67599) == 6">
+							<LisbethTravel ZoneId="400" Name="Sidurgu" XYZ="-158.1903, -22.96755, 275.8373" />
+							<TalkTo NpcId="1015050" XYZ="-158.1903, -22.96755, 275.8373" QuestId="67599" StepId="6" />
+						</If>
+						<If Condition="GetQuestStep(67599) == 255">
+							<LisbethTravel ZoneId="418" Name="Sidurgu" XYZ="104.2344, 14.99999, 40.78735" />
+							<TurnIn QuestId="67599" NpcId="1013969" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- Absolution -->
+
+			<If Condition="not IsQuestCompleted(67600)">
+				<If Condition="Core.Player.ClassLevel &gt; 59">
+					<If Condition="not HasQuest(67600)">
+						<LisbethTravel ZoneId="418" Name="Sidurgu" XYZ="104.2344, 14.99999, 40.78735" />
+						<If Condition="IsQuestAcceptQualified(67600)">
+							<PickupQuest NpcId="1013969" QuestId="67600" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+					<If Condition="HasQuest(67600)">
+						<If Condition="GetQuestStep(67600) == 1">
+							<LisbethTravel ZoneId="418" Name="Rielle" XYZ="103.4104, 15.00001, 41.30615" />
+							<TalkTo NpcId="1013970" XYZ="103.4104, 15.00001, 41.30615" QuestId="67600" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(67600) == 2">
+							<LisbethTravel ZoneId="397" Name="Sidurgu" XYZ="-347.5243, 91.63155, -558.8312" />
+							<SimpleDuty InteractNpcId="1015052" XYZ="-347.5243, 91.63155, -558.8312" GuardianNPCId="4321" QuestId="67600" StepId="2">
+								<HotSpots>
+									<HotSpot XYZ="-350.4921, 91.25378, -571.5107" Radius="90" />
+								</HotSpots>
+								<TargetMobs>
+									<TargetMob Id="3317" Weight="6000" /> <!-- Ishgardian Archer -->
+									<TargetMob Id="3319" Weight="5000" /> <!-- Ishgardian Banneret -->
+									<TargetMob Id="4333" Weight="4000" /> <!-- Temple Knight Light Infantry -->
+									<TargetMob Id="4322" Weight="3000" /> <!-- Temple Knight Heavy Infantry -->
+									<TargetMob Id="4323" Weight="2000" /> <!-- Well-trained Temple Knight -->
+									<TargetMob Id="4332" Weight="1000" /> <!-- Ystride Godhand -->
+								</TargetMobs>
+							</SimpleDuty>
+						</If>
+						<If Condition="GetQuestStep(67600) == 255">
+							<LisbethTravel ZoneId="418" Name="Sidurgu" XYZ="104.2344, 14.99999, 40.78735" />
+							<TurnIn QuestId="67600" NpcId="1013969" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- In Memories We Walked -->
+
+			<If Condition="not IsQuestCompleted(68451) and IsQuestCompleted(67895)">
+				<If Condition="Core.Player.ClassLevel &gt; 59">
+					<If Condition="not HasQuest(68451)">
+						<LisbethTravel ZoneId="418" XYZ="104.2344, 14.99999, 40.78735" /> <!-- Sidurgu -->
+						<If Condition="IsQuestAcceptQualified(68451)">
+							<LLPickupQuest NpcId="1013969" QuestId="68451" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+					<If Condition="HasQuest(68451)">
+						<If Condition="GetQuestStep(68451) == 1">
+						  <LisbethTravel Zone="419" Subzone="2330" Position="3.874207, 11.96505, 37.32822"/>
+						  <UseObject NpcId="2008659" XYZ="2.5177, 11.94781, 37.00305" QuestId="68451" StepId="1"/>
+						</If>
+						<If Condition="GetQuestStep(68451) == 2">
+							<GetTo ZoneId="418" XYZ="75.39478, 24.07172, -13.59583" /> <!-- Millie -->
+							<TalkTo NpcId="1022855" XYZ="75.39478, 24.07172, -13.59583" QuestId="68451" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(68451) == 3">
+							<GetTo ZoneId="418" XYZ="3.677429, 5.46805, 26.59644" /> <!-- Myste -->
+							<TalkTo NpcId="1022859" XYZ="3.677429, 5.46805, 26.59644" QuestId="68451" StepId="3" />
+						</If>
+						<If Condition="GetQuestStep(68451) == 4">
+							<GetTo ZoneId="418" XYZ="75.39478, 24.07172, -13.59583" /> <!-- Millie -->
+							<TalkTo NpcId="1022855" XYZ="75.39478, 24.07172, -13.59583" QuestId="68451" StepId="4" />
+						</If>
+						<If Condition="GetQuestStep(68451) == 5">
+							<GetTo ZoneId="419" XYZ="31.90649, 15.94562, -65.07977" /> <!-- Destination -->
+							<UseObject NpcId="2008660" XYZ="31.90649, 15.94562, -65.07977" Radius="10" QuestId="68451" StepId="5" />
+						</If>
+						<If Condition="GetQuestStep(68451) == 6">
+							<LisbethTravel ZoneId="397" XYZ="482.2919, 203.4332, 683.2531" /> <!-- Myste -->
+							<TalkTo NpcId="1022862" XYZ="482.2919, 203.4332, 683.2531" QuestId="68451" StepId="6" />
+						</If>
+						<If Condition="GetQuestStep(68451) == 7">
+							<LisbethTravel ZoneId="397" XYZ="384.2068, 170.0774, 419.7909" /> <!-- Myste -->
+							<TalkTo NpcId="1022863" XYZ="384.2068, 170.0774, 419.7909" QuestId="68451" StepId="7" />
+						</If>
+						<If Condition="GetQuestStep(68451) == 8">
+                    		<LisbethTravel ZoneId="397" XYZ="380.0259, 169.7871, 416.5559" /> <!-- Swirling Abyss -->
+							<RunCode Name="In_Memories_We_Walked" />
+						</If>
+						<If Condition="GetQuestStep(68451) == 255">
+							<LisbethTravel ZoneId="397" XYZ="482.0782, 203.4332, 680.7506" /> <!-- Sidurgu -->
+							<TurnIn QuestId="68451" NpcId="1022866" XYZ="482.0782, 203.4332, 680.7506" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- The Widow and Her Love -->
+
+			<If Condition="not IsQuestCompleted(68452)">
+				<If Condition="Core.Player.ClassLevel &gt; 62">
+					<If Condition="not HasQuest(68452)">
+						<LisbethTravel ZoneId="397" XYZ="482.0782, 203.4332, 680.7506" /> <!-- Sidurgu -->
+						<If Condition="IsQuestAcceptQualified(68452)">
+							<PickupQuest NpcId="1022866" QuestId="68452" XYZ="482.0782, 203.4332, 680.7506" />
+						</If>
+					</If>
+					<If Condition="HasQuest(68452)">
+						<If Condition="GetQuestStep(68452) == 1">
+							<LisbethTravel ZoneId="398" XYZ="464.5303, -51.1414, 44.47998" /> <!-- Rielle -->
+							<TalkTo NpcId="1022870" XYZ="464.5303, -51.1414, 44.47998" QuestId="68452" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(68452) == 2">
+							<LisbethTravel ZoneId="398" XYZ="436.942, -51.16351, 98.68005" /> <!-- Destination -->
+							<UseObject NpcId="2008662" XYZ="436.942, -51.16351, 98.68005" Radius="10" QuestId="68452" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(68452) == 3">
+							<LisbethTravel ZoneId="398" XYZ="503.4713, -45.07872, -116.9299" /> <!-- Orthodox Proctor -->
+							<TalkTo NpcId="1022879" XYZ="503.4713, -45.07872, -116.9299" QuestId="68452" StepId="3" />
+							<WaitWhile Condition="GetQuestStep(68452) == 3" />
+						</If>
+						<If Condition="GetQuestStep(68452) == 4">
+							<LisbethTravel ZoneId="398" XYZ="612.8175, -26.251, -436.4539" /> <!-- Myste -->
+							<TalkTo NpcId="1022880" XYZ="612.8175, -26.251, -436.4539" QuestId="68452" StepId="4" />
+						</If>
+						<If Condition="GetQuestStep(68452) == 5">
+							<LisbethTravel ZoneId="398" XYZ="622.8275, -25.46735, -446.4332" /> <!-- Swirling Abyss -->
+							<LLUseSpell SpellId="3632" NpcId="2008663" XYZ="622.8275, -25.46735, -446.4332" QuestId="68452" StepId="5" />
+						</If>
+						<If Condition="GetQuestStep(68452) == 6">
+							<LisbethTravel ZoneId="398" XYZ="617.8529, -25.57793, -446.6163" /> <!-- Myste -->
+							<TalkTo NpcId="1023414" XYZ="617.8529, -25.57793, -446.6163" QuestId="68452" StepId="6" />
+						</If>
+						<If Condition="GetQuestStep(68452) == 255">
+							<LisbethTravel ZoneId="398" XYZ="461.4175, -51.1414, 43.4729" /> <!-- Sidurgu -->
+							<TurnIn QuestId="68452" NpcId="1022885" XYZ="461.4175, -51.1414, 43.4729" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- The Orphans and the Broken Blade -->
+
+			<If Condition="not IsQuestCompleted(68453)">
+				<If Condition="Core.Player.ClassLevel &gt; 64">
+					<If Condition="not HasQuest(68453)">
+						<LisbethTravel ZoneId="398" XYZ="461.4175, -51.1414, 43.4729" /> <!-- Sidurgu -->
+						<If Condition="IsQuestAcceptQualified(68453)">
+							<PickupQuest NpcId="1022885" QuestId="68453" XYZ="461.4175, -51.1414, 43.4729" />
+						</If>
+					</If>
+					<If Condition="HasQuest(68453)">
+						<If Condition="GetQuestStep(68453) == 1">
+							<LisbethTravel ZoneId="400" XYZ="252.5825, -43.12347, 627.0695" /> <!-- Sidurgu -->
+							<TalkTo NpcId="1022888" XYZ="252.5825, -43.12347, 627.0695" QuestId="68453" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(68453) == 2">
+							<LisbethTravel ZoneId="400" XYZ="154.2534, -64.44958, 678.0651" /> <!-- Myste -->
+							<TalkTo NpcId="1022891" XYZ="154.2534, -64.44958, 678.0651" QuestId="68453" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(68453) == 3">
+							<LisbethTravel ZoneId="400" XYZ="252.5825, -43.12347, 627.0695" /> <!-- Sidurgu -->
+							<TalkTo NpcId="1022888" XYZ="252.5825, -43.12347, 627.0695" QuestId="68453" StepId="3" />
+						</If>
+						<If Condition="GetQuestStep(68453) == 4">
+							<LisbethTravel ZoneId="400" XYZ="418.5397, -28.94705, 89.25" /> <!-- Sidurgu -->
+							<TalkTo NpcId="1022893" XYZ="418.5397, -28.94705, 89.25" QuestId="68453" StepId="4" />
+						</If>
+						<While Condition="GetQuestStep(68453) == 5">
+							<LisbethTravel Area="The Churning Mists" Position="-161.9957, -22.91715, 285.967"/>                   		
+							<LLToast message="Please complete The Orphans and the Broken Blade duty manually."/>
+							<WaitTimer WaitTime="26" />
+						</While>
+						<If Condition="GetQuestStep(68453) == 6">
+							<WaitWhile Condition="GetQuestStep(68453) == 6" />
+						</If>
+						<If Condition="GetQuestStep(68453) == 7">
+                    		<LisbethTravel ZoneId="400" XYZ="-160.0214, -22.99542, 283.6194" /> <!-- Swirling Abyss -->
+							<LLUseSpell SpellId="3632" NpcId="2008665" XYZ="-160.0214, -22.99542, 283.6194" QuestId="68453" StepId="7" />
+						</If>
+						<If Condition="GetQuestStep(68453) == 8">
+							<LisbethTravel ZoneId="400" XYZ="-164.5686, -22.88756, 285.7556" /> <!-- Sidurgu -->
+							<TalkTo NpcId="1022900" XYZ="-164.5686, -22.88756, 285.7556" QuestId="68453" StepId="8" />
+						</If>
+						<If Condition="GetQuestStep(68453) == 255">
+							<LisbethTravel ZoneId="400" XYZ="253.0708, -43.13636, 626.8864" /> <!-- Sidurgu -->
+							<TurnIn QuestId="68453" NpcId="1022953" XYZ="253.0708, -43.13636, 626.8864" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- We Can Never Go Home -->
+
+			<If Condition="not IsQuestCompleted(68454)">
+				<If Condition="Core.Player.ClassLevel &gt; 67">
+					<If Condition="not HasQuest(68454)">
+						<LisbethTravel ZoneId="400" XYZ="252.6436, -43.03291, 625.0857" /> <!-- Myste -->
+						<If Condition="IsQuestAcceptQualified(68454)">
+							<PickupQuest NpcId="1022892" QuestId="68454" XYZ="252.6436, -43.03291, 625.0857" />
+						</If>
+					</If>
+					<If Condition="HasQuest(68454)">
+						<If Condition="GetQuestStep(68454) == 1">
+							<LisbethTravel ZoneId="612" XYZ="-620.5692, 130, -527.5807" /> <!-- Myste -->
+							<TalkTo NpcId="1022890" XYZ="-620.5692, 130, -527.5807" QuestId="68454" StepId="1" />
+						</If>
+						<If Condition="GetQuestStep(68454) == 2">
+							<LisbethTravel Area="The Fringes" Position="-278.24, 72.19607, -683.2724"/>
+							<TalkTo NpcId="1022902" XYZ="-359.5178, 63.3675, -727.9316" QuestId="68454" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(68454) == 3">
+							<LisbethTravel ZoneId="612" XYZ="-276.7529, 74.50722, -695.8572" /> <!-- Houdart -->
+							<TalkTo NpcId="1022904" XYZ="-276.7529, 74.50722, -695.8572" QuestId="68454" StepId="3" />
+						</If>
+						<If Condition="GetQuestStep(68454) == 4">
+							<LisbethTravel ZoneId="612" XYZ="25.10107, 54.83547, -533.0435" /> <!-- Houdart -->
+							<TalkTo NpcId="1022905" XYZ="25.10107, 54.83547, -533.0435" QuestId="68454" StepId="4" />
+						</If>
+						<If Condition="GetQuestStep(68454) == 5">
+							<LisbethTravel ZoneId="612" XYZ="182.8794, 54.52025, -491.5694" /> <!-- Houdart -->
+							<TalkTo NpcId="1022908" XYZ="182.8794, 54.52025, -491.5694" QuestId="68454" StepId="5" />
+						</If>
+						<If Condition="GetQuestStep(68454) == 6">
+							<LisbethTravel ZoneId="612" XYZ="301.3198, 56.41936, -470.0847" /> <!-- Houdart -->
+							<TalkTo NpcId="1022910" XYZ="301.3198, 56.41936, -470.0847" QuestId="68454" StepId="6" />
+						</If>
+						<If Condition="GetQuestStep(68454) == 7">
+							<LisbethTravel ZoneId="612" XYZ="383.6575, 65.51434, -539.4217" /> <!-- Myste -->
+							<TalkTo NpcId="1022911" XYZ="383.6575, 65.51434, -539.4217" QuestId="68454" StepId="7" />
+						</If>
+						<If Condition="GetQuestStep(68454) == 8">
+                    		<LisbethTravel ZoneId="612" XYZ="386.9534, 65.53748, -540.9171" /> <!-- Swirling Abyss -->
+							<LLUseSpell SpellId="3632" NpcId="2008667" XYZ="386.9534, 65.53748, -540.9171" QuestId="68454" StepId="8" />
+						</If>
+						<If Condition="GetQuestStep(68454) == 9">
+							<LisbethTravel ZoneId="635" XYZ="0.05746084, 3.87704, -76.70002" /> <!-- Destination -->
+							<EmoteNPC NpcId="2008668" Emote="respect" XYZ="-0.04577637, 5.81366, -77.59222" Radius="10" QuestId="68454" StepId="9" />
+						</If>
+						<If Condition="GetQuestStep(68454) == 255">
+							<LisbethTravel ZoneId="418" XYZ="104.2344, 14.99999, 40.78735" /> <!-- Sidurgu -->
+							<TurnIn QuestId="68454" NpcId="1013969" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+				</If>
+			</If>
+
+			<!-- Our Compromise -->
+
+			<If Condition="not IsQuestCompleted(68455)">
+				<If Condition="Core.Player.ClassLevel &gt; 69">
+					<If Condition="not HasQuest(68455)">
+						<LisbethTravel ZoneId="418" XYZ="104.2344, 14.99999, 40.78735" /> <!-- Sidurgu -->
+						<If Condition="IsQuestAcceptQualified(68455)">
+							<PickupQuest NpcId="1013969" QuestId="68455" XYZ="104.2344, 14.99999, 40.78735" />
+						</If>
+					</If>
+					<If Condition="HasQuest(68455)">
+						<While Condition="GetQuestStep(68455) == 1">
+							<LisbethTravel ZoneId="635" XYZ="-38.77325, 18.82157, 146.807" /> <!-- Resistance Guard -->
+							<TalkTo NpcId="1022915" XYZ="-38.77325, 18.82157, 146.807" QuestId="68455" StepId="1" />
+							<TalkTo NpcId="1022916" XYZ="-57.72491, -0.07119644, -40.14648" QuestId="68455" StepId="1" />
+							<TalkTo NpcId="1019486" XYZ="-116.7468, 0.6342248, -55.83282" QuestId="68455" StepId="1" />
+						</While>
+						<If Condition="GetQuestStep(68455) == 2">
+							<LisbethTravel ZoneId="635" XYZ="112.7489, 0.6520417, -9.414856" /> <!-- Sidurgu -->
+							<TalkTo NpcId="1022914" XYZ="112.7489, 0.6520417, -9.414856" QuestId="68455" StepId="2" />
+						</If>
+						<If Condition="GetQuestStep(68455) == 3">
+							<LisbethTravel ZoneId="620" XYZ="-553.7042, 46.75543, -669.9474" /> <!-- Sidurgu -->
+							<TalkTo NpcId="1022922" XYZ="-553.7042, 46.75543, -669.9474" QuestId="68455" StepId="3" />
+						</If>
+						<If Condition="GetQuestStep(68455) == 4">
+							<LisbethTravel ZoneId="620" XYZ="-387.9607, 51.83484, -626.3676" /> <!-- Destination -->
+							<UseObject NpcId="2008669" XYZ="-387.9607, 51.83484, -626.3676" Radius="10" QuestId="68455" StepId="4" />
+						</If>
+						<If Condition="GetQuestStep(68455) == 5">
+                    		<LisbethTravel ZoneId="620" XYZ="-624.7196, 58.3448, -484.4893" /> <!-- Sidurgu -->
+							<SimpleDuty InteractNpcId="1023073" XYZ="-624.7196, 58.3448, -484.4893" QuestId="68455" StepId="5">
+								<HotSpots>
+									<HotSpot XYZ="-617.5602, 58.71369, -474.0806" Radius="90" />
+								</HotSpots>
+								<TargetMobs>
+									<TargetMob Id="6306" Weight="19000" /> <!-- Impenetrable Veil -->
+									<TargetMob Id="4131" Weight="18000" /> <!-- Ser Paulecrain Coldfire -->
+									<TargetMob Id="6318" Weight="17000" /> <!-- Ser Hermenost the Levinlight -->
+									<TargetMob Id="6317" Weight="16000" /> <!-- Ser Ignasse of the Dragon's Tail -->
+									<TargetMob Id="6319" Weight="15000" /> <!-- Ser Guerrique the Cleaver -->
+									<TargetMob Id="3850" Weight="14000" /> <!-- Ser Grinnaux the Bull -->
+									<TargetMob Id="6314" Weight="13000" /> <!-- Ser Noudenet the Wise -->
+									<TargetMob Id="4142" Weight="12000" /> <!-- Ser Charibert the Stern -->
+									<TargetMob Id="6315" Weight="11000" /> <!-- Ser Haumeric the Valiant -->
+									<TargetMob Id="3849" Weight="10000" /> <!-- Ser Adelphel Brightblade -->
+									<TargetMob Id="6313" Weight="9000" /> <!-- Ser Janlenoux of the Steel Oath -->
+									<TargetMob Id="5244" Weight="8000" /> <!-- Magus of Darkness -->
+									<TargetMob Id="5242" Weight="7000" /> <!-- Ranger of Darkness -->
+									<TargetMob Id="5243" Weight="6000" /> <!-- Devout of Darkness -->
+									<TargetMob Id="5241" Weight="5000" /> <!-- Knight of Darkness -->
+									<TargetMob Id="5240" Weight="4000" /> <!-- Warrior of Darkness -->
+									<TargetMob Id="6320" Weight="3000" /> <!-- Very Reverend Archimandrite Ser Zephirin -->
+									<TargetMob Id="6304" Weight="2000" /> <!-- Hollow Temple Knight -->
+									<TargetMob Id="4332" Weight="1000" /> <!-- Ystride Godhand -->
+								</TargetMobs>
+							</SimpleDuty>
+						</If>
+						<If Condition="GetQuestStep(68455) == 6">
+							<WaitWhile Condition="GetQuestStep(68455) == 6" />
+						</If>
+						<If Condition="GetQuestStep(68455) == 7">
+							<LisbethTravel ZoneId="418" XYZ="104.2344, 14.99999, 40.78735" /> <!-- Sidurgu -->
+							<TalkTo NpcId="1013969" XYZ="104.2344, 14.99999, 40.78735" QuestId="68455" StepId="7" />
+						</If>
+						<If Condition="GetQuestStep(68455) == 255">
+							<LisbethTravel ZoneId="419" XYZ="2.670288, 11.94781, 36.97253" /> <!-- Where It All Began -->
+							<TurnIn QuestId="68455" NpcId="2008885" XYZ="2.670288, 11.94781, 36.97253" />
+						</If>
+					</If>
+				</If>
+			</If>
+ 
+  </Order>
+  <GrindAreas>
+    <GrindArea name="GrindArea1">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="164.1248, -9.234932, -73.10934" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2080" Weight="1"/> <!-- Ishgardian Banneret -->
+        <TargetMob Id="2076" Weight="1"/> <!-- Ishgardian Heavy Infantry -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="GrindArea2">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="90.28759, -4.73493, -47.76824" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2080" Weight="1"/> <!-- Ishgardian Banneret -->
+        <TargetMob Id="2076" Weight="1"/> <!-- Ishgardian Heavy Infantry -->
+        <TargetMob Id="2077" Weight="100"/> <!-- Ishgardian Chirurgeon -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="GrindArea3">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="79.74705, 10.19437, -102.1645" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2076" Weight="1"/> <!-- Ishgardian Heavy Infantry -->
+        <TargetMob Id="2077" Weight="100"/> <!-- Ishgardian Chirurgeon -->
+        <TargetMob Id="4258" Weight="1"/> <!-- Pernicious Temple Knight -->
+        <TargetMob Id="2080" Weight="1"/> <!-- Ishgardian Banneret -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="GrindArea4">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="107.7702, 14.95312, -139.5868" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2080" Weight="1"/> <!-- Ishgardian Banneret -->
+        <TargetMob Id="4258" Weight="10"/> <!-- Pernicious Temple Knight -->
+        <TargetMob Id="2077" Weight="100"/> <!-- Ishgardian Chirurgeon -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="67592">
+		<HotSpots>
+			<HotSpot XYZ="-118.1438, -30.04902, 289.336" Radius="90" />
+		</HotSpots>
+		<TargetMobs>
+			<TargetMob Id="4261" Weight="4000" /> <!-- Bloodshower Atabb Chah -->
+			<TargetMob Id="4262" Weight="3000" /> <!-- Gore Horde Battle Drake -->
+			<TargetMob Id="4260" Weight="2000" /> <!-- Gore Horde Thaumaturge -->
+			<TargetMob Id="1724" Weight="1000" /> <!-- Gore Horde Lancer -->
+		</TargetMobs>	
+    </GrindArea>	
+		<GrindArea name="The_Wages_of_Mercy">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-824.979, 243.968, -215.8694" name="Dishonored Temple Knights" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="4123" /> <!-- Dishonored Temple Knight -->
+			</TargetMobs>
+			<MinLevel>50</MinLevel>
+			<MaxLevel>61</MaxLevel>
+		</GrindArea>
+		<GrindArea name="The_Knight_and_the_Maiden_Fair">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-377.6918, -183.4834, 672.1146" name="Gastornises" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3495" /> <!-- Gastornis -->
+			</TargetMobs>
+			<MinLevel>52</MinLevel>
+			<MaxLevel>61</MaxLevel>
+		</GrindArea>
+		<GrindArea name="67597">
+			<HotSpots>
+				<HotSpot XYZ="220.1344, 272.0105, -30.70902" Radius="90" /> <!-- Observatorium -->
+				<HotSpot XYZ="222.1382, 264.4708, 37.11526" Radius="90" /> <!-- Observatorium -->
+				<HotSpot XYZ="228.1077, 252.3057, 119.1426" Radius="90" /> <!-- Observatorium -->
+				<HotSpot XYZ="219.2155, 242.1073, 213.7737" Radius="90" /> <!-- Observatorium -->
+				<HotSpot XYZ="223.5645, 221.7773, 288.9505" Radius="90" /> <!-- Observatorium -->
+			</HotSpots>
+			<TargetMobs>
+				<TargetMob Id="3317" Weight="4000" /> <!-- Ishgardian Archer -->
+				<TargetMob Id="3318" Weight="3000" /> <!-- Ishgardian Light Infantry -->
+				<TargetMob Id="4323" Weight="2000" /> <!-- Well-trained Temple Knight -->
+				<TargetMob Id="4322" Weight="1000" /> <!-- Temple Knight Heavy Infantry -->
+			</TargetMobs>	
+		</GrindArea>			
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="DutyCommence">
+      <![CDATA[
+        Logging.Write("Commencing duty.");
+        uint[] npcIds = { 1014883,1014896,1015039,1022897 };
+        var dutyNpc = GameObjectManager.GameObjects.Where(r => r.IsTargetable && npcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+        while (Core.Me.Location.Distance2D(dutyNpc.Location) > 1.5f)
+        {
+          await Coroutine.Yield();
+          Navigator.PlayerMover.MoveTowards(dutyNpc.Location);
+        }
+        Navigator.PlayerMover.MoveStop();
+        dutyNpc.Interact();
+        await Coroutine.Wait(5000, () => Talk.DialogOpen || DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen);
+        while (!(DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen))
+        {
+          Talk.Next();
+          await Coroutine.Yield();
+        }
+        await Coroutine.Wait(5000, () => DifficultySelectYesNo.IsOpen || SelectYesno.IsOpen);
+        if (DifficultySelectYesNo.IsOpen) { DifficultySelectYesNo.Proceed(2); }
+        else if (SelectYesno.IsOpen) { SelectYesno.Yes(); }
+        else
+        {
+         Logging.Write("Duty window didn't open.");
+         TreeRoot.Stop();
+        }
+        await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
+        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        while (QuestLogManager.InCutscene)
+        {
+          ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
+          if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
+          if (Talk.DialogOpen) { Talk.Next(); }
+          await Coroutine.Yield();
+        }
+        await Coroutine.Wait(2000, () => CommonBehaviors.IsLoading);
+        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        await Coroutine.Wait(10000, () => !Core.Me.HasAura(1268));
+        Logging.Write("Duty commenced.");
+        await Coroutine.Sleep(1500);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Handle_Cutscene_Talking">
+      <![CDATA[
+        await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading || QuestLogManager.InCutscene);
+        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        while (QuestLogManager.InCutscene || Talk.DialogOpen || CommonBehaviors.IsLoading)
+        {
+          ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
+          if (ff14bot.RemoteAgents.AgentCutScene.Instance.CanSkip && SelectString.IsOpen) { SelectString.ClickSlot(0); }
+          if (Talk.DialogOpen) { Talk.Next(); }
+          await Coroutine.Yield();
+        }
+        await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        await Coroutine.Wait(10000, () => !Core.Me.HasAura(1268));
+        await Coroutine.Sleep(3000);
+      ]]>
+    </CodeChunk>
+		<CodeChunk Name="In_Memories_We_Walked">
+			<![CDATA[ 
+				GameObject target;
+
+				await Coroutine.Sleep(1000);
+				target = GameObjectManager.GetObjectByNPCId(2008661);
+
+				target.Target();
+
+				await Coroutine.Sleep(1000);
+				ActionManager.DoAction(3632,target);
+				await Coroutine.Sleep(20000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(2000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(1000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(8000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(5000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(2000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(1000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(2000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(1000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(2000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(1000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(1000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(2000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(3000);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+					ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+				await Coroutine.Sleep(8000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(2000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(3000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(1000);
+				ff14bot.RemoteWindows.Talk.Next();
+				await Coroutine.Sleep(12000);
+			]]>
+		</CodeChunk>
+        <CodeChunk Name="The_Orphans_and_the_Broken_Blade">
+            <![CDATA[ 
+                while (ConditionParser.GetQuestStep(68453) == 5)
+                {
+                    System.Windows.Media.Color textColor = System.Windows.Media.Color.FromRgb(29,213,226);
+                    System.Windows.Media.Color shadowColor = System.Windows.Media.Color.FromRgb(13,106,175);
+                    Core.OverlayManager.AddToast(() => "[Class and Job Quests]\nPlease manually complete The Orphans and the Broken Blade duty!", TimeSpan.FromMilliseconds(25000), textColor, shadowColor, new System.Windows.Media.FontFamily("Gautami"));
+                    await Coroutine.Sleep(26000);
+                }
+            ]]>
+        </CodeChunk>
+        <CodeChunk Name="In_Thals_Name">
+            <![CDATA[ 
+                while (ConditionParser.GetQuestStep(68108) == 2)
+                {
+                    System.Windows.Media.Color textColor = System.Windows.Media.Color.FromRgb(29,213,226);
+                    System.Windows.Media.Color shadowColor = System.Windows.Media.Color.FromRgb(13,106,175);
+                    Core.OverlayManager.AddToast(() => "[Class and Job Quests]\nPlease manually complete the In Thal's Name duty!", TimeSpan.FromMilliseconds(25000), textColor, shadowColor, new System.Windows.Media.FontFamily("Gautami"));
+                    await Coroutine.Sleep(26000);
+                }
+            ]]>
+        </CodeChunk>
+        <CodeChunk Name="Raising_the_Sword">
+            <![CDATA[ 
+                while (ConditionParser.GetQuestStep(68111) == 1)
+                {
+                    System.Windows.Media.Color textColor = System.Windows.Media.Color.FromRgb(29,213,226);
+                    System.Windows.Media.Color shadowColor = System.Windows.Media.Color.FromRgb(13,106,175);
+                    Core.OverlayManager.AddToast(() => "[Class and Job Quests]\nPlease manually complete the Raising the Sword duty!", TimeSpan.FromMilliseconds(25000), textColor, shadowColor, new System.Windows.Media.FontFamily("Gautami"));
+                    await Coroutine.Sleep(26000);
+                }
+            ]]>
+        </CodeChunk>		
+  </CodeChunks>
+</Profile>  

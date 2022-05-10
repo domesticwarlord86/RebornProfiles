@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Deltascape V3.0
+  Authors: DomesticWarlord86
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Deltascape V3.0</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<LLToast message="Do not run this afk. It can't handle the rift if you get sucked in."/>
+	
+	<While condition="not HasAtLeast(33760,30)">
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="254" Undersized="False"/>
+		</If>
+		
+		<If condition="DutyManager.InInstance">
+
+			<!-- Defeat Halicarnassus 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Defeat Halicarnassus" />
+				<WaitWhile Condition="not IsPartyInCombat() or GetInstanceTodo(0) == 1"/>
+				<NoCombatMoveTo XYZ="-0.1679077,0,-1.602234" />
+				<Grind GrindRef="Halicarnassus" while="GetInstanceTodo(0) == 0"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="71.29106, -8.999998, -63.49583" />
+					<LLOpenChest/>
+				</If>
+				<While condition="DutyManager.InInstance">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>			
+			</If>
+		</If>
+		
+	</While>
+  </Order>
+  <GrindAreas>	
+    <GrindArea name="Halicarnassus">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="0.3182081, 0, 12.40864" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="5633" Weight="1"/> <!-- Halicarnassus -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>
