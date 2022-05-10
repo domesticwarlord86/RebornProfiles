@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skywind I - Dungeons
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skywind I - Dungeons</Name>  
+	<Order>
+		
+		<!-- Book of Skywind I Dungeon Task 1 - Sastasha -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed">
+			<Log Message="Moving to Skywind I - Sastasha" />
+			<LLoadProfile Path="../../Dungeons/Sastasha.xml"/>
+		</If>
+
+		<!-- Book of Skywind I Dungeon Task 2 - The Aurum Vale -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask2Completed">
+			<Log Message="Moving to Skywind I - The Aurum Vale" />
+			<LLoadProfile Path="../../Dungeons/The Aurum Vale.xml"/>
+		</If>
+
+		<!-- Book of Skywind I Dungeon Task 3 - Halatali (Hard) -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask3Completed">
+			<Log Message="Moving to Skywind I - Halatali (Hard)" />
+			<LLoadProfile Path="../../Dungeons/Halatali (Hard).xml"/>
+		</If>		
+		
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+</Profile>	

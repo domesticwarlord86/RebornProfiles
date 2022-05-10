@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Netherfall I - Enemies
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Netherfall I - Enemies</Name>  
+	<Order>
+
+		<!-- Book of Netherfall I Kill Task 1 - Amalj'aa Brigands  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask1Completed">
+			<Log Message="Moving to Netherfall I Kill Task 1 - Amalj'aa Brigands" />
+			<GetTo ZoneId="146" XYZ="-3.745054, 0.7594087, 5.078081"/>
+			<Grind grindRef="amaljaa_brigands" while="not ZodiacManager.CurrentBook.KillTask1Completed"  />
+		</If>
+
+		<!-- Book of Netherfall I Kill Task 2 - Lesser Kalong  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask2Completed">
+			<Log Message="Moving to Netherfall I Kill Task 2 - Lesser Kalong" />
+			<GetTo ZoneId="153" XYZ="485.4888, 2.080518, 189.812"/>
+			<Grind grindRef="lesser_kalong" while="not ZodiacManager.CurrentBook.KillTask2Completed" />
+		</If>
+
+		<!-- Book of Netherfall I Kill Task 3 - 5th Cohort Laquearius  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask3Completed">
+			<Log Message="Moving to Netherfall I Kill Task 3 - 5th Cohort Laquearius" />
+			<GetTo ZoneId="156" XYZ="-573.4131, -3.216822, -367.8392"/>
+			<Grind grindRef="5th_cohort_laquearius" while="not ZodiacManager.CurrentBook.KillTask3Completed" />
+		</If>
+
+		<!-- Book of Netherfall I Kill Task 4 - Gigas Sozu  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask4Completed">
+			<Log Message="Moving to Netherfall I Kill Task 4 - Gigas Sozu" />
+			<GetTo ZoneId="156" XYZ="417.8625, -20.44069, -319.9958"/>
+			<Grind grindRef="gigas_sozu" while="not ZodiacManager.CurrentBook.KillTask4Completed" />
+		</If>		
+	
+		<!-- Book of Netherfall I Kill Task 5 - Snow Wolf  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask5Completed">
+			<Log Message="Moving to Netherfall I Kill Task 5 - Snow Wolf" />
+			<GetTo ZoneId="155" XYZ="-289.3058, 225.5007, 506.2119"/>
+			<Grind grindRef="snow_wolf" while="not ZodiacManager.CurrentBook.KillTask5Completed" />
+		</If>
+		
+		<!-- Book of Netherfall I Kill Task 6 - Ixali Windtalon  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask6Completed">
+			<Log Message="Moving to Netherfall I Kill Task 6 - Ixali Windtalon" />
+			<GetTo ZoneId="154" XYZ="-68.10075, -7.5297, -68.04372"/>
+			<Grind grindRef="ixali_windtalon" while="not ZodiacManager.CurrentBook.KillTask6Completed" />
+		</If>
+
+		<!-- Book of Netherfall I Kill Task 7 - U'Ghamaro Priest  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask7Completed">
+			<Log Message="Moving to Netherfall I Kill Task 7 - U'Ghamaro Priest" />
+			<GetTo ZoneId="180" XYZ="105.7958, 30.00264, -596.8221"/>
+			<Grind grindRef="ughamaro_priest" while="not ZodiacManager.CurrentBook.KillTask7Completed" />
+		</If>
+
+		<!-- Book of Netherfall I Kill Task 8 - 4th Cohort Secutor  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask8Completed">
+			<Log Message="Moving to Netherfall I Kill Task 8 - 4th Cohort Secutor" />
+			<GetTo ZoneId="140" XYZ="-491.8698, 50.82766, -740.774"/>
+			<Grind grindRef="4th_cohort_secutor" while="not ZodiacManager.CurrentBook.KillTask8Completed"  />
+		</If>		
+		
+		<!-- Book of Netherfall I Kill Task 9 - Violet Screech  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask9Completed">
+			<Log Message="Moving to Netherfall I Kill Task 9 - Violet Screech" />
+			<GetTo ZoneId="152" XYZ="162.1662, -26.22989, -523.1898"/>
+			<Grind grindRef="violet_screech" while="not ZodiacManager.CurrentBook.KillTask9Completed" />
+		</If>
+
+		<!-- Book of Netherfall I Kill Task 10 - Sapsa Shelfclaws  -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask10Completed">
+			<Log Message="Moving to Netherfall I Kill Task 10 - Sapsa Shelfclaws" />
+			<GetTo ZoneId="138" XYZ="-319.3304, -40.07308, -310.6129"/>
+			<Grind grindRef="sapsa_shelfclaws" while="not ZodiacManager.CurrentBook.KillTask10Completed"  />
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+	<GrindAreas>
+		<GrindArea name="amaljaa_brigands"> <!-- Kill Task 1 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-3.745054, 0.7594087, 5.078081" name="amaljaa_brigands" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1388"  />
+			</TargetMobs>
+		</GrindArea>	
+		<GrindArea name="lesser_kalong"> <!-- Kill Task 2 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="488.323, 2.868329, 190.6141" name="lesser_kalong" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="112"  />
+			</TargetMobs>
+		</GrindArea>	
+		<GrindArea name="5th_cohort_laquearius"> <!-- Kill Task 3 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-575.4393, -3.216822, -369.9198" />
+				<Hotspot Radius="500" XYZ="-534.237, -3.216822, -318.9327" />
+				<Hotspot Radius="500" XYZ="-483.481, -3.216822, -259.9288" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1810"  />
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="gigas_sozu"> <!-- Kill Task 4 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="419.1785, -20.68425, -317.7822" name="gigas_sozu" />
+				<Hotspot Radius="500" XYZ="354.1102, -16.60675, -409.7625" name="gigas_sozu" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="648"  /> 
+			</TargetMobs>
+		</GrindArea>		
+		<GrindArea name="snow_wolf"> <!-- Kill Task 5 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-291.318, 225.9218, 508.243" name="snow_wolf" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="653"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="ixali_windtalon"> <!-- Kill Task 6 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-70.89735, -7.248418, -68.06041" name="ixali_windtalon" />
+				<Hotspot Radius="500" XYZ="-40.36043, -8.698025, -144.4224" name="ixali_windtalon" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="436"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="ughamaro_priest"> <!-- Kill Task 7 -->
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="83.35999,41.08832,-571.6793" />
+				<Hotspot Radius="200" XYZ="19.97242, 24.5698, -616.7052" />
+				<Hotspot Radius="200" XYZ="14.42631, 22.65992, -656.0297" />
+				<Hotspot Radius="200" XYZ="79.60114, 23.52864, -710.6172" />
+				<Hotspot Radius="200" XYZ="65.52055, 23.82773, -715.8804" />
+				<Hotspot Radius="200" XYZ="25.91615, 21.49989, -774.8596" />
+				<Hotspot Radius="200" XYZ="116.4779, 22.83719, -779.9639" />
+				<Hotspot Radius="200" XYZ="116.4779, 22.83719, -779.9639" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="U'Ghamaro Priest" Id="1835" Weight="1" />	 
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="4th_cohort_secutor"> <!-- Kill Task 8 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-491.8698, 50.82766, -740.774" name="4th_cohort_secutor" />
+				<Hotspot Radius="500" XYZ="-562.5356, 52.8757, -776.7039" name="4th_cohort_secutor" />
+				<Hotspot Radius="500" XYZ="-624.0379, 58.60828, -780.9974" name="4th_cohort_secutor" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1818"  />
+			</TargetMobs>
+		</GrindArea>		
+		<GrindArea name="violet_screech"> <!-- Kill Task 9 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="161.1987, -26.37445, -525.7709" name="violet_screech" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="2319"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="sapsa_shelfclaws"> <!-- Kill Task 10 -->
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-319.884, -39.90997, -308.1144" name="sapsa_shelfclaws" />
+				<Hotspot Radius="500" XYZ="-285.6635, -41.53589, -351.9409" name="sapsa_shelfclaws" />
+				<Hotspot Radius="500" XYZ="-428.9144, -33.26187, -349.9319" name="sapsa_shelfclaws" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1828"  />
+			</TargetMobs>
+		</GrindArea>		
+	</GrindAreas>
+</Profile>	

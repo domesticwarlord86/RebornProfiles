@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Don't Forget to Cry Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Don't Forget to Cry Leve</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(645)">
+				<GetTo ZoneId="147" XYZ="33.91326, 4.68145, 399.2563"/>
+				<ExPickupGuildLeve leveIds="645" leveType="Battlecraft" npcId="1002398" npcLocation="33.91326, 4.68145, 399.2563" Timeout="5" /> <!-- Necrologos: Pale Oblation -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(645)">
+					<ExPickupGuildLeve leveIds="644" leveType="Battlecraft" npcId="1002398" npcLocation="33.91326, 4.68145, 399.2563" Timeout="5" /> <!-- Circling the Ceruleum -->
+				</If>	
+			</If>	
+
+			<!-- Don't Forget to Cry -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(645)">
+				<GetTo ZoneId="147" XYZ="7.94269, 4.983315, 285.5678"/>
+				<InitiateLeve LeveId="645"/> <!-- Don't Forget to Cry -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="DontForgettoCry" While="not HasAtLeast(2000872,6)"/> 
+				<UseItem InCombat="True" Radius="200" ItemId="2000872" NpcIds="2000610" XYZ="7.94269, 4.983315, 285.5678" condition="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/>
+				<WaitTimer WaitTime="3" />
+				<ExTurnInGuildLeve NpcId="1002398" NpcLocation="33.91326, 4.68145, 399.2563"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+
+
+			<!-- Necrologos: Pale Oblation -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(644)">
+				<GetTo ZoneId="147" XYZ="45.68184, 7.582094, 344.8144"/>
+				<InitiateLeve LeveId="644"/> 
+				<While condition="DirectorManager.ActiveDirector.GetTodoArgs(1).Item1 &lt; DirectorManager.ActiveDirector.GetTodoArgs(1).Item2">
+					<UseObject Radius="500" InCombat="true" XYZ="5.107096, 2.950484, 312.0914" NpcIds="2001098" UseTimes="1"/>
+					<WaitTimer WaitTime="5" />
+				</While>
+				<WaitTimer WaitTime="7" />	
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1002398" NpcLocation="33.91326, 4.68145, 399.2563"/>
+				<LLoadProfile Path="../../Start.xml"/>
+			</If>
+	
+
+
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="VoidSlave">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-7.641754, 3.0246, 359.4961" />
+			<Hotspot Radius="200" XYZ="30.55565, 6.980818, 324.5174" />
+			<Hotspot Radius="200" XYZ="14.06814, 6.060303, 273.8956" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Void Slave" Id="1737" Weight="1" />
+			<TargetMob Name="Fernehalwes" Id="1008" Weight="2" />		
+        </TargetMobs>		
+	</GrindArea> 
+ 	<GrindArea name="DontForgettoCry">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-7.641754, 3.0246, 359.4961" />
+			<Hotspot Radius="200" XYZ="30.55565, 6.980818, 324.5174" />
+			<Hotspot Radius="200" XYZ="14.06814, 6.060303, 273.8956" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Balor's Bell" Id="1738" Weight="1" />
+			<TargetMob Name="Fernehalwes" Id="1008" Weight="2" />	
+        </TargetMobs>		
+	</GrindArea> 	
+  </GrindAreas>
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }		
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

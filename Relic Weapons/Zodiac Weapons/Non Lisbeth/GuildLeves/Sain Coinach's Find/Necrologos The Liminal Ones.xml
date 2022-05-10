@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Necrologos: The Liminal Ones Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Necrologos: The Liminal Ones</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(657)">
+				<GetTo ZoneId="156" XYZ="420.7729, -5.853507, -443.9117"/>
+				<ExPickupGuildLeve leveIds="657" leveType="Battlecraft" npcId="1004348" npcLocation="415.9761,-6.061038,-444.419" Timeout="5" /> <!-- Necrologos: The Liminal Ones -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(657)">
+					<ExPickupGuildLeve leveIds="656" leveType="Battlecraft" npcId="1004348" npcLocation="415.9761,-6.061038,-444.419" Timeout="5" /> <!-- Turnabout's Fair Play -->
+				</If>
+			</If>	
+
+			<!-- Necrologos: The Liminal Ones -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(657)">
+				<GetTo ZoneId="156" XYZ="109.913, -5.043104, -496.5076"/>
+				<InitiateLeve LeveId="657"/> 
+				<WaitTimer WaitTime="2" />
+				<While condition="not GameObjectManager.GetObjectByNPCId(1769)">
+					<UseObject Radius="500" XYZ="103.42, -5.008227, -492.581" NpcId="2001098" UseTimes="1"/>
+					<WaitTimer WaitTime="3" />
+				</While>	
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="Denizen" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 				
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1004348" NpcLocation="415.9761,-6.061038,-444.419"/>
+				<LLoadProfile Path="../../Start.xml"/>
+			</If>
+
+
+			<!-- Turnabout's Fair Play -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(656)">
+				<GetTo ZoneId="156" XYZ="131.4192, -15.22016, -455.426"/>
+				<InitiateLeve LeveId="656"/> <!-- Turnabout's Fair Play -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="TurnaboutsFairPlay" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1004348" NpcLocation="415.9761,-6.061038,-444.419"/>
+				<LLoadProfile Path="../../Start.xml"/>			
+			</If>
+			
+
+	</Order>
+  <GrindAreas> 
+    <GrindArea name="Denizen">
+      <Hotspots>
+        <Hotspot Radius="500" XYZ="103.42, -5.008227, -492.581"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1769" Weight="1"/> <!-- Denizen of the Dark -->		
+      </TargetMobs>
+    </GrindArea>
+ 	<GrindArea name="TurnaboutsFairPlay">
+        <Hotspots>
+			<Hotspot Radius="500" XYZ="131.5322, -14.72913, -461.6263" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Beggar Shramana" Id="1767" Weight="1" />
+			<TargetMob Name="Beggar Bonze" Id="1766" Weight="1" />
+        </TargetMobs>		
+	</GrindArea>
+  </GrindAreas>	
+  <CodeChunks>
+    <CodeChunk Name="Announce_Manual_Completion">
+		<![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please complete 'Necrologos: The Liminal Ones' manually then reload the Start profile.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		]]>
+	</CodeChunk>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }			
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

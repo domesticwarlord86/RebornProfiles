@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Whitebrim Leves
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Whitebrim Leves</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(873)">
+				<GetTo ZoneId="156" XYZ="461.1251, -4.846787, -472.2902"/>
+				<ExPickupGuildLeve leveIds="873" leveType="Immortal" npcId="1007070" npcLocation="464.5914,-4.057395,-467.4297" Timeout="5" /> <!-- Who Writes History -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(873)">
+					<ExPickupGuildLeve leveIds="875" leveType="Immortal" npcId="1007070" npcLocation="464.5914,-4.057395,-467.4297" Timeout="5" /> <!-- The Museum Is Closed -->				
+				</If>
+			</If>	
+
+			<!-- The Museum Is Closed -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(875)">
+				<GetTo ZoneId="156" XYZ="113.1463, -7.640484, -475.4178"/>
+				<InitiateLeve LeveId="875"/> <!-- The Museum Is Closed -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="TheMuseumIsClosed" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007070" NpcLocation="464.5914,-4.057395,-467.42973"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+
+			<!-- Who Writes History -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(873)">		
+				<GetTo ZoneId="156" XYZ="128.5103, -11.9817, -477.0197"/>
+				<InitiateLeve LeveId="873"/> <!-- Who Writes History -->	
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="WhoWritesHistory" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007070" NpcLocation="464.5914,-4.057395,-467.42973"/>
+				<LLoadProfile Path="../../Start.xml"/>					
+			</If>			
+		
+
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="WhoWritesHistory">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="128.8596, -12.77839, -470.5652" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Okeanos the Red" Id="1792" Weight="1" />			
+        </TargetMobs>		
+	</GrindArea>
+ 	<GrindArea name="TheMuseumIsClosed">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="141.1448, -14.39411, -475.5962" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Foul River Hapalit" Id="1770" Weight="1" />
+			<TargetMob Name="Hippogryph Pup" Id="1775" Weight="1" />
+			<TargetMob Name="Lightning Sprite" Id="117" Weight="1" />
+			<TargetMob Name="Lake Nix" Id="2240" Weight="1" />			
+        </TargetMobs>		
+	</GrindArea>
+  </GrindAreas>	
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }			
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Navel (Hard)
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Navel (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+ 	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="60" trial="true"/>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<MoveTo XYZ="-0.1087532, 2.384186E-07, 1.400909" usemesh="false"/> <!-- Move to center -->
+		<Grind GrindRef="Titan" While="not GameObjectManager.GetObjectByNPCId(1801).CurrentHealth == 0"/> <!-- Kill Titan -->
+		<If Condition="&openchest; == 1">
+			<LLOpenChest />
+		</If>
+		<While condition="DutyManager.InInstance">	
+			<WaitTimer WaitTime="10" />
+			<LLLeaveDuty/>
+		</While>
+	</If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+ </Order>
+  <GrindAreas>
+	<GrindArea name="Titan">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-0.1087532, 2.384186E-07, 1.400909" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Titan" Id="1801" Weight="1" />
+			<TargetMob Name="Titan's Heart" Id="1802" Weight="2" />
+        </TargetMobs>
+	</GrindArea>
+  </GrindAreas>		
+  <CodeChunks>
+  </CodeChunks>  
+</Profile>    

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyearth I - Leves
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyearth I - Leves</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Skyearth I Leve Task 1 - Don't Forgot to Cry -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed">
+			<Log Message="Moving to Skyearth I - Nothern Thanalan - Camp Bluefrog 'Don't Forgot to Cry'" />
+			<LLoadProfile Path="../../GuildLeves/Camp Bluefog/Don't Forgot to Cry.xml"/>
+		</If>
+
+		<!-- Book of Skyearth I Leve Task 2 - Necrologos The Liminal Ones -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask2Completed">
+			<Log Message="Moving to Skyearth I - Mor Dhona - Saint Coinarch's Find  'Necrologos The Liminal Ones'" />
+			<LLoadProfile Path="../../GuildLeves/Sain Coinach's Find/Necrologos The Liminal Ones.xml"/>
+		</If>
+
+		<!-- Book of Skyearth I Leve Task 3 - No Big Whoop -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+			<Log Message="Moving to Skyearth I - Coerthas Central Highlands - Whitebrim Front 'No Big Whoop'" />
+			<LLoadProfile Path="../../GuildLeves/Whitebrim/No Big Whoop.xml"/>
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+</Profile>	

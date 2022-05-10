@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Get off Our Lake Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Get off Our Lake Leve</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(870)">
+				<GetTo ZoneId="156" XYZ="461.1251, -4.846787, -472.2902"/>
+				<ExPickupGuildLeve leveIds="870" leveType="Order" npcId="1007070" npcLocation="464.5914,-4.057395,-467.4297" Timeout="5" /> <!-- Get off Our Lake -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(870)">
+					<ExPickupGuildLeve leveIds="869" leveType="Order" npcId="1007070" npcLocation="464.5914,-4.057395,-467.4297" Timeout="5" /> <!-- Amateur Hour -->				
+				</If>
+			</If>	
+
+			<!-- Get off Our Lake -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(870)">
+				<GetTo ZoneId="156" XYZ="93.29433, -4.327748, -533.973"/>
+				<InitiateLeve LeveId="870"/> <!-- Get off Our Lake -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="GetoffOurLake" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007070" NpcLocation="464.5914,-4.057395,-467.42973"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+
+			<!-- Amateur Hour -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(869)">
+				<GetTo ZoneId="156" XYZ="125.8319, -11.72157, -473.2422"/>
+				<InitiateLeve LeveId="869"/> <!-- Amateur Hour -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="AmateurHour" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007070" NpcLocation="464.5914,-4.057395,-467.42973"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>		
+		
+
+
+	</Order>
+  <GrindAreas> 
+    <GrindArea name="GetoffOurLake">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="99.88879, -4.610106, -533.06" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2235" Weight="1"/> <!-- Imperial Secutor -->
+        <TargetMob Id="2234" Weight="1"/> <!-- Imperial Hoplomachus -->
+        <TargetMob Id="2236" Weight="1"/> <!-- Imperial Signifer -->
+        <TargetMob Id="2238" Weight="1"/> <!-- Imperial Eques -->
+      </TargetMobs>
+    </GrindArea>
+ 	<GrindArea name="AmateurHour">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="121.6689, -10.02974, -475.5452" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Downcast Hippocerf" Id="1762" Weight="1" />
+			<TargetMob Name="Dusty Devilet" Id="1788" Weight="2" />
+			<TargetMob Name="Lightning Sprite" Id="117" Weight="1" />
+			<TargetMob Name="Foul River Hapalit" Id="1770" Weight="1" />			
+        </TargetMobs>		
+	</GrindArea>
+  </GrindAreas>	
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }			
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

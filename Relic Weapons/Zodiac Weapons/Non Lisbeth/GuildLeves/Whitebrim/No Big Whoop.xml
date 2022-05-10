@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: No Big Whoop Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>No Big Whoop Leve</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(859)">
+				<GetTo ZoneId="155" XYZ="-466.4981, 211, -232.1504"/>
+				<ExPickupGuildLeve leveIds="859" leveType="Immortal" npcId="1007069" npcLocation="-476.2188,211,-233.4173" Timeout="5" /> <!-- No Big Whoop -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(859)">
+					<ExPickupGuildLeve leveIds="858" leveType="Immortal" npcId="1007069" npcLocation="-476.2188,211,-233.4173" Timeout="5" /> <!-- You Dropped Something -->				
+				</If>
+			</If>	
+
+			<!-- No Big Whoop -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(859)">
+				<GetTo ZoneId="155" XYZ="-507.9832, 204.7315, -179.4901"/>
+				<InitiateLeve LeveId="859"/> <!-- No Big Whoop -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="NoBigWhoop" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007069" NpcLocation="-476.2188,211,-233.4173"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+			
+			<!-- You Dropped Something -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(858)">
+				<GetTo ZoneId="155" XYZ="-375.7268, 224.2648, -180.261"/>
+				<InitiateLeve LeveId="858"/> <!-- You Dropped Something -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="YouDroppedSomething" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />
+				<RunCode Name="CloseTimer"/>
+				<ExTurnInGuildLeve NpcId="1007069" NpcLocation="-476.2188,211,-233.4173"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>			
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="NoBigWhoop">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-402.698, 225.8024, -153.2489" />
+			<Hotspot Radius="200" XYZ="-428.9366, 221.9002, -161.629" />
+			<Hotspot Radius="200" XYZ="-520.7536, 216.6075, -138.0164" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Giant Drubber" Id="1631" Weight="1" />
+			<TargetMob Name="Giant Talker" Id="1787" Weight="1" />
+			<TargetMob Name="Wandering Bogy" Id="1791" Weight="1" />
+        </TargetMobs>		
+	</GrindArea>
+   	<GrindArea name="YouDroppedSomething">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-378.7407, 224.1126, -178.207" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Giant Ripper" Id="1630" Weight="1" />
+			<TargetMob Name="Downcast Hippocerf" Id="1762" Weight="1" />
+			<TargetMob Name="Giant Drubber" Id="1631" Weight="1" />	
+        </TargetMobs>		
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }	
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

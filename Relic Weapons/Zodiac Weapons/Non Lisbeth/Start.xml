@@ -62,21 +62,21 @@
   <Name>Start Relic Weapon</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
-  
+	
 	<!-- Unlock Zodiac Relics -->
     <!-- The Weaponsmith of Legend -->
     <If Condition="not HasQuest(66241) and not IsQuestCompleted(66241)">
-		<LisbethTravel ZoneId="140" XYZ="-470.4957, 23.03529, -355.3192"/>
+		<GetTo ZoneId="140" XYZ="-470.4957, 23.03529, -355.3192"/>
 		<If Condition="IsQuestAcceptQualified(66241)">
 			<PickupQuest QuestId="66241" NpcId="1005021"/>
 		</If>
     </If>
     <If Condition="GetQuestStep(66241) == 1">
-		<LisbethTravel ZoneId="156" XYZ="25.51611, 29, -823.7956"/>
+		<GetTo ZoneId="156" XYZ="25.51611, 29, -823.7956"/>
 		<TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66241" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(66241) == 255">
-		<LisbethTravel Area="North Shroud" Position="440.6997, -0.9374474, -64.13989"/>
+		<GetTo ZoneId="154" XYZ="440.6997, -0.9374474, -64.13989"/>
 		 <TurnIn ItemId="2000987" QuestId="66241" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112"/>
     </If>
 

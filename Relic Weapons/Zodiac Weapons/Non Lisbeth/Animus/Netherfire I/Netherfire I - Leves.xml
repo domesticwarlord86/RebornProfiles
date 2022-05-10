@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfire II - Leves
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfire II - Leves</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Skyfire II Leve Task 1 - Circling the Ceruleum -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed">
+			<Log Message="Moving to Skyfire II - Nothern Thanalan - Camp Bluefrog 'Circling the Ceruleum'" />
+			<LLoadProfile Path="../../GuildLeves/Camp Bluefog/Circling the Ceruleum.xml"/>
+		</If>
+
+		<!-- Book of Skyfire II Leve Task 2 - If You Put It That Way -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask2Completed">
+			<Log Message="Moving to Skyfire II - Coerthas Central Highlands - Whitebrim Front 'If You Put It That Way'" />
+			<LLoadProfile Path="../../GuildLeves/Whitebrim/If You Put It That Way.xml"/>
+		</If>
+
+		<!-- Book of Skyfire II Leve Task 3 - One Big Problem Solved -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+			<Log Message="Moving to Skyfire II - Mor Dhona - Saint Coinarch's Find 'One Big Problem Solved'" />
+			<LLoadProfile Path="../../GuildLeves/Sain Coinach's Find/One Big Problem Solved.xml"/>
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+</Profile>	

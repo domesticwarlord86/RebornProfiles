@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyearth I - Dungeons
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyearth I - Dungeons</Name>  
+	<Order>
+		
+		<!-- Book of Skyearth I Dungeon Task 1 - Halatali -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed">
+			<Log Message="Moving to Skyearth I - Halatali" />
+			<LLoadProfile Path="../../Dungeons/Halatali.xml"/>
+		</If>
+
+		<!-- Book of Skyearth I Dungeon Task 2 - Amdapor Keep -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask2Completed">
+			<Log Message="Moving to Skyearth I - Amdapor Keep" />
+			<LLoadProfile Path="../../Dungeons/Amdapor Keep.xml"/>
+		</If>
+
+		<!-- Book of Skyearth I Dungeon Task 3 - Pharos Sirius -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask3Completed">
+			<Log Message="Moving to Skyearth I - Pharos Sirius" />
+			<LLoadProfile Path="../../Dungeons/Pharos Sirius.xml"/>
+		</If>		
+		
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+</Profile>	

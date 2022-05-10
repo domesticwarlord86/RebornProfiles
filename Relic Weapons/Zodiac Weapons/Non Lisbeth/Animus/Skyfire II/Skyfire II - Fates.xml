@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfire II - FATEs
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfire II - FATEs</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Skyfire II FATE Task 1 - Breaching South Tidegate -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+			<Log Message="Moving to FATE 'Breaching South Tidegate'" />
+			<GetTo ZoneId="138" XYZ="-135.9394, -24.52357, 45.16578"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+				<Log Message="Waiting on FATE 'Breaching South Tidegate'" />
+				<LLFate FateIds="571,570" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask1Completed"/> <!-- Breaching South Tidegate -->
+			</While>	
+		</If>
+
+		<!-- Book of Skyfire II FATE Task 2 - Heroes of the 2nd -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+			<Log Message="Moving to FATE 'Heroes of the 2nd'" />
+			<GetTo ZoneId="146" XYZ="10.31318, 0.6397393, -250.8835"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+				<Log Message="Waiting on FATE 'Heroes of the 2nd'" />
+				<LLFate FateId="424" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask2Completed"/> <!-- Heroes of the 2nd -->
+			</While>	
+		</If>
+
+		<!-- Book of Skyfire II FATE Task 3 - Air Supply -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+			<Log Message="Moving to FATE 'Air Supply'" />
+			<GetTo ZoneId="154" XYZ="-110.479, -8.697146, -51.66109"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+				<Log Message="Waiting on FATE 'Air Supply'" />
+				<LLFate FateId="633" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask3Completed"/> <!-- Air Supply -->
+			</While>	
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+</Profile>	

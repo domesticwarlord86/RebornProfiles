@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfall I - Dungeons
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfall I - Dungeons</Name>  
+	<Order>
+		
+		<!-- Book of Skyfall I Dungeon Task 1 - The Copperbell Mines -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed">
+			<Log Message="Moving to Skyfall I - The Copperbell Mines" />
+			<LLoadProfile Path="../../Dungeons/The Copperbell Mines.xml"/>
+		</If>
+
+		<!-- Book of Skyfall I Dungeon Task 2 - Dzemael Darkhold -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask2Completed">
+			<Log Message="Moving to Skyfall I - Dzemael Darkhold" />
+			<LLoadProfile Path="../../Dungeons/Dzemael Darkhold.xml"/>
+		</If>
+
+		<!-- Book of Skyfall I Dungeon Task 3 - Brayfloxs Longstop (Hard) -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask3Completed">
+			<Log Message="Moving to Skyfall I - Brayfloxs Longstop (Hard)" />
+			<LLoadProfile Path="../../Dungeons/Brayfloxs Longstop (Hard).xml"/>
+		</If>		
+		
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+</Profile>	

@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Dzemael Darkhold
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Dzemael Darkhold</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="13"/>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<!-- Open the grand hall gate 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Open the grand hall gate 0/1" />
+			<BotSettings AutoEquip="1" />	
+			<RunCode Name="Move_Dzemael"/>
+			<Grind GrindRef="TrashRoom_Dzemael" While="NumAttackableEnemies(30, Array[int]([1657,2152,1656,1655])) &gt; 0"/> <!-- Clear Trash Room -->  			<MoveTo XYZ="128.7729, -14.5, 126.446"/>
+			<While condition="GameObjectManager.GetObjectByNPCId(2000479).IsVisible">
+				<RunCode name="MagitekTerminal1"/>
+			</While>
+			<While condition="GameObjectManager.GetObjectByNPCId(2000478).IsVisible">
+				<RunCode name="MagitekTerminal2"/>
+			</While>
+			<MoveTo XYZ="103.4893, -8.475436, 111.7622"/>
+			<MoveTo XYZ="85.13301, -9.536562, 112.3407" usemesh="false"/>
+			<MoveTo XYZ="79.75245, -10.62847, 108.3928" usemesh="false"/>
+			<WaitTimer WaitTime="15"/>
+			<RunCode Name="FirstBoss_Dzemael"/>
+			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(1397).CurrentHealth == 0"/> <!-- Fight First Boss -->	
+			<MoveTo XYZ="39.75815, -14.99101, 78.31975" usemesh="false" />					
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+			<MoveTo XYZ="23.35851,-12.30462,57.61283" usemesh="false" />
+			<RunCode name="MagitekTransporter1"/>
+		</If>
+
+		<!-- Open the grand hall gate 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0">
+			<Log Message="Clear the feasting hall 0/1" />
+			<MoveTo XYZ="-110.8409, -23.67772, 5.566265"/>
+			<MoveTo XYZ="-112.4736, -24.32887, -6.99648" usemesh="false" />
+			<MoveTo XYZ="-103.2703, -27.96164, -21.93678"/>
+			<WaitTimer WaitTime="5" />
+			<Grind GrindRef="SecondBoss" While="not GameObjectManager.GetObjectByNPCId(1415).CurrentHealth == 0"/> <!-- Fight second Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+			<MoveTo XYZ="-96.80028,-30.00001,-41.82194" />
+			<RunCode name="MagitekTransporter2"/>		
+		</If>
+
+		<!--Deactivate the level IV magitek field 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0">
+			<Log Message="Deactivate the level IV magitek field 0/1" />
+			<MoveTo XYZ="-26.19443, -22.30001, -159.5977"/>
+			<RunCode name="DisableSideStep"/>
+			<While condition="GameObjectManager.GetObjectByNPCId(2000484).IsVisible">			
+				<RunCode name="MagitekTerminal3"/>
+			</While>
+			<MoveTo XYZ="-8.081114, -18.17234, -175.0139"/>			
+			<While condition="GameObjectManager.GetObjectByNPCId(2000483).IsVisible">			
+				<RunCode name="MagitekTerminal4"/>
+			</While>
+			<RunCode name="EnableSideStep"/>
+		</If>
+
+		<!-- Defeat Batraal 0/1 -->
+		<If Condition="GetInstanceTodo(3) == 0">
+			<Log Message="Defeat Batraal 0/1" />
+			<BotSettings AutoEquip="0" />
+			<If Condition="not GetQuestStep(65893) == 2">	
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
+						<Log Message="Equipping Artemis Bow Atma" />
+						<EquipWeapon ItemID="7828"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7830">
+						<Log Message="Equipping Stardust Rod Atma" />
+						<EquipWeapon ItemID="7830"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7827">
+						<Log Message="Equipping Gae Bolg Atma" />
+						<EquipWeapon ItemID="7827"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7825">
+						<Log Message="Equipping Sphairai Atma" />
+						<EquipWeapon ItemID="7825"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9251">
+						<Log Message="Equipping Yoshimitsu Atma" />
+						<EquipWeapon ItemID="9251"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7824">
+						<Log Message="Equipping Curtana Atma" />
+						<EquipWeapon ItemID="7824"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7833">
+						<Log Message="Equipping Holy Shield Atma" />
+						<EquipWeapon ItemID="7833"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7832">
+						<Log Message="Equipping Omnilex Atma" />
+						<EquipWeapon ItemID="7832"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7831">
+						<Log Message="Equipping Veil of Wiyu Atma" />
+						<EquipWeapon ItemID="7831"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7826">
+						<Log Message="Equipping Bravura Atma" />
+						<EquipWeapon ItemID="7826"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7829">
+						<Log Message="Equipping Thyrus Atma" />
+						<EquipWeapon ItemID="7829"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+			</If>	
+			<MoveTo XYZ="66.4438, -38.24007, -157.4374" distance="2"/>
+			<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(1396).CurrentHealth == 0"/> <!-- Fight final Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>			
+		</If>						
+	</If>
+	
+	<LLoadProfile Path="../Start.xml"/>		
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="TrashRoom_Dzemael">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="128.7729, -14.5, 126.446" name="Clearing Trash Mobs"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1657" Weight="1000"/> <!-- Recluse Hippogryph -->
+        <TargetMob Id="2152" Weight="1000"/> <!-- Betrayed Soul -->
+        <TargetMob Id="1656" Weight="1000"/> <!-- Diamond-tooth Hedgemole -->
+        <TargetMob Id="1655" Weight="1000"/> <!-- Alpgrot Orobon -->
+      </TargetMobs>
+    </GrindArea> 
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="62.57715,-14.40824,84.36707" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1397" Weight="1"/> <!-- All-seeing Eye -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-87.6936,-29.27332,-35.90454" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1415" Weight="1" /> <!-- Taulurd    -->				
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="70.72546,-37.83011,-162.2493" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1396" Weight="1"/> <!-- Batraal  -->	
+			<TargetMob Id="2154" Weight="20"/> <!-- Corrupted Crystal  -->			
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  <CodeChunk Name="Move_Dzemael">
+      <![CDATA[
+            Vector3[] navPoints =
+            {
+                new Vector3(-46.80291f, 14.47777f, 204.0047f),
+                new Vector3(-12.99286f, 6.855292f, 207.5447f),
+                new Vector3(-11.70617f, 3.330209f, 242.58f),
+                new Vector3(12.30812f, 6.007485f, 249.3662f),
+                new Vector3(17.01524f, 8.877165f, 207.0296f),
+                new Vector3(80.27469f, 4.116292f, 210.0562f),
+                new Vector3(80.89092f, 1.310066f, 174.33f),
+                new Vector3(147.1888f, -7.190695f, 174.8598f),
+                new Vector3(141.1405f, -6.703758f, 139.0793f),
+                new Vector3(128.7729f, -14.5f, 126.446f)
+            };
+
+            foreach (var pos in navPoints)
+            {
+                while (Core.Me.Location.Distance2D(pos) > 1.5f)
+                {
+                    await Coroutine.Yield();
+                    Navigator.PlayerMover.MoveTowards(pos);
+                }
+            }
+            Navigator.PlayerMover.MoveStop();
+            await Coroutine.Wait(10000, () => GameObjectManager.Attackers.Count(x => x.Distance(Core.Me.Location) < 4.5f) > 3);
+      ]]>
+    </CodeChunk> 
+    <CodeChunk Name="FirstBoss_Dzemael">
+      <![CDATA[
+            BattleCharacter boss = (BattleCharacter)GameObjectManager.GetObjectByNPCId(1397);
+            Vector3 crystalPos = new Vector3(69.30141f, -14.223f, 84.54916f);
+            Aura invulnAura = boss.Auras.AuraList.FirstOrDefault(x => x.Id == 325);
+
+            while (Core.Me.Location.Distance2D(boss.Location) > 1.5f)
+            {
+                await Coroutine.Yield();
+                Navigator.PlayerMover.MoveTowards(boss.Location);
+            }
+            Navigator.PlayerMover.MoveStop();
+            boss.Target();
+            while (!GameObjectManager.Attackers.Contains(boss))
+            {
+                ActionManager.DoAction(ActionType.General, 1, GameObjectManager.Target);
+                await Coroutine.Sleep(250);
+            }
+            while (Core.Me.Location.Distance2D(crystalPos) > 1.5f)
+            {
+                await Coroutine.Yield();
+                Navigator.PlayerMover.MoveTowards(crystalPos);
+            }
+            Navigator.PlayerMover.MoveStop();
+            await Coroutine.Wait(10000, () => !boss.Auras.AuraList.Contains(invulnAura));
+            await Coroutine.Sleep(2500);
+      ]]>
+    </CodeChunk> 	
+	<CodeChunk Name="MagitekTerminal1">
+      <![CDATA[
+        var terminal = GameObjectManager.GetObjectByNPCId(2000479);
+        var pos = terminal.Location;
+        Navigator.PlayerMover.MoveTowards(pos);
+        await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 0.5f);
+        Navigator.PlayerMover.MoveStop();
+        await Coroutine.Wait(20000, () => !terminal.IsVisible);
+      ]]>
+	</CodeChunk> 
+	<CodeChunk Name="MagitekTerminal2">
+      <![CDATA[
+        var terminal = GameObjectManager.GetObjectByNPCId(2000478);
+        var pos = terminal.Location;
+        Navigator.PlayerMover.MoveTowards(pos);
+        await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 0.5f);
+        Navigator.PlayerMover.MoveStop();
+        await Coroutine.Wait(20000, () => !terminal.IsVisible);	  
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="MagitekTerminal3">
+      <![CDATA[
+        var terminal = GameObjectManager.GetObjectByNPCId(2000484);
+        var pos = terminal.Location;
+        Navigator.PlayerMover.MoveTowards(pos);
+        await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 0.5f);
+        Navigator.PlayerMover.MoveStop();
+        await Coroutine.Wait(20000, () => !terminal.IsVisible);	 	  
+      ]]>
+	</CodeChunk>	
+	<CodeChunk Name="MagitekTerminal4">
+      <![CDATA[
+        var terminal = GameObjectManager.GetObjectByNPCId(2000483);
+        var pos = terminal.Location;
+        Navigator.PlayerMover.MoveTowards(pos);
+        await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 0.5f);
+        Navigator.PlayerMover.MoveStop();
+        await Coroutine.Wait(20000, () => !terminal.IsVisible);		  
+      ]]>
+	</CodeChunk> 	
+	<CodeChunk Name="MagitekTransporter1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000458).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="MagitekTransporter2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2000474).Interact();
+			await Coroutine.Sleep(1000);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }
+      ]]>
+	</CodeChunk>
+	  <CodeChunk Name="EnableSideStep">
+      <![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep"))
+        {
+          try
+          {
+            if (plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = true;  }
+          }
+          catch (Exception ex) {  }
+        }
+      ]]>
+    </CodeChunk>
+	<CodeChunk Name="DisableSideStep">
+		<![CDATA[
+			foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep"))
+			{
+			try
+			{
+				if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+			}
+			catch (Exception ex) {  }
+			}
+		]]>
+	</CodeChunk> 	
+  </CodeChunks>
+</Profile>

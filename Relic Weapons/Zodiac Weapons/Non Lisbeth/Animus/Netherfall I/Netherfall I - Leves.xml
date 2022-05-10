@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Netherfall I - Leves
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Netherfall I - Leves</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Netherfall I Leve Task 1 - Got a Gut Feeling about This -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed">
+			<Log Message="Moving to Netherfall I - Coertha Central Highlands - Whitebrim Front 'Got a Gut Feeling about This'" />
+			<LLoadProfile Path="../../GuildLeves/Whitebrim/Got a Gut Feeling about This.xml"/>
+		</If>
+
+		<!-- Book of Netherfall I Leve Task 2 - Subduing the Subprime -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask2Completed">
+			<Log Message="Moving to Netherfall I - Northern Thanalan - Camp Bluefog 'Subdueing the Subprime'" />
+			<LLoadProfile Path="../../GuildLeves/Camp Bluefog/Subduing the Subprime.xml"/>
+		</If>
+
+		<!-- Book of Netherfall I Leve Task 3 - Who Write History -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+			<Log Message="Moving to Netherfall I - Mor Dhona - Saint Coinarch's Find 'Who Write History'" />
+			<LLoadProfile Path="../../GuildLeves/Sain Coinach's Find/Who Writes History.xml"/>	
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+</Profile>	

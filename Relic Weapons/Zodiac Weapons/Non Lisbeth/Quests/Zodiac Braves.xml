@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Zodiac Braves Quests
+  Version: 0.1
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm
+-->
+
+<Profile>
+  <Name>Zodiac Braves Quests</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>		
+	<Order>
+		<!-- Wherefore Art Thou, Zodiac -->
+		<If Condition="not HasQuest(65892) and not IsQuestCompleted(65892)">
+		  <GetTo ZoneId="154" XYZ="406.5759, -4.498047, -89.70448"/>
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8653">
+						<Log Message="Equipping Artemis Bow Nexus..." />
+						<EquipWeapon ItemID="8653"/>						
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8655">
+						<Log Message="Equipping Stardust Rod Nexus..." />
+						<EquipWeapon ItemID="8655"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8652">
+						<Log Message="Equipping Gae Bolg Nexus..." />
+						<EquipWeapon ItemID="8652"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8650">
+						<Log Message="Equipping Sphairai Nexus..." />
+						<EquipWeapon ItemID="8650"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9254">
+						<Log Message="Equipping Yoshimitsu Nexus..." />
+						<EquipWeapon ItemID="9254"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8649">
+						<Log Message="Equipping Curtana Nexus..." />
+						<EquipWeapon ItemID="8649"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 8658">
+						<Log Message="Equipping Holy Shield Nexus..." />
+						<EquipWeapon ItemID="8658"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8657">
+						<Log Message="Equipping Omnilex Nexus..." />
+						<EquipWeapon ItemID="8657"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8656">
+						<Log Message="Equipping Veil of Wiyu Nexus..." />
+						<EquipWeapon ItemID="8656"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8651">
+						<Log Message="Equipping Bravura Nexus..." />
+						<EquipWeapon ItemID="8651"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8654">
+						<Log Message="Equipping Thyrus Nexus..." />
+						<EquipWeapon ItemID="8654"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>						  
+		  <If Condition="IsQuestAcceptQualified(65892)">
+			<PickupQuest QuestId="65892" NpcId="1008948"/>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(65892) == 1">
+		  <GetTo ZoneId="154" XYZ="441.2254, -0.9374369, -63.66126"/>
+		  <TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="65892" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(65892) == 255">
+		  <GetTo ZoneId="154" XYZ="406.7891, -4.498047, -89.25395"/>
+		  <TurnIn QuestId="65892" NpcId="1008948" XYZ="405.1117, -4.498068, -89.15851"/>
+		</If>	
+		
+		<!-- A Ponze of Flesh -->
+		<If Condition="not HasAtLeast(9506,1)">
+			<If Condition="not HasQuest(65893)">
+			  <GetTo ZoneId="156" XYZ="70.82111, 33.06655, -705.2316"/>
+			  <If Condition="IsQuestAcceptQualified(65893)">
+				<PickupQuest QuestId="65893" NpcId="1010809"/>
+			  </If>
+			</If>
+			<!-- Sacred Spring Water -->
+			<If Condition="GetQuestStep(65893) == 1 and not HasAtLeast(9540,1)">
+				<While Condition="not HasAtLeast(28,200)">
+					<RunCode name="NeedPoetics"/>
+				</While>		
+				<If Condition="HasAtLeast(28,200)">
+					<GetTo ZoneId="156" XYZ="63.4094, 31.15338, -736.7321"/>
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="9540" SelectString="2" Count="1"/>
+				</If>				
+			</If>
+			<!-- Bombard Core -->	
+			<If Condition="GetQuestStep(65893) == 1 and not HasAtLeast(9539,1)">
+				<While condition="CurrentGCSeals() &lt; 20000">
+					<RunCode name="NeedGCSeals"/>
+				</While>			
+				<If condition="CurrentGCSeals() &gt; 20000">
+					<Log Message="Moving to buy Bombard Core." />
+					<BuyGCItem ItemId="9539" Count="1"/>
+				</If>		
+			</If>
+			<!-- Bronze Lake Crystal -->
+			<If Condition="GetQuestStep(65893) == 1 and not HasAtLeast(9538,1)">
+				<GetTo ZoneId="139" XYZ="237.4163, -0.8985498, 248.4056"/>
+				<BuyItem ItemIds="9538" ItemCounts="1" DialogOption="4" NpcId="1003270" XYZ="234.4854,-0.9121512,248.2795" />
+			</If>
+			<If Condition="GetQuestStep(65893) == 1 and HasAtLeast(9538,1) and HasAtLeast(9539,1) and HasAtLeast(9540,1)">
+				<GetTo ZoneId="156" XYZ="70.42073, 33.06654, -704.3105"/>
+				<HandOver ItemIds="9540,9539,9538" NpcId="1010809" XYZ="73.10596, 33.06655, -704.4022" QuestId="65893" StepId="1"/>	
+			</If>
+			<If Condition="GetQuestStep(65893) == 2 and not HasAtLeast(2001528,1)">
+				<LLoadProfile Path="../Dungeons/Dzemael Darkhold.xml"/>	
+			</If>
+			<If Condition="GetQuestStep(65893) == 2 and not HasAtLeast(2001529,1)">
+				<LLoadProfile Path="../Dungeons/Brayfloxs Longstop (Hard).xml"/>
+			</If>
+			<If Condition="GetQuestStep(65893) == 3">
+				<GetTo ZoneId="156" XYZ="70.42073, 33.06654, -704.3105"/>
+				<HandOver ItemIds="2001529,2001528" NpcId="1010809" XYZ="73.10596, 33.06655, -704.4022" QuestId="65893" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(65893) == 4 and not HasAtLeast(2001530,1)">
+				<LLoadProfile Path="../Dungeons/Halatali (Hard).xml"/>    
+			</If>
+			<If Condition="GetQuestStep(65893) == 4 and not HasAtLeast(2001533,1)">
+				<LLoadProfile Path="../Dungeons/Snowcloak.xml"/>			
+			</If>
+			<If Condition="GetQuestStep(65893) == 5">
+				<GetTo ZoneId="156" XYZ="70.42073, 33.06654, -704.3105"/>
+				<HandOver ItemIds="2001530,2001533" NpcId="1010809" XYZ="73.10596, 33.06655, -704.4022" QuestId="65893" StepId="5"/>
+			</If>
+			<If Condition="GetQuestStep(65893) == 255">
+				<!-- Perfet Firewood and Furnace Ring -->
+				<While Condition="not HasHqItem(9511) or not HasHqItem(9510)">
+					<RunCode name="NeedFurnaceRingandPerfectFirewood"/>
+				</While>		
+				<If Condition="HasHqItem(9511) and HasHqItem(9510)">
+					<GetTo ZoneId="156" XYZ="70.42073, 33.06654, -704.3105"/>
+					<TurnIn ItemIds="9510,9511" NpcId="1010809" XYZ="73.10596, 33.06655, -704.4022" QuestId="65893" StepId="255"/>
+				</If>	
+			</If>
+		</If>
+			
+		<!-- Labor of Love -->
+		<If Condition="not HasAtLeast(9507,1)">
+			<If Condition="not HasQuest(65894)">
+			  <GetTo ZoneId="156" XYZ="24.34158, 28.99997, -729.7673"/>
+			  <If Condition="IsQuestAcceptQualified(65894)">
+				<PickupQuest QuestId="65894" NpcId="1006971"/>
+			  </If>
+			</If>
+			<If Condition="GetQuestStep(65894) == 1 and not HasAtLeast(9542,1)">
+				<GetTo ZoneId="146" XYZ="-278.6412, 8.182435, 382.564"/>
+				<BuyItem ItemIds="9542" ItemCounts="1" DialogOption="4" NpcId="1004430" XYZ="-278.7976,8,378.8662" />
+			</If>
+			<If Condition="GetQuestStep(65894) == 1 and HasAtLeast(9542,1)">
+				<GetTo ZoneId="156" XYZ="24.34158, 28.99997, -729.7673"/>
+				<HandOver ItemId="9542" NpcId="1006971" XYZ="24.34158, 28.99997, -729.7673" QuestId="65894" StepId="1"/>	
+			</If>
+			<If Condition="GetQuestStep(65894) == 2 and not HasAtLeast(2001532,1)">
+				<LLoadProfile Path="../Dungeons/The Aurum Vale.xml"/>
+			</If>
+			<If Condition="GetQuestStep(65894) == 2 and not HasAtLeast(2001533,1)">
+				<LLoadProfile Path="../Dungeons/Haukke Manor (Hard).xml"/>
+			</If>
+			<If Condition="GetQuestStep(65894) == 3">
+				<GetTo ZoneId="156" XYZ="24.34158, 28.99997, -729.7673"/>>
+				<HandOver ItemIds="2001533,2001532" NpcId="1006971" XYZ="24.3075,29.02171,-726.86352" QuestId="65894" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(65894) == 4 and not HasAtLeast(2001534,1)">
+				<LLoadProfile Path="../Dungeons/The Lost City of Amdapor.xml"/>
+			</If>
+			<If Condition="GetQuestStep(65894) == 4 and not HasAtLeast(2001535,1)">
+				<LLoadProfile Path="../Dungeons/Sastasha (Hard).xml"/>
+			</If>
+			<If Condition="GetQuestStep(65894) == 5">
+				<GetTo ZoneId="156" XYZ="24.34158, 28.99997, -729.7673"/>>
+				<HandOver ItemIds="2001534,2001535" NpcId="1006971" XYZ="24.3075,29.02171,-726.86352" QuestId="65894" StepId="5"/>
+			</If>
+			<If Condition="GetQuestStep(65894) == 6">
+				<!-- Perfet Mortar and Perfect Pestle -->
+				<While Condition="not HasHqItem(9512) or not HasHqItem(9513)">
+					<RunCode name="NeedMortarAndPestle"/>
+				</While>
+				<If Condition="HasHqItem(9512) and HasHqItem(9513)">				
+					<GetTo ZoneId="156" XYZ="24.34158, 28.99997, -729.7673"/>>
+					<HandOver ItemIds="9512,9513" NpcId="1006971" XYZ="24.3075,29.02171,-726.86352" QuestId="65894" StepId="6"/>
+				</If>	
+			</If>
+			<!-- Sacred Spring Water -->
+			<If Condition="GetQuestStep(65894) == 255 and not HasAtLeast(9540,1)">
+				<While Condition="not HasAtLeast(28,200)">
+					<RunCode name="NeedPoetics"/>
+				</While>		
+				<If Condition="HasAtLeast(28,200)">
+					<GetTo ZoneId="156" XYZ="63.4094, 31.15338, -736.7321"/>
+					<BuyShopExchangeCurrency NpcId= "1008119" ItemId="9540" SelectString="2" Count="1"/>
+				</If>				
+			</If>
+			<!-- Bombard Core -->	
+			<If Condition="GetQuestStep(65894) == 255 and not HasAtLeast(9539,1)">
+				<While condition="CurrentGCSeals() &lt; 20000">
+					<RunCode name="NeedGCSeals"/>
+				</While>			
+				<If condition="CurrentGCSeals() &gt; 20000">
+					<Log Message="Moving to buy Bombard Core." />
+					<BuyGCItem ItemId="9539" Count="1"/>
+				</If>		
+			</If>	
+			<If Condition="GetQuestStep(65894) == 255 and HasAtLeast(9539,1) and HasAtLeast(9540,1)">
+				<GetTo ZoneId="156" XYZ="24.34158, 28.99997, -729.7673"/>>
+				<TurnIn ItemIds="9539,9540" NpcId="1006971" XYZ="24.3075,29.02171,-726.86352" QuestId="65894" StepId="255"/>		
+			</If>			
+		</If>
+		
+		<!-- Method in His Malice -->
+		<If Condition="not HasAtLeast(9508,1)">
+			<If Condition="not HasQuest(65895)">
+			  <GetTo ZoneId="141" XYZ="109.4787, 31, -387.5287"/>
+			  <If Condition="IsQuestAcceptQualified(65895)">
+				<PickupQuest QuestId="65895" NpcId="1010810"/>
+			  </If>
+			</If>
+			<If Condition="GetQuestStep(65895) == 1 and not HasAtLeast(2001536,1)">
+				<LLoadProfile Path="../Dungeons/The Wanderers Palace.xml"/>
+			</If>			
+			<If Condition="GetQuestStep(65895) == 2">
+				<GetTo ZoneId="141" XYZ="109.4787, 31, -387.5287"/>
+				<HandOver ItemIds="2001536" NpcId="1010810" XYZ="109.4834,31,-388.8457" QuestId="65895" StepId="2"/>
+			</If>			
+			<If Condition="GetQuestStep(65895) == 3 and not HasAtLeast(2001537,1)">
+				<LLoadProfile Path="../Dungeons/The Copperbell Mines (Hard).xml"/>
+			</If>
+			<If Condition="GetQuestStep(65895) == 4">
+				<GetTo ZoneId="141" XYZ="109.4787, 31, -387.5287"/>
+				<HandOver ItemId="2001537" NpcId="1010810" XYZ="109.4834, 31, -388.8457" QuestId="65895" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(65895) == 5 and not HasAtLeast(2001538,1)">
+				<LLoadProfile Path="../Dungeons/Hullbreaker Isle.xml"/>
+			</If>
+			<If Condition="GetQuestStep(65895) == 6 and HasAtLeast(2001538,1)">
+				<GetTo ZoneId="141" XYZ="109.4787, 31, -387.5287"/>
+				<HandOver ItemId="2001538" NpcId="1010810" XYZ="109.4834, 31, -388.8457" QuestId="65895" StepId="6"/>
+			</If>
+			<If Condition="GetQuestStep(65895) == 7 and not HasAtLeast(2001539,1)">
+				<LLoadProfile Path="../Dungeons/The Sunken Temple of Qarn (Hard).xml"/>
+			</If>
+			<If Condition="GetQuestStep(65895) == 8 and HasAtLeast(2001539,1)">
+				<GetTo ZoneId="141" XYZ="109.4787, 31, -387.5287"/>
+				<HandOver ItemId="2001539" NpcId="1010810" XYZ="109.4834, 31, -388.8457" QuestId="65895" StepId="8"/>					
+			</If>
+			<If Condition="GetQuestStep(65895) == 9">
+				<!-- Perfect Vellum and Perfect Pounce -->
+				<While Condition="not HasHqItem(9514) or not HasHqItem(9515)">
+					<RunCode name="NeedVellumAndPounce"/>
+				</While>
+				<If Condition="HasHqItem(9514) and HasHqItem(9515)">				
+					<GetTo ZoneId="141" XYZ="109.4787, 31, -387.5287"/>
+					<HandOver ItemIds="9514,9515" NpcId="1010810" XYZ="109.4834, 31, -388.8457" QuestId="65895" StepId="9"/>
+				</If>	
+			</If>
+			<If Condition="GetQuestStep(65895) == 255">
+				<!-- Sacred Spring Water -->
+				<If Condition="not HasAtLeast(9540,1)">
+					<While Condition="not HasAtLeast(28,200)">
+						<RunCode name="NeedPoetics"/>
+					</While>		
+					<If Condition="HasAtLeast(28,200)">
+						<GetTo ZoneId="156" XYZ="63.4094, 31.15338, -736.7321"/>
+						<BuyShopExchangeCurrency NpcId= "1008119" ItemId="9540" SelectString="2" Count="1"/>
+					</If>				
+				</If>			
+				<!-- Bombard core -->
+				<If Condition="not HasAtLeast(9539,1)">
+					<While condition="CurrentGCSeals() &lt; 20000">
+						<RunCode name="NeedGCSeals"/>
+					</While>			
+					<If condition="CurrentGCSeals() &gt; 20000">
+						<Log Message="Moving to buy Bombard Core." />
+						<BuyGCItem ItemId="9539" Count="1"/>
+					</If>
+				</If>
+				<!-- Furite Sand -->
+				<If Condition="not HasAtLeast(9543,1)">	
+					<GetTo ZoneId="155" XYZ="-413.4034, 211, -270.5895"/>
+					<BuyItem ItemIds="9543" ItemCounts="1" DialogOption="4" NpcId="1006800" XYZ="-410.6966,210.8949,-276.1425" />				
+				</If>
+				<If Condition="HasAtLeast(9540,1) and HasAtLeast(9539,1) and HasAtLeast(9543,1)">					
+					<GetTo ZoneId="141" XYZ="109.4787, 31, -387.5287"/>
+					<TurnIn ItemIds="9539,9540,9543" NpcId="1010810" XYZ="109.4834, 31, -388.8457" QuestId="65895" StepId="255"/>			
+				</If>
+			</If>	
+		</If>
+
+		<!-- A Treasured Mother -->
+		<If Condition="not HasAtLeast(9509,1)">			
+			<If Condition="not HasQuest(65896)">
+			  <GetTo ZoneId="156" XYZ="27.53231, 28.99997, -737.4474"/>
+			  <If Condition="IsQuestAcceptQualified(65896)">
+				<PickupQuest QuestId="65896" NpcId="1006981"/>
+			  </If>
+			</If>		
+			<If Condition="GetQuestStep(65896) == 1">
+				<!-- Sacred Spring Water -->
+				<If Condition="not HasAtLeast(9540,1)">
+					<While Condition="not HasAtLeast(28,200)">
+						<RunCode name="NeedPoetics"/>
+					</While>		
+					<If Condition="HasAtLeast(28,200)">
+						<GetTo ZoneId="156" XYZ="63.4094, 31.15338, -736.7321"/>
+						<BuyShopExchangeCurrency NpcId= "1008119" ItemId="9540" SelectString="2" Count="1"/>
+					</If>				
+				</If>			
+				<!-- Bombard core -->
+				<If Condition="not HasAtLeast(9539,1)">
+					<While condition="CurrentGCSeals() &lt; 20000">
+						<RunCode name="NeedGCSeals"/>
+					</While>			
+					<If condition="CurrentGCSeals() &gt; 20000">
+						<Log Message="Moving to buy Bombard Core." />
+						<BuyGCItem ItemId="9539" Count="1"/>
+					</If>
+				</If>
+				<!-- Brass Kettle -->
+				<If Condition="not HasAtLeast(9544,1)">
+					<GetTo ZoneId="154" XYZ="420.9245, -3.795246, -123.7289"/>
+					<BuyItem ItemIds="9544" ItemCounts="1" DialogOption="1" NpcId="1000230" XYZ="421.4694,-3.81908,-125.9938" />
+				</If>
+				<If Condition="HasAtLeast(9539,1) and HasAtLeast(9540,1) and HasAtLeast(9544,1)">
+					<GetTo ZoneId="156" XYZ="27.53231, 28.99997, -737.4474"/>
+					<HandOver ItemIds="9539,9540,9544" NpcId="1006981" XYZ="27.53231, 28.99997, -737.4474" QuestId="65896" StepId="1"/>
+				</If>
+			</If>	
+			<If Condition="GetQuestStep(65896) == 2">
+			  <GetTo ZoneId="138" XYZ="647.5743, 5.666206, 551.7373"/>
+			  <TalkTo NpcId="1010811" XYZ="645.2583, 5.631262, 551.5983" QuestId="65896" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(65896) == 3">
+				<If Condition="not HasAtLeast(2001540,1)">
+					<LLoadProfile Path="../Dungeons/Amdapor Keep.xml"/>
+				</If>
+				<If Condition="not HasAtLeast(2001541,1)">
+					<LLoadProfile Path="../Dungeons/Pharos Sirius.xml"/>
+				</If>
+				<If Condition="not HasAtLeast(2001542,1)">
+					<LLoadProfile Path="../Dungeons/Tam Tara Deepcroft (Hard).xml"/>
+				</If>					
+			</If>
+			<If Condition="GetQuestStep(65896) == 4">
+				<GetTo ZoneId="138" XYZ="647.5743, 5.666206, 551.7373"/>
+				<HandOver ItemIds="2001540,2001541,2001542" NpcId="1010811" XYZ="645.2583, 5.631262, 551.5983" QuestId="65896" StepId="4"/>
+			</If>
+			<While Condition="GetQuestStep(65896) == 5">
+			  <!-- [Unlock The Stone Vigil (Hard)] Blood for Stone -->
+				<If Condition="not HasQuest(67061) and not IsQuestCompleted(67061)">
+				  <GetTo ZoneId="156" XYZ="23.17937, 21.25273, -649.3959"/>
+				  <If Condition="IsQuestAcceptQualified(67061)">
+					<PickupQuest QuestId="67061" NpcId="1006977" XYZ="23.36151, 21.25273, -650.2938"/>
+				  </If>
+				</If>
+				<If Condition="HasQuest(67061) and not IsQuestCompleted(67061) and GetQuestStep(67061) == 1">
+				  <GetTo ZoneId="155" XYZ="-431.6497, 233.4727, -200.7168"/>
+				  <TalkTo NpcId="1006444" XYZ="-432.9748, 233.4727, -199.6643" QuestId="67061" StepId="1"/>
+				</If>
+				<If Condition="HasQuest(67061) and not IsQuestCompleted(67061) and GetQuestStep(67061) == 2">
+				  <GetTo ZoneId="155" XYZ="-672.3635, 205.9623, -513.5798"/>
+				  <TalkTo NpcId="1006490" XYZ="-673.2128, 205.9598, -515.7702" QuestId="67061" StepId="2"/>
+				</If>
+				<While condition="1 == 1">	
+					<RunCode name="AnnounceStoneVigilHard"/>
+					<WaitTimer WaitTime="60" />
+				</While>	
+			</While>
+			<If Condition="GetQuestStep(65896) == 6">
+				<GetTo ZoneId="138" XYZ="647.5743, 5.666206, 551.7373"/>
+				<HandOver ItemIds="2001543" NpcId="1010811" XYZ="645.2583, 5.631262, 551.5983" QuestId="65896" StepId="6"/>
+			</If>
+			<If Condition="GetQuestStep(65896) == 255">
+				<While condition="not HasHqItem(9516) or not HasHqItem(9517)">
+					<RunCode name="NeedPieAndCloth"/>
+				</While>				
+				<If condition="HasHqItem(9516) and HasHqItem(9517)">
+					<GetTo ZoneId="156" XYZ="27.53231, 28.99997, -737.4474"/>
+					<TurnIn ItemIds="9516,9517" NpcId="1006981" XYZ="27.53231, 28.99997, -737.4474" QuestId="65896" StepId="255"/>
+				</If>			
+			</If>			
+		</If>
+		
+    <!-- His Dark Materia -->
+		<If condition="HasAtLeast(9506,1) and HasAtLeast(9507,1) and HasAtLeast(9508,1) and HasAtLeast(9509,1)">
+			<If Condition="not HasQuest(65897) and not IsQuestCompleted(65897)">
+			  <GetTo ZoneId="154" XYZ="440.9087, -0.9374468, -64.35789"/>
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8653">
+						<Log Message="Equipping Artemis Bow Nexus..." />
+						<EquipWeapon ItemID="8653"/>						
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8655">
+						<Log Message="Equipping Stardust Rod Nexus..." />
+						<EquipWeapon ItemID="8655"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8652">
+						<Log Message="Equipping Gae Bolg Nexus..." />
+						<EquipWeapon ItemID="8652"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8650">
+						<Log Message="Equipping Sphairai Nexus..." />
+						<EquipWeapon ItemID="8650"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9254">
+						<Log Message="Equipping Yoshimitsu Nexus..." />
+						<EquipWeapon ItemID="9254"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8649">
+						<Log Message="Equipping Curtana Nexus..." />
+						<EquipWeapon ItemID="8649"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 8658">
+						<Log Message="Equipping Holy Shield Nexus..." />
+						<EquipWeapon ItemID="8658"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8657">
+						<Log Message="Equipping Omnilex Nexus..." />
+						<EquipWeapon ItemID="8657"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8656">
+						<Log Message="Equipping Veil of Wiyu Nexus..." />
+						<EquipWeapon ItemID="8656"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8651">
+						<Log Message="Equipping Bravura Nexus..." />
+						<EquipWeapon ItemID="8651"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 8654">
+						<Log Message="Equipping Thyrus Nexus..." />
+						<EquipWeapon ItemID="8654"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+			  <If Condition="IsQuestAcceptQualified(65897)">
+				<PickupQuest QuestId="65897" NpcId="1003075"/>
+			  </If>
+			</If>
+			<If Condition="GetQuestStep(65897) == 1">
+			  <GetTo ZoneId="141" XYZ="115.3523, 31, -389.6692"/>
+			  <TalkTo NpcId="1001425" XYZ="115.1293, 31.8761, -392.2027" QuestId="65897" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(65897) == 255">
+			  <GetTo ZoneId="154" XYZ="440.9087, -0.9374468, -64.35789"/>
+			  <TurnIn NpcId="1003075" XYZ="440.9087, -0.9374468, -64.35789" QuestId="65897" StepId="255"/>
+			</If>
+			<If Condition="IsQuestCompleted(65897)">
+				<BotSettings AutoEquip="1" />
+				<GetTo ZoneId="154" XYZ="406.6689, -4.498047, -88.39375"/>
+				<BotSettings AutoEquip="0" />
+				<While condition="1 == 1">
+					<RunCode name="BuyZodiac"/>
+				</While>	
+			</If>		
+		</If>
+  </Order>
+	<CodeChunks>
+		<CodeChunk Name="NeedPoetics">
+			<![CDATA[
+				Core.OverlayManager.AddToast(() => "Please farm more Tomestone of Poetics.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				await Coroutine.Sleep(26000);
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="NeedGCSeals">
+			<![CDATA[
+				Core.OverlayManager.AddToast(() => "Please farm more Grand Compny Seals.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				await Coroutine.Sleep(26000);
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="NeedFurnaceRingandPerfectFirewood">
+			<![CDATA[
+				Core.OverlayManager.AddToast(() => "Please obtain HQ Furnace Ring and HQ Perfect Firewood.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				await Coroutine.Sleep(26000);
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="NeedMortarAndPestle">
+			<![CDATA[
+				Core.OverlayManager.AddToast(() => "Please obtain HQ Perfect Mortar and HQ Perfect Pestle.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				await Coroutine.Sleep(26000);
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="NeedVellumAndPounce">
+			<![CDATA[
+				Core.OverlayManager.AddToast(() => "Please obtain HQ Perfect Vellum and HQ Perfect Pounce.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				await Coroutine.Sleep(26000);
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="NeedPieAndCloth">
+			<![CDATA[
+				Core.OverlayManager.AddToast(() => "Please obtain HQ Tailor-Made Pie and HQ Perfect Cloth.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				await Coroutine.Sleep(60000);
+			]]>
+		</CodeChunk>		
+		<CodeChunk Name="AnnounceStoneVigilHard">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please complete Stone Vigil (Hard) manually.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>
+       <CodeChunk Name="BuyZodiac"> 
+ 		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please upgrade your Zodiac weapon at Jalzahn.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+        </CodeChunk>				
+	</CodeChunks>  
+</Profile>		

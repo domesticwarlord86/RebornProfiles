@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: The Area's a Bit Sketchy Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>The Area's a Bit Sketchy</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(652)">
+				<If Condition="not IsOnMap(155)">
+					<TeleportTo Name="155 " AetheryteId="23"/>
+				</If>			
+				<FlyTo XYZ="-443.8516, 211, -233.8817" land="true"/>
+				<ExPickupGuildLeve leveIds="652" leveType="Battlecraft" npcId="1002401" npcLocation="-441.1231,211,-235.5231" Timeout="5" /> <!-- The Area's a Bit Sketchy -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(652)">
+					<ExPickupGuildLeve leveIds="651" leveType="Battlecraft" npcId="1002401" npcLocation="-441.1231,211,-235.5231" Timeout="5" /> <!-- You Look Good Enough To Eat -->				
+						<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(651)">
+							<ExPickupGuildLeve leveIds="650" leveType="Battlecraft" npcId="1002401" npcLocation="-441.1231,211,-235.5231" Timeout="5" /> <!-- Got a Gut Feeling about This -->
+						</If>
+				</If>
+			</If>	
+
+			<!-- The Area's a Bit Sketchy -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(652)">
+				<GetTo ZoneId="155" XYZ="-413.8824, 223.8988, -157.1951"/>
+				<InitiateLeve LeveId="652"/> <!-- The Area's a Bit Sketchy -->
+				<WaitTimer WaitTime="2" />
+				<UseObject InCombat="True" Radius="500" XYZ="-412.2287, 223.9546, -157.087" NpcIds="2001104" condition="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/>							
+				<WaitTimer WaitTime="2" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1002401" NpcLocation="-441.1231,211,-235.5231"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+			
+			<!-- You Look Good Enough To Eat -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(651)">
+				<GetTo ZoneId="155" XYZ="-595.8066, 209.2229, -358.313"/>
+				<InitiateLeve LeveId="651"/> <!-- You Look Good Enough To Eat -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="YouLookGoodEnoughToEat" While="not HasAtLeast(2000881,6)"/>
+				<UseItem ItemId="2000881" InCombat="True" NpcIds="2000610" condition="not ff14bot.RemoteWindows.SelectYesno.IsOpen">	
+					<HotSpots>
+						<HotSpot XYZ="-541.7665, 205.3763, -319.8226" radius="500"/>
+						<HotSpot XYZ="-600.0139, 209.8965, -352.694" radius="500"/>
+						<HotSpot XYZ="-631.4801, 205.703, -442.2903" radius="500"/>
+					</HotSpots>	
+				</UseItem>
+				<WaitTimer WaitTime="2" />
+				<RunCode Name="CloseTimer"/>
+				<ExTurnInGuildLeve NpcId="1002401" NpcLocation="-441.1231,211,-235.5231"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+
+			<!-- Got a Gut Feeling about This -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(650)">
+				<GetTo ZoneId="155" XYZ="-393.0016, 228.915, -147.3137"/>
+				<InitiateLeve LeveId="650"/> <!-- Got a Gut Feeling about This -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="GotaGutFeelingaboutThis" While="not HasAtLeast(2000880,5)"/>				
+				<UseItem ItemId="2000880" InCombat="True" NpcIds="2000610" condition="not ff14bot.RemoteWindows.SelectYesno.IsOpen">	
+					<HotSpots>
+						<HotSpot XYZ="-412.2287, 223.9546, -157.087" radius="500"/>
+						<HotSpot XYZ="-488.3908, 209.9745, -164.3895" radius="500"/>
+					</HotSpots>	
+				</UseItem>				
+				<WaitTimer WaitTime="2" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1002401" NpcLocation="-441.1231,211,-235.5231"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>			
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="Necrologos">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-522.1238, 206.3355, -331.3058" />
+			<Hotspot Radius="200" XYZ="-607.6644, 204.2211, -412.5702" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Snowpuppy" Id="1758" Weight="1" />
+			<TargetMob Name="Winter Nix" Id="1757" Weight="1" />
+			<TargetMob Name="Great White Torama" Id="1765" Weight="2" />			
+			<TargetMob Name="Milky Eye" Id="1759" Weight="2" />	
+        </TargetMobs>		
+	</GrindArea>	
+   	<GrindArea name="YouLookGoodEnoughToEat">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-600.0139, 209.8965, -352.694" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Great White Torama" Id="1765" Weight="2" />
+			<TargetMob Name="Blizzard Biast" Id="1761" Weight="1" />		
+        </TargetMobs>		
+	</GrindArea>
+    <GrindArea name="GotaGutFeelingaboutThis">
+      <Hotspots>
+        <Hotspot Radius="500" XYZ="-410.9136, 224.9602, -149.01" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1762" Weight="1"/> <!-- Downcast Hippocerf -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas> 	
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }	
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Bard Relic Weapon
+  Version: 1.0
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY alexandrite "0"> 		
+]>
+
+<Profile>
+  <Name>Bard Relic Weapon</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<Log Message="Starting Bard Zodiac Questing Version 1.0" />
+	
+	<!-- Obtain Base relic: Artemis Bow -->
+	<If condition="not IsQuestCompleted(66661)">
+		<Log Message="Artemis Bow not yet obtained" />
+		<LLoadProfile Path="A Relic Reborn.xml"/>
+	</If>
+	
+	
+	<!-- Buy Artemis Bow Zenith  -->
+	<!-- If Has Completed A Relic Reborn (Artemis Bow) and Artemis Bow -->
+	<While Condition="IsQuestCompleted(66661) and HasAtLeast(1955,1)">
+		<Log Message="Artemis Bow finished, upgrading to Artemis Bow Zenith!" />
+		<If Condition="not HasAtLeast(6268,3)"> <!-- Not HasAtLeast 3 Thavnairian Mist -->
+			<While Condition="not HasAtLeast(28,60)">
+				<RunCode name="NeedPoetics"/>
+			</While>		
+			<If Condition="HasAtLeast(28,60)"> <!-- HasAtLeast 60 Poetics -->
+				<Log Message="Going to purchase Thavnairian Mist!" />
+				<GetTo ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+				<!-- Buy Thavnairian Mist -->
+				<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+			</If>	
+		</If>			
+		<If Condition="HasAtLeast(6268,3)"> <!-- HasAtLeast 3 Thavnairian Mist -->
+			<Log Message="Exchanging Artemis Bow with Furnace" />
+			<GetTo ZoneId="154" XYZ="449.7941, -0.3727861, -70.40031"/>
+			<BuyShopExchangeItem NpcId="2002555" ItemId="6261" Count="1"/>
+		</If>
+	</While>							 
+
+	<!-- Obtain Artemis Bow Atma -->
+	<If Condition="HasAtLeast(6261,1)">
+		<Log Message="Starting Atma Farm..." />
+		<LLoadProfile Path="Atma Farm.xml"/>
+	</If>	
+	
+	<!-- Obtain Artemis Bow Animus -->
+	<If Condition="HasAtLeast(7828,1)">
+		<Log Message="Starting Animus Book Farm..." />
+		<LLoadProfile Path="../Animus/Animus Book Farm.xml"/>
+	</If>
+		
+	<!-- Obtain Artemis Bow Novus -->
+	<If condition="HasAtLeast(7838,1)">
+		<Log Message="Starting Artemis Bow Novus Questing..." />
+		<If condition="HasAtLeast(2001306,1)">
+			<RunCode name="DiscardSkyearth"/>
+		</If>
+		<LLoadProfile Path="Relic Novus.xml"/>
+	</If>
+		
+	<!-- Obtain Artemis Bow Nexus -->
+	<If condition="HasAtLeast(7867,1)">
+		<Log Message="Starting Artemis Bow Nexus Questing..." />
+		<LLoadProfile Path="Relic Nexus.xml"/>
+	</If>
+
+	<!-- Obtain Yoichi Bow -->
+	<If condition="HasAtLeast(8653,1)">
+		<Log Message="Starting Yoichi Bow Questing..." />
+		<LLoadProfile Path="Zodiac Braves.xml"/>
+	</If>
+		
+	<!-- Zodiac Yoichi Bow Zeta -->	
+	<If condition="HasAtLeast(9495,1)">
+		<Log Message="Starting Yoichi Bow Zeta Questing..." />
+		<LLoadProfile Path="Zodiac Zeta.xml"/>
+	</If>
+		
+  </Order>
+	<CodeChunks>
+		<CodeChunk Name="NeedPoetics">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please farm more Tomestone of Poetics.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="DiscardSkyearth">
+		  <![CDATA[ 
+            BagSlot toDiscard = InventoryManager.FilledInventoryAndArmory.First(x => x.RawItemId == 2001306);
+            if (toDiscard != null && toDiscard.IsFilled) LlamaLibrary.Extensions.BagSlotExtensions.Discard(toDiscard);
+		  ]]>
+		</CodeChunk>		
+	</CodeChunks>  
+</Profile>

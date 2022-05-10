@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Brayflox's Longstop
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Brayflox's Longstop</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+	
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="8"/>
+	</If>
+	
+	<If condition="DutyManager.InInstance">
+		<!-- Meet a Longstop ally: 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Meet a Longstop ally: 0/1" />
+			<TalkTo NpcId="1004346" XYZ="20.64305,7.105875,27.7913"/>
+		</If>
+		
+		<!-- Access Brayflox's Runstop 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0">	
+			<Log Message="Access Brayflox's Runstop: 0/1" />
+			<While condition="GameObjectManager.GetObjectByNPCId(2001462).IsTargetable">
+				<UseTransport NpcId="2001462" XYZ="105.282, -0.1312774, 12.01039" /> <!-- Runstop Headgate  -->	
+			</While>	
+			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Fight First Boss -->
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="113.9696,-3.189148,-25.68097" />
+				<LLOpenChest/>
+			</If>
+		</If>
+		
+		<!-- Access Mudstop Watergush: 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0">
+			<Log Message="Access Mudstop Watergush: 0/1" />
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(2) == 0"/> <!-- Fight Second Boss -->			
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-15.18274,5.722107,-92.8512" />
+				<LLOpenChest/>
+			</If>
+		</If>
+		
+		<!-- Arrive in the heart of the Longstop: 0/1 -->
+		<If Condition="GetInstanceTodo(3) == 0">
+			<Log Message="Arrive in the heart of the Longstop: 0/1" />
+			<MoveTo XYZ="-105.4545, -2.381622, -13.3266"/>
+			<Grind GrindRef="Hellbender" While="GameObjectManager.GetObjectByNPCId(1286)"/> <!-- Fight Hellbender -->
+			<Grind GrindRef="Aiatar" While="GameObjectManager.GetObjectByNPCId(1279)"/> <!-- Fight Aiatar Boss -->	
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-113.2678,-1.419189,-51.01099" />
+				<LLOpenChest/>
+			</If>	
+			<UseObject NpcId="2001466" XYZ="-89.83136,14.04251,-96.67622" condition="GameObjectManager.GetObjectByNPCId(2001466).IsTargetable"/>
+		</If>
+		
+		<!-- Defeat Aiatar: 0/1 -->
+		<If Condition="GetInstanceTodo(4) == 0">
+			<Log Message="Defeat Aiatar: 0/1" />
+			<MoveTo XYZ="-41.55581, 35.5, -236.0251" />
+			<BotSettings AutoEquip="0" />	
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
+						<Log Message="Equipping Artemis Bow Atma" />
+						<EquipWeapon ItemID="7828"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7830">
+						<Log Message="Equipping Stardust Rod Atma" />
+						<EquipWeapon ItemID="7830"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7827">
+						<Log Message="Equipping Gae Bolg Atma" />
+						<EquipWeapon ItemID="7827"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7825">
+						<Log Message="Equipping Sphairai Atma" />
+						<EquipWeapon ItemID="7825"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9251">
+						<Log Message="Equipping Yoshimitsu Atma" />
+						<EquipWeapon ItemID="9251"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7824">
+						<Log Message="Equipping Curtana Atma" />
+						<EquipWeapon ItemID="7824"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7833">
+						<Log Message="Equipping Holy Shield Atma" />
+						<EquipWeapon ItemID="7833"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7832">
+						<Log Message="Equipping Omnilex Atma" />
+						<EquipWeapon ItemID="7832"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7831">
+						<Log Message="Equipping Veil of Wiyu Atma" />
+						<EquipWeapon ItemID="7831"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7826">
+						<Log Message="Equipping Bravura Atma" />
+						<EquipWeapon ItemID="7826"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7829">
+						<Log Message="Equipping Thyrus Atma" />
+						<EquipWeapon ItemID="7829"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>		
+			
+			<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Fight Final Boss -->			
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="-18.72284,35.47717,-234.8517" />
+				<LLOpenChest/>
+			</If>
+		</If>
+		
+	</If>
+
+		<While condition="DutyManager.InInstance and IsDutyEnded()">	
+			<WaitTimer WaitTime="5" />
+			<LLLeaveDuty/>
+		</While>
+		
+			
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="113.5518,-2.835007,-17.77038" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1280" Weight="1" />
+			<TargetMob Id="1282" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-9.10187,5.742157,-91.09246" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1284" Weight="1" />
+			<TargetMob Id="1300" Weight="1" />				
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Hellbender">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-110.2216,-2.381622,-33.57573" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1286" Weight="1" />		
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Aiatar">
+        <Hotspots>
+			<Hotspot Radius="50" XYZ="-110.2216,-2.381622,-33.57573" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1279" Weight="1" />		
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="50" XYZ="-27.26876,35.27822,-235.2705" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1279" Weight="1" />		
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+ 	<CodeChunk Name="RunstopHeadgate">
+		<![CDATA[
+			var x = GameObjectManager.GetObjectByNPCId(2001462);
+			var pos = new Vector3(x.Location.X, x.Location.Y, x.Location.Z);
+			Navigator.PlayerMover.MoveTowards(pos);
+			await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 3f);
+			Navigator.PlayerMover.MoveStop();
+			await Coroutine.Sleep(1000);
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(x.NpcId).Interact();		
+			await Coroutine.Wait(10000, () => SelectYesno.IsOpen);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);		
+      ]]>
+	</CodeChunk>
+	  <CodeChunk Name="EnableSideStep">
+      <![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep"))
+        {
+          try
+          {
+            if (plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = true;  }
+          }
+          catch (Exception ex) {  }
+        }
+      ]]>
+    </CodeChunk>
+	<CodeChunk Name="DisableSideStep">
+		<![CDATA[
+			foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep"))
+			{
+			try
+			{
+				if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+			}
+			catch (Exception ex) {  }
+			}
+		]]>
+	</CodeChunk> 			
+  </CodeChunks>
+</Profile>

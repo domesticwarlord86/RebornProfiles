@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfall I - Enemies
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfall I - Enemies</Name>  
+	<Order>
+
+		<!-- Book of Skyfall I Kill Task 1 - Shelfscale Sahagin -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask1Completed">
+			<Log Message="Moving to Skyfall I Kill Task 1 - Shelfscale Sahagin" />
+			<GetTo ZoneId="138" XYZ="-131.0327, -26.5354, 33.59232"/>
+			<Grind grindRef="Shelfscale_Sahagin" while="not ZodiacManager.CurrentBook.KillTask1Completed" />
+		</If>
+
+		<!-- Book of Skyfall I Kill Task 2 - Mudpuppy -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask2Completed">
+			<Log Message="Moving to Skyfall I Kill Task 2 - Mudpuppy" />
+			<GetTo ZoneId="156" XYZ="-351.531, -4.07704, -541.1299"/>
+			<Grind grindRef="Mudpuppy" while="not ZodiacManager.CurrentBook.KillTask2Completed" />
+		</If>
+		
+		<!-- Book of Skyfall I Kill Task 4 - Lake Cobra -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask4Completed">
+			<Log Message="Moving to Skyfall I Kill Task 4 - Lake Cobra" />
+			<GetTo ZoneId="156" XYZ="188.706, -21.87852, -452.7528"/>
+			<Grind grindRef="Lake Cobra" while="not ZodiacManager.CurrentBook.KillTask4Completed" />
+		</If>			
+
+		<!-- Book of Skyfall I Kill Task 3 - Amalj'aa Lancer -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask3Completed">
+			<Log Message="Moving to Skyfall I Kill Task 3 - Amalj'aa Lancer" />
+			<GetTo ZoneId="146" XYZ="-114.8358, -2.113218, 12.66018"/>
+			<Grind grindRef="Amalj'aa Lancer" while="not ZodiacManager.CurrentBook.KillTask3Completed" />
+		</If>
+	
+	
+		<!-- Book of Skyfall I Kill Task 5 - Giant Reader -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask5Completed">
+			<Log Message="Moving to Skyfall I Kill Task 5 - Giant Reader" />
+			<GetTo ZoneId="155" XYZ="-427.941, 240.9966, 328.0907"/>
+			<Grind grindRef="Giant Reader" while="not ZodiacManager.CurrentBook.KillTask5Completed" />
+		</If>
+		
+		<!-- Book of Skyfall I Kill Task 6 - U'Ghamaro Quarryman -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask6Completed">
+			<Log Message="Moving to Skyfall I Kill Task 6 - U'Ghamaro Quarryman" />
+			<GetTo ZoneId="180" XYZ="81.37399, 23.42811, -673.3501"/>
+			<Grind grindRef="U'Ghamaro Quarryman" while="not ZodiacManager.CurrentBook.KillTask6Completed" />
+		</If>
+
+		<!-- Book of Skyfall I Kill Task 7 - Sylphlands Sentinel -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask7Completed">
+			<Log Message="Moving to Skyfall I Kill Task 7 - Sylphlands Sentinel" />
+			<GetTo ZoneId="152" XYZ="161.0439, -24.67097, -493.6462"/>
+			<Grind grindRef="Sylphlands Sentinel" while="not ZodiacManager.CurrentBook.KillTask7Completed" />
+		</If>
+
+		<!-- Book of Skyfall I Kill Task 8 - Sea Wasp -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask8Completed">
+			<Log Message="Moving to Skyfall I Kill Task 8 - Sea Wasp" />
+			<GetTo ZoneId="138" XYZ="-356.477, -39.82897, -209.0892"/>
+			<Grind grindRef="Sea Wasp" while="not ZodiacManager.CurrentBook.KillTask8Completed" />
+		</If>		
+		
+		<!-- Book of Skyfall I Kill Task 9 - Magitek Vanguard-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask9Completed">
+			<Log Message="Moving to Skyfall I Kill Task 9 - Magitek Vanguard" />
+			<GetTo ZoneId="147" XYZ="-208.4646, 83.25399, -257.074"/>
+			<Grind grindRef="Magitek Vanguard" while="not ZodiacManager.CurrentBook.KillTask9Completed" />
+		</If>
+
+		<!-- Book of Skyfall I Kill Task 10 - 2nd Cohort Eques-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask10Completed">
+			<Log Message="Moving to Skyfall I Kill Task 10 - 2nd Cohort Eques" />
+			<GetTo ZoneId="137" XYZ="236.9893, 74.48719, -16.30079"/>
+			<Grind grindRef="2nd Cohort Eques" while="not ZodiacManager.CurrentBook.KillTask10Completed" />
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+	<GrindAreas>
+		<!-- Kill Task 1 -->
+		<GrindArea name="Shelfscale_Sahagin">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-132.4927, -26.66071, 31.39063" name="Shelfscale Sahagin" />
+				<Hotspot Radius="500" XYZ="-159.6656, -38.20773, -31.74935" name="Shelfscale Sahagin" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="386"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 2 -->	
+		<GrindArea name="Mudpuppy">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-358.8303, -4.458094, -539.7286" name="Mudpuppy" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="645"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 3 -->	
+		<GrindArea name="Amalj'aa Lancer">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-113.6381, -2.164978, 15.06436" name="Amalj'aa Lancer" />
+				<Hotspot Radius="500" XYZ="-14.00055, 2.853308, -39.05812" name="Amalj'aa Lancer" />
+				<Hotspot Radius="500" XYZ="11.86637, 1.653819, 6.531716" name="Amalj'aa Lancer" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="245"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 4 -->
+		<GrindArea name="Lake Cobra">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="190.7402, -22.32276, -451.2716" name="Lake Cobra" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1851"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 5 -->		
+		<GrindArea name="Giant Reader">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-447.4441, 250.7562, 306.9407" name="Giant Reader" />
+				<Hotspot Radius="500" XYZ="-291.4355, 294.6966, 257.6782" name="Giant Reader" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="787"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 6 -->
+		<GrindArea name="U'Ghamaro Quarryman">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="84.40268, 24.1178, -677.417" name="U'Ghamaro Quarryman" />
+				<Hotspot Radius="500" XYZ="28.02319, 21.49989, -774.1096" name="U'Ghamaro Quarryman" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1833"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 7 -->
+		<GrindArea name="Sylphlands Sentinel">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="161.6955, -24.71259, -490.9232" name="Sylphlands Sentinel" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="163"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 8 -->
+		<GrindArea name="Sea Wasp">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-359.0222, -39.91953, -207.6119" name="Sea Wasp" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="360"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 9 -->	
+		<GrindArea name="Magitek Vanguard">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-209.4765, 79.36886, -226.6734" name="Magitek Vanguard" />
+				<Hotspot Radius="500" XYZ="-202.1239, 82.01369, -305.3401" name="Magitek Vanguard" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="269"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 10 -->
+		<GrindArea name="2nd Cohort Eques">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="236.9893, 74.48719, -16.30079" name="2nd Cohort Eques" />
+				<Hotspot Radius="500" XYZ="304.0764, 76.3018, -33.77923" name="2nd Cohort Eques" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1823"  />
+			</TargetMobs>
+		</GrindArea>		
+	</GrindAreas>
+</Profile>	

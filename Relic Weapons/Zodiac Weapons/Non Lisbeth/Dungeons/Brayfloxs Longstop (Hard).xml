@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Brayflox's Longstop (Hard)
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Brayflox's Longstop (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+     <!-- [Unlock Brayflox's Longstop (Hard)] Curds and Slay -->
+    <If Condition="not HasQuest(66947) and not IsQuestCompleted(66947)">
+      <GetTo ZoneId="156" XYZ="32.51, 21.27503, -636.2501"/>
+      <If Condition="IsQuestAcceptQualified(66947)">
+        <PickupQuest QuestId="66947" NpcId="1006975" XYZ="32.82214, 21.25273, -635.462"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66947) and not IsQuestCompleted(66947) and GetQuestStep(66947) == 1">
+      <GetTo ZoneId="137" XYZ="559.1483, 20.75329, 455.952"/>
+      <TalkTo NpcId="1006266" XYZ="560.3571, 20.75329, 455.8937" QuestId="66947" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(66947) and not IsQuestCompleted(66947) and GetQuestStep(66947) == 255">
+      <GetTo ZoneId="137" XYZ="-331.2567, 69.03585, 155.8954"/>
+      <TurnIn QuestId="66947" NpcId="1006268" XYZ="-334.6151, 69.69995, 153.7957"/>
+    </If>
+
+		
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="20" />
+	</If>
+	<If condition="DutyManager.InInstance">
+
+		<!-- Farm first Tiny Key -->
+		<If Condition="GetInstanceTodo(0) == 0 and GetInstanceTodo(1) == 0">
+			<Log Message="Farming first Tiny Key" />
+			<BotSettings AutoEquip="1" />	
+			<RunCode name="DisableSideStep"/>
+			<MoveTo XYZ="-81.80727, -2.381622, 0.4254619" />
+			<MoveTo XYZ="-43.06401, -2.381622, 54.97089" />
+			<MoveTo XYZ="-8.675864, -0.7706152, 0.8579024" />
+			<Grind GrindRef="FarmTinyKey" While="not GameObjectManager.GetObjectByNPCId(2660).CurrentHealth == 0"/>
+			<UseObject NpcIds="2002325" radius="200" XYZ="-7.703425,-1.383872,-2.724141" condition="GetInstanceTodo(0) == 0"/>
+			<RunCode name="EnableSideStep"/>
+		</If>	
+
+		<!-- Clear Runstop Frontblock 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0">
+			<Log Message="Clear Runstop Frontblock 0/1" />
+			<RunCode Name="EnableSideStep"/>
+			<MoveTo XYZ="105.253, -0.1222783, 12.77754" distance="2"/> <!-- Move to Headgate -->		
+			<While condition="GameObjectManager.GetObjectByNPCId(2002182).IsTargetable">
+				<MoveTo XYZ="105.253, -0.1222783, 12.77754" distance="2"/>
+				<RunCode Name="RunstopHeadgate"/> <!-- Open Runstop Headgate -->
+			</While>	
+			<MoveTo XYZ="113.9325, -2.48531, -17.92782"/> <!-- Move to first boss -->
+			<Grind GrindRef="FirstBoss" While="not GameObjectManager.GetObjectByNPCId(2548).CurrentHealth == 0"/> <!-- Fight First Boss -->	
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+		</If>		
+			
+		<!-- Liberate captured goblins 0/3 -->
+		<If Condition="GetInstanceTodo(2) == 0">			
+			<Log Message="Liberate captured goblins 0/3" />
+			<Grind GrindRef="CapturedGoblins" While="GetInstanceTodo(2) &lt; 3"/> <!-- Liberate Captured Goblins -->				
+			<MoveTo XYZ="44.75682, 7.015042, -128.6179"/> <!-- Move to cave entrance -->
+			<WaitTimer WaitTime="13"/>
+			<LLChangeZone Heading="3.190046"/>
+		</If>
+		
+		<!-- Clear Brayflox's Drossdump 0/1 -->
+		<If Condition="GetInstanceTodo(3) == 0">			
+			<Log Message="Clear Brayflox's Drossdump 0/1" />
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0" /> --> <!-- Kill second boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>			
+		</If>
+		
+		<!-- Open Swiftmake Checkgates 0/2 -->
+		<If Condition="GetInstanceTodo(4) == 0">			
+			<Log Message="Open Swiftmake Checkgates 0/2" />
+			<MoveTo XYZ="-82.54991, 14.92233, -129.3664"/> <!-- Move to Tiny Key 2 -->
+			<UseObject NpcIds="2002642" radius="200" XYZ="-88.23793,13.14307,-122.5465" condition="GetInstanceTodo(0) == 0"/>
+			<MoveTo XYZ="-95.26472,12.88843,-122.5933"/> <!-- Move to Swiftmake Checkgate 1 -->			
+			<While condition="GameObjectManager.GetObjectByNPCId(2002184).IsTargetable">
+				<MoveTo XYZ="-95.26472,12.88843,-122.5933" distance="2"/> <!-- Move to Swiftmake Checkgate 1 -->	
+				<RunCode Name="SwiftmakeCheckgate1"/> <!-- Open First Swiftmake Gate -->
+			</While>	
+		</If>	
+			
+		<!-- Open Swiftmake Checkgates 1/2 -->
+		<If Condition="GetInstanceTodo(4) == 1">			
+			<Log Message="Open Swiftmake Checkgates 1/2" />
+			<MoveTo XYZ="-106.2929, 13.08915, -127.7986" offmesh="false"/> <!-- Move to other side of gate -->
+			<MoveTo XYZ="-111.197, 14.417, -138.6074"/>
+			<MoveTo XYZ="-97.07648, 20.52424, -170.3631"/>
+			<MoveTo XYZ="-101.2143, 20.73654, -179.9232"/> <!-- Move to Tiny Key 3 -->
+			<UseObject InCombat="true" NpcIds="2002644" radius="200" XYZ="-93.87576,20.48067,-173.7249" condition="GetInstanceTodo(0) == 0"/>
+			<MoveTo XYZ="-101.1448, 21.29802, -189.0635" /> <!-- Move to Swiftmake Checkgate 2 -->
+			<While condition="GameObjectManager.GetObjectByNPCId(2002884).IsTargetable">
+				<MoveTo XYZ="-101.1448, 21.29802, -189.0635" distance="2"/> <!-- Move to Swiftmake Checkgate 2 -->
+				<RunCode Name="SwiftmakeCheckgate2"/> <!-- Open second Swiftmake Gate -->
+			</While>		
+		</If>			
+
+		<!-- Defeat the gobmachine G-VI 0/1 -->
+		<If Condition="GetInstanceTodo(5) == 0">			
+			<Log Message="Defeat the gobmachine G-VI 0/1" />
+			<BotSettings AutoEquip="0" />
+			<If Condition="not GetQuestStep(65893) == 2">	
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
+						<Log Message="Equipping Artemis Bow Atma" />
+						<EquipWeapon ItemID="7828"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7830">
+						<Log Message="Equipping Stardust Rod Atma" />
+						<EquipWeapon ItemID="7830"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7827">
+						<Log Message="Equipping Gae Bolg Atma" />
+						<EquipWeapon ItemID="7827"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7825">
+						<Log Message="Equipping Sphairai Atma" />
+						<EquipWeapon ItemID="7825"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9251">
+						<Log Message="Equipping Yoshimitsu Atma" />
+						<EquipWeapon ItemID="9251"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7824">
+						<Log Message="Equipping Curtana Atma" />
+						<EquipWeapon ItemID="7824"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7833">
+						<Log Message="Equipping Holy Shield Atma" />
+						<EquipWeapon ItemID="7833"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7832">
+						<Log Message="Equipping Omnilex Atma" />
+						<EquipWeapon ItemID="7832"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7831">
+						<Log Message="Equipping Veil of Wiyu Atma" />
+						<EquipWeapon ItemID="7831"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7826">
+						<Log Message="Equipping Bravura Atma" />
+						<EquipWeapon ItemID="7826"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7829">
+						<Log Message="Equipping Thyrus Atma" />
+						<EquipWeapon ItemID="7829"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+			</If>	
+			<MoveTo XYZ="-44.58178, 34.72327, -235.4707"/> <!-- Move to final boss -->
+			<Grind GrindRef="FinalBoss" While="GetInstanceTodo(5) == 0" /> <!-- Kill second boss -->			
+			<If Condition="&openchest; == 1">
+				<LLOpenChest/>
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>			
+		</If>		
+	</If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas> 
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="111.4667,-2.443486,-40.1763" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Illuminati Commander" Id="2548" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>  
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-22.56818,25.52351,-174.3038" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2549" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+    <GrindArea name="CapturedGoblins">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="91.8576, 4.53233, -104.8914" name="FirstCage"/>
+		<Hotspot Radius="90" XYZ="34.06355, 7.038593, -85.85194" name="SecondCage"/>
+		<Hotspot Radius="90" XYZ="28.31378, 6.905986, -118.8425" name="ThirdCage"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2660" Weight="1"/> <!-- Illuminati Soldier -->
+        <TargetMob Id="2656" Weight="1"/> <!-- Illuminati Glider -->
+        <TargetMob Id="1297" Weight="1"/> <!-- Deep Jungle Coeurl -->
+      </TargetMobs>
+    </GrindArea>	
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-26.09322,35.28735,-228.3997" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2547" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>  
+	<CodeChunk Name="RunstopHeadgate">
+		<![CDATA[
+			var x = GameObjectManager.GetObjectByNPCId(2002182);
+			var pos = new Vector3(x.Location.X, x.Location.Y, x.Location.Z);
+			Navigator.PlayerMover.MoveTowards(pos);
+			await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 3f);
+			Navigator.PlayerMover.MoveStop();
+			await Coroutine.Sleep(1000);
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(x.NpcId).Interact();		
+			await Coroutine.Wait(10000, () => SelectYesno.IsOpen);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);			
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="SwiftmakeCheckgate1">
+		<![CDATA[
+			var x = GameObjectManager.GetObjectByNPCId(2002184);
+			var pos = new Vector3(x.Location.X, x.Location.Y, x.Location.Z);
+			Navigator.PlayerMover.MoveTowards(pos);
+			await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 3f);
+			Navigator.PlayerMover.MoveStop();
+			await Coroutine.Sleep(1000);
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(x.NpcId).Interact();		
+			await Coroutine.Wait(10000, () => SelectYesno.IsOpen);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);			
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="SwiftmakeCheckgate2">
+		<![CDATA[
+			var x = GameObjectManager.GetObjectByNPCId(2002884);
+			var pos = new Vector3(x.Location.X, x.Location.Y, x.Location.Z);
+			Navigator.PlayerMover.MoveTowards(pos);
+			await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 3f);
+			Navigator.PlayerMover.MoveStop();
+			await Coroutine.Sleep(1000);
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(x.NpcId).Interact();		
+			await Coroutine.Wait(10000, () => SelectYesno.IsOpen);
+			ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(4000);	
+      ]]>
+	</CodeChunk>
+	  <CodeChunk Name="EnableSideStep">
+      <![CDATA[
+        foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep"))
+        {
+          try
+          {
+            if (plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = true;  }
+          }
+          catch (Exception ex) {  }
+        }
+      ]]>
+    </CodeChunk>
+	<CodeChunk Name="DisableSideStep">
+		<![CDATA[
+			foreach (var plugin in PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep"))
+			{
+			try
+			{
+				if (!plugin.Enabled)  {  break;  }  else  {  plugin.Enabled = false;  }
+			}
+			catch (Exception ex) {  }
+			}
+		]]>
+	</CodeChunk> 	
+  </CodeChunks>
+</Profile>

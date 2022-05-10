@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Ninja Relic Weapon
+  Version: 1.0
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm
+-->
+
+<Profile>
+  <Name>Ninja Relic Weapon</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<Log Message="Starting Ninja Zodiac Questing Version 1.0" /> 
+	
+	<!-- Obtain Base relic: Yoshimitsu -->
+	<If condition="not IsQuestCompleted(67115)">
+		<Log Message="Yoshimitsu not yet obtained" />
+		<LLoadProfile Path="A Relic Reborn.xml"/>
+	</If>
+	
+	<!-- Buy Zenith weapons -->
+	<!-- If Has Completed A Relic Reborn (Yoshimitsu) and has Yoshimitsu -->
+	<While Condition="IsQuestCompleted(67115) and HasAtLeast(7888,1)">	
+		<Log Message="Yoshimitsu finished, upgrading to Yoshimitsu Zenith!" />
+		<If Condition="not HasAtLeast(6268,3)"> <!-- Not HasAtLeast 3 Thavnairian Mist -->
+			<If Condition="HasAtLeast(28,60)"> <!-- HasAtLeast 60 Poetics -->
+				<GetTo ZoneId="156" XYZ="63.40987, 31.12387, -735.2782"/>
+				<!-- Buy Thavnairian Mist -->
+				<BuyShopExchangeCurrency NpcId= "1008119" ItemId="6268" SelectString="2" Count="3"/>
+		</If>	
+			<While Condition="not HasAtLeast(28,60)">
+				<RunCode name="NeedPoetics"/>
+				<WaitTimer WaitTime="10" />
+			</While>
+		</If>
+		<If Condition="HasAtLeast(6268,3)"> <!-- HasAtLeast 3 Thavnairian Mist -->
+			<Log Message="Exchanging Yoshimitsu with Furnace" />
+			<GetTo ZoneId="154" XYZ="449.7941, -0.3727861, -70.40031"/>
+			<BuyShopExchangeItem NpcId="2002555" ItemId="9250" Count="1"/>
+		</If>			
+	</While>							 
+
+	<!-- Obtain Yoshimitsu Atma -->
+	<If Condition="HasAtLeast(9250,1)">
+		<Log Message="Starting Atma Farm..." />
+		<LLoadProfile Path="Atma Farm.xml"/>
+	</If>	
+	
+	<!-- Obtain Yoshimitsu Animus -->
+	<If Condition="HasAtLeast(9251,1)">
+		<Log Message="Starting Animus Book Farm..." />
+		<LLoadProfile Path="../Animus/Animus Book Farm.xml"/>
+	</If>
+		
+	<!-- Obtain Yoshimitsu Novus -->
+	<If condition="HasAtLeast(9252,1)">
+		<Log Message="Starting Yoshimitsu Novus Questing..." />
+		<If condition="HasAtLeast(2001306,1)">
+			<RunCode name="DiscardSkyearth"/>
+		</If>		
+		<LLoadProfile Path="Relic Novus.xml"/>
+	</If>
+		
+	<!-- Obtain Yoshimitsu Nexus -->
+	<If condition="HasAtLeast(9253,1)">
+		<Log Message="Starting Yoshimitsu Nexus Questing..." />
+		<LLoadProfile Path="Relic Nexus.xml"/>
+	</If>
+
+	<!-- Obtain Sasuke's Blades -->
+	<If condition="HasAtLeast(9254,1)">
+		<Log Message="Starting Sasuke's Blades Questing..." />
+		<LLoadProfile Path="Zodiac Braves.xml"/>
+	</If>
+		
+	<!-- Zodiac Sasuke's Blades Zeta -->	
+	<If condition="HasAtLeast(9501,1)">
+		<Log Message="Starting Sasuke's Blades Zeta Questing..." />
+		<LLoadProfile Path="Zodiac Zeta.xml"/>
+	</If>
+
+  </Order>
+	<CodeChunks>
+		<CodeChunk Name="NeedPoetics">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please farm more Tomestone of Poetics.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="DiscardSkyearth">
+		  <![CDATA[ 
+            BagSlot toDiscard = InventoryManager.FilledInventoryAndArmory.First(x => x.RawItemId == 2001306);
+            if (toDiscard != null && toDiscard.IsFilled) LlamaLibrary.Extensions.BagSlotExtensions.Discard(toDiscard);
+		  ]]>
+		</CodeChunk>		
+	</CodeChunks>  
+</Profile>

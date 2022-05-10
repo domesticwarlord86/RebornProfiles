@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfall I - FATEs
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfall I - FATEs</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Skyfall I FATE Task 1 - Bellyful -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+			<GetTo ZoneId="155" XYZ="644.7863, 322.1327, -394.1714"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+				<Log Message="Waiting on FATE 'Bellyful'" />
+				<LLFate FateId="475" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask1Completed"/> <!-- Bellyful -->
+			</While>	
+		</If>
+
+		<!-- Book of Skyfall I FATE Task 2 - The King's Justice -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+			<GetTo ZoneId="138" XYZ="-332.9584, -40.17844, 656.6729"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+				<Log Message="Waiting on FATE 'The King's Justice'" />
+				<LLFate FateId="577" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask2Completed"/> <!-- The King's Justice -->
+			</While>	
+		</If>
+
+		<!-- Book of Skyfall I FATE Task 3 - The Quartz Coupling -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+			<GetTo ZoneId="145" XYZ="276.9111, -9.786183, 162.1579"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+				<Log Message="Waiting on FATE 'The Quartz Coupling'" />
+				<LLFate FateId="540" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask3Completed"/> <!-- The Quartz Coupling -->
+			</While>	
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+</Profile>	

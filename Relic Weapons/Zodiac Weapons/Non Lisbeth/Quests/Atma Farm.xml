@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Atma Farm
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy
+-->
+
+<Profile>
+  <Name>Atma Farm</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+    <Order>
+	
+		<If Condition="ClassName == ((ClassJobType.Bard))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 6261">
+			<Log Message="Equipping Artemis Bow Zenith..." />
+				<EquipWeapon ItemID="6261"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 6263">
+				<Log Message="Equipping Stardust Rod Zenith..." />
+				<EquipWeapon ItemID="6263"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 6260">
+				<Log Message="Equipping Gae Bolg Zenith..." />
+				<EquipWeapon ItemID="6260"/>					
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>	
+		<If Condition="ClassName == ((ClassJobType.Monk))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 6258">
+				<Log Message="Equipping Sphairai Zenith..." />
+				<EquipWeapon ItemID="6258"/>					
+			<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9250">
+				<Log Message="Equipping Yoshimitsu Zenith..." />
+				<EquipWeapon ItemID="9250"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 6257">
+				<Log Message="Equipping Curtana Zenith..." />
+				<EquipWeapon ItemID="6257"/>					
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 6266">
+				<Log Message="Equipping Holy Shield Zenith..." />
+				<EquipWeapon ItemID="6266"/>	
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>			
+		<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 6265">
+				<Log Message="Equipping Omnilex Zenith..." />
+				<EquipWeapon ItemID="6265"/>	
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 6264">
+				<Log Message="Equipping Veil of Wiyu Zenith..." />
+				<EquipWeapon ItemID="6264"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>	
+		<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 6259">
+				<Log Message="Equipping Bravura Zenith..." />
+				<EquipWeapon ItemID="6259"/>					
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 6262">
+				<Log Message="Equipping Thyrus Zenith..." />
+				<EquipWeapon ItemID="6262"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>		
+	
+		<!-- Up in Arms -->
+		<If Condition="not HasQuest(66971) and not IsQuestCompleted(66971)"> 
+			<GetTo ZoneId="154" XYZ="440.463, -0.9374608, -64.74161"/>		
+			<If Condition="IsQuestAcceptQualified(66971)">
+				<PickupQuest QuestId="66971" NpcId="1003075"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(66971) == 255">
+			<GetTo ZoneId="154" XYZ="407.3613, -4.538448, -88.70496"/>
+			<TurnIn QuestId="66971" NpcId="1008948" XYZ="405.1117, -4.498068, -89.15851"/>
+		</If>	
+	
+	
+		<!-- Atma farm -->	
+		
+		
+		<!-- Farm Atma of the Lion in Outer La Noscea -->
+		<If Condition="not HasAtLeast(7858,1)">	
+			<Log Message="Farming Atma of the Lion in Outer La Noscea..." />
+			<If Condition="not IsOnMap(180)">
+				<TeleportTo Name="Camp Overlook" AetheryteId="16"/>
+			</If>                
+            <While Condition="not HasAtLeast(7858,1)">
+				<LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7858,1)" />
+            </While>		  
+		 </If>
+
+        <!-- Farm Atma of the Water-bearer in Upper La Noscea. -->
+
+		<While Condition="not HasAtLeast(7853,1)">
+			<Log Message="Atma of the Water-bearer in Upper La Noscea..." />
+			<If Condition="not IsOnMap(139)">
+				<TeleportTo Name="Camp Bronze Lake" AetheryteId="15"/>
+			</If>			          
+            <While Condition="not HasAtLeast(7853,1)">
+                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7853,1)" />
+            </While>
+        </While>
+
+		<!-- Farm Atma of the Ram in Middle La Noscea. -->
+
+        <While Condition="not HasAtLeast(7856,1)">
+			<Log Message="Atma of the Ram in Middle La Noscea..." />					
+			<If Condition="not IsOnMap(134)">
+				<TeleportTo Name="Summerford Farms" AetheryteId="52"/> <!-- Summerford Farms -->
+			</If>				             
+            <While Condition="not HasAtLeast(7856,1)">
+                 <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7856,1)"/>
+            </While>
+        </While>
+			
+		<!-- Farm Atma of the Crab in Western La Noscea. -->
+
+        <While Condition="not HasAtLeast(7862,1)">
+			<Log Message="Farming Atma of the Crab in Western La Noscea..." />				
+			<If Condition="not IsOnMap(138)">
+				<TeleportTo Name="Aleport" AetheryteId="14"/> <!-- Aleport -->
+			</If>					
+            <While Condition="not HasAtLeast(7862,1)">
+                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7862,1)" />
+            </While>
+        </While>
+
+		<!-- Farm Atma of the Fish in Lower La Noscea. -->
+
+        <While Condition="not HasAtLeast(7859,1)">
+            <Log Message="Farming Atma of the Fish in Lower La Noscea..." />
+			<If Condition="not IsOnMap(135)">
+                <TeleportTo Name="Moraby Drydocks" AetheryteId="10"/> <!-- Moraby Drydocks -->
+			</If>							
+            <While Condition="not HasAtLeast(7859,1)">
+                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7859,1)"/>
+            </While>
+        </While>
+
+		<!-- Farm Atma of the Bull in Eastern Thanalan. -->
+
+        <While Condition="not HasAtLeast(7855,1)">
+            <Log Message="Farming Atma of the Bull in Eastern Thanalan..." />
+			<If Condition="not IsOnMap(145)">
+                <TeleportTo Name="Camp Drybone" AetheryteId="18"/> <!-- Camp Drybone -->
+			</If>						                
+            <While Condition="not HasAtLeast(7855,1)">
+                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7855,1)" BlacklistId="413"/>
+            </While>
+        </While>			
+
+        <!-- Farm Atma of the Scales Central Thanalan. -->
+
+        <While Condition="not HasAtLeast(7861,1)">
+            <Log Message="Farming Atma of the Scales in Central Thanalan..." /> 
+			<If Condition="not IsOnMap(141)">
+				<TeleportTo Name="Black Brush Station" AetheryteId="53"/> <!-- Black Brush Station -->
+			</If>						                				
+			<While Condition="not HasAtLeast(7861,1)">
+				<LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7861,1)" BlacklistId="381"/>
+			</While>
+		</While>
+
+
+		<!-- Farm Atma of the Twins in Western Thanalan. -->
+
+        <While Condition="not HasAtLeast(7857,1)">
+            <Log Message="Farming Atma of the Twins in Western Thanalan..." />			
+			<If Condition="not IsOnMap(140)">				
+				<TeleportTo Name="Horizon" AetheryteId="17"/> <!-- Horizon -->
+			</If>	
+            <While Condition="not HasAtLeast(7857,1)">
+                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7857,1)" BlacklistId="346"/>
+            </While>
+        </While>
+		
+        <!-- Farm Atma of the Scorpion in Southern Thanalan. -->
+
+        <While Condition="not HasAtLeast(7852,1)">
+            <Log Message="Farming Atma of the Scorpion in Southern Thanalan..." />	
+			<If Condition="not IsOnMap(146)">				
+				<TeleportTo Name="Little Ala Mhigo" AetheryteId="19"/> <!-- Little Ala Mhigo -->
+			</If>				              
+            <While Condition="not HasAtLeast(7852,1)">
+                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7852,1)" BlacklistId="421"/>
+            </While>
+        </While>
+
+		<!-- Farm Atma of the Archer in North Shroud. -->
+
+        <While Condition="not HasAtLeast(7860,1)">
+            <Log Message="Farming Atma of the Archer in North Shroud..." />			
+			<If Condition="not IsOnMap(154)">				
+				<TeleportTo Name="Fallgourd Float" AetheryteId="7"/> <!-- Fallgourd Float -->
+			</If>				
+            <While Condition="not HasAtLeast(7860,1)">
+                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7860,1)" BlacklistId="180"/>
+            </While>
+        </While>
+
+		<!-- Farm Atma of the Goat Medals in East Shroud. -->
+
+        <While Condition="not HasAtLeast(7854,1)">
+            <Log Message="Farming Atma of the Goat in East Shroud..." />				
+			<If Condition="not IsOnMap(152)">				
+				<TeleportTo Name="The Hawthorne Hut" AetheryteId="4"/> <!-- The Hawthorne Hut -->
+			</If>					
+            <While Condition="not HasAtLeast(7854,1)">
+                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7854,1)" BlacklistId="218"/>
+            </While>
+        </While>
+
+        <!-- Farm Atma of the Maiden in Central Shroud. -->
+
+        <While Condition="not HasAtLeast(7851,1)">
+            <Log Message="Farming Atma of the Maiden in Central Shroud..." />
+			<If Condition="not IsOnMap(148)">				
+				<TeleportTo Name="Bentbranch Meadows" AetheryteId="3"/> <!-- Bentbranch Meadows -->
+			</If>									
+            <While Condition="not HasAtLeast(7851,1)">
+                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7851,1)" BlacklistIds="128,131,124"/>
+            </While>
+        </While>
+		
+		<!-- Upgrade Zenith Weapon -->
+			
+		<If Condition="(HasAtLeast(7851,1)) and (HasAtLeast(7852,1)) 
+						and (HasAtLeast(7853,1)) and (HasAtLeast(7854,1)) 
+						and (HasAtLeast(7855,1)) and (HasAtLeast(7856,1)) 
+						and (HasAtLeast(7857,1)) and (HasAtLeast(7858,1)) 
+						and (HasAtLeast(7859,1)) and (HasAtLeast(7860,1)) 
+						and (HasAtLeast(7861,1))">																											  
+			<Log Message="We have all the atmas taking us back to Jalzhn!" />
+			<AutoEquip />
+			<GetTo ZoneId="154" XYZ="406.5224, -4.498047, -88.79918"/>
+			<RunCode name="BuyAtmaWeapon"/>
+			<LLoadProfile Path="../Start.xml"/>	
+		</If>			
+			
+
+  </Order>
+	<CodeChunks>		
+        <CodeChunk Name="BuyAtmaWeapon"> <!-- Purchase Artemis Bow Atma -->
+            <![CDATA[
+				Dictionary<ClassJobType, uint[]> Slots = new Dictionary<ClassJobType, uint[]>
+				{
+					{ClassJobType.Paladin, new uint[] {0}},
+					{ClassJobType.Monk, new uint[] {1}},
+					{ClassJobType.Warrior, new uint[] {2}},
+					{ClassJobType.Dragoon, new uint[] {3}},
+					{ClassJobType.Bard, new uint[] {4}},
+					{ClassJobType.Ninja, new uint[] {5}},
+					{ClassJobType.WhiteMage, new uint[] {6}},
+					{ClassJobType.BlackMage, new uint[] {7}},
+					{ClassJobType.Summoner, new uint[] {8}},
+					{ClassJobType.Scholar, new uint[] {9}},
+				};			
+
+				foreach (var slot in Slots[Core.Me.CurrentJob])
+				{		
+					var npcId = GameObjectManager.GetObjectByNPCId(1008948);
+
+					if (!npcId.IsWithinInteractRange)
+
+					{
+						var _target = npcId.Location;
+						Navigator.PlayerMover.MoveTowards(_target);
+						while (_target.Distance2D(Core.Me.Location) >= 4)
+						{
+							Navigator.PlayerMover.MoveTowards(_target);
+							await Coroutine.Sleep(100);
+						}
+						Navigator.PlayerMover.MoveStop();
+					}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Selecting 'Relic Weapon Zenith Enhancement'.");
+						SelectIconString.ClickLineContains("Relic Weapon Zenith Enhancement");
+					}
+					else
+					{
+						Logging.WriteDiagnostic("'Relic Weapon Zenith Enhancement' window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");
+					}
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+
+					await Coroutine.Wait(5000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Choosing weapon Zenith.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(slot);
+					}
+					else
+					{
+						Logging.WriteDiagnostic("Weapon select window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");
+					}
+
+					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+					{
+						Logging.WriteDiagnostic("Selecting Yes.");
+						ff14bot.RemoteWindows.SelectYesno.ClickYes();
+						await Coroutine.Wait(10000, ()=> QuestLogManager.InCutscene);
+						if (QuestLogManager.InCutscene)
+						{
+							while (QuestLogManager.InCutscene)
+							{
+								while (Talk.DialogOpen)
+								{
+									Talk.Next();
+									await Buddy.Coroutines.Coroutine.Sleep(1000);
+								}
+								await Buddy.Coroutines.Coroutine.Sleep(1000);
+							}
+						}					
+					}
+				}			
+            ]]>
+        </CodeChunk>	
+	</CodeChunks>
+</Profile>	

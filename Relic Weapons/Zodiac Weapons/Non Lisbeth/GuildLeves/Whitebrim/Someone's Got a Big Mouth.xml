@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Someone's Got a Big Mouth Leves
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Someone's Got a Big Mouth Leves</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(848)">
+				<GetTo ZoneId="155" XYZ="-466.4981, 211, -232.1504"/>
+				<ExPickupGuildLeve leveIds="848" leveType="Maelstrom" npcId="1007069" npcLocation="-476.2188,211,-233.4173" Timeout="5" /> <!-- Someone's Got a Big Mouth -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(848)">
+					<ExPickupGuildLeve leveIds="849" leveType="Maelstrom" npcId="1007069" npcLocation="-476.2188,211,-233.4173" Timeout="5" /> <!-- An Imp Mobile -->				
+				</If>
+			</If>	
+
+			<!-- An Imp Mobile -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(849)">
+				<GetTo ZoneId="155" XYZ="-601.9395, 209.717, -346.7201"/>
+				<InitiateLeve LeveId="849"/> <!-- An Imp Mobile -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="AnImpMobile" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1007069" NpcLocation="-476.2188,211,-233.4173"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+			
+			<!-- Someone's Got a Big Mouth -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(848)">
+				<GetTo ZoneId="155" XYZ="-510.9719, 206.2832, -334.0785"/>
+				<InitiateLeve LeveId="848"/> <!-- Someone's Got a Big Mouth -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="SomeonesGotaBigMouth" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />
+				<RunCode Name="CloseTimer"/>
+				<ExTurnInGuildLeve NpcId="1007069" NpcLocation="-476.2188,211,-233.4173"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>			
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="AnImpMobile">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-602.0076, 209.7236, -346.7596" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Dragonfly Chaser" Id="1638" Weight="1" />
+			<TargetMob Name="Wandering Wisp" Id="491" Weight="1" />
+			<TargetMob Name="Blood Bateleur" Id="1789" Weight="1" />			
+			<TargetMob Name="Dusty Devilet" Id="1788" Weight="2" />	
+        </TargetMobs>		
+	</GrindArea>	
+   	<GrindArea name="SomeonesGotaBigMouth">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-485.2217,205.2312,-346.0594" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Mimas " Id="1786" Weight="1" />			
+        </TargetMobs>		
+	</GrindArea>
+  </GrindAreas>	
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }	
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyearth I - Enemies
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyearth I - Enemies</Name>  
+	<Order>
+
+		<!-- Book of Skyearth I Kill Task 1 - Amalj'aa Scavenger-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask1Completed">
+			<Log Message="Moving to Skyearth I Kill Task 1 - Amalj'aa Scavenger" />
+			<GetTo ZoneId="146" XYZ="-18.0202, -0.169851, 2.032777"/>
+			<Grind grindRef="amaljaa_scavenger" while="not ZodiacManager.CurrentBook.KillTask1Completed" />
+		</If>
+
+		<!-- Book of Skyearth I Kill Task 2 - 5th Cohort Secutor-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask2Completed">
+			<Log Message="Moving to Skyearth I Kill Task 2 - 5th Cohort Secutor" />
+			<GetTo ZoneId="156" XYZ="-472.3758, -6.630922, -448.7328"/>
+			<Grind grindRef="5th_cohort_secutor" while="not ZodiacManager.CurrentBook.KillTask2Completed" />
+		</If>
+		
+		<!-- Book of Skyearth I Kill Task 6 - Hapalit-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask6Completed">
+			<Log Message="Moving to Skyearth I Kill Task 6 - Hapalit" />
+			<GetTo ZoneId="156" XYZ="478.7662, -3.015847, -780.0237"/>
+			<Grind grindRef="hapalit" while="not ZodiacManager.CurrentBook.KillTask6Completed" />
+		</If>		
+
+		<!-- Book of Skyearth I Kill Task 3 - Ixali Boldwing-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask3Completed">
+			<Log Message="Moving to Skyearth I Kill Task 3 - Ixali Boldwing" />
+			<GetTo ZoneId="154" XYZ="-39.5889, -9.570549, -138.7954"/>
+			<Grind grindRef="ixali_boldwing" while="not ZodiacManager.CurrentBook.KillTask3Completed" />
+		</If>
+
+		<!-- Book of Skyearth I Kill Task 4 - Zahar'ak Pugilist-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask4Completed">
+			<Log Message="Moving to Skyearth I Kill Task 4 - Zahar'ak Pugilist" />
+			<GetTo ZoneId="146" XYZ="121.7811, 15.9091, 8.022686"/>
+			<Grind grindRef="zaharak_pugilist" while="not ZodiacManager.CurrentBook.KillTask4Completed" />
+		</If>		
+	
+		<!-- Book of Skyearth I Kill Task 5 - Axolotl-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask5Completed">
+			<Log Message="Moving to Skyearth I Kill Task 5 - Axolotl" />
+			<GetTo ZoneId="138" XYZ="-374.2133, -37.519, -297.1403"/>
+			<Grind grindRef="axolotl" while="not ZodiacManager.CurrentBook.KillTask5Completed" />
+		</If>
+		
+
+		<!-- Book of Skyearth I Kill Task 7 - Elite Quarryman-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask7Completed">
+			<Log Message="Moving to Skyearth I Kill Task 7 - Elite Quarryman" />
+			<GetTo ZoneId="180" XYZ="162.2861, 21.48156, -707.5877"/>
+			<Grind grindRef="elite_quarryman" while="not ZodiacManager.CurrentBook.KillTask7Completed" />
+		</If>
+
+		<!-- Book of Skyearth I Kill Task 8 - Natalan Swiftbeak-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask8Completed">
+			<Log Message="Moving to Skyearth I Kill Task 8 - Natalan Swiftbeak" />
+			<GetTo ZoneId="155" XYZ="643.6441, 289.0419, 19.67446"/>
+			<Grind grindRef="natalan_swiftbeak" while="not ZodiacManager.CurrentBook.KillTask8Completed" />
+		</If>		
+		
+		<!-- Book of Skyearth I Kill Task 9 - Violet Sigh-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask9Completed">
+			<Log Message="Moving to Skyearth I Kill Task 9 - Violet Sigh" />
+			<GetTo ZoneId="152" XYZ="144.9684, -25.01536, -546.7323"/>
+			<Grind grindRef="violet_sigh" while="not ZodiacManager.CurrentBook.KillTask9Completed" />
+		</If>
+
+		<!-- Book of Skyearth I Kill Task 10 - 2nd Cohort Signifier-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask10Completed">
+			<Log Message="Moving to Skyearth I Kill Task 10 - 2nd Cohort Signifier" />
+			<GetTo ZoneId="137" XYZ="367.0468, 76.27805, -36.89952"/>
+			<Grind grindRef="2nd_cohort_signifier" while="not ZodiacManager.CurrentBook.KillTask10Completed" />
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+	<GrindAreas>
+		<!-- Kill Task 1 -->
+		<GrindArea name="amaljaa_scavenger">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-18.0202, -0.169851, 2.032777" name="amaljaa_scavenger" />
+				<Hotspot Radius="500" XYZ="-142.4754, 11.84178, -71.9171" name="amaljaa_scavenger" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1389"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 2 -->	
+		<GrindArea name="5th_cohort_secutor">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-472.3758, -6.630922, -448.7328" name="5th_cohort_secutor" />
+				<Hotspot Radius="500" XYZ="-565.6674, -2.933004, -419.6997" name="5th_cohort_secutor" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1812"  />
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 3 -->	
+		<GrindArea name="ixali_boldwing">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-39.5889, -9.570549, -138.7954" name="ixali_boldwing" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="103"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 4 -->
+		<GrindArea name="zaharak_pugilist">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="95.12254, 11.1597, 5.542565" name="zaharak_pugilist" />
+				<Hotspot Radius="500" XYZ="236.2357, 8, -23.16737" name="zaharak_pugilist" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1839"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 5 -->		
+		<GrindArea name="axolotl">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-401.2104, -33.26277, -300.8342" name="axolotl" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1831"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 6 -->
+		<GrindArea name="hapalit">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="481.2334, -3.055959, -778.9774" name="hapalit" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="793"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 7 -->
+		<GrindArea name="elite_quarryman">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="162.2861, 21.48156, -707.5877" name="elite_quarryman" />
+				<Hotspot Radius="500" XYZ="158.4412, 24.08969, -751.2839" name="elite_quarryman" />
+				<Hotspot Radius="500" XYZ="262.5398, 21.51563, -803.8939" name="elite_quarryman" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="2519"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 8 -->
+		<GrindArea name="natalan_swiftbeak">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="641.0512, 289.026, 21.08164" name="natalan_swiftbeak" />	
+				<Hotspot Radius="500" XYZ="640.9288, 286.4385, 117.8177" name="natalan_swiftbeak" />		
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1844"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 9 -->	
+		<GrindArea name="violet_sigh">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="144.9684, -25.01536, -546.7323" name="violet_sigh" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="2317"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 10 -->
+		<GrindArea name="2nd_cohort_signifier">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="367.0468, 76.27805, -36.89952" name="2nd_cohort_signifier" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1825"  />
+			</TargetMobs>
+		</GrindArea>		
+	</GrindAreas>
+</Profile>	

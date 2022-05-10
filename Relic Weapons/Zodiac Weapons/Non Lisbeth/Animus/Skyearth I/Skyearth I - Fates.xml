@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyearth I - FATEs
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyearth I - FATEs</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Skyearth I FATE Task 1 - The Taste of Fear -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+			<Log Message="Moving to FATE 'The Taste of Fear'" />
+			<GetTo ZoneId="155" XYZ="-820.2712, 224.3287, 21.67726"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask1Completed">
+				<Log Message="Waiting on FATE 'The Taste of Fear'" />
+				<LLFate FateId="493" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask1Completed"/> <!-- The Taste of Fear -->		
+			</While>	
+		</If>
+
+		<!-- Book of Skyearth I FATE Task 2 - Schism -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+			<Log Message="Moving to FATE 'Schism'" />
+			<GetTo ZoneId="180" XYZ="122.8284, 73.77152, -256.0686"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+				<Log Message="Waiting on FATE 'Schism'" />
+				<If condition="GameObjectManager.GetObjectByNPCId(1332)">
+					<RunCode name="StartSchism"/>
+				</If>
+				<LLFate FateId="587" MinLevel="1" MaxLevel="50" timeout="60" while="not ZodiacManager.CurrentBook.FateTask2Completed"/> <!-- Schism -->	
+			</While>					
+		</If>
+
+		<!-- Book of Skyearth I FATE Task 3 - The Big Bagoly Theroy -->	
+		<If condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+			<Log Message="Moving to FATE 'The Big Bagoly Theroy'" />
+			<GetTo ZoneId="145" XYZ="434.8353, -64.536, 204.8842"/>
+			<While Condition="not ZodiacManager.CurrentBook.FateTask3Completed">
+				<Log Message="Waiting on FATE 'The Big Bagoly Theroy'" />
+				<LLFate FateId="543" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask3Completed"/> <!-- The Big Bagoly Theroy -->
+			</While>	
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+	<CodeChunks>
+		<CodeChunk Name="Schism">
+		  <![CDATA[ 
+			Core.OverlayManager.AddToast(() => "Please complete Schism FATE manually. Starts from NPC.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(60000);
+		  ]]>
+		</CodeChunk>
+		<CodeChunk Name="StartSchism">
+			<![CDATA[ 
+				var x = GameObjectManager.GetObjectByNPCId(1332);
+				var pos = new Vector3(x.Location.X, x.Location.Y, x.Location.Z);
+				Navigator.PlayerMover.MoveTowards(pos);
+				await Coroutine.Wait(-1, () => Core.Me.Distance(pos) < 3f);
+				Navigator.PlayerMover.MoveStop();
+				await Coroutine.Sleep(1000);
+				ff14bot.Managers.GameObjectManager.GetObjectByNPCId(x.NpcId).Interact();				
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+                while (Talk.DialogOpen)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }		
+                while (Talk.DialogOpen)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }	
+                while (Talk.DialogOpen)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }	
+                while (Talk.DialogOpen)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }					
+				await Buddy.Coroutines.Coroutine.Sleep(1000);				
+                if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				await Buddy.Coroutines.Coroutine.Sleep(1000);	
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+                }						
+			]]>
+		</CodeChunk>		
+	</CodeChunks>	
+</Profile>	

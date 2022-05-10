@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Someone's in the Doghouse Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Someone's in the Doghouse Leve</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(647)">
+				<GetTo ZoneId="147" XYZ="33.91326, 4.68145, 399.2563"/>
+				<ExPickupGuildLeve leveIds="647" leveType="Battlecraft" npcId="1002398" npcLocation="33.91326, 4.68145, 399.2563" Timeout="5" /> <!-- Someone's in the Doghouse -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(647)">
+					<ExPickupGuildLeve leveIds="644" leveType="Battlecraft" npcId="1002398" npcLocation="33.91326, 4.68145, 399.2563" Timeout="5" /> <!-- Necrologos: Pale Oblation -->
+				</If>	
+			</If>	
+
+			<!-- Someone's in the Doghouse -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(647)">
+				<GetTo ZoneId="147" XYZ="88.50806, 15.88555, 243.4572"/>
+				<While condition="1 == 1">
+					<RunCode Name="Announce_Manual_Completion"/>
+				</While>	
+				<!-- <InitiateLeve LeveId="647"/> --> <!-- Someone's in the Doghouse -->
+
+				<!-- Need to figure out how to beckon the dog
+				<WaitTimer WaitTime="2" />
+				<SoSendChat Message="/beckon" NpcId="1014"/>
+				<GetTo ZoneId="147" XYZ="65.96061, 14.61747, 248.4877"/>
+				<SoSendChat Message="/beckon" NpcId="1014"/>
+				<GetTo ZoneId="147" XYZ="47.65546, 13.5875, 255.0717"/>
+				<SoSendChat Message="/beckon" NpcId="1014"/>
+				<GetTo ZoneId="147" XYZ="35.6843, 11.75417, 263.7614"/>
+				<SoSendChat Message="/beckon" NpcId="1014"/>
+				<GetTo ZoneId="147" XYZ="21.2653, 6.861335, 274.5961"/>
+				<SoSendChat Message="/beckon" NpcId="1014"/>
+				<GetTo ZoneId="147" XYZ="15.22651, 4.860257, 291.3291"/>
+				<SoSendChat Message="/beckon" NpcId="1014"/>>
+				<GetTo ZoneId="147" XYZ="15.26395, 3.127327, 313.9239"/>
+				<SoSendChat Message="/beckon" NpcId="1014"/>
+				<GetTo ZoneId="147" XYZ="10.5704, 1.888089, 331.1467"/>
+				<SoSendChat Message="/beckon" NpcId="1014"/>
+				<GetTo ZoneId="147" XYZ="12.00926, 2.400431, 352.3456"/>
+				<SoSendChat Message="/beckon" NpcId="1014"/>
+				<GetTo ZoneId="147" XYZ="12.4327, 3.681655, 369.2341"/>
+				<SoSendChat Message="/beckon" NpcId="1014"/>
+				<GetTo ZoneId="147" XYZ="20.58167, 4.015318, 385.006"/>
+				<SoSendChat Message="/beckon" NpcId="1014"/>
+				<WaitTimer WaitTime="3" />
+				<GetTo ZoneId="147" XYZ="33.91326, 4.68145, 399.2563"/>
+				<ExTurnInGuildLeve NpcId="1002398" NpcLocation="33.91326, 4.68145, 399.2563"/>
+				<LLoadProfile Path="../../Start.xml"/>	-->	
+			</If>
+
+
+			<!-- Necrologos: Pale Oblation -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(644)">
+				<GetTo ZoneId="147" XYZ="45.68184, 7.582094, 344.8144"/>
+				<InitiateLeve LeveId="644"/> 
+				<While condition="DirectorManager.ActiveDirector.GetTodoArgs(1).Item1 &lt; DirectorManager.ActiveDirector.GetTodoArgs(1).Item2">
+					<UseObject Radius="500" InCombat="true" XYZ="5.107096, 2.950484, 312.0914" NpcIds="2001098" UseTimes="1"/>
+					<WaitTimer WaitTime="5" />
+				</While>
+				<WaitTimer WaitTime="7" />	
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1002398" NpcLocation="33.91326, 4.68145, 399.2563"/>
+				<LLoadProfile Path="../../Start.xml"/>
+			</If>
+	
+
+
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="VoidSlave">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-7.641754, 3.0246, 359.4961" />
+			<Hotspot Radius="200" XYZ="30.55565, 6.980818, 324.5174" />
+			<Hotspot Radius="200" XYZ="14.06814, 6.060303, 273.8956" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Void Slave" Id="1737" Weight="1" />
+			<TargetMob Name="Fernehalwes" Id="1008" Weight="2" />		
+        </TargetMobs>		
+	</GrindArea> 	
+  </GrindAreas>
+  <CodeChunks>
+      <CodeChunk Name="Announce_Manual_Completion"><![CDATA[ 
+        Core.OverlayManager.AddToast(() => "Please complete 'Someone's in the Doghouse' manually and then reload the Start profile.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]></CodeChunk>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }	
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

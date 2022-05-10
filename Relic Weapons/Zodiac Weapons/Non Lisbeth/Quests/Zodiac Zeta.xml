@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Zodiac Zeta Quests
+  Version: 0.7
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm
+-->
+
+<Profile>
+  <Name>Zodiac Zeta Quests</Name>
+  <BehaviorDirectory>..\Quest Behaviors</BehaviorDirectory>
+	<Order>
+					<If Condition="ClassName == ((ClassJobType.Bard))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9495">
+							<Log Message="Equipping Yoichi Bow" />
+							<EquipWeapon ItemID="9495"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9497">
+							<Log Message="Equipping Lilith Rod" />
+							<EquipWeapon ItemID="9497"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9494">
+							<Log Message="Equipping Longinus" />
+							<EquipWeapon ItemID="9494"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>	
+					<If Condition="ClassName == ((ClassJobType.Monk))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9492">
+							<Log Message="Equipping Kaiser Knuckles" />
+							<EquipWeapon ItemID="9492"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9501">
+							<Log Message="Equipping Sasuke's Blades" />
+							<EquipWeapon ItemID="9501"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9491">
+							<Log Message="Equipping Excalibur" />
+							<EquipWeapon ItemID="9491"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 9500">
+							<Log Message="Equipping Aegis Shield" />
+							<EquipWeapon ItemID="9500"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>			
+					<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9499">
+							<Log Message="Equipping Last Resort" />
+							<EquipWeapon ItemID="9499"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9498">
+							<Log Message="Equipping Apocalypse" />
+							<EquipWeapon ItemID="9498"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>	
+					<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9493">
+							<Log Message="Equipping Ragnarok" />
+							<EquipWeapon ItemID="9493"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>
+					<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+						<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9496">
+							<Log Message="Equipping Nirvana" />
+							<EquipWeapon ItemID="9496"/>
+							<WaitTimer WaitTime="3" />
+						</While>
+					</If>		
+		<!-- Rise and Shine -->
+		<If Condition="not HasQuest(66096) and not IsQuestCompleted(66096)">						  		
+		  <GetTo ZoneId="154" XYZ="406.334, -4.498047, -88.8383"/>
+		  <If Condition="IsQuestAcceptQualified(66096)">
+			<PickupQuest QuestId="66096" NpcId="1008948"/>
+		  </If>
+		</If>
+		<If Condition="GetQuestStep(66096) == 1">
+		  <GetTo ZoneId="154" XYZ="440.4735, -0.9374537, -64.28922"/>
+		  <HandOver ItemId="2001561" NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66096" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(66096) == 2">
+		  <GetTo ZoneId="156" XYZ="25.59059, 29, -823.7938"/>
+		  <TalkTo NpcId="1001304" XYZ="25.58936, 29, -825.3757" QuestId="66096" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(66096) == 3">
+		  <GetTo ZoneId="154" XYZ="440.3532, -0.9374504, -63.92621"/>
+		  <TalkTo NpcId="1003075" XYZ="440.7262, -0.9374562, -62.21112" QuestId="66096" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(66096) == 255">
+		  <GetTo ZoneId="138" XYZ="642.504, 9.31869, 512.4894"/>
+		  <TurnIn ItemId="2001561" QuestId="66096" NpcId="1011791" XYZ="641.657, 9.446683, 511.1925"/>
+		</If>
+		
+		<If condition="IsQuestCompleted(66096)">
+			<While condition="ZodiacCompletedMahatma() == 11 and ZodiacMahatmaIsDone()">
+				<BotSettings AutoEquip="1" />
+				<GetTo ZoneId="154" XYZ="407.7509, -4.688663, -89.3384"/>
+				<RunCode name="PurchaseZodiacZenith"/>
+				<BotSettings AutoEquip="0" />
+				<StopBot />
+			</While>
+			<If condition="ZodiacCompletedMahatma() == 0 and not ZodiacMahatmaIsDone()">
+				<While Condition="not HasAtLeast(28,50)">
+					<RunCode name="NeedPoetics"/>
+				</While>
+				<If Condition="HasAtLeast(28,50)">	
+					<GetTo ZoneId="138" XYZ="642.0411, 9.382738, 511.8205"/>
+					<Log Message="Attaching first Mahatma." />
+					<RunCode name="FirstMahatma"/>
+				</If>	
+			</If>
+			<!-- Buy Next Mahatma -->
+			<While condition="ZodiacMahatmaIsDone()">
+				<Log Message="Current Mahatma done, attaching next one." />
+				<While Condition="not HasAtLeast(28,50)">
+					<RunCode name="NeedPoetics"/>
+				</While>
+				<If Condition="HasAtLeast(28,50)">					
+					<GetTo ZoneId="138" XYZ="642.0411, 9.382738, 511.8205"/>
+					<RunCode name="AttachMahatma"/>
+				</If>	
+			</While>
+			<!-- Mahatma Farm -->	
+			<If condition="not ZodiacMahatmaIsDone()">			
+				<LLoadProfile Path="../Dungeons/Tam Tara Deepcroft (Zodiac Zeta).xml"/>
+			</If>	
+		</If>
+		
+	</Order>
+	<CodeChunks>
+		<CodeChunk Name="FirstMahatma">
+            <![CDATA[ 
+				uint Slot = (uint)(LlamaLibrary.ScriptConditions.Helpers.ZodiacCompletedMahatma());
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+
+				ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1011791).Interact();
+
+				await Coroutine.Wait(5000, () => SelectIconString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+				{
+					Logging.WriteDiagnostic("SelectIconString Open. Clicking Mahatma Exchange.");
+					ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Mahatma Exchange window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}				
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+				{
+					Talk.Next();
+				}
+
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("SelectString Open. Choosing weapon.");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					await Coroutine.Wait(5000, () => !SelectString.IsOpen);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Weapon choice window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}				
+
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing next Mahatma.");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Select Mahatma window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}				
+
+				await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting Yes.");
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Select Yes/No window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}					
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}							
+            ]]>	
+		</CodeChunk>	
+		<CodeChunk Name="AttachMahatma">
+            <![CDATA[
+				uint Slot = (uint)(LlamaLibrary.ScriptConditions.Helpers.ZodiacCompletedMahatma());
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+
+				ff14bot.Managers.GameObjectManager.GetObjectByNPCId(1011791).Interact();
+
+				await Coroutine.Wait(5000, () => SelectIconString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+
+				if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+				{
+					Logging.WriteDiagnostic("SelectIconString Open. Clicking Mahatma Exchange.");
+					ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Mahatma Exchange window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}				
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (await Coroutine.Wait(1000, () => Talk.DialogOpen))
+				{
+					Talk.Next();
+				}
+
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("SelectString Open. Choosing weapon.");
+					ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					await Coroutine.Wait(5000, () => !SelectString.IsOpen);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Weapon choice window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}				
+
+				await Coroutine.Wait(5000, () => SelectString.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectString.IsOpen)
+				{
+					Logging.WriteDiagnostic("Choosing next Mahatma.");
+					SelectString.ClickSlot(Slot + 1);
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Select Mahatma window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}				
+
+				await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting Yes.");
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				}
+				else
+				{
+					Logging.WriteDiagnostic("Select Yes/No window failed to open.");
+					ff14bot.TreeRoot.Stop("Window failed to open");
+				}					
+
+				await Coroutine.Wait(5000, () => Talk.DialogOpen);
+				await Buddy.Coroutines.Coroutine.Sleep(500);
+				while (Talk.DialogOpen)
+				{
+					Talk.Next();
+					await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(1000);   
+				}				
+            ]]>
+		</CodeChunk>
+		<CodeChunk Name="NeedPoetics">
+			  <![CDATA[
+			Core.OverlayManager.AddToast(() => "Please farm at least 50 Tomestone of Poetics to continue.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+			await Coroutine.Sleep(26000);			  
+			  ]]>
+		</CodeChunk>
+		<CodeChunk Name="PurchaseZodiacZenith">
+            <![CDATA[ 
+			
+				Dictionary<ClassJobType, uint[]> Slots = new Dictionary<ClassJobType, uint[]>
+				{
+					{ClassJobType.Paladin, new uint[] {9491, 9500}},
+					{ClassJobType.Monk, new uint[] {9492}},
+					{ClassJobType.Warrior, new uint[] {9493}},
+					{ClassJobType.Dragoon, new uint[] {9494}},
+					{ClassJobType.Bard, new uint[] {9495}},
+					{ClassJobType.Ninja, new uint[] {9501}},
+					{ClassJobType.WhiteMage, new uint[] {9496}},
+					{ClassJobType.BlackMage, new uint[] {9497}},
+					{ClassJobType.Summoner, new uint[] {9498}},
+					{ClassJobType.Scholar, new uint[] {9499}},
+				};			
+
+				foreach (var slot in Slots[Core.Me.CurrentJob])
+				{		
+					var npcId = GameObjectManager.GetObjectByNPCId(1008948);
+
+					if (!npcId.IsWithinInteractRange)
+
+					{
+						var _target = npcId.Location;
+						Navigator.PlayerMover.MoveTowards(_target);
+						while (_target.Distance2D(Core.Me.Location) >= 4)
+						{
+							Navigator.PlayerMover.MoveTowards(_target);
+							await Coroutine.Sleep(100);
+						}
+						Navigator.PlayerMover.MoveStop();
+					}
+
+					npcId.Interact();
+					
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectIconString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Selecting 'Zodiac Weapon Awakening'.");
+						SelectIconString.ClickLineContains("Zodiac Weapon Awakening");
+					}
+					else
+					{
+						Logging.WriteDiagnostic("Zodiac Weapon Awakening window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");
+					}
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);
+					}
+					
+					await Coroutine.Wait(5000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectString.IsOpen)
+					{
+						Logging.WriteDiagnostic("Choosing Awaken Weapon.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(0);
+					}
+					else
+					{
+						Logging.WriteDiagnostic("Weapon select window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");
+					}
+				
+					await Coroutine.Wait(10000, () => Request.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);		
+					if (ff14bot.RemoteWindows.Request.IsOpen)
+					{
+						Logging.WriteDiagnostic("Selecting weapon to hand over.");
+						await CommonTasks.HandOverRequestedItems();
+					}
+					else
+					{
+						Logging.WriteDiagnostic("Request weapon window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");
+					}				
+					
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(2000, () => !Talk.DialogOpen);
+						await Buddy.Coroutines.Coroutine.Sleep(1000);						
+					}
+					
+					await Coroutine.Wait(5000, () => RaptureAtkUnitManager.GetWindowByName("RelicSphereUpgrade")!= null);
+					if (RaptureAtkUnitManager.GetWindowByName("RelicSphereUpgrade") != null)
+					{
+						RaptureAtkUnitManager.GetWindowByName("RelicSphereUpgrade").SendAction(1,3,0);
+						await Coroutine.Wait(10000, ()=> QuestLogManager.InCutscene);
+						if (QuestLogManager.InCutscene)
+						{
+							while (QuestLogManager.InCutscene)
+							{
+								while (Talk.DialogOpen)
+								{
+									Talk.Next();
+									await Buddy.Coroutines.Coroutine.Sleep(2000);
+								}
+								await Buddy.Coroutines.Coroutine.Sleep(2000);
+							}
+						}												
+					}					
+					else
+					{
+						Logging.WriteDiagnostic("Upgrade Relic window failed to open.");
+						ff14bot.TreeRoot.Stop("Window failed to open");											
+					}										
+					
+				}
+	  ]]>
+	</CodeChunk>	
+	</CodeChunks>
+</Profile>	

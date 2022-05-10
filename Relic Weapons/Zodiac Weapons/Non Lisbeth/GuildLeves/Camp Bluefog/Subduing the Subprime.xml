@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Subduing the Subprime Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Subduing the Subprime Leve</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<Log Message="Loaded Necrologos: Pale Oblation Leve Version 1.0" />
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(643)">
+				<GetTo ZoneId="147" XYZ="33.91326, 4.68145, 399.2563"/>
+				<ExPickupGuildLeve leveIds="643" leveType="Battlecraft" npcId="1002398" npcLocation="33.91326, 4.68145, 399.2563" Timeout="5" /> <!-- Subduing the Subprime -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(643)">
+					<ExPickupGuildLeve leveIds="646" leveType="Battlecraft" npcId="1002398" npcLocation="33.91326, 4.68145, 399.2563" Timeout="5" /> <!-- Circling the Ceruleum -->
+				</If>	
+			</If>	
+
+			<!-- Subduing the Subprime -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(643)">
+				<GetTo ZoneId="147" XYZ="-8.2788, 2.443125, 355.5016"/>
+				<InitiateLeve LeveId="643"/> <!-- Subduing the Subprime -->
+				<WaitTimer WaitTime="2" /> 
+				<Grind GrindRef="SubduingtheSubprime" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/>
+				<WaitTimer WaitTime="2" />	
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1002398" NpcLocation="33.91326, 4.68145, 399.2563"/>
+				<LLoadProfile Path="../../Start.xml"/>
+			</If>
+	
+			<!-- Circling the Ceruleum -->
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(646)">
+				<GetTo ZoneId="147" XYZ="45.68184, 7.582094, 344.8144"/>
+				<InitiateLeve LeveId="646"/> <!-- Circling the Ceruleum -->
+				<WaitTimer WaitTime="2" />
+				<UseObject InCombat="True" Radius="500" XYZ="5.107096, 2.950484, 312.0914" NpcIds="2001104" condition="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/>	
+				<RunCode Name="CloseTimer"/>
+				<ExTurnInGuildLeve NpcId="1002398" NpcLocation="33.91326, 4.68145, 399.2563"/>
+				<LLoadProfile Path="../../Start.xml"/>		
+			</If>
+
+
+	</Order>
+  <GrindAreas> 
+ 	<GrindArea name="SubduingtheSubprime">
+        <Hotspots>
+			<Hotspot Radius="500" XYZ="12.06982,2.072141,332.6619" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Baert Trading Company Guard" Id="1734" Weight="1" />
+			<TargetMob Name="Fernehalwes" Id="1008" Weight="2" />		
+        </TargetMobs>		
+	</GrindArea> 
+  </GrindAreas>
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }	
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

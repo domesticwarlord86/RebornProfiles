@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Hullbreaker Isle
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Hullbreaker Isle</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+    <!-- [Unlock Hullbreaker Isle] King of the Hull -->
+    <If Condition="not HasQuest(67062) and not IsQuestCompleted(67062)">
+      <GetTo ZoneId="156" XYZ="30.67139, 21.26914, -636.8782"/>
+      <If Condition="IsQuestAcceptQualified(67062)">
+        <PickupQuest QuestId="67062" NpcId="1006975" XYZ="32.82214, 21.25273, -635.462"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(67062) and not IsQuestCompleted(67062) and GetQuestStep(67062) == 1">
+      <GetTo ZoneId="128" XYZ="-10.15044, 32, -39.32353"/>
+      <TalkTo NpcId="1009231" XYZ="-9.140198, 31.99998, -40.08551" QuestId="67062" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(67062) and not IsQuestCompleted(67062) and GetQuestStep(67062) == 2">
+      <GetTo ZoneId="135" XYZ="274.0709, 4.403121, 727.8066"/>
+      <TalkTo NpcId="1009382" XYZ="275.1659, 4.403121, 729.1523" QuestId="67062" StepId="2"/>
+    </If>
+	
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="23"/>
+	</If> 
+	<If condition="DutyManager.InInstance">
+		<!-- Defeat the sifakas 0/5 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Defeat the sifakas 0/5" />
+			<BotSettings AutoEquip="1" />	
+			<Grind GrindRef="DefeatSifakas" While="GetInstanceTodo(0) &lt; 5"/> <!-- Defeat the sifakas -->
+		</If>
+
+		<!-- Slay the sasquatch 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 5">
+			<Log Message="Slay the sasquatch 0/1" />
+			<MoveTo XYZ="221.233, 64.69081, 7.753107" />	
+			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Fight First Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+		</If>
+		
+		<!-- Find the stone tablet 0/3 -->
+		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+			<Log Message="Find the stone tablet 0/3" />		
+			<MoveTo XYZ="220.1684, 63.00777, -134.2725" />
+			<UseObject InCombat="True" NpcIds="2004054,2004074,2004075" Radius="50" XYZ="220.1684, 63.00777, -134.2725" condition="GetInstanceTodo(2) == 0"/>
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>		
+		</If>
+
+		<!-- Find the stone tablet 2/3 -->
+		<If Condition="GetInstanceTodo(2) &lt; 3">		
+			<MoveTo XYZ="163.7842,52.70668,-185.0271" distance="1"/>
+			<While condition="GameObjectManager.GetObjectByNPCId(2004057).IsTargetable">
+				<MoveTo XYZ="163.7842,52.70668,-185.0271" distance="1"/>
+				<RunCode name="StonePedestal1"/>
+			</While>
+			<MoveTo XYZ="76.69534, 52.95693, -216.5864" />
+			<UseObject InCombat="True" NpcIds="2004055,2004056,2004076,2004078,2004077,2004078,2004079" condition="GetInstanceTodo(2) &lt; 3">		
+				<HotSpots>
+					<HotSpot XYZ="76.69534, 52.95693, -216.5864" Radius="50"/>
+					<HotSpot XYZ="30.01213, 44.47987, -135.2864" Radius="50"/>
+				</HotSpots>
+			</UseObject>
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>			
+		</If>	
+		
+		<!-- Slay Sjoorm 0/1 -->
+		<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 3">
+			<Log Message="Slay Sjoorm 0/1" />				
+			<MoveTo XYZ="-32.14573,44.99606,-118.3365" distance="1"/>
+			<While condition="GameObjectManager.GetObjectByNPCId(2004058).IsTargetable">
+				<MoveTo XYZ="-32.14573,44.99606,-118.3365" distance="1"/>
+				<RunCode name="StonePedestal2"/>
+			</While>
+			<While condition="GameObjectManager.GetObjectByNPCId(2004059).IsTargetable">
+				<MoveTo XYZ="-32.40422,44.93703,-128.9641" distance="1"/>
+				<RunCode name="StonePedestal3"/>
+			</While>			
+			<MoveTo XYZ="-64.88319, 44.11395, -125.0798" />
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Fight second Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>			
+		</If>
+
+		<!-- Navigate the geysers 0/2 -->
+		<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+			<Log Message="Navigate the geysers 0/2" />
+			<MoveTo XYZ="-163.9508, 52.41811, -102.3388" />
+			<MoveTo XYZ="-171.5291, 6.704976, -71.54744" usemesh="false" />
+			<MoveTo XYZ="-218.5241, -0.03929996, -5.06804" />
+			<Grind GrindRef="Geyser1" While="GetInstanceTodo(4) &lt; 1"/> <!-- Clear first geyser -->
+		</If>
+
+		<!-- Navigate the geysers 1/2 -->
+		<If Condition="GetInstanceTodo(4) == 1">
+			<Log Message="Navigate the geysers 1/2" />		
+			<MoveTo XYZ="-294.4839,6.210388,-44.84625" />
+			<LLOpenChest />
+			<MoveTo XYZ="-307.3551, 4.495271, 14.34614" />
+			<Grind GrindRef="Geyser2" While="GetInstanceTodo(4) &lt; 2"/> <!-- Clear second geyser -->	
+		</If>
+
+		<!-- Dismemeber the arms and tentacles 0/10 -->
+		<If Condition="GetInstanceTodo(5) &lt; 10 and GetInstanceTodo(4) == 2">
+			<Log Message="Dismemeber the arms and tentacles 0/10" />
+			<MoveTo XYZ="-317.9591, 1.899866, 36.26224" />
+			<While Condition="IsOnMap(361)">
+				<RunCode name="Announce_Manual_Completion"/>
+				<WaitTimer WaitTime="26" />
+			</While>
+		</If>	
+
+		
+	</If>
+  </Order>
+  <GrindAreas>
+  	<GrindArea name="DefeatSifakas">
+        <Hotspots>
+			<Hotspot Radius="100" XYZ="285.5725,18.98125,240.4364" />
+			<Hotspot Radius="100" XYZ="288.0328, 26.99804, 201" />
+			<Hotspot Radius="100" XYZ="322.8044,50.2583,134.0809" />
+			<Hotspot Radius="100" XYZ="232.7337,61.82631,121.8361" />
+			<Hotspot Radius="100" XYZ="222.5834,64.72472,87.23572" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2889" Weight="1" /> <!-- Sifaka -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="220.2334,64.6908,-24.91797" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2901" Weight="1" /> <!-- Sasquatch -->
+        </TargetMobs>
+	</GrindArea>		
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-87.63257,44.31051,-124.8646" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2903" Weight="2" /> <!-- Sjoorm -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Geyser1">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-216.3272,0.1359987,-9.079163" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2900" Weight="2" /> 
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Geyser2">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-307.3551, 4.495271, 14.34614" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2900" Weight="2" /> 
+        </TargetMobs>
+	</GrindArea>	
+	<GrindArea name="KrakenArm">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-329.357, 1.9, 40.10876" usemesh="false"/>
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="2905" Weight="1" />	<!-- Kraken's Arm -->
+			<TargetMob Id="2906" Weight="1" />	<!-- Tentacle -->
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+      <CodeChunk Name="Announce_Manual_Completion">
+      <![CDATA[ 
+        Core.OverlayManager.AddToast(() => "Please kill the Kraken manually then reload the Start profile.", TimeSpan.FromMilliseconds(25000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+        await Coroutine.Sleep(26000);
+      ]]>
+    </CodeChunk>
+	<CodeChunk Name="StonePedestal1">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004057).Interact();
+			await Coroutine.Sleep(1000);
+            ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="StonePedestal2">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004058).Interact();
+			await Coroutine.Sleep(1000);
+            ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="StonePedestal3">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004059).Interact();
+			await Coroutine.Sleep(1000);
+            ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>		
+  </CodeChunks>
+</Profile>

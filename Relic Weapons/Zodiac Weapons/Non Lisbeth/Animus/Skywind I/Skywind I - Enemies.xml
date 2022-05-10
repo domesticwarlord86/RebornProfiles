@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skywind I - Enemies
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skywind I - Enemies</Name>  
+	<Order>
+
+		<!-- Book of Skywind I Kill Task 1 - Sylpheed Snarls-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask1Completed">
+			<Log Message="Moving to Skywind I Kill Task 1 - Sylpheed Snarls" />
+			<GetTo ZoneId="152" XYZ="539.1036, -23.616, -346.42"/>
+			<Grind grindRef="snarl" while="not ZodiacManager.CurrentBook.KillTask1Completed" />
+		</If>
+
+		<!-- Book of Skywind I Kill Task 2 - Amaljaa Thaumaturges-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask2Completed">
+			<Log Message="Moving to Skywind I Kill Task 2 - Amaljaa Thaumaturges" />
+			<GetTo ZoneId="146" XYZ="-36.86766, -1.119522, -150.4095"/>
+			<Grind grindRef="amal_thm" while="not ZodiacManager.CurrentBook.KillTask2Completed" />
+		</If>
+
+		<!-- Book of Skywind I Kill Task 3 - 5th Cohort Eques-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask3Completed">
+			<Log Message="Moving to Skywind I Kill Task 3 - 5th Cohort Eques" />
+			<GetTo ZoneId="156" XYZ="-463.8192, -8.046604, -456.6935"/>
+			<Grind grindRef="Eques" while="not ZodiacManager.CurrentBook.KillTask3Completed" />
+		</If>
+		
+		<!-- Book of Skywind I Kill Task 5 - Hippogryph-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask5Completed">
+			<Log Message="Moving to Skywind I Kill Task 5 - Hippogryph" />
+			<GetTo ZoneId="156" XYZ="357.846, 20.13774, -735.8298"/>
+			<Grind grindRef="Hippogryph" while="not ZodiacManager.CurrentBook.KillTask5Completed" />
+		</If>		
+
+		<!-- Book of Skywind I Kill Task 4 - Sapsa Elbst-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask4Completed">
+			<Log Message="Moving to Skywind I Kill Task 4 - Sapsa Elbst" />
+			<GetTo ZoneId="138" XYZ="-208.7372, -42.39878, -275.9078"/>
+			<Grind grindRef="sapsa_elbst" while="not ZodiacManager.CurrentBook.KillTask4Completed" />
+		</If>		
+	
+		
+		<!-- Book of Skywind I Kill Task 6 - Trenchtooth Sahagin-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask6Completed">
+			<Log Message="Moving to Skywind I Kill Task 6 - Trenchtooth Sahagin" />
+			<GetTo ZoneId="138" XYZ="-69.98137, -25.68326, -88.33636"/>
+			<Grind grindRef="trenchtooth_sahagin" while="not ZodiacManager.CurrentBook.KillTask6Completed" />
+		</If>
+
+		<!-- Book of Skywind I Kill Task 7 - Natalan Windtalon-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask7Completed">
+			<Log Message="Moving to Skywind I Kill Task 7 - Natalan Windtalon" />
+			<GetTo ZoneId="155" XYZ="505.4167, 303.1907, -191.9184"/>
+			<Grind grindRef="natalan_windtalon" while="not ZodiacManager.CurrentBook.KillTask7Completed" />
+		</If>
+
+		<!-- Book of Skywind I Kill Task 8 - Elite Roundsman-->
+		<If condition="not ZodiacManager.CurrentBook.KillTask8Completed">
+			<Log Message="Moving to Skywind I Kill Task 8 - Elite Roundsman" />
+			<GetTo ZoneId="180" XYZ="263.3014, 21.51356, -804.4814"/>
+			<Grind grindRef="elite_roundsman" while="not ZodiacManager.CurrentBook.KillTask8Completed" />
+		</If>		
+		
+		<!-- Book of Skywind I Kill Task 9 - -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask9Completed">
+			<Log Message="Moving to Skywind I Kill Task 9 - " />
+			<GetTo ZoneId="147" XYZ="148.4337, 33.93185, 14.36311"/>
+			<Grind grindRef="Ahriman" while="not ZodiacManager.CurrentBook.KillTask9Completed" />
+		</If>
+
+		<!-- Book of Skywind I Kill Task 10 - -->
+		<If condition="not ZodiacManager.CurrentBook.KillTask10Completed">
+			<Log Message="Moving to Skywind I Kill Task 10 - " />
+			<GetTo ZoneId="137" XYZ="215.0916, 73.75889, -17.56674"/>
+			<Grind grindRef="secutor" while="not ZodiacManager.CurrentBook.KillTask10Completed" />
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+	<GrindAreas>
+		<!-- Kill Task 1 -->
+		<GrindArea name="snarl">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="539.1036, -23.616, -346.42" name="snarl" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="69"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 2 -->	
+		<GrindArea name="amal_thm">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-36.94783, -0.9500495, -153.3837" name="amal_thm" />
+				<Hotspot Radius="500" XYZ="-70.55545, -2.02223, -64.19044" name="amal_thm" />
+				<Hotspot Radius="500" XYZ="-109.6651, -2.005235, 43.189" name="amal_thm" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="258"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 3 -->	
+		<GrindArea name="Eques">
+			<Hotspots>
+				<HotSpots Radius="500" Xyz="-463.8192, -8.046604, -456.6935" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1811"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 4 -->
+		<GrindArea name="sapsa_elbst">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-208.7372, -42.39878, -275.9078" name="sapsa_elbst" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="2527"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 5 -->		
+		<GrindArea name="Hippogryph">
+			<Hotspots>
+				<Hotspot Radius="500" Xyz="357.846, 20.13774, -735.8298" name="Hippogryph" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="789"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 6 -->
+		<GrindArea name="trenchtooth_sahagin">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="-72.0739, -25.79697, -84.91359" name="trenchtooth_sahagin" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="565"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 7 -->
+		<GrindArea name="natalan_windtalon">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="505.4167, 303.1907, -191.9184" />
+				<Hotspot Radius="500" XYZ="617.6274, 302.1369, -98.6545" />
+				<Hotspot Radius="500" XYZ="670.0501, 286.173, 26.64226" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1842"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 8 -->
+		<GrindArea name="elite_roundsman">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="263.3014, 21.51356, -804.4814" name="elite_roundsman" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="2518"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 9 -->	
+		<GrindArea name="Ahriman">
+			<Hotspots>
+				<Hotspot Radius="500" XYZ="150.3447, 36.99925, -0.1666906" name="Ahriman" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="242"  /> 
+			</TargetMobs>
+		</GrindArea>
+		<!-- Kill Task 10 -->
+		<GrindArea name="secutor">
+			<Hotspots>
+				<Hotspot Radius="500" Xyz="215.0916, 73.75889, -17.56674" name="secutor" />
+				<Hotspot Radius="500" Xyz="302.2987, 76.47182, -16.69134" name="secutor" />
+				<Hotspot Radius="500" Xyz="407.3723, 76.11876, -10.43116" name="secutor" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob id="1824"  /> 
+			</TargetMobs>
+		</GrindArea>		
+	</GrindAreas>
+</Profile>	

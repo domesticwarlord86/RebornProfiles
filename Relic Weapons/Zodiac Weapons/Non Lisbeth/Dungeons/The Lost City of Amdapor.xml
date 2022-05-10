@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Lost City of Amdapor
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla.
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+<Profile>
+  <Name>The Lost City of Amdapor</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+ <!-- [Unlock The Lost City of Amdapor] One Night in Amdapor Unlock -->
+    <If Condition="not HasQuest(66925) and not IsQuestCompleted(66925)">
+      <GetTo ZoneId="133" XYZ="-257.9622, -5.774355, -26.26284"/>
+      <If Condition="IsQuestAcceptQualified(66925)">
+        <PickupQuest QuestId="66925" NpcId="1000692" XYZ="-258.8083, -5.773526, -27.26788"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(66925) and not IsQuestCompleted(66925) and GetQuestStep(66925) == 1">
+	  <GetTo Area="South Shroud" XYZ="-133.7099, 7.500452, 274.9077"/>
+      <TalkTo NpcId="1006751" XYZ="-139.1237, 8.535714, 280.539" QuestId="67950" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(66925) and not IsQuestCompleted(66925) and GetQuestStep(66925) == 255">
+      <GetTo Area="South Shroud" XYZ="-356.6788, 0.5880998, 457.7809"/>
+      <TurnIn QuestId="66925" NpcId="1008543" XYZ="-360.0062, 1.264419, 459.8306"/>
+    </If> 
+	
+ 	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="22"/>
+	</If>
+	<If condition="DutyManager.InInstance">
+		<!-- Clear Halcyon Court 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">				
+			<Log Message="Clear Halcyon Court 0/1" />
+			<BotSettings AutoEquip="1" />		
+			<MoveTo XYZ="167.6067, 66.10661, -32.00096"/> <!-- Move to before first gate -->
+			<Grind GrindRef="MoldColony1" While="GameObjectManager.GetObjectByNPCId(2569)"/> <!-- Fight Mold Colony -->			
+			<MoveTo XYZ="142.8524, 66.18159, -26.45593"/> <!-- Clear first gate room -->			
+			<MoveTo XYZ="142.2002, 58, 1.920883" usemesh="false"/> 
+			<MoveTo XYZ="128.395, 58.25528, 21.71317"/> <!-- Clear second gate room -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<MoveTo XYZ="99.19931, 50, 21.79874" usemesh="false"/> 
+			<MoveTo XYZ="98.20937, 42.18911, -2.409956"/> <!-- Move into boss room -->							
+			<Grind GrindRef="DecayingGourmand" While="not GameObjectManager.GetObjectByNPCId(2556).CurrentHealth == 0"/> <!-- Fight DecayingGourmand -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<MoveTo XYZ="84.78708, 42.17043, -46.42099"/>
+		</If>
+		<!-- Clear the Tower of White 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0">
+			<Log Message="Clear the Tower of White 0/1" />
+			<MoveTo XYZ="85.36717, 42.10601, -62.24693"/> 		
+			<MoveTo XYZ="7.97209, 34.0809, -92.1995"/>
+			<Grind GrindRef="MoldColony2" While="GameObjectManager.GetObjectByNPCId(2569)"/> <!-- Fight Mold Colony -->				
+			<MoveTo XYZ="7.452728, 33.63337, -71.02247" usemesh="false"/>			
+			<MoveTo XYZ="-36.22319, 19.81501, -10.11658"/> <!-- Clear third gate room -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<MoveTo XYZ="9.300295, 5.104593, 20.10941"/> <!-- Clear fourth gate room -->
+			<MoveTo XYZ="26.47252, 5.465906, 44.6594"/> <!-- Move to boss room -->
+			<MoveTo XYZ="25.92297, 6.998236, 60.89424" usemesh="false"/>			
+			<MoveTo XYZ="-0.02481006, 12.11669, 70.15894"/> <!-- Move to boss room -->
+			<Grind GrindRef="Arioch" While="not GameObjectManager.GetObjectByNPCId(2560).CurrentHealth == 0"/> <!-- Fight Arioch -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<MoveTo XYZ="-69.36572, 9.891445, 69.84653" usemesh="false"/>
+			<LLChangeZone Heading="4.72117"/>		
+		</If>
+		<!-- Clear the Defeat Diabolos 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0">
+			<Log Message="Defeat Diabolos  0/1" />
+			<MoveTo XYZ="16.79603, -252.503, -61.70649"/> 
+			<Grind GrindRef="WhiteMagestone1" while="GameObjectManager.GetObjectByNPCId(2571)"/> <!-- Fight White Magestone -->
+			<If Condition="&openchest; == 1">
+				<MoveTo XYZ="62.08236, -261.003, -16.79322"/>
+				<LLOpenChest />
+			</If>
+			<MoveTo XYZ="45.36511,-272.303,44.81567"/>
+			<Grind GrindRef="WhiteMagestone2" while="GameObjectManager.GetObjectByNPCId(2571)"/> <!-- Fight White Magestone -->
+			<BotSettings AutoEquip="0" />
+			<If Condition="not GetQuestStep(65894) == 4">	
+				<If Condition="ClassName == ((ClassJobType.Bard))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7828">
+						<Log Message="Equipping Artemis Bow Atma" />
+						<EquipWeapon ItemID="7828"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7830">
+						<Log Message="Equipping Stardust Rod Atma" />
+						<EquipWeapon ItemID="7830"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7827">
+						<Log Message="Equipping Gae Bolg Atma" />
+						<EquipWeapon ItemID="7827"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Monk))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7825">
+						<Log Message="Equipping Sphairai Atma" />
+						<EquipWeapon ItemID="7825"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9251">
+						<Log Message="Equipping Yoshimitsu Atma" />
+						<EquipWeapon ItemID="9251"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7824">
+						<Log Message="Equipping Curtana Atma" />
+						<EquipWeapon ItemID="7824"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7833">
+						<Log Message="Equipping Holy Shield Atma" />
+						<EquipWeapon ItemID="7833"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>			
+				<If Condition="ClassName == ((ClassJobType.Scholar))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7832">
+						<Log Message="Equipping Omnilex Atma" />
+						<EquipWeapon ItemID="7832"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7831">
+						<Log Message="Equipping Veil of Wiyu Atma" />
+						<EquipWeapon ItemID="7831"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>	
+				<If Condition="ClassName == ((ClassJobType.Warrior))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7826">
+						<Log Message="Equipping Bravura Atma" />
+						<EquipWeapon ItemID="7826"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))"> 
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7829">
+						<Log Message="Equipping Thyrus Atma" />
+						<EquipWeapon ItemID="7829"/>
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+			</If>				
+			<MoveTo XYZ="6.859038, -279.99, 15.72415"/> <!-- Move into boss's room so boss spawns -->
+			<Grind GrindRef="Diabolos" while="not GameObjectManager.GetObjectByNPCId(2564).CurrentHealth == 0"/> <!-- Defeat Diabolos -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>
+		</If>			
+	</If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+ 	<GrindArea name="MoldColony1">
+        <Hotspots>
+			<Hotspot Radius="20" XYZ="142.2518,66.27366,-32.9854" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Mold Colony" Id="2569" Weight="1" />	
+        </TargetMobs>
+	</GrindArea> 
+ 	<GrindArea name="MoldColony2">
+        <Hotspots>
+			<Hotspot Radius="20" XYZ="1.26945,33.90414,-95.60902" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Mold Colony" Id="2569" Weight="1" />	
+        </TargetMobs>
+	</GrindArea> 	
+	<GrindArea name="DecayingGourmand">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="98.01762,42.115,-39.38725" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Decaying Gourmand" Id="2556" Weight="1" />	
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="Arioch">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-6.252018,12,57.80675" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Ranch Wamoura" Id="2561" Weight="2" />	
+			<TargetMob Name="Arioch" Id="2560" Weight="1" />	
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="WhiteMagestone1">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="16.54658, -252.503, -61.73495" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="White Magestone" Id="2571" Weight="2" />	
+			<TargetMob Name="Dastardly Devilet" Id="2582" Weight="1" />
+			<TargetMob Name="Allotaur" Id="2581" Weight="1" />			
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="WhiteMagestone2">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="45.36511,-272.303,44.81567" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="White Magestone" Id="2571" Weight="2" />
+			<TargetMob Name="Baalzephon " Id="2573" Weight="1" />					
+			<TargetMob Name="Dirty Eye" Id="2583" Weight="1" />	
+        </TargetMobs>
+	</GrindArea>		
+	<GrindArea name="Diabolos">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-3.74008,-279.99,-9.000183" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Diabolos" Id="2564" Weight="1" />	
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>		
+  <CodeChunks>
+  	<CodeChunk Name="StrongroomGate">
+		  <![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2001880).Interact();
+			await Coroutine.Sleep(3000);
+		  ]]>	 	  
+	</CodeChunk>			
+  </CodeChunks>  
+</Profile>  

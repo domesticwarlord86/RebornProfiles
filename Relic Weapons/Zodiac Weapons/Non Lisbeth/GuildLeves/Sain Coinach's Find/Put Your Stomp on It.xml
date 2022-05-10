@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  Profile: Put Your Stomp on It Leve
+  Authors: Zamphire
+  Code Credit: TuckMeIntoBread, Kayla, Sodimm, y2krazy, Ken_512
+-->
+
+<Profile>
+	<Name>Put Your Stomp on It Leve</Name>
+	<KillRadius>50</KillRadius>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>
+	<Order>	
+			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(659)">
+				<GetTo ZoneId="156" XYZ="420.7729, -5.853507, -443.9117"/>
+				<ExPickupGuildLeve leveIds="659" leveType="Battlecraft" npcId="1004348" npcLocation="415.9761,-6.061038,-444.419" Timeout="5" /> <!-- Put Your Stomp on It -->
+				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(659)">
+					<ExPickupGuildLeve leveIds="656" leveType="Battlecraft" npcId="1004348" npcLocation="415.9761,-6.061038,-444.419" Timeout="5" /> <!-- Turnabout's Fair Play -->
+				</If>
+			</If>	
+
+			<!-- Put Your Stomp on It -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(659)">
+				<GetTo ZoneId="156" XYZ="137.5138, -6.611339, -534.3531"/>
+				<InitiateLeve LeveId="659"/> <!-- Put Your Stomp on It -->
+				<WaitTimer WaitTime="2" />
+				<UseObject XYZ="138.5914, -6.520364, -534.2842" radius="500" InCombat="True" NpcIds="2001104" condition="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/>				
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1004348" NpcLocation="415.9761,-6.061038,-444.419"/>
+				<LLoadProfile Path="../../Start.xml"/>					
+			</If>
+
+
+			<!-- Turnabout's Fair Play -->	
+			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(656)">
+				<GetTo ZoneId="156" XYZ="131.4192, -15.22016, -455.426"/>
+				<InitiateLeve LeveId="656"/> <!-- Turnabout's Fair Play -->
+				<WaitTimer WaitTime="2" />
+				<Grind GrindRef="TurnaboutsFairPlay" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
+				<WaitTimer WaitTime="1" />					
+				<RunCode Name="CloseTimer"/> 
+				<ExTurnInGuildLeve NpcId="1004348" NpcLocation="415.9761,-6.061038,-444.419"/>
+				<LLoadProfile Path="../../Start.xml"/>			
+			</If>
+			
+
+	</Order>
+  <GrindAreas> 
+    <GrindArea name="BigBadIdea">
+      <Hotspots>
+        <Hotspot Radius="500" XYZ="133.5304, -6.133099, -540.3288"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1774" Weight="1"/> <!-- Ragged Hippogryph -->
+		
+      </TargetMobs>
+    </GrindArea>
+ 	<GrindArea name="TurnaboutsFairPlay">
+        <Hotspots>
+			<Hotspot Radius="500" XYZ="131.5322, -14.72913, -461.6263" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Name="Beggar Shramana" Id="1767" Weight="1" />
+			<TargetMob Name="Beggar Bonze" Id="1766" Weight="1" />
+        </TargetMobs>		
+	</GrindArea>
+  </GrindAreas>	
+  <CodeChunks>
+  		<CodeChunk Name="CloseTimer">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(2000);
+				if (SelectYesno.IsOpen)
+				{
+					SelectYesno.ClickYes();
+				}
+				while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }			
+
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>

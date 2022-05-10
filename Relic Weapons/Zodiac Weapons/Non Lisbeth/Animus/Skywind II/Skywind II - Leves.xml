@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skywind II - Leves
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skywind II - Leves</Name>
+	<BehaviorDirectory>..\..\Quest Behaviors</BehaviorDirectory>	
+	<Order>
+		
+		<!-- Book of Skywind II Leve Task 1 - Necrologos Pale Oblation -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask1Completed">
+			<Log Message="Moving to Skywind II - Nothern Thanalan - Camp Bluefrog 'Necrologos Pale Oblation'" />
+			<LLoadProfile Path="../../GuildLeves/Camp Bluefog/Necrologos Pale Oblation.xml"/>
+		</If>
+
+		<!-- Book of Skywind II Leve Task 2 - Put Your Stomp on It -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask2Completed">
+			<Log Message="Moving to Skywind II - Mor Dhona - Saint Coinarch's Find  'Put Your Stomp on It'" />
+			<LLoadProfile Path="../../GuildLeves/Sain Coinach's Find/Put Your Stomp on It.xml"/>
+		</If>
+
+		<!-- Book of Skywind II Leve Task 3 - The Bloodhounds of Coerthas -->	
+		<If condition="not ZodiacManager.CurrentBook.GuildleveTask3Completed">
+			<Log Message="Moving to Skywind II - Coerthas Central Highlands - Whitebrim Front 'The Bloodhounds of Coerthas'" />
+			<LLoadProfile Path="../../GuildLeves/Whitebrim/The Bloodhounds of Coerthas.xml"/>
+		</If>
+
+		<LLoadProfile Path="../../Start.xml"/>	
+		
+	</Order>
+</Profile>	

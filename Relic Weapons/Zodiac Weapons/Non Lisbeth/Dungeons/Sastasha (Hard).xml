@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Sastasha (Hard)
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Sastasha (Hard)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+<!-- [Sastasha (Hard)] It's Definitely Pirates -->
+    <If Condition="not HasQuest(65630) and not IsQuestCompleted(65630)">
+      <GetTo ZoneId="156" XYZ="32.08445, 21.27369, -636.3706"/>
+      <If Condition="IsQuestAcceptQualified(65630)">
+        <PickupQuest QuestId="65630" NpcId="1006975" XYZ="32.82214, 21.25273, -635.462"/>
+      </If>
+    </If>
+    <If Condition="HasQuest(65630) and not IsQuestCompleted(65630) and GetQuestStep(65630) == 1">
+      <GetTo ZoneId="128" XYZ="-3.679293, 47.99985, -263.7214"/>
+      <TalkTo NpcId="1003282" XYZ="-3.03656, 48.168, -261.7075" QuestId="65630" StepId="1"/>
+    </If>
+    <If Condition="HasQuest(65630) and not IsQuestCompleted(65630) and GetQuestStep(65630) == 2">
+      <GetTo ZoneId="138" XYZ="336.0811, 10.48328, 5.218501"/>
+      <TalkTo NpcId="1005064" XYZ="335.0117, 10.59511, 3.92157" QuestId="65630" StepId="2"/>
+    </If>  
+	
+	<If condition="not DutyManager.InInstance">
+		<LLJoinDuty DutyId="28"/>
+	</If> 
+	<If condition="DutyManager.InInstance">
+		<!-- Defeat Karlabos 0/1 -->
+		<If Condition="GetInstanceTodo(0) == 0">
+			<Log Message="Defeat Karlabos 0/1" />
+			<BotSettings AutoEquip="1" />	
+			<MoveTo XYZ="225.7066, 39.96008, -168.2137" />
+			<MoveTo XYZ="225.6939, 40.27448, -157.4729" usemesh="false" />
+			<MoveTo XYZ="179.2332,33.91116,-25.2256" distnace="2"/>
+			<While condition="GameObjectManager.GetObjectByNPCId(2004406).IsTargetable">
+				<RunCode name="DraingagePump"/>
+			</While>
+			<MoveTo XYZ="182.6627, 30.2786, -30.46296" />
+			<MoveTo XYZ="163.4558, 22.13058, -34.19897" usemesh="false" distnace="1"/>
+			<MoveTo XYZ="152.7281, 14.41547, -56.21426" usemesh="false" distnace="1"/>
+			<MoveTo XYZ="161.1074, 13.98183, -67.9099" usemesh="false" distnace="1"/>
+			<Grind GrindRef="FirstBoss" While="GetInstanceTodo(0) == 0"/> <!-- Fight First Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+		</If>
+		
+		<!-- Clear the Pull 0/1 -->
+		<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+			<Log Message="Clear the Pull 0/1" />
+			<MoveTo XYZ="122.3754, 13.61015, -53.49647" />
+			<MoveTo XYZ="70.76286, 16.04584, -84.75536" />
+			<MoveTo XYZ="50.74217, 15.72055, -88.48206" usemesh="false" />
+			<MoveTo XYZ="-30.36783, 12.10597, -21.33473" />
+			<MoveTo XYZ="-85.15508, 7.34523, 11.48818" />
+			<MoveTo XYZ="-96.70944, 19.5, 89.18937" />
+			<While condition="GameObjectManager.GetObjectByNPCId(2004424).IsTargetable">
+				<RunCode name="DoortoDrink"/>
+			</While>			
+		</If>
+
+		<!-- Defeat Captain Madison 0/1 -->
+		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+			<Log Message="Defeat Captain Madison 0/1" />		
+			<MoveTo XYZ="-103.4789, 15.61959, 116.5592" distance="1"/>	
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(2) == 0"/> <!-- Fight second Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>			
+		</If>
+
+		<!-- Defeat First Mate Haerstymm 0/1 -->
+		<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">
+			<Log Message="Defeat First Mate Haerstymm 0/1" />		
+			<MoveTo XYZ="-187.0707, 6.925906, 249.4219" />
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<MoveTo XYZ="-298.3958, 5.576687, 274.9876" />	
+			<Grind GrindRef="ClearGate" While="GetInstanceTodo(3) == 0"/> <!-- Clear the gate -->		
+		</If>		
+		
+		<!-- Defeat the kraken 0/1 -->
+		<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 1">
+			<Log Message="Defeat the kraken 0/1" />		
+			<MoveTo XYZ="-300.9641, 5.965811, 288.1394" />			
+			<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(2904).CurrentHealth == 0"/> <!-- Fight second Boss -->
+			<If Condition="&openchest; == 1">
+				<LLOpenChest />
+			</If>
+			<While condition="DutyManager.InInstance">	
+				<WaitTimer WaitTime="10" />
+				<LLLeaveDuty/>
+			</While>		
+		</If>		
+	</If>
+	
+	<!-- Turn in unlock quest -->
+	<If Condition="HasQuest(65630) and not IsQuestCompleted(65630) and GetQuestStep(65630) == 4">
+		<GetTo ZoneId="138" XYZ="336.0192, 10.48926, 5.162549"/>
+	  <TalkTo NpcId="1005064" XYZ="335.0117, 10.59511, 3.92157" QuestId="65630" StepId="4"/>
+	</If>
+	<If Condition="HasQuest(65630) and not IsQuestCompleted(65630) and GetQuestStep(65630) == 255">
+		<GetTo ZoneId="138" XYZ="208.6451, -24.99569, 242.1597"/>
+		<TurnIn QuestId="65630" NpcId="1010359" XYZ="206.6833, -24.99666, 242.0538"/>
+	</If>			
+			
+	<LLoadProfile Path="../Start.xml"/>		
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="166.416,14.01362,-85.1071" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="3014" Weight="1" /> <!-- Karlabos  -->
+        </TargetMobs>
+	</GrindArea>		
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-103.5325,15.6,143.6289" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="3015" Weight="2" /> <!-- Captain Madison -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="ClearGate">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-298.4055, 5.576687, 273.9649" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1382" Weight="2" /> <!-- Captain Madison -->
+        </TargetMobs>
+	</GrindArea>	
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-327.7453, 4.942122, 313.8918" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1206" Weight="1" />	<!-- Krarken -->
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+	<CodeChunk Name="DraingagePump">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004406).Interact();
+			await Coroutine.Sleep(1000);
+            ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+	<CodeChunk Name="DoortoDrink">
+		<![CDATA[
+			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004424).Interact();
+			await Coroutine.Sleep(1000);
+            ff14bot.RemoteWindows.SelectYesno.ClickYes();
+			await Coroutine.Sleep(3000);
+      ]]>
+	</CodeChunk>
+  </CodeChunks>
+</Profile>

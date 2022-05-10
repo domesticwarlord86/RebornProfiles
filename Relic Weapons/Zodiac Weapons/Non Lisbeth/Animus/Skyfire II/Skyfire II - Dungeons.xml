@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skyfire II - Dungeons
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skyfire II - Dungeons</Name>  
+	<Order>
+		
+		<!-- Book of Skyfire II Dungeon Task 1 - Brayfloxs Longstop -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed">
+			<Log Message="Moving to Skyfire II - Brayfloxs Longstop" />
+			<LLoadProfile Path="../../Dungeons/Brayfloxs Longstop.xml"/>
+		</If>
+
+		<!-- Book of Skyfire II Dungeon Task 2 - The Wanderers Palace -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask2Completed">
+			<Log Message="Moving to Skyfire II - The Wanderers Palace" />
+			<LLoadProfile Path="../../Dungeons/The Wanderers Palace.xml"/>
+		</If>
+
+		<!-- Book of Skyfire II Dungeon Task 3 - The Copperbell Mines (Hard) -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask3Completed">
+			<Log Message="Moving to Skyfire II - The Copperbell Mines (Hard)" />
+			<LLoadProfile Path="../../Dungeons/The Copperbell Mines (Hard).xml"/>
+		</If>		
+		
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+</Profile>	

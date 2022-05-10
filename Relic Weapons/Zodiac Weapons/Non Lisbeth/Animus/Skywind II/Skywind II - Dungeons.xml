@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Book of Skywind II - Dungeons
+  Authors: Zamphire
+  Code Credit: nishap
+-->
+
+<Profile>
+	<Name>Book of Skywind II - Dungeons</Name>  
+	<Order>
+		
+		<!-- Book of Skywind II Dungeon Task 1 - Haukke Manor -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask1Completed">
+			<Log Message="Moving to Skywind II - Haukke Manor" />
+			<LLoadProfile Path="../../Dungeons/Haukke Manor.xml"/>
+		</If>
+
+		<!-- Book of Skywind II Dungeon Task 2 - The Copperbell Mines (Hard) -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask2Completed">
+			<Log Message="Moving to Skywind II - The Copperbell Mines (Hard)" />
+			<LLoadProfile Path="../../Dungeons/The Copperbell Mines (Hard).xml"/>
+		</If>
+
+		<!-- Book of Skywind II Dungeon Task 3 - Brayfloxs Longstop (Hard) -->	
+		<If condition="not ZodiacManager.CurrentBook.DungeonTask3Completed">
+			<Log Message="Moving to Skywind II - Brayfloxs Longstop (Hard)" />
+			<LLoadProfile Path="../../Dungeons/Brayfloxs Longstop (Hard).xml"/>
+		</If>		
+		
+		<LLoadProfile Path="../../Start.xml"/>
+		
+	</Order>
+</Profile>	
