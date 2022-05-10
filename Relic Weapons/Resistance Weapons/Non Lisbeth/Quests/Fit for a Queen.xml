@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Fit for a Queen
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Fit for a Queen</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Fit for a Queen -->
+    <If Condition="not HasQuest(69562) and not IsQuestCompleted(69562)">
+	  <If Condition="not IsOnMap(915)">
+		<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+	    <GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+	    <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+	  </If>	
+      <GetTo ZonId="915" SubZonId="0" XYZ="20.58227, 0.09970956, -15.167"/>
+      <If Condition="IsQuestAcceptQualified(69562)">
+        <LLPickupQuest QuestId="69562" NpcId="1032880"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <While Condition="GetQuestStep(69562) == 1">
+	  <GetTo ZoneId="915" XYZ="-20.32073, -0.550788, -26.23587"/>
+	  <While Condition="GetQuestStep(69562) == 1">
+		<LLToast message="Please complete the solo duty manually."/>
+		<WaitTimer WaitTime="26" /> 
+	  </While>	
+    </While>	
+    <While Condition="GetQuestStep(69562) == 3">
+	  <LLToast message="Please queue for Delubrum Reginae by talking to Mikoto."/>
+	  <WaitTimer WaitTime="26" />       
+    </While>
+    <If Condition="GetQuestStep(69562) == 255">
+	  <If Condition="not IsOnMap(915)">
+		<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+	    <GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+	    <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+	  </If>	
+      <GetTo ZonId="915" SubZonId="0" XYZ="15.83466, 0.02431321, -17.38521"/>
+      <LLTurnIn QuestId="69562" NpcId="1032881" XYZ="16.70856, 0.03045718, -17.92938"/>
+      <LLSmallTalk/>
+    </If>
+
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FitforaQueen">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="0, -49.99999, 861.617" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="9398" Weight="1"/> <!-- Gabriel -->
+        <TargetMob Id="9905" Weight="1"/> <!-- Misija -->
+        <TargetMob Id="9903" Weight="1"/> <!-- 4th Legion Predator -->
+        <TargetMob Id="9904" Weight="1"/> <!-- 4th Legion Sky Armor -->
+      </TargetMobs>
+    </GrindArea>  
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  

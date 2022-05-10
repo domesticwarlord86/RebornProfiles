@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: [OrderBot] Syrcus Tower
+  Authors: Antony_256, DomesticWarlord86, NeonNeo
+  
+  This profile is very experimental. The profile itself runs well enough but alone it doesn't handle any mechanics.
+  That's where Osiris, Sidestep, and DungeonAssist come into play.
+  https://github.com/BurnUnit83/DungeonAssist.git
+  https://github.com/domesticwarlord86/Osiris.git
+  Both of these are plugins that go in your Plugin folder. Again they are VERY experimental and very much should not be ran unattended.
+  Osiris should handle waiting for raises. Overriding the default OrderBot behavior of releasing on death.
+  DungeonAssist should come in and handle Curtain Call and Levitation platforms for mechanics. Should.
+  Don't use this profile if you aren't willing to possibly look like a bot. 
+  Botting around other people is extremly risky.
+  You really probably shouldn't use this profile at all.
+-->
+<Profile>
+	<Name>[OrderBot] Syrcus Tower</Name>
+	<Author>Antony_256, DomesticWarlord86, NeonNeo</Author>
+	<Order>
+	<RunCode name="PluginLoad"/>
+		<If condition="not IsQuestCompleted(67010) and not GetQuestStep(67010) &gt; 3">
+			<LLToast message="Please complete the Sycus Tower unlock quests and then run the profile again."/>
+			<StopBot/>
+		</If>
+		<While condition="not HasAtLeast(32956,150)">
+			<While condition="not DutyManager.InInstance">
+				<LLJoinDuty DutyId="102" Undersized="False" Raid="True"/>
+			</While>
+			<If Condition="IsOnMap(372)">
+
+				<If Condition="GetInstanceTodo(2) == 0">
+					<Log Message="Clear the Ladder of Ascension 0/1" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="0.08094282, -700, 74.585" />
+					<WaitWhile Condition="not IsPartyInCombat()"/>
+					<Grind GrindRef="Yellow Dragon" While="GetInstanceTodo(2) == 0" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="36.59584, -682.3271, -34.34914" />
+					<LLChangeZone Heading="1.693069"/>					
+				</If>
+
+				<If Condition="GetInstanceTodo(2) == 1 and GetInstanceTodo(3) == 0">
+					<Log Message="Defeat Scylla" />
+					<If condition="GameObjectManager.GetObjectByNPCId(2004154)">
+						<UseTransport InteractDistance="3.0" NpcId="2004154" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<If condition="GameObjectManager.GetObjectByNPCId(2002941)">
+						<UseTransport InteractDistance="3.0" NpcId="2002941" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="0.4508072, -590, -156.197" />					
+					<WaitWhile Condition="not IsPartyInCombat()"/>
+					<Grind GrindRef="Scylla" While="GetInstanceTodo(3) == 0" />	
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-0.1552268, -589.46, -222.2895" usemesh="false" />					
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-0.1741263, -581.6946, -252.3315" usemesh="false" />
+					<LLChangeZone Heading="3.156204"/>					
+				</If>
+				
+				<If Condition="GetInstanceTodo(3) == 1 and GetInstanceTodo(4) == 0">
+					<Log Message="Clear the Braid" />
+					<If condition="GameObjectManager.GetObjectByNPCId(2004154)">
+						<UseTransport InteractDistance="3.0" NpcId="2004154" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<If condition="GameObjectManager.GetObjectByNPCId(2002941)">
+						<UseTransport InteractDistance="3.0" NpcId="2002941" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>				
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="23.1056, -400, -200.1003" />
+					<WaitWhile Condition="not IsPartyInCombat()"/>
+					<Grind GrindRef="Green Dragon" While="GetInstanceTodo(4) == 0" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-69.1171, -395.2811, -215.37" />
+					<LLChangeZone Heading="3.067017"/>	
+					<MoveTo RandomFinalSpot="True" ZoneId="372" Name="Jumppad" XYZ="4.952466, -4, -135.4132" />
+					<RunCode Name="Jumppad"/>					
+				</If>			
+
+				<If Condition="GetInstanceTodo(4) == 1 and GetInstanceTodo(5) == 0">
+					<Log Message="Defeat Glasya Labolas 0/1" />
+					<If condition="GameObjectManager.GetObjectByNPCId(2004154)">
+						<UseTransport InteractDistance="3.0" NpcId="2004154" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<If condition="GameObjectManager.GetObjectByNPCId(2002941)">
+						<UseTransport InteractDistance="3.0" NpcId="2002941" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<WaitWhile Condition="not IsPartyInCombat()"/>
+					<Grind GrindRef="Glasya Labolas" While="GetInstanceTodo(5) == 0" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-13.77971, 4.375302, -266.6036" />
+					<LLChangeZone Heading="4.825583"/>
+				</If>
+
+				<If Condition="GetInstanceTodo(5) == 1 and GetInstanceTodo(6) == 0">
+					<Log Message="Defeat the Golden Sacristy 0/1" />
+					<If condition="GameObjectManager.GetObjectByNPCId(2004154) or GameObjectManager.GetObjectByNPCId(2002941)">
+						<RunCode name="Allagan Teleporter"/>
+					</If>					
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-0.04082332, 200, -222.5494" />
+					<WaitWhile Condition="not IsPartyInCombat()"/>
+					<Grind GrindRef="Red Dragon" PostCombatDelay="3.0" While="GetInstanceTodo(6) == 0" />
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-16.32521, 204.8967, -132.3171" />
+					<LLChangeZone Heading="4.674441"/>
+				</If>
+				
+				<If Condition="GetInstanceTodo(6) == 1 and GetInstanceTodo(7) == 0">
+					<Log Message="Defeat Amon 0/1" />
+					<If condition="GameObjectManager.GetObjectByNPCId(2004154)">
+						<UseTransport InteractDistance="3.0" NpcId="2004154" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<If condition="GameObjectManager.GetObjectByNPCId(2002941)">
+						<UseTransport InteractDistance="3.0" NpcId="2002941" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>				
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="12.27859, 600, -179.0363" />
+					<WaitWhile Condition="not IsPartyInCombat()"/>
+					<Grind GrindRef="Amon" While="GetInstanceTodo(7) == 0" />	
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-59.21965, 602.7, -199.7233" />
+					<LLChangeZone Heading="4.773327"/>
+				</If>
+
+				<If Condition="GetInstanceTodo(7) == 1 and GetInstanceTodo(8) == 0">
+					<Log Message="Defeat Xande 0/1" />
+					<If condition="GameObjectManager.GetObjectByNPCId(2004154)">
+						<UseTransport InteractDistance="3.0" NpcId="2004154" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>
+					<If condition="GameObjectManager.GetObjectByNPCId(2002941)">
+						<UseTransport InteractDistance="3.0" NpcId="2002941" XYZ="-5.01403,-894.782,324.8913"/>
+					</If>					
+					<MoveTo RandomFinalSpot="True" ZoneId="372" XYZ="-374.567, 500.0322, -200.096" />
+					<WaitWhile Condition="not IsPartyInCombat()"/>
+					<Grind GrindRef="Xande" PostCombatDelay="3.0" While="GetInstanceTodo(8) == 0" /> 
+					<!--<PassOnLoot/>-->
+				</If>
+				
+				<If Condition="GetInstanceTodo(8) == 1">
+					<WaitTimer WaitTime="60000" />
+					<LLLeaveDuty/>
+				</If>	
+			</If>
+		</While>	
+
+	</Order>
+	<GrindAreas>
+		<GrindArea Name="Yellow Dragon">
+			<Hotspots>
+				<Hotspot XYZ="0.07623291, -700, 40.11597" Radius="200" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="2800" Weight="1"/> <!-- Oceanus -->		
+				<TargetMob Id="2799" Weight="1"/> <!-- Yellow Dragon -->
+				<TargetMob Id="2802" Weight="1"/> <!-- Kunoichi -->
+				<TargetMob Id="2801" Weight="1"/> <!-- Dark General -->
+				<TargetMob Id="2803" Weight="1"/> <!-- Shinobi -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Scylla">
+			<Hotspots>
+				<Hotspot XYZ="0.1983643, -590, -192.1569" Radius="200" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="2809" Weight="1"/> <!-- Scylla -->
+				<TargetMob Id="2808" Weight="1"/> <!-- Staff of Eldering -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Green Dragon">
+			<Hotspots>
+				<Hotspot XYZ="8.191957, -400, -206.3808" Radius="200" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="2796" Weight="1"/> <!-- Gomory -->
+				<TargetMob Id="2795" Weight="1"/> <!-- Acheron -->			
+				<TargetMob Id="2793" Weight="1"/> <!-- Unei's Clone -->
+				<TargetMob Id="2794" Weight="1"/> <!-- Doga's Clone -->
+				<TargetMob Id="2798" Weight="1"/> <!-- Green Dragon -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Glasya Labolas">
+			<Hotspots>
+				<Hotspot XYZ="0.07623291,0,-202.472" Radius="200" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="2815" Weight="10"/> <!-- Glasya Labolas -->
+				<TargetMob Id="2813" Weight="1"/> <!-- Clockwork Wright -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Red Dragon">
+			<Hotspots>
+				<Hotspot XYZ="18.22345, 200, -201.4061" Radius="200" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="2792" Weight="1"/> <!-- Azer -->
+				<TargetMob Id="2797" Weight="1"/> <!-- Red Dragon -->
+				<TargetMob Id="2791" Weight="1"/> <!-- Haokah -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Amon">
+			<Hotspots>
+				<Hotspot XYZ="-0.9613647,600,-201.8616" Radius="200" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="2821" Weight="1"/> <!-- Amon -->
+				<TargetMob Id="2817" Weight="10"/> <!-- Experimental By-product #66 -->
+				<TargetMob Id="2818" Weight="10"/> <!-- Experimental By-product #33 -->
+				<TargetMob Id="2886" Weight="10"/> <!-- Kum Kum -->
+				<TargetMob Id="2826" Weight="10"/> <!-- Kichiknebik -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea Name="Xande">
+			<Hotspots>
+				<Hotspot XYZ="-400.392,500,-198.6185" Radius="200" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="2824" Weight="1"/> <!-- Xande -->			
+				<TargetMob Id="2823" Weight="100"/> <!-- Starfall Circle -->
+				<TargetMob Id="2822" Weight="1"/> <!-- Stonefall Circle -->				
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+	 <CodeChunk name="PluginLoad">
+      <![CDATA[
+        var Plugin = PluginManager.Plugins.Where(p => p.Plugin.Name == "DungeonAssist");
+        var Plugin2 = PluginManager.Plugins.Where(p => p.Plugin.Name == "Osiris");
+		var Plugin3 = PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep");
+		
+	
+		
+		var text1 = string.Empty;
+        var text2 = string.Empty;
+		var text3 = string.Empty;
+        var text4 = string.Empty;
+		var text5 = string.Empty;
+        var text6 = string.Empty;
+		
+		
+		text1 = "Plug-In Dungeon Assist is installed and enabled";
+		text2 = "You Need the Dungeon Assist Plug-In to Operate this Profile";
+		text3 = "Plug-In Osiris  is installed and enabled";
+		text4 = "You Need the Osiris Plug-In to Operate this Profile";
+		text5 = "Plug-In SideStep  is installed and enabled";
+		text6 = "You Need the SideStep Plug-In to Operate this Profile";
+		
+					
+			if(Plugin.Any()){
+				
+				if (Plugin != null)
+				{
+					PluginManager.SetEnabledPlugins("DungeonAssist");
+					Core.OverlayManager.AddToast(() => text1, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+					
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text2, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+			else
+				{
+					Core.OverlayManager.AddToast(() => text2, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			if(Plugin2.Any()){
+				
+				if (Plugin2 != null)
+				{
+					PluginManager.SetEnabledPlugins("Osiris");
+					Core.OverlayManager.AddToast(() => text3, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text4, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text4, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			if(Plugin3.Any()){
+				
+				if (Plugin3 != null)
+				{
+					PluginManager.SetEnabledPlugins("SideStep");
+					Core.OverlayManager.AddToast(() => text5, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+					
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text6, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+		else
+				{
+					Core.OverlayManager.AddToast(() => text6, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+        await Coroutine.Sleep(6000);
+      ]]>	
+		</CodeChunk>	
+		<CodeChunk Name="Jumppad">
+			<![CDATA[
+				Core.Me.SetFacing(4.691895f);
+				MovementManager.MoveForwardStart();
+				await Coroutine.Sleep(1500);
+				Navigator.PlayerMover.MoveStop();
+			]]>
+		</CodeChunk>
+		<CodeChunk Name="Allagan Teleporter">
+			<![CDATA[
+				Logging.Write("Moving to Allagan Teleporter.");
+				uint[] npcIds = { 2004154, 2002941};
+				var dutyNpc = GameObjectManager.GameObjects.Where(r => r.IsTargetable && npcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+				
+				while (Core.Me.Location.Distance2D(dutyNpc.Location) > 1.5f)
+				{
+				  await Coroutine.Yield();
+				  Navigator.PlayerMover.MoveTowards(dutyNpc.Location);
+				}
+				
+				Navigator.PlayerMover.MoveStop();
+				dutyNpc.Interact();						
+
+				await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+				if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+				{
+					Logging.WriteDiagnostic("Selecting Yes.");
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();
+					await Coroutine.Sleep(500);
+				}
+				
+				await Coroutine.Wait(5000, () => CommonBehaviors.IsLoading);
+                while (CommonBehaviors.IsLoading)
+                {
+                    Logging.WriteDiagnostic("Waiting for loading...");
+					await Coroutine.Yield();
+                }
+		  ]]>
+		</CodeChunk>		
+	</CodeChunks>
+</Profile>

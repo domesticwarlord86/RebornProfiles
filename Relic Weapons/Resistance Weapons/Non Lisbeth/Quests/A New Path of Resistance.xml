@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: A New Path of Resistance
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>A New Path of Resistance</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+	<!-- Check Prereq Quests -->
+	<If Condition="not IsQuestCompleted(69575)">
+	  <LLoadProfile Path="The Resistance Remembers.xml"/>
+	</If>
+  
+    <!--  A New Path of Resistance -->
+    <If Condition="not HasQuest(69576)">
+		<If Condition="not IsOnMap(915)">	
+			<While Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</While>				
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>	
+      <GetTo ZonId="915" SubZonId="0" XYZ="0.4522509, 3.071334, -57.42433"/>
+      <If Condition="IsQuestAcceptQualified(69576)">
+        <RunCode name="NewPath"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69576) == 255">
+      <While Condition="not HasAtLeast(32959,15)">
+		<LLToast message="Please collect 15 Timeworn Artifacts."/>
+		<LLToast message="They drop from PotD floors 51+ or Delubrum Reginae."/>
+		<WaitTimer WaitTime="26" />
+	  </While>
+	  <If Condition="HasAtLeast(32959,15)">
+		<!-- Accomdate having the relic equipped -->
+		<If Condition="ClassName == ClassJobType.Bard">	
+			<ChangeClass Job="Bard" Force="True"/>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32655">
+				<Log Message="Law's Order weapon equipped, going to purchase differnt weapon." />
+				<GetTo ZoneId="148" XYZ="16.39847, -8.011558, -13.21636"/>
+				<BuyItem NpcId="1000220" ItemId="1893" ItemCount="1" DialogOption="0" XYZ="16.18976,-8.010209,-15.64056"/>
+				<EquipWeapon ItemID="1893"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>		
+		<If Condition="ClassName == ClassJobType.Dragoon">	
+			<ChangeClass Job="Dragoon" Force="True"/>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32654">
+				<Log Message="Law's Order weapon equipped, going to purchase differnt weapon." />
+				<GetTo ZoneId="148" XYZ="16.39847, -8.011558, -13.21636"/>
+				<BuyItem NpcId="1000220" ItemId="1822" ItemCount="1" DialogOption="0" XYZ="16.18976,-8.010209,-15.64056"/>
+				<EquipWeapon ItemID="1822"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ClassJobType.Paladin">	
+			<ChangeClass Job="Paladin" Force="True"/>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32665">
+				<Log Message="Law's Order weapon equipped, going to purchase differnt weapon." />
+				<GetTo ZoneId="141" XYZ="-10.65622, -2.04808, -150.1143"/>
+				<BuyItem NpcId="1001563" ItemIds="1602,2219" ItemCount="1,1" DialogOption="0" XYZ="-8.346741,-2.04808,-149.3401"/>
+				<EquipWeapon ItemID="1602"/>
+				<WaitTimer WaitTime="3" />
+				<EquipWeapon ItemID="2219"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>
+		<If Condition="ClassName == ClassJobType.RedMage">
+		  <ChangeClass Job="Redmage" force="True"/>
+   		  <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 30799">
+			<Log Message="Recollection weapon equipped, going to purchase differnt tool." />
+			<GetTo ZoneId="478" XYZ="75.44334, 207.0313, 3.713525"/>
+			<While condition="not HasAtLeast(20397,1)">
+			  <BuyItem NpcId="1012093" ItemId="20397" ItemCount="1" DialogOption="0" XYZ="75.88306,207.1172,6.607117"/>
+			</While>  
+			<EquipWeapon ItemID="20397"/>
+			<WaitTimer WaitTime="3" />
+          </While>		  
+		</If>		
+		<If Condition="ClassName == ClassJobType.WhiteMage">	
+			<ChangeClass Job="WhiteMage" Force="True"/>
+			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId == 32659">
+				<Log Message="Law's Order weapon equipped, going to purchase differnt weapon." />
+				<GetTo ZoneId="148" XYZ="16.39847, -8.011558, -13.21636"/>
+				<BuyItem NpcId="1000220" ItemId="1997" ItemCount="1" DialogOption="0" XYZ="16.18976,-8.010209,-15.64056"/>
+				<EquipWeapon ItemID="1997"/>
+				<WaitTimer WaitTime="3" />
+			</While>
+		</If>	
+		<If Condition="not IsOnMap(915)">	
+			<While Condition="not IsOnMap(759)">
+				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
+			</While>				
+			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
+			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
+		</If>	  
+        <GetTo ZonId="915" SubZonId="0" XYZ="-7.906094, 3.498878, -64.64737"/>
+        <While Condition="GetQuestStep(69576) == 255 and HasAtLeast(32959,15)">
+          <LLToast message="Please turn in 'A New Path of Resistance' and choose your weapon stats."/>
+		  <WaitTimer WaitTime="26" />
+		</While>
+	  </If>
+    </If>	
+	
+	<LLoadProfile Path="../Start.xml"/>
+	
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="NewPath">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();			
+
+					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					
+					if (!SelectIconString.IsOpen)
+					{
+						npcId.Interact();
+
+						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
+					}	
+					
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing current quest.");
+						if (!ConditionParser.IsQuestCompleted(69576))
+						{
+							Logging.WriteDiagnostic("Choosing 'New Path of Resistance'.");
+							SelectIconString.ClickLineContains(("New Path of Resistance"));
+						}
+						else if (ConditionParser.IsQuestCompleted(69576))
+						{
+							Logging.WriteDiagnostic("Resistance Weapon Forging'.");
+							SelectIconString.ClickLineContains(("Resistance Weapon Forging"));
+							await Coroutine.Wait(10000, () => SelectString.IsOpen);
+							await Buddy.Coroutines.Coroutine.Sleep(500);
+							{
+								Logging.WriteDiagnostic("Choosing 'New Path of Resistance'.");
+								SelectString.ClickLineContains(("Path"));
+							}							
+						}
+					}									
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}	
+					
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing current class.");
+						ff14bot.RemoteWindows.SelectString.ClickSlot(1);
+					}
+
+					await Buddy.Coroutines.Coroutine.Sleep(1000);
+					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
+					JournalAccept.Accept();					
+
+					await Coroutine.Wait(10000, () => Talk.DialogOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					while (Talk.DialogOpen)
+					{
+						Talk.Next();
+						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+						await Coroutine.Wait(1000, () => Talk.DialogOpen);
+						await Coroutine.Yield();
+					}
+
+					
+			]]>			
+		</CodeChunk>	
+  </CodeChunks>
+</Profile>  

@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Hells' Lid
+  Authors: DomesticWarlord86
+  Code Credit: TuckMeIntoBread, Kayla.
+	
+	This profile was designed to to be ran in a party of four bots.
+	
+	It uses party leader status to determine if it should wait to pull bosses. If you're not the party
+	leader, it will wait forever until the party is in combat. So while it can be used in Duty
+	Finder, you'll want to make sure you're the leader somehow.
+	
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>Hells' Lid</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+  <RunCode name="PluginLoad"/>
+  
+  <While condition="1 == 1">
+ 	<If condition="not DutyManager.InInstance">
+		<WaitTimer WaitTime="5" />
+		<LLJoinDuty DutyId="284" Undersized="False"/>
+	</If>
+	<While condition="DutyManager.InInstance and not IsDutyEnded()">
+			<!-- Arrive at Demonsgate 0/1 -->
+			<If Condition="not GetInstanceTodo(0) == 1">
+				<Log Message="Arrive at Demonsgate" />
+				<If condition="IsOnSubMap(2386)">	
+					<Grind GrindRef="ClearFirstRoom" While="NumAttackableEnemies(180, Array[int]([6998])) &gt; 0"/> <!-- Clear before dropdown -->	
+					<MoveTo XYZ="-70.88406, 37.02681, 307.0667" />
+					<MoveTo XYZ="-71.57901, 3.109485, 295.3122" usemesh="false" />
+				</If>	
+				<Grind GrindRef="ClearSecondRoom" While="NumAttackableEnemies(180, Array[int]([6999,7000,6998,7002,7001])) &gt; 0"/> <!-- Clear after dropdown -->	
+				<MoveTo XYZ="-70.76974, -3, 148.1838" />
+			</If>
+
+			<!-- Clear Demonsgate 0/1 -->
+			<If Condition="not GetInstanceTodo(1) == 1 and GetInstanceTodo(0) == 1">		
+				<Log Message="Clear Demonsgate 0/1" />
+				<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
+					<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
+				</If>			
+				<MoveTo XYZ="-70.76974, -3, 148.1838" />
+				<If condition="PartyManager.IsInParty and not PartyManager.IsPartyLeader">
+					<WaitWhile Condition="not IsPartyInCombat()"/>
+				</If>
+				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(1) == 0"/> <!-- Fight first boss -->			
+				<If Condition="&openchest; == 1">
+					<NoCombatMoveTo XYZ="-71.39697,-3.006042,115.6786" />
+					<LLOpenChest/>
+				</If>
+			</If>
+
+			<!-- Arrive in the Furnace 0/1 -->
+			<If Condition="not GetInstanceTodo(2) == 1 and GetInstanceTodo(1) == 1">
+				<Log Message="Arrive in the Furnace 0/1" />
+				<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
+					<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
+				</If>			
+				<MoveTo XYZ="-50.4355, -7.064269, 19.29245" />
+				<Grind GrindRef="ThirdClear" While="NumAttackableEnemies(300, Array[int]([7003,7004,7007,7005,7074])) &gt; 0"/> <!-- Clear after first boss -->				
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="34.04285,-16.495,51.68225" />
+					<LLOpenChest/>
+				</If>	
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="30.80798,-25.52838,-64.2558" />
+					<LLOpenChest/>
+				</If>
+				<MoveTo XYZ="58.26813, -26, -104.5613" />
+			</If>
+			
+			<!-- Clear the Furnace 0/1 -->
+			<If Condition="not GetInstanceTodo(3) == 1 and GetInstanceTodo(2) == 1">
+				<Log Message="Clear the Furnace 0/1" />
+				<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
+					<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
+				</If>
+				<MoveTo XYZ="58.26813, -26, -104.5613" />
+				<If condition="PartyManager.IsInParty and not PartyManager.IsPartyLeader">
+					<WaitWhile Condition="not IsPartyInCombat()"/>
+				</If>
+				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0"/> <!-- Fight second boss -->
+				<If Condition="&openchest; == 1">
+					<NoCombatMoveTo XYZ="59.22021,-26.01666,-137.316" />
+					<LLOpenChest/>
+				</If>			
+				</If>		
+			
+			<!-- Arrive on the Polished Shell 0/1-->
+			<If Condition="not GetInstanceTodo(4) == 1 and GetInstanceTodo(3) == 1">
+				<Log Message="Arrive on the Polished Shell 0/1" />
+				<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
+					<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
+				</If>			
+				<If condition="IsOnSubMap(2390)">	
+					<MoveTo XYZ="58.56471, -27.52685, -155.8927" />
+					<MoveTo XYZ="57.42034, -97.02225, -174.3563" usemesh="false" />
+				</If>
+				<Grind GrindRef="AfterSecondBoss" While="NumAttackableEnemies(300, Array[int]([7008,7009,7011,7010,7012,7014,7013])) &gt; 0"/> <!-- Clear after second boss -->				
+				<If Condition="&openchest; == 1">			
+					<MoveTo XYZ="65.78162,-97.0321,-234.8211" />
+					<LLOpenChest/>
+				</If>	
+				<If Condition="&openchest; == 1">			
+					<MoveTo XYZ="69.29114,-96.9101,-332.5399" />
+					<LLOpenChest/>
+				</If>
+				<MoveTo XYZ="61.82898, -92.89998, -349.3139" />
+				<WaitTimer WaitTime="3" />
+				<Grind GrindRef="BeforeGenbu" While="NumAttackableEnemies(300, Array[int]([7014,7013])) &gt; 0"/> <!-- Clear after second boss -->							
+				<MoveTo XYZ="61.55721, -89.89997, -443.7422" />
+			</If>	
+
+			<!-- Defeat Genbu 0/1-->
+			<If Condition="not GetInstanceTodo(5) == 1 and GetInstanceTodo(4) == 1">
+				<Log Message="Defeat Genbu 0/1" />	
+				<If condition="GameObjectManager.GetObjectByNPCId(2000700)">
+					<UseTransport NpcId="2000700" InteractDistance="3.0" XYZ="-113.6035, 65, 469.0165"/>
+				</If>
+				<If condition="IsOnSubMap(2390)">	
+					<MoveTo XYZ="58.56471, -27.52685, -155.8927" />
+					<MoveTo XYZ="57.42034, -97.02225, -174.3563" usemesh="false" />
+				</If>			
+				<MoveTo XYZ="61.90805, -88.00001, -457.9611" Distance="1"/>				
+				<If condition="PartyManager.IsInParty and not PartyManager.IsPartyLeader">
+					<WaitWhile Condition="not IsPartyInCombat()"/>
+				</If>
+				<Grind GrindRef="FinalBoss" While="GetInstanceTodo(5) == 0 and IsOnSubMap(2393)"/> <!-- Fight second boss -->	
+				<If Condition="&openchest; == 1">
+					<NoCombatMoveTo XYZ="62.05847,-88.0293,-484.2451" />
+					<LLOpenChest/>
+				</If>
+			</If>
+			
+			<!-- Duty Has Ended, leaving -->
+			<While condition="IsDutyEnded() and DutyManager.InInstance">
+				<Log Message="Duty has ended, leaving..." />
+				<WaitTimer WaitTime="5" />
+				<LLLeaveDuty/>
+			</While>			
+		</While>	
+	</While>
+	
+  </Order>
+  <GrindAreas>
+    <GrindArea name="ClearFirstRoom">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-78.41248, 50.02288, 378.1493" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6998" Weight="1"/> <!-- Hellish Gasame -->
+      </TargetMobs>
+    </GrindArea> 
+    <GrindArea name="ClearSecondRoom">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-76.63777, 2.904931, 223.5365" name="Name"/>
+		<Hotspot Radius="90" XYZ="-70.92119, 0.7112803, 181.8328" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6999" Weight="1"/> <!-- Nurikabe -->
+        <TargetMob Id="6998" Weight="1"/> <!-- Hellish Gasame -->
+        <TargetMob Id="7000" Weight="1"/> <!-- Hellish Lion -->
+        <TargetMob Id="7002" Weight="1"/> <!-- Hellfire Shikigami -->
+        <TargetMob Id="7001" Weight="1"/> <!-- Grand Nurikabe -->
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-70.76974, -3, 148.1838" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6994" Weight="1"/> <!-- Otake-maru -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="ThirdClear">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-13.16864,-8.500013,20.18762" name="Name"/>
+		<Hotspot Radius="90" XYZ="28.13683,-16.5,26.02637" name="Name"/>
+		<Hotspot Radius="90" XYZ="76.89014,-27.28368,-7.522766" name="Name"/>		
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7003" Weight="1"/> <!-- Hellish Naked Yumemi -->
+        <TargetMob Id="7004" Weight="1"/> <!-- Hellish Yumemi -->
+        <TargetMob Id="7007" Weight="1"/> <!-- Uwabami --> 
+        <TargetMob Id="7005" Weight="1"/> <!-- Kaja -->
+		<TargetMob Id="7074" Weight="1"/> <!-- Kaja of the Seven Flames -->
+		<TargetMob Id="7006" Weight="1"/> <!-- Sea Scorpion -->
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="SecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="78.32697, -26, -120.88" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6995" Weight="1"/> <!-- Kamaitachi -->
+		<TargetMob Id="7016" Weight="100"/> <!-- Tsumuji-kaze -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="AfterSecondBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="44.95517, -96.30215, -220.5296" name="Name"/>
+		<Hotspot Radius="90" XYZ="91.05054,-96.73642,-286.3356" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7008" Weight="1"/> <!-- Reisen Apa -->
+        <TargetMob Id="7009" Weight="1"/> <!-- Reisen Tatsunoko -->
+        <TargetMob Id="7011" Weight="1"/> <!-- Right Hand of the Spring -->
+        <TargetMob Id="7010" Weight="1"/> <!-- Shikigami of the Spring -->
+        <TargetMob Id="7012" Weight="1"/> <!-- Left Hand of the Spring -->
+        <TargetMob Id="7014" Weight="1"/> <!-- Boltstorm Nue -->
+        <TargetMob Id="7013" Weight="1"/> <!-- Stillwind Nue -->		
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="BeforeGenbu">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="63.37381, -93.00002, -375.4275" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="7014" Weight="1"/> <!-- Boltstorm Nue -->
+        <TargetMob Id="7013" Weight="1"/> <!-- Stillwind Nue -->
+      </TargetMobs>
+    </GrindArea>	
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="61.67957, -88, -466.9331" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="6996" Weight="1"/> <!-- Genbu -->
+		<TargetMob Id="6997" Weight="100"/> <!-- Chelonian Gate -->
+      </TargetMobs>
+    </GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+  <CodeChunk name="PluginLoad">
+      <![CDATA[
+        var Plugin = PluginManager.Plugins.Where(p => p.Plugin.Name == "DungeonAssist");
+        var Plugin2 = PluginManager.Plugins.Where(p => p.Plugin.Name == "Osiris");
+		var Plugin3 = PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep");
+		
+	
+		
+		var text1 = string.Empty;
+        var text2 = string.Empty;
+		var text3 = string.Empty;
+        var text4 = string.Empty;
+		var text5 = string.Empty;
+        var text6 = string.Empty;
+		
+		
+		text1 = "Plug-In Dungeon Assist is installed and enabled";
+		text2 = "You Need the Dungeon Assist Plug-In to Operate this Profile";
+		text3 = "Plug-In Osiris  is installed and enabled";
+		text4 = "You Need the Osiris Plug-In to Operate this Profile";
+		text5 = "Plug-In SideStep  is installed and disabled";
+		text6 = "SideStep Plug-In is not needed to Operate this Profile";
+		
+					
+			if(Plugin.Any()){
+				
+				if (Plugin != null)
+				{
+					PluginManager.SetEnabledPlugins("DungeonAssist");
+					Core.OverlayManager.AddToast(() => text1, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+					
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text2, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+			else
+				{
+					Core.OverlayManager.AddToast(() => text2, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			if(Plugin2.Any()){
+				
+				if (Plugin2 != null)
+				{
+					PluginManager.SetEnabledPlugins("Osiris");
+					Core.OverlayManager.AddToast(() => text3, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text4, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text4, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			if(Plugin3.Any()){
+				
+				if (Plugin3 != null)
+				{
+					
+					Core.OverlayManager.AddToast(() => text5, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+					
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text6, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+		else
+				{
+					Core.OverlayManager.AddToast(() => text6, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+        await Coroutine.Sleep(6000);
+      ]]>	
+		</CodeChunk>  
+  </CodeChunks>
+</Profile>	
