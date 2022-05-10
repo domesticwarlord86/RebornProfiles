@@ -71,12 +71,12 @@
 				<BasicTreasureFight XYZ="195.836, -23.3175, -531.951" ZoneId="152" SubZoneId="117"/> 
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 4">
-				<!-- <GetTo Area="South Shroud" XYZ="138.967, 28.98077, 171.6964"/> -->
+				<!-- <GetTo ZoneId="153" XYZ="138.967, 28.98077, 171.6964"/> -->
 				<!-- <GetTo XYZ="140.628, 29.6355, 171.729" ZoneId="153"/>-->
 				<BasicTreasureFight XYZ="138.967, 28.98077, 171.6964" ZoneId="153" SubzoneID="128"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 5">
-				<!-- <GetTo Area="South Shroud" XYZ="121.4391, 17.69358, -126.9676"/> -->
+				<!-- <GetTo ZoneId="153" XYZ="121.4391, 17.69358, -126.9676"/> -->
 				<!-- <GetTo XYZ="120.886, 17.5866, -128.853" ZoneId="153" />-->
 				<BasicTreasureFight XYZ="121.4391, 17.69358, -126.9676" ZoneId="153" SubzoneID="81"/>
 			</If>

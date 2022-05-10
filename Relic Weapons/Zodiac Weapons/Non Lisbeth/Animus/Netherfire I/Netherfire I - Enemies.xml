@@ -12,7 +12,7 @@
 		<!-- Book of Netherfire I Kill Task 1 - Wild Hog -->
 		<If condition="not ZodiacManager.CurrentBook.KillTask1Completed">
 			<Log Message="Moving to Netherfire I Kill Task 1 - Wild Hog" />
-			<GetTo Area="South Shroud" XYZ="371.4368, 1.432168, 155.7033"/>
+			<GetTo ZoneId="153" XYZ="371.4368, 1.432168, 155.7033"/>
 			<Grind grindRef="wild_hog" while="not ZodiacManager.CurrentBook.KillTask1Completed" />
 		</If>
 

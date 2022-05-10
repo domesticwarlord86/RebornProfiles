@@ -36,7 +36,7 @@
 		<!-- Book of Skywind II FATE Task 3 - What Gored Before -->	
 		<If condition="not ZodiacManager.CurrentBook.FateTask3Completed">
 			<Log Message="Moving to FATE 'What Gored Before'" />
-			<GetTo Area="South Shroud" XYZ="532.0834, 8.188749, 194.1838"/>
+			<GetTo ZoneId="153" XYZ="532.0834, 8.188749, 194.1838"/>
 			<While Condition="not ZodiacManager.CurrentBook.FateTask3Completed">
 				<Log Message="Waiting on FATE 'What Gored Before'" />
 				<LLFate FateId="628" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask3Completed"/> <!-- What Gored Before -->

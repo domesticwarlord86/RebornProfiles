@@ -21,11 +21,11 @@
       </If>
     </If>
     <If Condition="HasQuest(66925) and not IsQuestCompleted(66925) and GetQuestStep(66925) == 1">
-	  <GetTo Area="South Shroud" XYZ="-133.7099, 7.500452, 274.9077"/>
+	  <GetTo ZoneId="153" XYZ="-133.7099, 7.500452, 274.9077"/>
       <TalkTo NpcId="1006751" XYZ="-139.1237, 8.535714, 280.539" QuestId="67950" StepId="1"/>
     </If>
     <If Condition="HasQuest(66925) and not IsQuestCompleted(66925) and GetQuestStep(66925) == 255">
-      <GetTo Area="South Shroud" XYZ="-356.6788, 0.5880998, 457.7809"/>
+      <GetTo ZoneId="153" XYZ="-356.6788, 0.5880998, 457.7809"/>
       <TurnIn QuestId="66925" NpcId="1008543" XYZ="-360.0062, 1.264419, 459.8306"/>
     </If> 
 	

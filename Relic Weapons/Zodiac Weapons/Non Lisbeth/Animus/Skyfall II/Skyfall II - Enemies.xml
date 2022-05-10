@@ -33,7 +33,7 @@
 		<!-- Book of Skyfall II Kill Task 3 - Ked-->
 		<If condition="not ZodiacManager.CurrentBook.KillTask3Completed">
 			<Log Message="Moving to Skyfall II Kill Task 3 - Ked" />
-			<GetTo Area="South Shroud" XYZ="558.3313, 21.73308, 119.4443"/>
+			<GetTo ZoneId="153" XYZ="558.3313, 21.73308, 119.4443"/>
 			<Grind grindRef="Ked" while="not ZodiacManager.CurrentBook.KillTask3Completed" />
 		</If>
 
