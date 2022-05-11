@@ -51,12 +51,12 @@
 		<If condition="HasAtLeast(2001223,1)">
 			<LogMessage Message="Moving to Mystery Map location." />		
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 0">
-				<!-- <GetTo Area="Central Shroud" XYZ="-536.5963, 65.34467, 102.8414"/> -->
+				<!-- <GetTo ZoneId="148" XYZ="-536.5963, 65.34467, 102.8414"/> -->
 				<!-- <GetTo ZoneId="148" XYZ="-537.988, 65.3513, 103.668"/> -->
 				<BasicTreasureFight XYZ="-537.988, 65.3513, 103.668" ZoneId="148" SubZoneId="102" />
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 1">
-				<!-- <GetTo Area="Central Shroud" XYZ="-11.29932, -34.60548, 429.6744"/> -->
+				<!-- <GetTo ZoneId="148" XYZ="-11.29932, -34.60548, 429.6744"/> -->
 				<!-- <GetTo XYZ="-11.1509, -34.6487, 431.517" ZoneId="148"/>-->
 				<BasicTreasureFight XYZ="-11.1509, -34.6487, 431.517" ZoneId="148" SubZoneId="70" /> 
 			</If>

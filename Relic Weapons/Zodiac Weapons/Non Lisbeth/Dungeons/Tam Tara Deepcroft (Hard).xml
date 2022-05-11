@@ -26,7 +26,7 @@
       <UseObject NpcId="2004329" XYZ="-409.0792, -30.47229, 36.75891" QuestId="67060" StepId="1"/>
     </If>
     <If Condition="HasQuest(67060) and not IsQuestCompleted(67060) and GetQuestStep(67060) == 2">
-      <GetTo Area="Central Shroud" XYZ="-110.2082, -39.8921, 337.0283"/>
+      <GetTo ZoneId="148" XYZ="-110.2082, -39.8921, 337.0283"/>
       <TalkTo NpcId="1001173" XYZ="-113.2372, -39.73311, 338.6434" QuestId="67060" StepId="2"/>
     </If>
 	

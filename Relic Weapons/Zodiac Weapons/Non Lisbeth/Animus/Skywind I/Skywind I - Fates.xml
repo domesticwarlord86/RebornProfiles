@@ -12,7 +12,7 @@
 		
 		<!-- Book of Skywind I FATE Task 1 - Surprise -->	
 		<If condition="not ZodiacManager.CurrentBook.FateTask1Completed">
-			<GetTo Area="Upper La Noscea (Bronze Lake)" XYZ="268.4039, 29.40405, -127.1923"/>
+			<GetTo ZoneId="139" XYZ="268.4039, 29.40405, -127.1923"/>
 			<While Condition="not ZodiacManager.CurrentBook.FateTask1Completed">
 				<Log Message="Waiting on FATE 'Surprise'" />
 				<LLFate FateId="317" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask1Completed"/> <!-- Surprise -->
@@ -21,7 +21,7 @@
 
 		<!-- Book of Skywind I FATE Task 2 - In Spite of It All -->	
 		<If condition="not ZodiacManager.CurrentBook.FateTask2Completed">
-			<GetTo Area="Central Shroud" XYZ="-525.1988, 20.05402, -177.2084"/>
+			<GetTo ZoneId="148" XYZ="-525.1988, 20.05402, -177.2084"/>
 			<While Condition="not ZodiacManager.CurrentBook.FateTask2Completed">
 				<Log Message="Waiting on FATE 'In Spite of It All'" />
 				<LLFate FateId="604" MinLevel="1" MaxLevel="50" while="not ZodiacManager.CurrentBook.FateTask2Completed"/> <!-- In Spite of It All -->
