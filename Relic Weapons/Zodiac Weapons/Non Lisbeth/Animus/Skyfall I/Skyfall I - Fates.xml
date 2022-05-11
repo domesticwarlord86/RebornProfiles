@@ -21,6 +21,11 @@
 
 		<!-- Book of Skyfall I FATE Task 2 - The King's Justice -->	
 		<If condition="not ZodiacManager.CurrentBook.FateTask2Completed">
+			<!-- Isles of Umbra -->
+			<If condition="not IsOnSubMap(461) or not IsOnSubMap(230) or not IsOnSubMap(173) or not IsOnSubMap(228)">
+				<GetTo ZoneId="138" XYZ="318.7444, -36.325, 351.3391"/>  
+				<UseTransport NpcId="1003584" DialogOption="2" InteractDistance="3.0" XYZ="317.4333, -36.325, 352.8649"/>		
+			</If>			
 			<GetTo ZoneId="138" XYZ="-332.9584, -40.17844, 656.6729"/>
 			<While Condition="not ZodiacManager.CurrentBook.FateTask2Completed">
 				<Log Message="Waiting on FATE 'The King's Justice'" />
