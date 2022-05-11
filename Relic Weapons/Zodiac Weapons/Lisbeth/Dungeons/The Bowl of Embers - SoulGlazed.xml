@@ -96,7 +96,7 @@
 					<WaitTimer WaitTime="3" />
 				</While>
 			</If>
-			<MoveTo XYZ="-13.12728, 0, -8.592924" usemesh="false" />
+			<MoveTo XYZ="-0.04006226, 0, -0.1346976" usemesh="false" InCombat="True"/>
 			<Grind GrindRef="Ifrit" While="not GameObjectManager.GetObjectByNPCId(1185).CurrentHealth == 0"/> <!-- Kill Ifrit -->	
 			<While condition="DutyManager.InInstance">	
 				<WaitTimer WaitTime="5" />
