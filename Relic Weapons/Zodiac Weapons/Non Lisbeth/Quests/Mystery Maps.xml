@@ -250,16 +250,17 @@
 	  </CodeChunk>
 		<CodeChunk Name="OpenMap">
             <![CDATA[ 
-				if (InventoryManager.FilledSlots.Any(i => i.Name.Contains("Mysterious")))
-				{
-					var bagslot = InventoryManager.FilledInventoryAndArmory.First(x => x.RawItemId == 7884);
-					LlamaLibrary.Helpers.ActionHelper.DoActionDecipher(bagslot);
-					await Coroutine.Sleep(5000);
-				}
-				else
-				{
-					Logging.WriteDiagnostic("Can't Find Map");
-				}
+            var bagslot = InventoryManager.FilledInventoryAndArmory.FirstOrDefault(x => x.RawItemId == 7884);
+            
+            if (bagslot != null)
+            {
+                LlamaLibrary.Helpers.ActionHelper.DoActionDecipher(bagslot);
+                await Coroutine.Sleep(5000);
+            }
+            else
+            {
+                Logging.WriteDiagnostic("Can't Find Map");
+            }
         	]]>			
 		</CodeChunk>
 		<CodeChunk Name="NeedPoetics">
