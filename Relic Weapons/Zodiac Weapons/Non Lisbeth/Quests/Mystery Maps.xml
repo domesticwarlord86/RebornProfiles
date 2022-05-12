@@ -53,173 +53,173 @@
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 0">
 				<!-- <GetTo ZoneId="148" XYZ="-536.5963, 65.34467, 102.8414"/> -->
 				<!-- <GetTo ZoneId="148" XYZ="-537.988, 65.3513, 103.668"/> -->
-				<BasicTreasureFight XYZ="-537.988, 65.3513, 103.668" ZoneId="148" SubZoneId="102" />
+				<BasicTreasureFight UseFlight="False" XYZ="-537.988, 65.3513, 103.668" ZoneId="148" SubZoneId="102" />
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 1">
 				<!-- <GetTo ZoneId="148" XYZ="-11.29932, -34.60548, 429.6744"/> -->
 				<!-- <GetTo XYZ="-11.1509, -34.6487, 431.517" ZoneId="148"/>-->
-				<BasicTreasureFight XYZ="-11.1509, -34.6487, 431.517" ZoneId="148" SubZoneId="70" /> 
+				<BasicTreasureFight UseFlight="False" XYZ="-11.1509, -34.6487, 431.517" ZoneId="148" SubZoneId="70" /> 
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 2">
 				<!-- <GetTo ZoneId="152" XYZ="-294.2588, 11.62828, -21.6835"/> -->
 				<!-- <GetTo XYZ="-296.036, 11.6461, -22.2062" ZoneId="152"/>-->
-				<BasicTreasureFight XYZ="-296.036, 11.6461, -22.2062" ZoneId="152" SubZoneId="75"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-296.036, 11.6461, -22.2062" ZoneId="152" SubZoneId="75"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 3">	
 				<!-- <GetTo ZoneId="152" XYZ="194.6726, -23.75512, -530.6439"/> -->
 				<!-- <GetTo XYZ="195.836, -23.3175, -531.951" ZoneId="152"/>-->
-				<BasicTreasureFight XYZ="195.836, -23.3175, -531.951" ZoneId="152" SubZoneId="117"/> 
+				<BasicTreasureFight UseFlight="False" XYZ="195.836, -23.3175, -531.951" ZoneId="152" SubZoneId="117"/> 
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 4">
 				<!-- <GetTo ZoneId="153" XYZ="138.967, 28.98077, 171.6964"/> -->
 				<!-- <GetTo XYZ="140.628, 29.6355, 171.729" ZoneId="153"/>-->
-				<BasicTreasureFight XYZ="138.967, 28.98077, 171.6964" ZoneId="153" SubzoneID="128"/>
+				<BasicTreasureFight UseFlight="False" XYZ="138.967, 28.98077, 171.6964" ZoneId="153" SubzoneID="128"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 5">
 				<!-- <GetTo ZoneId="153" XYZ="121.4391, 17.69358, -126.9676"/> -->
 				<!-- <GetTo XYZ="120.886, 17.5866, -128.853" ZoneId="153" />-->
-				<BasicTreasureFight XYZ="121.4391, 17.69358, -126.9676" ZoneId="153" SubzoneID="81"/>
+				<BasicTreasureFight UseFlight="False" XYZ="121.4391, 17.69358, -126.9676" ZoneId="153" SubzoneID="81"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 6">
 				<!-- <GetTo ZoneId="154" XYZ="-263.1681, -54.4922, 288.9931"/> -->
 				<!-- <GetTo XYZ="-264.889, -54.5096, 288.759" ZoneId="154"/>-->
-				<BasicTreasureFight XYZ="-263.1681, -54.4922, 288.9931" ZoneId="154" SubzoneID="85"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-263.1681, -54.4922, 288.9931" ZoneId="154" SubzoneID="85"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 7">
 				<!-- <GetTo ZoneId="154" XYZ="122.4544, -27.67204, 235.2424"/> -->
 				<!-- <GetTo XYZ="123.976, -27.7202, 234.439" ZoneId="154"/>-->
-				<BasicTreasureFight XYZ="122.4544, -27.67204, 235.2424" ZoneId="154" SubzoneID="85"/>
+				<BasicTreasureFight UseFlight="False" XYZ="122.4544, -27.67204, 235.2424" ZoneId="154" SubzoneID="85"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 8">
 				<!-- <GetTo Area="Middle La Noscea" XYZ="-176.5876, 44.00328, -174.7567"/> -->
 				<!-- <GetTo XYZ="-177.054, 43.9319, -176.475" ZoneId="134"/>-->
-				<BasicTreasureFight XYZ="-176.5876, 44.00328, -174.7567" ZoneId="134" SubzoneID="162"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-176.5876, 44.00328, -174.7567" ZoneId="134" SubzoneID="162"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 9">
 				<!-- <GetTo Area="Middle La Noscea" XYZ="15.15303, 29.06213, 177.8056"/> -->
 				<!-- <GetTo XYZ="13.7492, 28.7928, 179.075" ZoneId="134"/>-->				
-				<BasicTreasureFight XYZ="15.15303, 29.06213, 177.8056" ZoneId="134" SubzoneID="161"/>
+				<BasicTreasureFight UseFlight="False" XYZ="15.15303, 29.06213, 177.8056" ZoneId="134" SubzoneID="161"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 10">
 				<!-- <GetTo XYZ="650.035, 77.938, -356.604" ZoneId="135"/>-->
 				<!-- <GetTo Area="Lower La Noscea" XYZ="648.6265, 77.94785, -356.2203"/> -->
-				<BasicTreasureFight XYZ="648.6265, 77.94785, -356.2203" ZoneId="135" SubzoneID="165"/>
+				<BasicTreasureFight UseFlight="False" XYZ="648.6265, 77.94785, -356.2203" ZoneId="135" SubzoneID="165"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 11">
 				<!-- <GetTo XYZ="105.73, 51.4021, 880.917" ZoneId="135"/>-->
 				<!-- <GetTo Area="Lower La Noscea" XYZ="105.165, 50.70603, 879.355"/> -->
-				<BasicTreasureFight XYZ="105.165, 50.70603, 879.355" ZoneId="135" SubzoneID="166"/>
+				<BasicTreasureFight UseFlight="False" XYZ="105.165, 50.70603, 879.355" ZoneId="135" SubzoneID="166"/>
 
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 12">
 				<!-- <GetTo XYZ="450.397, 13.1721, 310.142" ZoneId="137" />-->
 				<!-- <GetTo Area="Eastern La Noscea (Bloodshore)" XYZ="450.6518, 13.15447, 311.8387"/> -->
-				<BasicTreasureFight XYZ="450.6518, 13.15447, 311.8387" ZoneId="137" SubzoneID="206"/>
+				<BasicTreasureFight UseFlight="False" XYZ="450.6518, 13.15447, 311.8387" ZoneId="137" SubzoneID="206"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 13">
 				<!-- <GetTo XYZ="-222.244, 44.8702, 490.212" ZoneId="137"/>-->
 				<!-- <GetTo ZoneId="137" XYZ="-221.0628, 45.00194, 488.9062"/> -->
-				<BasicTreasureFight XYZ="-221.0628, 45.00194, 488.9062" ZoneId="137" SubzoneID="168"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-221.0628, 45.00194, 488.9062" ZoneId="137" SubzoneID="168"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 14">
 				<!-- <GetTo XYZ="-459.289, -37.877, 718.998" ZoneId="138"/>-->
 				<!-- <GetTo ZoneId="138" XYZ="-458.1614, -37.73082, 717.8301"/> -->
-				<BasicTreasureFight XYZ="-458.1614, -37.73082, 717.8301" ZoneId="138" SubzoneID="228"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-458.1614, -37.73082, 717.8301" ZoneId="138" SubzoneID="228"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 15">
 				<!-- <GetTo XYZ="565.284, 39.3991, 301.501" ZoneId="138"/>-->
 				<!-- <GetTo ZoneId="138" XYZ="565.9584, 39.29335, 302.9372"/> -->
-				<BasicTreasureFight XYZ="565.9584, 39.29335, 302.9372" ZoneId="138" SubzoneID="170"/>
+				<BasicTreasureFight UseFlight="False" XYZ="565.9584, 39.29335, 302.9372" ZoneId="138" SubzoneID="170"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 16">
 				<!-- <GetTo XYZ="-365.644, 48.1319, -13.8196" ZoneId="139"/>-->
 				<!-- <GetTo Area="Upper La Noscea (Oakwood)" XYZ="-363.7878, 47.51054, -13.90158"/> -->
-				<BasicTreasureFight XYZ="-363.7878, 47.51054, -13.90158" ZoneId="139" SubzoneID="233"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-363.7878, 47.51054, -13.90158" ZoneId="139" SubzoneID="233"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 17">
 				<!-- <GetTo XYZ="454.915, -2.74757, 170.421" ZoneId="139"/>-->
 				<!-- <GetTo ZoneId="139" XYZ="453.0358, -2.975089, 170.8427"/> -->
-				<BasicTreasureFight XYZ="453.0358, -2.975089, 170.8427" ZoneId="139" SubzoneID="177"/>
+				<BasicTreasureFight UseFlight="False" XYZ="453.0358, -2.975089, 170.8427" ZoneId="139" SubzoneID="177"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 18">
 				<!-- <GetTo XYZ="68.0214, 66.5572, -257.674" ZoneId="180"/>-->
 				<!-- <GetTo ZoneId="180" XYZ="67.55589, 66.56409, -255.7744"/> -->
-				<BasicTreasureFight XYZ="67.55589, 66.56409, -255.7744" ZoneId="180" SubzoneID="176"/>
+				<BasicTreasureFight UseFlight="False" XYZ="67.55589, 66.56409, -255.7744" ZoneId="180" SubzoneID="176"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 19">
 				<!-- <GetTo XYZ="-308.044, 63.653, -319.293" ZoneId="180"/>-->
 				<!-- <GetTo ZoneId="180" XYZ="-306.502, 63.61379, -318.6954"/> -->
-				<BasicTreasureFight XYZ="-306.502, 63.61379, -318.6954" ZoneId="180" SubzoneID="236"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-306.502, 63.61379, -318.6954" ZoneId="180" SubzoneID="236"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 20">
 				<!-- <GetTo XYZ="7.72155, 21.2729, 90.1568" ZoneId="140"/>-->
 				<!-- <GetTo ZoneId="140" XYZ="8.529833, 21.38824, 88.33194"/> -->
-				<BasicTreasureFight XYZ="8.529833, 21.38824, 88.33194" ZoneId="140" SubzoneID="264"/>
+				<BasicTreasureFight UseFlight="False" XYZ="8.529833, 21.38824, 88.33194" ZoneId="140" SubzoneID="264"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 21">
 				<!-- <GetTo XYZ="-96.7748, 52.2992, 241.505" ZoneId="140"/>-->
 				<!-- <GetTo ZoneId="140" XYZ="-95.36352, 52.31127, 240.3929"/> -->
-				<BasicTreasureFight XYZ="-95.36352, 52.31127, 240.3929" ZoneId="140" SubzoneID="243"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-95.36352, 52.31127, 240.3929" ZoneId="140" SubzoneID="243"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 22">
 				<!-- <GetTo XYZ="-114.824, 27.7215, -397.718" ZoneId="141"/>-->
 				<!-- <GetTo Area="Central Thanalan" XYZ="-113.0534, 27.62471, -397.8468"/> -->
-				<BasicTreasureFight XYZ="-113.0534, 27.62471, -397.8468" ZoneId="141" SubzoneID="248"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-113.0534, 27.62471, -397.8468" ZoneId="141" SubzoneID="248"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 23">
 				<!-- <GetTo XYZ="411.371, -18.1149, -106.321" ZoneId="141"/>-->
 				<!-- <GetTo Area="Central Thanalan" XYZ="409.7153, -18.09411, -106.4005"/> -->
-				<BasicTreasureFight XYZ="409.7153, -18.09411, -106.4005" ZoneId="141" SubzoneID="249"/>
+				<BasicTreasureFight UseFlight="False" XYZ="409.7153, -18.09411, -106.4005" ZoneId="141" SubzoneID="249"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 24">
 				<!-- <GetTo XYZ="91.7671, -24.8128, 295.51" ZoneId="145"/>-->
 				<!-- <GetTo ZoneId="145" XYZ="89.91869, -24.67488, 295.735"/> -->
-				<BasicTreasureFight XYZ="89.91869, -24.67488, 295.735" ZoneId="145" SubzoneID="251"/>
+				<BasicTreasureFight UseFlight="False" XYZ="89.91869, -24.67488, 295.735" ZoneId="145" SubzoneID="251"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 25">
 				<!-- <GetTo XYZ="-545.925, -7.61203, -163.688" ZoneId="145"/>-->
 				<!-- <GetTo ZoneId="145" XYZ="-544.1843, -7.716813, -162.7727"/> -->
-				<BasicTreasureFight XYZ="-544.1843, -7.716813, -162.7727" ZoneId="145" SubzoneID="250"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-544.1843, -7.716813, -162.7727" ZoneId="145" SubzoneID="250"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 26">
 				<!-- <GetTo XYZ="49.0729, 2.47277, 871.301" ZoneId="146"/>-->
 				<GetTo ZoneId="146" XYZ="48.33005, 2.393195, 869.457"/>
-				<BasicTreasureFight XYZ="48.33005, 2.393195, 869.457" ZoneId="146" SubzoneID="257"/>
+				<BasicTreasureFight UseFlight="False" XYZ="48.33005, 2.393195, 869.457" ZoneId="146" SubzoneID="257"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 27">
 				<!-- <GetTo XYZ="-8.23672, 3.33752, -665.784" ZoneId="146"/>-->
 				<!-- <GetTo ZoneId="146" XYZ="-8.85324, 3.572909, -663.9778"/> -->
-				<BasicTreasureFight XYZ="-8.85324, 3.572909, -663.9778" ZoneId="146" SubzoneID="254"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-8.85324, 3.572909, -663.9778" ZoneId="146" SubzoneID="254"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 28">
 				<!-- <GetTo XYZ="-41.1326, 5.83523, 314.249" ZoneId="147"/>-->
 				<!-- <GetTo ZoneId="147" XYZ="-40.2929, 5.750539, 315.6265"/> -->
-				<BasicTreasureFight XYZ="-40.2929, 5.750539, 315.6265" ZoneId="147" SubzoneID="258"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-40.2929, 5.750539, 315.6265" ZoneId="147" SubzoneID="258"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 29">
 				<!-- <GetTo XYZ="-49.6919, 47, 32.4314" ZoneId="147"/> -->
 				<!-- <GetTo ZoneId="147" XYZ="-48.54031, 47, 31.21099"/> -->
-				<BasicTreasureFight XYZ="-48.54031, 47, 31.21099" ZoneId="147" SubzoneID="331"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-48.54031, 47, 31.21099" ZoneId="147" SubzoneID="331"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 30">
 				<!-- <GetTo XYZ="85.4213, 358.71, -274.26" ZoneId="155"/>-->
 				<GetTo ZoneId="155" XYZ="87.67933, 358.5755, -276.1248"/>
-				<BasicTreasureFight XYZ="86.29926, 358.651, -275.789" ZoneId="155" SubzoneID="381"/>
+				<BasicTreasureFight UseFlight="False" XYZ="86.29926, 358.651, -275.789" ZoneId="155" SubzoneID="381"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 31">
 				<!-- <GetTo XYZ="-532.981, 244.625, 290.758" ZoneId="155"/>-->
 				<!-- <GetTo ZoneId="155" XYZ="-532.7348, 244.1803, 292.3374"/> -->
-				<BasicTreasureFight XYZ="-532.7348, 244.1803, 292.3374" ZoneId="155" SubzoneID="382"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-532.7348, 244.1803, 292.3374" ZoneId="155" SubzoneID="382"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 32">
 				<!-- <GetTo XYZ="508.536, -9.30264, -383.919" ZoneId="156"/>-->
 				<!-- <GetTo ZoneId="156" XYZ="506.7011, -9.342728, -384.1776"/> -->
-				<BasicTreasureFight XYZ="506.7011, -9.342728, -384.1776" ZoneId="156" SubzoneID="410"/>
+				<BasicTreasureFight UseFlight="False" XYZ="506.7011, -9.342728, -384.1776" ZoneId="156" SubzoneID="410"/>
 			</If>
 			<If condition="LlamaLibrary.TreasureMap.SecondaryKey == 33">
 				<!-- <GetTo XYZ="-416.353, -3.6989, -548.649" ZoneId="156"/>-->
 				<!-- <GetTo ZoneId="156" XYZ="-414.7756, -3.751036, -548.2633"/> -->
-				<BasicTreasureFight XYZ="-414.7756, -3.751036, -548.2633" ZoneId="156" SubzoneID="409"/>
+				<BasicTreasureFight UseFlight="False" XYZ="-414.7756, -3.751036, -548.2633" ZoneId="156" SubzoneID="409"/>
 			</If>		
 		</If>
 		<!-- If does not have Mystery Map and does not have Alexandrite Map -->
