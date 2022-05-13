@@ -111,7 +111,7 @@
 				<TeleportTo Name="Camp Overlook" AetheryteId="16"/>
 			</If>                
             <While Condition="not HasAtLeast(7858,1)">
-				<LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7858,1)" />
+				<LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7858,1)" />
             </While>		  
 		 </If>
 
@@ -123,7 +123,7 @@
 				<TeleportTo Name="Camp Bronze Lake" AetheryteId="15"/>
 			</If>			          
             <While Condition="not HasAtLeast(7853,1)">
-                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7853,1)" />
+                <LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7853,1)" />
             </While>
         </While>
 
@@ -135,7 +135,7 @@
 				<TeleportTo Name="Summerford Farms" AetheryteId="52"/> <!-- Summerford Farms -->
 			</If>				             
             <While Condition="not HasAtLeast(7856,1)">
-                 <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7856,1)"/>
+                 <LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7856,1)"/>
             </While>
         </While>
 			
@@ -147,7 +147,7 @@
 				<TeleportTo Name="Aleport" AetheryteId="14"/> <!-- Aleport -->
 			</If>					
             <While Condition="not HasAtLeast(7862,1)">
-                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7862,1)" />
+                <LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7862,1)" />
             </While>
         </While>
 
@@ -159,7 +159,7 @@
                 <TeleportTo Name="Moraby Drydocks" AetheryteId="10"/> <!-- Moraby Drydocks -->
 			</If>							
             <While Condition="not HasAtLeast(7859,1)">
-                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7859,1)"/>
+                <LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7859,1)"/>
             </While>
         </While>
 
@@ -171,7 +171,7 @@
                 <TeleportTo Name="Camp Drybone" AetheryteId="18"/> <!-- Camp Drybone -->
 			</If>						                
             <While Condition="not HasAtLeast(7855,1)">
-                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7855,1)" BlacklistId="413"/>
+                <LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7855,1)" BlacklistId="413"/>
             </While>
         </While>			
 
@@ -183,7 +183,7 @@
 				<TeleportTo Name="Black Brush Station" AetheryteId="53"/> <!-- Black Brush Station -->
 			</If>						                				
 			<While Condition="not HasAtLeast(7861,1)">
-				<LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7861,1)" BlacklistId="381"/>
+				<LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7861,1)" BlacklistId="381"/>
 			</While>
 		</While>
 
@@ -196,7 +196,7 @@
 				<TeleportTo Name="Horizon" AetheryteId="17"/> <!-- Horizon -->
 			</If>	
             <While Condition="not HasAtLeast(7857,1)">
-                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7857,1)" BlacklistId="346"/>
+                <LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7857,1)" BlacklistId="346"/>
             </While>
         </While>
 		
@@ -208,7 +208,7 @@
 				<TeleportTo Name="Little Ala Mhigo" AetheryteId="19"/> <!-- Little Ala Mhigo -->
 			</If>				              
             <While Condition="not HasAtLeast(7852,1)">
-                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7852,1)" BlacklistId="421"/>
+                <LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7852,1)" BlacklistId="421"/>
             </While>
         </While>
 
@@ -220,7 +220,7 @@
 				<TeleportTo Name="Fallgourd Float" AetheryteId="7"/> <!-- Fallgourd Float -->
 			</If>				
             <While Condition="not HasAtLeast(7860,1)">
-                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7860,1)" BlacklistId="180"/>
+                <LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7860,1)" BlacklistId="180"/>
             </While>
         </While>
 
@@ -232,7 +232,7 @@
 				<TeleportTo Name="The Hawthorne Hut" AetheryteId="4"/> <!-- The Hawthorne Hut -->
 			</If>					
             <While Condition="not HasAtLeast(7854,1)">
-                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7854,1)" BlacklistId="218"/>
+                <LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7854,1)" BlacklistId="218"/>
             </While>
         </While>
 
@@ -244,7 +244,7 @@
 				<TeleportTo Name="Bentbranch Meadows" AetheryteId="3"/> <!-- Bentbranch Meadows -->
 			</If>									
             <While Condition="not HasAtLeast(7851,1)">
-                <LLFate MinLevel="1" MaxLevel="50" while="not HasAtLeast(7851,1)" BlacklistIds="128,131,124"/>
+                <LLFate UseFlight="False" MinLevel="1" MaxLevel="50" while="not HasAtLeast(7851,1)" BlacklistIds="128,131,124"/>
             </While>
         </While>
 		
