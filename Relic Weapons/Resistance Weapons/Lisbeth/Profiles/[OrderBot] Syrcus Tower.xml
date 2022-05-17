@@ -127,7 +127,7 @@
 				</If>
 				
 				<If Condition="GetInstanceTodo(8) == 1">
-					<WaitTimer WaitTime="60000" />
+					<WaitTimer WaitTime="30" />
 					<LLLeaveDuty/>
 				</If>	
 			</If>
