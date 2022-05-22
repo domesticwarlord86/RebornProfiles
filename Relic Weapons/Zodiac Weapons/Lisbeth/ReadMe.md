@@ -111,6 +111,7 @@ We cannot manually meld materia to your Sphere scroll. It will farm the 75 Alexa
 	* Stone Vigil (Hard): The second fight Curca Fera is neigh impossible to solo, even by hand. Do this dungeon synced manually.
 
 * Leves
+	* Leves are the roughest part of these profiles. There's no built in suport for this type of quest in RB. The code we use for picking up, turning in, and initating them isn't great. Expect to experience issues at this part of the journey.
 	* You must already have levequests unlocked for the Whitebrim, Saint Coinarch's Find and Camp Bluefog. I can't automate those quests yet as they combine a quest and a levequest in one.
 	* Levequests sometimes don't turn in all the way. May have to turn them in manually.
 	* "Someone's in the Doghouse" will need to be done manually until I can find a way to automate the beckon escort quest.
