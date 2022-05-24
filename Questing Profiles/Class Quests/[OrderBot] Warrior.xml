@@ -47,7 +47,7 @@
 							<If Condition="not IsTodoChecked(65848, 1, 1)">
 								<LisbethTravel ZoneId="134" XYZ="53.59859, 52.37904, 208.1335" /> <!-- Grinding Area -->
 								<Grind grindRef="My_First_Axe2" while="not IsTodoChecked(65848, 1, 1)" />
-							</If>
+								</If>
 						</If>
 						<If Condition="GetQuestStep(65848) == 255">
 							<LisbethTravel ZoneId="128" XYZ="-1.205505, 44.99989, -255.8786" /> <!-- Wyrnzoen -->
@@ -277,7 +277,7 @@
 							</While>
 							<If Condition="GetQuestStep(65853) == 6">
 								<LisbethTravel ZoneId="138" XYZ="299.1836, 0.713913, 86.10657" />
-								<ExtendedDuty InteractNpcId="1002684" GuardianNPCId="824" XYZ="299.1836, 0.713913, 86.10657" QuestId="65853" StepId="6">
+								<LLExtendedDuty  InteractNpcId="1002684" GuardianNPCId="824" XYZ="299.1836, 0.713913, 86.10657" QuestId="65853" StepId="6">
 									<HotSpots>
 										<HotSpot XYZ="296.9577, 0.8551753, 85.03024" Radius="90" />
 									</HotSpots>
@@ -285,7 +285,7 @@
 										<TargetMob Id="835" Weight="2000" /> <!-- Pack Jackal -->
 										<TargetMob Id="834" Weight="1000" /> <!-- Scarred Jackal -->
 									</TargetMobs>
-								</ExtendedDuty>
+								</LLExtendedDuty >
 							</If>
 							<If Condition="GetQuestStep(65853) == 7">
 								<LisbethTravel Area="Lower La Noscea" Position="547.3032, 89.28905, -70.14845"/>
