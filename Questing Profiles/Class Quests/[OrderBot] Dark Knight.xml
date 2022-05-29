@@ -213,7 +213,7 @@
 						</If>
 						<If Condition="GetQuestStep(67593) == 2">
 							<LisbethTravel ZoneId="135" Name="Fray" XYZ="-97.76465, 2.982128, 713.0693" />
-							<ExtendedDuty InteractNpcId="1014899" XYZ="-97.76465, 2.982128, 713.0693" GuardianNPCId="4259" QuestId="67593" StepId="2">
+							<LLExtendedDuty InteractNpcId="1014899" XYZ="-97.76465, 2.982128, 713.0693" GuardianNPCId="4259" QuestId="67593" StepId="2">
 								<HotSpots>
 									<HotSpot XYZ="-148.8293, 3.515815, 671.529" Radius="90" />
 								</HotSpots>
@@ -222,7 +222,7 @@
 									<TargetMob Id="4265" Weight="2000" /> <!-- Qiqirn Eggcandler -->
 									<TargetMob Id="4267" Weight="1000" /> <!-- Yoyoroon Softhands -->
 								</TargetMobs>
-							</ExtendedDuty>
+							</LLExtendedDuty>
 						</If>
 						<If Condition="GetQuestStep(67593) == 3">>
 							<LisbethTravel ZoneId="135" Name="Fray" XYZ="-110.8874, 9.73618, 672.7245" />
