@@ -26,7 +26,7 @@
 					<If Condition="HasQuest(67549)">
 						<If Condition="GetQuestStep(67549) == 1">
 							<LisbethTravel ZoneId="153" XYZ="185.6259, 14.04428, 50.49207" />
-							<ExtendedDuty InteractNpcId="1014981" XYZ="185.6259, 14.04428, 50.49207" QuestId="67549" StepId="1">
+							<LLExtendedDuty InteractNpcId="1014981" XYZ="185.6259, 14.04428, 50.49207" QuestId="67549" StepId="1">
 								<HotSpots>
 									<HotSpot XYZ="136.8006, 18.89513, 75.56405" Radius="90" /> <!-- The Balance -->
 									<Hotspot XYZ="24.67467, 2.152851, 318.3112" Radius="90" /> <!-- Mace -->
@@ -40,7 +40,7 @@
 									<TargetMob Id="3863" Weight="2000" /> <!-- Arcanima Marionette -->
 									<TargetMob Id="4424" Weight="1000" /> <!-- Bandit Leader -->
 								</TargetMobs>
-							</ExtendedDuty>
+							</LLExtendedDuty>
 						</If>
 						<If Condition="GetQuestStep(67549) == 255">
 							<LisbethTravel Area="Ishgard (The Pillars)" Position="199.7968, -5.399966, -59.39272"/>
@@ -164,7 +164,7 @@
 
 							<!-- TO DO -->
 
-							<ExtendedDuty InteractNpcId="2006316" XYZ="17.7157, 47.5929, -160.4792" QuestId="67552" StepId="5">
+							<LLExtendedDuty InteractNpcId="2006316" XYZ="17.7157, 47.5929, -160.4792" QuestId="67552" StepId="5">
 								<HotSpots>
 									<HotSpot XYZ="6.698669, 44.51124, -41.33673" Radius="10" /> <!-- Townsperson -->
 									<HotSpot XYZ="-11.08302, 32.19616, -35.52757" Radius="90" /> <!-- Bound Astrologian -->
@@ -179,7 +179,7 @@
 									<TargetMob Id="2095" Weight="2000" /> <!-- Amber Carbuncle -->
 									<TargetMob Id="4425" Weight="1000" /> <!-- Pirate Captain -->
 								</TargetMobs>
-							</ExtendedDuty>
+							</LLExtendedDuty>
 						</While>
 						<If Condition="GetQuestStep(67552) == 255">
 							<LisbethTravel Area="Ishgard (The Pillars)" Position="199.7968, -5.399966, -59.39272"/>
@@ -278,7 +278,7 @@
 
 							<!-- TO DO -->
 
-							<ExtendedDuty InteractNpcId="1014957" XYZ="238.7885, 302, -277.9736" QuestId="67555" StepId="2">
+							<LLExtendedDuty InteractNpcId="1014957" XYZ="238.7885, 302, -277.9736" QuestId="67555" StepId="2">
 								<HotSpots>
 									<HotSpot XYZ="264.1988, 302, -296.2078" Radius="10" /> <!-- Wait Spot #1 (130s) -->
 									<HotSpot XYZ="299.0622, 310.2911, -428.7902" Radius="20" /> <!-- Mobs #1 -->
@@ -300,7 +300,7 @@
 									<TargetMob Id="4251" Weight="2000" /> <!-- False Temple Knight Heavy Infantry -->
 									<TargetMob Id="4491" Weight="1000" /> <!-- Old World Thaumaturge -->
 								</TargetMobs>
-							</ExtendedDuty>
+							</LLExtendedDuty>
 						</If>
 						<If Condition="GetQuestStep(67555) == 3">
 							<LisbethTravel ZoneId="155" XYZ="262.8367, 359.1351, -688.3192" />
