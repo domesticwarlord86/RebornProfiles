@@ -526,7 +526,8 @@
       </If>
     </If>
     <If Condition="GetQuestStep(69548) == 1">
-      <LisbethTravel ZoneId="129" XYZ="8.470297, 20.99961, -12.64073"/>
+      <UseTransport NpcId="1001029" InteractDistance="3.0" XYZ="9.170593,20.9994,-15.21332"/>		
+      <MoveTo ZoneId="129" XYZ="8.470297, 20.99961, -12.64073"/>
       <TalkTo NpcId="1001029" XYZ="9.170593, 20.9994, -15.21332" QuestId="69548" StepId="1"/>
     </If>
     <If Condition="GetQuestStep(69548) == 2">
