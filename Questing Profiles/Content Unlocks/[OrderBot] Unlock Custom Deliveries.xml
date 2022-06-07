@@ -467,6 +467,33 @@
       <LLTurnIn QuestId="69425" NpcId="1033543" XYZ="113.3898, -20, -0.9613647"/>
       <LLSmallTalk/>
     </If>	
+		
+    <!-- Of Mothers and Merchants -->
+		<If Condition="not IsQuestCompleted(70000)">
+			<LLToast message="Please complete the Endwalker MSQ"/>
+		</If>
+		<If Condition="IsQuestCompleted(70000)">		
+			<If Condition="not IsQuestCompleted(70059)">
+				<If Condition="not HasQuest(70059)">
+					<GetTo ZoneId="962" XYZ="71.03671, 5.099999, -74.03305"/>  
+					<If Condition="IsQuestAcceptQualified(70059)">
+						<PickupQuest QuestId="70059" NpcId="1042242"/>
+					</If>
+				</If>
+				<If Condition="GetQuestStep(70059) == 1">
+					<GetTo ZoneId="962" XYZ="-85.17757, -13.777, 137.832"/>  
+					<UseObject NpcId="2012872" XYZ="-86.93073, -12.98547, 140.3066" QuestId="70059" StepId="1"/>
+				</If>	
+				<If Condition="GetQuestStep(70059) == 2">
+					<GetTo ZoneId="962" XYZ="-85.17757, -13.777, 137.832"/>  
+					<TalkTo NpcId="1042427" XYZ="-84.06195, -13.777, 140.1235" QuestId="70059" StepId="2"/>
+				</If>
+				<If Condition="GetQuestStep(70059) == 255">
+					<GetTo ZoneId="962" XYZ="222.648, 24.94273, -197.872"/>  
+					<TurnIn QuestId="70059" NpcId="1042428" XYZ="222.8579, 24.94273, -197.7112"/>
+				</If>				
+			</If>	
+		</If>	
 
 	<LLSellItem ItemIds="18266,18256,12862,12867,12864,12868,27864,27865,14139,28720,28721"/>	
   
