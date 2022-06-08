@@ -106,3 +106,5 @@ No need to ask if anyone's around or for permission to ask -- just go for it!
 [10]: https://github.com/nt153133/__LlamaLibrary "LlamaLibrary"
 [11]: https://discord.gg/rDsFbKr "Magitek Discord"
 [12]: https://github.com/Zimgineering/repoBuddy "RepoBuddy"
+[13]; https://github.com/sponsors/domesticwarlord86
+[14]; https://img.shields.io/github/sponsors/domesticwarlord86?color=purple&style=plastic
