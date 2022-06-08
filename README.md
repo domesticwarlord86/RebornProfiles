@@ -5,6 +5,8 @@
 [![Donate][5]][6]
 [:heart: Sponsor](https://github.com/sponsors/domesticwarlord86)
 
+https://img.shields.io/github/sponsors/domesticwarlord86?color=purple&style=plastic
+
 
 **RebornProfiles** is a collection of various OrderBot scripts for [RebornBuddy][7].
 
