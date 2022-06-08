@@ -2,9 +2,8 @@
 
 [![Download][1]][2]
 [![Discord][3]][4]
-[![:heart: Sponsor][13]][14]
+[![Sponsor][13]][14]
 [![Donate][5]][6]
-[:heart: Sponsor](https://github.com/sponsors/domesticwarlord86)
 
 https://img.shields.io/github/sponsors/domesticwarlord86?color=purple&style=plastic
 
