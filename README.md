@@ -2,6 +2,7 @@
 
 [![Download][1]][2]
 [![Discord][3]][4]
+[![]([https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86](https://img.shields.io/github/sponsors/domesticwarlord86?color=purple&style=plastic))](https://github.com/sponsors/<domesticwarlord86>)
 [![Sponsor][13]][14]
 [![Donate][5]][6]
 
