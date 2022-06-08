@@ -2,6 +2,7 @@
 
 [![Download][1]][2]
 [![Discord][3]][4]
+[![:heart: Sponsor][13]][14]
 [![Donate][5]][6]
 [:heart: Sponsor](https://github.com/sponsors/domesticwarlord86)
 
