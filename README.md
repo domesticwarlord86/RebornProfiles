@@ -3,7 +3,7 @@
 [![Download][1]][2]
 [![Discord][3]][4]
 [![Donate][5]][6]
-[![Github Sponsorship](img/github_sponsor_btn.svg)](https://github.com/sponsors/mechPenSketch)
+[:heart: Sponsor](https://github.com/sponsors/domesticwarlord86)
 
 
 **RebornProfiles** is a collection of various OrderBot scripts for [RebornBuddy][7].
