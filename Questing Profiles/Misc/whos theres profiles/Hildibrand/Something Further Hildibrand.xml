@@ -8,11 +8,13 @@
 	<BehaviorDirectory/>
 	<Order>
 		<!-- The Sleeping Gentleman -->
-		<If Condition="IsQuestCompleted(68704) and IsQuestCompleted(70000) and not HasQuest(70078) and not IsQuestCompleted(70078)">
-			<LisbethTravel ZoneId="963" XYZ="33.60664, -4.961944E-07, -1.888864"/>
-			<If Condition="IsQuestAcceptQualified(70078)">
-				<LLPickupQuest QuestId="70078" NpcId="1042487"/>
-				<LLSmallTalk/>
+		<If Condition="IsQuestCompleted(68704) and IsQuestCompleted(70000) and not IsQuestCompleted(70078)">
+			<If Condition="not HasQuest(70078)">
+				<LisbethTravel ZoneId="963" XYZ="33.60664, -4.961944E-07, -1.888864"/>
+				<If Condition="IsQuestAcceptQualified(70078)">
+					<LLPickupQuest QuestId="70078" NpcId="1042487"/>
+					<LLSmallTalk/>
+				</If>
 			</If>
 			<If Condition="GetQuestStep(70078) == 1">
 				<GetTo ZoneId="963" XYZ="148.7518, 4.783755, -145.4545"/>
@@ -50,10 +52,12 @@
 			</If>
 		</If>
 		<!-- A Soulful Reunion -->
-		<If Condition="IsQuestCompleted(70078) and not HasQuest(70079) and not IsQuestCompleted(70079)">
-			<LisbethTravel ZoneId="813" XYZ="219.9864, 12.70983, 227.3853"/>
-			<If Condition="IsQuestAcceptQualified(70079)">
-				<PickupQuest QuestId="70079" NpcId="1042499"/>
+		<If Condition="IsQuestCompleted(70078) and not IsQuestCompleted(70079)">
+			<If Condition="not HasQuest(70079)">
+				<LisbethTravel ZoneId="813" XYZ="219.9864, 12.70983, 227.3853"/>
+				<If Condition="IsQuestAcceptQualified(70079)">
+					<PickupQuest QuestId="70079" NpcId="1042499"/>
+				</If>
 			</If>
 			<If Condition="GetQuestStep(70079) == 1">
 				<GetTo ZoneId="819" XYZ="-57.28038, -36.72638, -256.0096"/>
