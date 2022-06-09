@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: [OrderBot] Tataru's Grand Endeavor
+  Authors: whos there
+-->
+<Profile>
+	<Name>A Heartless Hypothesis</Name>
+	<BehaviorDirectory/>
+	<Order>
+		<!-- A Heartless Hypothesis -->
+		<If Condition="IsQuestCompleted(70000) and IsQuestCompleted(68693) and not IsQuestCompleted(70122)">
+			<If condition="not HasQuest(70122)">
+				<GetTo ZoneId="962" XYZ="-11.89627, -16.147, 150.94"/>
+				<If Condition="IsQuestAcceptQualified(70122)">
+					<PickupQuest QuestId="70122" NpcId="1042796"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70122) == 1">
+				<GetTo ZoneId="956" XYZ="-394.6471, -220.2028, 283.4612"/>
+				<TalkTo NpcId="1042797" XYZ="-393.2098, -220.2028, 283.1616" QuestId="70122" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(70122) == 2">
+				<GetTo ZoneId="956" XYZ="-394.6471, -220.2028, 283.4612"/>
+				<TalkTo NpcId="1042799" DialogOption="0" XYZ="-395.3765, -220.2028, 285.6641" QuestId="70122" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70122) == 3">
+				<GetTo ZoneId="963" XYZ="39.90234, -1.963596E-06, -48.82008"/>
+				<TalkTo NpcId="1042803" XYZ="43.28979, -1.48163E-06, -55.68018" QuestId="70122" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(70122) == 4 and GetQuestById(70122).QuestI8A == 0">
+				<GetTo ZoneId="963" XYZ="85.07233, 26.99999, 55.69352"/>
+				<TalkTo NpcId="1042804" XYZ="87.35791, 26.99999, 56.68726" QuestId="70122" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(70122) == 4 and GetQuestById(70122).QuestI8A == 1">
+				<GetTo ZoneId="963" XYZ="88.77071, 27.05, 29.70703"/>
+				<TalkTo NpcId="1039539" XYZ="87.66296, 27.06, 28.03076" QuestId="70122" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(70122) == 4 and GetQuestById(70122).QuestI8A == 2">
+				<GetTo ZoneId="963" XYZ="123.7694, 26.99999, 9.518667"/>
+				<TalkTo NpcId="1042887" XYZ="124.2236, 26.99999, 8.346619" QuestId="70122" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(70122) == 5">
+				<GetTo ZoneId="963" XYZ="115.8753, 26.99999, 46.66812"/>
+				<TalkTo NpcId="1042803" XYZ="115.6847, 26.99999, 45.69948" QuestId="70122" StepId="5"/>
+			</If>
+			<If Condition="GetQuestStep(70122) == 6">
+				<GetTo ZoneId="963" XYZ="-158.1368, 23.99998, 111.0269"/>
+				<TalkTo NpcId="1039541" XYZ="-159.3805, 23.99997, 110.6127" QuestId="70122" StepId="6"/>
+			</If>
+			<If Condition="GetQuestStep(70122) == 255">
+				<GetTo ZoneId="963" XYZ="-59.19582, 14, 108.8386"/>
+				<TurnIn QuestId="70122" NpcId="1042805" XYZ="-57.48077, 14, 106.8284"/>
+			</If>
+		</If>
+	</Order>
+</Profile>

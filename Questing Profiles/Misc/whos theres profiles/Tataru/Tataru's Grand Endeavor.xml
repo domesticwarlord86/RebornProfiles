@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: [OrderBot] Tataru's Grand Endeavor
+  Authors: whos there
+-->
+<Profile>
+	<Name>Tataru's Grand Endeavor</Name>
+	<BehaviorDirectory/>
+	<Order>
+		<!-- Small Business, Big Dreams -->
+		<If Condition="IsQuestCompleted(70062) and not IsQuestCompleted(70119)">
+			<If Condition="not HasQuest(70119)">
+				<GetTo ZoneId="962" XYZ="32.63745, 5.15, -66.54756"/>
+				<If Condition="IsQuestAcceptQualified(70119)">
+					<PickupQuest QuestId="70119" NpcId="1042599"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70119) == 1">
+				<GetTo ZoneId="129" XYZ="-288.5511, 16.34725, 196.5678"/>
+				<TalkTo NpcId="1000837" XYZ="-289.7536, 16.34725, 194.5372" QuestId="70119" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(70119) == 2">
+				<GetTo ZoneId="132" XYZ="25.53574, -8, 115.266"/>
+				<TalkTo NpcId="1000100" XYZ="23.81927, -8, 115.9227" QuestId="70119" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70119) == 3">
+				<GetTo ZoneId="132" XYZ="130.1962, -13.47393, 155.0733"/>
+				<UserDialog QuestId="70119" StepId="3" IsBotContinueAllowed="True" DialogText="Please do the next step manually."/>
+				<!-- Could not figure out how to make bot interact with the Destination -->
+			</If>
+			<If Condition="GetQuestStep(70119) == 4">
+				<GetTo ZoneId="131" XYZ="-19.25674, 14, 4.643196"/>
+				<TalkTo NpcId="1042600" XYZ="-20.43188, 14.00001, 5.2948" QuestId="70119" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(70119) == 255">
+				<GetTo ZoneId="962" XYZ="33.09832, 5.149999, -66.12769"/>
+				<TurnIn QuestId="70119" NpcId="1042599" XYZ="31.99805, 5.15, -67.73486"/>
+				<LLSmallTalk/>
+			</If>
+		</If>
+	</Order>
+</Profile>
