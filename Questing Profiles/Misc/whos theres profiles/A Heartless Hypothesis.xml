@@ -52,5 +52,74 @@
 				<TurnIn QuestId="70122" NpcId="1042805" XYZ="-57.48077, 14, 106.8284"/>
 			</If>
 		</If>
+		<!-- Goodbye, ε̆│̆│Δ -->
+		<If Condition="IsQuestCompleted(70122) and not IsQuestCompleted(70123)">
+			<If Condition="not HasQuest(70123)">
+				<GetTo ZoneId="963" XYZ="-59.98644, 14, 114.3996"/>
+				<If Condition="IsQuestAcceptQualified(70123)">
+					<PickupQuest QuestId="70123" NpcId="1042807"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70123) == 1">
+				<GetTo ZoneId="958" XYZ="-378.6334, 22, 493.8531"/>
+				<TalkTo NpcId="1042809" XYZ="-378.439, 22, 494.9873" QuestId="70123" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(70123) == 2 and GetQuestById(70123).QuestI8A == 0">
+				<GetTo ZoneId="958" XYZ="-323.7357, 22, 501.4116"/>
+				<TalkTo NpcId="1042811" XYZ="-323.2319, 22, 500.3585" QuestId="70123" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70123) == 2 and GetQuestById(70123).QuestI8A == 16">
+				<GetTo ZoneId="958" XYZ="-276.047, 25.22722, 423.5416"/>
+				<TalkTo NpcId="1042810" XYZ="-276.4172, 25.22722, 425.4673" QuestId="70123" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70123) == 3">
+				<RunCode Name="TurnOffMount"/>
+				<GetTo ZoneId="958" XYZ="-334.6166, 22.89014, 429.5558"/>
+				<RunCode Name="TurnOnMount"/>
+				<TalkTo NpcId="1042809" XYZ="-333.4974, 22.76328, 430.7451" QuestId="70123" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(70123) == 4">
+				<GetTo ZoneId="958" XYZ="-331.9827, 22.38103, 432.0992"/>
+				<TalkTo NpcId="1042829" XYZ="-330.8615, 22.3109, 431.4182" QuestId="70123" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(70123) == 5">
+				<LisbethTravel ZoneId="958" XYZ="591.1779, 34.94756, 192.6979"/>
+				<TalkTo NpcId="1042813" XYZ="591.3024, 34.87775, 191.3024" QuestId="70123" StepId="5"/>
+			</If>
+			<If Condition="GetQuestStep(70123) == 6">
+				<GetTo ZoneId="958" XYZ="605.4077, 34.7239, 203.6415"/>
+				<TalkTo NpcId="1043126" XYZ="605.9509, 34.7239, 203.3264" QuestId="70123" StepId="6"/>
+			</If>
+			<If Condition="GetQuestStep(70123) == 7">
+				<GetTo ZoneId="959" XYZ="31.12497, -132.9464, -561.0992"/>
+				<TalkTo NpcId="1042816" XYZ="31.96765, -132.9464, -563.5615" QuestId="70123" StepId="7"/>
+			</If>
+			<If Condition="GetQuestStep(70123) == 8">
+				<LisbethTravel ZoneId="959" XYZ="-0.2945774, -28.10239, -216.9994"/>
+				<TalkTo NpcId="1042818" XYZ="-1.632751, -28.02477, -216.2357" QuestId="70123" StepId="8"/>
+			</If>
+			<If Condition="GetQuestStep(70123) == 9">
+				<GetTo ZoneId="959" XYZ="-416.8234, 136.9808, 573.1177"/>
+				<TalkTo NpcId="1038930" XYZ="-415.3964, 136.9808, 575.7992" QuestId="70123" StepId="9"/>
+			</If>
+			<If Condition="GetQuestStep(70123) == 10">
+				<GetTo ZoneId="956" XYZ="-395.0191, -220.2028, 284.2579"/>
+				<TalkTo NpcId="1042800" XYZ="-393.0572, -220.2028, 284.718" QuestId="70123" StepId="10"/>
+			</If>
+			<If Condition="GetQuestStep(70123) == 255">
+				<GetTo ZoneId="962" XYZ="112.6575, -10.58743, 280.7483"/>
+				<TurnIn QuestId="70123" NpcId="1042822" XYZ="111.0398, -10.58743, 280.3845"/>
+			</If>
+		</If>
 	</Order>
+	<CodeChunks>
+		<CodeChunk Name="TurnOffMount">
+      <![CDATA[ 
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+      ]]></CodeChunk>
+		<CodeChunk Name="TurnOnMount">
+      <![CDATA[ 
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+      ]]></CodeChunk>
+	</CodeChunks>
 </Profile>
