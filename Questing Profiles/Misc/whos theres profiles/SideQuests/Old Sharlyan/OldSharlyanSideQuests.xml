@@ -2,11 +2,118 @@
 <!--
   Profile: [OrderBot] OldSharlayanSideQuests
   Authors: whos there
+  Notable Helper: DomesticWarlord
 -->
 <Profile>
 	<Name>OldSharlayanSideQuests</Name>
 	<BehaviorDirectory/>
 	<Order>
+		<!--  A Waiting Love -->
+		<If Condition="IsQuestCompleted(69894) and not IsQuestCompleted(69716)">
+			<If Condition="not HasQuest(69716)">
+				<GetTo ZoneId="962" XYZ="-174.958, 7.78452, 68.38377"/>
+				<If Condition="IsQuestAcceptQualified(69716)">
+					<PickupQuest QuestId="69716" NpcId="1039336"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69716) == 1">
+				<GetTo ZoneId="962" XYZ="-151.1886, -16.147, 207.0913"/>
+				<TalkTo NpcId="1039328" XYZ="-152.3919, -16.147, 209.4606" QuestId="69716" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69716) == 2">
+				<GetTo ZoneId="962" XYZ="-151.1886, -16.147, 207.0913"/>
+				<EmoteNPC Emote="poke" NpcId="1039328" XYZ="-152.3919, -16.147, 209.4606" QuestId="69716" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69716) == 255">
+				<GetTo ZoneId="962" XYZ="-175.211, 7.809304, 70.46183"/>
+				<TurnIn QuestId="69716" NpcId="1039336" XYZ="-175.6161, 7.84433, 68.92493"/>
+			</If>
+		</If>
+		<!--  Scholarly Perspective -->
+		<If Condition="IsQuestCompleted(69894) and not IsQuestCompleted(69717)">
+			<If Condition="not HasQuest(69717)">
+				<GetTo ZoneId="962" XYZ="34.83784, 2.456487, -23.57579"/>
+				<If Condition="IsQuestAcceptQualified(69717)">
+					<PickupQuest QuestId="69717" NpcId="1037211"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69717) == 1">
+				<GetTo ZoneId="962" XYZ="101.3461, -10.58743, 275.5712"/>
+				<UserDialog QuestId="69717" StepId="1" IsBotContinueAllowed="True" DialogText="Please do the next step manually. Point the spyglass at the head, feet, and elbow."/>
+			</If>
+			<If Condition="GetQuestStep(69717) == 2">
+				<GetTo ZoneId="962" XYZ="-48.31678, -15, 253.9819"/>
+				<TalkTo NpcId="1039349" XYZ="-49.48505, -15, 253.3455" QuestId="69717" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69717) == 255">
+				<GetTo ZoneId="962" XYZ="33.1567, 2.457237, -20.87696"/>
+				<LLTurnIn QuestId="69717" NpcId="1037211" XYZ="36.20959, 2.455876, -22.90387"/>
+				<LLSmallTalk/>
+			</If>
+		</If>
+		<!--  A Literary Delivery -->
+		<If Condition="IsQuestCompleted(69894) and not IsQuestCompleted(69718)">
+			<If Condition="not HasQuest(69718)">
+				<GetTo ZoneId="962" XYZ="41.10495, 2.453159, -13.12819"/>
+				<If Condition="IsQuestAcceptQualified(69718)">
+					<PickupQuest QuestId="69718" NpcId="1039509"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69718) == 1 and GetQuestById(69718).QuestI8A == 0">
+				<GetTo ZoneId="962" XYZ="207.3412, 1.752269, 21.55656"/>
+				<HandOver ItemId="2003110" NpcId="1039338" XYZ="205.6763, 1.546829, 22.69012" QuestId="69718" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69718) == 1 and GetQuestById(69718).QuestI8A == 1">
+				<GetTo ZoneId="962" XYZ="69.63874, -14.447, 82.60347"/>
+				<HandOver ItemId="2003112" NpcId="1039340" XYZ="71.39697, -14.447, 82.10876" QuestId="69718" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69718) == 1 and GetQuestById(69718).QuestI8A == 2">
+				<GetTo ZoneId="962" XYZ="-239.1063, 12.32809, 15.62794"/>
+				<HandOver ItemId="2003111" NpcId="1039339" XYZ="-237.934, 12.28963, 16.18976" QuestId="69718" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69718) == 255">
+				<GetTo ZoneId="962" XYZ="41.2405, 2.452818, -12.79284"/>
+				<TurnIn QuestId="69718" NpcId="1039509" XYZ="42.06909, 2.451454, -11.06281"/>
+			</If>
+		</If>
+		<!--  The Light of Progress -->
+		<If Condition="IsQuestCompleted(69894) and not IsQuestCompleted(69747)">
+			<If Condition="not HasQuest(69747)">
+				<GetTo ZoneId="962" XYZ="-104.3259, 24.67383, -120.0427"/>
+				<If Condition="IsQuestAcceptQualified(69747)">
+					<PickupQuest QuestId="69747" NpcId="2011795"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69747) == 1">
+				<GetTo ZoneId="962" XYZ="-58.83797, 5.967, -58.82188"/>
+				<HandOver ItemId="2003115" NpcId="1039344" XYZ="-58.54895, 5.967, -60.74622" QuestId="69747" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69747) == 2">
+				<GetTo ZoneId="962" XYZ="42.11324, 2.451941, -12.45432"/>
+				<TalkTo NpcId="1039509" XYZ="42.06909, 2.451454, -11.06281" QuestId="69747" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69747) == 255">
+				<GetTo ZoneId="962" XYZ="-101.3209, 24.65, -122.1993"/>
+				<TurnIn QuestId="69747" NpcId="1039345" XYZ="-102.1897, 24.64999, -119.7986"/>
+			</If>
+		</If>
+		<!--  Doll Dash -->
+		<If Condition="IsQuestCompleted(69894) and not IsQuestCompleted(69719)">
+			<If Condition="not HasQuest(69719)">
+				<GetTo ZoneId="962" XYZ="165.1034, 1.32054, 21.25451"/>
+				<If Condition="IsQuestAcceptQualified(69719)">
+					<PickupQuest QuestId="69719" NpcId="1039341"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69719) == 1">
+				<GetTo ZoneId="962" XYZ="110.8434, 18.77197, -175.6368"/>
+				<LLTalkTo NpcId="1039342" XYZ="111.6503, 18.83581, -175.0058" QuestId="69719" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69719) == 255">
+				<GetTo ZoneId="962" XYZ="166.1381, 1.340613, 21.18949"/>
+				<TurnIn QuestId="69719" NpcId="1039341" XYZ="164.7211, 1.289134, 22.14075"/>
+			</If>
+		</If>
 		<!--  Fast Fashion -->
 		<If Condition="IsQuestCompleted(69916) and not IsQuestCompleted(69750)">
 			<If Condition="not HasQuest(69750)">
@@ -132,26 +239,118 @@
 				<TurnIn QuestId="69751" NpcId="1037139" XYZ="-317.0673, 19, 48.84412"/>
 			</If>
 		</If>
-		<!--  A Waiting Love -->
-		<If Condition="IsQuestCompleted(69894) and not IsQuestCompleted(69716)">
-			<If Condition="not HasQuest(69716)">
-				<GetTo ZoneId="962" XYZ="-174.958, 7.78452, 68.38377"/>
-				<If Condition="IsQuestAcceptQualified(69716)">
-					<PickupQuest QuestId="69716" NpcId="1039336"/>
+		<!--  For the Love of Pudding -->
+		<If Condition="IsQuestCompleted(69976) and not IsQuestCompleted(69852)">
+			<If Condition="not HasQuest(69852)">
+				<GetTo ZoneId="962" XYZ="-49.02731, -14.16931, 109.1576"/>
+				<If Condition="IsQuestAcceptQualified(69852)">
+					<PickupQuest QuestId="69852" NpcId="1041301"/>
 				</If>
 			</If>
-			<If Condition="GetQuestStep(69716) == 1">
-				<GetTo ZoneId="962" XYZ="-151.1886, -16.147, 207.0913"/>
-				<TalkTo NpcId="1039328" XYZ="-152.3919, -16.147, 209.4606" QuestId="69716" StepId="1"/>
+			<If Condition="GetQuestStep(69852) == 1">
+				<GetTo ZoneId="962" XYZ="-22.62928, -16.24691, 93.00721"/>
+				<TalkTo NpcId="1041295" XYZ="-22.56818, -16.24691, 91.75244" QuestId="69852" StepId="1"/>
 			</If>
-			<If Condition="GetQuestStep(69716) == 2">
-				<GetTo ZoneId="962" XYZ="-151.1886, -16.147, 207.0913"/>
-				<EmoteNPC Emote="poke" NpcId="1039328" XYZ="-152.3919, -16.147, 209.4606" QuestId="69716" StepId="2"/>
+			<If Condition="GetQuestStep(69852) == 2 and GetQuestById(69852).QuestI8A == 0">
+				<GetTo ZoneId="962" XYZ="64.03584, -14.447, 77.54815"/>
+				<TalkTo NpcId="1037066" XYZ="65.01868, -14.447, 78.26355" QuestId="69852" StepId="2"/>
 			</If>
-			<If Condition="GetQuestStep(69716) == 255">
-				<GetTo ZoneId="962" XYZ="-175.211, 7.809304, 70.46183"/>
-				<TurnIn QuestId="69716" NpcId="1039336" XYZ="-175.6161, 7.84433, 68.92493"/>
+			<If Condition="GetQuestStep(69852) == 2 and GetQuestById(69852).QuestI8A == 16">
+				<GetTo ZoneId="962" XYZ="-362.9715, 19, 92.07206"/>
+				<TalkTo NpcId="2012610" XYZ="-363.6988, 20.27917, 92.729" QuestId="69852" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69852) == 2 and GetQuestById(69852).QuestI8A == 33">
+				<GetTo ZoneId="962" XYZ="55.82833, 5.15, -73.69849"/>
+				<TalkTo NpcId="1040985" XYZ="56.77881, 5.15, -73.86902" QuestId="69852" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69852) == 255">
+				<GetTo ZoneId="962" XYZ="-50.52146, -14.16931, 108.2119"/>
+				<TurnIn QuestId="69852" NpcId="1041301" XYZ="-50.94995, -14.16931, 108.751"/>
+			</If>
+		</If>
+		<!--  Leveilleur Philanthropy -->
+		<If Condition="IsQuestCompleted(69984) and not IsQuestCompleted(69854)">
+			<If Condition="not HasQuest(69854)">
+				<GetTo ZoneId="962" XYZ="208.3653, 19.67031, -111.6647"/>
+				<If Condition="IsQuestAcceptQualified(69854)">
+					<PickupQuest QuestId="69854" NpcId="1041303"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69854) == 1 and GetQuestById(69854).QuestI8A == 0">
+				<GetTo ZoneId="962" XYZ="213.1924, 8.273688, -33.69015"/>
+				<TalkTo NpcId="2012440" XYZ="213.9773, 8.224609, -33.73773" QuestId="69854" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69854) == 1 and GetQuestById(69854).QuestI8A == 16">
+				<GetTo ZoneId="962" XYZ="167.5263, 1.416352, 54.11603"/>
+				<TalkTo NpcId="2012441" XYZ="168.0476, 1.296936, 53.94055" QuestId="69854" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69854) == 255">
+				<GetTo ZoneId="962" XYZ="212.1455, 20.04977, -112.651"/>
+				<TurnIn QuestId="69854" NpcId="1041303" XYZ="209.5521, 19.31656, -110.7042"/>
+			</If>
+		</If>
+		<!--  Sandwiches and Pretzels -->
+		<If Condition="IsQuestCompleted(69984) and not IsQuestCompleted(69855)">
+			<If Condition="not HasQuest(69855)">
+				<GetTo ZoneId="962" XYZ="-39.27839, -14.16931, 108.0318"/>
+				<If Condition="IsQuestAcceptQualified(69855)">
+					<PickupQuest QuestId="69855" NpcId="1037077"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69855) == 1">
+				<GetTo ZoneId="962" XYZ="191.5978, 18.89543, -91.38141"/>
+				<HandOver ItemId="2003298" NpcId="1041308" XYZ="190.6615, 18.89543, -91.44739" QuestId="69855" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69855) == 255">
+				<GetTo ZoneId="962" XYZ="-38.38761, -14.16931, 107.2753"/>
+				<TurnIn ItemId="0" QuestId="69855" NpcId="1037077" XYZ="-38.07129, -14.16931, 105.3025"/>
+			</If>
+		</If>
+		<!--  Secret in the Box -->
+		<If Condition="IsQuestCompleted(69976) and not IsQuestCompleted(69853)">
+			<If Condition="not HasQuest(69853)">
+				<GetTo ZoneId="962" XYZ="-31.86664, 2.400052, -8.367496"/>
+				<If Condition="IsQuestAcceptQualified(69853)">
+					<PickupQuest QuestId="69853" NpcId="1041296"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69853) == 1">
+				<GetTo ZoneId="962" XYZ="-31.86664, 2.400052, -8.367496"/>
+				<TalkTo NpcId="2012438" XYZ="-33.31049, 2.853394, -9.048645" QuestId="69853" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69853) == 2 and GetQuestById(69853).QuestI8A == 0">
+				<GetTo ZoneId="962" XYZ="-124.6174, 29.91098, -200.4403"/>
+				<RunCode name="acorns"/>
+				<WaitWhile condition="GetQuestStep(69853) == 2 and GetQuestById(69853).QuestI8A == 0"/>
+			</If>
+			<If Condition="GetQuestStep(69853) == 2 and GetQuestById(69853).QuestI8A == 16">
+				<GetTo ZoneId="962" XYZ="-165.1306, 6.448641, 128.0263"/>
+				<EmoteNPC Emote="doze" NpcId="1041297" XYZ="-167.5594, 6.65762, 129.076" Condition="GetQuestStep(69853) == 2 and GetQuestById(69853).QuestI8A == 16"/>
+			</If>
+			<If Condition="GetQuestStep(69853) == 2 and GetQuestById(69853).QuestI8A == 32">
+				<GetTo ZoneId="962" XYZ="19.07751, 23.49999, -135.2951"/>
+				<TalkTo NpcId="1037234" XYZ="16.92224, 23.49998, -136.6751" QuestId="69853" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69853) == 255">
+				<GetTo ZoneId="962" XYZ="-31.84872, 2.400052, -9.685463"/>
+				<TurnIn QuestId="69853" NpcId="2012439" XYZ="-32.8222, 2.853394, -9.842102"/>
 			</If>
 		</If>
 	</Order>
+	<CodeChunks>
+		<CodeChunk Name="acorns">
+      <![CDATA[        
+            await CommonTasks.StopAndDismount();
+            ChatManager.SendChat("/say golden acorns");
+            await Coroutine.Wait(10000, () => Talk.DialogOpen);
+            await Buddy.Coroutines.Coroutine.Sleep(500);
+      while (QuestLogManager.GetQuestStep(70113) == 2)
+                {
+                    Talk.Next();
+                    await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+                    await Coroutine.Wait(1000, () => Talk.DialogOpen);
+                    await Coroutine.Yield();
+                }
+      ]]></CodeChunk>
+	</CodeChunks>
 </Profile>
