@@ -1496,7 +1496,7 @@
 
 								<!-- TO DO -->
 
-								<LLExtendedDuty InteractNpcId="1019127" XYZ="-381.8876, 40.28381, 484.8248" QuestId="67954" StepId="5">
+								<ExtendedDuty InteractNpcId="1019127" XYZ="-381.8876, 40.28381, 484.8248" QuestId="67954" StepId="5">
 									<HotSpots>
 										<HotSpot XYZ="-381.2671, 40.29111, 485.4266" Radius="90" />
 									</HotSpots>
@@ -1506,7 +1506,7 @@
 										<TargetMob Id="6020" Weight="4000" /> <!-- Aether-starved Arch Demon -->
 										<TargetMob Id="5664" Weight="1000" /> <!-- Camazotz -->
 									</TargetMobs>
-								</LLExtendedDuty>
+								</ExtendedDuty>
 							</If>
 							<If Condition="GetQuestStep(67954) == 255">
 								<LisbethTravel ZoneId="612" XYZ="-382.7115, 40.27582, 484.3669" /> <!-- Gatty -->
