@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: [OrderBot] LabyrinthosSideQuests
+  Authors: whos there
+-->
+<Profile>
+	<Name>LabyrinthosSideQuests</Name>
+	<BehaviorDirectory/>
+	<Order>
+		<!--  Uncommon Scents -->
+		<If Condition="not IsQuestCompleted(69726)">
+			<If Condition="not HasQuest(69726)">
+				<LisbethTravel ZoneId="956" XYZ="415.7847, 166.2127, -484.4373"/>
+				<If Condition="IsQuestAcceptQualified(69726)">
+					<PickupQuest QuestId="69726" NpcId="1039513"/>
+				</If>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(69726) == 1 and GetQuestById(69726).QuestI8A == 0">
+			<LisbethTravel ZoneId="956" XYZ="287.395, 163.6857, -584.3933"/>
+			<UseItem NpcId="2011810" ItemId="2003119" XYZ="285.9387, 163.775, -584.2222" Condition="GetQuestStep(69726) == 1 and GetQuestById(69726).QuestI8A == 0"/>
+		</If>
+		<If Condition="GetQuestStep(69726) == 1 and GetQuestById(69726).QuestI8A == 16">
+			<LisbethTravel ZoneId="956" XYZ="529.4974, 176.4275, -504.081"/>
+			<UseItem NpcId="2011809" ItemId="2003119" XYZ="529.5033, 176.4706, -502.8916" Condition="GetQuestStep(69726) == 1 and GetQuestById(69726).QuestI8A == 16"/>
+		</If>
+		<If Condition="GetQuestStep(69726) == 1 and GetQuestById(69726).QuestI8A == 33">
+			<LisbethTravel ZoneId="956" XYZ="644.7529, 180.5946, -299.8476"/>
+			<UseItem NpcId="2011808" ItemId="2003119" XYZ="645.2887, 180.7125, -299.8245" Condition="GetQuestStep(69726) == 1 and GetQuestById(69726).QuestI8A == 33"/>
+		</If>
+		<If Condition="GetQuestStep(69726) == 255">
+			<LisbethTravel ZoneId="956" XYZ="415.2766, 166.2127, -485.3139"/>
+			<TurnIn ItemId="0" QuestId="69726" NpcId="1039513" XYZ="416.0371, 166.3, -486.4119"/>
+		</If>
+		<!--  Pot Luck -->
+		<If Condition="not IsQuestCompleted(69725)">
+			<If Condition="not HasQuest(69725)">
+				<LisbethTravel ZoneId="956" XYZ="403.8807, 166.1927, -473.3767"/>
+				<If Condition="IsQuestAcceptQualified(69725)">
+					<LLPickupQuest QuestId="69725" NpcId="1037514"/>
+				</If>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(69725) == 1">
+			<LisbethTravel ZoneId="956" XYZ="615.0557, 172.3243, -562.8865"/>
+			<TalkTo NpcId="1039350" XYZ="614.313, 172.3888, -563.0732" QuestId="69725" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69725) == 255">
+			<LisbethTravel ZoneId="956" XYZ="402.777, 166.1927, -473.5828"/>
+			<TurnIn QuestId="69725" NpcId="1037514" XYZ="401.297, 166.1927, -474.1436"/>
+		</If>
+		<!--  An Ore-ful Lot -->
+		<If Condition="not IsQuestCompleted(69723)">
+			<If Condition="not HasQuest(69723)">
+				<LisbethTravel ZoneId="956" XYZ="373.877, 166.2914, -470.8866"/>
+				<If Condition="IsQuestAcceptQualified(69723)">
+					<PickupQuest QuestId="69723" NpcId="1039333"/>
+				</If>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(69723) == 1">
+			<LisbethTravel ZoneId="956" XYZ="562.8413, 164.142, -400.0351"/>
+			<TalkTo NpcId="1039334" XYZ="563.4393, 164.2535, -400.8698" QuestId="69723" StepId="1"/>
+		</If>
+		<If Condition="GetQuestStep(69723) == 2">
+			<GetTo ZoneId="956" XYZ="561.4642, 164.1398, -400.9873"/>
+			<TalkTo NpcId="2011822" XYZ="561.7302, 164.4769, -402.3041" QuestId="69723" StepId="2"/>
+		</If>
+		<If Condition="GetQuestStep(69723) == 3">
+			<GetTo ZoneId="956" XYZ="561.5435, 164.1365, -400.8324"/>
+			<LLTalkTo NpcId="1039334" XYZ="563.4393, 164.2535, -400.8698" QuestId="69723" StepId="3"/>
+		</If>
+		<If Condition="GetQuestStep(69723) == 3">
+			<RunCode name="TurnOffMount"/>
+			<WaitTimer WaitTime="9"/>
+			<MoveTo XYZ="569.6495, 163.4699, -378.9236"/>
+			<WaitTimer WaitTime="9"/>
+			<MoveTo XYZ="588.5146, 164.233, -349.3797"/>
+			<WaitTimer WaitTime="9"/>
+			<MoveTo XYZ="606.6969, 166.6233, -317.1751"/>
+			<WaitTimer WaitTime="9"/>
+			<MoveTo XYZ="618.5314, 170.6427, -274.4463"/>
+			<WaitTimer WaitTime="9"/>
+			<MoveTo XYZ="612.1521, 171.7125, -256.9109"/>
+			<WaitTimer WaitTime="15"/>
+			<MoveTo XYZ="576.112, 167.5903, -228.8503"/>
+		</If>
+		<If Condition="GetQuestStep(69723) == 255">
+			<RunCode name="TurnOnMount"/>
+			<MoveTo XYZ="373.9307, 166.2723, -471.0817"/>
+			<TurnIn QuestId="69723" NpcId="1039333" XYZ="372.0912, 166.2036, -470.8782"/>
+		</If>
+		<!--  Raised on the Fallen -->
+		<If Condition="not IsQuestCompleted(69724)">
+			<If Condition="not HasQuest(69724)">
+				<GetTo ZoneId="956" XYZ="372.2949, 170.1, -400.8095"/>
+				<If Condition="IsQuestAcceptQualified(69724)">
+					<PickupQuest QuestId="69724" NpcId="1037506"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69724) == 1 and GetQuestById(69724).QuestI8A == 0">
+				<MoveTo XYZ="403.7943, 166.1927, -474.0991"/>
+			</If>
+			<If Condition="GetQuestStep(69724) == 1">
+				<LisbethTravel ZoneId="956" XYZ="270.6514, 185.4719, -695.4109"/>
+				<UseObject NpcId="2011802" XYZ="269.9778, 185.5039, -696.3455" QuestId="69724" Condition="GetQuestStep(69724) == 1 and GetQuestById(69724).QuestI8A == 0"/>
+			</If>
+			<If Condition="GetQuestStep(69724) == 1">
+				<LisbethTravel ZoneId="956" XYZ="221.8528, 181.7774, -694.792"/>
+				<UseObject NpcId="2011803" XYZ="222.156, 181.6281, -693.8735" QuestId="69724" Condition="GetQuestStep(69724) == 1 and GetQuestById(69724).QuestI8A == 17"/>
+			</If>
+			<If Condition="GetQuestStep(69724) == 255">
+				<LisbethTravel ZoneId="956" XYZ="403.7943, 166.1927, -474.0991"/>
+			</If>
+			<If Condition="GetQuestStep(69724) == 255">
+				<GetTo ZoneId="956" XYZ="373.333, 170.1, -400.3026"/>
+				<TurnIn QuestId="69724" NpcId="1037506" XYZ="373.7086, 170.1, -399.4659"/>
+			</If>
+		</If>
+	</Order>
+	<CodeChunks>
+		<CodeChunk Name="TurnOffMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+      ]]></CodeChunk>
+		<CodeChunk Name="TurnOnMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+      ]]></CodeChunk>
+	</CodeChunks>
+</Profile>
