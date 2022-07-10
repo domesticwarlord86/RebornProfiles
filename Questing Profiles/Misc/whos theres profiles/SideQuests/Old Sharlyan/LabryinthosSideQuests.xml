@@ -380,6 +380,48 @@
 				<TurnIn QuestId="69861" NpcId="1041320" XYZ="211.4442, -17.53038, -42.19128"/>
 			</If>
 		</If>
+		<!--  Here Comes the Sun -->
+		<If Condition="not IsQuestCompleted(70021)">
+			<If Condition="not HasQuest(70021)">
+				<LisbethTravel ZoneId="956" XYZ="155.6504, -17.53038, -67.54398"/>
+				<If Condition="IsQuestAcceptQualified(70021)">
+					<PickupQuest QuestId="70021" NpcId="1041685"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70021) == 1">
+				<LisbethTravel ZoneId="956" XYZ="229.0221, -18.74201, 299.7315"/>
+				<TalkTo NpcId="1041686" XYZ="228.3817, -18.74198, 297.8407" QuestId="70021" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(70021) == 2">
+				<LisbethTravel ZoneId="956" XYZ="453.7393, 77.15941, 231.5257"/>
+				<TalkTo NpcId="1041687" XYZ="455.2528, 77.13584, 230.0907" QuestId="70021" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70021) == 255">
+				<LisbethTravel ZoneId="956" XYZ="285.9782, 86.53178, -145.8998"/>
+				<TurnIn QuestId="70021" NpcId="1041688" XYZ="285.8167, 86.53177, -144.6098"/>
+			</If>
+		</If>
+		<!--  Wayward Carbuncle -->
+		<If Condition="not IsQuestCompleted(69859)">
+			<If Condition="not HasQuest(69859)">
+				<LisbethTravel ZoneId="956" XYZ="16.5706, -17.53038, -214.4164"/>
+				<If Condition="IsQuestAcceptQualified(69859)">
+					<LLPickupQuest QuestId="69859" NpcId="1041316"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69859) == 1">
+				<LisbethTravel ZoneId="956" XYZ="-603.5354, -16.65772, 784.2657"/>
+				<TalkTo NpcId="1041317" XYZ="-602.5025, -16.68662, 784.8783" QuestId="69859" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69859) == 2">
+				<LisbethTravel ZoneId="956" XYZ="-603.5354, -16.65772, 784.2657"/>
+				<EmoteNPC Emote="soothe" NpcId="1041317" XYZ="-602.5025, -16.68662, 784.8783" QuestId="69859" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69859) == 255">
+				<LisbethTravel ZoneId="956" XYZ="17.34592, -17.53038, -213.7758"/>
+				<TurnIn QuestId="69859" NpcId="1041316" XYZ="17.22742, -17.53038, -215.5642"/>
+			</If>
+		</If>
 	</Order>
 	<CodeChunks>
 		<CodeChunk Name="TurnOffMount">
