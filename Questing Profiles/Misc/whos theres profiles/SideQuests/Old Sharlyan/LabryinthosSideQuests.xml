@@ -422,6 +422,24 @@
 				<TurnIn QuestId="69859" NpcId="1041316" XYZ="17.22742, -17.53038, -215.5642"/>
 			</If>
 		</If>
+		<!--  Seeing Red -->
+		<If Condition="not IsQuestCompleted(69862)">
+			<If Condition="not HasQuest(69862)">
+				<LisbethTravel ZoneId="956" XYZ="6.94841, -31.53043, -76.90137"/>
+				<If Condition="IsQuestAcceptQualified(69862)">
+					<PickupQuest QuestId="69862" NpcId="1037575"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69862) == 1">
+				<LisbethTravel ZoneId="956" XYZ="419.3061, 63.13092, -19.12506"/>
+				<RunCode name="SeeingRed"/>
+				<UseItem ItemId="2003316" NpcId="10689" XYZ="501.0791, 174.2308, -521.5007" InCombat="True" UseHealthPercent="10" QuestId="69862" StepId="1" UseTimes="1"/>
+			</If>
+			<If Condition="GetQuestStep(69862) == 255">
+				<LisbethTravel ZoneId="956" XYZ="7.103873, -31.53043, -76.14872"/>
+				<TurnIn QuestId="69862" NpcId="1037575" XYZ="6.454529, -31.53043, -78.14148"/>
+			</If>
+		</If>
 	</Order>
 	<CodeChunks>
 		<CodeChunk Name="TurnOffMount">
@@ -435,6 +453,26 @@
 		<CodeChunk Name="HardTask">
       <![CDATA[
           uint[] questNpcIds = { 2011790,10946 };
+          var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+        if (!npcId.IsWithinInteractRange)
+        {
+          var _target = npcId.Location;
+          Navigator.PlayerMover.MoveTowards(_target);
+          
+          while (_target.Distance2D(Core.Me.Location) >= 4)
+          {
+            Navigator.PlayerMover.MoveTowards(_target);
+            await Coroutine.Sleep(100);
+          }
+          
+          Navigator.PlayerMover.MoveStop();
+        }
+        npcId.Interact();
+        await Coroutine.Sleep(7000);
+      ]]></CodeChunk>
+		<CodeChunk Name="SeeingRed">
+      <![CDATA[
+          uint[] questNpcIds = { 10689 };
           var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
         if (!npcId.IsWithinInteractRange)
         {
