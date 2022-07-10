@@ -4,12 +4,12 @@
   Authors: Antony_256, DomesticWarlord86, NeonNeo
   
   This profile is very experimental. The profile itself runs well enough but alone it doesn't handle any mechanics.
-  That's where Osiris, Sidestep, and DungeonAssist come into play.
-  https://github.com/BurnUnit83/DungeonAssist.git
+  That's where Osiris, Sidestep, and Trust come into play.
+  https://github.com/TheManta/RBtrust.git
   https://github.com/domesticwarlord86/Osiris.git
   Both of these are plugins that go in your Plugin folder. Again they are VERY experimental and very much should not be ran unattended.
   Osiris should handle waiting for raises. Overriding the default OrderBot behavior of releasing on death.
-  DungeonAssist should come in and handle Curtain Call and Levitation platforms for mechanics. Should.
+  Trust should come in and handle Curtain Call and Levitation platforms for mechanics. Should.
   Don't use this profile if you aren't willing to possibly look like a bot. 
   Botting around other people is extremly risky.
   You really probably shouldn't use this profile at all.
@@ -18,16 +18,21 @@
 	<Name>[OrderBot] Syrcus Tower</Name>
 	<Author>Antony_256, DomesticWarlord86, NeonNeo</Author>
 	<Order>
-	<RunCode name="PluginLoad"/>
 		<If condition="not IsQuestCompleted(67010) and not GetQuestStep(67010) &gt; 3">
 			<LLToast message="Please complete the Sycus Tower unlock quests and then run the profile again."/>
 			<StopBot/>
 		</If>
+		
+		<EnablePlugin name="Trust"/>
+		
 		<While condition="not HasAtLeast(32956,150)">
 			<While condition="not DutyManager.InInstance">
 				<LLJoinDuty DutyId="102" Undersized="False" Raid="True"/>
 			</While>
+			
 			<If Condition="IsOnMap(372)">
+			
+				
 
 				<If Condition="GetInstanceTodo(2) == 0">
 					<Log Message="Clear the Ladder of Ascension 0/1" />
