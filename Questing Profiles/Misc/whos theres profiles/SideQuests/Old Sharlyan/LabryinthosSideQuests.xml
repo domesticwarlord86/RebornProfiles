@@ -440,6 +440,77 @@
 				<TurnIn QuestId="69862" NpcId="1037575" XYZ="6.454529, -31.53043, -78.14148"/>
 			</If>
 		</If>
+		<!--  A Job for a Loporrit -->
+		<If Condition="not IsQuestCompleted(69857)">
+			<If Condition="not HasQuest(69857)">
+				<LisbethTravel ZoneId="956" XYZ="34.31454, -17.53038, -118.5496"/>
+				<If Condition="IsQuestAcceptQualified(69857)">
+					<LLPickupQuest QuestId="69857" NpcId="1041315"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69857) == 1">
+				<LisbethTravel ZoneId="956" XYZ="91.80233, -29.53, 6.613387"/>
+				<TalkTo NpcId="1041512" XYZ="93.46143, -29.53, 7.736328" QuestId="69857" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69857) == 2 and GetQuestById(69857).QuestI8A == 0">
+				<LisbethTravel ZoneId="956" XYZ="-613.0852, -19.12627, -55.66608"/>
+				<UseItem NpcId="2012495" ItemId="2003310" XYZ="-613.3059, -19.15009, -56.71783" QuestId="69857" Condition="GetQuestStep(69857) == 2 and GetQuestById(69857).QuestI8A == 0"/>
+			</If>
+			<If Condition="GetQuestStep(69857) == 2 and GetQuestById(69857).QuestI8A == 1">
+				<LisbethTravel ZoneId="956" XYZ="-635.8685, -19.12615, -55.7309"/>
+				<UseItem NpcId="2012496" ItemId="2003310" XYZ="-636.4386, -19.15009, -57.02301" QuestId="69857" Condition="GetQuestStep(69857) == 2 and GetQuestById(69857).QuestI8A == 1"/>
+			</If>
+			<If Condition="GetQuestStep(69857) == 2and GetQuestById(69857).QuestI8B == 16">
+				<LisbethTravel ZoneId="956" XYZ="-636.9833, -19.12624, -33.11587"/>
+				<UseItem NpcId="2012497" ItemId="2003310" XYZ="-636.7133, -19.15009, -32.02869" QuestId="69857" Condition="GetQuestStep(69857) == 2 and GetQuestById(69857).QuestI8B == 16"/>
+			</If>
+			<If Condition="GetQuestStep(69857) == 3">
+				<LisbethTravel ZoneId="956" XYZ="91.56359, -29.53, 8.422022"/>
+				<TalkTo NpcId="1041512" XYZ="93.46143, -29.53, 7.736328" QuestId="69857" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(69857) == 255">
+				<LisbethTravel ZoneId="956" XYZ="33.84549, -17.53038, -119.5618"/>
+				<TurnIn QuestId="69857" NpcId="1041315" XYZ="32.73047, -17.53038, -118.9441"/>
+			</If>
+		</If>
+		<!--  Don't Philter Yourself -->
+		<If Condition="not IsQuestCompleted(69860)">
+			<If Condition="not HasQuest(69860)">
+				<LisbethTravel ZoneId="956" XYZ="7.862758, -31.53043, -92.95194"/>
+				<If Condition="IsQuestAcceptQualified(69860)">
+					<PickupQuest QuestId="69860" NpcId="1041319"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69860) == 1">
+				<LisbethTravel ZoneId="956" XYZ="33.666, -28.60555, 643.1631"/>
+				<TalkTo NpcId="1041318" XYZ="32.60852, -28.60555, 642.2675" QuestId="69860" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69860) == 2 and GetQuestById(69860).QuestI8A == 0">
+				<UseItem NpcId="1041318" ItemId="2003315" XYZ="32.60852, -28.60555, 642.2675" QuestId="69860" Condition="GetQuestStep(69860) == 2 and GetQuestById(69860).QuestI8A == 0"/>
+			</If>
+			<If Condition="GetQuestStep(69860) == 255">
+				<LisbethTravel ZoneId="956" XYZ="8.053338, -31.53043, -93.28191"/>
+				<TurnIn QuestId="69860" NpcId="1041319" XYZ="7.034363, -31.53039, -94.16345"/>
+			</If>
+		</If>
+		<!--  Dolling out Punishment -->
+		<If Condition="not IsQuestCompleted(69868)">
+			<If Condition="not HasQuest(69868)">
+				<LisbethTravel ZoneId="956" XYZ="28.07437, -17.53038, -92.62"/>
+				<If Condition="IsQuestAcceptQualified(69868)">
+					<PickupQuest QuestId="69868" NpcId="1037565"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69868) == 1">
+				<LisbethTravel ZoneId="956" XYZ="194.3089, -6.606188, 622.8524"/>
+				<RunCode name="DolingOutPunishment"/>
+				<UseItem ItemId="2003270" NpcId="10948" XYZ="194.3089, -6.606188, 622.8524" InCombat="True" UseHealthPercent="50" QuestId="69868" StepId="1" UseTimes="1"/>
+			</If>
+			<If Condition="GetQuestStep(69868) == 255">
+				<LisbethTravel ZoneId="956" XYZ="29.76297, -17.53038, -92.68722"/>
+				<TurnIn QuestId="69868" NpcId="1037565" XYZ="27.72559, -17.53038, -91.53894"/>
+			</If>
+		</If>
 	</Order>
 	<CodeChunks>
 		<CodeChunk Name="TurnOffMount">
@@ -473,6 +544,26 @@
 		<CodeChunk Name="SeeingRed">
       <![CDATA[
           uint[] questNpcIds = { 10689 };
+          var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+        if (!npcId.IsWithinInteractRange)
+        {
+          var _target = npcId.Location;
+          Navigator.PlayerMover.MoveTowards(_target);
+          
+          while (_target.Distance2D(Core.Me.Location) >= 4)
+          {
+            Navigator.PlayerMover.MoveTowards(_target);
+            await Coroutine.Sleep(100);
+          }
+          
+          Navigator.PlayerMover.MoveStop();
+        }
+        npcId.Interact();
+        await Coroutine.Sleep(7000);
+      ]]></CodeChunk>
+		<CodeChunk Name="DolingOutPunishment">
+      <![CDATA[
+          uint[] questNpcIds = { 2012778,10948 };
           var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
         if (!npcId.IsWithinInteractRange)
         {
