@@ -511,6 +511,124 @@
 				<TurnIn QuestId="69868" NpcId="1037565" XYZ="27.72559, -17.53038, -91.53894"/>
 			</If>
 		</If>
+		<!--  The Dry Eyes Have It -->
+		<If Condition="not IsQuestCompleted(69867)">
+			<If Condition="not HasQuest(69867)">
+				<LisbethTravel ZoneId="956" XYZ="61.65256, -29.53043, -43.86606"/>
+				<If Condition="IsQuestAcceptQualified(69867)">
+					<PickupQuest QuestId="69867" NpcId="1037560"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69867) == 1">
+				<LisbethTravel ZoneId="956" XYZ="-51.49722, -17.53038, -222.9324"/>
+				<TalkTo NpcId="1041381" XYZ="-52.56738, -17.53038, -224.0482" QuestId="69867" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69867) == 2">
+				<LisbethTravel ZoneId="956" XYZ="-53.25204, -17.53038, -221.6322"/>
+				<EmoteNPC Emote="pet" NpcId="1041382" XYZ="-54.61206, -17.53038, -222.1866" QuestId="69867" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69867) == 3">
+				<UseItem NpcId="1041382" ItemId="2003321" XYZ="-53.25204, -17.53038, -221.6322" QuestId="69867" Condition="GetQuestStep(69867) == 3 and GetQuestById(69867).QuestI8A == 0"/>
+			</If>
+			<If Condition="GetQuestStep(69867) == 255">
+				<LisbethTravel ZoneId="956" XYZ="62.52156, -29.53043, -43.71019"/>
+				<TurnIn QuestId="69867" NpcId="1037560" XYZ="62.39417, -29.53043, -43.7171"/>
+			</If>
+		</If>
+		<!--  The Case of the Missing Gleaner -->
+		<If Condition="not IsQuestCompleted(69869)">
+			<If Condition="not HasQuest(69869)">
+				<LisbethTravel ZoneId="956" XYZ="-42.79962, -29.53, -140.7725"/>
+				<If Condition="IsQuestAcceptQualified(69869)">
+					<PickupQuest QuestId="69869" NpcId="1041383"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69869) == 1">
+				<LisbethTravel ZoneId="956" XYZ="-183.7343, -14.0131, -246.1326"/>
+				<TalkTo NpcId="1041384" XYZ="-183.2457, -14.01837, -245.5024" QuestId="69869" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69869) == 255">
+				<LisbethTravel ZoneId="956" XYZ="-41.66224, -29.53, -141.06"/>
+				<TurnIn QuestId="69869" NpcId="1041383" XYZ="-42.71002, -29.53, -140.2457"/>
+			</If>
+		</If>
+		<!--  To Care Enough to Send the Very Best -->
+		<If Condition="not IsQuestCompleted(69863)">
+			<If Condition="not HasQuest(69863)">
+				<LisbethTravel ZoneId="956" XYZ="-59.43094, -31.53041, -94.79689"/>
+				<If Condition="IsQuestAcceptQualified(69863)">
+					<PickupQuest QuestId="69863" NpcId="1041375"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69863) == 1">
+				<LisbethTravel ZoneId="956" XYZ="407.2942, 166.1927, -473.2297"/>
+				<TalkTo NpcId="1041376" XYZ="406.7596, 166.1927, -474.876" QuestId="69863" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69863) == 255">
+				<LisbethTravel ZoneId="956" XYZ="-58.83888, -31.53041, -95.02936"/>
+				<TurnIn QuestId="69863" NpcId="1041375" XYZ="-58.36578, -31.53041, -95.68939"/>
+			</If>
+		</If>
+		<!--  Gift for a Fan -->
+		<If Condition="not IsQuestCompleted(69858)">
+			<If Condition="not HasQuest(69858)">
+				<LisbethTravel ZoneId="956" XYZ="-95.09668, -31.53036, -16.27872"/>
+				<If Condition="IsQuestAcceptQualified(69858)">
+					<PickupQuest QuestId="69858" NpcId="1037564"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69858) == 1">
+				<LisbethTravel ZoneId="956" XYZ="-2.30299, -28.60556, 586.9489"/>
+				<HandOver ItemId="2003311" NpcId="1037581" XYZ="-2.975586, -28.60556, 586.3584" QuestId="69858" StepId="1"/>
+			</If>
+			<While Condition="GetQuestStep(69858) == 2">
+				<WaitTimer Waittime="2"/>
+				<RunCode name="GiftForFanDrink"/>
+				<TalkTo NpcId="1037581" XYZ="-2.975586, -28.60556, 586.3584" QuestId="69858" StepId="2"/>
+				<WaitWhile condition="GetQuestStep(69858) == 2"/>
+			</While>
+			<If Condition="GetQuestStep(69858) == 255">
+				<LisbethTravel ZoneId="956" XYZ="-93.07718, -31.53036, -15.14016"/>
+				<TurnIn ItemId="0" QuestId="69858" NpcId="1037564" XYZ="-93.58362, -31.53038, -14.84705"/>
+			</If>
+		</If>
+		<!--  Apple-y Ever After -->
+		<If Condition="not IsQuestCompleted(69866)">
+			<If Condition="not HasQuest(69866)">
+				<LisbethTravel ZoneId="956" XYZ="19.24171, -31.53043, -4.608773"/>
+				<If Condition="IsQuestAcceptQualified(69866)">
+					<PickupQuest QuestId="69866" NpcId="1041377"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69866) == 1 and GetQuestById(69866).QuestI8A == 0">
+				<LisbethTravel ZoneId="956" XYZ="-146.3835, -9.662218, -257.107"/>
+				<UseItem NpcId="2012500" ItemId="2003319" XYZ="-146.3835, -9.662218, -257.107" QuestId="69866" Condition="GetQuestStep(69866) == 1 and GetQuestById(69866).QuestI8A == 0"/>
+			</If>
+			<If Condition="GetQuestStep(69866) == 2 and GetQuestById(69866).QuestI8A == 0">
+				<LisbethTravel ZoneId="956" XYZ="-146.3835, -9.662218, -257.107"/>
+				<UseObject NpcId="2012758" XYZ="-147.4785, -9.384338, -257.0688" QuestId="69866" Condition="GetQuestStep(69866) == 2 and GetQuestById(69866).QuestI8A == 0"/>
+			</If>
+			<If Condition="GetQuestStep(69866) == 2 and GetQuestById(69866).QuestI8A == 17">
+				<LisbethTravel ZoneId="956" XYZ="-146.2947, -9.667906, -257.0674"/>
+				<UseObject NpcId="2012759" XYZ="-145.8, -9.475891, -256.489" QuestId="69866" Condition="GetQuestStep(69866) == 2 and GetQuestById(69866).QuestI8A == 17"/>
+			</If>
+			<If Condition="GetQuestStep(69866) == 2 and GetQuestById(69866).QuestI8A == 33">
+				<LisbethTravel ZoneId="956" XYZ="-146.2947, -9.667906, -257.0674"/>
+				<UseObject NpcId="2012760" XYZ="-147.8447, -9.323303, -255.8175" QuestId="69866" Condition="GetQuestStep(69866) == 2 and GetQuestById(69866).QuestI8A == 33"/>
+			</If>
+			<If Condition="GetQuestStep(69866) == 2 and GetQuestById(69866).QuestI8A == 49">
+				<LisbethTravel ZoneId="956" XYZ="-146.2947, -9.667906, -257.0674"/>
+				<UseObject NpcId="2012757" XYZ="-146.1357, -9.506409, -253.8644" QuestId="69866" Condition="GetQuestStep(69866) == 2 and GetQuestById(69866).QuestI8A == 49"/>
+			</If>
+			<If Condition="GetQuestStep(69866) == 2 and GetQuestById(69866).QuestI8A == 65">
+				<LisbethTravel ZoneId="956" XYZ="-146.2947, -9.667906, -257.0674"/>
+				<UseObject NpcId="2012761" XYZ="-145.7084, -9.536926, -255.1766" QuestId="69866" Condition="GetQuestStep(69866) == 2 and GetQuestById(69866).QuestI8A == 65"/>
+			</If>
+			<If Condition="GetQuestStep(69866) == 255">
+				<LisbethTravel ZoneId="956" XYZ="18.34318, -31.53043, -4.633953"/>
+				<TurnIn QuestId="69866" NpcId="1041377" XYZ="18.90594, -31.53043, -3.494385"/>
+			</If>
+		</If>
 	</Order>
 	<CodeChunks>
 		<CodeChunk Name="TurnOffMount">
@@ -581,6 +699,16 @@
         npcId.Interact();
         await Coroutine.Sleep(7000);
       ]]></CodeChunk>
+		<CodeChunk Name="GiftForFanDrink">
+      <![CDATA[
+        foreach(BagSlot slot in InventoryManager.FilledSlots)
+        {
+          if(slot.RawItemId == 2003312)
+          {
+            slot.UseItem();
+          }
+        }
+        ]]></CodeChunk>
 	</CodeChunks>
 	<GrindAreas>
 		<GrindArea name="PestsBeGone">
