@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Blank Profile
+-->
+<Profile>
+  <Name>Battle on the Big Bridge</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <If condition="not DutyManager.InInstance">
+      <LLJoinDuty DutyId="76" />
+    </If>
+
+    <If condition="DutyManager.InInstance and not IsDutyEnded()">
+      <MoveTo XYZ="101.0521, -7.000003, 0.02189992" Distance="0.5" />
+      <MoveTo XYZ="132.1753, -5, -0.4345071" Distance="0.5" InCombat="True" />
+      <Grind GrindRef="Gilgamesh" While="ObjectExistsWithId(2665)" /> <!-- Kill Gilgamesh -->
+      <While condition="DutyManager.InInstance and IsDutyEnded()">
+        <WaitTimer WaitTime="5" />
+        <LLLeaveDuty />
+      </While>
+    </If>
+
+    <LLoadProfile Path="../Hildibrand.xml" />
+
+
+  </Order>
+  <GrindAreas>
+    <GrindArea name="Gilgamesh">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="132.1753, -5, -0.4345071" name="Name" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2665" Weight="1" /> <!-- Gilgamesh -->
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks></CodeChunks>
+</Profile>    

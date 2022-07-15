@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Blank Profile
+-->
+<Profile>
+  <Name>The Dragon's Neck</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <If condition="not DutyManager.InInstance">
+      <LLJoinDuty DutyId="81" />
+    </If>
+
+    <If condition="DutyManager.InInstance and not IsDutyEnded()">
+      <Grind GrindRef="Ultros" While="ObjectExistsWithId(3047) or ObjectExistsWithId(3046)" /> <!-- Kill Ultros & Typhon -->
+      <While condition="DutyManager.InInstance and IsDutyEnded()">
+        <WaitTimer WaitTime="5" />
+        <LLLeaveDuty />
+      </While>
+    </If>
+
+    <LLoadProfile Path="../Hildibrand.xml" />
+
+
+  </Order>
+  <GrindAreas>
+    <GrindArea name="Ultros">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-256.5867, 19.07457, 26.55233" name="Name" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3047" Weight="1" /> <!-- Ultros -->
+        <TargetMob Id="3046" Weight="2" /> <!-- Typhon -->
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks></CodeChunks>
+</Profile>    

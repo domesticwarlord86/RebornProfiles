@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Blank Profile
+-->
+<Profile>
+  <Name>Battle in the Big Keep</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <If condition="not DutyManager.InInstance">
+      <LLJoinDuty DutyId="85" />
+    </If>
+
+    <If condition="DutyManager.InInstance and not IsDutyEnded()">
+      <MoveTo XYZ="-128.6504, -2.800003, -0.2195214" InCombat="True" />
+      <Grind GrindRef="Enkidu" While="NumAttackableEnemies(40, Array[int]([3304])) &gt; 0" /> <!-- Kill Enkidu -->
+      <MoveTo XYZ="-23.27031, 0, -0.1388213" InCombat="True" />
+      <Grind GrindRef="Gilgamesh" While="NumAttackableEnemies(40, Array[int]([2665])) &gt; 0" /> <!-- Kill Gilgamesh -->
+      <While condition="DutyManager.InInstance and IsDutyEnded()">
+        <MoveTo XYZ="-17.70855, 0.09999955, -2.580662" />
+        <LLOpenChest />
+        <WaitTimer WaitTime="5" />
+        <LLLeaveDuty />
+      </While>
+    </If>
+
+    <LLoadProfile Path="../Hildibrand.xml" />
+
+
+  </Order>
+  <GrindAreas>
+    <GrindArea name="Gilgamesh">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-17.03126, 0.1000004, -11.3615" name="Name" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="2665" Weight="1" /> <!-- Gilgamesh -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Enkidu">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-119.4629, -2.800003, -0.4425049" name="Name" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="3304" Weight="100" /> <!-- Enkidu -->
+        <TargetMob Id="2665" Weight="50" /> <!-- Gilgamesh -->
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks></CodeChunks>
+</Profile>    
