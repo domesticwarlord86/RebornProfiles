@@ -629,6 +629,161 @@
 				<TurnIn QuestId="69866" NpcId="1041377" XYZ="18.90594, -31.53043, -3.494385"/>
 			</If>
 		</If>
+		<!--  Herbicidal Tendencies -->
+		<If Condition="not IsQuestCompleted(69864)">
+			<If Condition="not HasQuest(69864)">
+				<LisbethTravel ZoneId="956" XYZ="41.80452, -28.54917, 43.90504"/>
+				<If Condition="IsQuestAcceptQualified(69864)">
+					<PickupQuest QuestId="69864" NpcId="1037567"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69864) == 1">
+				<LisbethTravel ZoneId="956" XYZ="-618.6498, -4.17701, -123.3228"/>
+				<RunCode name="HerbicidalTendencies"/>
+				<UseItem ItemId="2003263" NpcId="10979" XYZ="501.0791, 174.2308, -521.5007" InCombat="True" UseHealthPercent="100" QuestId="69864" StepId="1" UseTimes="1"/>
+			</If>
+			<If Condition="GetQuestStep(69864) == 255">
+				<LisbethTravel ZoneId="956" XYZ="41.52113, -28.54917, 44.67236"/>
+				<TurnIn QuestId="69864" NpcId="1037567" XYZ="42.40479, -28.54917, 44.23584"/>
+			</If>
+		</If>
+		<!--  Harbinger of Breath -->
+		<If Condition="not IsQuestCompleted(69872)">
+			<If Condition="not HasQuest(69872)">
+				<LisbethTravel ZoneId="956" XYZ="-770.0345, -17.53039, 294.1918"/>
+				<If Condition="IsQuestAcceptQualified(69872)">
+					<PickupQuest QuestId="69872" NpcId="1037606"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69872) == 1">
+				<LisbethTravel ZoneId="956" XYZ="-658.2287, -15.72942, 7.496496"/>
+				<Grind grindRef="HarbingerofBreath" while="HasQuest(69872) and GetQuestStep(69872) == 1"/>
+			</If>
+			<If Condition="GetQuestStep(69872) == 255">
+				<LisbethTravel ZoneId="956" XYZ="-768.5334, -17.53039, 291.8168"/>
+				<TurnIn QuestId="69872" NpcId="1037606" XYZ="-767.9408, -17.53039, 292.4391"/>
+			</If>
+		</If>
+		<!--  For the Record -->
+		<If Condition="not IsQuestCompleted(69871)">
+			<If Condition="not HasQuest(69871)">
+				<GetTo ZoneId="956" XYZ="-664.0926, -27.6706, 304.369"/>
+				<If Condition="IsQuestAcceptQualified(69871)">
+					<PickupQuest QuestId="69871" NpcId="1037591"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69871) == 1 and GetQuestById(69871).QuestI8A == 0">
+				<GetTo ZoneId="956" XYZ="-636.3981, -27.67061, 290.8432"/>
+				<TalkTo NpcId="2012503" XYZ="-636.225, -26.44391, 289.6619" QuestId="69871" Condition="GetQuestStep(69871) == 1 and GetQuestById(69871).QuestI8A == 0"/>
+			</If>
+			<If Condition="GetQuestStep(69871) == 1 and GetQuestById(69871).QuestI8A == 16">
+				<GetTo ZoneId="956" XYZ="-647.4902, -27.6706, 291.1959"/>
+				<TalkTo NpcId="2012504" XYZ="-647.8523, -25.74207, 289.6619" QuestId="69871" Condition="GetQuestStep(69871) == 1 and GetQuestById(69871).QuestI8A == 16"/>
+			</If>
+			<If Condition="GetQuestStep(69871) == 1 and GetQuestById(69871).QuestI8A == 33">
+				<GetTo ZoneId="956" XYZ="-623.0156, -27.67063, 309.151"/>
+				<TalkTo NpcId="2012505" XYZ="-622.1561, -25.68097, 310.2312" QuestId="69871" Condition="GetQuestStep(69871) == 1 and GetQuestById(69871).QuestI8A == 33"/>
+			</If>
+			<If Condition="GetQuestStep(69871) == 255">
+				<GetTo ZoneId="956" XYZ="-664.4807, -27.6706, 304.5516"/>
+				<TurnIn QuestId="69871" NpcId="1037591" XYZ="-664.8508, -27.6706, 306.2333"/>
+			</If>
+		</If>
+		<!--  Cooler than Being Cool -->
+		<If Condition="not IsQuestCompleted(69870)">
+			<If Condition="not HasQuest(69870)">
+				<GetTo ZoneId="956" XYZ="-630.2355, -27.18207, 308.3997"/>
+				<If Condition="IsQuestAcceptQualified(69870)">
+					<PickupQuest QuestId="69870" NpcId="1037593"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69870) == 1">
+				<GetTo ZoneId="956" XYZ="-693.7438, -29.49692, 302.1255"/>
+			</If>
+			<If Condition="GetQuestStep(69870) == 1">
+				<LisbethTravel ZoneId="956" XYZ="-235.7843, -16.63464, 758.3812"/>
+				<Grind grindRef="CoolerthanBeingCool" while="HasQuest(69870) and GetQuestStep(69870) == 1"/>
+			</If>
+			<If Condition="GetQuestStep(69870) == 255">
+				<FlyTo ZoneId="956" XYZ="-630.7297, -27.21374, 308.93"/>
+				<TurnIn QuestId="69870" NpcId="1037593" XYZ="-628.1682, -27.6706, 308.6136"/>
+			</If>
+		</If>
+		<!--  Fiery Thirst -->
+		<If Condition="not IsQuestCompleted(70022)">
+			<If Condition="not HasQuest(70022)">
+				<LisbethTravel ZoneId="956" XYZ="284.6107, 86.53177, -145.0614"/>
+				<If Condition="IsQuestAcceptQualified(70022)">
+					<PickupQuest QuestId="70022" NpcId="1041688"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70022) == 1">
+				<LisbethTravel ZoneId="956" XYZ="465.6817, 66.16196, -134.4955"/>
+				<TalkTo NpcId="1041690" XYZ="464.3167, 66.16194, -136.1868" QuestId="70022" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(70022) == 2">
+				<LisbethTravel ZoneId="956" XYZ="455.9922, 81.27772, 65.54004"/>
+				<TalkTo NpcId="1041691" XYZ="455.9242, 81.13272, 64.46936" QuestId="70022" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70022) == 3">
+				<GetTo ZoneId="956" XYZ="449.7882, 81.53336, 86.17695"/>
+				<Grind grindRef="FieryThirst" while="HasQuest(70022) and GetQuestStep(70022) == 3"/>
+			</If>
+			<If Condition="GetQuestStep(70022) == 255">
+				<GetTo ZoneId="956" XYZ="457.1652, 81.36036, 65.33259"/>
+				<TurnIn QuestId="70022" NpcId="1041691" XYZ="455.9242, 81.13272, 64.46936"/>
+			</If>
+		</If>
+		<!--  The Hero in Labyrinthos -->
+		<If Condition="not IsQuestCompleted(70023)">
+			<If Condition="not HasQuest(70023)">
+				<LisbethTravel ZoneId="956" XYZ="455.7913, 81.21567, 65.2057"/>
+				<If Condition="IsQuestAcceptQualified(70023)">
+					<PickupQuest QuestId="70023" NpcId="1041691"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70023) == 1">
+				<LisbethTravel ZoneId="956" XYZ="-235.7843, -16.63464, 758.3812"/>
+				<Grind grindRef="TheHeroinLabyrinthos" while="HasQuest(70023) and GetQuestStep(70023) == 1"/>
+			</If>
+			<If Condition="GetQuestStep(70023) == 2">
+				<LisbethTravel ZoneId="956" XYZ="285.6321, 86.53178, -144.3034"/>
+				<HandOver ItemId="2003335" NpcId="1041693" XYZ="286.427, 86.53178, -145.0981" QuestId="70023" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70023) == 255">
+				<LisbethTravel ZoneId="956" XYZ="-32.05344, -31.53043, -34.43557"/>
+				<TurnIn QuestId="70023" NpcId="1041696" XYZ="-32.54755, -31.53043, -33.37152"/>
+			</If>
+		</If>
+		<!--  Thick as Thieves -->
+		<If Condition="not IsQuestCompleted(70024)">
+			<If Condition="not HasQuest(70024)">
+				<LisbethTravel ZoneId="956" XYZ="-32.14428, -31.53043, -34.41923"/>
+				<If Condition="IsQuestAcceptQualified(70024)">
+					<PickupQuest QuestId="70024" NpcId="1041696"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70024) == 1">
+				<LisbethTravel ZoneId="956" XYZ="200.5619, -23.53044, 265.8703"/>
+				<TalkTo NpcId="1041724" XYZ="201.2511, -23.53043, 266.4377" QuestId="70024" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(70024) == 2">
+				<LisbethTravel ZoneId="956" XYZ="-609.2599, -19.12628, -34.51905"/>
+				<TalkTo NpcId="1041612" XYZ="-610.3151, -19.12627, -35.11102" QuestId="70024" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70024) == 3">
+				<LisbethTravel ZoneId="956" XYZ="-609.2599, -19.12628, -34.51905"/>
+				<TalkTo NpcId="1041613" XYZ="-610.956, -19.12627, -34.80591" QuestId="70024" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(70024) == 4">
+				<LisbethTravel ZoneId="956" XYZ="-716.936, -1.632492, -38.71009"/>
+				<TalkTo NpcId="1041613" XYZ="-717.3234, -1.659446, -38.06969" QuestId="70024" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(70024) == 255">
+				<LisbethTravel ZoneId="956" XYZ="-29.06327, -31.53043, -22.1411"/>
+				<TurnIn QuestId="70024" NpcId="1041727" XYZ="-29.03796, -31.53043, -22.96484"/>
+			</If>
+		</If>
 	</Order>
 	<CodeChunks>
 		<CodeChunk Name="TurnOffMount">
@@ -709,6 +864,26 @@
           }
         }
         ]]></CodeChunk>
+		<CodeChunk Name="HerbicidalTendencies">
+      <![CDATA[
+          uint[] questNpcIds = { 2012254,10979 };
+          var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+        if (!npcId.IsWithinInteractRange)
+        {
+          var _target = npcId.Location;
+          Navigator.PlayerMover.MoveTowards(_target);
+          
+          while (_target.Distance2D(Core.Me.Location) >= 4)
+          {
+            Navigator.PlayerMover.MoveTowards(_target);
+            await Coroutine.Sleep(100);
+          }
+          
+          Navigator.PlayerMover.MoveStop();
+        }
+        npcId.Interact();
+        await Coroutine.Sleep(7000);
+      ]]></CodeChunk>
 	</CodeChunks>
 	<GrindAreas>
 		<GrindArea name="PestsBeGone">
@@ -727,6 +902,42 @@
 			<TargetMobs>
 				<TargetMob Id="10670"/>
 				<!-- Caribou-->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="HarbingerofBreath">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-660.6394, -21.23084, -0.07635498" name="Center Anila"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10691"/>
+				<!-- Center Anila-->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="CoolerthanBeingCool">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-227.3747, -26.28788, 752.3461" name="Center Soma"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10696"/>
+				<!-- Center Soma-->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FieryThirst">
+			<Hotspots>
+				<Hotspot Radius="10" XYZ="449.5069, 81.41733, 83.6619" name="Blazing Anala"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10947"/>
+				<!-- Blazing Anala-->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="TheHeroinLabyrinthos">
+			<Hotspots>
+				<Hotspot Radius="90" XYZ="-227.3747, -26.28788, 752.3461" name="Center Soma"/>
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="10696"/>
+				<!-- Center Soma-->
 			</TargetMobs>
 		</GrindArea>
 	</GrindAreas>
