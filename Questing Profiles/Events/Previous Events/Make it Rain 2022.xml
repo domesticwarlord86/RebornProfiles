@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Make it Rain 2022
+  Authors: whos there
+-->
+<Profile>
+	<Name>[OrderBot] Make it Rain 2022</Name>
+	<BehaviorDirectory/>
+	<Order>
+		<!-- A Prickly Plaint -->
+		<If Condition="not IsQuestCompleted(70120)">
+			<If Condition="not HasQuest(70120)">
+				<GetTo ZoneId="130" XYZ="-90.1294, 4, -103.5552"/>
+				<If Condition="IsQuestAcceptQualified(70120)">
+					<PickupQuest QuestId="70120" NpcId="1042834"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70120) == 1">
+				<GetTo ZoneId="128" XYZ="12.07296, 44.5, 117.2357"/>
+				<TalkTo NpcId="1042835" XYZ="14.84698, 44.5, 119.4324" QuestId="70120" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(70120) == 2">
+				<GetTo ZoneId="128" XYZ="1.559681, 44.5, 132.6694"/>
+				<TalkTo NpcId="1042836" XYZ="3.219604, 44.75887, 133.8673" QuestId="70120" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70120) == 3">
+				<GetTo ZoneId="128" XYZ="-79.59588, 35.49997, 113.2329"/>
+				<TalkTo NpcId="2012966" XYZ="-80.61346, 35.47717, 112.2606" QuestId="70120" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(70120) == 4">
+				<GetTo ZoneId="128" XYZ="-78.25921, 35.49997, 113.2793"/>
+				<LLTalkTo NpcId="1042837" DialogOption="0,1,2,3" XYZ="-78.75183, 35.49997, 112.6877" QuestId="70120" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(70120) == 5">
+				<GetTo ZoneId="128" XYZ="27.85239, 44.5, 151.8103"/>
+				<TalkTo NpcId="2012967" XYZ="27.42041, 44.47998, 153.3074" QuestId="70120" StepId="5"/>
+			</If>
+			<If Condition="GetQuestStep(70120) == 6 and GetQuestById(70120).GetTodoArgs(6, 0).Item1 == 0">
+				<GetTo ZoneId="128" XYZ="83.19257, 44.39985, 131.6895"/>
+				<TalkTo NpcId="1000918" XYZ="84.09241, 44.39991, 132.3414" QuestId="70120" StepId="6"/>
+			</If>
+			<If Condition="GetQuestStep(70120) == 6 and GetQuestById(70120).GetTodoArgs(6, 0).Item1 == 1">
+				<GetTo ZoneId="128" XYZ="-53.34644, 44.17484, -148.4818"/>
+				<TalkTo NpcId="1000947" XYZ="-54.64258, 43.99998, -151.2322" QuestId="70120" StepId="6"/>
+			</If>
+			<If Condition="GetQuestStep(70120) == 6 and GetQuestById(70120).GetTodoArgs(6, 1).Item1 == 0">
+				<GetTo ZoneId="129" XYZ="-227.8407, 16, 48.12022"/>
+				<TalkTo NpcId="1001208" XYZ="-228.1682, 16, 50.64465" QuestId="70120" StepId="6"/>
+			</If>
+			<If Condition="GetQuestStep(70120) == 6 and GetQuestById(70120).GetTodoArgs(6, 1).Item1 == 1">
+				<GetTo ZoneId="129" XYZ="-155.7658, 2.999992, 203.9046"/>
+				<TalkTo NpcId="1000856" XYZ="-155.108, 4.070978, 202.7161" QuestId="70120" StepId="6"/>
+			</If>
+			<If Condition="GetQuestStep(70120) == 7">
+				<GetTo ZoneId="128" XYZ="3.498863, 44.75887, 135.2492"/>
+				<TalkTo NpcId="1042836" XYZ="3.219604, 44.75887, 133.8673" QuestId="70120" StepId="7"/>
+			</If>
+			<If Condition="GetQuestStep(70120) == 255">
+				<TeleportTo Name="The Gold Saucer" AetheryteId="62"/>
+				<GetTo ZoneId="144" XYZ="-54.62667, 0.02503479, 74.88004"/>
+				<TurnIn QuestId="70120" NpcId="1043121" XYZ="-54.12378, 0.02503791, 76.61548"/>
+			</If>
+		</If>
+	</Order>
+</Profile>
+
+

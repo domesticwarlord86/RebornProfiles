@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Moonfire Faire 2022
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Moonfire Faire 2022</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- A Matter of Course -->
+    <If Condition="not IsQuestCompleted(70076)">
+      <If Condition="not HasQuest(70076)">
+        <GetTo ZoneId="128" XYZ="14.42194, 45.66599, 129.3248" />
+        <If Condition="IsQuestAcceptQualified(70076)">
+          <PickupQuest QuestId="70076" NpcId="1042684" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70076) == 1">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo AetheryteId="11" />
+          >
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="724.2964, 10.40185, 265.2536" Land="True" />
+        <TalkTo NpcId="1042685" XYZ="734.6456, 11.27637, 262.9586" QuestId="70076" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70076) == 2">
+        <TalkTo NpcId="1042685" XYZ="734.6456, 11.27637, 262.9586" QuestId="70076" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70076) == 3">
+        <FlyTo AllowedVariance="0" ZoneId="137" XYZ="741.2688, 12.52906, 197.351" Land="True" />
+        <TalkTo NpcId="1042700" XYZ="741.9698, 12.5386, 180.3463" QuestId="70076" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70076) == 4">
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="753.1476, 9.597548, 325.0428" Land="True" />
+        <UseObject NpcId="2012958" XYZ="752.9868, 9.567322, 327.4739" QuestId="70076" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70076) == 255">
+        <GetTo ZoneId="137" XYZ="756.6683, 9.508037, 341.7213" />
+        <TurnIn QuestId="70076" NpcId="1042707" XYZ="757.1373, 9.498768, 343.1906" />
+      </If>
+    </If>
+
+    <!-- Fhul Me Once -->
+    <If Condition="IsQuestCompleted(70076) and not IsQuestCompleted(70077)">
+      <If Condition="not HasQuest(70077)">
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="756.2885, 9.519217, 339.922" Land="True" />
+        <GetTo ZoneId="137" XYZ="756.2885, 9.519217, 339.922" />
+        <If Condition="IsQuestAcceptQualified(70077)">
+          <PickupQuest QuestId="70077" NpcId="1042707" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70077) == 1">
+        <EmoteNPC Emote="comfort" NpcId="1042707" XYZ="757.1373, 9.498768, 343.1906" QuestId="70077" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70077) == 2">
+        <TalkTo NpcId="1042694" XYZ="768.9174, 9.486882, 340.8102" QuestId="70077" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70077) == 3">
+        <If condition="DistanceSqrTo('763.5888, 23.09679, 442.6799') &gt; 5">
+          <UseTransport NpcId="1042715" InteractDistance="3.0" XYZ="774.0443, 9.016849, 344.3807" QuestId="70077" />
+        </If>
+        <TalkTo NpcId="1042695" XYZ="767.4219, 23.0968, 448.4778" QuestId="70077" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70077) == 4">
+        <If condition="DistanceSqrTo('761.9263, 30.4288, 472.5261') &gt; 5">
+          <MoveTo XYZ="756.1116, 9.4711, 466.5719" usemesh="false" />
+          <UseTransport NpcId="1042716" InteractDistance="3.0" XYZ="755.4589, 9.460243, 467.2463" QuestId="70077" />
+        </If>
+        <TalkTo NpcId="1042696" XYZ="763.0884, 30.4288, 480.7355" QuestId="70077" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70077) == 5">
+        <LLToast message="Screw that jump puzzle."/>
+        <LLToast message="Worst jump puzzle in the history of jump puzzles. Maybe ever."/>
+        <LLToast message="Maybe ever."/>
+        <MoveTo XYZ="773.0654, 9.651899, 461.2206" usemesh="false" />
+        <GetTo ZoneId="137" XYZ="781.4984, 8.9, 354.6802" /> 
+        <GetTo ZoneId="137" XYZ="755.9319, 9.437818, 345.1492" />
+        <TalkTo NpcId="1042708" XYZ="756.3439, 9.50517, 342.2445" QuestId="70077" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70077) == 255">
+        <GetTo ZoneId="137" XYZ="734.4833, 11.34909, 266.9547" />
+        <TurnIn QuestId="70077" NpcId="1042685" XYZ="734.6456, 11.27637, 262.9586" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas></GrindAreas>
+  <CodeChunks></CodeChunks>
+</Profile>  
