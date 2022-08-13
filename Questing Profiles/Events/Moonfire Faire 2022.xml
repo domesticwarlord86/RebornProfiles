@@ -71,7 +71,7 @@
       </If>
       <If Condition="GetQuestStep(70077) == 5">
         <LLToast message="Screw that jump puzzle."/>
-        <LLToast message="Worst jump puzzle in the history of jump puzzles. Maybe ever."/>
+        <LLToast message="Worst jump puzzle in the history of jump puzzles."/>
         <LLToast message="Maybe ever."/>
         <MoveTo XYZ="773.0654, 9.651899, 461.2206" usemesh="false" />
         <GetTo ZoneId="137" XYZ="781.4984, 8.9, 354.6802" /> 
