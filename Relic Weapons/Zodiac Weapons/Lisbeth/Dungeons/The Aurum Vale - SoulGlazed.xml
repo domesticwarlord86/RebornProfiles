@@ -1,0 +1,431 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Aurum Vale
+  Authors: Zamphire
+-->
+
+<!DOCTYPE Profile [
+<!-- Profile Settings -->
+<!-- Should we open chests? -->
+<!ENTITY openchest "0">
+]>
+
+<Profile>
+  <Name>The Aurum Vale</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+	<While Condition="NovusLightLevel() &lt; 2000">
+		
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="5" />
+		</If>	
+		
+		<If condition="DutyManager.InInstance">
+
+			<If Condition="ClassName == ((ClassJobType.Bard))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7867">
+					<Log Message="Equipping Artemis Bow Novus..." />
+					<EquipWeapon ItemID="7867"/>
+					<WaitTimer WaitTime="3" />					
+				</While>					
+			</If>
+			<If Condition="ClassName == ((ClassJobType.BlackMage))">
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7869">
+					<Log Message="Equipping Stardust Rod Novus..." />
+					<EquipWeapon ItemID="7869"/>
+					<WaitTimer WaitTime="3" />					
+				</While>						
+			</If>	
+			<If Condition="ClassName == ((ClassJobType.Dragoon))">
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7866">
+					<Log Message="Equipping Gae Bolg Novus..." />
+					<EquipWeapon ItemID="7866"/>
+					<WaitTimer WaitTime="3" />
+				</While>				
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Monk))">
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7864">
+					<Log Message="Equipping Sphairai Novus..." />
+					<EquipWeapon ItemID="7864"/>
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>	
+			<If Condition="ClassName == ((ClassJobType.Ninja))"> 
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9253">
+					<Log Message="Equipping Yoshimitsu Novus..." />
+					<EquipWeapon ItemID="9253"/>
+					<WaitTimer WaitTime="3" />
+				</While>				
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Paladin))">
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7863">
+					<Log Message="Equipping Curtana Novus..." />
+					<EquipWeapon ItemID="7863"/>
+					<WaitTimer WaitTime="3" />
+				</While>	
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7872">						
+					<Log Message="Equipping Holy Shield Novus..." />
+					<EquipWeapon ItemID="7872"/>
+					<WaitTimer WaitTime="3" />
+				</While>				
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Summoner))">	
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7870">
+					<Log Message="Equipping The Veil of the Wiyu Novus..." />
+					<EquipWeapon ItemID="7870"/>
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+			<If Condition="ClassName == ((ClassJobType.Scholar))">	
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7871">
+					<Log Message="Equipping Omnilex Novus..." />
+					<EquipWeapon ItemID="7871"/>
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>	
+			<If Condition="ClassName == ((ClassJobType.Warrior))"> 		
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7865">
+					<Log Message="Equipping Bravura Novus..." />
+					<EquipWeapon ItemID="7865"/>					
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>	
+			<If Condition="ClassName == ((ClassJobType.WhiteMage))">	
+				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7868">
+					<Log Message="Equipping Thyrus Novus..." />
+					<EquipWeapon ItemID="7868"/>					
+					<WaitTimer WaitTime="3" />
+				</While>
+			</If>
+
+			<!-- Breach the Lock 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Breach the Lock 0/1" />
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>				
+        <MoveTo XYZ="134.2403, -8.330939, 40.46995" />
+        <MoveTo XYZ="98.63013, -9.222972, 31.68244" />
+				<MoveTo XYZ="55.0162, -9.150264, 3.192619"/>					
+				<RunCode name="AddLockKeeperAvoids"/>
+				<Grind GrindRef="FirstBoss" While="GetInstanceTodo(0) == 0"/> <!-- Fight First Boss -->
+				<RunCode name="RemoveAvoids"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="18.57019,-9.445435,-42.95416" />
+					<LLOpenChest />
+				</If>	
+				<If condition="Core.Player.HasAura(302)">
+					<MoveTo XYZ="12.9647,-10.45639,-43.60668" />
+					<UseObject NpcId="2002650" InteractDistance="3.0" XYZ="12.9647, -10.45639, -43.60668" condition="Core.Player.HasAura(302)"/>					
+				</If>			
+			</If>
+			
+			<!-- Defeat the morbol bed keeper 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Defeat the morbol bed keeper 0/1" />
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>					
+				<FlyTo XYZ="-34.71429,-17.24663,-72.34308" />
+				<Grind GrindRef="Bedkeeper1" While="GetInstanceTodo(1) == 0"/> <!-- Clear the first bed keeper -->			
+			</If>
+			
+			<!-- Clear the Coincounter's Chest 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Clear the Coincounter's Chest 0/1" />				
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>		
+				<FlyTo XYZ="-129.4953, -30.09197, -135.3869"/>
+				<Grind GrindRef="SecondBoss" While="GetInstanceTodo(2) == 0"/> <!-- Fight second boss -->
+				<If Condition="&openchest; == 1">
+					<FlyTo XYZ="-170.5197,-30.01453,-161.3032" />
+					<LLOpenChest />
+				</If>			
+			</If>		
+			
+			<!-- Defeat the morbol bed keepers 0/2 -->
+			<If Condition="GetInstanceTodo(3) &lt; 2 and GetInstanceTodo(2) == 1">
+				<Log Message="Defeat the morbol bed keepers 0/2" />			
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>	
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-211.4748,-26.10822,-210.4982" />
+					<LLOpenChest />
+				</If>	
+				<Grind GrindRef="Bedkeeper2" While="GetInstanceTodo(3) &lt; 2"/> <!-- Clear the bed keepers -->		
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-334.9508,-33.46307,-113.5424" />
+					<LLOpenChest />
+				</If>					
+			</If>
+
+
+			<!-- Defeat the Miser's Mistress 0/1 -->
+			<If Condition="GetInstanceTodo(4) == 0 and GetInstanceTodo(3) == 2">
+				<Log Message="Defeat the Miser's Mistress 0/1" />
+				<If condition="IsNearShortcut(2000700)">
+					<UseShortcut NpcId="2000700" Distance="20"/>
+				</If>	
+				<MoveTo XYZ="-387.462, -32.93745, -129.3478" />
+				<RunCode name="AddMistressAvoids"/>
+				<Grind GrindRef="FinalBoss" While="not IsDutyEnded()"/> <!-- Fight final boss -->
+				<RunCode name="RemoveAvoids"/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-400.4426,-31.69305,-111.5588" />
+					<LLOpenChest />
+				</If>
+				<RunCode name="TimeLeft"/>
+				<While condition="DutyManager.InInstance and IsDutyEnded()">	
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty/>
+				</While>	
+				<RunCode name="LightLevel"/>		
+			</If>			
+		</If>
+	</While>
+	
+	<If Condition="NovusLightLevel() == 2000">
+		<RunCode name="LightLevel"/>
+		<LLoadProfile Path="../Start.xml"/>
+	</If>
+	
+  </Order>
+  <GrindAreas>
+	<GrindArea name="FirstBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="27.51196,-9.256966,2.822876" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1534" Weight="10" /> <!-- Locksmith -->
+        <TargetMob Id="1543" Weight="1"/> <!-- Nether Nix -->
+        <TargetMob Id="1542" Weight="1"/> <!-- Lily of the Vale -->
+        <TargetMob Id="1540" Weight="1"/> <!-- Vale Wasp -->
+        <TargetMob Id="1534" Weight="1"/> <!-- Locksmith -->			
+        </TargetMobs>
+	</GrindArea>
+    <GrindArea name="Bedkeeper1">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-32.02882, -17.23334, -66.66665" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1535" Weight="1"/> <!-- Morbol Seedling -->
+        <TargetMob Id="1538" Weight="1000"/> <!-- Goldvine -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="Bedkeeper2">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-336.795, -32.25722, -143.1539" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1536" Weight="100"/> <!-- Morbol Fruit -->
+        <TargetMob Id="1535" Weight="1"/> <!-- Morbol Seedling -->
+        <TargetMob Id="1538" Weight="10"/> <!-- Goldvine -->
+      </TargetMobs>
+    </GrindArea>	
+	<GrindArea name="SecondBoss">
+        <Hotspots>
+			<Hotspot Radius="200" XYZ="-169.1768,-29.73806,-141.8632" />
+        </Hotspots>
+        <TargetMobs>
+			<TargetMob Id="1533" Weight="1" /> <!-- Coincounter -->
+        </TargetMobs>
+	</GrindArea>
+	<GrindArea name="FinalBoss">
+        <Hotspots>
+			<Hotspot Radius="90" XYZ="-411.4595,-33.2965,-126.8483" />
+        </Hotspots>
+        <TargetMobs>
+					<TargetMob Id="1535" Weight="1"/> <!-- Morbol Seedling -->
+					<TargetMob Id="1532" Weight="1"/> <!-- Miser's Mistress -->
+					<TargetMob Id="1536" Weight="100"/> <!-- Morbol Fruit -->
+        </TargetMobs>
+	</GrindArea>	
+  </GrindAreas>
+  <CodeChunks>
+	 <CodeChunk name="PluginLoad">
+      <![CDATA[
+        var Plugin = PluginManager.Plugins.Where(p => p.Plugin.Name == "DungeonAssist");
+        var Plugin2 = PluginManager.Plugins.Where(p => p.Plugin.Name == "Osiris");
+		var Plugin3 = PluginManager.Plugins.Where(p => p.Plugin.Name == "SideStep");
+		
+	
+		
+		var text1 = string.Empty;
+        var text2 = string.Empty;
+		var text3 = string.Empty;
+        var text4 = string.Empty;
+		var text5 = string.Empty;
+        var text6 = string.Empty;
+		
+		
+		text1 = "Plug-In Dungeon Assist is installed and enabled";
+		text2 = "You Need the Dungeon Assist Plug-In to Operate this Profile";
+		text3 = "Plug-In Osiris  is installed and enabled";
+		text4 = "You Need the Osiris Plug-In to Operate this Profile";
+		text5 = "Plug-In SideStep  is installed and enabled";
+		text6 = "You Need the SideStep Plug-In to Operate this Profile";
+		
+					
+			if(Plugin.Any()){
+				
+				if (Plugin != null)
+				{
+					PluginManager.SetEnabledPlugins("DungeonAssist");
+					Core.OverlayManager.AddToast(() => text1, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+					
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text2, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+			else
+				{
+					Core.OverlayManager.AddToast(() => text2, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			if(Plugin2.Any()){
+				
+				if (Plugin2 != null)
+				{
+					PluginManager.SetEnabledPlugins("Osiris");
+					Core.OverlayManager.AddToast(() => text3, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text4, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text4, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			if(Plugin3.Any()){
+				
+				if (Plugin3 != null)
+				{
+					PluginManager.SetEnabledPlugins("SideStep");
+					Core.OverlayManager.AddToast(() => text5, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+					
+				}
+				else
+				{
+					Core.OverlayManager.AddToast(() => text6, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+			}
+		else
+				{
+					Core.OverlayManager.AddToast(() => text6, TimeSpan.FromMilliseconds(5000), System.Windows.Media.Color.FromRgb(29,213,226), System.Windows.Media.Color.FromRgb(13,106,175), new System.Windows.Media.FontFamily("Gautami"));
+				}
+        await Coroutine.Sleep(1000);
+      ]]>	
+		</CodeChunk>	
+		<CodeChunk Name="AddLockKeeperAvoids">
+		<![CDATA[ 
+        var avoids = new List<(Vector3 Location, float Radius)>()
+        {
+            (new Vector3(53.94354f, -9.100023f, 9.909115f), 2f),
+            (new Vector3(42.06665f, -10.08815f, 7.316085f), 2.5f),
+            (new Vector3(38.48925f, -10.06721f, 6.169458f), 2f),
+            (new Vector3(41.62471f, -9.800002f, -0.4203478f), 2.5f),
+            (new Vector3(44.71218f, -9.8f, -0.1006896f), 2f),
+            (new Vector3(48.05628f, -9.800002f, -0.3319368f), 2.5f),
+            (new Vector3(39.53431f, -9.8f, 27.17213f), 3f),
+            (new Vector3(34.71568f, -9.7f, 28.29483f), 1f),
+            (new Vector3(22.57998f, -9.799566f, 25.44458f), 3.25f),
+            (new Vector3(26.98308f, -9.8f, -4.305682f), 2.75f),
+            (new Vector3(28.59712f, -9.753718f, -11.25806f), 1.5f),
+            (new Vector3(31.98115f, -9.799999f, -9.727945f), 3f),
+            (new Vector3(32.18846f, -9.800001f, -13.62674f), 3f),
+            (new Vector3(33.06863f, -9.8f, -18.4514f), 3.5f),
+            (new Vector3(32.46759f, -9.800031f, -22.25539f), 3f),
+            (new Vector3(21.08492f, -9.49905f, -21.03589f), 3f),
+            (new Vector3(42.06642f, -9.095316f, -21.87139f), 3f),
+            (new Vector3(38.24128f, -10.05331f, -7.612058f), 2.5f),
+            (new Vector3(51.76168f, -9.800006f, -2.124446f), 6f), 
+            (new Vector3(39.35384f, -9.994072f, -10.59676f), 2.5f),
+            (new Vector3(33.88907f, -9.800001f, 19.4863f), 6f),
+            (new Vector3(31.03885f, -9.800001f, 11.04078f), 4f),
+            (new Vector3(26.17637f, -9.8f, 12.2653f), 3.5f),
+            (new Vector3(22.45053f, -9.799999f, 15.25602f), 3f),
+            (new Vector3(30.43443f, -9.710363f, -17.68933f), 1.5f),
+            (new Vector3(43.14671f, -9.800002f, 0.7662534f), 1.5f),
+            (new Vector3(28.42845f, -9.800004f, 15.74101f), 1.5f),
+            (new Vector3(24.59035f, -9.8f, 39.06647f), 5.5f),
+            (new Vector3(39.95159f, -9.799999f, 39.41816f), 5.5f),
+            (new Vector3(24.8424f, -9.551487f, -28.10386f), 3.5f),
+        };
+
+        foreach (var circle in avoids)
+        {
+            AvoidanceManager.AddAvoidLocation(
+                () => true,
+                circle.Radius,
+                () => circle.Location
+            );
+        }
+		]]>
+		</CodeChunk>
+		
+				<CodeChunk Name="AddMistressAvoids">
+		<![CDATA[ 
+        var avoids = new List<(Vector3 Location, float Radius)>()
+        {
+            (new Vector3(-377.596f, -33.4472f, -132.5672f), 5f),
+            (new Vector3(-383.2123f, -33.4472f, -129.6095f), 3f),
+            (new Vector3(-387.6766f, -33.7f, -121.8795f), 2.5f),
+            (new Vector3(-384.5125f, -33.7f, -120.5085f), 2f),
+            (new Vector3(-380.7737f, -33.67065f, -120.015f), 2f),
+            (new Vector3(-377.1797f, -33.79168f, -122.9748f), 3f),
+            (new Vector3(-394.2014f, -33.1f, -118.1052f), 3f),
+            (new Vector3(-407.7299f, -34.00296f, -121.2473f), 3.5f),
+            (new Vector3(-417.7276f, -33.8f, -116.1963f), 5.6f),
+            (new Vector3(-415.5801f, -33.8f, -109.098f), 4f),
+            (new Vector3(-411.3524f, -33.8f, -109.557f), 3f),
+            (new Vector3(-418.4987f, -33.69435f, -123.9716f), 1.5f),
+            (new Vector3(-422.4336f, -33.8f, -134.1342f), 5f),
+            (new Vector3(-411.4657f, -33.8f, -133.0509f), 3f),
+            (new Vector3(-404.7692f, -33.8f, -129.368f), 4.5f),
+            (new Vector3(-394.9865f, -32.80261f, -139.0201f), 3f),
+            (new Vector3(-387.8877f, -33.75152f, -136.7537f), 2f),
+            (new Vector3(-388.0554f, -32.61241f, -140.7307f), 2.5f),
+            (new Vector3(-388.7522f, -33.61302f, -133.3809f), 1.5f),
+            (new Vector3(-418.916f, -33.70001f, -124.2057f), 1.5f),
+            (new Vector3(-423.71f, -33.8f, -123.1539f), 3f),
+            (new Vector3(-388.4647f, -33.6409f, -135.028f), 1f),
+        };
+
+        foreach (var circle in avoids)
+        {
+            AvoidanceManager.AddAvoidLocation(
+                () => true,
+                circle.Radius,
+                () => circle.Location
+            );
+        }
+		]]>
+		</CodeChunk>
+		<CodeChunk Name="RemoveAvoids">
+		<![CDATA[ 
+			AvoidanceManager.RemoveAllAvoids(i=> i.CanRun);
+		]]>
+		</CodeChunk>	
+		<CodeChunk Name="TimeLeft">
+		<![CDATA[ 
+			if (DirectorManager.ActiveDirector is ff14bot.Directors.InstanceContentDirector activeAsInstance)
+			{
+					 var left = (new TimeSpan(0,90,0) - activeAsInstance.TimeLeftInDungeon);
+					 Logging.Write($"Elapsed Time: {left.Minutes:D2}:{left.Seconds:D2}");
+			}
+		]]>
+		</CodeChunk>	
+		<CodeChunk Name="LightLevel">
+		  <![CDATA[ 
+			ff14bot.Helpers.Logging.Write(string.Format("Current Novus LightLevel: {0}", (InventoryManager.EquippedItems.First().SpiritBond * 100)));
+			await Coroutine.Sleep(5000);
+		  ]]>
+		</CodeChunk> 	
+  </CodeChunks>
+</Profile>

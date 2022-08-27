@@ -204,7 +204,7 @@
 			</If>
 			<Log Message="Starting Elpis Fates with flight support." /> 	
 			<While condition="IsOnMap(961)">
-				<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="1838" while="IsOnMap(961)"/>	
+				<LLFate UseFlight="True" MinProgress="10" MinLevel="0" MaxLevel="91" BlacklistIds="1838,1835" while="IsOnMap(961)"/>	
 			</While>
 		</If>		
 	</While>

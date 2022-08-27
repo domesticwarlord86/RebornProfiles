@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Unlock Island Sancturary
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Unlock Island Sanctuary</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Seeking Sanctuary -->
+    <If Condition="not IsQuestCompleted(70179)">
+      <If Condition="not HasQuest(70179)">
+        <GetTo ZoneId="962" XYZ="34.43036, 2.372999, -8.722636" />
+        <If Condition="IsQuestAcceptQualified(70179)">
+          <PickupQuest QuestId="70179" NpcId="1043789" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70179) == 1">
+        <GetTo ZoneId="135" XYZ="171.382, 14.09591, 669.8518" />
+        <TalkTo NpcId="1043621" XYZ="174.1207, 14.09592, 667.5669" QuestId="70179" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70179) == 3">
+        <If condition="not IsOnMap(1055)">
+          <GetTo ZoneId="135" XYZ="172.0538, 14.09591, 668.9832" />
+          <UseTransport NpcId="1043621" InteractDistance="3.0" XYZ="174.1207, 14.09592, 667.5669" QuestId="70179" />
+        </If>
+        <MoveTo ZoneId="1055" XYZ="-391.5246, 3.059425, 236.3775" />
+        <TalkTo NpcId="1043622" XYZ="-389.8528, 3.250122, 238.3611" QuestId="70179" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70179) == 255">
+        <If condition="not IsOnMap(1055)">
+          <GetTo ZoneId="135" XYZ="172.0538, 14.09591, 668.9832" />
+          <UseTransport NpcId="1043621" InteractDistance="3.0" XYZ="174.1207, 14.09592, 667.5669" QuestId="70179" />
+        </If>    
+        <MoveTo XYZ="-325.6626, 31.39409, 251.3006"/> 
+        <RunCode Name="HandleContentsTutorial"/>
+        <!-- <TurnIn QuestId="70179" NpcId="1043904" XYZ="-323.5066, 32.54749, 253.8643"/> -->
+        <WaitWhile condition="GetQuestStep(70179) == 255"/>
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas></GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="HandleContentsTutorial">
+      <![CDATA[        
+    
+        var npc = new LlamaLibrary.Helpers.NPC.Npc(1043904, 138, new Vector3(-323.5066f, 32.54749f, 253.8643f));
+
+        await LlamaLibrary.Helpers.Navigation.GetToNpc(npc);
+        
+        var npcObj = GameObjectManager.GetObjectByNPCId(npc.NpcId);
+        npcObj.Target();
+        npcObj.Interact();
+
+        await Coroutine.Wait(20000, () => ff14bot.RemoteWindows.Talk.DialogOpen);
+        if (ff14bot.RemoteWindows.Talk.DialogOpen)
+        {
+            while (ff14bot.RemoteWindows.Talk.DialogOpen)
+            {
+                ff14bot.RemoteWindows.Talk.Next();
+                await Coroutine.Wait(500, () => !ff14bot.RemoteWindows.Talk.DialogOpen);
+                await Coroutine.Wait(500, () => ff14bot.RemoteWindows.Talk.DialogOpen);
+                await Coroutine.Yield();
+            }
+            await Coroutine.Wait(60000, () => LlamaLibrary.RemoteWindows.ContentsTutorial.Instance.IsOpen);
+        }
+        if (LlamaLibrary.RemoteWindows.ContentsTutorial.Instance.IsOpen)
+        {
+            LlamaLibrary.RemoteWindows.ContentsTutorial.Instance.Close();
+        }
+
+        await Coroutine.Wait(8000, () => !LlamaLibrary.RemoteWindows.ContentsTutorial.Instance.IsOpen);
+      ]]> 
+    </CodeChunk>
+  </CodeChunks>
+</Profile>  

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Tam-Tara Deepcroft
+  Authors: DomesticWarlord86
+	Version: 2.0
+-->
+
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY openchest "1">
+	<!ENTITY repairNum "75">
+]>
+<Profile>
+	<Name>The Tam-Tara Deepcroft</Name>
+	<BehaviorDirectory>Quest Behaviors</BehaviorDirectory>
+	<Order>
+
+		<While Condition="NovusLightLevel() &lt; 2000">
+
+
+			<If condition="not DutyManager.InInstance">
+				<LLJoinDuty DutyId="2" />
+			</If>
+
+			<If condition="DutyManager.InInstance">
+
+				<If Condition="ClassName == ((ClassJobType.Bard))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7867">
+						<Log Message="Equipping Artemis Bow Novus..." />
+						<EquipWeapon ItemID="7867" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.BlackMage))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7869">
+						<Log Message="Equipping Stardust Rod Novus..." />
+						<EquipWeapon ItemID="7869" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Dragoon))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7866">
+						<Log Message="Equipping Gae Bolg Novus..." />
+						<EquipWeapon ItemID="7866" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Monk))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7864">
+						<Log Message="Equipping Sphairai Novus..." />
+						<EquipWeapon ItemID="7864" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Ninja))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 9253">
+						<Log Message="Equipping Yoshimitsu Novus..." />
+						<EquipWeapon ItemID="9253" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Paladin))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7863">
+						<Log Message="Equipping Curtana Novus..." />
+						<EquipWeapon ItemID="7863" />
+						<WaitTimer WaitTime="3" />
+					</While>
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 7872">
+						<Log Message="Equipping Holy Shield Novus..." />
+						<EquipWeapon ItemID="7872" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Summoner))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7870">
+						<Log Message="Equipping The Veil of the Wiyu Novus..." />
+						<EquipWeapon ItemID="7870" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Scholar))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7871">
+						<Log Message="Equipping Omnilex Novus..." />
+						<EquipWeapon ItemID="7871" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.Warrior))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7865">
+						<Log Message="Equipping Bravura Novus..." />
+						<EquipWeapon ItemID="7865" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+				<If Condition="ClassName == ((ClassJobType.WhiteMage))">
+					<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 7868">
+						<Log Message="Equipping Thyrus Novus..." />
+						<EquipWeapon ItemID="7868" />
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+
+				<!-- Cultist orbs destroyed 0/4 -->
+				<If Condition="GetInstanceTodo(0) == 0">
+					<Log Message="Cultist orbs destroyed 0/4" />
+					<While Condition="GetInstanceTodo(0) == 0">
+						<UseObject NpcId="2000061" InteractDistance="3.0" XYZ="-8.080134, 30.82913, -16.51366" Condition="GetInstanceTodo(0) == 0" /> <!-- 1st Cultist Orb -->
+					</While>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-7.827942,30.80798,-16.46454" />
+						<LLOpenChest />
+					</If>
+				</If>
+
+				<!-- Cultist orbs destroyed 1/4 -->
+				<If Condition="GetInstanceTodo(0) == 1">
+					<Log Message="Cultist orbs destroyed 1/4" />
+					<While Condition="GetInstanceTodo(0) == 1">
+						<UseObject NpcId="2000062" InteractDistance="3.0" XYZ="-22.78436,25.5263,20.48222" Condition="GetInstanceTodo(0) == 1" /> <!-- 2nd Cultist Orb -->
+					</While>
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-22.90387,24.70422,20.70648" />
+						<LLOpenChest />
+					</If>
+				</If>
+
+				<!-- Cultist rosary 0/1 -->
+				<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 2">
+					<Log Message="Cultist rosary 0/1" />
+					<While Condition="GetInstanceTodo(1) == 0">
+						<UseObject NpcId="2000057" InteractDistance="3.0" XYZ="-180.8298, 13.61397, -7.697925" Condition="GetInstanceTodo(1) == 0" /> <!-- Cultist Rosary -->
+					</While>
+				</If>
+
+				<!-- Sealed barrier broken 0/1 -->
+				<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+					<Log Message="Sealed barrier broken 0/1" />
+					<While Condition="GetInstanceTodo(2) == 0">
+						<UseTransport NpcId="2000060" InteractDistance="3.0" XYZ="-103.6168, 13.859, 15.76518" Condition="GetInstanceTodo(2) == 0" /> <!-- Sealed Barrier -->
+						<WaitTimer WaitTime="3" />
+					</While>
+				</If>
+
+				<!-- Cultist orbs destroyed 2/4 -->
+				<If Condition="GetInstanceTodo(0) == 2 and GetInstanceTodo(2) == 1">
+					<Log Message="Cultist orbs destroyed 2/4" />
+					<While Condition="GetInstanceTodo(0) == 2">
+						<UseObject NpcId="2000067" InteractDistance="3.0" XYZ="-94.79001, 14.90759, 3.811112" Condition="GetInstanceTodo(0) == 2" /> <!-- 3rd Cultist Orb -->
+					</While>
+				</If>
+
+				<!-- Cultist orbs destroyed 3/4 -->
+				<If Condition="GetInstanceTodo(0) == 3 and GetInstanceTodo(2) == 1">
+					<Log Message="Cultist orbs destroyed 3/4" />
+					<While Condition="GetInstanceTodo(0) == 3">
+						<UseObject NpcId="2000063" InteractDistance="3.0" XYZ="-89.50608, 14.89957, 13.94871" Condition="GetInstanceTodo(0) == 3" /> <!-- 3rd Cultist Orb -->
+					</While>
+					<If Condition="&openchest; == 1">
+						<LLOpenChest />
+					</If>
+				</If>
+
+				<!-- Defeat Galvanth the Dominator -->
+				<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(0) == 4">
+					<Log Message="Defeat Galvanth the Dominator" />
+					<Grind grindRef="Galvanth" While="not IsDutyEnded()" /> <!-- Fight Galvanth the Dominator -->
+					<If Condition="&openchest; == 1">
+						<MoveTo XYZ="-46.64691,14.02301,-15.12177" />
+						<LLOpenChest />
+					</If>
+					<While condition="DutyManager.InInstance and IsDutyEnded()">
+						<WaitTimer WaitTime="5" />
+						<LLLeaveDuty />
+					</While>
+					<RunCode name="LightLevel" />
+				</If>
+			</If>
+		</While>
+
+		<If Condition="NovusLightLevel() == 2000">
+			<RunCode name="LightLevel" />
+			<LLoadProfile Path="../Start.xml" />
+		</If>
+
+	</Order>
+	<GrindAreas>
+		<GrindArea name="Galvanth">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="48.82916,14.04632,-13.91929" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Galvanth the Dominator" Id="73" Weight="1" />
+				<TargetMob Name="Inconspicuous Imp" Id="456" Weight="2" />
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+		<CodeChunk Name="LightLevel">
+			<![CDATA[ 
+			ff14bot.Helpers.Logging.Write(string.Format("Current Novus LightLevel: {0}", (InventoryManager.EquippedItems.First().SpiritBond * 100)));
+			await Coroutine.Sleep(5000);
+		  ]]>
+		</CodeChunk>
+	</CodeChunks>
+</Profile>  
