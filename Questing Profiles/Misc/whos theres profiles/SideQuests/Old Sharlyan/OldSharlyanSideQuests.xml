@@ -336,6 +336,32 @@
 				<TurnIn QuestId="69853" NpcId="2012439" XYZ="-32.8222, 2.853394, -9.842102"/>
 			</If>
 		</If>
+		<!-- Seeking Sanctuary -->
+		<If Condition="not IsQuestCompleted(70179)">
+			<If Condition="not HasQuest(70179)">
+				<LisbethTravel ZoneId="962" XYZ="36.4183, 2.372999, -7.387413"/>
+				<If Condition="IsQuestAcceptQualified(70179)">
+					<PickupQuest QuestId="70179" NpcId="1043789"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70179) == 1">
+				<LisbethTravel ZoneId="135" XYZ="175.0394, 14.09593, 667.9531"/>
+				<LLTalkTo NpcId="1043621" XYZ="174.1207, 14.09592, 667.5669" QuestId="70179" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(70179) == 2">
+				<LisbethTravel ZoneId="135" XYZ="175.0394, 14.09593, 667.9531"/>
+				<TalkTo SSO="0" NpcId="1043621" XYZ="174.1207, 14.09592, 667.5669" QuestId="70179" StepId="2"/>
+				<WaitWhile condition="GetQuestStep(70179) == 2"/>
+			</If>
+			<If Condition="GetQuestStep(70179) == 3">
+				<MoveTo ZoneId="1055" XYZ="-391.5246, 3.059425, 236.3775"/>
+				<TalkTo NpcId="1043622" XYZ="-389.8528, 3.250122, 238.3611" QuestId="70179" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(70179) == 255">
+				<MoveTo ZoneId="1055" XYZ="-322.4008, 32.15105, 252.1596"/>
+				<TurnIn QuestId="70179" NpcId="1043904" XYZ="-323.5066, 32.54749, 253.8643"/>
+			</If>
+		</If>
 	</Order>
 	<CodeChunks>
 		<CodeChunk Name="acorns">
