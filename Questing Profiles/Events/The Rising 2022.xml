@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Rising 2022
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>The Rising 2022</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Lisbeth check -->
+    <LisbethCheck />
+
+    <!-- Profile start here -->
+    <!-- Newfound Journey -->
+    <If Condition="not IsQuestCompleted(70080)">
+      <If Condition="not HasQuest(70080)">
+        <GetTo ZoneId="130" XYZ="-54.43972, 4, -139.7892" />
+        <If Condition="IsQuestAcceptQualified(70080)">
+          <PickupQuest QuestId="70080" NpcId="1042623" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70080) == 1">
+        <GetTo ZoneId="130" XYZ="32.99831, 4, -150.1275" />
+        <UseObject NpcId="2012933" XYZ="35.59924, 3.982544, -151.7205" QuestId="70080" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70080) == 2">
+        <GetTo ZoneId="130" XYZ="14.28971, 7, -93.49358" />
+        <TalkTo NpcId="1042909" XYZ="16.09827, 6.999993, -91.5694" QuestId="70080" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70080) == 3">
+        <GetTo ZoneId="130" XYZ="-4.507867, 8, -110.1324" />
+        <TalkTo NpcId="1042624" XYZ="-6.393555, 8.041113, -111.6503" QuestId="70080" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70080) == 4">
+        <GetTo ZoneId="130" XYZ="-89.13789, 2.500087, -62.05313" />
+        <WaitWhile condition="GetQuestStep(70080) == 4" />
+      </If>
+      <If Condition="GetQuestStep(70080) == 5">
+        <GetTo ZoneId="130" XYZ="-52.31622, 4, -138.5573" />
+        <TalkTo NpcId="1042623" XYZ="-52.65894, 4, -141.0697" QuestId="70080" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70080) == 6">
+        <GetTo ZoneId="131" XYZ="107.1558, 4.049882, -91.41265" />
+        <TalkTo NpcId="1042626" XYZ="107.4387, 4, -88.42603" QuestId="70080" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70080) == 7 and GetQuestById(70080).QuestI8A == 0">
+        <GetTo ZoneId="131" XYZ="118.4131, 4, -71.9744" />
+        <TalkTo NpcId="1001964" XYZ="118.4862, 4.456362, -67.85687" QuestId="70080" StepId="7" />
+      </If>
+      <If Condition="GetQuestStep(70080) == 7 and GetQuestById(70080).QuestI8A == 1">
+        <GetTo ZoneId="131" XYZ="146.0201, 4, -42.52802"/>  
+        <TalkTo NpcId="1042627" XYZ="151.9034, 4, -39.62775" QuestId="70080" StepId="7"/>
+      </If>
+      <If Condition="GetQuestStep(70080) == 7 and GetQuestById(70080).QuestI8A == 2">
+        <GetTo ZoneId="131" XYZ="148.5199, 4, -10.53282"/>  
+        <TalkTo NpcId="1001972" XYZ="151.6899, 4.456361, -9.414856" QuestId="70080" StepId="7"/>
+      </If>
+      <If Condition="GetQuestStep(70080) == 8">
+        <GetTo ZoneId="131" XYZ="134.3687, 3.999999, 39.5467"/>  
+        <TalkTo NpcId="1042626" XYZ="134.7307, 4, 37.39899" QuestId="70080" StepId="8"/>
+      </If>
+      <If Condition="GetQuestStep(70080) == 255">
+        <GetTo ZoneId="130" XYZ="-18.77355, 10, -50.60463"/>  
+        <TurnIn QuestId="70080" NpcId="1042629" XYZ="-21.95776, 10.00092, -49.72919"/>
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas></GrindAreas>
+  <CodeChunks></CodeChunks>
+</Profile>  
