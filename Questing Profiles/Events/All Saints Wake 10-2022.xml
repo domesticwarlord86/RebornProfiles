@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: All Saints Wake 10-2022
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>All Saints Wake 10-2022</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Profile start here -->
+    <!-- A Mad Masquerade -->
+    <If Condition="not IsQuestCompleted(70191)">
+      <If Condition="not HasQuest(70191)">
+        <GetTo ZoneId="133" XYZ="-48.3841, 6.127221, -104.1448" />
+        <If Condition="IsQuestAcceptQualified(70191)">
+          <PickupQuest QuestId="70191" NpcId="1043882" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70191) == 1">
+        <GetTo ZoneId="133" XYZ="-44.6627, 6.064069, -103.3703" />
+        <UseTransport NpcId="2013092" XYZ="-43.41199, 6.576599, -102.0371" QuestId="70191" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70191) == 2">
+        <GetTo ZoneId="133" XYZ="-107.5471, 5.121597, -167.7273" />
+        <TalkTo NpcId="1043884" XYZ="-106.4622, 5.159281, -170.7028" QuestId="70191" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70191) == 3">
+        <MoveTo ZoneId="133" XYZ="-46.30694, 6.025817, -103.4518" />
+        <UseTransport NpcId="2013091" XYZ="-45.15149, 6.576599, -101.9456" QuestId="70191" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70191) == 4">
+        <GetTo ZoneId="133" XYZ="14.01136, 7.101107, -106.3626" />
+        <TalkTo NpcId="1043887" XYZ="14.51129, 7.264871, -103.5935" QuestId="70191" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70191) == 5">
+        <GetTo ZoneId="133" XYZ="64.30346, 0, -116.9718" />
+        <UseObject NpcId="2013103" XYZ="63.06555, -0.01531982, -116.4721" QuestId="70191" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70191) == 6">
+        <TalkTo NpcId="1043970" XYZ="68.49768, 0, -118.9136" QuestId="70191" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70191) == 7">
+        <TalkTo NpcId="1043970" XYZ="68.49768, 0, -118.9136" QuestId="70191" StepId="7" />
+      </If>
+      <If Condition="GetQuestStep(70191) == 8">
+        <GetTo ZoneId="133" XYZ="8.884655, 7.083842, -115.426" />
+        <MoveTo XYZ="-0.3066502, -0.9267989, -119.9514" usemesh="false" />
+        <GetTo ZoneId="133" XYZ="-16.24659, -0.8798493, -109.9233" />
+        <TalkTo NpcId="1043971" XYZ="-19.51636, -0.8615927, -107.4083" QuestId="70191" StepId="8" />
+      </If>
+      <If Condition="GetQuestStep(70191) == 255">
+        <MoveTo XYZ="25.25692, -0.9242867, -129.7214" />
+        <ClimbHill Start="25.25692, -0.9242867, -129.7214" End="33.62008, 0, -127.6126" />
+        <GetTo ZoneId="133" XYZ="-49.41262, 5.694449, -99.9026" />
+        <TurnIn QuestId="70191" NpcId="1043972" XYZ="-48.96625, 5.588918, -97.58148" />
+      </If>
+    </If>
+
+    <!-- Be Our Guest -->
+    <If Condition="IsQuestCompleted(70191) and not IsQuestCompleted(70192)">
+      <If Condition="not HasQuest(70192)">
+        <GetTo ZoneId="133" XYZ="-49.89122, 5.764992, -100.6329" />
+        <If Condition="IsQuestAcceptQualified(70192)">
+          <PickupQuest QuestId="70192" NpcId="1043973" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70192) == 1">
+        <TalkTo NpcId="1043974" XYZ="-54.18488, 5.747922, -100.145" QuestId="70192" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70192) == 255">
+        <TurnIn QuestId="70192" NpcId="1043976" XYZ="4.623413, -0.1382584, 19.15009" />
+      </If>
+    </If>
+
+    <If Condition="IsQuestCompleted(70192)">
+      <GetTo ZoneId="133" XYZ="-46.76892,6.858439,-110.1854" />
+      <BuyItem ItemIds="38571" ItemCounts="1" NpcId="1043977 " XYZ="-46.76892,6.858439,-110.1854" />
+      <UseInventoryItem ItemId="38571"/>
+    </If>
+
+  </Order>
+  <GrindAreas></GrindAreas>
+  <CodeChunks></CodeChunks>
+</Profile>  
