@@ -33,8 +33,8 @@
 		<If Condition="GetInstanceTodo(0) == 0">
 			<Log Message="Clear the Screaming Dark 0/1" />
 			<BotSettings AutoEquip="1" />	
-			<MoveTo XYZ="-181.9118, 23.99999, -207.8887"/>
-			<RunCode name="LiftLever"/>
+			<MoveTo XYZ="-181.9118, 23.99999, -207.8887" Distance="1"/>
+			<UseTransport NpcId="2002902" InteractDistance="3.0" XYZ="-184.0344, 23.9887, -205.7372" />
 			<WaitTimer WaitTime="11" />
 			<MoveTo XYZ="-171.2285, -7.608466, -208.3708" usemesh="false"/>
 			<MoveTo XYZ="-48.88982,-2.795422,-203.9574" distance="3"/> <!-- Collapsed Rock 1 -->
