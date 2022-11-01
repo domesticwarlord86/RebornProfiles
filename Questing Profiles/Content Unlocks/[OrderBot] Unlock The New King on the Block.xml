@@ -43,7 +43,7 @@
 	</If>
     <If Condition="GetQuestStep(67090) == 6">
       <LisbethTravel Area="The Azim Steppe" Position="-481.6174, 71.5571, -511.1165"/>
-      <SoTalkTo NpcId="1025727" XYZ="-481.7731, 71.73354, -516.8689" QuestId="67090" StepId="6"/>
+      <TalkTo NpcId="1025727" XYZ="-481.7731, 71.73354, -516.8689" QuestId="67090" StepId="6"/>
     </If>
     <If Condition="GetQuestStep(67090) == 255">
       <LisbethTravel Area="Kugane" Position="-77.07628, 11.80004, -117.0236"/>
@@ -60,5 +60,3 @@
 	  </CodeChunk> 
   </CodeChunks>
 </Profile>
-
-
