@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <If Condition="not IsQuestCompleted(70000)">
+      <UserDialog DialogText="Please complete the Endwalker MSQ before running this profile." />
+    </If>
+
+    <!-- Profile start here -->
+    <!-- A Key to the Past -->
+    <If Condition="IsQuestCompleted(70000) and not IsQuestCompleted(70182)">
+      <If Condition="not HasQuest(70182)">
+        <GetTo ZoneId="962" XYZ="37.41114, -15.64699, 107.4561" />
+        <If Condition="not IsQuestAcceptQualified(70182)">
+          <TalkTo NpcId="1043775" XYZ="37.73547, -15.64699, 105.3025" />
+        </If>
+        <If Condition="IsQuestAcceptQualified(70182)">
+          <PickupQuest QuestId="70182" NpcId="1043624" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70182) == 1">
+        <GetTo ZoneId="130" XYZ="65.8906, 4.099995, -139.5793" />
+        <TalkTo NpcId="1043777" XYZ="66.20886, 4.099995, -143.145" QuestId="70182" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70182) == 2">
+        <If condition="not IsOnMap(141)">
+          <TeleportTo AetheryteId="53" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="141" XYZ="-228.2815, -32, 109.3752" Land="True" />
+        <TalkTo NpcId="1043626" XYZ="-230.9453, -32, 110.1854" QuestId="70182" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70182) == 3">
+        <UserDialog QuestId="70182" StepId="3" IsBotContinueAllowed="True" DialogText="Please complete the Sil'dihn Subterrane." />
+      </If>
+      <If Condition="GetQuestStep(70182) == 4">
+        <If condition="not IsOnMap(141)">
+          <TeleportTo Name="Black Brush Station" AetheryteId="53" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="141" XYZ="-227.3961, -32, 108.9964" Land="True" />
+        <TalkTo NpcId="1043626" XYZ="-230.9453, -32, 110.1854" QuestId="70182" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70182) == 5">
+        <GetTo ZoneId="130" XYZ="66.07527, 4.099995, -141.0221" />
+        <TalkTo NpcId="1044158" XYZ="66.20886, 4.099995, -143.145" QuestId="70182" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70182) == 255">
+        <GetTo ZoneId="962" XYZ="38.62569, -15.64699, 108.9098" />
+        <TurnIn QuestId="70182" NpcId="1043624" XYZ="41.03149, -15.64699, 107.8049" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas></GrindAreas>
+  <CodeChunks></CodeChunks>
+</Profile>  
