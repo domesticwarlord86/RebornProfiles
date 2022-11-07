@@ -414,7 +414,7 @@
       </If>
     </If>
     <If Condition="GetQuestStep(67015) == 1">
-			<If condition="not IsOnMap(463">
+			<If condition="not IsOnMap(463)">
 				<LisbethTravel Zone="399" Subzone="2011" Position="-488.3111, 137.4297, 739.7634"/>
 				<UseTransport NpcId="2005336" InteractDistance="3.0" XYZ="-488.7923, 138.9333, 741.0543"/>  
 			</If>
