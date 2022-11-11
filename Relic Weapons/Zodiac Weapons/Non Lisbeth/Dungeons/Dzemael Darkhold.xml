@@ -41,7 +41,7 @@
 				<LLOpenChest/>
 			</If>
 			<MoveTo XYZ="23.35851,-12.30462,57.61283" usemesh="false" />
-			<RunCode name="MagitekTransporter1"/>
+			<UseShortcut NpcId="2000458" Distance="20" />
 		</If>
 
 		<!-- Open the grand hall gate 0/1 -->
@@ -56,7 +56,7 @@
 				<LLOpenChest/>
 			</If>
 			<MoveTo XYZ="-96.80028,-30.00001,-41.82194" />
-			<RunCode name="MagitekTransporter2"/>		
+			<UseShortcut NpcId="2000474" Distance="20" />	
 		</If>
 
 		<!--Deactivate the level IV magitek field 0/1 -->
