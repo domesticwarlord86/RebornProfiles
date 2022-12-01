@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Binding Coild of Bahamut - Turn 1
+  Authors: DomesticWarlord86
+-->
+
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY openchest "1">
+]>
+
+<Profile>
+  <Name>The Binding Coild of Bahamut - Turn 1</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <While condition="DutyManager.InInstance and IsDutyEnded()">
+      <WaitTimer WaitTime="5" />
+      <LLLeaveDuty />
+    </While>
+
+    <If condition="not DutyManager.InInstance">
+      <LLJoinDuty DutyId="93" />
+    </If>
+
+    <If condition="DutyManager.InInstance and IsOnMap(241)">
+
+      <!-- Shortcut available -->
+      <If condition="IsNearShortcut(2000700)">
+        <UseShortcut NpcId="2000700" Distance="20" />
+      </If>
+
+      <!-- Gain access to the exploratory site: 0/1 -->
+      <If Condition="GetInstanceTodo(0) == 0">
+        <Log Message="Gain access to the exploratory site: 0/1" />
+        <Grind GrindRef="FirstBoss" While="GetInstanceTodo(0) == 0" /> <!-- Fight ADS -->
+      </If>
+
+      <!-- Breach the aetherial fields: 0/2 -->
+      <If Condition="GetInstanceTodo(0) == 1 and GetInstanceTodo(1) &lt; 2">
+        <Log Message="Breach the aetherial fields: 0/2" />
+        <Grind GrindRef="DarkMatterGolems" While="GetInstanceTodo(1) &lt; 2" /> <!-- Breach the aetherial fields -->
+      </If>
+
+      <!-- Defeat Caduceus: 0/1 -->
+      <If Condition="GetInstanceTodo(1) == 2 and GetInstanceTodo(2) == 0">
+        <Log Message="Defeat Caduceus 0/1" />
+        <Grind GrindRef="FinalBoss" While="not IsDutyEnded()" /> <!-- Fight Caduceus -->
+        <If Condition="&openchest; == 1">
+          <MoveTo XYZ="-35.48639, 0.1000001, -402.5649" UseMesh="False"/>
+          <ClimbHill Start="-35.48639, 0.1000001, -402.5649" End="-43.18461, 0.8999991, -413.7076" />
+          <LLOpenChest />
+				</If>
+        <While condition="DutyManager.InInstance and IsDutyEnded()">
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty />
+				</While>
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+    <GrindArea name="FirstBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-2.309316, 11.42541, 23.29596" name="Name" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1459" Weight="1" /> <!-- ADS -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="DarkMatterGolems">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="49.16122, 4.055373, -247.7097" name="Name"/>
+        <Hotspot Radius="90" XYZ="42.13827, 2.106738, -338.1229" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1461" Weight="1"/> <!-- Dark Matter Golem -->
+      </TargetMobs>
+    </GrindArea>
+    <GrindArea name="FinalBoss">
+      <Hotspots>
+        <Hotspot Radius="90" XYZ="-17.06034, 0.5, -389.3969" name="Name" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="1466" Weight="1" /> <!-- Caduceus -->
+      </TargetMobs>
+    </GrindArea>
+  </GrindAreas>
+  <CodeChunks></CodeChunks>
+</Profile>  
