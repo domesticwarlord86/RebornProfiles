@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Starlight Celebration 2022
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Starlight Celebration 2022</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Profile start here -->
+    <!-- Reindeer Fame -->
+    <If Condition="not IsQuestCompleted(70194)">
+      <If Condition="not HasQuest(70194)">
+        <GetTo ZoneId="133" XYZ="-50.09953, 6.499986, -91.7972" />
+        <If Condition="IsQuestAcceptQualified(70194)">
+          <PickupQuest QuestId="70194" NpcId="1043982" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70194) == 1 and GetQuestById(70194).QuestI8A == 0">
+        <GetTo ZoneId="133" XYZ="140.9189, 13.72454, -107.1446" />
+        <TalkTo NpcId="1043991" XYZ="143.0839, 13.70815, -107.805" QuestId="70194" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70194) == 1 and GetQuestById(70194).QuestI8A == 1">
+        <GetTo ZoneId="133" XYZ="113.9169, 11.41467, -230.9718" />
+        <TalkTo NpcId="1043994" XYZ="110.8872, 11.23022, -231.0369" QuestId="70194" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70194) == 1 and GetQuestById(70194).QuestI8A == 2">
+        <GetTo ZoneId="133" XYZ="60.22783, 13.06055, -258.0367" />
+        <TalkTo NpcId="1043998" XYZ="60.34937, 13.03649, -255.3598" QuestId="70194" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70194) == 2">
+        <GetTo ZoneId="133" XYZ="-30.70825, 10.84536, -266.2789" />
+        <TalkTo NpcId="1043995" XYZ="-32.8222, 10.82154, -264.21" QuestId="70194" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70194) == 3">
+        <GetTo ZoneId="133" XYZ="-30.70825, 10.84536, -266.2789" />
+        <UseObject NpcId="2013111" XYZ="-32.42548, 10.72699, -262.2568" QuestId="70194" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70194) == 4">
+        <GetTo ZoneId="133" XYZ="-310.8016, 8.169438, -189.5118" />
+        <TalkTo NpcId="1043999" XYZ="-312.4285, 8.080181, -191.7907" QuestId="70194" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70194) == 255">
+        <GetTo ZoneId="133" XYZ="-209.0308, 10.78222, -160.811" />
+        <TurnIn QuestId="70194" NpcId="1044007" XYZ="-205.9816, 11.33586, -160.3876" />
+      </If>
+    </If>
+
+    <!-- The Ghost of Starlight Present -->
+    <If Condition="IsQuestCompleted(70194) and not IsQuestCompleted(70195)">
+      <If Condition="not HasQuest(70195)">
+        <GetTo ZoneId="133" XYZ="-209.0308, 10.78222, -160.811" />
+        <If Condition="IsQuestAcceptQualified(70195)">
+          <PickupQuest QuestId="70195" NpcId="1044007" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70195) == 1">
+        <GetTo ZoneId="133" XYZ="-209.0308, 10.78222, -160.811" />
+        <EmoteNPC Emote="soothe" NpcId="1044007" XYZ="-205.9816, 11.33586, -160.3876" QuestId="70195" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70195) == 2 and GetQuestById(70195).QuestI8A == 0">
+        <GetTo ZoneId="133" XYZ="-129.0768, 7.869319, -136.9422" />
+        <TalkTo NpcId="1044001" XYZ="-126.5736, 8.107313, -137.1024" QuestId="70195" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70195) == 2 and GetQuestById(70195).QuestI8A == 1">
+        <GetTo ZoneId="133" XYZ="-61.04788, 6.768801, -124.1952" />
+        <TalkTo NpcId="1044000" XYZ="-60.16632, 7.033269, -122.3011" QuestId="70195" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70195) == 2 and GetQuestById(70195).QuestI8A == 2">
+        <GetTo ZoneId="133" XYZ="17.03199, 8.383688, -92.92847" />
+        <TalkTo NpcId="1044002" XYZ="16.9527, 8.383688, -89.98254" QuestId="70195" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70195) == 3">
+        <GetTo ZoneId="132" XYZ="16.22668, -1.248869, 45.61235" />
+        <TalkTo NpcId="1044003" XYZ="16.70856, -1.258354, 47.89807" QuestId="70195" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70195) == 4">
+        <GetTo ZoneId="132" XYZ="58.56427, 0.5279953, 32.38383" />
+        <TalkTo NpcId="1044004" XYZ="60.07471, 1.058261, 30.1366" QuestId="70195" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70195) == 255">
+        <GetTo ZoneId="133" XYZ="-49.78542, 6.499991, -91.52534" />
+        <TurnIn QuestId="70195" NpcId="1043981" XYZ="-50.00385, 6.5, -89.58569" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas></GrindAreas>
+  <CodeChunks></CodeChunks>
+</Profile>  
