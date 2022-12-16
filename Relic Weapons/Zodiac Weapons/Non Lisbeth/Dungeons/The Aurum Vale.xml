@@ -13,6 +13,19 @@
   <Name>The Aurum Vale</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
+	
+				<!-- [Aurum Vale] Going for Gold -->
+			<If Condition="not HasQuest(66550) and not IsQuestCompleted(66550)">
+				<GetTo ZoneId="140" XYZ="-470.3956, 23.03522, -355.3181" />
+				<If Condition="IsQuestAcceptQualified(66550)">
+					<PickupQuest QuestId="66550" NpcId="1005021" XYZ="-472.4957, 23.02878, -355.0012" />
+				</If>
+			</If>
+			<If Condition="HasQuest(66550) and not IsQuestCompleted(66550) and GetQuestStep(66550) == 255">
+				<GetTo ZoneId="155" XYZ="-352.5094, 214.7915, 691.0483" />
+				<TurnIn QuestId="66550" NpcId="1007625" XYZ="-354.1772, 214.6081, 692.6528" />
+			</If>
+	
 	<If condition="not DutyManager.InInstance">
 		<LLJoinDuty DutyId="5"/>
 	</If> 
