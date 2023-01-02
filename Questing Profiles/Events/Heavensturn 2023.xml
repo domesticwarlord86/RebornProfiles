@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Heavensturn 2023
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Heavensturn 2023</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <LLToast Message="RB has trouble with the turn on for the quest, don't AFK." />
+
+    <!-- Profile start here -->
+    <!-- The Box of Fortune -->
+    <If Condition="not IsQuestCompleted(70124)">
+      <If Condition="not HasQuest(70124)">
+        <GetTo ZoneId="128" XYZ="15.80844, 45.656, 134.0499" />
+        <If Condition="IsQuestAcceptQualified(70124)">
+          <PickupQuest QuestId="70124" NpcId="1042651" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70124) == 1">
+        <GetTo ZoneId="128" XYZ="25.74444, 44.5, 150.0783" />
+        <TalkTo NpcId="1042653" XYZ="27.2373, 44.5, 151.3848" QuestId="70124" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70124) == 2 and GetQuestById(70124).QuestI8A == 0">
+        <GetTo ZoneId="128" XYZ="84.08293, 44.39985, 131.2574" />
+        <TalkTo NpcId="1000918" XYZ="84.09241, 44.39991, 132.3414" QuestId="70124" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70124) == 2 and GetQuestById(70124).QuestI8A == 16">
+        <GetTo ZoneId="128" XYZ="74.9055, 40, 77.98754" />
+        <TalkTo NpcId="1003550" XYZ="76.85962, 39.99632, 78.99597" QuestId="70124" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70124) == 2 and GetQuestById(70124).QuestI8A == 32">
+        <GetTo ZoneId="128" XYZ="-8.975891, 40.00055, 3.811775" />
+        <TalkTo NpcId="1042655" XYZ="-10.69659, 40.00041, 3.005981" QuestId="70124" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70124) == 2 and GetQuestById(70124).QuestI8A == 49">
+        <GetTo ZoneId="128" XYZ="12.11497, 40.19987, -11.39743" />
+        <TalkTo NpcId="1005411" XYZ="13.41266, 40.2, -13.26007" QuestId="70124" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70124) == 255">
+        <GetTo ZoneId="128" XYZ="26.40741, 44.5, 150.559" />
+        <TurnIn QuestId="70124" NpcId="1042653" XYZ="27.2373, 44.5, 151.3848" />
+      </If>
+    </If>
+
+    <!-- With Great Fortune Comes Great Responsibility -->
+    <If Condition="IsQuestCompleted(70124) and not IsQuestCompleted(70125)">
+      <If Condition="not HasQuest(70125)">
+        <GetTo ZoneId="128" XYZ="26.03264, 44.5, 149.8373" />
+        <If Condition="IsQuestAcceptQualified(70125)">
+          <PickupQuest QuestId="70125" NpcId="1042653" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70125) == 1">
+        <GetTo ZoneId="128" XYZ="24.66736, 44.5, 148.3551" />
+        <EmoteNPC Emote="rally" NpcId="1042656" XYZ="26.16919, 44.49999, 148.2108" QuestId="70125" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70125) == 2">
+        <GetTo ZoneId="128" XYZ="24.66736, 44.5, 148.3551" />
+        <EmoteNPC Emote="psych" NpcId="1042656" XYZ="26.16919, 44.49999, 148.2108" QuestId="70125" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70125) == 3">
+        <If condition="not IsOnMap(135)">
+          <GetTo ZoneId="135" XYZ="-39.53078, 71.52117, 116.0553" />
+        </If>
+        <FlyTo ZoneId="135" XYZ="144.4413, 47.81021, 169.5846" />
+        <TalkTo NpcId="1042657" XYZ="144.6096, 48.02002, 171.1604" QuestId="70125" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70125) == 255">
+        <GetTo ZoneId="128" XYZ="27.14993, 44.5, 153.5051" />
+        <TurnIn QuestId="70125" NpcId="1042653" XYZ="27.2373, 44.5, 151.3848" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas> </GrindAreas>
+  <CodeChunks> </CodeChunks>
+</Profile>  
