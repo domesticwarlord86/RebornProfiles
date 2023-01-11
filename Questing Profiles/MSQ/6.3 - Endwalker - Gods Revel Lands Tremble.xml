@@ -9,7 +9,7 @@
 	<Order>
 
 		<If Condition="not IsQuestCompleted(70136)">
-			<Log Message="Must complete Endwalker 6.2 before starting Endwalker 6.3."/>
+			<Log Message="Must complete Endwalker 6.2 before starting Endwalker 6.3." />
 		</If>
 
 		<!-- Once More unto the Void -->
@@ -174,6 +174,248 @@
 			<If Condition="GetQuestStep(70210) == 4">
 				<WaitWhile condition="GetQuestStep(70210) == 4" />
 			</If>
+			<If Condition="GetQuestStep(70210) == 255">
+				<If condition="not IsOnSubMap(4276)">
+					<If condition="not IsOnMap(1119)">
+						<If condition="not IsOnMap(958)">
+							<TeleportTo aetheryteId="172" />
+						</If>
+						<TeleportTo Name="Tertium" AetheryteId="173" />
+						<FlyTo AllowedVariance="1" ZoneId="958" XYZ="464.6012, -17.91364, 717.5854" Land="True" />
+						<UseTransport NpcId="1044263" InteractDistance="3.0" XYZ="466.0563, -18.12358, 718.8982" />
+					</If>
+					<If condition="IsOnSubMap(4285)">
+						<MoveTo ZoneId="1119" XYZ="-18.57346, 398.2739, -817.0815" />
+						<UseTransport NpcId="2013228" InteractDistance="3.0" XYZ="-20.37079, 399.4963, -818.7228" />
+					</If>
+					<If condition="IsOnSubMap(4279) or IsOnSubMap(4277)">
+						<MoveTo XYZ="350.1354, 33.99946, -432.3883" />
+						<UseTransport NpcId="2013230" InteractDistance="3.0" XYZ="350.0876, 34.86682, -433.9514" />
+					</If>
+				</If>
+				<MoveTo XYZ="-250.121, -173, 135.704" />
+				<TurnIn QuestId="70210" NpcId="1044270" XYZ="-247.2114, -173, 131.8837" />
+			</If>
+		</If>
+
+		<!-- A Dragon's Resolve -->
+		<If Condition="IsQuestCompleted(70210) and not IsQuestCompleted(70211)">
+			<If Condition="not HasQuest(70211)">
+				<If condition="not IsOnSubMap(4276)">
+					<If condition="not IsOnMap(1119)">
+						<If condition="not IsOnMap(958)">
+							<TeleportTo aetheryteId="172" />
+						</If>
+						<TeleportTo Name="Tertium" AetheryteId="173" />
+						<FlyTo AllowedVariance="1" ZoneId="958" XYZ="464.6012, -17.91364, 717.5854" Land="True" />
+						<UseTransport NpcId="1044263" InteractDistance="3.0" XYZ="466.0563, -18.12358, 718.8982" />
+					</If>
+					<If condition="IsOnSubMap(4285) or IsOnSubMap(4286)">
+						<MoveTo ZoneId="1119" XYZ="-18.57346, 398.2739, -817.0815" />
+						<UseTransport NpcId="2013228" InteractDistance="3.0" XYZ="-20.37079, 399.4963, -818.7228" />
+					</If>
+					<If condition="IsOnSubMap(4279) or IsOnSubMap(4277)">
+						<MoveTo XYZ="350.1354, 33.99946, -432.3883" />
+						<UseTransport NpcId="2013230" InteractDistance="3.0" XYZ="350.0876, 34.86682, -433.9514" />
+					</If>
+				</If>
+				<MoveTo XYZ="-249.865, -173, 131.3538" />
+				<If Condition="IsQuestAcceptQualified(70211)">
+					<PickupQuest QuestId="70211" NpcId="1044271" />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70211) == 1">
+				<If condition="not IsOnMap(1119)">
+					<If condition="not IsOnMap(958)">
+						<TeleportTo aetheryteId="172" />
+					</If>
+					<TeleportTo Name="Tertium" AetheryteId="173" />
+					<FlyTo AllowedVariance="1" ZoneId="958" XYZ="464.6012, -17.91364, 717.5854" Land="True" />
+					<UseTransport NpcId="1044263" InteractDistance="3.0" XYZ="466.0563, -18.12358, 718.8982" />
+				</If>
+				<If condition="IsOnSubMap(4285) or IsOnSubMap(4286)">
+					<MoveTo ZoneId="1119" XYZ="-18.57346, 398.2739, -817.0815" />
+					<UseTransport NpcId="2013228" InteractDistance="3.0" XYZ="-20.37079, 399.4963, -818.7228" />
+				</If>
+				<If condition="IsOnSubMap(4276) or IsOnSubMap(4277)">
+					<MoveTo XYZ="-407.2832, -120.1351, 363.75" />
+					<UseTransport NpcId="2013231" InteractDistance="3.0" XYZ="-408.835, -117.8149, 371.9692" />
+				</If>
+				<MoveTo XYZ="351.134, 33.99946, -384.19" />
+				<TalkTo NpcId="1044274" XYZ="351.1558, 33.99946, -381.5824" QuestId="70211" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(70211) == 2">
+				<If condition="not IsOnMap(1119)">
+					<If condition="not IsOnMap(958)">
+						<TeleportTo aetheryteId="172" />
+					</If>
+					<TeleportTo Name="Tertium" AetheryteId="173" />
+					<FlyTo AllowedVariance="1" ZoneId="958" XYZ="464.6012, -17.91364, 717.5854" Land="True" />
+					<UseTransport NpcId="1044263" InteractDistance="3.0" XYZ="466.0563, -18.12358, 718.8982" />
+				</If>
+				<If condition="IsOnSubMap(4285) or IsOnSubMap(4286)">
+					<MoveTo ZoneId="1119" XYZ="-18.57346, 398.2739, -817.0815" />
+					<UseTransport NpcId="2013228" InteractDistance="3.0" XYZ="-20.37079, 399.4963, -818.7228" />
+				</If>
+				<If condition="IsOnSubMap(4276) or IsOnSubMap(4277)">
+					<MoveTo XYZ="-407.2832, -120.1351, 363.75" />
+					<UseTransport NpcId="2013231" InteractDistance="3.0" XYZ="-408.835, -117.8149, 371.9692" />
+				</If>
+				<MoveTo XYZ="392.8821, 39.33535, -275.6474" />
+				<UseObject NpcId="2013232" XYZ="393.698, 40.36011, -273.0907" QuestId="70211" StepId="2" />
+			</If>
+			<If Condition="GetQuestStep(70211) == 3">
+				<If condition="IsOnSubMap(4285) or IsOnSubMap(4286)">
+					<MoveTo ZoneId="1119" XYZ="-18.57346, 398.2739, -817.0815" />
+					<UseTransport NpcId="2013228" InteractDistance="3.0" XYZ="-20.37079, 399.4963, -818.7228" />
+				</If>
+				<If condition="IsOnSubMap(4279) or IsOnSubMap(4277)">
+					<MoveTo XYZ="350.1354, 33.99946, -432.3883" />
+					<UseTransport NpcId="2013230" InteractDistance="3.0" XYZ="350.0876, 34.86682, -433.9514" />
+				</If>
+				<MoveTo XYZ="-263.6526, -165.5974, 227.8372" />
+				<UseObject NpcId="2013233" XYZ="-261.1582, -165.3621, 229.0836" QuestId="70211" StepId="3" />
+			</If>
+			<If Condition="GetQuestStep(70211) == 4">
+				<If condition="not IsOnMap(1119)">
+					<If condition="not IsOnMap(958)">
+						<TeleportTo aetheryteId="172" />
+					</If>
+					<TeleportTo Name="Tertium" AetheryteId="173" />
+					<FlyTo AllowedVariance="1" ZoneId="958" XYZ="464.6012, -17.91364, 717.5854" Land="True" />
+					<UseTransport NpcId="1044263" InteractDistance="3.0" XYZ="466.0563, -18.12358, 718.8982" />
+				</If>
+				<MoveTo XYZ="38.0163, 365.9513, -587.7601" />
+				<UseObject NpcId="2013234" XYZ="40.57373, 365.9877, -585.4124" QuestId="70211" StepId="4" />
+			</If>
+			<If Condition="GetQuestStep(70211) == 5">
+				<If condition="not IsOnMap(1119)">
+					<If condition="not IsOnMap(958)">
+						<TeleportTo aetheryteId="172" />
+					</If>
+					<TeleportTo Name="Tertium" AetheryteId="173" />
+					<FlyTo AllowedVariance="1" ZoneId="958" XYZ="464.6012, -17.91364, 717.5854" Land="True" />
+					<UseTransport NpcId="1044263" InteractDistance="3.0" XYZ="466.0563, -18.12358, 718.8982" />
+				</If>
+				<MoveTo XYZ="1.260087, 373.6647, -599.732" />
+				<UseObject NpcId="2013235" XYZ="-2.426208, 374.6853, -601.0071" QuestId="70211" StepId="5" />
+			</If>
+			<If Condition="GetQuestStep(70211) == 255">
+				<If condition="not IsOnMap(958)">
+					<TeleportTo aetheryteId="172" />
+				</If>
+				<FlyTo AllowedVariance="1" ZoneId="958" XYZ="463.9408, -17.16115, 703.3226" Land="True" />
+				<TurnIn QuestId="70211" NpcId="1044284" XYZ="464.3472, -17.20288, 705.0431" />
+			</If>
+		</If>
+
+		<!-- Path' Barred -->
+		<If Condition="IsQuestCompleted(70211) and not IsQuestCompleted(70212)">
+			<If Condition="not HasQuest(70212)">
+				<If condition="not IsOnMap(958)">
+					<TeleportTo aetheryteId="172" />
+				</If>
+				<FlyTo AllowedVariance="1" ZoneId="958" XYZ="463.9408, -17.16115, 703.3226" Land="True" />
+				<If Condition="IsQuestAcceptQualified(70212)">
+					<PickupQuest QuestId="70212" NpcId="1044289" />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70212) == 1">
+				<GetTo ZoneId="963" XYZ="-347.6321, 55, -63.00689" />
+				<UseObject NpcId="2013239" XYZ="-347.4022, 54.97815, -64.89667" QuestId="70212" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(70212) == 2">
+				<If condition="not IsOnMap(957)">
+					<TeleportTo AetheryteId="169" />
+				</If>
+				<FlyTo ZoneId="957" XYZ="-211.7366, 15.16619, 462.0656" />
+				<TalkTo NpcId="1044290" XYZ="-212.6345, 15.26034, 460.3494" QuestId="70212" StepId="2" />
+			</If>
+			<If Condition="GetQuestStep(70212) == 3 and GetQuestById(70212).QuestI8A == 0">
+				<If condition="not IsOnMap(957)">
+					<TeleportTo AetheryteId="170" />
+				</If>
+				<FlyTo AllowedVariance="1" ZoneId="957" XYZ="-558.8969, 9.817461, -581.7118" Land="True" />
+				<TalkTo NpcId="1037648" XYZ="-562.005, 9.817466, -585.1987" QuestId="70212" StepId="3" />
+			</If>
+			<If Condition="GetQuestStep(70212) == 3 and GetQuestById(70212).QuestI8A == 1">
+				<If condition="not IsOnMap(957)">
+					<TeleportTo AetheryteId="170" />
+				</If>
+				<FlyTo AllowedVariance="1" ZoneId="957" XYZ="-585.8755, 9.817476, -589.4794" Land="True" />
+				<TalkTo NpcId="1037647" XYZ="-588.8304, 9.81748, -590.0817" QuestId="70212" StepId="3" />
+			</If>
+			<If Condition="GetQuestStep(70212) == 255">
+				<If condition="not IsOnMap(957)">
+					<TeleportTo AetheryteId="170" />
+				</If>
+				<FlyTo AllowedVariance="1" ZoneId="957" XYZ="-569.642, 9.817484, -572.4911" Land="True" />
+				<TurnIn QuestId="70212" NpcId="1037646" XYZ="-568.9937, 9.817484, -569.8787" />
+			</If>
+		</If>
+
+		<!-- Desires Untold -->
+		<If Condition="IsQuestCompleted(70212) and not IsQuestCompleted(70213)">
+			<If Condition="not HasQuest(70213)">
+				<If condition="not IsOnMap(957)">
+					<TeleportTo AetheryteId="170" />
+				</If>
+				<FlyTo AllowedVariance="1" ZoneId="957" XYZ="-569.642, 9.817484, -572.4911" Land="True" />
+				<If Condition="IsQuestAcceptQualified(70213)">
+					<PickupQuest QuestId="70213" NpcId="1037646" />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70213) == 1">
+				<If condition="not IsOnMap(957)">
+					<TeleportTo AetheryteId="170" />
+				</If>
+				<FlyTo AllowedVariance="1" ZoneId="957" XYZ="-99.08224, 89.34128, -618.84" Land="True" />
+				<TalkTo NpcId="1041091" XYZ="-89.89093, 89.42026, -616.144" QuestId="70213" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(70213) == 2">
+				<If condition="not IsOnMap(957)">
+					<TeleportTo AetheryteId="170" />
+				</If>
+				<FlyTo AllowedVariance="1" ZoneId="957" XYZ="-81.61883, 100.0129, -713.6954" Land="True" />
+				<TalkTo NpcId="1037697" XYZ="-73.74689, 99.94384, -715.4498" QuestId="70213" StepId="2" />
+			</If>
+			<If Condition="GetQuestStep(70213) == 3">
+				<WaitWhile condition="GetQuestStep(70213) == 3" />
+			</If>
+			<If Condition="GetQuestStep(70213) == 4">
+				<UserDialog QuestId="70213" StepId="4" IsBotContinueAllowed="True" DialogText="Please complete the 8-player trial Mount Ordeals." />
+			</If>
+			<If Condition="GetQuestStep(70213) == 5">
+				<WaitWhile condition="GetQuestStep(70213) == 5" />
+			</If>
+			<If Condition="GetQuestStep(70213) == 255">
+				<If condition="not IsOnMap(957)">
+					<TeleportTo AetheryteId="170" />
+				</If>
+				<FlyTo AllowedVariance="1" ZoneId="957" XYZ="-43.37131, 89.42019, -638.2973" Land="True" />
+				<TurnIn QuestId="70213" NpcId="1044291" XYZ="-40.02448, 89.42017, -636.8658" />
+			</If>
+		</If>
+
+		<!-- Gods Revel, Lands Tremble -->
+		<If Condition="IsQuestCompleted(70213) and not IsQuestCompleted(70214)">
+			<If Condition="not HasQuest(70214)">
+				<If condition="not IsOnMap(957)">
+					<TeleportTo AetheryteId="170" />
+				</If>
+				<FlyTo AllowedVariance="1" ZoneId="957" XYZ="-43.37131, 89.42019, -638.2973" Land="True" />
+				<If Condition="IsQuestAcceptQualified(70214)">
+					<PickupQuest QuestId="70214" NpcId="1044291" />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70214) == 1">
+				<GetTo ZoneId="963" XYZ="-340.4203, 55, -66.43823" />
+				<TalkTo NpcId="1039649" XYZ="-336.5377, 55, -69.47443" QuestId="70214" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(70214) == 255">
+        <GetTo ZoneId="963" XYZ="-340.0664, 55, -66.41341"/>
+        <TurnIn QuestId="70214" NpcId="1039645" XYZ="-338.3383, 55, -68.40625"/>
+      </If>
 		</If>
 
 	</Order>
