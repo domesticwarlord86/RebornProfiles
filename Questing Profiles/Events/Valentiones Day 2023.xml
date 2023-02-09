@@ -39,6 +39,12 @@
       </If>
     </If>
 
+    <If Condition="not EmoteUnlocked(234)">
+        <GetTo ZoneId="133" XYZ="-30.9914, 7.249997, -121.9797"/>  
+        <BuyItem NpcId="1043933" XYZ="-29.099, 7.249999, -121.5076" ItemId="36915" ItemCount="1"/>
+        <UseInventoryItem ItemId="36915"/>
+      </If>
+
   </Order>
   <GrindAreas> </GrindAreas>
   <CodeChunks> </CodeChunks>
