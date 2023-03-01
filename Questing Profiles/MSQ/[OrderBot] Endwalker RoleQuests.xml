@@ -4,7 +4,7 @@ Profile: Endwalker Class Quests
 Author: Angles24
 -->
 <Profile>
-	<Name>Endwalker Class Quests</Name>
+	<Name>Endwalker Role Quests</Name>
 	<Order>	 	
 			
 	<If Condition="not IsQuestCompleted(69954)">		
