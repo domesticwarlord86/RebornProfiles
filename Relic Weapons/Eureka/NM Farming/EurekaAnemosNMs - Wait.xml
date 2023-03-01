@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Eureka Anemos NM Farm
+  Authors: Zamphire
+  
+  Settings a NM to one will cause the bot to tagart the mobs that spawn that NM until the NM spawns and 
+  then fights the NM. The profile will go down the list targetting from bottom to top anything set to 1.
+  So if you have to stop the profile it will start back at the top when you start it again. To avoid that,
+  set anything you kill to 0.
+  
+  I also recomend using https://ffxiv-eureka.com/ to keep track of which Fates are ready to be spawned 
+  again.
+  
+  Require Nightfall:
+  Bombadeel
+  The White Rider
+  Fafnir
+  Lamashtu
+  Pazuzu
+  
+  Requires Gales
+  Jahannam
+  Pazuzu
+  
+  I would not recommend doing Amarok, Lamashtu or Pazuzu solo. They are level 20+ mobs and will kill 
+  you synced at 20.
+-->
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY Sabotender "1">
+	<!ENTITY LordOfAnemos "1">
+	<!ENTITY Teles "1">
+	<!ENTITY EmperorOfAnemos "1">
+	<!ENTITY Callisto "1">
+	<!ENTITY Number "1">
+	<!ENTITY Jahannam "1">
+	<!ENTITY Amemet "1">
+	<!ENTITY Caym "1">
+	<!ENTITY Bombadeel "1">
+	<!ENTITY Serket "1">
+	<!ENTITY JudgmentalJulika "1">
+	<!ENTITY TheWhiteRider "1">
+	<!ENTITY Polyphemus "1">
+	<!ENTITY SimurghsStrider "1">
+	<!ENTITY KingHazmat "1">
+	<!ENTITY Fafnir "1">
+	<!ENTITY Amarok "1">
+	<!ENTITY Lamashtu "1">
+	<!ENTITY Pazuzu "1">
+]>
+
+<Profile>
+	<Name>Eureka Anemos NM Farm</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
+		<If condition="not DutyManager.InInstance">
+			<GetTo ZoneId="628" XYZ="-131.8687, -4.999999, 149.1617" />
+			<RunCode name="EnterAnemos" />
+		</If>
+		<While Condition="IsOnMap(732)">
+
+			<MoveTo XYZ="-146.3809, -13.23892, 522.2271" />
+			<WaitWhile
+				condition="(&Sabotender; == 1 and not IsFateActive(1332)) and 
+			(&LordOfAnemos; == 1 and not IsFateActive(1348)) and 
+			(&Teles; == 1 and not IsFateActive(1333)) and
+			(&EmperorOfAnemos; == 1 and not IsFateActive(1328)) and
+			(&Callisto; == 1 and not IsFateActive(1344)) and
+			(&Number; == 1 and not IsFateActive(1347)) and
+			(&Jahannam; == 1 and not IsFateActive(1345)) and
+			(&Amemet; == 1 and not IsFateActive(1334)) and
+			(&Caym; == 1 and not IsFateActive(1335)) and
+			(&Bombadeel; == 1 and not IsFateActive(1336)) and
+			(&Serket; == 1 and not IsFateActive(1339)) and
+			(&JudgmentalJulika; == 1 and not IsFateActive(1346)) and
+			(&TheWhiteRider; == 1 and not IsFateActive(1343)) and
+			(&Polyphemus; == 1 and not IsFateActive(1337)) and
+			(&SimurghsStrider; == 1 and not IsFateActive(1342)) and
+			(&KingHazmat; == 1 and not IsFateActive(1341)) and 
+			(&Fafnir; == 1 and not IsFateActive(1331)) and
+			(&Amarok; == 1 and not IsFateActive(1340)) and
+			(&Lamashtu; == 1 and not IsFateActive(1343)) and
+			(&Pazuzu; == 1 and not IsFateActive(1329))" />
+
+			<!-- Unsafety Dance - Sabotender Corrido 7169 -->
+			<While condition="IsFateActive(1332)">
+				<NoCombatMoveTo XYZ="-363.6261, 80.38705, 41.75959" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1332" MinLevel="1" MaxLevel="80" while="IsFateActive(1332)" MinProgress="95" />
+			</While>
+
+			<!-- The Shadow over Anemos - The Lord of Anemos 7151 -->
+			<While condition="IsFateActive(1348)">
+				<NoCombatMoveTo XYZ="416.1757, 30.27323, 302.081" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1348" MinLevel="1" MaxLevel="80" while="IsFateActive(1348)" MinProgress="95" />
+			</While>
+
+			<!-- Teles House - Teles 7170 -->
+			<While condition="IsFateActive(1333)">
+				<NoCombatMoveTo XYZ="229.9248, 61.39744, 268.9462" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1333" MinLevel="1" MaxLevel="80" while="IsFateActive(1333)" MinProgress="95" />
+			</While>
+
+			<!-- The Swarm Never Sets - The Emperor of Anemos -->
+			<While condition="IsFateActive(1328)">
+				<MoveTo XYZ="-222.6932, 40.15583, 46.34706" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1328" MinLevel="1" MaxLevel="80" while="IsFateActive(1328)" MinProgress="95" />
+			</While>
+
+			<!-- One Missed Callisto - Callisto 7157 -->
+			<While condition="IsFateActive(1344)">
+				<NoCombatMoveTo XYZ="230.3155, 37.57598, 83.42776" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1344" MinLevel="1" MaxLevel="80" while="IsFateActive(1344)" MinProgress="95" />
+			</While>
+
+			<!-- By Numbers - Number 7160-->
+			<While condition="IsFateActive(1347)">
+				<NoCombatMoveTo XYZ="108.9033, 35.23862, 42.58965" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1347" MinLevel="1" MaxLevel="80" while="IsFateActive(1347)" MinProgress="95" />
+			</While>
+
+			<!-- Disinherit the Wind -->
+			<While condition="IsFateActive(1345)">
+				<NoCombatMoveTo XYZ="-136.6911, 43.96676, -109.4387" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1345" MinLevel="1" MaxLevel="80" while="IsFateActive(1345)" MinProgress="95" />
+			</While>
+
+			<!-- Prove Your Amemettle - Amemet 7171-->
+			<While condition="IsFateActive(1334)">
+				<NoCombatMoveTo XYZ="-349.7575, 67.83452, -287.6657" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1334" MinLevel="1" MaxLevel="80" while="IsFateActive(1334)" MinProgress="95" />
+			</While>
+
+			<!-- Caym What May 1335 -->
+			<While condition="IsFateActive(1335)">
+				<NoCombatMoveTo XYZ="-439.2465, 63.15067, -399.555" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1335" MinLevel="1" MaxLevel="80" while="IsFateActive(1335)" MinProgress="95" />
+			</While>
+
+			<!-- The Killing of a Sacred Bombadier 1336 -->
+			<While condition="IsFateActive(1336)">
+				<NoCombatMoveTo XYZ="351.5403, 30.27229, -60.03669" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1336" MinLevel="1" MaxLevel="80" while="IsFateActive(1336)" MinProgress="95" />
+			</While>
+
+			<!-- Short Serket 2 - Serket 7149-->
+			<While condition="IsFateActive(1339)">
+				<NoCombatMoveTo XYZ="159.4795, 34.13159, -174.8837" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1339" MinLevel="1" MaxLevel="80" while="IsFateActive(1339)" MinProgress="95" />
+			</While>
+
+			<!-- Don't Judge Me, Morbol - Judgmental Julika 7165-->
+			<While condition="IsFateActive(1346)">
+				<NoCombatMoveTo XYZ="25.43777,30.26774,-347.7161" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1346" MinLevel="1" MaxLevel="80" while="IsFateActive(1346)" MinProgress="95" />
+			</While>
+
+			<!-- When You Ride Alone 1343 - The White Rider-->
+			<While condition="IsFateActive(1343)">
+				<NoCombatMoveTo XYZ="-88.01479, 41.93786, -410.5361" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1343" MinLevel="1" MaxLevel="80" while="IsFateActive(1343)" MinProgress="95" />
+			</While>
+
+
+			<!-- Sing, Muse 1337 - Polyphemus 7172-->
+			<While condition="IsFateActive(1337)">
+				<NoCombatMoveTo XYZ="262.6284, 33.02279, -351.3528" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1337" MinLevel="1" MaxLevel="80" while="IsFateActive(1337)" MinProgress="95" />
+			</While>
+
+			<!-- Simurghasbord -->
+			<While condition="IsFateActive(1342)">
+				<NoCombatMoveTo XYZ="374.0203, 37.69758, -408.5449" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1342" MinLevel="1" MaxLevel="80" while="IsFateActive(1342)" MinProgress="95" />
+			</While>
+
+			<!-- To The Mat 1341 - King Hazmat 0x2555604E5D0-7152-->
+			<While condition="IsFateActive(1341)">
+				<NoCombatMoveTo XYZ="672.4192,38.07274,-112.5964" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1341" MinLevel="1" MaxLevel="80" while="IsFateActive(1341)" MinProgress="95" />
+			</While>
+
+			<!-- Wind and Honey - Fafnir-->
+			<While condition="IsFateActive(1331)">
+				<NoCombatMoveTo XYZ="698.7631, 40.17636, -3.008595" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1331" MinLevel="1" MaxLevel="80" while="IsFateActive(1331)" MinProgress="95" />
+			</While>
+
+			<!-- I Amarok 1340 - Amarok-->
+			<While condition="IsFateActive(1340)">
+				<NoCombatMoveTo XYZ="-668.6353, 38.57068, -170.7857" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1340" MinLevel="1" MaxLevel="80" while="IsFateActive(1340)" MinProgress="95" />
+			</While>
+
+			<!-- Lamashtu-->
+			<While condition="IsFateActive(1343)">
+				<NoCombatMoveTo XYZ="698.7631, 40.17636, -3.008595" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1343" MinLevel="1" MaxLevel="80" while="IsFateActive(1343)" MinProgress="95" />
+			</While>
+
+			<!-- Wail in the Willows 1329 - Pazuzu -->
+			<While condition="IsFateActive(1329)">
+				<NoCombatMoveTo XYZ="-658.7548, 39.75124, -48.28179" />
+				<RunCode name="LevelSync" />
+				<LLFate FateId="1329" MinLevel="1" MaxLevel="80" while="IsFateActive(1329)" MinProgress="95" />
+			</While>
+
+		</While>
+
+	</Order>
+	<GrindAreas>
+		<GrindArea name="Flowering Sabotender">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-363.4174, 80.25558, 46.99099" />
+				<Hotspot Radius="200" XYZ="-418.8442, 68.79828, 44.29456" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6816" Weight="1" /> <!-- Flowering Sabotender -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Sea Bishop">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="402.7924,30.27303,310.7195" />
+				<Hotspot Radius="200" XYZ="411.9783,30.27317,241.2908" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6820" Weight="1" /> <!-- Sea Bishop -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Anemos Harpeia">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="198.1079,62.37432,263.8438" />
+				<Hotspot Radius="200" XYZ="221.4293, 62.51618, 241.0196" />
+				<Hotspot Radius="200" XYZ="163.8652, 62.4369, 274.9811" />
+				<Hotspot Radius="200" XYZ="227.1915,61.07412,302.0828" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6822" Weight="1" /> <!-- Anemos Harpeia -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Darner">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-269.9474,52.4546,33.12732" />
+				<Hotspot Radius="200" XYZ="-253.5287,47.17178,4.104675" />
+				<Hotspot Radius="200" XYZ="-202.8077,37.04829,83.7262" />
+				<Hotspot Radius="200" XYZ="-264.6983,50.15369,79.20947" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6823" Weight="1" /> <!-- Darner -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Val Bear">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="134.4471,35.30595,16.73914" />
+				<Hotspot Radius="200" XYZ="215.137,38.22984,36.17908" />
+				<Hotspot Radius="200" XYZ="332.7493,40.15518,72.33429" />
+				<Hotspot Radius="200" XYZ="233.2983,37.28926,97.08272" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6826" Weight="1" /> <!-- Val Bear -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Pneumaflayer">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="92.0271,36.39403,67.4906" />
+				<Hotspot Radius="200" XYZ="79.55467,36.60243,15.08381" />
+				<Hotspot Radius="200" XYZ="34.56165,40.57367,54.55103" />
+				<Hotspot Radius="200" XYZ="50.21741,35.22273,153.6736" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6827" Weight="1" /> <!-- Pneumaflayer -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Typhoon Sprite">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-268.3031,44.27249,-102.4448" />
+				<Hotspot Radius="200" XYZ="-286.4577,47.58267,-93.64465" />
+				<Hotspot Radius="200" XYZ="-149.9199,44.31514,-108.8427" />
+				<Hotspot Radius="200" XYZ="-91.47791,44.28447,-110.0024" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6983" Weight="1" /> <!-- Typhoon Sprite -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Abraxas">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-309.1021,63.63382,-305.1652" />
+				<Hotspot Radius="200" XYZ="-309.1021,63.63382,-305.1652" />
+				<Hotspot Radius="200" XYZ="-319.9969,74.37066,-255.1766" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6831" Weight="1" /> <!-- Abraxas -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Stalker Ziz">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-447.8676,62.84487,-327.9012" />
+				<Hotspot Radius="200" XYZ="-380.8195,69.30863,-272.9382" />
+				<Hotspot Radius="200" XYZ="-454.8257,62.5,-426.1082" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6835" Weight="1" /> <!-- Stalker Ziz -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Traveling Gourmand">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="380.5142,32.58107,-62.72986" />
+				<Hotspot Radius="200" XYZ="311.6601, 30.27177, -67.77818" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6987" Weight="1" /> <!-- Traveling Gourmand -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Khor Claw">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="192.6675,37.08435,-130.1375" />
+				<Hotspot Radius="200" XYZ="139.7654,36.55098,-161.7548" />
+				<Hotspot Radius="200" XYZ="249.0603,30.27087,-152.4679" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6837" Weight="1" /> <!-- Khor Claw -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Henbane">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="49.66809,31.95196,-339.4675" />
+				<Hotspot Radius="200" XYZ="-11.91736,33.21018,-358.2056" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6840" Weight="1" /> <!-- Henbane -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Duskfall Dullahan">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-55.6253,37.41953,-421.1758" />
+				<Hotspot Radius="200" XYZ="-103.5004,43.36558,-409.6335" />
+				<Hotspot Radius="200" XYZ="-62.82141,40.95708,-384.6647" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="7185" Weight="1" /> <!-- Duskfall Dullahan -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Monoeye">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="262.6284, 33.02279, -351.3528" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6843" Weight="1" /> <!-- Monoeye -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Old World Zu">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="356.2828,42.2982,-443.4119" />
+				<Hotspot Radius="200" XYZ="415.61,41.12505,-426.4744" />
+				<Hotspot Radius="200" XYZ="393.0876,51.22998,-472.2515" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6845" Weight="1" /> <!-- Old World Zu -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Anemos Anala">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="715.3276,43.07317,-163.7751" />
+				<Hotspot Radius="200" XYZ="690.1503,38.07274,-104.6006" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6974" Weight="1" /> <!-- Anemos Anala -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Fossil Dragon">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="698.7631, 40.17636, -3.008595" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6990" Weight="1" /> <!-- Fossil Dragon -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Voidscale">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-668.6353, 38.57068, -170.7857" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6977" Weight="1" /> <!-- Voidscale -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Val Specter">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-689.367, 22.77899, 249.3274" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6980" Weight="1" /> <!-- Val Specter -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Shadow Wraith">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-659.8459,40.66637,-53.2998" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="6989" Weight="1" /> <!-- Shadow Wraith -->
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+		<CodeChunk Name="LevelSync">
+			<![CDATA[
+				ff14bot.RemoteWindows.ToDoList.LevelSync();
+			]]>			
+		</CodeChunk>
+		<CodeChunk Name="EnterAnemos">
+			<![CDATA[
+				var npcId = GameObjectManager.GetObjectByNPCId(1024517);
+
+					if (!npcId.IsWithinInteractRange)
+
+						{
+							var _target = npcId.Location;
+							Navigator.PlayerMover.MoveTowards(_target);
+							while (_target.Distance2D(Core.Me.Location) >= 4)
+								{
+									Navigator.PlayerMover.MoveTowards(_target);
+									await Coroutine.Sleep(100);
+								}
+									Navigator.PlayerMover.MoveStop();
+								}
+
+					npcId.Interact();
+
+					await Coroutine.Wait(10000, () => SelectString.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					{
+						Logging.WriteDiagnostic("Choosing Eureka Anemos.");
+						SelectString.ClickLineContains("Anemos");;
+					}					
+							
+					await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+					if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+						{
+							Logging.WriteDiagnostic("Selecting Yes.");
+							ff14bot.RemoteWindows.SelectYesno.ClickYes();	
+						}
+
+					await Coroutine.Wait(5000, () => ContentsFinderConfirm.IsOpen);
+					await Buddy.Coroutines.Coroutine.Sleep(500);
+				   
+					if (ff14bot.RemoteWindows.ContentsFinderConfirm.IsOpen)						
+						{
+							Logging.WriteDiagnostic("Commencing Duty.");
+							ff14bot.RemoteWindows.ContentsFinderConfirm.Commence();
+							await Coroutine.Wait(10000, () => CommonBehaviors.IsLoading);
+							   if (CommonBehaviors.IsLoading)
+							   {
+								   await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+							   }									
+						}			
+			]]>			
+		</CodeChunk>
+	</CodeChunks>
+</Profile>	
