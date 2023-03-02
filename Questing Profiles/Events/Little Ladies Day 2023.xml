@@ -8,10 +8,6 @@
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
 
-    <!-- Lisbeth check -->
-    <LisbethCheck />
-
-    <!-- Profile start here -->
     <!-- Inheritance -->
     <If Condition="not IsQuestCompleted(70256)">
       <If Condition="not HasQuest(70256)">
