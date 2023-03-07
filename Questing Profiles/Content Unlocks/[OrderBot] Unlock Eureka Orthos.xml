@@ -8,6 +8,11 @@
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
 
+    <If condition="not IsQuestCompleted(70000)">
+      <LLToast message="You need to complete the MSQ 'Endwalker' before doing this quest" />
+      <StopBot />
+    </If>
+
     <!-- Delve into Myth -->
     <If Condition="not IsQuestCompleted(70199)">
       <If Condition="not HasQuest(70199)">
@@ -25,12 +30,12 @@
         <UseObject NpcId="2013223" XYZ="707.3624, 15.30475, -77.53113" QuestId="70199" StepId="1" />
       </If>
       <If Condition="GetQuestStep(70199) == 2">
-        <GetTo ZoneId="156" XYZ="664.7293, -1.194895, -107.3854"/>  
-        <TalkTo NpcId="1044501" XYZ="664.2709, -1.194895, -105.9435" QuestId="70199" StepId="2"/>
+        <GetTo ZoneId="156" XYZ="664.7293, -1.194895, -107.3854" />
+        <TalkTo NpcId="1044501" XYZ="664.2709, -1.194895, -105.9435" QuestId="70199" StepId="2" />
       </If>
       <If Condition="GetQuestStep(70199) == 255">
-        <GetTo ZoneId="156" XYZ="667.8602, -1.077221, -110.0418"/>  
-        <TurnIn QuestId="70199" NpcId="1044504" XYZ="670.0388, -1.194895, -112.0471"/>
+        <GetTo ZoneId="156" XYZ="667.8602, -1.077221, -110.0418" />
+        <TurnIn QuestId="70199" NpcId="1044504" XYZ="670.0388, -1.194895, -112.0471" />
       </If>
     </If>
 
