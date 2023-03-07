@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Unlock Eureka Orthos
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Unlock Eureka Orthos</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Delve into Myth -->
+    <If Condition="not IsQuestCompleted(70199)">
+      <If Condition="not HasQuest(70199)">
+        <GetTo ZoneId="156" XYZ="18.61017, 20.40118, -664.4239" />
+        <If Condition="IsQuestAcceptQualified(70199)">
+          <PickupQuest QuestId="70199" NpcId="1011655" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70199) == 1">
+        <If condition="not IsOnSubMap(942)">
+          <FlyTo AllowedVariance="1" ZoneId="156" XYZ="573.6008, -1.730147, -262.5804" Land="True" />
+          <UseTransport NpcId="2013310" InteractDistance="3.0" XYZ="572.3506, -0.04577637, -260.5173" />
+        </If>
+        <GetTo ZoneId="156" XYZ="706.0535, 15.33271, -78.40313" />
+        <UseObject NpcId="2013223" XYZ="707.3624, 15.30475, -77.53113" QuestId="70199" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70199) == 2">
+        <GetTo ZoneId="156" XYZ="664.7293, -1.194895, -107.3854"/>  
+        <TalkTo NpcId="1044501" XYZ="664.2709, -1.194895, -105.9435" QuestId="70199" StepId="2"/>
+      </If>
+      <If Condition="GetQuestStep(70199) == 255">
+        <GetTo ZoneId="156" XYZ="667.8602, -1.077221, -110.0418"/>  
+        <TurnIn QuestId="70199" NpcId="1044504" XYZ="670.0388, -1.194895, -112.0471"/>
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas> </GrindAreas>
+  <CodeChunks> </CodeChunks>
+</Profile>  
