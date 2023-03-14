@@ -9,8 +9,8 @@
   <Order>
   	<While Condition="IsOnMap(920)">
 			<Log Message="Starting Bozjan Leveling..." />
-			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,16121615,1616,1617,1618,1622,1624,1628"/>		
-			<LLFate MinLevel="0" MaxLevel="81" while="Core.Me.ElementalLevel == 15" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,16121615,1616,1617,1618,1622,1624,1628"/>		
+			<LLFate MinLevel="0" MaxLevel="81" while="IsOnMap(920) and CurrentMettle() &lt; NextResistanceRank() and Character.IsAlive and Core.Me.ElementalLevel &lt; 25" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1615,1616,1617,1618,1622,1624,1628"/>		
+			<LLFate MinLevel="0" MaxLevel="81" while="Core.Me.ElementalLevel == 25" FateIds="1597,1598,1599,1601,1602,1603,1604,1605,1606,1607,1608,1609,1612,1615,1616,1617,1618,1622,1624,1628"/>		
 
 			<!-- Rank up if ready -->
 			<If condition="CurrentMettle() &gt; NextResistanceRank() and Core.Me.ElementalLevel &lt; 15">

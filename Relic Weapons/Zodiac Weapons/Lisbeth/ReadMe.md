@@ -21,8 +21,7 @@ In the Start.xml you will find a list of items, one for each job. You must buy t
 			Warrior		Barbarian's Bardiche				Battledance Materia III X2
 			White Mage	Madman's Whispering Rod				Quicktongue Materia III X2
 
-You will need ExBuddy installed in your plugins folder which can be found here https://github.com/Entrax643/ExBuddy
-You will need to take the ExTurnInGuildLeveTag.cs file from my Plugins folder and place it in RebornBuddy\Plugins\ExBuddy\OrderBotTags\Behaviors folder, overwriting the current one. This files makes some changes to fix the GuildLeve turn ins.
+You will need ExBuddy installed in your plugins folder which can be found here https://github.com/LlamaMagic/ExBuddy
 
 You will also need to install the latest version of [LlamaLibrary](https://github.com/nt153133/__LlamaLibrary). Make sure you update LlamaLibrary before running the profiles, Kayla is constantly making new tags for this set and you'll need the absolute latest.
 

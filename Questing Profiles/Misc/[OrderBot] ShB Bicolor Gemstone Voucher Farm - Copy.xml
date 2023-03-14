@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Bicolor Gemstone Voucher Farm
+  Authors: Angles24, DomesticWarlord86, nt153133
+  
+-->
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY Vouchers "500">
+	<!ENTITY Rank3Done "1">
+	<!-- What quantity should we get to before cashing in gemstnoes? -->
+	<!ENTITY GemStones "1000">
+	<!-- What zone should we grind in if not using Leveling? -->
+	<!ENTITY Lakeland "1"> 		
+	<!ENTITY Kolusia "0"> 		
+	<!ENTITY AmhAraeng "0"> 
+	<!ENTITY IlMheg "0"> 
+	<!ENTITY RaktikaGreatwood "0"> 
+	<!ENTITY TheTempest "0"> 
+]>
+<Profile>
+	<Name>Bicolor Gemstone Voucher Farm</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
+
+		<If Condition="&Rank3Done; == 0">
+			<LLToast message="Buying vouchers requires you to have Rank 3 Shared Fates in all Endwalker zones." />
+			<LogMessage Message="Buying vouchers requires you to have Rank 3 Shared Fates in all Endwalker zones. Please change Rank3Done '0' to Rank3Done '1' if you have." />
+			<LLToast message="Please change Rank3Done '0' to Rank3Done '1' if you have." />
+		</If>
+
+		<While Condition="ItemCount(35833) &lt; &Vouchers;">
+			<!-- 35833 = Bicolor Gemstone Voucher -->
+			<If condition="ItemCount(26807) &gt; &GemStones; or ItemCount(26807) == &GemStones; and &Rank3Done; == 1">
+				<GetTo ZoneId="962" XYZ="75.72826, 5.15, -36.62057" />
+				<BuyShopExchangeCurrency Dialog="True" NpcId="1037055" ItemId="35833" Count="10" XYZ="78.3551, 5.15, -36.78955" />
+			</If>
+
+
+			<If condition="&Lakeland; == 0 and &Kolusia; == 0 and &AmhAraeng; == 0 and &IlMheg; == 0 and &RaktikaGreatwood; == 0 and &TheTempest; == 0">
+				<LLToast message="Please open the profile and set a zone to 1." />
+			</If>
+
+			<!-- Lakeland -->
+			<If Condition="&Lakeland; == 1">
+				<If condition="not IsOnMap(813)">
+					<TeleportTo AetheryteId="132" /> <!-- Fort Jobb -->
+				</If>
+				<While condition="IsOnMap(813)">
+					<LLFate UseFlight="True" BlacklistIds="1504" MinLevel="0" MaxLevel="81" while="IsOnMap(813)" />
+				</While>
+			</If>
+
+			<!-- Kolusia -->
+			<If Condition="&Kolusia; == 1">
+				<If condition="not IsOnMap(814)">
+					<TeleportTo AetheryteId="138" /> <!-- Wright -->
+				</If>
+				<While condition="IsOnMap(814)">
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="81" while="IsOnMap(814)" />
+				</While>
+			</If>
+
+			<!-- Amh Araeng -->
+			<If Condition="&AmhAraeng; == 1">
+				<If condition="not IsOnMap(815)">
+					<TeleportTo AetheryteId="140" /> <!-- Mord Souq -->
+				</If>
+				<While condition="IsOnMap(815)">
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="81" while="IsOnMap(815)" />
+				</While>
+			</If>
+
+			<!-- Il Mheg -->
+			<If Condition="&IlMheg; == 1">
+				<If condition="not IsOnMap(816)">
+					<TeleportTo AetheryteId="144" /> <!-- Lydha Lran -->
+				</If>
+				<While condition="IsOnMap(816)">
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="81" while="IsOnMap(816)" />
+				</While>
+			</If>
+
+			<!-- Rak'tika Greatwood -->
+			<If Condition="&RaktikaGreatwood; == 1">
+				<If condition="not IsOnMap(817)">
+					<TeleportTo AetheryteId="142" /> <!-- Slitherbough -->
+				</If>
+				<While condition="IsOnMap(817)">
+					<LLFate UseFlight="True" MinLevel="0" MaxLevel="81" while="IsOnMap(817)" />
+				</While>
+			</If>
+
+			<!-- The Tempest -->
+			<If Condition="&TheTempest; == 1">
+				<If condition="not IsOnMap(818)">
+					<TeleportTo AetheryteId="147" /> <!-- The Ondo Cups -->
+				</If>
+				<While condition="IsOnMap(818)">
+					<LLFate UseFlight="False" BlacklistIds="1436,1435" MinLevel="0" MaxLevel="81" while="IsOnMap(818)" />
+				</While>
+			</If>
+		</While>
+
+	</Order>
+	<GrindAreas></GrindAreas>
+	<CodeChunks></CodeChunks>
+</Profile>      

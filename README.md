@@ -99,7 +99,7 @@ No need to ask if anyone's around or for permission to ask -- just go for it!
 [5]: https://shields.io/badge/-Buy%20me%20a%20coffee-FF5E5B?logo=kofi&logoColor=ffffff&labelColor=FF5E5B
 [6]: https://ko-fi.com/domesticwarlord86 "Donate via Ko-Fi"
 [7]: https://www.rebornbuddy.com/ "RebornBuddy"
-[8]: https://github.com/Entrax643/ExBuddy "ExBuddy"
+[8]: https://github.com/LlamaMagic/ExBuddy "ExBuddy"
 [9]: https://www.siune.io/ "Lisbeth"
 [10]: https://github.com/nt153133/__LlamaLibrary "LlamaLibrary"
 [11]: https://discord.gg/rDsFbKr "Magitek Discord"

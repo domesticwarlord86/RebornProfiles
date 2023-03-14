@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name></Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Inheritance -->
+    <If Condition="not IsQuestCompleted(70256)">
+      <If Condition="not HasQuest(70256)">
+        <GetTo ZoneId="130" XYZ="-35.17699, 5, -131.2328" />
+        <If Condition="IsQuestAcceptQualified(70256)">
+          <PickupQuest QuestId="70256" NpcId="1044847" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70256) == 1">
+        <GetTo ZoneId="131" XYZ="-7.471183, 15.00001, -1.718299" />
+        <TalkTo NpcId="1044848" XYZ="-6.454651, 14.99957, -0.2289429" QuestId="70256" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70256) == 2">
+        <If Condition="not IsTodoChecked(70256, 2, 0)">
+          <GetTo ZoneId="130" XYZ="10.92272, 6.999995, -91.32198" />
+          <HandOver ItemId="2003454" NpcId="1044849" XYZ="10.08612, 6.999993, -89.89093" QuestId="70256" />
+        </If>
+        <If Condition="not IsTodoChecked(70256, 2, 1)">
+          <GetTo ZoneId="130" XYZ="-177.451, 18, 59.43797" />
+          <HandOver ItemId="2003454" NpcId="1044850" XYZ="-176.196, 18, 58.24365" QuestId="70256" StepId="2" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70256) == 3">
+        <GetTo ZoneId="131" XYZ="-8.398668, 15.00001, -0.266028" />
+        <HandOver ItemId="2003454" NpcId="1044848" XYZ="-6.454651, 14.99957, -0.2289429" QuestId="70256" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70256) == 4">
+        <If Condition="GetQuestById(70256).QuestI8A == 0">
+          <GetTo ZoneId="131" XYZ="-53.71281, 18, 59.59822" />
+          <TalkTo NpcId="1044851" XYZ="-54.21533, 18, 61.08191" QuestId="70256" StepId="4" />
+        </If>
+        <If Condition="GetQuestById(70256).QuestI8A == 1">
+          <GetTo ZoneId="131" XYZ="132.8787, 4, -65.69888" />
+          <TalkTo NpcId="1044853" XYZ="134.1726, 4, -66.78876" QuestId="70256" StepId="4" />
+        </If>
+        <If Condition="GetQuestById(70256).QuestI8A == 2">
+          <GetTo ZoneId="131" XYZ="104.9271, 4, -93.04869" />
+          <TalkTo NpcId="1044852" XYZ="103.6545, 4, -93.85828" QuestId="70256" StepId="4" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70256) == 5">
+        <GetTo ZoneId="131" XYZ="-8.120028, 15.00001, -0.3293168" />
+        <TalkTo NpcId="1044848" XYZ="-6.454651, 14.99957, -0.2289429" QuestId="70256" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70256) == 255">
+        <GetTo ZoneId="130" XYZ="-23.78221, 7.999999, -99.57597" />
+        <TurnIn QuestId="70256" NpcId="1044854" XYZ="-24.21613, 8, -101.1216" />
+      </If>
+      <UseInventoryItem ItemID="39497" />
+    </If>
+
+    <If Condition="IsQuestCompleted(70256)">
+      <GetTo ZoneId="130" XYZ="-40.91042, 5, -129.2945" />
+      <UserDialog IsBotContinueAllowed="False" DialogText="Royal Handmaiden sells the other two event items if you want them." />
+    </If>
+
+  </Order>
+  <GrindAreas> </GrindAreas>
+  <CodeChunks> </CodeChunks>
+</Profile>  

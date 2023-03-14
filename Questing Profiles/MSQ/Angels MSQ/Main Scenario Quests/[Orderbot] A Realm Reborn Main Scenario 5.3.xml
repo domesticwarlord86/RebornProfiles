@@ -6177,48 +6177,71 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       </If>
       <TurnIn QuestId="66058" NpcId="1006690" XYZ="39.26135, 1.214808, 0.8086548"/>
     </If>
-    <!-- Operation Archon (Level 49) -->
-    <If Condition="IsQuestCompleted(66058) and not HasQuest(66572) and not IsQuestCompleted(66572)">
-      <If Condition="not IsOnMap(140) and not IsOnMap(212)">
-        <GetTo ZoneId="140" XYZ="-480.9181, 18.00103, -386.862"/>
-      </If>
-      <If Condition="IsOnMap(140)">
-        <UseTransport NpcId="2001711" InteractDistance="3.5" XYZ="-480.9181, 18.00103, -386.862"/>
-      </If>
-      <If Condition="IsOnMap(212) and IsOnSubMap(356)">
-        <UseTransport NpcId="2001715" InteractDistance="3.5" XYZ="23.23944, 2.090454, -0.01531982"/>
-      </If>
-      <If Condition="IsQuestAcceptQualified(66572)">
-        <PickupQuest NpcId="1006690" QuestId="66572" XYZ="39.26135, 1.214808, 0.8086548"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(66572) and not IsQuestCompleted(66572) and GetQuestStep(66572) == 1">
-      <If Condition="not IsOnMap(140) and not IsOnMap(212)">
-        <GetTo ZoneId="140" XYZ="-467.277, 22.99698, -475.2117"/>
-      </If>
-      <If Condition="IsOnMap(212) and IsOnSubMap(374)">
-        <UseTransport InteractDistance="3.0" NpcId="2001717" XYZ="25.4978, 2.090454, -0.01531982"/>
-      </If>
-      <If Condition="IsOnMap(212) and IsOnSubMap(356)">
-        <UseTransport InteractDistance="3.0" NpcId="2001716" XYZ="-15.7016, 1.083313, -0.01531982"/>
-      </If>
-      <TalkTo NpcId="1006578" XYZ="-467.277, 22.99698, -475.2117"/>
-    </If>
-    <If Condition="HasQuest(66572) and not IsQuestCompleted(66572) and GetQuestStep(66572) == 2">
-      <GetTo ZoneId="140" XYZ="-396.7804, 27.88318, -739.3149"/>
-      <TalkTo NpcId="1006633" XYZ="-396.7804, 27.88318, -739.3149" QuestId="66572" StepId="2"/>
-    </If>
-    <If Condition="HasQuest(66572) and not IsQuestCompleted(66572) and GetQuestStep(66572) == 3">
-      <GetTo ZoneId="140" XYZ="-662.3484, 63.67578, -805.478"/>
-      <UseObject NpcId="2002252" XYZ="-662.3484, 63.67578, -805.478" QuestId="66572" StepId="3"/>
-    </If>
-    <If Condition="HasQuest(66572) and not IsQuestCompleted(66572) and GetQuestStep(66572) == 4">
-      <RunCode Name="Announce_Manual_Completion"/>
-    </If>
-    <If Condition="HasQuest(66572) and not IsQuestCompleted(66572) and GetQuestStep(66572) == 255">
-      <GetTo ZoneId="140" XYZ="-467.277, 22.99698, -475.2117"/>
-      <TurnIn QuestId="66572" NpcId="1006578" XYZ="-467.277, 22.99698, -475.2117"/>
-    </If>
+		<!-- Operation Archon (Level 49) -->
+		<If Condition="IsQuestCompleted(66058) and not HasQuest(70057) and not IsQuestCompleted(70057) and Core.Player.ClassLevel &gt;= 49">
+			<If Condition="not IsOnMap(140) and not IsOnMap(212)">
+				<GetTo ZoneId="140" XYZ="-480.9181, 18.00103, -386.862"/>
+			</If>
+			<If Condition="IsOnMap(140)">
+				<UseTransport NpcId="2001711" InteractDistance="3.5" XYZ="-480.9181, 18.00103, -386.862"/>
+			</If>
+			<If Condition="IsOnMap(212) and IsOnSubMap(356)">
+				<UseTransport NpcId="2001715" InteractDistance="3.5" XYZ="23.23944, 2.090454, -0.01531982"/>
+			</If>
+			<If Condition="IsQuestAcceptQualified(70057)">
+				<PickupQuest NpcId="1006690" QuestId="70057" XYZ="39.26135, 1.214808, 0.8086548"/>
+			</If>
+		</If>
+		<If Condition="HasQuest(70057) and not IsQuestCompleted(70057) and GetQuestStep(70057) == 1">
+			<If Condition="not IsOnMap(140) and not IsOnMap(212)">
+				<GetTo ZoneId="140" XYZ="-467.277, 22.99698, -475.2117"/>
+			</If>
+			<If Condition="IsOnMap(212) and IsOnSubMap(374)">
+				<UseTransport InteractDistance="3.0" NpcId="2001717" XYZ="25.4978, 2.090454, -0.01531982"/>
+			</If>
+			<If Condition="IsOnMap(212) and IsOnSubMap(356)">
+				<UseTransport InteractDistance="3.0" NpcId="2001716" XYZ="-15.7016, 1.083313, -0.01531982"/>
+			</If>
+			<TalkTo NpcId="1006578" XYZ="-467.277, 22.99698, -475.2117"/>
+		</If>
+		<If Condition="HasQuest(70057) and not IsQuestCompleted(70057) and GetQuestStep(70057) == 2">
+			<GetTo ZoneId="140" XYZ="-396.7804, 27.88318, -739.3149"/>
+			<TalkTo NpcId="1006633" XYZ="-396.7804, 27.88318, -739.3149" QuestId="70057" StepId="2"/>
+		</If>
+		<If Condition="HasQuest(70057) and not IsQuestCompleted(70057) and GetQuestStep(70057) == 3">
+			<GetTo ZoneId="140" XYZ="-662.3484, 63.67578, -805.478"/>
+			<SimpleDuty InteractNpcId="2002252" XYZ="-662.2568,62.33301,-805.478" QuestId="70057" StepId="3">
+				<Hotspots>
+					<Hotspot Radius="90" XYZ="-697.5956, 65.80833, -816.4688" name="Name"/>
+				</Hotspots>
+				<TargetMobs>
+					<!-- Rhitahtyn sas Arvina -->
+					<TargetMob Id="2160" Weight="1"/>
+					<!-- Imperial Pilus Prior -->
+					<TargetMob Id="11276" Weight="1"/>
+					<!-- Imperial Centurion -->
+					<TargetMob Id="11275" Weight="1"/>
+				</TargetMobs>
+			</SimpleDuty>
+		</If>
+		<If Condition="HasQuest(70057) and not IsQuestCompleted(70057) and GetQuestStep(70057) == 4">
+			<WaitWhile condition="not GetQuestStep(70057) == 255"/>
+		</If>
+		<If Condition="HasQuest(70057) and not IsQuestCompleted(70057) and GetQuestStep(70057) == 255">
+			<GetTo ZoneId="140" XYZ="-467.277, 22.99698, -475.2117"/>
+			<If Condition="IsFendingClass()">
+				<TurnIn QuestId="70057" NpcId="1006578" XYZ="-467.277, 22.99698, -475.2117" RewardSlot="0"/>
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsDiscipleofWarClass() and not IsFendingClass()">
+				<TurnIn QuestId="70057" NpcId="1006578" XYZ="-467.277, 22.99698, -475.2117" RewardSlot="1"/>
+				<AutoInventoryEquip/>
+			</If>
+			<If Condition="IsDiscipleofMagicClass()">
+				<TurnIn QuestId="70057" NpcId="1006578" XYZ="-467.277, 22.99698, -475.2117" RewardSlot="2"/>
+				<AutoInventoryEquip/>
+			</If>
+		</If>
     <!-- A Hero in Need (Level 49) -->
     <If Condition="IsQuestCompleted(66572) and not HasQuest(66573) and not IsQuestCompleted(66573)">
       <GetTo ZoneId="140" XYZ="-467.277, 22.99698, -475.2117"/>
@@ -6275,30 +6298,57 @@ Known Issues:  GetTo sometimes doesn't get into range of an Aetheryte.
       <GetTo ZoneId="147" XYZ="-294.8196, 88, -225.1774"/>
       <TurnIn QuestId="69409" NpcId="1006657" XYZ="-294.8196, 88, -225.1774"/>
     </If>
-    <!-- The Ultimate Weapon (Level 50) -->
-    <If Condition="IsQuestCompleted(69409) and not HasQuest(66060) and not IsQuestCompleted(66060)">
-      <GetTo ZoneId="147" XYZ="-294.8196, 88, -225.1774"/>
-      <If Condition="IsQuestAcceptQualified(66060)">
-        <PickupQuest NpcId="1006657" QuestId="66060" XYZ="-294.8196, 88, -225.1774"/>
-      </If>
-    </If>
-    <If Condition="HasQuest(66060) and not IsQuestCompleted(66060) and GetQuestStep(66060) == 1">
-      <GetTo ZoneId="147" XYZ="-115.1904, 47.37239, 28.67163"/>
-      <TalkTo NpcId="1006668" XYZ="-115.1904, 47.37239, 28.67163" QuestId="66060" StepId="1"/>
-    </If>
-    <If Condition="HasQuest(66060) and not IsQuestCompleted(66060) and GetQuestStep(66060) == 2">
-      <RunCode Name="Announce_Manual_Completion"/>
-    </If>
-    <If Condition="HasQuest(66060) and not IsQuestCompleted(66060) and GetQuestStep(66060) == 255">
-      <If Condition="not IsOnMap(212)">
-        <GetTo ZoneId="140" XYZ="-480.9186, 17.99036, -386.862"/>
-        <UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186, 17.99036, -386.862"/>
-      </If>
-      <If Condition="IsOnMap(212) and IsOnSubMap(356)">
-        <UseTransport InteractDistance="3.0" NpcId="2001715" XYZ="23.23944, 2.090454, -0.01531982"/>
-      </If>
-      <TurnIn QuestId="66060" NpcId="1006692" XYZ="39.26135, 1.214808, 0.8086548"/>
-    </If>
+		<!-- The Ultimate Weapon (Level 50) -->
+		<If Condition="IsQuestCompleted(69409) and not HasQuest(70058) and not IsQuestCompleted(70058)">
+			<GetTo ZoneId="147" XYZ="-294.8196, 88, -225.1774"/>
+			<If Condition="IsQuestAcceptQualified(70058)">
+				<PickupQuest NpcId="1006657" QuestId="70058" XYZ="-294.8196, 88, -225.1774"/>
+			</If>
+		</If>
+		<If Condition="GetQuestStep(70058) == 1">
+			<GetTo ZoneId="147" XYZ="-114.1704, 47.37241, 27.34204"/>
+			<LLTalkTo NpcId="1006668" XYZ="-115.1904, 47.37241, 28.67163" QuestId="70058" StepId="1"/>
+		</If>
+		<If Condition="HasQuest(70058) and not IsQuestCompleted(70058) and GetQuestStep(70058) == 2">
+			<LLoadProfile Path="Dungeons/The Praetorium.xml"/>
+		</If>
+		<If Condition="HasQuest(70058) and not IsQuestCompleted(70058) and GetQuestStep(70058) == 3">
+			<WaitWhile condition="GetQuestStep(70058) == 3"/>
+		</If>
+		<If Condition="HasQuest(70058) and not IsQuestCompleted(70058) and GetQuestStep(70058) == 4">
+			<LLoadProfile Path="Dungeons/The Porta Decumana.xml"/>
+		</If>
+		<If Condition="HasQuest(70058) and not IsQuestCompleted(70058) and GetQuestStep(70058) == 5">
+			<WaitWhile condition="GetQuestStep(70058) == 5"/>
+		</If>
+		<If Condition="GetQuestStep(70058) == 6">
+			<MoveTo XYZ="-702.0517, -185.7564, 479.8221"/>
+			<SimpleDuty InteractNpcId="1039201" XYZ="-704.0055,-185.6604,479.9724" QuestId="70058" StepId="6">
+				<Hotspots>
+					<Hotspot Radius="90" XYZ="-697.5956, 65.80833, -816.4688" name="Name"/>
+				</Hotspots>
+				<TargetMobs>
+					<!-- Lahabrea -->
+					<TargetMob Id="2143" Weight="1"/>
+					<!-- Arcane Sphere -->
+					<TargetMob Id="11355" Weight="10"/>
+				</TargetMobs>
+			</SimpleDuty>
+		</If>
+		<If Condition="HasQuest(70058) and not IsQuestCompleted(70058) and GetQuestStep(70058) == 7">
+			<WaitWhile condition="GetQuestStep(70058) == 7"/>
+		</If>
+		<If Condition="HasQuest(70058) and not IsQuestCompleted(70058) and GetQuestStep(70058) == 255">
+			<If Condition="not IsOnMap(212)">
+				<GetTo ZoneId="140" XYZ="-480.9186, 17.99036, -386.862"/>
+				<UseTransport InteractDistance="3.0" NpcId="2001711" XYZ="-480.9186, 17.99036, -386.862"/>
+			</If>
+			<If Condition="IsOnMap(212) and IsOnSubMap(356)">
+				<UseTransport InteractDistance="3.0" NpcId="2001715" XYZ="23.23944, 2.090454, -0.01531982"/>
+			</If>
+			<TurnIn QuestId="70058" NpcId="1006692" XYZ="39.26135, 1.214808, 0.8086548"/>
+			<UseInventoryItem ItemId="6008"/>
+		</If>
     <!-- Moving On (Level 50) 5.3 -->
     <If Condition="IsQuestCompleted(66060) and not HasQuest(69410) and not IsQuestCompleted(69410)">
       <If Condition="not IsOnMap(140) and not IsOnMap(212)">

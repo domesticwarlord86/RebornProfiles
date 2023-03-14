@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Valentiones Day 2023
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Valentiones Day 2023</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Profile start here -->
+    <!-- Suited for Affection -->
+    <If Condition="not IsQuestCompleted(70190)">
+      <If Condition="not HasQuest(70190)">
+        <GetTo ZoneId="133" XYZ="-48.73506, 6.499996, -93.83741" />
+        <If Condition="IsQuestAcceptQualified(70190)">
+          <PickupQuest QuestId="70190" NpcId="1043922" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70190) == 1">
+        <GetTo ZoneId="133" XYZ="-49.21797, 6.499987, -93.78757" />
+        <TalkTo NpcId="1043925" XYZ="-50.91937, 6.499997, -90.40979" QuestId="70190" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70190) == 2">
+        <GetTo ZoneId="133" XYZ="47.01048, 7.997499, -135.064"/>  
+        <TalkTo NpcId="1043926" XYZ="47.01306, 7.998922, -137.438" QuestId="70190" StepId="2"/>
+      </If>
+      <If Condition="GetQuestStep(70190) == 3">
+        <GetTo ZoneId="133" XYZ="138.5991, 13.72613, -107.0542"/>  
+        <TalkTo NpcId="1043927" XYZ="140.0625, 13.72048, -107.4693" QuestId="70190" StepId="3"/>
+      </If>
+      <If Condition="GetQuestStep(70190) == 4">
+        <GetTo ZoneId="133" XYZ="98.65341, 11.09335, -231.3322"/>  
+        <TalkTo NpcId="1043928" XYZ="96.51331, 11.09335, -231.7693" QuestId="70190" StepId="4"/>
+      </If>
+      <If Condition="GetQuestStep(70190) == 255">
+        <GetTo ZoneId="133" XYZ="-49.74199, 6.791865, -125.6359"/>  
+        <TurnIn QuestId="70190" NpcId="1043929" XYZ="-47.50134, 6.79992, -124.9257"/>
+      </If>
+    </If>
+
+    <If Condition="not EmoteUnlocked(234)">
+        <GetTo ZoneId="133" XYZ="-30.9914, 7.249997, -121.9797"/>  
+        <BuyItem NpcId="1043933" XYZ="-29.099, 7.249999, -121.5076" ItemId="36915" ItemCount="1"/>
+        <UseInventoryItem ItemId="36915"/>
+      </If>
+
+  </Order>
+  <GrindAreas> </GrindAreas>
+  <CodeChunks> </CodeChunks>
+</Profile>  
