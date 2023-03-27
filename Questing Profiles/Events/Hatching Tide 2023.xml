@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Hatching Tide 2023
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Hatching Tide 2023</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Get Along and Play Knife -->
+    <If Condition="not IsQuestCompleted(70257)">
+      <If Condition="not HasQuest(70257)">
+        <GetTo ZoneId="133" XYZ="-49.77758, 6.499985, -92.42533" />
+        <If Condition="IsQuestAcceptQualified(70257)">
+          <PickupQuest QuestId="70257" NpcId="1044974" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70257) == 1">
+        <GetTo ZoneId="133" XYZ="-49.77758, 6.499985, -92.42533" />
+        <TalkTo NpcId="1044977" XYZ="-51.62134, 6.5, -89.76886" QuestId="70257" StepId="1" />
+      </If>
+      <While Condition="GetQuestStep(70257) == 2">
+        <If condition="not Core.Player.HasAura(2579)">
+          <GetTo ZoneId="133" XYZ="-49.77758, 6.499985, -92.42533" />
+          <TalkTo NpcId="1044977" XYZ="-51.62134, 6.5, -89.76886" QuestId="70257" />
+        </If>
+        <If Condition="GetQuestStep(70257) == 2 and GetQuestById(70257).QuestI8A == 0 and Core.Player.HasAura(2579)">
+          <GetTo ZoneId="133" XYZ="-17.39398, 7.845073, -152.259" />
+          <TalkTo NpcId="1044982" XYZ="-18.60083, 8.101704, -154.0399" QuestId="70257" StepId="2" />
+        </If>
+        <If Condition="GetQuestStep(70257) == 2 and GetQuestById(70257).QuestI8A == 1 and Core.Player.HasAura(2579)">
+          <GetTo ZoneId="133" XYZ="14.50952, 7.10151, -105.746" />
+          <TalkTo NpcId="1044983" XYZ="14.48077, 7.247241, -103.7767" QuestId="70257" StepId="2" />
+        </If>
+        <If Condition="GetQuestStep(70257) == 2 and GetQuestById(70257).QuestI8A == 2 and Core.Player.HasAura(2579)">
+          <GetTo ZoneId="133" XYZ="40.25775, 0, -127.8333" />
+          <TalkTo NpcId="1044984" XYZ="38.49854, 0, -126.3295" QuestId="70257" StepId="2" />
+        </If>
+      </While>
+      <If Condition="GetQuestStep(70257) == 3">
+        <GetTo ZoneId="133" XYZ="-51.27127, 6.49998, -92.95214" />
+        <TalkTo NpcId="1044977" XYZ="-51.62134, 6.5, -89.76886" QuestId="70257" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70257) == 255">
+        <GetTo ZoneId="133" XYZ="-51.27127, 6.49998, -92.95214" />
+        <TurnIn QuestId="70257" NpcId="1044974" XYZ="-49.94281, 6.5, -89.34155" />
+      </If>
+    </If>
+
+    <!-- Chaos, Carnage, Eggs -->
+    <If Condition="IsQuestCompleted(70257) and not IsQuestCompleted(70258)">
+      <If Condition="not HasQuest(70258)">
+        <GetTo ZoneId="133" XYZ="-51.28624, 6.302983, -94.93586" />
+        <If Condition="IsQuestAcceptQualified(70258)">
+          <PickupQuest QuestId="70258" NpcId="1044977" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70258) == 1">
+        <If condition="not IsOnMap(148)">
+          <TeleportTo AetheryteId="3" />
+        </If>
+        <FlyTo XYZ="175.7891, -32.79106, 367.6686" Land="True" />
+        <UserDialog QuestId="70258" StepId="1" IsBotContinueAllowed="True" DialogText="Please complete the fate 'Don't Be Sylphish' manually." />
+      </If>
+      <If Condition="GetQuestStep(70258) == 255">
+        <GetTo ZoneId="133" XYZ="-51.12077, 5.883296, -95.55787" />
+        <TurnIn QuestId="70258" NpcId="1044974" XYZ="-49.94281, 6.5, -89.34155" />
+      </If>
+    </If>
+
+    <If Condition="IsQuestCompleted(70257) and IsQuestCompleted(70258)">
+      <UseInventoryItem ItemId="39500" />
+      <GetTo ZoneId="133" XYZ="-49.59742, 6.123432, -104.2119" />
+      <UserDialog IsBotContinueAllowed="True" DialogText="The NPC Draemer sells the Tonberry outfit. You should have enough eggs to buy a set if you want it." />
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
