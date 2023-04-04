@@ -235,6 +235,7 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 				<PickupQuest NpcId="1026932" QuestId="68729" />
 			</If>
 			<If Condition="GetQuestStep(68729) &lt; 255">
+				<LisbethTravel ZoneId="135" XYZ="-108.0491, 1.502605, 749.1415" />				
 				<TalkTo InteractDistance="3.0" QuestId="68729" StepId="1" NpcId="1026934" XYZ="-108.0491, 1.502605, 749.1415" />
 				<SetBluActive Spells="11385"/> <!-- Water cannon -->
 				<WaitTimer WaitTime="2" />	
