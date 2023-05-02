@@ -84,7 +84,7 @@
 			<TeleportTo AetheryteId="142"/> <!-- Slitherbough -->
 		</If>
 		<While condition="IsOnMap(817)">
-			<LLFate UseFlight="True" MinLevel="0" MaxLevel="81" while="IsOnMap(817)"/>	
+			<LLFate UseFlight="True" MinLevel="0" BlacklistIds="1430" MaxLevel="81" while="IsOnMap(817)"/>	
 		</While>	
 	</If>	
 	
@@ -94,7 +94,7 @@
 			<TeleportTo AetheryteId="147"/> <!-- The Ondo Cups -->
 		</If>
 		<While condition="IsOnMap(818)">		
-			<LLFate UseFlight="False" BlacklistIds="1436,1435" MinLevel="0" MaxLevel="81" while="IsOnMap(818)"/>	
+			<LLFate UseFlight="False" BlacklistIds="1436,1435,1430,1434" MinLevel="0" MaxLevel="81" while="IsOnMap(818)"/>	
 		</While>	
 	</If>	
   
