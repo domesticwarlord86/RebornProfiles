@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Make It Rain 2023
+  Authors: DomesticWarlord
+-->
+<Profile>
+  <Name>Make It Rain 2023</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- A Golden Opportunity -->
+    <If Condition="not IsQuestCompleted(70263)">
+      <If Condition="not HasQuest(70263)">
+        <GetTo ZoneId="130" XYZ="-90.76863, 4, -103.8465" />
+        <If Condition="IsQuestAcceptQualified(70263)">
+          <PickupQuest QuestId="70263" NpcId="1044881" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70263) == 1">
+        <GetTo ZoneId="144" XYZ="-33.92985, 3.814697E-06, 43.5124" />
+        <TalkTo NpcId="1044882" XYZ="-34.47015, 3.814697E-06, 46.12793" QuestId="70263" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70263) == 2">
+        <GetTo ZoneId="144" XYZ="-33.92985, 3.814697E-06, 43.5124" />
+        <TalkTo NpcId="1044882" XYZ="-34.47015, 3.814697E-06, 46.12793" QuestId="70263" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70263) == 3 and GetQuestById(70263).QuestI8A == 0">
+        <GetTo ZoneId="144" XYZ="-7.511044, 20.99973, 42.71926" />
+        <TalkTo NpcId="1044887" XYZ="-5.630676, 20.99973, 41.36719" QuestId="70263" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70263) == 3 and GetQuestById(70263).QuestI8A == 17">
+        <GetTo ZoneId="144" XYZ="-55.22242, 3.283395, -48.46342" />
+        <TalkTo NpcId="1044886" XYZ="-56.87042, 5.81366, -46.06708" QuestId="70263" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70263) == 255">
+        <GetTo ZoneId="144" XYZ="-35.58609, 3.814697E-06, 46.08128" />
+        <TurnIn QuestId="70263" NpcId="1045053" XYZ="-32.57806, 3.814697E-06, 46.34167" />
+      </If>
+    </If>
+
+    <!-- Hearts of Gold -->
+    <If Condition="not IsQuestCompleted(70264) and IsQuestCompleted(70263)">
+      <If Condition="not HasQuest(70264)">
+        <GetTo ZoneId="144" XYZ="-32.80761, 3.814697E-06, 43.51586" />
+        <If Condition="IsQuestAcceptQualified(70264)">
+          <PickupQuest QuestId="70264" NpcId="1045053" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70264) == 1">
+        <GetTo ZoneId="144" XYZ="-25.36662, 3.814697E-06, 19.35739" />
+        <RunCode name="Quest"/>
+      </If>
+      <If Condition="GetQuestStep(70264) == 255">
+        <GetTo ZoneId="144" XYZ="-33.39843, 3.814697E-06, 43.59954" />
+        <TurnIn QuestId="70264" NpcId="1045053" XYZ="-32.57806, 3.814697E-06, 46.34167" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="Quest">
+      <![CDATA[
+      var npc = GameObjectManager.GetObjectByNPCId(1044890);
+
+      while (!SelectYesno.IsOpen && !Talk.DialogOpen)
+      {
+          // Movement
+          if (Core.Me.Distance2D(npc.Location) > 2.5)
+          {
+              Logging.WriteDiagnostic($"Moving to {{npc.Location}}");
+              await LlamaLibrary.Helpers.Navigation.FlightorMove(npc.Location);
+              await CommonTasks.Land();
+          }
+
+          npc.Interact();
+          await Coroutine.Wait(5000, () => SelectYesno.IsOpen || Talk.DialogOpen);
+      }
+
+      while (!SelectYesno.IsOpen)
+      {
+          Talk.Next();
+          await Coroutine.Wait(500, () => !Talk.DialogOpen);
+          await Coroutine.Wait(500, () => Talk.DialogOpen);
+          await Coroutine.Yield();
+      }
+
+      if (SelectYesno.IsOpen)
+      {
+          SelectYesno.Yes();
+          await Coroutine.Wait(5000, () => !SelectYesno.IsOpen);
+      }
+
+      while (!SelectString.IsOpen)
+      {
+          Talk.Next();
+          await Coroutine.Wait(500, () => !Talk.DialogOpen);
+          await Coroutine.Wait(500, () => Talk.DialogOpen);
+          await Coroutine.Yield();
+      }
+
+      if (SelectString.IsOpen)
+      {
+          SelectString.ClickSlot(0);
+          await Coroutine.Wait(5000, () => !SelectString.IsOpen || Talk.DialogOpen);
+      }
+
+      while (!SelectString.IsOpen)
+      {
+          Talk.Next();
+          await Coroutine.Wait(500, () => !Talk.DialogOpen);
+          await Coroutine.Wait(500, () => Talk.DialogOpen);
+          await Coroutine.Yield();
+      }
+
+
+      if (SelectString.IsOpen)
+      {
+          SelectString.ClickSlot(4);
+          await Coroutine.Wait(5000, () => !SelectString.IsOpen || Talk.DialogOpen);
+      }
+
+      while (!SelectYesno.IsOpen)
+      {
+          Talk.Next();
+          await Coroutine.Wait(500, () => !Talk.DialogOpen);
+          await Coroutine.Wait(500, () => Talk.DialogOpen);
+          await Coroutine.Yield();
+      }
+
+      
+      if (SelectYesno.IsOpen)
+      {
+          SelectYesno.Yes();
+          await Coroutine.Wait(5000, () => !SelectYesno.IsOpen);
+      }
+
+      while (QuestLogManager.GetQuestStep(70264) == 1)
+      {
+          Talk.Next();
+          await Coroutine.Wait(500, () => !Talk.DialogOpen);
+          await Coroutine.Wait(500, () => Talk.DialogOpen);
+          await Coroutine.Yield();
+      }
+      ]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile>  
