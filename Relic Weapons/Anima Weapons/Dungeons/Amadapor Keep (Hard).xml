@@ -3,60 +3,59 @@
   Authors: Zamphire
   Code Credit: TuckMeIntoBread, Kayla.
 -->
-
 <!DOCTYPE Profile [
-<!-- Profile Settings -->
-<!ENTITY openchest "0">
+	<!-- Profile Settings -->
+	<!ENTITY openchest "0">
 ]>
 
 <Profile>
-  <Name>Amdapor Keep (Hard)</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-  
-	<If condition="not DutyManager.InInstance">
-		<LLJoinDuty DutyId="29"/>
-	</If>
-	
-	<If condition="DutyManager.InInstance">
-	
-		<!-- Defeat Anchag 0/1 -->
-		<If Condition="GetInstanceTodo(0) == 0">
-			<Log Message="Defeat Anchag 0/1" />	
-			<BotSettings AutoEquip="1" />		
-			<MoveTo XYZ="-195.715, -4.2, -12.56144"/> 
-			<MoveTo XYZ="-196.2028, -3.893683, -50.53947" usemesh="false"/> 
-			<MoveTo XYZ="-40.83026, -1.192093E-07, -73.19474"/> <!-- Move to second door -->
-			<MoveTo XYZ="-124.1642, -2.400007, -17.67889" />
-			<Grind GrindRef="FirstBoss" while="not GameObjectManager.GetObjectByNPCId(3272).CurrentHealth == 0"/>
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="-124.7425,-2.822998,4.653992" />
-				<LLOpenChest/>
+	<Name>Amdapor Keep (Hard)</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
+
+		<If condition="not DutyManager.InInstance">
+			<LLJoinDuty DutyId="29" />
+		</If>
+
+		<If condition="DutyManager.InInstance">
+
+			<!-- Defeat Anchag 0/1 -->
+			<If Condition="GetInstanceTodo(0) == 0">
+				<Log Message="Defeat Anchag 0/1" />
+				<BotSettings AutoEquip="1" />
+				<MoveTo XYZ="-195.715, -4.2, -12.56144" />
+				<MoveTo XYZ="-196.2028, -3.893683, -50.53947" usemesh="false" />
+				<MoveTo XYZ="-40.83026, -1.192093E-07, -73.19474" /> <!-- Move to second door -->
+				<MoveTo XYZ="-124.1642, -2.400007, -17.67889" />
+				<Grind GrindRef="FirstBoss" while="not GameObjectManager.GetObjectByNPCId(3272).CurrentHealth == 0" />
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="-124.7425,-2.822998,4.653992" />
+					<LLOpenChest />
+				</If>
+				<MoveTo XYZ="-99.75941, 0.7172974, 41.30316" /> <!-- Move to zone line  -->
+				<LLChangeZone Heading="2.25179" />
 			</If>
-			<MoveTo XYZ="-99.75941, 0.7172974, 41.30316"/> <!-- Move to zone line  -->
-			<LLChangeZone Heading="2.25179"/>			
-		</If>		
-		
-		<!-- Defeat the boogyman 0/1 -->
-		<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
-			<Log Message="Defeat the boogyman 0/1" />				
-			<MoveTo XYZ="121.0552, 44.09124, -0.2463364"/> <!-- Move to first door in second zone  -->
-			<MoveTo XYZ="199.6147, 44, -95.99203"/> <!-- Move to second door in second zone  -->
-			<MoveTo XYZ="199.5847, 43.99998, -133.8064" /> <!-- Move to second boss Boogyman   -->
-			<While condition="GetInstanceTodo(1) == 0">	
+
+			<!-- Defeat the boogyman 0/1 -->
+			<If Condition="GetInstanceTodo(1) == 0 and GetInstanceTodo(0) == 1">
+				<Log Message="Defeat the boogyman 0/1" />
+				<MoveTo XYZ="121.0552, 44.09124, -0.2463364" /> <!-- Move to first door in second zone  -->
+				<MoveTo XYZ="199.6147, 44, -95.99203" /> <!-- Move to second door in second zone  -->
+				<MoveTo XYZ="199.5847, 43.99998, -133.8064" /> <!-- Move to second boss Boogyman   -->
+				<While condition="GetInstanceTodo(1) == 0">
 					<If condition="ObjectExistsWithId(3274) and GetInstanceTodo(1) == 0">
 						<If condition="not GameObjectManager.GetObjectByNPCId(3274).CurrentHealth == 0">
-							<Log Message="Fighting Boogyman 1" />	
+							<Log Message="Fighting Boogyman 1" />
 							<While Condition="GameObjectManager.GetObjectByNPCId(3274).IsTargetable and GetInstanceTodo(1) == 0">
-								<Grind GrindRef="Boogyman" While="GameObjectManager.GetObjectByNPCId(3274).IsTargetable"/>
+								<Grind GrindRef="Boogyman" While="GameObjectManager.GetObjectByNPCId(3274).IsTargetable" />
 							</While>
-						</If>	
+						</If>
 					</If>
-					<If condition="ObjectExistsWithId(3275) and GetInstanceTodo(1) == 0">	
+					<If condition="ObjectExistsWithId(3275) and GetInstanceTodo(1) == 0">
 						<If condition="not GameObjectManager.GetObjectByNPCId(3275).CurrentHealth == 0">
-							<Log Message="Fighting Boogyman 2" />	
+							<Log Message="Fighting Boogyman 2" />
 							<While Condition="GameObjectManager.GetObjectByNPCId(3275).IsTargetable and GetInstanceTodo(1) == 0">
-								<Grind GrindRef="Boogyman" While="GameObjectManager.GetObjectByNPCId(3275).IsTargetable"/>
+								<Grind GrindRef="Boogyman" While="GameObjectManager.GetObjectByNPCId(3275).IsTargetable" />
 							</While>
 						</If>
 					</If>
@@ -65,9 +64,9 @@
 							<If condition="not GameObjectManager.GetObjectByNPCId(3276).CurrentHealth == 0">
 								<If Condition="not GameObjectManager.GetObjectByNPCId(3274).IsTargetable">
 									<Log Message="Killing Luminescence" />
-									<WaitTimer WaitTime="5"/>
-									<Grind GrindRef="Luminescence" While="not GameObjectManager.GetObjectByNPCId(3276).CurrentHealth == 0"/>
-									<RunCode Name="BoogymanFight"/>
+									<WaitTimer WaitTime="5" />
+									<Grind GrindRef="Luminescence" While="not GameObjectManager.GetObjectByNPCId(3276).CurrentHealth == 0" />
+									<RunCode Name="BoogymanFight" />
 								</If>
 							</If>
 						</If>
@@ -75,20 +74,20 @@
 							<If condition="not GameObjectManager.GetObjectByNPCId(3276).CurrentHealth == 0">
 								<If Condition="not GameObjectManager.GetObjectByNPCId(3275).IsTargetable">
 									<Log Message="Killing Luminescence" />
-									<WaitTimer WaitTime="5"/>
-									<Grind GrindRef="Luminescence" While="not GameObjectManager.GetObjectByNPCId(3276).CurrentHealth == 0"/>
-									<RunCode Name="BoogymanFight"/>
+									<WaitTimer WaitTime="5" />
+									<Grind GrindRef="Luminescence" While="not GameObjectManager.GetObjectByNPCId(3276).CurrentHealth == 0" />
+									<RunCode Name="BoogymanFight" />
 								</If>
 							</If>
-						</If>			
-					</If>	
-			</While>	
-		<!--
+						</If>
+					</If>
+				</While>
+				<!--
 		Luminescence 0x177877C7870-3276
 			<HotSpot XYZ="186.0837,44.05861,-140.856" Radius="75" />
 			Luminescence 0x177877C7870, IsVisible: True, IsTargetable: True, CanAttack: True, CurrentHealth: 7139	
 			-->
-		<!--
+				<!--
 		Start of fight
 			Boogyman 0x177877AF210-3274
 				<HotSpot XYZ="200.1962,44,-153.6554" Radius="75" />
@@ -98,190 +97,95 @@
 			Boogyman 0x177877C7870 3275, IsVisible: True, IsTargetable: True, CanAttack: True, CurrentHealth: 14389	
 			Irradiated 617
 		-->
-		<!--
+				<!--
 		Bloodmoon Sacrifice 0x177877AC6B0-3277
 			<HotSpot XYZ="207.3853,44,-164.0192" Radius="75" />
 		-->
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="199.8672, 44, -164.1378" />
-				<LLOpenChest/>
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="199.8672, 44, -164.1378" />
+					<LLOpenChest />
+				</If>
+				<MoveTo XYZ="199.6828,44.1639,-180.3924" /> <!-- Move to Astral Flow   -->
+				<RunCode Name="AstralFlow1" />
 			</If>
-			<MoveTo XYZ="199.6828,44.1639,-180.3924"/> <!-- Move to Astral Flow   -->
-			<RunCode Name="AstralFlow1"/>
-		</If>
 
-		<!-- Defeat Ferdiad 0/1 -->
-		<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
-			<Log Message="Defeat Ferdiad 0/1" />			
-			<MoveTo XYZ="200.0941,-7.629395E-06,0.05024901"/> <!-- Move to Fell Orb   -->
-			<RunCode Name="FellOrb"/>
-			<Grind GrindRef="FelOrbTrial" While="not GameObjectManager.GetObjectByNPCId(2004707).IsTargetable" />
-			<RunCode Name="AstralFlow2"/>	
-			<MoveTo XYZ="200.424, -7.748604E-06, 211.5954"/> <!-- Move to final boss room   -->
-			<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(3280).CurrentHealth == 0" />
-			<If Condition="ClassName == ((ClassJobType.Astrologian))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13623">
-					<Log Message="Equipping Animated Berimbau" />
-					<RunCode Name="AnimatedAtlas" />
-					<WaitTimer WaitTime="3" />
+			<!-- Defeat Ferdiad 0/1 -->
+			<If Condition="GetInstanceTodo(2) == 0 and GetInstanceTodo(1) == 1">
+				<Log Message="Defeat Ferdiad 0/1" />
+				<MoveTo XYZ="200.0941,-7.629395E-06,0.05024901" /> <!-- Move to Fell Orb   -->
+				<RunCode Name="FellOrb" />
+				<Grind GrindRef="FelOrbTrial" While="not GameObjectManager.GetObjectByNPCId(2004707).IsTargetable" />
+				<RunCode Name="AstralFlow2" />
+				<MoveTo XYZ="200.424, -7.748604E-06, 211.5954" /> <!-- Move to final boss room   -->
+				<Grind GrindRef="FinalBoss" While="not GameObjectManager.GetObjectByNPCId(3280).CurrentHealth == 0" />
+				<EquipAnima />
+				<If Condition="&openchest; == 1">
+					<MoveTo XYZ="200.183,-0.01531982,235.5229" />
+					<LLOpenChest />
+				</If>
+				<While condition="DutyManager.InInstance">
+					<WaitTimer WaitTime="5" />
+					<LLLeaveDuty />
 				</While>
 			</If>
-			<If Condition="ClassName == ((ClassJobType.BlackMage))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13620">
-					<Log Message="Equipping Animated Lunaris Rod" />
-					<RunCode Name="AnimatedLunarisRod" />
-					<WaitTimer WaitTime="3" />
-				</While>
-			</If>			
-			<If Condition="ClassName == ((ClassJobType.Bard))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13615">
-					<Log Message="Equipping Animated Berimbau" />
-					<RunCode Name="AnimatedBerimbau" />
-					<WaitTimer WaitTime="3" />
-				</While>
-			</If>
-			<If Condition="ClassName == ((ClassJobType.Dragoon))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13614">
-					<Log Message="Equipping Animated Brionac" />
-					<RunCode Name="AnimatedBrionac" />
-					<WaitTimer WaitTime="3" />
-				</While>
-			</If>
-			<If Condition="ClassName == ((ClassJobType.Machinist))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13618">
-					<Log Message="Equipping Animated Ferdinand" />
-					<RunCode Name="AnimatedFerdinand" />
-					<WaitTimer WaitTime="3" />
-				</While>
-			</If>
-			<If Condition="ClassName == ((ClassJobType.Monk))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13612">
-					<Log Message="Equipping Animated Rising Suns" />
-					<RunCode Name="AnimatedRisingSuns" />
-					<WaitTimer WaitTime="3" />
-				</While>
-			</If>
-			<If Condition="ClassName == ((ClassJobType.Ninja))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13616">
-					<Log Message="Equipping Animated Yukimitsu" />
-					<RunCode Name="AnimatedYukimitsu" />
-					<WaitTimer WaitTime="3" />
-				</While>
-			</If>
-			<If Condition="ClassName == ((ClassJobType.Paladin))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13616">
-					<Log Message="Equipping Animated Hauteclaire" />
-					<RunCode Name="AnimatedHauteclaire" />
-					<WaitTimer WaitTime="3" />
-				</While>
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand].RawItemId != 13624">
-					<Log Message="Equipping Animated Prytwen" />
-					<RunCode Name="AnimatedPrytwen" />
-					<WaitTimer WaitTime="3" />
-				</While>				
-			</If>
-			<If Condition="ClassName == ((ClassJobType.Scholar))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13622">
-					<Log Message="Equipping Animated Elements" />
-					<RunCode Name="AnimatedElements" />
-					<WaitTimer WaitTime="3" />
-				</While>
-			</If>
-			<If Condition="ClassName == ((ClassJobType.Summoner))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13621">
-					<Log Message="Equipping Animated Almandal" />
-					<RunCode Name="AnimatedAlmandal" />
-					<WaitTimer WaitTime="3" />
-				</While>
-			</If>			
-			<If Condition="ClassName == ((ClassJobType.Warrior))"> 
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13613">
-					<Log Message="Equipping Animated Parashu" />
-					<RunCode Name="AnimatedParashu" />
-					<WaitTimer WaitTime="3" />
-				</While>
-			</If>
-						<If Condition="ClassName == ((ClassJobType.DarkKnight))"> 	
-			<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13617">
-					<Log Message="Equipping Animated Deathbringer " />
-					<RunCode Name="AnimatedDeathbringer" />
-					<WaitTimer WaitTime="3" />
-				</While>
-			</If>
-			<If Condition="ClassName == ((ClassJobType.WhiteMage))">  
-				<While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 13613">
-					<Log Message="Equipping Animated Seraph Cane " />
-					<RunCode Name="AnimatedSeraphCane" />
-					<WaitTimer WaitTime="3" />
-				</While>
-			</If>			
-			<If Condition="&openchest; == 1">
-				<MoveTo XYZ="200.183,-0.01531982,235.5229" />
-				<LLOpenChest/>
-			</If>
-			<While condition="DutyManager.InInstance">	
-				<WaitTimer WaitTime="5" />
-				<LLLeaveDuty/>
-			</While>
+
 		</If>
-		
-	</If>
-  </Order>
-  <GrindAreas>
-	<GrindArea name="FirstBoss">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="-124.4068,-2.800006,10.84912" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Id="3272" Weight="1000" /> <!-- Anchag -->
-        </TargetMobs>
-	</GrindArea>  
-	<GrindArea name="FelOrbTrial">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="200.0941,-7.629395E-06,0.05024901" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Name="Void Syrup" Id="3268" Weight="1" />
-			<TargetMob Name="Faultfinder" Id="3269" Weight="1" />	
-			<TargetMob Name="Skainsmate " Id="3270" Weight="1" />	
-			<TargetMob Name="Vodoriga Slicer" Id="3266" Weight="1" />	
-			<TargetMob Name="Gneissic Gargoyle" Id="3267" Weight="1" />	
-			<TargetMob Name="Bloodlapper" Id="1695" Weight="1" />				
-        </TargetMobs>		
-	</GrindArea>
-	<GrindArea name="Boogyman">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="200.1962,44,-153.6554" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Name="Boogyman" Id="3274" Weight="1" />
-			<TargetMob Name="Boogyman" Id="3275" Weight="1" />
-			<TargetMob Name="Bloodmoon Sacrifice" Id="3277" Weight="2" />					
-        </TargetMobs>		
-	</GrindArea>
-	<GrindArea name="Luminescence">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="200.1962,44,-153.6554" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Name="Luminescence" Id="3276" Weight="1" />
-			<TargetMob Name="Bloodmoon Sacrifice" Id="3277" Weight="2" />
-        </TargetMobs>		
-	</GrindArea>	
-	<GrindArea name="FinalBoss">
-        <Hotspots>
-			<Hotspot Radius="200" XYZ="200.0017,-4.768372E-06,235.6905" />
-        </Hotspots>
-        <TargetMobs>
-			<TargetMob Name="Ferdiad " Id="3280" Weight="1" />
-			<TargetMob Name="Wicked Jester" Id="3283" Weight="1000" />
-			<TargetMob Name="Suppuration " Id="3284" Weight="1000" />
-			<TargetMob Name="Troubadour " Id="3286" Weight="1000" />	
-        </TargetMobs>		
-	</GrindArea>	
-  </GrindAreas>	
-    <CodeChunks>
-    <CodeChunk Name="BoogymanFight">
+	</Order>
+	<GrindAreas>
+		<GrindArea name="FirstBoss">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="-124.4068,-2.800006,10.84912" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="3272" Weight="1000" /> <!-- Anchag -->
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FelOrbTrial">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="200.0941,-7.629395E-06,0.05024901" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Void Syrup" Id="3268" Weight="1" />
+				<TargetMob Name="Faultfinder" Id="3269" Weight="1" />
+				<TargetMob Name="Skainsmate " Id="3270" Weight="1" />
+				<TargetMob Name="Vodoriga Slicer" Id="3266" Weight="1" />
+				<TargetMob Name="Gneissic Gargoyle" Id="3267" Weight="1" />
+				<TargetMob Name="Bloodlapper" Id="1695" Weight="1" />
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Boogyman">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="200.1962,44,-153.6554" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Boogyman" Id="3274" Weight="1" />
+				<TargetMob Name="Boogyman" Id="3275" Weight="1" />
+				<TargetMob Name="Bloodmoon Sacrifice" Id="3277" Weight="2" />
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="Luminescence">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="200.1962,44,-153.6554" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Luminescence" Id="3276" Weight="1" />
+				<TargetMob Name="Bloodmoon Sacrifice" Id="3277" Weight="2" />
+			</TargetMobs>
+		</GrindArea>
+		<GrindArea name="FinalBoss">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="200.0017,-4.768372E-06,235.6905" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Name="Ferdiad " Id="3280" Weight="1" />
+				<TargetMob Name="Wicked Jester" Id="3283" Weight="1000" />
+				<TargetMob Name="Suppuration " Id="3284" Weight="1000" />
+				<TargetMob Name="Troubadour " Id="3286" Weight="1000" />
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+		<CodeChunk Name="BoogymanFight">
         <![CDATA[
             var puddle = GameObjectManager.GetObjectByNPCId(2004806);
             var boss = GameObjectManager.GameObjects.Where(x => x.IsVisible && (x.NpcId == 3274 || x.NpcId == 3275)).FirstOrDefault();
@@ -298,22 +202,22 @@
             Navigator.PlayerMover.MoveStop();
 			await Coroutine.Sleep(1000); 
         ]]>
-    </CodeChunk>	
- 	<CodeChunk Name="FellOrb">
+    </CodeChunk>
+		<CodeChunk Name="FellOrb">
 		<![CDATA[
 			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004706).Interact();
 			await Coroutine.Sleep(3000);
       ]]>
-	</CodeChunk>	
- 	<CodeChunk Name="AstralFlow1">
+	</CodeChunk>
+		<CodeChunk Name="AstralFlow1">
 		<![CDATA[
 			ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2004705).Interact();
 			await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
 			ff14bot.RemoteWindows.SelectYesno.ClickYes();
 			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }
       ]]>
-	</CodeChunk>	
- 	<CodeChunk Name="AstralFlow2">
+	</CodeChunk>
+		<CodeChunk Name="AstralFlow2">
 		<![CDATA[
 			var x = GameObjectManager.GetObjectByNPCId(2004707);
 			var pos = new Vector3(x.Location.X, x.Location.Y, x.Location.Z);
@@ -327,7 +231,7 @@
 			while (!CommonBehaviors.IsLoading) { await Coroutine.Yield(); }
       ]]>
 	</CodeChunk>
- 	<CodeChunk Name="AnimatedAtlas">
+		<CodeChunk Name="AnimatedAtlas">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -340,7 +244,7 @@
 			}
 		]]>
 	</CodeChunk>
- 	<CodeChunk Name="AnimatedLunarisRod">
+		<CodeChunk Name="AnimatedLunarisRod">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -353,7 +257,7 @@
 			}
 		]]>
 	</CodeChunk>
- 	<CodeChunk Name="AnimatedBrionac">
+		<CodeChunk Name="AnimatedBrionac">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -365,8 +269,8 @@
 				}
 			}
 		]]>
-	</CodeChunk>	
- 	<CodeChunk Name="AnimatedBerimbau">
+	</CodeChunk>
+		<CodeChunk Name="AnimatedBerimbau">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -379,7 +283,7 @@
 			}
 		]]>
 	</CodeChunk>
- 	<CodeChunk Name="AnimatedFerdinand">
+		<CodeChunk Name="AnimatedFerdinand">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -392,7 +296,7 @@
 			}
 		]]>
 	</CodeChunk>
- 	<CodeChunk Name="AnimatedRisingSuns">
+		<CodeChunk Name="AnimatedRisingSuns">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -405,7 +309,7 @@
 			}
 		]]>
 	</CodeChunk>
- 	<CodeChunk Name="AnimatedYukimitsu">
+		<CodeChunk Name="AnimatedYukimitsu">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -418,7 +322,7 @@
 			}
 		]]>
 	</CodeChunk>
- 	<CodeChunk Name="AnimatedHauteclaire">
+		<CodeChunk Name="AnimatedHauteclaire">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -431,7 +335,7 @@
 			}
 		]]>
 	</CodeChunk>
- 	<CodeChunk Name="AnimatedPrytwen">
+		<CodeChunk Name="AnimatedPrytwen">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.OffHand];
 			
@@ -444,7 +348,7 @@
 			}
 		]]>
 	</CodeChunk>
- 	<CodeChunk Name="AnimatedElements">
+		<CodeChunk Name="AnimatedElements">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -457,7 +361,7 @@
 			}
 		]]>
 	</CodeChunk>
- 	<CodeChunk Name="AnimatedAlmandal">
+		<CodeChunk Name="AnimatedAlmandal">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -469,8 +373,8 @@
 				}
 			}
 		]]>
-	</CodeChunk>	
- 	<CodeChunk Name="AnimatedParashu">
+	</CodeChunk>
+		<CodeChunk Name="AnimatedParashu">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -483,7 +387,7 @@
 			}
 		]]>
 	</CodeChunk>
- 	 	<CodeChunk Name="AnimatedDeathbringer">
+		<CodeChunk Name="AnimatedDeathbringer">
 		<![CDATA[ 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 
 						foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
@@ -495,7 +399,7 @@
 			}
 		]]>
 	</CodeChunk>
-<CodeChunk Name="AnimatedSeraphCane">
+		<CodeChunk Name="AnimatedSeraphCane">
 		<![CDATA[ 
 			BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand];
 			
@@ -507,6 +411,6 @@
 				}
 			}
 		]]>
-	</CodeChunk>	
-  </CodeChunks>
+	</CodeChunk>
+	</CodeChunks>
 </Profile>	

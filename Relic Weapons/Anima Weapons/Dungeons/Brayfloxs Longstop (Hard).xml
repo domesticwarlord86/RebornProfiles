@@ -77,7 +77,7 @@
 		<!-- Clear Brayflox's Drossdump 0/1 -->
 		<If Condition="GetInstanceTodo(3) == 0 and GetInstanceTodo(2) == 1">			
 			<Log Message="Clear Brayflox's Drossdump 0/1" />
-			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0" /> --> <!-- Kill second boss -->
+			<Grind GrindRef="SecondBoss" While="GetInstanceTodo(3) == 0" /> <!-- Kill second boss -->
 			<If Condition="&openchest; == 1">
 				<LLOpenChest/>
 			</If>			
