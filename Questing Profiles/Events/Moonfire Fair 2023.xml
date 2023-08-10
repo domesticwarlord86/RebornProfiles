@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Moonfire Fair 2023
+  Authors: DomesticWarlord86
+-->
+<!DOCTYPE Profile [
+  <!-- Profile Settings -->
+  <!ENTITY ItemToBuy "0">
+]>
+<Profile>
+  <Name>Moonfire Fair 2023</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Allergic to Sunshine -->
+    <If Condition="not IsQuestCompleted(70259)">
+      <If Condition="not HasQuest(70259)">
+        <GetTo ZoneId="128" XYZ="13.90832, 45.65599, 128.9416" />
+        <If Condition="IsQuestAcceptQualified(70259)">
+          <PickupQuest QuestId="70259" NpcId="1045005" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70259) == 1">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="723.6841, 10.4039, 264.3201" Land="True" />
+        <TalkTo NpcId="1045006" XYZ="732.0209, 11.3374, 262.4399" QuestId="70259" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70259) == 2">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="505.9833, 16.60496, 455.4998" Land="True" />
+        <TalkTo NpcId="1045007" XYZ="506.6758, 16.68852, 453.6049" QuestId="70259" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70259) == 3">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="510.3835, 9.836371, 436.7886" Land="True" />
+        <UseObject NpcId="2013292" XYZ="512.0775, 9.811523, 439.7192" QuestId="70259" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70259) == 255">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="510.5511, 9.842551, 437.0785" Land="True" />
+        <TurnIn QuestId="70259" NpcId="1045009" XYZ="516.8383, 9.596161, 439.4141" />
+      </If>
+    </If>
+
+    <!-- I Am the Sunshine -->
+    <If Condition="IsQuestCompleted(70259) and not IsQuestCompleted(70260)">
+      <If Condition="not HasQuest(70260)">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="513.2245, 9.788073, 439.7549" Land="True" />
+        <If Condition="IsQuestAcceptQualified(70260)">
+          <PickupQuest QuestId="70260" NpcId="1045008" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70260) == 1">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="711.0253, 10.2929, 250.9701" Land="True" />
+        <TalkTo NpcId="1045011" XYZ="713.1914, 10.3462, 248.0964" QuestId="70260" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70260) == 2">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="726.2276, 10.4016, 265.6404" Land="True"/> 
+        <TalkTo NpcId="1045006" XYZ="732.0209, 11.3374, 262.4399" QuestId="70260" StepId="2"/>
+      </If>
+      <If Condition="GetQuestStep(70260) == 3">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="782.5718, 10.04759, 290.0013" Land="True"/> 
+        <TalkTo NpcId="1045013" XYZ="788.0521, 9.831118, 290.6691" QuestId="70260" StepId="3"/>
+      </If>
+      <If Condition="GetQuestStep(70260) == 255">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="137" XYZ="726.0027, 10.45006, 258.6597" Land="True"/> 
+        <TurnIn QuestId="70260" NpcId="1045018" XYZ="735.2559, 11.30682, 261.8601"/>
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
