@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile:
+  Authors: DomesticWarlord86
+-->
+<!DOCTYPE Profile [
+  <!-- Profile Settings -->
+  <!ENTITY GoToBarracks "True">
+]>
+<Profile>
+  <Name>Syrcus Tower</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <While condition="True">
+
+      <LoadPandaProfile ProfileName="Syrcus Tower" GoToBarracks="&GoToBarracks;" QueueType="0" />
+
+    </While>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile>  
