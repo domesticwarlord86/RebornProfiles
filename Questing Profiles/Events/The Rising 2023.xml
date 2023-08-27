@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Rising 2023
+  Authors: DomesticWarlord86
+
+-->
+<!DOCTYPE Profile [
+]>
+
+<Profile>
+  <Name>The Rising 2023</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Siblings Rising -->
+    <If Condition="not IsQuestCompleted(70301)">
+      <If Condition="not HasQuest(70301)">
+        <GetTo ZoneId="130" XYZ="-56.66757, 4, -128.4063" />
+        <If Condition="IsQuestAcceptQualified(70301)">
+          <PickupQuest QuestId="70301" NpcId="1045526" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70301) == 1 and GetQuestById(70301).QuestI8A == 0">
+        <GetTo ZoneId="130" XYZ="-33.56149, 4, -144.7419" />
+        <TalkTo NpcId="1045529" XYZ="-32.45593, 4, -145.5559" QuestId="70301" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70301) == 1 and GetQuestById(70301).QuestI8A == 1">
+        <GetTo ZoneId="130" XYZ="-21.74549, 9, -87.54035" />
+        <TalkTo NpcId="1045527" XYZ="-21.46948, 9, -85.86255" QuestId="70301" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70301) == 1 and GetQuestById(70301).QuestI8A == 2">
+        <GetTo ZoneId="130" XYZ="-21.8595, 9.999999, -45.58097" />
+        <TalkTo NpcId="1045528" XYZ="-22.50714, 10, -44.41907" QuestId="70301" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70301) == 2">
+        <GetTo ZoneId="131" XYZ="0.004094303, 15.00001, 9.532192" />
+        <TalkTo NpcId="1045532" XYZ="0.9002075, 15.00001, 9.964111" QuestId="70301" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70301) == 3">
+        <GetTo ZoneId="130" XYZ="-6.265057, 7.9985, -109.3112" />
+        <TalkTo NpcId="1045575" XYZ="-6.118958, 8, -110.9179" QuestId="70301" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70301) == 4">
+        <GetTo ZoneId="141" XYZ="-16.65242, -2.04952, -146.1078" />
+        <TalkTo NpcId="1045576" XYZ="-17.04437, -2.052538, -142.9924" QuestId="70301" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70301) == 5">
+        <GetTo ZoneId="131" XYZ="-0.5164177, 15.00001, 8.489529" />
+        <TalkTo NpcId="1045532" XYZ="0.9002075, 15.00001, 9.964111" QuestId="70301" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70301) == 255">
+        <GetTo ZoneId="131" XYZ="-1.768912, 15.00001, 8.899288" />
+        <TurnIn QuestId="70301" NpcId="1045531" XYZ="-0.656189, 15.00001, 9.689453" />
+      </If>
+    </If>
+
+    <!-- What Drives Us -->
+    <If Condition="IsQuestCompleted(70301) and not IsQuestCompleted(70302)">
+      <If Condition="not HasQuest(70302)">
+        <GetTo ZoneId="131" XYZ="-1.768912, 15.00001, 8.899288" />
+        <If Condition="IsQuestAcceptQualified(70302)">
+          <PickupQuest QuestId="70302" NpcId="1045531" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70302) == 1">
+        <GetTo ZoneId="131" XYZ="148.7796, 4, -11.65794" />
+        <TalkTo NpcId="1045537" XYZ="149.6757, 4.009991, -10.57452" QuestId="70302" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70302) == 2">
+        <GetTo ZoneId="130" XYZ="10.99203, 6.999998, -92.62473" />
+        <TalkTo NpcId="1045539" XYZ="10.05566, 6.999993, -89.89093" QuestId="70302" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70302) == 3">
+        <GetTo ZoneId="130" XYZ="-3.870108, 8, -109.396" />
+        <TalkTo NpcId="1045538" XYZ="-6.088379, 8, -111.1315" QuestId="70302" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70302) == 4">
+        <GetTo ZoneId="131" XYZ="-0.4006518, 15.00001, 9.22534" />
+        <TalkTo NpcId="1045532" XYZ="0.9002075, 15.00001, 9.964111" QuestId="70302" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70302) == 5">
+        <GetTo ZoneId="131" XYZ="8.64523, 14.00002, -17.40343" />
+        <UseObject NpcId="2013391" XYZ="9.933594, 16.31183, -18.93652" QuestId="70302" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70302) == 6">
+        <GetTo ZoneId="131" XYZ="-2.592927, 14.99999, 7.376226" />
+        <!--
+        <UserDialog IsBotContinueAllowed="True" DialogText="Please turn in the blue chocobo letter manually." QuestId="70302" StepId="6" />
+        -->
+        <RunCode name="AddItem"/>
+        <HandOver ItemId="2003462" NpcId="1045525" XYZ="-3.768982, 15.00001, 7.431091" QuestId="70302" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70302) == 7">
+        <GetTo ZoneId="131" XYZ="99.95113, 12, 67.53998" />
+        <TalkTo NpcId="1045540" XYZ="100.328, 12, 67.79578" QuestId="70302" StepId="7" />
+      </If>
+      <If Condition="GetQuestStep(70302) == 255">
+        <GetTo ZoneId="130" XYZ="-20.72351, 9.999999, -50.08256" />
+        <TurnIn QuestId="70302" NpcId="1045541" XYZ="-21.16431, 10, -48.84418" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas> </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="AddItem">
+      <![CDATA[
+      if (DataManager.GetItem(2003462) == null)
+      {
+          DataManager.ItemCache.Add(2003462, null,null, new Item(){EngName = "letter with a blue chocobo drawing"});
+      }
+            ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile> 
