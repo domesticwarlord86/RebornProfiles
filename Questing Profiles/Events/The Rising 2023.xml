@@ -84,10 +84,6 @@
       </If>
       <If Condition="GetQuestStep(70302) == 6">
         <GetTo ZoneId="131" XYZ="-2.592927, 14.99999, 7.376226" />
-        <!--
-        <UserDialog IsBotContinueAllowed="True" DialogText="Please turn in the blue chocobo letter manually." QuestId="70302" StepId="6" />
-        -->
-        <RunCode name="AddItem"/>
         <HandOver ItemId="2003462" NpcId="1045525" XYZ="-3.768982, 15.00001, 7.431091" QuestId="70302" StepId="6" />
       </If>
       <If Condition="GetQuestStep(70302) == 7">
@@ -103,13 +99,5 @@
   </Order>
   <GrindAreas> </GrindAreas>
   <CodeChunks>
-    <CodeChunk Name="AddItem">
-      <![CDATA[
-      if (DataManager.GetItem(2003462) == null)
-      {
-          DataManager.ItemCache.Add(2003462, null,null, new Item(){EngName = "letter with a blue chocobo drawing"});
-      }
-            ]]>
-    </CodeChunk>
   </CodeChunks>
 </Profile> 
