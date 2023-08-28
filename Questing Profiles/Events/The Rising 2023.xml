@@ -96,6 +96,87 @@
       </If>
     </If>
 
+    <!--  Remembering the Past -->
+    <If Condition="not IsQuestCompleted(70315) and Core.Player.ClassLevel &gt; 49">
+      <If Condition="not HasQuest(70315)">
+        <GetTo ZoneId="130" XYZ="-114.6759, 4, -102.1397" />
+        <If Condition="IsQuestAcceptQualified(70315)">
+          <PickupQuest QuestId="70315" NpcId="1045615" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70315) == 1">
+        <GetTo ZoneId="145" XYZ="-380.5081, -59, 133.1646" />
+        <TalkTo NpcId="1045616" XYZ="-379.7818, -59, 131.4869" QuestId="70315" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70315) == 2">
+        <If condition="not IsOnMap(145)">
+          <TeleportTo Name="Camp Drybone" AetheryteId="18" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-73.42842, -21.21367, -10.18584" Land="True" />
+        <UseObject NpcId="2013396" XYZ="-69.96271, -21.01172, -10.17786" QuestId="70315" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70315) == 3">
+        <GetTo ZoneId="133" XYZ="-38.79263, 10.98479, -256.2352" />
+        <TalkTo NpcId="1045618" XYZ="-37.43042, 11.07696, -257.5876" QuestId="70315" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70315) == 4">
+        <GetTo ZoneId="128" XYZ="23.24963, 40, 78.1592" />
+        <TalkTo NpcId="1045619" XYZ="24.61279, 40, 80.33875" QuestId="70315" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70315) == 255">
+        <GetTo ZoneId="128" XYZ="23.24963, 40, 78.1592" />
+        <TurnIn QuestId="70315" NpcId="1045619" XYZ="24.61279, 40, 80.33875" />
+      </If>
+    </If>
+
+    <!--  Preserving the Future -->
+    <If Condition="IsQuestCompleted(70315) and not IsQuestCompleted(70316)">
+      <If Condition="not HasQuest(70316)">
+        <GetTo ZoneId="128" XYZ="22.78627, 40, 79.19264" />
+        <If Condition="IsQuestAcceptQualified(70316)">
+          <PickupQuest QuestId="70316" NpcId="1045619" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70316) == 1">
+        <GetTo ZoneId="135" XYZ="156.7245, 14.09586, 684.32" />
+        <TalkTo NpcId="1045620" XYZ="157.58, 14.09586, 685.8167" QuestId="70316" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70316) == 2 and GetQuestById(70316).QuestI8A == 0">
+        <GetTo ZoneId="135" XYZ="198.7538, 14.09599, 669.6043" />
+        <TalkTo NpcId="1045624" XYZ="199.5117, 14.11926, 670.6492" QuestId="70316" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70316) == 2 and GetQuestById(70316).QuestI8A == 1">
+        <GetTo ZoneId="135" XYZ="213.931, 9.147288, 614.4597" />
+        <TalkTo NpcId="1045625" XYZ="217.1816, 8.973654, 615.7778" QuestId="70316" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70316) == 2 and GetQuestById(70316).QuestI8A == 2">
+        <GetTo ZoneId="135" XYZ="163.0918, 8.973654, 612.479" />
+        <TalkTo NpcId="1045623" XYZ="162.6764, 8.973654, 613.9772" QuestId="70316" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70316) == 3">
+        <GetTo ZoneId="135" XYZ="164.8445, 12.12694, 633.9075" />
+        <TalkTo NpcId="1045621" XYZ="162.89, 12.12694, 637.0182" QuestId="70316" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70316) == 4">
+        <If condition="not IsOnMap(135)">
+          <TeleportTo Name="Moraby Drydocks" AetheryteId="10" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="248.9316, 6.484148, 779.4123" Land="True" />
+        <UseObject NpcId="2013397" XYZ="247.8523, 6.698669, 783.505" QuestId="70316" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70316) == 5">
+        <If condition="not IsOnMap(135)">
+          <TeleportTo Name="Moraby Drydocks" AetheryteId="10" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="248.2628, 6.579103, 780.8625" Land="True" />
+        <TalkTo NpcId="1045626" XYZ="248.2795, 6.777966, 784.6647" QuestId="70316" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70316) == 255">
+        <GetTo ZoneId="130" XYZ="-114.578, 4, -100.9774" />
+        <TurnIn QuestId="70316" NpcId="1045615" XYZ="-115.8007, 4, -100.9995" />
+      </If>
+    </If>
+
   </Order>
   <GrindAreas> </GrindAreas>
   <CodeChunks>
