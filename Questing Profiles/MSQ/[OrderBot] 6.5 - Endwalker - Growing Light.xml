@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: 6.5 - Endwalker - Growing Light
+  Authors: DomesticWarlord86
+
+-->
+<!DOCTYPE Profile [
+]>
+
+<Profile>
+  <Name>6.5 - Endwalker - Growing Light</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <If Condition="not IsQuestCompleted(70279)">
+      <UserDialog DialogText="Must complete Endwalker 6.4 before starting Endwalker 6.5." QuestRequirementInLog="InLog" IsBotContinueAllowed="False" />
+    </If>
+
+    <!-- Seeking the Light -->
+    <If Condition="IsQuestCompleted(70279) and not IsQuestCompleted(70280)">
+      <If Condition="not HasQuest(70280)">
+        <GetTo ZoneId="963" XYZ="-340.3133, 55, -66.58488" />
+        <If Condition="IsQuestAcceptQualified(70280)">
+          <PickupQuest QuestId="70280" NpcId="1039645" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70280) == 1">
+        <GetTo ZoneId="963" XYZ="-344.5659, 54.99999, -67.90233" />
+        <TalkTo NpcId="1039607" XYZ="-342.5803, 55, -68.61987" QuestId="70280" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70280) == 2">
+        <GetTo ZoneId="819" XYZ="-62.99436, -17.72202, -266.9737" />
+        <TalkTo NpcId="1033908" XYZ="-63.61493, -17.722, -264.7593" QuestId="70280" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70280) == 3">
+        <GetTo ZoneId="819" XYZ="-166.6768, -45.72086, -169.9962" />
+        <TalkTo NpcId="1045690" XYZ="-168.9021, -45.72086, -167.834" QuestId="70280" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70280) == 255">
+        <GetTo ZoneId="819" XYZ="21.95121, 4.102818E-13, 0.6838031" />
+        <TurnIn QuestId="70280" NpcId="1045628" XYZ="24.2771, 0, 1.083313" />
+      </If>
+    </If>
+
+    <!-- Appealing to the Masses -->
+    <If Condition="IsQuestCompleted(70280) and not IsQuestCompleted(70281)">
+      <If Condition="not HasQuest(70281)">
+        <GetTo ZoneId="819" XYZ="22.404, 0, 0.3396691" />
+        <If Condition="IsQuestAcceptQualified(70281)">
+          <PickupQuest QuestId="70281" NpcId="1033887" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70281) == 1">
+        <GetTo ZoneId="820" XYZ="25.53911, 82.05, -7.749728" />
+        <TalkTo NpcId="1045636" XYZ="27.93921, 82.05, -8.255188" QuestId="70281" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70281) == 2">
+        <GetTo ZoneId="820" XYZ="22.19971, 82.05, 16.28604" />
+        <TalkTo NpcId="1045639" XYZ="21.9577, 82.05, 18.47864" QuestId="70281" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70281) == 3 and GetQuestById(70281).QuestI8A == 0">
+        <GetTo ZoneId="820" XYZ="40.8202, 83.00108, -60.01071" />
+        <TalkTo NpcId="1045635" XYZ="39.26135, 83.00108, -61.38702" QuestId="70281" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70281) == 3 and GetQuestById(70281).QuestI8A == 1">
+        <GetTo ZoneId="820" XYZ="13.43686, 23.1, 13.30711" />
+        <TalkTo NpcId="1045633" XYZ="14.75543, 23.09999, 11.52051" QuestId="70281" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70281) == 3 and GetQuestById(70281).QuestI8A == 2">
+        <GetTo ZoneId="820" XYZ="-91.60687, -0.8285775, 27.46618" />
+        <TalkTo NpcId="1045634" XYZ="-93.40051, -0.8200359, 28.54956" QuestId="70281" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70281) == 4">
+        <GetTo ZoneId="820" XYZ="24.27302, 82.05, -7.544023" />
+        <TalkTo NpcId="1045636" XYZ="27.93921, 82.05, -8.255188" QuestId="70281" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70281) == 255">
+        <GetTo ZoneId="820" XYZ="27.53295, 82.05, -5.626726" />
+        <TurnIn QuestId="70281" NpcId="1045631" XYZ="29.70923, 82.05, -5.661133" />
+      </If>
+    </If>
+
+
+    <!-- In Defiance of Fate -->
+    <If Condition="IsQuestCompleted(70281) and not IsQuestCompleted(70282)">
+      <If Condition="not HasQuest(70282)">
+        <GetTo ZoneId="820" XYZ="27.53295, 82.05, -5.626726" />
+        <If Condition="IsQuestAcceptQualified(70282)">
+          <PickupQuest QuestId="70282" NpcId="1045631" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70282) == 1">
+        <GetTo ZoneId="817" XYZ="-90.12936, -19.11096, 296.756" />
+        <TalkTo NpcId="1029197" XYZ="-87.87671, -19.02213, 298.207" QuestId="70282" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70282) == 2">
+        <GetTo ZoneId="817" XYZ="-90.12936, -19.11096, 296.756" />
+        <If condition="IsChineseClient()">
+          <UserDialog DialogText="Please complete this step manually." QuestRequirementInLog="InLog" IsBotContinueAllowed="True" QuestId="70282" StepId="2" />
+        </If>
+        <If condition="not IsChineseClient()">
+          <RunCode name="70282" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70282) == 3">
+        <GetTo ZoneId="817" XYZ="-108.4325, -19.68118, 377.8497" />
+        <TalkTo NpcId="1027754" XYZ="-108.2017, -19.68443, 380.2395" QuestId="70282" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70282) == 4">
+        <GetTo ZoneId="817" XYZ="-92.44421, -19.14535, 301.6958" />
+        <TalkTo NpcId="1045642" XYZ="-90.28766, -19.11858, 298.0239" QuestId="70282" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70282) == 5">
+        <GetTo ZoneId="815" XYZ="-490.9094, 45.58657, -222.6974" />
+        <TalkTo NpcId="1045647" XYZ="-488.8839, 45.58085, -224.5976" QuestId="70282" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70282) == 255">
+        <GetTo ZoneId="819" XYZ="-208.421, -3.2, -10.9074" />
+        <TurnIn QuestId="70282" NpcId="1045648" XYZ="-205.951, -3.2, -9.597961" />
+      </If>
+    </If>
+
+    <!-- Back to Action -->
+    <If Condition="IsQuestCompleted(70282) and not IsQuestCompleted(70283)">
+      <If Condition="not HasQuest(70283)">
+        <GetTo ZoneId="819" XYZ="-208.421, -3.2, -10.9074" />
+        <If Condition="IsQuestAcceptQualified(70283)">
+          <PickupQuest QuestId="70283" NpcId="1045649" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70283) == 1">
+        <If condition="not IsOnSubMap(844)">
+          <GetTo ZoneId="819" XYZ="115.202, 14.64907, 6.872988" />
+          <UseTransport NpcId="1033863" InteractDistance="3.0" XYZ="118.0284, 14.64903, 7.156433" QuestId="70283" />
+        </If>
+        <MoveTo XYZ="0.700585, 0, -1.862859" />
+        <TalkTo NpcId="1033888" XYZ="1.358032, 0, -5.081299" QuestId="70283" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70283) == 2">
+        <GetTo ZoneId="963" XYZ="-340.9506, 54.99999, -65.76134" />
+        <TalkTo NpcId="1039645" XYZ="-338.3383, 55, -68.40625" QuestId="70283" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70283) == 3">
+        <If condition="not IsOnMap(959)">
+          <TeleportTo Name="Sinus Lacrimarum" AetheryteId="174" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-112.9445, 53.16121, 403.1487" Land="True" />
+        <TalkTo NpcId="1045652" XYZ="-109.9108, 52.70531, 401.2664" QuestId="70283" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70283) == 255">
+        <MoveTo XYZ="41.13467, 56.6901, 468.5876" />
+        <TurnIn QuestId="70283" NpcId="1045658" XYZ="40.63477, 56.72189, 465.7815" />
+      </If>
+    </If>
+
+    <!-- Down in the Dark -->
+    <If Condition="IsQuestCompleted(70283) and not IsQuestCompleted(70284)">
+      <If Condition="not HasQuest(70284)">
+        <If condition="not IsOnMap(1162)">
+          <If condition="not IsOnMap(959)">
+            <TeleportTo Name="Sinus Lacrimarum" AetheryteId="174" />
+          </If>
+          <FlyTo AllowedVariance="1" XYZ="-110.0723, 52.68153, 397.7362" Land="True" />
+          <UseTransport NpcId="2013362" InteractDistance="3.0" XYZ="-102.7695, 52.44519, 391.2566" QuestId="70284" />
+        </If>
+        <If Condition="IsQuestAcceptQualified(70284)">
+          <PickupQuest QuestId="70284" NpcId="1045662" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70284) == 1">
+        <UserDialog DialogText="Please complete the dungeon The Lunar Subterrane manually." QuestRequirementInLog="InLog" IsBotContinueAllowed="True" QuestId="70284" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70284) == 2">
+        <WaitWhile condition="GetQuestStep(70284) == 2" />
+      </If>
+      <If Condition="GetQuestStep(70284) == 3">
+        <If condition="not IsOnMap(1164)">
+          <If condition="not IsOnMap(959)">
+            <TeleportTo Name="Sinus Lacrimarum" AetheryteId="174" />
+          </If>
+          <FlyTo AllowedVariance="1" XYZ="-110.0723, 52.68153, 397.7362" Land="True" />
+          <UseTransport NpcId="2013362" InteractDistance="3.0" XYZ="-102.7695, 52.44519, 391.2566" QuestId="70284" />
+        </If>
+        <TalkTo NpcId="1045667" XYZ="-374.197, -567.3385, -440.6348" QuestId="70284" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70284) == 4">
+        <UserDialog DialogText="Please complete the trial Abyssal Fracture manually." QuestRequirementInLog="InLog" IsBotContinueAllowed="True" QuestId="70284" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70284) == 5">
+        <WaitWhile condition="GetQuestStep(70284) == 5" />
+      </If>
+      <If Condition="GetQuestStep(70284) == 6">
+        <WaitWhile condition="GetQuestStep(70284) == 6" />
+      </If>
+      <If Condition="GetQuestStep(70284) == 255">
+        <If condition="not IsOnMap(1162)">
+          <If condition="not IsOnMap(959)">
+            <TeleportTo Name="Sinus Lacrimarum" AetheryteId="174" />
+          </If>
+          <FlyTo AllowedVariance="1" XYZ="-110.0723, 52.68153, 397.7362" Land="True" />
+          <UseTransport NpcId="2013362" InteractDistance="3.0" XYZ="-102.7695, 52.44519, 391.2566" QuestId="70284" />
+        </If>
+        <TurnIn QuestId="70284" NpcId="1045671" XYZ="27.2373, 56.63587, 480.3081" />
+      </If>
+    </If>
+
+    <!-- Reunited at Last -->
+    <If Condition="IsQuestCompleted(70284) and not IsQuestCompleted(70285)">
+      <If Condition="not HasQuest(70285)">
+        <If condition="not IsOnMap(1162)">
+          <If condition="not IsOnMap(959)">
+            <TeleportTo Name="Sinus Lacrimarum" AetheryteId="174" />
+          </If>
+          <FlyTo AllowedVariance="1" XYZ="-110.0723, 52.68153, 397.7362" Land="True" />
+          <UseTransport NpcId="2013362" InteractDistance="3.0" XYZ="-102.7695, 52.44519, 391.2566" QuestId="70285" />
+        </If>
+        <If Condition="IsQuestAcceptQualified(70285)">
+          <PickupQuest QuestId="70285" NpcId="1045674" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70285) == 1">
+        <If condition="not IsOnMap(959)">
+          <TeleportTo Name="Sinus Lacrimarum" AetheryteId="174" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-129.0799, 53.96666, 421.6621" Land="True" />
+        <TalkTo NpcId="1045676" XYZ="-130.9988, 54.11024, 424.7349" QuestId="70285" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70285) == 2">
+        <GetTo ZoneId="958" XYZ="533.7462, -36.65, -189.2929" />
+        <TalkTo NpcId="1042201" XYZ="536.2782, -36.65, -191.5161" QuestId="70285" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70285) == 255">
+        <GetTo ZoneId="962" XYZ="0.6162387, 41.53014, -162.6133" />
+        <TurnIn QuestId="70285" NpcId="1037106" XYZ="4.013123, 41.53014, -164.416" />
+      </If>
+    </If>
+
+    <!-- Growing Light -->
+    <If Condition="IsQuestCompleted(70285) and not IsQuestCompleted(70286)">
+      <If Condition="not HasQuest(70286)">
+        <GetTo ZoneId="962" XYZ="0.6162387, 41.53014, -162.6133" />
+        <If Condition="IsQuestAcceptQualified(70286)">
+          <PickupQuest QuestId="70286" NpcId="1045681" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70286) == 1">
+        <GetTo ZoneId="819" XYZ="115.0069, 14.64908, 6.543315" />
+        <UseTransport NpcId="1030533" InteractDistance="3.0" XYZ="117.9979, 14.64902, 7.156433" QuestId="70286" />
+      </If>
+      <If Condition="GetQuestStep(70286) == 2">
+        <WaitWhile condition="GetQuestStep(70286) == 2" />
+      </If>
+      <If Condition="GetQuestStep(70286) == 3">
+        <If condition="not IsOnMap(844)">
+          <GetTo ZoneId="819" XYZ="115.0069, 14.64908, 6.543315" />
+          <UseTransport NpcId="1030533" InteractDistance="3.0" XYZ="117.9979, 14.64902, 7.156433" QuestId="70286" />
+        </If>
+        <GetTo ZoneId="844" XYZ="1.591189, 4.113728E-13, -0.988771" />
+        <TalkTo NpcId="1045684" XYZ="-0.9613647, 0, -3.341736" QuestId="70286" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70286) == 4">
+        <GetTo ZoneId="963" XYZ="-340.2312, 55, -66.37362" />
+        <TalkTo NpcId="1039649" XYZ="-336.5377, 55, -69.47443" QuestId="70286" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70286) == 5">
+        <GetTo ZoneId="963" XYZ="-3.492814, 3.029999, -213.5555" />
+        <TalkTo NpcId="1045688" XYZ="-2.456726, 3.029999, -212.8481" QuestId="70286" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70286) == 255">
+        <GetTo ZoneId="963" XYZ="-341.6277, 55, -65.79237" />
+        <TurnIn QuestId="70286" NpcId="1039645" XYZ="-338.3383, 55, -68.40625" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas> </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="70282">
+      <![CDATA[		
+        #if !RB_CN	
+        ChatManager.SendChat("/s allin tuta");
+        #endif
+        #if RB_CN
+        ChatManager.SendChat("/s 求你了，爱梅特赛尔克");
+        #endif
+        await Coroutine.Wait(10000, () => Talk.DialogOpen);
+        await Buddy.Coroutines.Coroutine.Sleep(500);
+        while (QuestLogManager.GetQuestById(70282).Step == 2)
+          {
+            Talk.Next();
+            await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+            await Coroutine.Wait(1000, () => Talk.DialogOpen);
+            await Coroutine.Yield();
+          }
+      ]]> 
+    </CodeChunk>
+  </CodeChunks>
+</Profile> 
