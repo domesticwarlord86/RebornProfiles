@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Stormblood Allied Tribal Quests
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Stormblood Allied Tribal Quests</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- The Ananta Maid's Tail -->
+    <If Condition="not IsQuestCompleted(68697)">
+      <If Condition="not HasQuest(68697)">
+        <GetTo ZoneId="628" XYZ="92.72704, 11.99992, -71.15152" />
+        <If Condition="IsQuestAcceptQualified(68697)">
+          <PickupQuest QuestId="68697" NpcId="1026380" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(68697) == 1">
+        <GetTo ZoneId="628" XYZ="-84.87188, -7, -56.01924" />
+        <UseObject NpcId="2009604" XYZ="-85.19116, -7.003906, -52.84204" QuestId="68697" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(68697) == 2">
+        <GetTo ZoneId="628" XYZ="142.0261, 25, -9.783009" />
+        <TalkTo NpcId="1026381" XYZ="139.3301, 25, -7.003906" QuestId="68697" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(68697) == 3">
+        <GetTo ZoneId="628" XYZ="-79.20554, 18, -173.5318" />
+        <TalkTo NpcId="1026383" XYZ="-79.14862, 18, -176.4706" QuestId="68697" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(68697) == 4">
+        <GetTo ZoneId="628" XYZ="-106.7207, 11.90237, -137.6079" />
+        <TalkTo NpcId="1026384" XYZ="-107.7134, 11.90236, -140.734" QuestId="68697" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(68697) == 5">
+        <GetTo ZoneId="628" XYZ="-106.7207, 11.90237, -137.6079" />
+        <TalkTo NpcId="1026385" XYZ="-108.1407, 11.90237, -140.5814" QuestId="68697" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(68697) == 6">
+        <GetTo ZoneId="628" XYZ="-7.656672, 0.25, -103.0758" />
+        <TalkTo NpcId="1026386" XYZ="-4.989685, 0.25, -103.502" QuestId="68697" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(68697) == 7">
+        <GetTo ZoneId="628" XYZ="-83.20254, -2.999994, 60.49391" />
+        <TalkTo NpcId="1026388" XYZ="-82.414, -2.999998, 62.42456" QuestId="68697" StepId="7" />
+      </If>
+      <If Condition="GetQuestStep(68697) == 8">
+        <GetTo ZoneId="628" XYZ="-83.20254, -2.999994, 60.49391" />
+        <TalkTo NpcId="1026389" XYZ="-84.76392, -2.999999, 62.91284" QuestId="68697" StepId="8" />
+      </If>
+      <If Condition="GetQuestStep(68697) == 255">
+        <GetTo ZoneId="628" XYZ="-82.20908, -2.999993, 58.98185" />
+        <RunCode name="68697" />
+      </If>
+    </If>
+
+    <!-- Ruby Seas under Ruby Skies -->
+    <If Condition="IsQuestCompleted(68697) and not IsQuestCompleted(68698)">
+      <If Condition="not HasQuest(68698)">
+        <GetTo ZoneId="628" XYZ="-83.36248, -2.999994, 60.20223" />
+        <If Condition="IsQuestAcceptQualified(68698)">
+          <PickupQuest QuestId="68698" NpcId="1026388" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(68698) == 1">
+        <LisbethTravel ZoneId="613" XYZ="855.3079, 6.945029, 806.0964" />
+        <TalkTo NpcId="1026395" XYZ="857.4501, 6.945029, 804.7455" QuestId="68698" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(68698) == 2 and GetQuestById(68698).QuestI8A == 0">
+        <LisbethTravel ZoneId="613" XYZ="844.1353, 6.945029, 819.4985" />
+        <TalkTo NpcId="1026398" XYZ="840.3906, 6.945029, 819.6688" QuestId="68698" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(68698) == 2 and GetQuestById(68698).QuestI8A == 1">
+        <LisbethTravel ZoneId="613" XYZ="850.5803, 1.179207, 866.3203" />
+        <TalkTo NpcId="1026397" XYZ="848.6304, 1.179207, 863.8589" QuestId="68698" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(68698) == 3">
+        <LisbethTravel ZoneId="613" XYZ="868.0768, 1.179207, 849.0294" />
+        <TalkTo NpcId="1026399" XYZ="867.4294, 1.179207, 844.7546" QuestId="68698" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(68698) == 4">
+        <LisbethTravel ZoneId="613" XYZ="-769.9505, 2.835112, -361.7191" />
+        <TalkTo NpcId="1026401" XYZ="-773.1289, 2.941284, -360.9217" QuestId="68698" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(68698) == 5 and GetQuestById(68698).QuestI8A == 0">
+        <LisbethTravel ZoneId="613" XYZ="-719.2668, 1.251881, -568.447" />
+        <TalkTo NpcId="1026406" XYZ="-722.9267, 1.285581, -568.5359" QuestId="68698" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(68698) == 5 and GetQuestById(68698).QuestI8A == 1">
+        <LisbethTravel ZoneId="613" XYZ="-716.124, 1.267823, -590.8874" />
+        <TalkTo NpcId="1026404" XYZ="-716.0906, 1.25068, -593.6218" QuestId="68698" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(68698) == 5 and GetQuestById(68698).QuestI8A == 2">
+        <LisbethTravel ZoneId="613" XYZ="-737.653, 1.960285, -609.2432" />
+        <TalkTo NpcId="1026405" XYZ="-739.9863, 1.960285, -611.2917" QuestId="68698" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(68698) == 255">
+        <LisbethTravel ZoneId="613" XYZ="-770.3402, 3.035307, -362.6189" />
+        <TurnIn QuestId="68698" NpcId="1026401" XYZ="-773.1289, 2.941284, -360.9217" />
+      </If>
+    </If>
+
+    <!-- Fish in a Barrel -->
+    <If Condition="IsQuestCompleted(68698) and not IsQuestCompleted(68699)">
+      <If Condition="not HasQuest(68699)">
+        <LisbethTravel ZoneId="613" XYZ="-770.2225, 2.976142, -362.6922" />
+        <If Condition="IsQuestAcceptQualified(68699)">
+          <PickupQuest QuestId="68699" NpcId="1026401" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(68699) == 1">
+        <GetTo ZoneId="622" XYZ="-776.4436, 127.2818, 127.5229" />
+        <TalkTo NpcId="1026414" XYZ="-778.2864, 127.2708, 129.7474" QuestId="68699" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(68699) == 2">
+        <LisbethTravel ZoneId="622" XYZ="30.68619, 114.905, -17.26671" />
+        <UseObject NpcId="2009605" XYZ="27.17627, 114.8851, -15.03015" QuestId="68699" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(68699) == 3">
+        <LisbethTravel ZoneId="622" XYZ="-100.0984, 116.043, -48.07266" />
+        <TalkTo NpcId="1026420" XYZ="-102.739, 116.043, -48.14227" QuestId="68699" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(68699) == 255">
+        <GetTo ZoneId="622" XYZ="-775.9465, 127.284, 127.1348" />
+        <TurnIn QuestId="68699" NpcId="1026422" XYZ="-779.0799, 127.2772, 127.9163" />
+      </If>
+    </If>
+
+    <!-- What a Wonder-full World -->
+    <If Condition="IsQuestCompleted(68699) and not IsQuestCompleted(68700)">
+      <If Condition="not HasQuest(68700)">
+        <GetTo ZoneId="622" XYZ="-775.9465, 127.284, 127.1348" />
+        <If Condition="IsQuestAcceptQualified(68700)">
+          <PickupQuest QuestId="68700" NpcId="1026421" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(68700) == 1">
+        <GetTo ZoneId="628" XYZ="-79.7933, 11.85325, -155.7283" />
+        <TalkTo NpcId="2009606" XYZ="-77.62268, 11.82568, -155.169" QuestId="68700" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(68700) == 2">
+        <GetTo ZoneId="628" XYZ="-70.1548, 15, 71.81863" />
+        <TalkTo NpcId="1026425" XYZ="-72.12946, 15, 70.45081" QuestId="68700" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(68700) == 3">
+        <GetTo ZoneId="628" XYZ="-33.15914, 14.99996, 61.15579" />
+        <UseObject NpcId="2009607" XYZ="-31.47937, 14.99957, 61.08191" QuestId="68700" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(68700) == 255">
+        <GetTo ZoneId="628" XYZ="-83.2258, 11.8, -154.2225" />
+        <TurnIn QuestId="68700" NpcId="1026426" XYZ="-81.49847, 11.82907, -155.5353" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="68697">
+      <![CDATA[
+      var explosive = InventoryManager.FilledSlots.FirstOrDefault(x => x.RawItemId == 2002488);
+
+      var npc = GameObjectManager.GetObjectByNPCId(1026389);
+
+      explosive.UseItem(npc.Location);
+      await Coroutine.Wait(10000, () => QuestLogManager.InCutscene);
+
+      while (!JournalResult.IsOpen)
+      {
+          if (QuestLogManager.InCutscene)
+          {
+              TreeRoot.StatusText = "InCutscene";
+              if (ff14bot.RemoteAgents.AgentCutScene.Instance != null)
+              {
+                  ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
+                  await Coroutine.Wait(2000, () => SelectString.IsOpen || SelectYesno.IsOpen);
+
+                  if (SelectString.IsOpen)
+                  {
+                      SelectString.ClickSlot(0);
+                  }
+
+                  if (SelectYesno.IsOpen)
+                  {
+                      SelectYesno.Yes();
+                  }
+              }
+          }
+          Talk.Next();
+          await Coroutine.Yield();
+          await Coroutine.Sleep(500);
+      }
+
+      if (JournalResult.IsOpen)
+      {
+          JournalResult.Complete();
+      }      ]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile>  
