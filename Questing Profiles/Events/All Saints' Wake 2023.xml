@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: All Saints' Wake 2023
+  Authors: DomesticWarlord86
+
+-->
+<!DOCTYPE Profile [
+]>
+
+<Profile>
+  <Name>All Saints' Wake 2023</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- The Fright Stuff -->
+    <If Condition="not IsQuestCompleted(70321)">
+      <If Condition="not HasQuest(70321)">
+        <GetTo ZoneId="133" XYZ="-41.44236, 7.051607, -134.859" />
+        <If Condition="IsQuestAcceptQualified(70321)">
+          <PickupQuest QuestId="70321" NpcId="1045773" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70321) == 1">
+        <GetTo ZoneId="133" XYZ="-49.9108, 6.499999, -89.12257" />
+        <TalkTo NpcId="1045774" XYZ="-49.79028, 6.499997, -86.62549" QuestId="70321" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70321) == 2">
+        <GetTo ZoneId="133" XYZ="52.20526, 0.1133575, -122.5512" />
+        <TalkTo NpcId="1045775" XYZ="53.94055, 0, -124.9562" QuestId="70321" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70321) == 3">
+        <GetTo ZoneId="133" XYZ="52.20526, 0.1133575, -122.5512" />
+        <TalkTo NpcId="1045775" XYZ="53.94055, 0, -124.9562" QuestId="70321" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70321) == 4 and GetQuestById(70321).QuestI8A == 0">
+        <GetTo ZoneId="133" XYZ="20.6156, 8.351283, -96.59819" />
+        <TalkTo NpcId="1045776" XYZ="20.92004, 8.383688, -93.18689" QuestId="70321" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70321) == 4 and GetQuestById(70321).QuestI8A == 16">
+        <GetTo ZoneId="133" XYZ="89.39236, 11.70274, -236.5031" />
+        <TalkTo SelectStringOverride="2" NpcId="1045777" XYZ="88.57861, 11.92574, -234.7601" QuestId="70321" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70321) == 5">
+        <GetTo ZoneId="133" XYZ="-44.65873, 10.8767, -225.0669" />
+        <TalkTo NpcId="1045780" XYZ="-44.11383, 10.90826, -222.2477" QuestId="70321" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70321) == 6">
+        <GetTo ZoneId="133" XYZ="-120.385, 5.806046, -179.0923" />
+        <TalkTo NpcId="1045782" XYZ="-122.4537, 5.57118, -176.9284" QuestId="70321" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70321) == 7">
+        <GetTo ZoneId="133" XYZ="-243.0149, 1.194797, -197.9518" />
+        <UseObject NpcId="2013427" XYZ="-242.0539, 1.174927, -200.0916" QuestId="70321" StepId="7" />
+      </If>
+      <If Condition="GetQuestStep(70321) == 255">
+        <GetTo ZoneId="133" XYZ="-243.0149, 1.194797, -197.9518" />
+        <TurnIn QuestId="70321" NpcId="1045784" XYZ="-241.5656, 1.194797, -198.3826" />
+      </If>
+    </If>
+
+    <!-- A Charmed Life -->
+    <If Condition="IsQuestCompleted(70321) and not IsQuestCompleted(70322)">
+      <If Condition="not HasQuest(70322)">
+        <GetTo ZoneId="133" XYZ="-244.0038, 1.139816, -197.6107" />
+        <If Condition="IsQuestAcceptQualified(70322)">
+          <PickupQuest QuestId="70322" NpcId="1045785" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70322) == 1 and GetQuestById(70322).QuestI8A == 0">
+        <GetTo ZoneId="133" XYZ="114.7134, 11.46543, -96.59703" />
+        <EmoteNPC Emote="allsaintscharm" NpcId="1045787" XYZ="116.472, 11.76743, -93.98035" QuestId="70322" StepId="1" Condition="GetQuestStep(70322) == 1 and GetQuestById(70322).QuestI8A == 0" />
+      </If>
+      <If Condition="GetQuestStep(70322) == 1 and GetQuestById(70322).QuestI8A == 17">
+        <GetTo ZoneId="133" XYZ="148.2148, 13.32215, -157.063" />
+        <EmoteNPC Emote="allsaintscharm" NpcId="1045788" XYZ="144.8234, 13.729, -155.993" QuestId="70322" StepId="1" Condition="GetQuestStep(70322) == 1 and GetQuestById(70322).QuestI8A == 17" />
+      </If>
+      <If Condition="GetQuestStep(70322) == 1 and GetQuestById(70322).QuestI8A == 33">
+        <GetTo ZoneId="133" XYZ="116.7403, 14.10861, -271.662" />
+        <EmoteNPC Emote="allsaintscharm" NpcId="1045786" XYZ="114.8546, 14.17947, -271.809" QuestId="70322" StepId="1" Condition="GetQuestStep(70322) == 1 and GetQuestById(70322).QuestI8A == 33" />
+      </If>
+      <If Condition="GetQuestStep(70322) == 2">
+        <GetTo ZoneId="133" XYZ="-48.77388, 6.499991, -91.47823" />
+        <TalkTo NpcId="1045792" XYZ="-49.27142, 6.499994, -88.67023" QuestId="70322" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70322) == 255">
+        <GetTo ZoneId="133" XYZ="-42.32733, 7.036892, -134.5826" />
+        <TurnIn QuestId="70322" NpcId="1045773" XYZ="-41.85559, 7.162448, -137.1634" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas> </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
