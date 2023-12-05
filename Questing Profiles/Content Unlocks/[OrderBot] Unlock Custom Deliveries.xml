@@ -75,11 +75,11 @@
 				</If>
 			</If>
 			<If Condition="GetQuestStep(68240) == 1">
-				<GetTo ZoneId="613" Subzone="2772" XYZ="-9.517908, -196.9956, -80.61106" />
+				<GetTo ZoneId="613" XYZ="-9.517908, -196.9956, -80.61106" />
 				<LLTalkTo NpcId="1023281" XYZ="-9.597961, -196.981, -82.38354" QuestId="68240" StepId="1" />
 			</If>
 			<If Condition="GetQuestStep(68240) == 255">
-				<GetTo ZoneId="613" Subzone="2772" XYZ="-61.70034, -199.0023, -65.69437" />
+				<GetTo ZoneId="613" XYZ="-61.70034, -199.0023, -65.69437" />
 				<LLTurnIn QuestId="68240" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735" />
 				<LLSmallTalk />
 			</If>
@@ -89,7 +89,7 @@
 					<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216" />
 					<LLChangeZone Heading="5.257571" />
 				</If>
-				<GetTo ZoneId="613" Subzone="2772" XYZ="-61.70034, -199.0023, -65.69437" />
+				<GetTo ZoneId="613" XYZ="-61.70034, -199.0023, -65.69437" />
 				<If Condition="IsQuestAcceptQualified(68241)">
 					<LLPickupQuest QuestId="68241" NpcId="1023280" />
 					<LLSmallTalk />
@@ -494,6 +494,33 @@
 			</If>
 		</If>
 
+		<!-- Unlock Anden -->
+		<!-- That's So Anden -->
+		<If Condition="not IsQuestCompleted(70251)">
+			<If Condition="not IsQuestCompleted(70000)">
+				<LLToast message="Please complete the Endwalker MSQ to unlock Anden" />
+			</If>
+			<If Condition="not HasQuest(70251)">
+				<GetTo ZoneId="819" XYZ="-93.63718, 3.184307, 4.582733" />
+				<If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
+					<LogMessage Message="Not already on a crafter class, swapping." />
+					<RunCode Name="SwitchDoHJob" />
+				</If>
+				<If Condition="IsQuestAcceptQualified(70251)">
+					<PickupQuest QuestId="70251" NpcId="1044553" />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70251) == 1">
+				<LisbethTravel ZoneId="816" XYZ="-238.6832, 51.059, 618.9181" />
+				<TalkTo NpcId="1044554" XYZ="-241.6877, 51.05899, 620.8744" QuestId="70251" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(70251) == 255">
+				<LisbethTravel ZoneId="816" XYZ="-238.6832, 51.059, 618.9181" />
+				<TurnIn QuestId="70251" NpcId="1044558" XYZ="-241.6877, 51.05899, 620.8744" />
+			</If>
+		</If>
+
+		<!-- Unlock Margrat -->
 		<!-- A Request of One's Own -->
 		<If Condition="not IsQuestCompleted(70351)">
 			<If Condition="not IsQuestCompleted(70272)">
