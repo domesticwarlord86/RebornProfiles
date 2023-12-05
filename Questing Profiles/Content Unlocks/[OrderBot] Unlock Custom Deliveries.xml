@@ -4,512 +4,536 @@
   Authors: DomesticWarlord86
 -->
 <Profile>
-  <Name>[OrderBot] Unlock Custom Deliveries</Name>
-  <BehaviorDirectory></BehaviorDirectory>
-  <Order>
-   
+	<Name>[OrderBot] Unlock Custom Deliveries</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
 
-    <If Condition="not IsQuestCompleted(67634)">
-	  <LLToast message="Please complete the quest 'Go West, Craftsman'"/>
-	</If>
-	
-	<!-- Zhloe Aliapoh -->
-    <!-- Arms Wide Open -->
-    <If Condition="not HasQuest(67087) and not IsQuestCompleted(67087)">
-	  <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
-		<LogMessage Message="Not already on a crafter class, swapping."/>
-		<RunCode Name="SwitchDoHJob"/>
-	  </If> 	
-      <GetTo ZoneId="478" XYZ="-14.99902, 206.4994, 44.58548"/>
-      <If Condition="IsQuestAcceptQualified(67087)">
-        <LLPickupQuest QuestId="67087" NpcId="1012299"/>
-        <LLSmallTalk/>
-      </If>
-    </If>
-    <If Condition="GetQuestStep(67087) == 255">
-      <GetTo ZoneId="478" XYZ="-71.83349, 206.6002, 30.11054"/>
-      <LLTurnIn QuestId="67087" NpcId="1019615" XYZ="-71.76324, 206.5002, 32.63892"/>
-      <LLSmallTalk/>
-    </If>
 
-    <If Condition="not IsQuestCompleted(68508)">
-	  <LLToast message="Please complete the MSQ 'Return of the Bull' to unlock further custom deliveries"/>
-	</If>
+		<If Condition="not IsQuestCompleted(67634)">
+			<LLToast message="Please complete the quest 'Go West, Craftsman'" />
+		</If>
 
-	<!-- M'naago -->
-	<If Condition="Core.Player.ClassLevel &gt; 59 and IsQuestCompleted(67087) and IsQuestCompleted(68508)">
-		<!-- None Forgotten, None Forsaken -->
-		<If Condition="not HasQuest(68541) and not IsQuestCompleted(68541)">
-		  <GetTo ZoneId="635" XYZ="-69.61328, 0.009999931, 62.43654"/>
-		  <If Condition="IsQuestAcceptQualified(68541)">
-			<LLPickupQuest QuestId="68541" NpcId="1019459"/>
-			<LLSmallTalk/>
-		  </If>
+		<!-- Zhloe Aliapoh -->
+		<!-- Arms Wide Open -->
+		<If Condition="not HasQuest(67087) and not IsQuestCompleted(67087)">
+			<If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
+				<LogMessage Message="Not already on a crafter class, swapping." />
+				<RunCode Name="SwitchDoHJob" />
+			</If>
+			<GetTo ZoneId="478" XYZ="-14.99902, 206.4994, 44.58548" />
+			<If Condition="IsQuestAcceptQualified(67087)">
+				<LLPickupQuest QuestId="67087" NpcId="1012299" />
+				<LLSmallTalk />
+			</If>
 		</If>
-		<If Condition="GetQuestStep(68541) == 255">
-		  <GetTo ZoneId="635" XYZ="171.1595, 13.02367, -88.07846"/>
-		  <LLTurnIn QuestId="68541" NpcId="1020337" XYZ="171.313, 13.02367, -89.95197"/>
-		  <LLSmallTalk/>
-		</If>		
-	</If>
-	
-	<!-- Kurenai -->
-	<If Condition="Core.Player.ClassLevel &gt; 61 and IsQuestCompleted(68541)">	
-		<If Condition="not IsQuestCompleted(68168)">	
-		  <LLToast message="Please complete the quest 'The Palace of Lost Souls'"/>
+		<If Condition="GetQuestStep(67087) == 255">
+			<GetTo ZoneId="478" XYZ="-71.83349, 206.6002, 30.11054" />
+			<LLTurnIn QuestId="67087" NpcId="1019615" XYZ="-71.76324, 206.5002, 32.63892" />
+			<LLSmallTalk />
 		</If>
-		<!-- Fathoms Below -->
-		<If Condition="not HasQuest(68240) and not IsQuestCompleted(68240)">
-		  <If Condition="ClassName != ((ClassJobType.Paladin) or (ClassJobType.Warrior) or (ClassJobType.DarkKnight) or (ClassJobType.Gunbreaker) or (ClassJobType.Whitemage) or (ClassJobType.Scholar) or (ClassJobType.Astrologian) or (ClassJobType.Monk) or (ClassJobType.Dragoon) or (ClassJobType.Ninja) or (ClassJobType.Samurai) or (ClassJobType.Bard) or (ClassJobType.Machinist) or (ClassJobType.Dancer) or (ClassJobType.Blackmage) or (ClassJobType.Summoner) or (ClassJobType.Redmage))">
-			<LogMessage Message="Not already on a DoW/M class, swapping."/>
-			<RunCode name="SwitchDoWMJob"/>
-		  </If>
-		  <If Condition="not IsOnSubMap(2772)">
-			<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216"/>
-			<LLChangeZone Heading="5.257571"/>
-		  </If>			  
-		  <GetTo ZoneId="613" XYZ="-63.7511, -199.0074, -66.5967"/>
-		  <If Condition="IsQuestAcceptQualified(68240)">
-			<LLPickupQuest QuestId="68240" NpcId="1023280"/>
-			<LLSmallTalk/>
-		  </If>
-		</If>
-		<If Condition="GetQuestStep(68240) == 1">
-		  <GetTo ZoneId="613" Subzone="2772" XYZ="-9.517908, -196.9956, -80.61106"/>
-		  <LLTalkTo NpcId="1023281" XYZ="-9.597961, -196.981, -82.38354" QuestId="68240" StepId="1"/>
-		</If>
-		<If Condition="GetQuestStep(68240) == 255">
-		  <GetTo ZoneId="613" Subzone="2772" XYZ="-61.70034, -199.0023, -65.69437"/>
-		  <LLTurnIn QuestId="68240" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735"/>
-		  <LLSmallTalk/>
-		</If>
-		<!-- A Part of Your World -->
-		<If Condition="IsQuestCompleted(68240) and not HasQuest(68241) and not IsQuestCompleted(68241)">
-		  <If Condition="not IsOnSubMap(2772)">
-			<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216"/>
-			<LLChangeZone Heading="5.257571"/>
-		  </If>			
-		  <GetTo ZoneId="613" Subzone="2772" XYZ="-61.70034, -199.0023, -65.69437"/>
-		  <If Condition="IsQuestAcceptQualified(68241)">
-			<LLPickupQuest QuestId="68241" NpcId="1023280"/>
-			<LLSmallTalk/>
-		  </If>
-		</If>
-		<If Condition="GetQuestStep(68241) == 1">
-		  <If Condition="IsOnSubMap(2772)">
-		    <TeleportTo AetheryteId="106" Force="True"/>
-		  </If>
-		  <LisbethTravel Zone="613" Subzone="2774" Position="-31.41148, 0.5693053, -553.682"/>
-		  <LLTalkTo NpcId="1023282" XYZ="-32.79169, 0.5718597, -554.7723" QuestId="68241" StepId="1"/>
-		</If>
-		<If Condition="GetQuestStep(68241) == 2">
-		  <If Condition="IsOnSubMap(2772)">
-		    <TeleportTo AetheryteId="106" Force="True"/>
-		  </If>		
-		  <LisbethTravel Zone="613" Subzone="2777" Position="118.7227, 5.006782, -861.319"/>
-		  <LLTalkTo NpcId="1023285" XYZ="119.4933, 5.006782, -862.6078" QuestId="68241" StepId="2"/>
-		</If>
-		<If Condition="GetQuestStep(68241) == 255">
-		  <If Condition="not IsOnSubMap(2772)">
-			<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216"/>
-			<LLChangeZone Heading="5.257571"/>
-		  </If>	
-		  <GetTo ZoneId="613" XYZ="-62.34636, -199.0114, -66.435"/>
-		  <LLTurnIn QuestId="68241" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735"/>
-		  <LLSmallTalk/>		  
-		</If>
-		<!-- The Elixir of Life -->
-		<If Condition="IsQuestCompleted(68241) and not HasQuest(68242) and not IsQuestCompleted(68242)">
-		  <If Condition="not IsOnSubMap(2772)">
-			<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216"/>
-			<LLChangeZone Heading="5.257571"/>
-		  </If>		
-		  <GetTo ZoneId="613" XYZ="-60.65184, -199.0175, -66.40257"/>
-		  <If Condition="IsQuestAcceptQualified(68242)">
-			<LLPickupQuest QuestId="68242" NpcId="1023280"/>
-			<LLSmallTalk/>
-		  </If>
-		</If>
-		<If Condition="GetQuestStep(68242) == 1">
-		  <If Condition="IsOnSubMap(2772)">
-		    <TeleportTo AetheryteId="105" Force="True"/>
-		  </If>		
-		  <LisbethTravel Zone="613" Subzone="2769" Position="421.1801, -99.09509, -225.0543"/>
-		  <LLTalkTo NpcId="1023287" XYZ="422.1102, -98.96063, -223.2242" QuestId="68242" StepId="1"/>
-		</If>
-		<If Condition="GetQuestStep(68242) == 2">
-		  <LisbethTravel Zone="613" Subzone="2769" Position="351.7904, -120.6103, -317.2392"/>
-		  <LLTalkTo NpcId="1023288" XYZ="350.515, -120.5811, -316.762" QuestId="68242" StepId="2"/>
-		</If>
-		<If Condition="GetQuestStep(68242) == 3">
-		  <If Condition="not IsOnSubMap(2783)">	
-			<LisbethTravel Area="The Ruby Sea" Position="191.598, -157.7586, 106.8894"/>
-			<LLChangeZone Heading="0.702774"/>
-		  </If>	
-		  <GetTo ZoneId="613" XYZ="221.3394, -165.2595, 137.1115"/>
-		  <LLTalkTo NpcId="1023290" XYZ="222.3391, -165.1956, 137.8958" QuestId="68242" StepId="3"/>
-		</If>
-		<If Condition="GetQuestStep(68242) == 4">
-		  <If Condition="not IsOnSubMap(2783)">	
-			<LisbethTravel Area="The Ruby Sea" Position="191.598, -157.7586, 106.8894"/>
-			<LLChangeZone Heading="0.702774"/>
-		  </If>		
-		  <GetTo ZoneId="613" XYZ="165.263, -172, 259.4285"/>
-		  <UseItem ItemId="2002332" NpcId="2008809" XYZ="163.4393, -172.015, 262.0736" QuestId="68242" StepId="4"/>
-		</If>
-		<If Condition="GetQuestStep(68242) == 5">
-		  <If Condition="not IsOnSubMap(2783)">	
-			<LisbethTravel Area="The Ruby Sea" Position="191.598, -157.7586, 106.8894"/>
-			<LLChangeZone Heading="0.702774"/>
-		  </If>		
-		  <GetTo ZoneId="613" XYZ="220.684, -165.27, 137.4044"/>
-		  <LLHandOver ItemId="2002333" NpcId="1023290" XYZ="222.3391, -165.1956, 137.8958" QuestId="68242" StepId="5"/>
-		</If>
-		<If Condition="GetQuestStep(68242) == 255">
-		  <If Condition="not IsOnSubMap(2772)">
-			<TeleportTo AetheryteId="106" Force="True"/>
-			<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216"/>
-			<LLChangeZone Heading="5.257571"/>
-		  </If>		
-		  <GetTo ZoneId="613" XYZ="-61.23541, -198.9879, -64.88971"/>
-		  <LLTurnIn QuestId="68242" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735"/>
-		  <LLSmallTalk/>	  
-		</If>
-		<!-- The Two Princesses of Sui-no-Sato -->
-		<If Condition="IsQuestCompleted(68242) and not HasQuest(68243) and not IsQuestCompleted(68243)">
-		  <If Condition="not IsOnSubMap(2772)">
-			<TeleportTo AetheryteId="106" Force="True"/>
-			<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216"/>
-			<LLChangeZone Heading="5.257571"/>
-		  </If>			
-		  <GetTo ZoneId="613" XYZ="-61.23541, -198.9879, -64.88971"/>
-		  <If Condition="IsQuestAcceptQualified(68243)">
-			<LLPickupQuest QuestId="68243" NpcId="1023280"/>
-			<LLSmallTalk/>
-		  </If>
-		</If>
-		<If Condition="GetQuestStep(68243) == 1">
-		  <If Condition="not IsOnSubMap(2772)">
-			<TeleportTo AetheryteId="106" Force="True"/>
-			<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216"/>
-			<LLChangeZone Heading="5.257571"/>
-		  </If>		
-		  <GetTo ZoneId="613" XYZ="-9.682719, -196.9981, -81.23292"/>
-		  <LLTalkTo NpcId="1023281" XYZ="-9.597961, -196.981, -82.38354" QuestId="68243" StepId="1"/>
-		</If>
-		<If Condition="GetQuestStep(68243) == 255">
-		  <If Condition="not IsOnSubMap(2772)">
-			<TeleportTo AetheryteId="106" Force="True"/>
-			<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216"/>
-			<LLChangeZone Heading="5.257571"/>
-		  </If>		
-		  <GetTo ZoneId="613" XYZ="7.59002, -198.3741, -155.2006"/>
-		  <LLTurnIn QuestId="68243" NpcId="1023291" XYZ="8.46875, -198.3421, -157.1526"/>
-		  <LLSmallTalk/>
-		</If>
-		<!-- The Seaweed Is Always Greener -->
-		<If Condition="IsQuestCompleted(68243) and not HasQuest(68675) and not IsQuestCompleted(68675)">
-		  <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
-				<LogMessage Message="Not already on a crafter class, swapping."/>
-				<RunCode Name="SwitchDoHJob"/>
-		  </If>		
-		  <GetTo ZoneId="628" XYZ="-52.1568, -3, -62.99715"/>
-		  <If Condition="IsQuestAcceptQualified(68675)">
-			<LLPickupQuest QuestId="68675" NpcId="1025965"/>
-			<LLSmallTalk/>
-		  </If>
-		</If>
-		<If Condition="GetQuestStep(68675) == 255">
-		  <LisbethTravel ZoneId="613" XYZ="342.9043, -120.336, -304.5736"/>
-		  <LLTurnIn QuestId="68675" NpcId="1025878" XYZ="343.984, -120.3295, -306.0197"/>
-		  <LLSmallTalk/>
-		</If>		
-	</If>
-	
-	<!-- Adkiragh -->
-	<If Condition="Core.Player.ClassLevel &gt; 65 and IsQuestCompleted(68675)">	
-		<!-- Purbol Rain -->
-		<If Condition="not HasQuest(68294) and not IsQuestCompleted(68294)">
-		  <If Condition="ClassName != ((ClassJobType.Paladin) or (ClassJobType.Warrior) or (ClassJobType.DarkKnight) or (ClassJobType.Gunbreaker) or (ClassJobType.Whitemage) or (ClassJobType.Scholar) or (ClassJobType.Astrologian) or (ClassJobType.Monk) or (ClassJobType.Dragoon) or (ClassJobType.Ninja) or (ClassJobType.Samurai) or (ClassJobType.Bard) or (ClassJobType.Machinist) or (ClassJobType.Dancer) or (ClassJobType.Blackmage) or (ClassJobType.Summoner) or (ClassJobType.Redmage))">
-				<LogMessage Message="Not already on a DoW/M class, swapping."/>
-				<RunCode name="SwitchDoWMJob"/>
-		  </If>		
-		  <LisbethTravel Zone="622" Subzone="2814" Position="593.0337, -19.50578, 286.102"/>
-		  <If Condition="IsQuestAcceptQualified(68294)">
-			<LLPickupQuest QuestId="68294" NpcId="1023253"/>
-			<LLSmallTalk/>
-		  </If>
-		</If>
-		<If Condition="GetQuestStep(68294) == 1">
-		  <LisbethTravel Area="The Azim Steppe" Position="611.5543, 0.1202933, -18.53897"/>
-		  <Grind GrindRef="Purbol" PostCombatDelay="3.0" While="GetQuestStep(68294) == 1" />
-		</If>
-		<If Condition="GetQuestStep(68294) == 255">
-		  <LisbethTravel Zone="622" Subzone="2814" Position="592.3301, -19.50578, 286.1235"/>
-		  <LLTurnIn ItemId="2002321" QuestId="68294" NpcId="1023253" XYZ="594.4456, -19.50579, 285.603"/>
-		  <LLSmallTalk/>
-		</If>
-		<!-- Between a Rock and the Hard Place -->
-		<If Condition="IsQuestCompleted(68294) and not HasQuest(68713) and not IsQuestCompleted(68713)">
-		  <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
-			<LogMessage Message="Not already on a crafter class, swapping."/>
-			<RunCode Name="SwitchDoHJob"/>
-		  </If>			
-		  <LisbethTravel Zone="478" Subzone="2094" Position="-14.90395, 206.4994, 44.48463"/>
-		  <If Condition="IsQuestAcceptQualified(68713)">
-			<LLPickupQuest QuestId="68713" NpcId="1012299"/>
-			<LLSmallTalk/>
-		  </If>
-		</If>
-		<If Condition="GetQuestStep(68713) == 255">
-		  <LisbethTravel Zone="478" Subzone="2096" Position="-61.97561, 206.6002, 24.15582"/>
-		  <LLTurnIn QuestId="68713" NpcId="1018393" XYZ="-60.38, 206.5002, 26.16919"/>
-		  <LLSmallTalk/>
-		</If>		
-	</If>	
-	
-	<!-- Kai-Shirr -->
-	<If Condition="Core.Player.ClassLevel &gt; 69 and IsQuestCompleted(68713)">
-		<!-- Oh, Beehive Yourself -->
-		<If Condition="not HasQuest(69265) and not IsQuestCompleted(69265)">
-		  <If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
-			<LogMessage Message="Not already on a crafter class, swapping."/>
-			<RunCode Name="SwitchDoHJob"/>
-		  </If>		
-		  <GetTo ZoneId="820" XYZ="24.28158, 82.82527, 24.3771"/>
-		  <If Condition="IsQuestAcceptQualified(69265)">
-			<LLPickupQuest QuestId="69265" NpcId="1031781"/>
-			<LLSmallTalk/>
-		  </If>
-		</If>	
-		<If Condition="GetQuestStep(69265) == 1">
-		  <GetTo ZoneId="820" XYZ="26.38553, 82.71201, -44.92235"/>
-		  <UseObject NpcId="2010842" XYZ="27.45093, 82.6886, -45.45667" QuestId="69265" StepId="1"/>
-		</If>
-		<If Condition="GetQuestStep(69265) == 255">
-		  <GetTo ZoneId="820" XYZ="51.50173, 83.00108, -64.31295"/>
-		  <LLTurnIn QuestId="69265" NpcId="1031801" XYZ="52.8114, 83.00108, -65.38495"/>
-		  <LLSmallTalk/>
-		</If>		
-	</If>
 
-  <!-- Ehll Tou -->
-    <!-- A Home in the Firmament -->
-    <If Condition="not HasQuest(69261) and not IsQuestCompleted(69261)">
-      <LisbethTravel Zone="886" Subzone="3436" Position="-7.556792, -16, 163.5421"/>
-      <If Condition="IsQuestAcceptQualified(69261)">
-        <LLPickupQuest QuestId="69261" NpcId="1031992"/>
-        <LLSmallTalk/>
-      </If>
-    </If>
-    <If Condition="GetQuestStep(69261) == 1">
-      <LisbethTravel Zone="418" Subzone="0" Position="22.96507, -12.02102, 54.93568"/>
-      <LLTalkTo NpcId="1031995" XYZ="21.86615, -12.021, 54.18469" QuestId="69261" StepId="1"/>
-    </If>
-    <If Condition="GetQuestStep(69261) == 2">
-      <LisbethTravel Zone="418" Subzone="0" Position="22.96507, -12.02102, 54.93568"/>
-      <LLTalkTo NpcId="1032843" XYZ="21.7746, -12.021, 54.09314" QuestId="69261" StepId="2"/>
-    </If>
-    <If Condition="GetQuestStep(69261) == 3 and GetQuestById(69261).QuestI8C == 48">
-      <LisbethTravel Zone="418" Subzone="2311" Position="88.21413, 15.09468, 33.16915"/>
-      <LLHandOver ItemId="2002974" NpcId="1011192" XYZ="88.36499, 15.09468, 31.29626" QuestId="69261" StepId="3"/>     
-    </If>	
-    <If Condition="GetQuestStep(69261) == 3 and GetQuestById(69261).QuestI8C == 48">
-      <LisbethTravel Zone="418" Subzone="2311" Position="88.21413, 15.09468, 33.16915"/>
-      <LLHandOver ItemId="2002974" NpcId="1011192" XYZ="88.36499, 15.09468, 31.29626" QuestId="69261" StepId="3"/>     
-    </If>
-    <If Condition="GetQuestStep(69261) == 3 and GetQuestById(69261).QuestI8C == 32">
-      <LisbethTravel Zone="418" Subzone="2312" Position="127.2733, 24.45884, -1.751846"/>
-      <LLHandOver ItemId="2002974" NpcId="1012163" XYZ="128.252, 24.45884, -0.6867676" QuestId="69261" StepId="3"/>    
-    </If>
-    <If Condition="GetQuestStep(69261) == 3 and GetQuestById(69261).QuestI8C == 16">
-      <LisbethTravel Zone="419" Subzone="0" Position="-172.8605, -12.54786, -22.1228"/>
-      <LLHandOver ItemId="2002974" NpcId="1012180" XYZ="-174.1818, -12.55547, -21.56104" QuestId="69261" StepId="3"/>
-    </If> 
-    <If Condition="GetQuestStep(69261) == 255">
-      <LisbethTravel Zone="886" Subzone="3436" Position="-5.518055, -16, 163.7018"/>
-      <LLTurnIn QuestId="69261" NpcId="1031991" XYZ="-7.766907, -16, 163.3783"/>
-      <LLSmallTalk/>
-    </If>
+		<If Condition="not IsQuestCompleted(68508)">
+			<LLToast message="Please complete the MSQ 'Return of the Bull' to unlock further custom deliveries" />
+		</If>
 
-    <!-- Overseer for a Day -->
-    <If Condition="IsQuestCompleted(69261) and not HasQuest(69262) and not IsQuestCompleted(69262)">
-      <LisbethTravel Zone="886" Subzone="3436" Position="-6.022423, -16, 164.016"/>
-      <If Condition="IsQuestAcceptQualified(69262)">
-        <LLPickupQuest QuestId="69262" NpcId="1031991"/>
-        <LLSmallTalk/>
-      </If>
-    </If>
-    <While Condition="GetQuestStep(69262) == 1">
-	  <LLToast message="Please complete the next step manually."/>
-	  <LLToast message="Use option 2 for the man."/>
-	  <LLToast message="Use option 1 for the Lala pair."/>
-	  <LLToast message="Use option 3 for the cat."/>
-	  <WaitTimer WaitTime="26" />  
-    </While>
-    <If Condition="GetQuestStep(69262) == 255">
-      <LisbethTravel Zone="886" Subzone="3436" Position="-7.064736, -16, 163.8962"/>
-      <LLTurnIn QuestId="69262" NpcId="1032832" XYZ="-8.255188, -16, 162.4017"/>
-      <LLSmallTalk/>
-    </If>
+		<!-- M'naago -->
+		<If Condition="Core.Player.ClassLevel &gt; 59 and IsQuestCompleted(67087) and IsQuestCompleted(68508)">
+			<!-- None Forgotten, None Forsaken -->
+			<If Condition="not HasQuest(68541) and not IsQuestCompleted(68541)">
+				<GetTo ZoneId="635" XYZ="-69.61328, 0.009999931, 62.43654" />
+				<If Condition="IsQuestAcceptQualified(68541)">
+					<LLPickupQuest QuestId="68541" NpcId="1019459" />
+					<LLSmallTalk />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(68541) == 255">
+				<GetTo ZoneId="635" XYZ="171.1595, 13.02367, -88.07846" />
+				<LLTurnIn QuestId="68541" NpcId="1020337" XYZ="171.313, 13.02367, -89.95197" />
+				<LLSmallTalk />
+			</If>
+		</If>
 
-    <!-- Shadow of an Icy Past -->
-    <If Condition="IsQuestCompleted(69262) and not HasQuest(69263) and not IsQuestCompleted(69263)">
-      <If Condition="IsQuestAcceptQualified(69263)">
-        <LLPickupQuest QuestId="69263" NpcId="1031998"/>
-        <LLSmallTalk/>
-      </If>
-    </If>
-    <If Condition="GetQuestStep(69263) == 1">
-      <LisbethTravel Zone="418" Subzone="0" Position="-2.890963, 1.348016, 115.0286"/>
-      <LLTalkTo NpcId="1031999" XYZ="-4.226807, 1.479128, 115.3734" QuestId="69263" StepId="1"/>
-    </If>
-    <If Condition="GetQuestStep(69263) == 2">
-      <LisbethTravel Zone="886" Subzone="3474" Position="207.4978, -40, 8.501654"/>
-      <LLTalkTo NpcId="1031996" XYZ="209.5521, -40, 8.132996" QuestId="69263" StepId="2"/>
-    </If>
-    <If Condition="GetQuestStep(69263) == 3">
-      <LisbethTravel Zone="886" Subzone="3475" Position="160.9414, -50, 75.45954"/>
-      <LLTalkTo NpcId="1032001" XYZ="161.7914, -50, 73.47217" QuestId="69263" StepId="3"/>
-    </If>
-    <If Condition="GetQuestStep(69263) == 255">
-      <LisbethTravel Zone="886" Subzone="3474" Position="208.2713, -40, 8.47094"/>
-      <LLTurnIn QuestId="69263" NpcId="1031996" XYZ="209.5521, -40, 8.132996"/>
-      <LLSmallTalk/>
-    </If>
+		<!-- Kurenai -->
+		<If Condition="Core.Player.ClassLevel &gt; 61 and IsQuestCompleted(68541)">
+			<If Condition="not IsQuestCompleted(68168)">
+				<LLToast message="Please complete the quest 'The Palace of Lost Souls'" />
+			</If>
+			<!-- Fathoms Below -->
+			<If Condition="not HasQuest(68240) and not IsQuestCompleted(68240)">
+				<If Condition="ClassName != ((ClassJobType.Paladin) or (ClassJobType.Warrior) or (ClassJobType.DarkKnight) or (ClassJobType.Gunbreaker) or (ClassJobType.Whitemage) or (ClassJobType.Scholar) or (ClassJobType.Astrologian) or (ClassJobType.Monk) or (ClassJobType.Dragoon) or (ClassJobType.Ninja) or (ClassJobType.Samurai) or (ClassJobType.Bard) or (ClassJobType.Machinist) or (ClassJobType.Dancer) or (ClassJobType.Blackmage) or (ClassJobType.Summoner) or (ClassJobType.Redmage))">
+					<LogMessage Message="Not already on a DoW/M class, swapping." />
+					<RunCode name="SwitchDoWMJob" />
+				</If>
+				<If Condition="not IsOnSubMap(2772)">
+					<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216" />
+					<LLChangeZone Heading="5.257571" />
+				</If>
+				<GetTo ZoneId="613" XYZ="-63.7511, -199.0074, -66.5967" />
+				<If Condition="IsQuestAcceptQualified(68240)">
+					<LLPickupQuest QuestId="68240" NpcId="1023280" />
+					<LLSmallTalk />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(68240) == 1">
+				<GetTo ZoneId="613" Subzone="2772" XYZ="-9.517908, -196.9956, -80.61106" />
+				<LLTalkTo NpcId="1023281" XYZ="-9.597961, -196.981, -82.38354" QuestId="68240" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(68240) == 255">
+				<GetTo ZoneId="613" Subzone="2772" XYZ="-61.70034, -199.0023, -65.69437" />
+				<LLTurnIn QuestId="68240" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735" />
+				<LLSmallTalk />
+			</If>
+			<!-- A Part of Your World -->
+			<If Condition="IsQuestCompleted(68240) and not HasQuest(68241) and not IsQuestCompleted(68241)">
+				<If Condition="not IsOnSubMap(2772)">
+					<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216" />
+					<LLChangeZone Heading="5.257571" />
+				</If>
+				<GetTo ZoneId="613" Subzone="2772" XYZ="-61.70034, -199.0023, -65.69437" />
+				<If Condition="IsQuestAcceptQualified(68241)">
+					<LLPickupQuest QuestId="68241" NpcId="1023280" />
+					<LLSmallTalk />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(68241) == 1">
+				<If Condition="IsOnSubMap(2772)">
+					<TeleportTo AetheryteId="106" Force="True" />
+				</If>
+				<LisbethTravel Zone="613" Subzone="2774" Position="-31.41148, 0.5693053, -553.682" />
+				<LLTalkTo NpcId="1023282" XYZ="-32.79169, 0.5718597, -554.7723" QuestId="68241" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(68241) == 2">
+				<If Condition="IsOnSubMap(2772)">
+					<TeleportTo AetheryteId="106" Force="True" />
+				</If>
+				<LisbethTravel Zone="613" Subzone="2777" Position="118.7227, 5.006782, -861.319" />
+				<LLTalkTo NpcId="1023285" XYZ="119.4933, 5.006782, -862.6078" QuestId="68241" StepId="2" />
+			</If>
+			<If Condition="GetQuestStep(68241) == 255">
+				<If Condition="not IsOnSubMap(2772)">
+					<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216" />
+					<LLChangeZone Heading="5.257571" />
+				</If>
+				<GetTo ZoneId="613" XYZ="-62.34636, -199.0114, -66.435" />
+				<LLTurnIn QuestId="68241" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735" />
+				<LLSmallTalk />
+			</If>
+			<!-- The Elixir of Life -->
+			<If Condition="IsQuestCompleted(68241) and not HasQuest(68242) and not IsQuestCompleted(68242)">
+				<If Condition="not IsOnSubMap(2772)">
+					<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216" />
+					<LLChangeZone Heading="5.257571" />
+				</If>
+				<GetTo ZoneId="613" XYZ="-60.65184, -199.0175, -66.40257" />
+				<If Condition="IsQuestAcceptQualified(68242)">
+					<LLPickupQuest QuestId="68242" NpcId="1023280" />
+					<LLSmallTalk />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(68242) == 1">
+				<If Condition="IsOnSubMap(2772)">
+					<TeleportTo AetheryteId="105" Force="True" />
+				</If>
+				<LisbethTravel Zone="613" Subzone="2769" Position="421.1801, -99.09509, -225.0543" />
+				<LLTalkTo NpcId="1023287" XYZ="422.1102, -98.96063, -223.2242" QuestId="68242" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(68242) == 2">
+				<LisbethTravel Zone="613" Subzone="2769" Position="351.7904, -120.6103, -317.2392" />
+				<LLTalkTo NpcId="1023288" XYZ="350.515, -120.5811, -316.762" QuestId="68242" StepId="2" />
+			</If>
+			<If Condition="GetQuestStep(68242) == 3">
+				<If Condition="not IsOnSubMap(2783)">
+					<LisbethTravel Area="The Ruby Sea" Position="191.598, -157.7586, 106.8894" />
+					<LLChangeZone Heading="0.702774" />
+				</If>
+				<GetTo ZoneId="613" XYZ="221.3394, -165.2595, 137.1115" />
+				<LLTalkTo NpcId="1023290" XYZ="222.3391, -165.1956, 137.8958" QuestId="68242" StepId="3" />
+			</If>
+			<If Condition="GetQuestStep(68242) == 4">
+				<If Condition="not IsOnSubMap(2783)">
+					<LisbethTravel Area="The Ruby Sea" Position="191.598, -157.7586, 106.8894" />
+					<LLChangeZone Heading="0.702774" />
+				</If>
+				<GetTo ZoneId="613" XYZ="165.263, -172, 259.4285" />
+				<UseItem ItemId="2002332" NpcId="2008809" XYZ="163.4393, -172.015, 262.0736" QuestId="68242" StepId="4" />
+			</If>
+			<If Condition="GetQuestStep(68242) == 5">
+				<If Condition="not IsOnSubMap(2783)">
+					<LisbethTravel Area="The Ruby Sea" Position="191.598, -157.7586, 106.8894" />
+					<LLChangeZone Heading="0.702774" />
+				</If>
+				<GetTo ZoneId="613" XYZ="220.684, -165.27, 137.4044" />
+				<LLHandOver ItemId="2002333" NpcId="1023290" XYZ="222.3391, -165.1956, 137.8958" QuestId="68242" StepId="5" />
+			</If>
+			<If Condition="GetQuestStep(68242) == 255">
+				<If Condition="not IsOnSubMap(2772)">
+					<TeleportTo AetheryteId="106" Force="True" />
+					<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216" />
+					<LLChangeZone Heading="5.257571" />
+				</If>
+				<GetTo ZoneId="613" XYZ="-61.23541, -198.9879, -64.88971" />
+				<LLTurnIn QuestId="68242" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735" />
+				<LLSmallTalk />
+			</If>
+			<!-- The Two Princesses of Sui-no-Sato -->
+			<If Condition="IsQuestCompleted(68242) and not HasQuest(68243) and not IsQuestCompleted(68243)">
+				<If Condition="not IsOnSubMap(2772)">
+					<TeleportTo AetheryteId="106" Force="True" />
+					<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216" />
+					<LLChangeZone Heading="5.257571" />
+				</If>
+				<GetTo ZoneId="613" XYZ="-61.23541, -198.9879, -64.88971" />
+				<If Condition="IsQuestAcceptQualified(68243)">
+					<LLPickupQuest QuestId="68243" NpcId="1023280" />
+					<LLSmallTalk />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(68243) == 1">
+				<If Condition="not IsOnSubMap(2772)">
+					<TeleportTo AetheryteId="106" Force="True" />
+					<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216" />
+					<LLChangeZone Heading="5.257571" />
+				</If>
+				<GetTo ZoneId="613" XYZ="-9.682719, -196.9981, -81.23292" />
+				<LLTalkTo NpcId="1023281" XYZ="-9.597961, -196.981, -82.38354" QuestId="68243" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(68243) == 255">
+				<If Condition="not IsOnSubMap(2772)">
+					<TeleportTo AetheryteId="106" Force="True" />
+					<LisbethTravel Area="The Ruby Sea" Position="34.6542, -197.3209, -163.8216" />
+					<LLChangeZone Heading="5.257571" />
+				</If>
+				<GetTo ZoneId="613" XYZ="7.59002, -198.3741, -155.2006" />
+				<LLTurnIn QuestId="68243" NpcId="1023291" XYZ="8.46875, -198.3421, -157.1526" />
+				<LLSmallTalk />
+			</If>
+			<!-- The Seaweed Is Always Greener -->
+			<If Condition="IsQuestCompleted(68243) and not HasQuest(68675) and not IsQuestCompleted(68675)">
+				<If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
+					<LogMessage Message="Not already on a crafter class, swapping." />
+					<RunCode Name="SwitchDoHJob" />
+				</If>
+				<GetTo ZoneId="628" XYZ="-52.1568, -3, -62.99715" />
+				<If Condition="IsQuestAcceptQualified(68675)">
+					<LLPickupQuest QuestId="68675" NpcId="1025965" />
+					<LLSmallTalk />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(68675) == 255">
+				<LisbethTravel ZoneId="613" XYZ="342.9043, -120.336, -304.5736" />
+				<LLTurnIn QuestId="68675" NpcId="1025878" XYZ="343.984, -120.3295, -306.0197" />
+				<LLSmallTalk />
+			</If>
+		</If>
 
-    <!-- To Thaw a Frozen Heart -->
-    <If Condition="IsQuestCompleted(69263) and not HasQuest(69264) and not IsQuestCompleted(69264)">
-      <If Condition="IsQuestAcceptQualified(69264)">
-        <LLPickupQuest QuestId="69264" NpcId="1031996"/>
-        <LLSmallTalk/>
-      </If>
-    </If>
-    <If Condition="GetQuestStep(69264) == 1">
-      <LisbethTravel Zone="886" Subzone="3475" Position="149.6823, -50, 76.76302"/>
-      <LLTalkTo NpcId="1032844" XYZ="147.9362, -50, 76.92065" QuestId="69264" StepId="1"/>
-    </If>	
-    <If Condition="GetQuestStep(69264) == 2">
-      <If condition="not HasAtLeast(5768,2)">
-	    <Lisbeth Json="[{'Group':1,'Item':5768,'Amount':2,'Enabled':true,'Type':'Purchase'} ]"/>
-	  </If>
-	  <If Condition="HasAtLeast(5768,2)">
-		<LisbethTravel Zone="886" Subzone="3475" Position="149.6823, -50, 76.76302"/>
-		<LLHandOver ItemId="5768" NpcId="1032844" XYZ="147.9362, -50, 76.92065" QuestId="69264" StepId="2"/>
-	  </If>	  
-    </If> 
-    <If Condition="GetQuestStep(69264) == 3">
-      <LisbethTravel Zone="886" Subzone="3475" Position="94.82461, -18.50001, 169.9573"/>
-      <LLTalkTo NpcId="1032003" XYZ="94.92627, -18.50001, 171.1604" QuestId="69264" StepId="3"/>
-    </If>
-    <If Condition="GetQuestStep(69264) == 4">
-      <LisbethTravel Zone="886" Subzone="3474" Position="103.3115, -20, 6.090201"/>
-      <UseObject NpcId="2010924" XYZ="103.1051, -20.00464, 4.196167" QuestId="69264" StepId="4"/>
-    </If>
-    <If Condition="GetQuestStep(69264) == 255">
-      <LisbethTravel Zone="886" Subzone="3474" Position="208.6244, -40, 8.057937"/>
-      <LLTurnIn QuestId="69264" NpcId="1031996" XYZ="209.5521, -40, 8.132996"/>
-      <LLSmallTalk/>
-    </If>	
-	
-    <!-- If Songs Had Wings -->
-    <If Condition="IsQuestCompleted(69264) and not HasQuest(69373) and not IsQuestCompleted(69373)">
-      <LisbethTravel Zone="886" Subzone="3474" Position="205.9455, -40, 10.59534"/>
-      <If Condition="IsQuestAcceptQualified(69373)">
-        <LLPickupQuest QuestId="69373" NpcId="1032005"/>
-        <LLSmallTalk/>
-      </If>
-    </If>
-    <If Condition="GetQuestStep(69373) == 1">
-      <LisbethTravel Zone="419" Subzone="2329" Position="5.068695, 26.96506, -92.72705"/>
-      <LLTalkTo NpcId="1032782" XYZ="6.851257, 27.03048, -93.7973" QuestId="69373" StepId="1"/>
-    </If>
-    <If Condition="GetQuestStep(69373) == 2">
-      <LisbethTravel Zone="397" Subzone="2204" Position="476.2937, 214.9805, 749.5789"/>
-      <LLTalkTo NpcId="1032784" XYZ="477.0122, 214.9805, 751.3999" QuestId="69373" StepId="2"/>
-    </If>
-    <If Condition="GetQuestStep(69373) == 255">
-      <LisbethTravel Zone="886" Subzone="3474" Position="112.4378, -20, 1.123449"/>
-      <LLTurnIn QuestId="69373" NpcId="1032786" XYZ="113.7865, -20, -0.3204956"/>
-      <LLSmallTalk/>
-    </If>
+		<!-- Adkiragh -->
+		<If Condition="Core.Player.ClassLevel &gt; 65 and IsQuestCompleted(68675)">
+			<!-- Purbol Rain -->
+			<If Condition="not HasQuest(68294) and not IsQuestCompleted(68294)">
+				<If Condition="ClassName != ((ClassJobType.Paladin) or (ClassJobType.Warrior) or (ClassJobType.DarkKnight) or (ClassJobType.Gunbreaker) or (ClassJobType.Whitemage) or (ClassJobType.Scholar) or (ClassJobType.Astrologian) or (ClassJobType.Monk) or (ClassJobType.Dragoon) or (ClassJobType.Ninja) or (ClassJobType.Samurai) or (ClassJobType.Bard) or (ClassJobType.Machinist) or (ClassJobType.Dancer) or (ClassJobType.Blackmage) or (ClassJobType.Summoner) or (ClassJobType.Redmage))">
+					<LogMessage Message="Not already on a DoW/M class, swapping." />
+					<RunCode name="SwitchDoWMJob" />
+				</If>
+				<LisbethTravel Zone="622" Subzone="2814" Position="593.0337, -19.50578, 286.102" />
+				<If Condition="IsQuestAcceptQualified(68294)">
+					<LLPickupQuest QuestId="68294" NpcId="1023253" />
+					<LLSmallTalk />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(68294) == 1">
+				<LisbethTravel Area="The Azim Steppe" Position="611.5543, 0.1202933, -18.53897" />
+				<Grind GrindRef="Purbol" PostCombatDelay="3.0" While="GetQuestStep(68294) == 1" />
+			</If>
+			<If Condition="GetQuestStep(68294) == 255">
+				<LisbethTravel Zone="622" Subzone="2814" Position="592.3301, -19.50578, 286.1235" />
+				<LLTurnIn ItemId="2002321" QuestId="68294" NpcId="1023253" XYZ="594.4456, -19.50579, 285.603" />
+				<LLSmallTalk />
+			</If>
+			<!-- Between a Rock and the Hard Place -->
+			<If Condition="IsQuestCompleted(68294) and not HasQuest(68713) and not IsQuestCompleted(68713)">
+				<If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
+					<LogMessage Message="Not already on a crafter class, swapping." />
+					<RunCode Name="SwitchDoHJob" />
+				</If>
+				<LisbethTravel Zone="478" Subzone="2094" Position="-14.90395, 206.4994, 44.48463" />
+				<If Condition="IsQuestAcceptQualified(68713)">
+					<LLPickupQuest QuestId="68713" NpcId="1012299" />
+					<LLSmallTalk />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(68713) == 255">
+				<LisbethTravel Zone="478" Subzone="2096" Position="-61.97561, 206.6002, 24.15582" />
+				<LLTurnIn QuestId="68713" NpcId="1018393" XYZ="-60.38, 206.5002, 26.16919" />
+				<LLSmallTalk />
+			</If>
+		</If>
 
-    <!-- O Crafter, My Crafter -->
-    <If Condition="IsQuestCompleted(69373) and not HasQuest(69425) and not IsQuestCompleted(69425)">
-      <LisbethTravel Zone="886" Subzone="3474" Position="112.4378, -20, 1.123449"/>
-      <If Condition="IsQuestAcceptQualified(69425)">
-        <LLPickupQuest QuestId="69425" NpcId="1032786"/>
-        <LLSmallTalk/>
-      </If>
-    </If>
-    <If Condition="GetQuestStep(69425) == 1 and GetQuestById(69425).QuestI8A == 0">
-      <LisbethTravel Zone="886" Subzone="3473" Position="64.31467, -18.3992, 11.93365"/>
-      <LLTalkTo NpcId="1033786" XYZ="65.41541, -18.49981, 11.79523" QuestId="69425" StepId="1"/>    
-    </If>	
-    <If Condition="GetQuestStep(69425) == 1 and GetQuestById(69425).QuestI8A == 16">
-      <LisbethTravel Zone="886" Subzone="3473" Position="41.26401, -20, 87.83698"/>
-      <LLTalkTo NpcId="1033787" XYZ="40.05493, -20, 89.06689" QuestId="69425" StepId="1"/>  
-    </If>
-    <If Condition="GetQuestStep(69425) == 1 and GetQuestById(69425).QuestI8A == 33">
-      <LisbethTravel Zone="886" Subzone="3436" Position="-28.4944, -16, 140.5017"/>
-      <LLTalkTo NpcId="1033788" XYZ="-27.90875, -16, 138.5671" QuestId="69425" StepId="1"/>
-    </If> 
-    <If Condition="GetQuestStep(69425) == 2">
-      <LisbethTravel Zone="886" Subzone="3474" Position="111.5738, -20, 0.1343946"/>
-      <LLTalkTo NpcId="1032786" XYZ="113.7865, -20, -0.3204956" QuestId="69425" StepId="2"/>
-    </If>
-    <If Condition="GetQuestStep(69425) == 3">
-      <LisbethTravel Zone="886" Subzone="3475" Position="154.9505, -50, 66.15123"/>
-      <LLTalkTo NpcId="1033784" XYZ="154.0093, -50, 67.73474" QuestId="69425" StepId="3"/>
-    </If>
-    <If Condition="GetQuestStep(69425) == 255">
-      <LisbethTravel Zone="886" Subzone="3474" Position="114.3166, -20, 0.3218191"/>
-      <LLTurnIn QuestId="69425" NpcId="1033543" XYZ="113.3898, -20, -0.9613647"/>
-      <LLSmallTalk/>
-    </If>	
-		
-    <!-- Of Mothers and Merchants -->
+		<!-- Kai-Shirr -->
+		<If Condition="Core.Player.ClassLevel &gt; 69 and IsQuestCompleted(68713)">
+			<!-- Oh, Beehive Yourself -->
+			<If Condition="not HasQuest(69265) and not IsQuestCompleted(69265)">
+				<If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
+					<LogMessage Message="Not already on a crafter class, swapping." />
+					<RunCode Name="SwitchDoHJob" />
+				</If>
+				<GetTo ZoneId="820" XYZ="24.28158, 82.82527, 24.3771" />
+				<If Condition="IsQuestAcceptQualified(69265)">
+					<LLPickupQuest QuestId="69265" NpcId="1031781" />
+					<LLSmallTalk />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69265) == 1">
+				<GetTo ZoneId="820" XYZ="26.38553, 82.71201, -44.92235" />
+				<UseObject NpcId="2010842" XYZ="27.45093, 82.6886, -45.45667" QuestId="69265" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(69265) == 255">
+				<GetTo ZoneId="820" XYZ="51.50173, 83.00108, -64.31295" />
+				<LLTurnIn QuestId="69265" NpcId="1031801" XYZ="52.8114, 83.00108, -65.38495" />
+				<LLSmallTalk />
+			</If>
+		</If>
+
+		<!-- Ehll Tou -->
+		<!-- A Home in the Firmament -->
+		<If Condition="not HasQuest(69261) and not IsQuestCompleted(69261)">
+			<LisbethTravel Zone="886" Subzone="3436" Position="-7.556792, -16, 163.5421" />
+			<If Condition="IsQuestAcceptQualified(69261)">
+				<LLPickupQuest QuestId="69261" NpcId="1031992" />
+				<LLSmallTalk />
+			</If>
+		</If>
+		<If Condition="GetQuestStep(69261) == 1">
+			<LisbethTravel Zone="418" Subzone="0" Position="22.96507, -12.02102, 54.93568" />
+			<LLTalkTo NpcId="1031995" XYZ="21.86615, -12.021, 54.18469" QuestId="69261" StepId="1" />
+		</If>
+		<If Condition="GetQuestStep(69261) == 2">z <LisbethTravel Zone="418" Subzone="0" Position="22.96507, -12.02102, 54.93568" />
+			<LLTalkTo NpcId="1032843" XYZ="21.7746, -12.021, 54.09314" QuestId="69261" StepId="2" />
+		</If>
+		<If Condition="GetQuestStep(69261) == 3 and GetQuestById(69261).QuestI8C == 48">
+			<LisbethTravel Zone="418" Subzone="2311" Position="88.21413, 15.09468, 33.16915" />
+			<LLHandOver ItemId="2002974" NpcId="1011192" XYZ="88.36499, 15.09468, 31.29626" QuestId="69261" StepId="3" />
+		</If>
+		<If Condition="GetQuestStep(69261) == 3 and GetQuestById(69261).QuestI8C == 48">
+			<LisbethTravel Zone="418" Subzone="2311" Position="88.21413, 15.09468, 33.16915" />
+			<LLHandOver ItemId="2002974" NpcId="1011192" XYZ="88.36499, 15.09468, 31.29626" QuestId="69261" StepId="3" />
+		</If>
+		<If Condition="GetQuestStep(69261) == 3 and GetQuestById(69261).QuestI8C == 32">
+			<LisbethTravel Zone="418" Subzone="2312" Position="127.2733, 24.45884, -1.751846" />
+			<LLHandOver ItemId="2002974" NpcId="1012163" XYZ="128.252, 24.45884, -0.6867676" QuestId="69261" StepId="3" />
+		</If>
+		<If Condition="GetQuestStep(69261) == 3 and GetQuestById(69261).QuestI8C == 16">
+			<LisbethTravel Zone="419" Subzone="0" Position="-172.8605, -12.54786, -22.1228" />
+			<LLHandOver ItemId="2002974" NpcId="1012180" XYZ="-174.1818, -12.55547, -21.56104" QuestId="69261" StepId="3" />
+		</If>
+		<If Condition="GetQuestStep(69261) == 255">
+			<LisbethTravel Zone="886" Subzone="3436" Position="-5.518055, -16, 163.7018" />
+			<LLTurnIn QuestId="69261" NpcId="1031991" XYZ="-7.766907, -16, 163.3783" />
+			<LLSmallTalk />
+		</If>
+
+		<!-- Overseer for a Day -->
+		<If Condition="IsQuestCompleted(69261) and not HasQuest(69262) and not IsQuestCompleted(69262)">
+			<LisbethTravel Zone="886" Subzone="3436" Position="-6.022423, -16, 164.016" />
+			<If Condition="IsQuestAcceptQualified(69262)">
+				<LLPickupQuest QuestId="69262" NpcId="1031991" />
+				<LLSmallTalk />
+			</If>
+		</If>
+		<While Condition="GetQuestStep(69262) == 1">
+			<LLToast message="Please complete the next step manually." />
+			<LLToast message="Use option 2 for the man." />
+			<LLToast message="Use option 1 for the Lala pair." />
+			<LLToast message="Use option 3 for the cat." />
+			<WaitTimer WaitTime="26" />
+		</While>
+		<If Condition="GetQuestStep(69262) == 255">
+			<LisbethTravel Zone="886" Subzone="3436" Position="-7.064736, -16, 163.8962" />
+			<LLTurnIn QuestId="69262" NpcId="1032832" XYZ="-8.255188, -16, 162.4017" />
+			<LLSmallTalk />
+		</If>
+
+		<!-- Shadow of an Icy Past -->
+		<If Condition="IsQuestCompleted(69262) and not HasQuest(69263) and not IsQuestCompleted(69263)">
+			<If Condition="IsQuestAcceptQualified(69263)">
+				<LLPickupQuest QuestId="69263" NpcId="1031998" />
+				<LLSmallTalk />
+			</If>
+		</If>
+		<If Condition="GetQuestStep(69263) == 1">
+			<LisbethTravel Zone="418" Subzone="0" Position="-2.890963, 1.348016, 115.0286" />
+			<LLTalkTo NpcId="1031999" XYZ="-4.226807, 1.479128, 115.3734" QuestId="69263" StepId="1" />
+		</If>
+		<If Condition="GetQuestStep(69263) == 2">
+			<LisbethTravel Zone="886" Subzone="3474" Position="207.4978, -40, 8.501654" />
+			<LLTalkTo NpcId="1031996" XYZ="209.5521, -40, 8.132996" QuestId="69263" StepId="2" />
+		</If>
+		<If Condition="GetQuestStep(69263) == 3">
+			<LisbethTravel Zone="886" Subzone="3475" Position="160.9414, -50, 75.45954" />
+			<LLTalkTo NpcId="1032001" XYZ="161.7914, -50, 73.47217" QuestId="69263" StepId="3" />
+		</If>
+		<If Condition="GetQuestStep(69263) == 255">
+			<LisbethTravel Zone="886" Subzone="3474" Position="208.2713, -40, 8.47094" />
+			<LLTurnIn QuestId="69263" NpcId="1031996" XYZ="209.5521, -40, 8.132996" />
+			<LLSmallTalk />
+		</If>
+
+		<!-- To Thaw a Frozen Heart -->
+		<If Condition="IsQuestCompleted(69263) and not HasQuest(69264) and not IsQuestCompleted(69264)">
+			<If Condition="IsQuestAcceptQualified(69264)">
+				<LLPickupQuest QuestId="69264" NpcId="1031996" />
+				<LLSmallTalk />
+			</If>
+		</If>
+		<If Condition="GetQuestStep(69264) == 1">
+			<LisbethTravel Zone="886" Subzone="3475" Position="149.6823, -50, 76.76302" />
+			<LLTalkTo NpcId="1032844" XYZ="147.9362, -50, 76.92065" QuestId="69264" StepId="1" />
+		</If>
+		<If Condition="GetQuestStep(69264) == 2">
+			<If condition="not HasAtLeast(5768,2)">
+				<Lisbeth Json="[{'Group':1,'Item':5768,'Amount':2,'Enabled':true,'Type':'Purchase'} ]" />
+			</If>
+			<If Condition="HasAtLeast(5768,2)">
+				<LisbethTravel Zone="886" Subzone="3475" Position="149.6823, -50, 76.76302" />
+				<LLHandOver ItemId="5768" NpcId="1032844" XYZ="147.9362, -50, 76.92065" QuestId="69264" StepId="2" />
+			</If>
+		</If>
+		<If Condition="GetQuestStep(69264) == 3">
+			<LisbethTravel Zone="886" Subzone="3475" Position="94.82461, -18.50001, 169.9573" />
+			<LLTalkTo NpcId="1032003" XYZ="94.92627, -18.50001, 171.1604" QuestId="69264" StepId="3" />
+		</If>
+		<If Condition="GetQuestStep(69264) == 4">
+			<LisbethTravel Zone="886" Subzone="3474" Position="103.3115, -20, 6.090201" />
+			<UseObject NpcId="2010924" XYZ="103.1051, -20.00464, 4.196167" QuestId="69264" StepId="4" />
+		</If>
+		<If Condition="GetQuestStep(69264) == 255">
+			<LisbethTravel Zone="886" Subzone="3474" Position="208.6244, -40, 8.057937" />
+			<LLTurnIn QuestId="69264" NpcId="1031996" XYZ="209.5521, -40, 8.132996" />
+			<LLSmallTalk />
+		</If>
+
+		<!-- If Songs Had Wings -->
+		<If Condition="IsQuestCompleted(69264) and not HasQuest(69373) and not IsQuestCompleted(69373)">
+			<LisbethTravel Zone="886" Subzone="3474" Position="205.9455, -40, 10.59534" />
+			<If Condition="IsQuestAcceptQualified(69373)">
+				<LLPickupQuest QuestId="69373" NpcId="1032005" />
+				<LLSmallTalk />
+			</If>
+		</If>
+		<If Condition="GetQuestStep(69373) == 1">
+			<LisbethTravel Zone="419" Subzone="2329" Position="5.068695, 26.96506, -92.72705" />
+			<LLTalkTo NpcId="1032782" XYZ="6.851257, 27.03048, -93.7973" QuestId="69373" StepId="1" />
+		</If>
+		<If Condition="GetQuestStep(69373) == 2">
+			<LisbethTravel Zone="397" Subzone="2204" Position="476.2937, 214.9805, 749.5789" />
+			<LLTalkTo NpcId="1032784" XYZ="477.0122, 214.9805, 751.3999" QuestId="69373" StepId="2" />
+		</If>
+		<If Condition="GetQuestStep(69373) == 255">
+			<LisbethTravel Zone="886" Subzone="3474" Position="112.4378, -20, 1.123449" />
+			<LLTurnIn QuestId="69373" NpcId="1032786" XYZ="113.7865, -20, -0.3204956" />
+			<LLSmallTalk />
+		</If>
+
+		<!-- O Crafter, My Crafter -->
+		<If Condition="IsQuestCompleted(69373) and not HasQuest(69425) and not IsQuestCompleted(69425)">
+			<LisbethTravel Zone="886" Subzone="3474" Position="112.4378, -20, 1.123449" />
+			<If Condition="IsQuestAcceptQualified(69425)">
+				<LLPickupQuest QuestId="69425" NpcId="1032786" />
+				<LLSmallTalk />
+			</If>
+		</If>
+		<If Condition="GetQuestStep(69425) == 1 and GetQuestById(69425).QuestI8A == 0">
+			<LisbethTravel Zone="886" Subzone="3473" Position="64.31467, -18.3992, 11.93365" />
+			<LLTalkTo NpcId="1033786" XYZ="65.41541, -18.49981, 11.79523" QuestId="69425" StepId="1" />
+		</If>
+		<If Condition="GetQuestStep(69425) == 1 and GetQuestById(69425).QuestI8A == 16">
+			<LisbethTravel Zone="886" Subzone="3473" Position="41.26401, -20, 87.83698" />
+			<LLTalkTo NpcId="1033787" XYZ="40.05493, -20, 89.06689" QuestId="69425" StepId="1" />
+		</If>
+		<If Condition="GetQuestStep(69425) == 1 and GetQuestById(69425).QuestI8A == 33">
+			<LisbethTravel Zone="886" Subzone="3436" Position="-28.4944, -16, 140.5017" />
+			<LLTalkTo NpcId="1033788" XYZ="-27.90875, -16, 138.5671" QuestId="69425" StepId="1" />
+		</If>
+		<If Condition="GetQuestStep(69425) == 2">
+			<LisbethTravel Zone="886" Subzone="3474" Position="111.5738, -20, 0.1343946" />
+			<LLTalkTo NpcId="1032786" XYZ="113.7865, -20, -0.3204956" QuestId="69425" StepId="2" />
+		</If>
+		<If Condition="GetQuestStep(69425) == 3">
+			<LisbethTravel Zone="886" Subzone="3475" Position="154.9505, -50, 66.15123" />
+			<LLTalkTo NpcId="1033784" XYZ="154.0093, -50, 67.73474" QuestId="69425" StepId="3" />
+		</If>
+		<If Condition="GetQuestStep(69425) == 255">
+			<LisbethTravel Zone="886" Subzone="3474" Position="114.3166, -20, 0.3218191" />
+			<LLTurnIn QuestId="69425" NpcId="1033543" XYZ="113.3898, -20, -0.9613647" />
+			<LLSmallTalk />
+		</If>
+
+		<!-- Of Mothers and Merchants -->
 		<If Condition="not IsQuestCompleted(70000)">
-			<LLToast message="Please complete the Endwalker MSQ"/>
+			<LLToast message="Please complete the Endwalker MSQ" />
 		</If>
-		<If Condition="IsQuestCompleted(70000)">		
+		<If Condition="IsQuestCompleted(70000)">
 			<If Condition="not IsQuestCompleted(70059)">
 				<If Condition="not HasQuest(70059)">
-					<GetTo ZoneId="962" XYZ="71.03671, 5.099999, -74.03305"/>  
+					<GetTo ZoneId="962" XYZ="71.03671, 5.099999, -74.03305" />
 					<If Condition="IsQuestAcceptQualified(70059)">
-						<PickupQuest QuestId="70059" NpcId="1042242"/>
+						<PickupQuest QuestId="70059" NpcId="1042242" />
 					</If>
 				</If>
 				<If Condition="GetQuestStep(70059) == 1">
-					<GetTo ZoneId="962" XYZ="-85.17757, -13.777, 137.832"/>  
-					<UseObject NpcId="2012872" XYZ="-86.93073, -12.98547, 140.3066" QuestId="70059" StepId="1"/>
-				</If>	
+					<GetTo ZoneId="962" XYZ="-85.17757, -13.777, 137.832" />
+					<UseObject NpcId="2012872" XYZ="-86.93073, -12.98547, 140.3066" QuestId="70059" StepId="1" />
+				</If>
 				<If Condition="GetQuestStep(70059) == 2">
-					<GetTo ZoneId="962" XYZ="-85.17757, -13.777, 137.832"/>  
-					<TalkTo NpcId="1042427" XYZ="-84.06195, -13.777, 140.1235" QuestId="70059" StepId="2"/>
+					<GetTo ZoneId="962" XYZ="-85.17757, -13.777, 137.832" />
+					<TalkTo NpcId="1042427" XYZ="-84.06195, -13.777, 140.1235" QuestId="70059" StepId="2" />
 				</If>
 				<If Condition="GetQuestStep(70059) == 255">
-					<GetTo ZoneId="962" XYZ="222.648, 24.94273, -197.872"/>  
-					<TurnIn QuestId="70059" NpcId="1042428" XYZ="222.8579, 24.94273, -197.7112"/>
-				</If>				
-			</If>	
-		</If>	
+					<GetTo ZoneId="962" XYZ="222.648, 24.94273, -197.872" />
+					<TurnIn QuestId="70059" NpcId="1042428" XYZ="222.8579, 24.94273, -197.7112" />
+				</If>
+			</If>
+		</If>
 
-	<LLSellItem ItemIds="18266,18256,12862,12867,12864,12868,27864,27865,14139,28720,28721"/>	
-  
-  </Order>
-  <GrindAreas>
-    <GrindArea name="Purbol">
-      <Hotspots>
-        <Hotspot Radius="200" XYZ="611.5543, 0.1202933, -18.53897" name="Name"/>
-      </Hotspots>
-      <TargetMobs>
-        <TargetMob Id="5780" Weight="1"/> <!-- Purbol -->
-      </TargetMobs>
-    </GrindArea>  
-  </GrindAreas>
-  <CodeChunks>
-    <CodeChunk Name="SwitchDoHJob">
+		<!-- A Request of One's Own -->
+		<If Condition="not IsQuestCompleted(70351)">
+			<If Condition="not IsQuestCompleted(70272)">
+				<LLToast message="Please complete the Endwalker MSQ to unlock Margrat" />
+			</If>
+			<If Condition="not HasQuest(70351)">
+				<GetTo ZoneId="962" XYZ="132.2051, -16.07741, 188.7674" />
+				<If Condition="ClassName != ((ClassJobType.Carpenter) or (ClassJobType.Blacksmith) or (ClassJobType.Armorer) or (ClassJobType.Goldsmith) or (ClassJobType.Leatherworker) or (ClassJobType.Weaver) or (ClassJobType.Alchemist) or (ClassJobType.Culinarian))">
+					<LogMessage Message="Not already on a crafter class, swapping." />
+					<RunCode Name="SwitchDoHJob" />
+				</If>
+				<If Condition="IsQuestAcceptQualified(70351)">
+					<PickupQuest QuestId="70351" NpcId="1046399" />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70351) == 1">
+				<LisbethTravel ZoneId="956" XYZ="92.34876, -29.53, -9.483695" />
+				<TalkTo NpcId="1046401" XYZ="92.27124, -29.53, -6.607239" QuestId="70351" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(70351) == 255">
+				<LisbethTravel ZoneId="956" XYZ="-29.6747, -31.53043, -50.60024" />
+				<TurnIn QuestId="70351" NpcId="1046403" XYZ="-31.99823, -31.53043, -53.26935" />
+			</If>
+		</If>
+
+		<LLSellItem ItemIds="18266,18256,12862,12867,12864,12868,27864,27865,14139,28720,28721" />
+
+	</Order>
+	<GrindAreas>
+		<GrindArea name="Purbol">
+			<Hotspots>
+				<Hotspot Radius="200" XYZ="611.5543, 0.1202933, -18.53897" name="Name" />
+			</Hotspots>
+			<TargetMobs>
+				<TargetMob Id="5780" Weight="1" /> <!-- Purbol -->
+			</TargetMobs>
+		</GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+		<CodeChunk Name="SwitchDoHJob">
       <![CDATA[
          var DoH = Enumerable.Range(8, 7);
          var gearSets = GearsetManager.GearSets.Where(i => i.InUse && DoH.Contains((int)i.Class) && Core.Player.Levels[i.Class] > 69).ToList().OrderBy(y => Core.Player.Levels[y.Class]);
@@ -519,8 +543,8 @@
            await Coroutine.Sleep(2000);
          }
       ]]>
-    </CodeChunk> 
-    <CodeChunk Name="SwitchDoWMJob">
+    </CodeChunk>
+		<CodeChunk Name="SwitchDoWMJob">
       <![CDATA[
         var Combat = Enumerable.Range(8, 11).Append(0).Append(36);
         var gearSets = GearsetManager.GearSets.Where(i => i.InUse && !Combat.Contains((int)i.Class)).ToList().OrderByDescending(i=> i.Gear.First().Item.ItemLevel);
@@ -530,6 +554,6 @@
           await Coroutine.Sleep(2000);
         }
             ]]>
-    </CodeChunk>	
-  </CodeChunks>
+    </CodeChunk>
+	</CodeChunks>
 </Profile>  
