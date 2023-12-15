@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Starlight Celebration 2023
+  Authors: DomesticWarlord86
+
+-->
+<!DOCTYPE Profile [
+  <!ENTITY Necrologos "649">
+]>
+
+<Profile>
+  <Name>Starlight Celebration 2023</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Blue Starlight -->
+    <If Condition="not IsQuestCompleted(70317)">
+      <If Condition="not HasQuest(70317)">
+        <GetTo ZoneId="133" XYZ="-49.59812, 6.499983, -93.18261" />
+        <If Condition="IsQuestAcceptQualified(70317)">
+          <PickupQuest QuestId="70317" NpcId="1045741" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70317) == 1 and GetQuestById(70317).QuestI8A == 0">
+        <TalkTo NpcId="1045745" XYZ="-107.683, 5.141586, -165.8809" QuestId="70317" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70317) == 1 and GetQuestById(70317).QuestI8A == 1">
+        <TalkTo NpcId="1045744" XYZ="-134.1726, 6.900933, -130.7546" QuestId="70317" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70317) == 1 and GetQuestById(70317).QuestI8A == 2">
+        <TalkTo NpcId="1045746" XYZ="-149.0959, 7.622209, -186.8163" QuestId="70317" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70317) == 2">
+        <GetTo ZoneId="133" XYZ="-78.25654, 6.643775, -131.4419" />
+        <TalkTo NpcId="1045743" XYZ="-76.92078, 6.769125, -129.2287" QuestId="70317" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70317) == 3">
+        <GetTo ZoneId="133" XYZ="-319.5056, 7.060551, -194.6829" />
+        <TalkTo NpcId="1045800" XYZ="-322.3774, 7.060544, -195.6054" QuestId="70317" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70317) == 255">
+        <GetTo ZoneId="133" XYZ="-50.05642, 6.499984, -92.01717" />
+        <TurnIn QuestId="70317" NpcId="1045742" XYZ="-50.03442, 6.5, -89.55524" />
+      </If>
+    </If>
+
+    <!-- Together at a Distance -->
+    <If Condition="IsQuestCompleted(70317) and not IsQuestCompleted(70318)">
+      <If Condition="not HasQuest(70318)">
+        <GetTo ZoneId="133" XYZ="-49.59526, 6.499979, -93.83974" />
+        <If Condition="IsQuestAcceptQualified(70318)">
+          <PickupQuest QuestId="70318" NpcId="1045742" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70318) == 1">
+        <GetTo ZoneId="133" XYZ="-49.59526, 6.499979, -93.83974" />
+        <RunCode name="EquipOutfit" />
+        <TalkTo NpcId="1045742" XYZ="-50.03442, 6.5, -89.55524" QuestId="70318" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70318) == 2">
+        <GetTo ZoneId="133" XYZ="-321.5526, 7.060546, -195.2636" />
+        <TalkTo NpcId="1045748" XYZ="-324.0253, 7.060541, -197.467" QuestId="70318" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70318) == 3">
+        <GetTo ZoneId="130" XYZ="29.13848, 4, -135.6549" />
+        <HandOver ItemId="2003466" NpcId="1045750" XYZ="27.573, 4, -132.1889" QuestId="70318" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70318) == 4">
+        <If Condition="GetQuestStep(70318) == 4 and not GetQuestById(70318).IsTodoChecked(4,0)">
+          <GetTo ZoneId="131" XYZ="9.763493, 15.00001, 3.519301" />
+          <HandOver ItemId="2003466" NpcId="1045751" XYZ="11.12378, 15.00001, 1.632629" QuestId="70318" StepId="4" />
+        </If>
+        <If Condition="GetQuestStep(70318) == 4 and not GetQuestById(70318).IsTodoChecked(4,1)">
+          <GetTo ZoneId="131" XYZ="79.18446, 18, 107.1381" />
+          <HandOver ItemId="2003466" NpcId="1045752" XYZ="77.07324, 18, 105.1804" QuestId="70318" StepId="4" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70318) == 5">
+        <GetTo ZoneId="133" XYZ="-321.5227, 7.060547, -195.5165" />
+        <HandOver ItemId="2003467" NpcId="1045748" XYZ="-324.0253, 7.060541, -197.467" QuestId="70318" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70318) == 255">
+        <GetTo ZoneId="133" XYZ="-50.14404, 6.499978, -92.8082" />
+        <TurnIn QuestId="70318" NpcId="1045742" XYZ="-50.03442, 6.5, -89.55524" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Type="Definition" Name="Logger">
+        <![CDATA[
+  
+        public static readonly LlamaLibrary.Logging.LLogger Log = new("Starlight", Colors.Green);
+  
+      ]]>
+      </CodeChunk>
+    <CodeChunk Name="EquipOutfit">
+      <![CDATA[
+
+      var UnorthodoxSaintsCap = 40416;
+      var UnorthodoxSaintsHalfrobe = 40417;
+      var UnorthodoxSaintsGloves = 40418;
+      var UnorthodoxSaintsBottoms = 40419;
+      var UnorthodoxSaintsLongboots = 40420;
+
+      while (ConditionParser.HasItem((uint)UnorthodoxSaintsCap) && InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Head].RawItemId != UnorthodoxSaintsCap)
+      {
+          ;
+
+          var EquipSlot = InventoryManager.GetBagByInventoryBagId(InventoryBagId.EquippedItems)[EquipmentSlot.Head];
+          var item1 = InventoryManager.FilledInventoryAndArmory.FirstOrDefault(i => i.RawItemId == (uint)UnorthodoxSaintsCap);
+          if (item1 != default(BagSlot))
+          {
+            Log.Information($"Equipping {DataManager.GetItem((uint)UnorthodoxSaintsCap).CurrentLocaleName}");
+              item1.Move(EquipSlot);
+              await Coroutine.Sleep(1000);
+          }
+      }
+
+      while (ConditionParser.HasItem((uint)UnorthodoxSaintsHalfrobe) && InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Body].RawItemId != UnorthodoxSaintsHalfrobe)
+      {
+          var EquipSlot = InventoryManager.GetBagByInventoryBagId(InventoryBagId.EquippedItems)[EquipmentSlot.Body];
+          var item1 = InventoryManager.FilledInventoryAndArmory.FirstOrDefault(i => i.RawItemId == (uint)UnorthodoxSaintsHalfrobe);
+          if (item1 != default(BagSlot))
+          {
+            Log.Information($"Equipping {DataManager.GetItem((uint)UnorthodoxSaintsHalfrobe).CurrentLocaleName}");
+              item1.Move(EquipSlot);
+              await Coroutine.Sleep(1000);
+          }
+      }
+
+      while (ConditionParser.HasItem((uint)UnorthodoxSaintsGloves) && InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Hands].RawItemId != UnorthodoxSaintsGloves)
+      {
+          var EquipSlot = InventoryManager.GetBagByInventoryBagId(InventoryBagId.EquippedItems)[EquipmentSlot.Hands];
+          var item1 = InventoryManager.FilledInventoryAndArmory.FirstOrDefault(i => i.RawItemId == (uint)UnorthodoxSaintsGloves);
+          if (item1 != default(BagSlot))
+          {
+            Log.Information($"Equipping {DataManager.GetItem((uint)UnorthodoxSaintsGloves).CurrentLocaleName}");
+              item1.Move(EquipSlot);
+              await Coroutine.Sleep(1000);
+          }
+      }
+
+      while (ConditionParser.HasItem((uint)UnorthodoxSaintsBottoms) && InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Legs].RawItemId != UnorthodoxSaintsBottoms)
+      {
+          var EquipSlot = InventoryManager.GetBagByInventoryBagId(InventoryBagId.EquippedItems)[EquipmentSlot.Legs];
+          var item1 = InventoryManager.FilledInventoryAndArmory.FirstOrDefault(i => i.RawItemId == (uint)UnorthodoxSaintsBottoms);
+          if (item1 != default(BagSlot))
+          {
+            Log.Information($"Equipping {DataManager.GetItem((uint)UnorthodoxSaintsBottoms).CurrentLocaleName}");
+              item1.Move(EquipSlot);
+              await Coroutine.Sleep(1000);
+          }
+      }
+
+      while (ConditionParser.HasItem((uint)UnorthodoxSaintsLongboots) && InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Feet].RawItemId != UnorthodoxSaintsLongboots)
+      {
+          var EquipSlot = InventoryManager.GetBagByInventoryBagId(InventoryBagId.EquippedItems)[EquipmentSlot.Feet];
+          var item1 = InventoryManager.FilledInventoryAndArmory.FirstOrDefault(i => i.RawItemId == (uint)UnorthodoxSaintsLongboots);
+          if (item1 != default(BagSlot))
+          {
+            Log.Information($"Equipping {DataManager.GetItem((uint)UnorthodoxSaintsLongboots).CurrentLocaleName}");
+              item1.Move(EquipSlot);
+              await Coroutine.Sleep(1000);
+          }
+      }
+]]>
+    </CodeChunk>
+  </CodeChunks>
+</Profile> 
