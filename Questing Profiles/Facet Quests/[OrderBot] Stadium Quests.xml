@@ -1,0 +1,1647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Stadium Quests
+  Authors: DomesticWarlord86
+-->
+
+<!DOCTYPE Profile [
+<!-- Which delivery quests to do? -->
+<!ENTITY CRP_LTW_WVR "0">
+<!ENTITY BSM_ARM_GSM "0">
+<!ENTITY ALC_CUL "0">
+<!ENTITY MIN_BTN "0">
+<!ENTITY FSH "0">
+
+<!-- Which class should I do the quest on? -->
+	<!-- Choose 1 of these three -->
+		<!ENTITY CRP "0">
+		<!ENTITY LTW "0">
+		<!ENTITY WVR "0">
+	<!-- Choose 1 of these three -->
+		<!ENTITY BSM "0">
+		<!ENTITY ARM "0">
+		<!ENTITY GSM "0">
+	<!-- Choose 1 of these two -->	
+		<!ENTITY ALC "0">
+		<!ENTITY CUL "0">	
+	<!-- Choose 1 of these two -->	
+		<!ENTITY MIN "0">
+		<!ENTITY BTN "0">
+
+<!-- Set this to what item you'd like to buy when you're near capped on Crafter White Scrips -->
+	<!-- For reference, here's the top three items with Crafter's Scrips -->
+	<!-- Craftsman's Competence Materia IX 		33925 -->
+	<!-- Craftsman's Cunning Materia IX 		33926 -->
+	<!-- Craftsman's Command Materia IX		33927 -->
+
+<!ENTITY BuyCraftItem "33927">	
+
+
+
+<!-- Set this to what item you'd like to buy when you're near capped on Gatherer White Scrips -->
+	<!-- For reference, here's the top three items with Gatherer's Scrips -->
+	<!-- Gatherer's Guerdon Materia IX 		33922 -->
+	<!-- Gatherer's Guile Materia IX 		33923 -->
+	<!-- Gatherer's Grasp Materia IX 		33924 -->
+
+<!ENTITY BuyGatherItem "33923">	   
+
+
+]>
+
+<Profile>
+  <Name>Stadium Quests</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+	  
+	<If condition="&CRP_LTW_WVR; == 0 and &BSM_ARM_GSM; == 0 and &ALC_CUL; == 0 and &MIN_BTN; == 0 and &FSH; == 0">
+	  <UserDialog DialogText="You do not have any Stadium quests set to 1.\nPlease open the profile and change at least one of the five to 1."/>	
+	</If>
+	
+	<If condition="&CRP_LTW_WVR; == 1 and &CRP; == 0 and &LTW; == 0 and &WVR; == 0">
+	  <UserDialog DialogText="You have Carpenter/Leatherworker/Weaver quest selected, but no class selected to do them on.\nPlease open the profile and change one of the three to 1."/>	
+	</If>		
+
+	<If condition="&BSM_ARM_GSM; == 1 and &BSM; == 0 and &ARM; == 0 and &GSM; == 0">
+	  <UserDialog DialogText="You have Blacksmith/Armorer/Goldsmith quest selected, but no class selected to do them on.\nPlease open the profile and change one of the three to 1."/>	
+	</If>
+
+	<If condition="&ALC_CUL; == 1 and &ALC; == 0 and &CUL; == 0">
+	  <UserDialog DialogText="You have Alchemist/Culinarian quest selected, but no class selected to do them on.\nPlease open the profile and change one of the two to 1."/>	
+	</If>	
+
+	<If condition="&MIN_BTN; == 1 and &MIN; == 0 and &BTN; == 0">
+	  <UserDialog DialogText="You have Alchemist/Culinarian quest selected, but no class selected to do them on.\nPlease open the profile and change one of the two to 1."/>	
+	</If>		
+
+
+	<!-- Profile start here -->	
+	
+	<If Condition="not IsQuestCompleted(69916)">
+		<LLToast message="Please complete MSQ 'Sound the Bell, School's In.'"/>
+	</If>
+	<If Condition="IsQuestCompleted(69916)">
+    <!-- The Faculty -->
+    <If Condition="not IsQuestCompleted(70009)">
+      <If Condition="not HasQuest(70009)">
+        <GetTo ZoneId="962" XYZ="-355.8746, 21.84602, -93.05553"/> <!-- Area="Old Sharlayan" -->
+        <If Condition="IsQuestAcceptQualified(70009)">
+          <LLPickupQuest QuestId="70009" NpcId="1038500"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70009) == 255">
+      <GetTo ZoneId="962" XYZ="-355.8746, 21.84602, -93.05553"/> <!-- Area="Old Sharlayan" -->
+      <LLTurnIn QuestId="70009" NpcId="1038500" XYZ="-357.8394, 21.84602, -91.32526"/>
+      <LLSmallTalk/>
+    </If>
+	</If>	
+
+	<!-- Carpenter/Leatherworker/Weaver -->	
+	<If Condition="&CRP_LTW_WVR; == 1 and not IsQuestCompleted(69681)">
+		<While Condition="&CRP; == 1 and not ClassName == ClassJobType.Carpenter">
+			<ChangeClass Job="Carpenter" Force="True"/>
+			<WaitTimer WaitTime="3" />		
+		</While>
+		<While Condition="&LTW; == 1 and not ClassName == ClassJobType.Leatherworker">
+			<ChangeClass Job="Leatherworker" Force="True"/>
+			<WaitTimer WaitTime="3" />		
+		</While>	
+		<While Condition="&WVR; == 1 and not ClassName == ClassJobType.Weaver">
+			<ChangeClass Job="Weaver" Force="True"/>
+			<WaitTimer WaitTime="3" />		
+		</While>		
+    <!-- In Search of the Azure Star -->
+    <If Condition="IsQuestCompleted(70009) and not IsQuestCompleted(69675)">
+      <If Condition="not HasQuest(69675)">
+      <GetTo ZoneId="962" XYZ="-352.9726, 22.40005, -101.0074"/>  
+        <If Condition="IsQuestAcceptQualified(69675)">
+          <LLPickupQuest QuestId="69675" NpcId="1038562"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69675) == 1">
+				<GetTo ZoneId="962" XYZ="-365.1847, 19, 89.69978"/>  
+				<LLTalkTo NpcId="1038528" XYZ="-368.5207, 19, 91.81348" QuestId="69675" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69675) == 2">
+				<GetTo ZoneId="962" XYZ="-374.9073, 18.99995, 86.1198"/>  
+				<UseObject NpcIds="2011749,2011750,2011751" XYZ="-374.9073, 18.99995, 86.1198" QuestId="69675" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69675) == 3">
+				<GetTo ZoneId="962" XYZ="-369.9159, 19, 91.07926"/>  
+				<LLHandOver ItemIds="2003101,2003103,2003102" NpcId="1038528" XYZ="-368.5207, 19, 91.81348" QuestId="69675" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(69675) == 255">
+				<GetTo ZoneId="962" XYZ="-298.1129, 21.84602, -159.9294"/>  
+				<LLTurnIn QuestId="69675" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>
+		
+    <!-- The World without You -->
+    <If Condition="IsQuestCompleted(69675) and not IsQuestCompleted(69676)">
+      <If Condition="not HasQuest(69676)">
+      <GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/>  
+        <If Condition="IsQuestAcceptQualified(69676)">
+          <LLPickupQuest QuestId="69676" NpcId="1038525"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69676) == 255">
+				<If condition="LLItemCollectableCount(35592) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Carpenter">
+						<Lisbeth Json="[{'Group':1,'Item':35592,'Amount':6,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Leatherworker">
+						<Lisbeth Json="[{'Group':1,'Item':35592,'Amount':6,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Weaver">
+						<Lisbeth Json="[{'Group':1,'Item':35592,'Amount':6,'Enabled':true,'Type':'Weaver','AmountMode':'Restock'}]"/>
+					</If>					
+				</If>
+				<If condition="LLItemCollectableCount(35592) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69676" NpcId="1038525" XYZ="-299.9291, 21.68615, -159.1658"/>
+					<LLSmallTalk/>
+				</If>
+			</If>						
+    </If>
+		
+    <!-- Poetry Recital -->
+		<If Condition="Core.Me.ClassLevel &lt; 83">
+			<LLToast message="You must be 83 to accept the next quest in Carpenter/Leatherworker/Weaver deliveries."/>
+		</If>
+    <If Condition="IsQuestCompleted(69676) and not IsQuestCompleted(69677) and Core.Me.ClassLevel &gt; 82">
+      <If Condition="not HasQuest(69677)">
+      <GetTo ZoneId="962" XYZ="-299.254, 21.84602, -160.175"/>  
+        <If Condition="IsQuestAcceptQualified(69677)">
+          <LLPickupQuest QuestId="69677" NpcId="1038525"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69677) == 255">
+				<If condition="LLItemCollectableCount(35593) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Carpenter">
+						<Lisbeth Json="[{'Group':1,'Item':35593,'Amount':6,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Leatherworker">
+						<Lisbeth Json="[{'Group':1,'Item':35593,'Amount':6,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Weaver">
+						<Lisbeth Json="[{'Group':1,'Item':35593,'Amount':6,'Enabled':true,'Type':'Weaver','AmountMode':'Restock'}]"/>
+					</If>					
+				</If>
+				<If condition="LLItemCollectableCount(35593) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69677" NpcId="1038525" XYZ="-299.254, 21.84602, -160.175"/>
+					<LLSmallTalk/>
+				</If>
+			</If>			
+    </If>
+
+    <!-- One Step Forward -->
+		<If Condition="Core.Me.ClassLevel &lt; 85">
+			<LLToast message="You must be 85 to accept the next quest in Carpenter/Leatherworker/Weaver deliveries."/>
+		</If>		
+    <If Condition="IsQuestCompleted(69677) and not IsQuestCompleted(69678) and Core.Me.ClassLevel &gt; 84">
+      <If Condition="not HasQuest(69678)">
+      <GetTo ZoneId="962" XYZ="-299.564, 21.84602, -159.9906"/>  
+        <If Condition="IsQuestAcceptQualified(69678)">
+          <LLPickupQuest QuestId="69678" NpcId="1038525"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69678) == 255">
+				<If condition="LLItemCollectableCount(35594) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Carpenter">
+						<Lisbeth Json="[{'Group':1,'Item':35594,'Amount':6,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Leatherworker">
+						<Lisbeth Json="[{'Group':1,'Item':35594,'Amount':6,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Weaver">
+						<Lisbeth Json="[{'Group':1,'Item':35594,'Amount':6,'Enabled':true,'Type':'Weaver','AmountMode':'Restock'}]"/>
+					</If>					
+				</If>
+				<If condition="LLItemCollectableCount(35594) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69678" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
+					<LLSmallTalk/>
+				</If>
+			</If>
+    </If>
+
+
+    <!-- A Ten-year Promise -->
+		<If Condition="Core.Me.ClassLevel &lt; 85">
+			<LLToast message="You must be 85 to accept the next quest in Carpenter/Leatherworker/Weaver deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69677) and not IsQuestCompleted(69679) and Core.Me.ClassLevel &gt; 84">
+      <If Condition="not HasQuest(69679)">
+      <GetTo ZoneId="962" XYZ="-299.2509, 21.84602, -160.1778"/>  
+        <If Condition="IsQuestAcceptQualified(69679)">
+          <LLPickupQuest QuestId="69679" NpcId="1038525"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69679) == 1">
+				<GetTo ZoneId="962" XYZ="200.4234, 18.89542, -92.54934"/>  
+				<LLTalkTo NpcId="1038534" XYZ="201.77, 18.89543, -89.40265" DialogOption="0" QuestId="69679" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69679) == 2">
+				<If condition="not HasHqItem(35840)">
+					<If condition="not HasAtLeast(35839,1)">
+						<GetTo ZoneId="962" XYZ="200.4234, 18.89542, -92.54934"/>  
+						<LLTalkTo NpcId="1038535" XYZ="203.6926, 18.89543, -89.70782" QuestId="69679" StepId="2"/>
+					</If>
+					<If condition="HasAtLeast(35839,1)">
+						<If Condition="ClassName == ClassJobType.Carpenter">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35840,'Amount':1,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock'}]"/>
+						</If>
+						<If Condition="ClassName == ClassJobType.Leatherworker">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35840,'Amount':1,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock'}]"/>
+						</If>
+						<If Condition="ClassName == ClassJobType.Weaver">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35840,'Amount':1,'Enabled':true,'Type':'Weaver','AmountMode':'Restock'}]"/>
+						</If>							
+					</If>
+				</If>
+				<If condition="HasHqItem(35840)">
+					<GetTo ZoneId="962" XYZ="200.4234, 18.89542, -92.54934"/>  
+					<LLHandOver ItemId="35840" NpcId="1038534" XYZ="201.77, 18.89543, -89.40265" QuestId="69679" StepId="2"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69679) == 3">
+				<GetTo ZoneId="962" XYZ="97.21527, -16.247, 130.265"/>  
+				<LLTalkTo NpcId="1038536" XYZ="99.13782, -16.247, 130.6935" DialogOption="1" QuestId="69679" StepId="3"/>
+			</If>	
+			<If Condition="GetQuestStep(69679) == 4">
+				<GetTo ZoneId="962" XYZ="-154.1912, 5.303277, 121.504"/>  
+				<LLTalkTo NpcId="1039238" XYZ="-154.986, 5.368084, 124.2847" QuestId="69679" StepId="4"/>
+			</If>	
+			<If Condition="GetQuestStep(69679) == 255">
+				<GetTo ZoneId="962" XYZ="-299.1556, 21.84602, -160.6533"/>  
+				<LLTurnIn DialogOption="0" QuestId="69679" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>
+
+    <!-- An Astronomical Growth -->
+		<If Condition="Core.Me.ClassLevel &lt; 88">
+			<LLToast message="You must be 88 to accept the next quest in Carpenter/Leatherworker/Weaver deliveries."/>
+		</If>		
+    <If Condition="IsQuestCompleted(69679) and not IsQuestCompleted(69680) and Core.Me.ClassLevel &gt; 87">
+      <If Condition="not HasQuest(69680)">
+      <GetTo ZoneId="962" XYZ="-299.1556, 21.84602, -160.6533"/>  
+        <If Condition="IsQuestAcceptQualified(69680)">
+          <LLPickupQuest QuestId="69680" NpcId="1038525"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69680) == 255">
+				<If condition="LLItemCollectableCount(35595) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Carpenter">
+						<Lisbeth Json="[{'Group':1,'Item':35595,'Amount':6,'Enabled':true,'Type':'Carpenter','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Leatherworker">
+						<Lisbeth Json="[{'Group':1,'Item':35595,'Amount':6,'Enabled':true,'Type':'Leatherworker','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Weaver">
+						<Lisbeth Json="[{'Group':1,'Item':35595,'Amount':6,'Enabled':true,'Type':'Weaver','AmountMode':'Restock'}]"/>
+					</If>					
+				</If>
+				<If condition="LLItemCollectableCount(35595) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69680" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
+					<LLSmallTalk/>
+				</If>
+			</If>			
+    </If>
+
+    <!-- The Promised Star -->
+		<If Condition="Core.Me.ClassLevel &lt; 90">
+			<LLToast message="You must be 90 to accept the next quest in Carpenter/Leatherworker/Weaver deliveries."/>
+		</If>		
+    <If Condition="IsQuestCompleted(69680) and not IsQuestCompleted(69681) and Core.Me.ClassLevel &gt; 89">
+      <If Condition="not HasQuest(69681)">
+				<GetTo ZoneId="962" XYZ="-298.7547, 21.84602, -160.6211"/>  
+        <If Condition="IsQuestAcceptQualified(69681)">
+          <LLPickupQuest QuestId="69681" NpcId="1038525"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69681) == 1">
+				<If condition="not HasHqItem(35842)">
+					<If condition="not HasAtLeast(35841,1)">
+						<GetTo ZoneId="962" XYZ="-295.7491, 21.73085, -158.0491"/>  
+						<LLTalkTo NpcId="1038532" XYZ="-294.6975, 21.98816, -160.235" QuestId="69681" StepId="1"/>	
+					</If>
+					<If condition="HasAtLeast(35841,1)">
+						<If Condition="ClassName == ClassJobType.Carpenter">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35842,'Amount':1,'Enabled':true,'Type':'Carpenter','Hq':true}]"/>
+						</If>
+						<If Condition="ClassName == ClassJobType.Leatherworker">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35842,'Amount':1,'Enabled':true,'Type':'Leatherworker','Hq':true}]"/>
+						</If>
+						<If Condition="ClassName == ClassJobType.Weaver">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35842,'Amount':1,'Enabled':true,'Type':'Weaver','Hq':true}]"/>
+						</If>					
+					</If>
+				</If>
+				<If condition="HasHqItem(35842)">
+					<GetTo ZoneId="962" XYZ="-297.3724, 21.81966, -158.9179"/>  
+					<LLHandOver ItemId="35842" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577" QuestId="69681" StepId="1"/>
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69681) == 2">
+				<GetTo ZoneId="962" XYZ="199.6929, 18.89542, -92.73214"/>  
+				<LLTalkTo NpcId="1038563" XYZ="200.946, 18.89543, -91.23376" QuestId="69681" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69681) == 3">
+				<GetTo ZoneId="962" XYZ="8.533074, -16.147, 143.2939"/>  
+				<UseObject NpcId="2011752" XYZ="7.583679, -16.1593, 143.45" QuestId="69681" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(69681) == 255">
+				<GetTo ZoneId="962" XYZ="-298.8772, 21.84602, -160.0801"/>  
+				<LLTurnIn QuestId="69681" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>		
+	</If>
+
+	<!-- Blacksmith/Armorer/Goldsmith -->	
+	<If Condition="&BSM_ARM_GSM; == 1 and not IsQuestCompleted(69674)">
+		<While Condition="&BSM; == 1 and not ClassName == ClassJobType.Blacksmith">
+			<ChangeClass Job="Blacksmith" Force="True"/>
+			<WaitTimer WaitTime="3" />		
+		</While>
+		<While Condition="&ARM; == 1 and not ClassName == ClassJobType.Armorer">
+			<ChangeClass Job="Armorer" Force="True"/>
+			<WaitTimer WaitTime="3" />		
+		</While>	
+		<While Condition="&GSM; == 1 and not ClassName == ClassJobType.Goldsmith">
+			<ChangeClass Job="Goldsmith" Force="True"/>
+			<WaitTimer WaitTime="3" />		
+		</While>		
+    <!-- Professor Rurusha's New Friend -->
+    <If Condition="IsQuestCompleted(69916) and not IsQuestCompleted(69668)">
+      <If Condition="not HasQuest(69668)">
+      <GetTo ZoneId="962" XYZ="-350.3354, 21.64856, -89.95975"/>  
+        <If Condition="IsQuestAcceptQualified(69668)">
+          <LLPickupQuest QuestId="69668" NpcId="1039211"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69668) == 1">
+				<GetTo ZoneId="962" XYZ="-288.642, 22.29997, -126.1782"/>  
+				<LLTalkTo NpcId="1039212" XYZ="-286.7323, 22.29998, -126.3295" QuestId="69668" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69668) == 255">
+				<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/>  
+				<LLTurnIn QuestId="69668" NpcId="1039203" XYZ="-277.699, 21.84602, -139.0861"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>
+	
+	    <!-- The Dormant Dhyata -->
+    <If Condition="IsQuestCompleted(69668)and not IsQuestCompleted(69669)">
+      <If Condition="not HasQuest(69669)">
+      <GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/>  
+        <If Condition="IsQuestAcceptQualified(69669)">
+          <LLPickupQuest QuestId="69669" NpcId="1039203"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69669) == 255">
+				<If condition="LLItemCollectableCount(35588) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Blacksmith">
+						<Lisbeth Json="[{'Group':1,'Item':35588,'Amount':6,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Armorer">
+						<Lisbeth Json="[{'Group':1,'Item':35588,'Amount':6,'Enabled':true,'Type':'Armorer','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Goldsmith">
+						<Lisbeth Json="[{'Group':1,'Item':35588,'Amount':6,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock'}]"/>
+					</If>					
+				</If>
+				<If condition="LLItemCollectableCount(35588) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/>					
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69669" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
+					<LLSmallTalk/>
+				</If>
+			</If>			
+    </If>
+		
+		
+    <!-- Gears of Gold -->
+		<If Condition="Core.Me.ClassLevel &lt; 83">
+			<LLToast message="You must be 83 to accept the next quest in Blacksmith/Armorer/Goldsmith deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69669) and not IsQuestCompleted(69670) and Core.Me.ClassLevel &gt; 82">
+      <If Condition="not HasQuest(69670)">
+      <GetTo ZoneId="962" XYZ="-280.2944, 21.84602, -137.2399"/>  
+        <If Condition="IsQuestAcceptQualified(69670)">
+          <LLPickupQuest QuestId="69670" NpcId="1039203"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69670) == 255">
+				<If condition="LLItemCollectableCount(35589) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Blacksmith">
+						<Lisbeth Json="[{'Group':1,'Item':35589,'Amount':6,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Armorer">
+						<Lisbeth Json="[{'Group':1,'Item':35589,'Amount':6,'Enabled':true,'Type':'Armorer','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Goldsmith">
+						<Lisbeth Json="[{'Group':1,'Item':35589,'Amount':6,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock'}]"/>
+					</If>					
+				</If>
+				<If condition="LLItemCollectableCount(35589) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/>					
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69670" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
+					<LLSmallTalk/>
+				</If>
+			</If>	
+    </If>
+		
+    <!-- Rubbished Research -->
+		<If Condition="Core.Me.ClassLevel &lt; 85">
+			<LLToast message="You must be 85 to accept the next quest in Blacksmith/Armorer/Goldsmith deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69670) and not IsQuestCompleted(69671) and Core.Me.ClassLevel &gt; 84">
+      <If Condition="not HasQuest(69671)">
+      <GetTo ZoneId="962" XYZ="-280.7058, 21.77095, -136.9749"/>  
+        <If Condition="IsQuestAcceptQualified(69671)">
+          <LLPickupQuest QuestId="69671" NpcId="1039203"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69671) == 255">
+				<If condition="LLItemCollectableCount(35590) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Blacksmith">
+						<Lisbeth Json="[{'Group':1,'Item':35590,'Amount':6,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Armorer">
+						<Lisbeth Json="[{'Group':1,'Item':35590,'Amount':6,'Enabled':true,'Type':'Armorer','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Goldsmith">
+						<Lisbeth Json="[{'Group':1,'Item':35590,'Amount':6,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock'}]"/>
+					</If>					
+				</If>
+				<If condition="LLItemCollectableCount(35590) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/> 					
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69671" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
+					<LLSmallTalk/>
+				</If>
+			</If>			
+    </If>	
+
+    <!-- Boric's Choice -->
+		<If Condition="Core.Me.ClassLevel &lt; 85">
+			<LLToast message="You must be 85 to accept the next quest in Blacksmith/Armorer/Goldsmith deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69671) and not IsQuestCompleted(69672) and Core.Me.ClassLevel &gt; 84">
+      <If Condition="not HasQuest(69672)">
+      <GetTo ZoneId="962" XYZ="-280.6338, 21.79147, -137.0495"/>  
+        <If Condition="IsQuestAcceptQualified(69672)">
+          <LLPickupQuest QuestId="69672" NpcId="1039203"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69672) == 1">
+				<GetTo ZoneId="962" XYZ="-91.83958, -16.147, 179.2195"/>  
+				<LLTalkTo NpcId="1039214" XYZ="-94.89587, -16.14707, 179.8275" QuestId="69672" StepId="1"/>
+			</If>	
+			<If Condition="GetQuestStep(69672) == 2">
+				<GetTo ZoneId="962" XYZ="-279.2464, 21.84602, -138.0006"/>  
+				<LLTalkTo NpcId="1039203" XYZ="-277.699, 21.84602, -139.0861" QuestId="69672" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69672) == 255">
+				<If condition="not HasAtLeast(35835,1) and not HasHqItem(35836)">
+					<GetTo ZoneId="962" XYZ="-279.2464, 21.84602, -138.0006"/>  
+					<LLTalkTo NpcId="1039204" XYZ="-276.4478, 21.84602, -138.7198" QuestId="69672" StepId="255"/>
+				</If>
+				<If condition="HasAtLeast(35835,1) and not HasHqItem(35836)">
+					<If condition="not HasAtLeast(35836,1)">
+						<If Condition="ClassName == ClassJobType.Blacksmith">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35836,'Amount':1,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock'}]"/>
+						</If>
+						<If Condition="ClassName == ClassJobType.Armorer">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35836,'Amount':1,'Enabled':true,'Type':'Armorer','AmountMode':'Restock'}]"/>
+						</If>
+						<If Condition="ClassName == ClassJobType.Goldsmith">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35836,'Amount':1,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock'}]"/>
+						</If>					
+					</If>
+				</If>	
+				<If condition="HasHqItem(35836)">			
+					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/> 				
+					<LLTurnIn ItemId="35836" QuestId="69672" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
+					<LLSmallTalk/>
+				</If>
+			</If>			
+    </If>
+
+    <!-- A Friend in Need -->
+		<If Condition="Core.Me.ClassLevel &lt; 88">
+			<LLToast message="You must be 88 to accept the next quest in Blacksmith/Armorer/Goldsmith deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69672) and not IsQuestCompleted(69673) and Core.Me.ClassLevel &gt; 87">
+      <If Condition="not HasQuest(69673)">
+      <GetTo ZoneId="962" XYZ="-280.6123, 21.7979, -137.0745"/>  
+        <If Condition="IsQuestAcceptQualified(69673)">
+          <LLPickupQuest QuestId="69673" NpcId="1039203"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69673) == 255">
+				<If condition="LLItemCollectableCount(35591) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Blacksmith">
+						<Lisbeth Json="[{'Group':1,'Item':35591,'Amount':6,'Enabled':true,'Type':'Blacksmith','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Armorer">
+						<Lisbeth Json="[{'Group':1,'Item':35591,'Amount':6,'Enabled':true,'Type':'Armorer','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Goldsmith">
+						<Lisbeth Json="[{'Group':1,'Item':35591,'Amount':6,'Enabled':true,'Type':'Goldsmith','AmountMode':'Restock'}]"/>
+					</If>					
+				</If>
+				<If condition="LLItemCollectableCount(35591) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/> 				
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69673" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
+					<LLSmallTalk/>
+				</If>
+			</If>			
+    </If>
+
+
+    <!-- Wayback Machine -->
+		<If Condition="Core.Me.ClassLevel &lt; 90">
+			<LLToast message="You must be 90 to accept the next quest in Blacksmith/Armorer/Goldsmith deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69673) and not IsQuestCompleted(69674) and Core.Me.ClassLevel &gt; 89">
+      <If Condition="not HasQuest(69674)">
+      <GetTo ZoneId="962" XYZ="-279.8289, 21.84602, -137.4785"/>  
+        <If Condition="IsQuestAcceptQualified(69674)">
+          <LLPickupQuest QuestId="69674" NpcId="1039203"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69674) == 1">
+				<If condition="not HasHqItem(35838)">
+					<If condition="not HasAtLeast(35837,1)">
+						<GetTo ZoneId="962" XYZ="-279.8289, 21.84602, -137.4785"/>  
+						<LLTalkTo NpcId="1039216" XYZ="-276.6309, 21.84602, -138.5978" QuestId="69674" StepId="1"/>			
+					</If>
+					<If condition="HasAtLeast(35837,1)">
+						<If Condition="ClassName == ClassJobType.Blacksmith">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35838,'Amount':1,'Enabled':true,'Type':'Blacksmith','Hq':'True'}]"/>
+						</If>
+						<If Condition="ClassName == ClassJobType.Armorer">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35838,'Amount':1,'Enabled':true,'Type':'Armorer','Hq':'True'}]"/>
+						</If>
+						<If Condition="ClassName == ClassJobType.Goldsmith">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35838,'Amount':1,'Enabled':true,'Type':'Goldsmith','Hq':'True'}]"/>
+						</If>					
+					</If>
+				</If>
+				<If condition="HasHqItem(35838)">
+					<GetTo ZoneId="962" XYZ="-279.8289, 21.84602, -137.4785"/>  
+					<LLHandOver ItemId="35838" NpcId="1039203" XYZ="-277.699, 21.84602, -139.0861" QuestId="69674" StepId="1"/>			
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69674) == 2">
+				<GetTo ZoneId="962" XYZ="-321.3127, 22.3, -169.7851"/>  
+				<LLTalkTo NpcId="1039217" XYZ="-322.8351, 22.3, -172.6559" QuestId="69674" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69674) == 255">
+				<GetTo ZoneId="962" XYZ="-279.9196, 21.84602, -137.6927"/>  
+				<LLTurnIn QuestId="69674" NpcId="1039203" XYZ="-277.699, 21.84602, -139.0861"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>		
+	</If>
+	
+	<!-- Alchemist/Culinarian -->	
+	<If Condition="&ALC_CUL; == 1 and not IsQuestCompleted(69688)">
+		<While Condition="&ALC; == 1 and not ClassName == ClassJobType.Alchemist">
+			<ChangeClass Job="Alchemist" Force="True"/>
+			<WaitTimer WaitTime="3" />		
+		</While>
+		<While Condition="&CUL; == 1 and not ClassName == ClassJobType.Culinarian">
+			<ChangeClass Job="Culinarian" Force="True"/>
+			<WaitTimer WaitTime="3" />		
+		</While>	
+    <!-- Perfectly Awful -->
+    <If Condition="IsQuestCompleted(69916) and not IsQuestCompleted(69682)">
+      <If Condition="not HasQuest(69682)">
+      <GetTo ZoneId="962" XYZ="-350.3933, 22.30602, -97.17285"/>  
+        <If Condition="IsQuestAcceptQualified(69682)">
+          <LLPickupQuest QuestId="69682" NpcId="1039227"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69682) == 1">
+				<GetTo ZoneId="962" XYZ="-288.8122, 21.84602, -149.0919"/>  
+				<LLTalkTo NpcId="1039220" XYZ="-287.1595, 21.84602, -150.7745" QuestId="69682" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69682) == 2">
+				<GetTo ZoneId="962" XYZ="-83.69991, -13.777, 121.9688"/>  
+				<LLTalkTo NpcId="1039228" XYZ="-85.83203, -13.777, 121.7517" QuestId="69682" StepId="2"/>
+			</If>			
+			<If Condition="GetQuestStep(69682) == 255">
+				<GetTo ZoneId="962" XYZ="-289.2391, 21.84602, -149.1731"/>  
+				<LLTurnIn QuestId="69682" NpcId="1039220" XYZ="-287.1595, 21.84602, -150.7745"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>
+		
+    <!-- Make It Sweeter -->
+    <If Condition="IsQuestCompleted(69682) and not IsQuestCompleted(69683)">
+      <If Condition="not HasQuest(69683)">
+      <GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  
+        <If Condition="IsQuestAcceptQualified(69683)">
+          <LLPickupQuest QuestId="69683" NpcId="1039220"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69683) == 255">
+				<If condition="LLItemCollectableCount(35596) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Alchemist">
+						<Lisbeth Json="[{'Group':1,'Item':35596,'Amount':6,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Culinarian">
+						<Lisbeth Json="[{'Group':1,'Item':35596,'Amount':6,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock'}]"/>
+					</If>				
+				</If>
+				<If condition="LLItemCollectableCount(35596) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  				
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69683" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
+					<LLSmallTalk/>
+				</If>
+			</If>			
+    </If>
+
+
+    <!-- Remember the Texture -->
+		<If Condition="Core.Me.ClassLevel &lt; 83">
+			<LLToast message="You must be 83 to accept the next quest in Alchemist/Culinarian deliveries."/>
+		</If>	
+    <If Condition="IsQuestCompleted(69683) and not IsQuestCompleted(69684) and Core.Me.ClassLevel &gt; 82">
+      <If Condition="not HasQuest(69684)">
+      <GetTo ZoneId="962" XYZ="-289.8195, 21.84602, -148.7934"/>  
+        <If Condition="IsQuestAcceptQualified(69684)">
+          <LLPickupQuest QuestId="69684" NpcId="1039220"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69684) == 255">
+				<If condition="LLItemCollectableCount(35597) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Alchemist">
+						<Lisbeth Json="[{'Group':1,'Item':35597,'Amount':6,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Culinarian">
+						<Lisbeth Json="[{'Group':1,'Item':35597,'Amount':6,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock'}]"/>
+					</If>				
+				</If>
+				<If condition="LLItemCollectableCount(35597) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>
+					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69684" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
+					<LLSmallTalk/>
+				</If>
+			</If>			
+    </If>
+
+    <!-- Aroma Is Key -->
+		<If Condition="Core.Me.ClassLevel &lt; 85">
+			<LLToast message="You must be 85 to accept the next quest in Alchemist/Culinarian deliveries."/>
+		</If>		
+    <If Condition="IsQuestCompleted(69684) and not IsQuestCompleted(69685) and Core.Me.ClassLevel &gt; 84">
+      <If Condition="not HasQuest(69685)">
+      <GetTo ZoneId="962" XYZ="-289.5023, 21.84602, -148.3002"/>  
+        <If Condition="IsQuestAcceptQualified(69685)">
+          <LLPickupQuest QuestId="69685" NpcId="1039220"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69685) == 255">
+				<If condition="LLItemCollectableCount(35598) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Alchemist">
+						<Lisbeth Json="[{'Group':1,'Item':35598,'Amount':6,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Culinarian">
+						<Lisbeth Json="[{'Group':1,'Item':35598,'Amount':6,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock'}]"/>
+					</If>				
+				</If>
+				<If condition="LLItemCollectableCount(35598) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69685" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
+					<LLSmallTalk/>
+				</If>
+			</If>				
+    </If>
+
+    <!-- Long Live the Gourmet -->
+		<If Condition="Core.Me.ClassLevel &lt; 85">
+			<LLToast message="You must be 85 to accept the next quest in Alchemist/Culinarian deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69685) and not IsQuestCompleted(69686) and Core.Me.ClassLevel &gt; 84">
+      <If Condition="not HasQuest(69686)">
+      <GetTo ZoneId="962" XYZ="-289.5315, 21.84602, -148.1922"/>  
+        <If Condition="IsQuestAcceptQualified(69686)">
+          <LLPickupQuest QuestId="69686" NpcId="1039220"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69686) == 1">
+				<GetTo ZoneId="957" XYZ="174.0806, 5.717618, 604.9768"/>  
+				<LLTalkTo NpcId="1039229" XYZ="172.5642, 5.765856, 602.9907" QuestId="69686" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69686) == 2">
+				<GetTo ZoneId="963" XYZ="-10.80477, -2.000129, 91.12708"/>  
+				<LLTalkTo NpcId="1039230" XYZ="-12.8634, -2.00019, 89.7688" QuestId="69686" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69686) == 3">
+				<MoveTo XYZ="130.4125, 4.783755, -162.3035"/> 
+				<LLTalkTo NpcId="1039231" XYZ="131.548, 4.783755, -164.2329" QuestId="69686" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(69686) == 4">
+				<MoveTo XYZ="86.65504, -24.69345, -217.0148"/> 
+				<LLTalkTo NpcId="1039232" XYZ="87.23572, -24.69344, -219.0739" QuestId="69686" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(69686) == 5">
+				<MoveTo XYZ="-10.12572, 3.03, -211.964"/> 
+				<LLTalkTo NpcId="1039230" XYZ="-13.00789, 3.015001, -212.7635" QuestId="69686" StepId="5"/>
+			</If>
+			<If Condition="GetQuestStep(69686) == 6">
+				<If condition="not HasHqItem(35844)">
+					<If condition="not HasAtLeast(35843,1)">
+						<GetTo ZoneId="963" XYZ="-10.91168, 3.030001, -215.5214"/>  
+						<LLTalkTo NpcId="1039234" XYZ="-8.224609, 3.03, -215.8083" QuestId="69686" StepId="6"/>
+					</If>
+					<If condition="HasAtLeast(35843,1)">
+						<If Condition="ClassName == ClassJobType.Culinarian">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35844,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':'True'}]"/>
+						</If>
+						<If Condition="ClassName == ClassJobType.Alchemist">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35844,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':'True'}]"/>
+						</If>				
+					</If>
+				</If>
+				<If condition="HasHqItem(35844)">
+					<GetTo ZoneId="963" XYZ="-10.91168, 3.030001, -215.5214"/>  
+					<LLHandOver ItemId="35844" NpcId="1039233" XYZ="-9.628479, 3.03, -214.0688" QuestId="69686" StepId="6"/>
+				</If>				
+			</If>
+			<If Condition="GetQuestStep(69686) == 255">
+				<GetTo ZoneId="962" XYZ="-289.9919, 21.81535, -148.3173"/>  
+				<LLTurnIn QuestId="69686" NpcId="1039220" XYZ="-287.1595, 21.84602, -150.7745"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>
+
+
+    <!-- Perfectly Delectable -->
+		<If Condition="Core.Me.ClassLevel &lt; 88">
+			<LLToast message="You must be 88 to accept the next quest in Alchemist/Culinarian deliveries."/>
+		</If>		
+    <If Condition="IsQuestCompleted(69686) and not IsQuestCompleted(69687) and Core.Me.ClassLevel &gt; 87">
+      <If Condition="not HasQuest(69687)">
+      <GetTo ZoneId="962" XYZ="-289.9919, 21.81535, -148.3173"/>  
+        <If Condition="IsQuestAcceptQualified(69687)">
+          <LLPickupQuest QuestId="69687" NpcId="1039220"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69687) == 255">
+				<If condition="LLItemCollectableCount(35599) &lt; 6">
+					<If Condition="ClassName == ClassJobType.Alchemist">
+						<Lisbeth Json="[{'Group':1,'Item':35599,'Amount':6,'Enabled':true,'Type':'Alchemist','AmountMode':'Restock'}]"/>
+					</If>
+					<If Condition="ClassName == ClassJobType.Culinarian">
+						<Lisbeth Json="[{'Group':1,'Item':35599,'Amount':6,'Enabled':true,'Type':'Culinarian','AmountMode':'Restock'}]"/>
+					</If>				
+				</If>
+				<If condition="LLItemCollectableCount(35599) &gt; 5">
+					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69687" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
+					<LLSmallTalk/>
+				</If>
+			</If>			
+    </If>
+
+    <!-- Sharlayan Cuisine -->
+		<If Condition="Core.Me.ClassLevel &lt; 90">
+			<LLToast message="You must be 90 to accept the next quest in Alchemist/Culinarian deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69687) and not IsQuestCompleted(69688) and Core.Me.ClassLevel &gt; 89">
+      <If Condition="not HasQuest(69688)">
+      <GetTo ZoneId="962" XYZ="-289.5508, 21.84602, -148.339"/>  
+        <If Condition="IsQuestAcceptQualified(69688)">
+          <LLPickupQuest QuestId="69688" NpcId="1039220"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69688) == 1">
+				<GetTo ZoneId="962" XYZ="-10.83376, 41.53014, -160.616"/>  
+				<LLTalkTo NpcId="1039235" XYZ="-9.323303, 41.53014, -162.8596" QuestId="69688" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69688) == 2">
+				<GetTo ZoneId="962" XYZ="-10.83376, 41.53014, -160.616"/>  
+				<LLTalkTo NpcId="1039235" XYZ="-9.323303, 41.53014, -162.8596" QuestId="69688" StepId="2"/>
+			</If>	
+			<If Condition="GetQuestStep(69688) == 3">
+				<GetTo ZoneId="962" XYZ="-39.26613, -14.16931, 110.4903"/>  
+				<LLTalkTo NpcId="1039236" XYZ="-39.68878, -14.16931, 107.8965" QuestId="69688" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(69688) == 4">
+				<If condition="not HasHqItem(35846)">
+					<If condition="not HasAtLeast(35845,1)">
+						<GetTo ZoneId="962" XYZ="-39.26613, -14.16931, 110.4903"/>  
+						<LLTalkTo NpcId="1037077" XYZ="-38.07129, -14.16931, 105.3025" QuestId="69688" StepId="4"/>
+					</If>
+					<If condition="HasAtLeast(35845,1)">
+						<If Condition="ClassName == ClassJobType.Culinarian">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35846,'Amount':1,'Enabled':true,'Type':'Culinarian','Hq':'True'}]"/>
+						</If>
+						<If Condition="ClassName == ClassJobType.Alchemist">
+							<Lisbeth IgnoreHome="True" Json="[{'Group':1,'Item':35846,'Amount':1,'Enabled':true,'Type':'Alchemist','Hq':'True'}]"/>
+						</If>				
+					</If>
+				</If>
+				<If condition="HasHqItem(35846)">
+					<GetTo ZoneId="962" XYZ="-39.26613, -14.16931, 110.4903"/>  
+					<LLHandOver ItemId="35846" NpcId="1039236" XYZ="-39.68878, -14.16931, 107.8965" QuestId="69688" StepId="4"/>
+				</If>				
+			</If>
+			<If Condition="GetQuestStep(69688) == 255">
+				<GetTo ZoneId="962" XYZ="-289.5336, 21.84602, -148.8398"/>  
+				<LLTurnIn QuestId="69688" NpcId="1039220" XYZ="-287.1595, 21.84602, -150.7745"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>		
+
+
+	</If>
+	
+	<!-- Miner/Botanist -->	
+	<If Condition="&MIN_BTN; == 1 and not IsQuestCompleted(69695)">	
+		<While Condition="&MIN; == 1 and not ClassName == ClassJobType.Miner">
+			<ChangeClass Job="Miner" Force="True"/>
+			<WaitTimer WaitTime="3" />		
+		</While>
+		<While Condition="&BTN; == 1 and not ClassName == ClassJobType.Botanist">
+			<ChangeClass Job="Botanist" Force="True"/>
+			<WaitTimer WaitTime="3" />		
+		</While>	
+    <!-- Cultured Pursuits -->
+    <If Condition="IsQuestCompleted(69916) and not IsQuestCompleted(69689)">
+      <If Condition="not HasQuest(69689)">
+      <GetTo ZoneId="962" XYZ="-356.373, 21.64856, -96.78683"/>  
+        <If Condition="IsQuestAcceptQualified(69689)">
+          <LLPickupQuest QuestId="69689" NpcId="1038504"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69689) == 1">
+				<GetTo ZoneId="962" XYZ="-374.7939, 19, 38.69832"/>  
+				<LLTalkTo NpcId="1038505" XYZ="-376.4554, 19, 37.00305" QuestId="69689" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69689) == 2">
+				<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/>  
+				<LLTalkTo NpcId="1038503" XYZ="-367.0863, 21.84602, -101.7014" QuestId="69689" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69689) == 255">
+				<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/>  
+				<LLTurnIn QuestId="69689" NpcId="1038501" XYZ="-367.3305, 21.84602, -102.9832"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>
+
+    <!-- Cooking Up a Culture -->
+    <If Condition="IsQuestCompleted(69689) and not IsQuestCompleted(69690)">
+      <If Condition="not HasQuest(69690)">
+      <GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/>  
+        <If Condition="IsQuestAcceptQualified(69690)">
+          <LLPickupQuest QuestId="69690" NpcId="1038501"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69690) == 255">
+				<If condition="LLItemCollectableCount(35600) &lt; 6">
+					<Lisbeth Json="[{'Group':1,'Item':35600,'Amount':6,'Enabled':true,'Type':'Gather','AmountMode':'Restock','Collectable':true}]"/>				
+				</If>
+				<If condition="LLItemCollectableCount(35600) &gt; 5">
+					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69690" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
+					<LLSmallTalk/>
+				</If>
+			</If>				
+    </If>
+
+    <!-- The Culture of Ceruleum -->
+		<If Condition="Core.Me.ClassLevel &lt; 83">
+			<LLToast message="You must be 83 to accept the next quest in Miner/Botanist deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69690) and not IsQuestCompleted(69691) and Core.Me.ClassLevel &gt; 82">
+      <If Condition="not HasQuest(69691)">
+      <GetTo ZoneId="962" XYZ="-365.2883, 21.84602, -104.4202"/>  
+        <If Condition="IsQuestAcceptQualified(69691)">
+          <LLPickupQuest QuestId="69691" NpcId="1038501"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69691) == 255">
+				<If condition="LLItemCollectableCount(35601) &lt; 6">
+					<Lisbeth Json="[{'Group':1,'Item':35601,'Amount':6,'Enabled':true,'Type':'Gather','AmountMode':'Restock','Collectable':true}]"/>				
+				</If>
+				<If condition="LLItemCollectableCount(35601) &gt; 5">
+					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69691" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
+					<LLSmallTalk/>
+				</If>
+			</If>				
+    </If>
+
+    <!-- The Culture of Carrots -->
+		<If Condition="Core.Me.ClassLevel &lt; 85">
+			<LLToast message="You must be 85 to accept the next quest in Miner/Botanist deliveries."/>
+		</If>				
+    <If Condition="IsQuestCompleted(69691) and not IsQuestCompleted(69692) and Core.Me.ClassLevel &gt; 84">
+      <If Condition="not HasQuest(69692)">
+      <GetTo ZoneId="962" XYZ="-365.0681, 21.84602, -104.4311"/>  
+        <If Condition="IsQuestAcceptQualified(69692)">
+          <LLPickupQuest QuestId="69692" NpcId="1038501"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69692) == 255">
+				<If condition="LLItemCollectableCount(35602) &lt; 6">
+					<Lisbeth Json="[{'Group':1,'Item':35602,'Amount':6,'Enabled':true,'Type':'Gather','AmountMode':'Restock','Collectable':true}]"/>				
+				</If>
+				<If condition="LLItemCollectableCount(35602) &gt; 5">
+					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69692" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
+					<LLSmallTalk/>
+				</If>
+			</If>			
+    </If>
+
+    <!-- Hinageshi in Hingashi -->
+		<If Condition="Core.Me.ClassLevel &lt; 85">
+			<LLToast message="You must be 85 to accept the next quest in Miner/Botanist deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69692) and not IsQuestCompleted(69693) and Core.Me.ClassLevel &gt; 84">
+      <If Condition="not HasQuest(69693)">
+      <GetTo ZoneId="962" XYZ="-365.0164, 21.84602, -104.5061"/>  
+        <If Condition="IsQuestAcceptQualified(69693)">
+          <LLPickupQuest QuestId="69693" NpcId="1038501"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69693) == 1">
+				<GetTo ZoneId="628" XYZ="-100.5188, -6.999997, -59.81035"/>  
+				<UseObject NpcId="2011719" XYZ="-102.1897, -7.003906, -59.92218" QuestId="69693" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69693) == 2">
+				<GetTo ZoneId="628" XYZ="-141.4001, -4.750006, 197.3334"/>  
+				<LLTalkTo NpcId="1038506" XYZ="-142.2904, -4.750006, 199.6643" QuestId="69693" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69693) == 3">
+				<GetTo ZoneId="628" XYZ="53.35528, 8.02, 150.9843"/>  
+				<LLTalkTo NpcId="1038507" XYZ="52.75037, 8.02, 152.8191" QuestId="69693" StepId="3"/>
+			</If>	
+			<If Condition="GetQuestStep(69693) == 4">
+				<GetTo ZoneId="628" XYZ="131.1852, 25, 14.85016"/>  
+				<UseObject NpcId="2011720" XYZ="129.5033, 24.979, 15.70148" QuestId="69693" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(69693) == 5">
+				<If condition="not HasAtLeast(35847,1)">
+					<Lisbeth Json="[{'Group':1,'Item':35847,'Amount':1,'Enabled':true,'Type':'Gather','AmountMode':'Restock'}]"/>				
+				</If>
+				<If condition="HasAtLeast(35847,1)">
+					<GetTo ZoneId="628" XYZ="117.7482, 12, 37.22629"/>  
+					<LLHandOver ItemId="35847" NpcId="1038508" XYZ="114.702, 12, 35.96545" QuestId="69693" StepId="5"/>
+				</If>				
+			</If>
+			<If Condition="GetQuestStep(69693) == 6">
+				<GetTo ZoneId="628" XYZ="-89.76025, 11.8, -155.192"/>  
+				<LLTalkTo NpcId="1038510" XYZ="-92.24078, 11.8, -156.0541" QuestId="69693" StepId="6"/>
+			</If>
+			<If Condition="GetQuestStep(69693) == 255">
+				<GetTo ZoneId="962" XYZ="-365.2083, 21.84602, -104.4485"/>  
+				<LLTurnIn QuestId="69693" NpcId="1038501" XYZ="-367.3305, 21.84602, -102.9832"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>		
+		
+    <!-- The Culture of the Past -->
+		<If Condition="Core.Me.ClassLevel &lt; 87">
+			<LLToast message="You must be 87 to accept the next quest in Miner/Botanist deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69693) and not IsQuestCompleted(69694) and Core.Me.ClassLevel &gt; 86">
+      <If Condition="not HasQuest(69694)">
+      <GetTo ZoneId="962" XYZ="-365.2083, 21.84602, -104.4485"/>  
+        <If Condition="IsQuestAcceptQualified(69694)">
+          <LLPickupQuest QuestId="69694" NpcId="1038501"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69694) == 255">
+				<If condition="LLItemCollectableCount(35603) &lt; 6">
+					<Lisbeth Json="[{'Group':1,'Item':35603,'Amount':6,'Enabled':true,'Type':'Gather','AmountMode':'Restock','Collectable':true}]"/>				
+				</If>
+				<If condition="LLItemCollectableCount(35603) &gt; 5">
+					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69694" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
+					<LLSmallTalk/>
+				</If>
+			</If>			
+    </If>
+
+    <!-- The Culture of Love -->
+		<If Condition="Core.Me.ClassLevel &lt; 90">
+			<LLToast message="You must be 90 to accept the next quest in Miner/Botanist deliveries."/>
+		</If>	
+		<If Condition="not IsQuestCompleted(70000)">
+			<LLToast message="You must complete MSQ quest Endwalker to finsih Miner/Botanist deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(70000) and IsQuestCompleted(69694) and not IsQuestCompleted(69695) and Core.Me.ClassLevel &gt; 89">
+      <If Condition="not HasQuest(69695)">
+      <GetTo ZoneId="962" XYZ="-363.8623, 21.7079, -105.1808"/>  
+        <If Condition="IsQuestAcceptQualified(69695)">
+          <LLPickupQuest QuestId="69695" NpcId="1038501"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69695) == 1">
+				<If condition="not HasAtLeast(35848,1)">
+					<Lisbeth Json="[{'Group':1,'Item':35848,'Amount':1,'Enabled':true,'Type':'Gather','AmountMode':'Restock'}]"/>				
+				</If>
+				<If condition="HasAtLeast(35848,1)">
+					<GetTo ZoneId="962" XYZ="-363.8623, 21.7079, -105.1808"/>  
+					<LLHandOver ItemId="35848" NpcId="1038503" XYZ="-367.0863, 21.84602, -101.7014" QuestId="69695" StepId="1"/>
+				</If>					
+			</If>	
+			<If Condition="GetQuestStep(69695) == 2">
+				<GetTo ZoneId="962" XYZ="-71.24431, -16.147, 190.557"/>  
+				<LLHandOver ItemId="2003098" NpcId="1038512" XYZ="-73.47223, -16.147, 191.2717" QuestId="69695" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69695) == 3">
+				<GetTo ZoneId="962" XYZ="-364.7938, 21.84602, -104.2666"/>  
+				<LLTalkTo NpcId="1038503" XYZ="-367.0863, 21.84602, -101.7014" QuestId="69695" StepId="3"/>
+			</If>
+			<If Condition="GetQuestStep(69695) == 255">
+				<GetTo ZoneId="962" XYZ="-364.7938, 21.84602, -104.2666"/>  
+				<LLTurnIn QuestId="69695" NpcId="1038501" XYZ="-367.3305, 21.84602, -102.9832"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>	
+	
+	</If>
+
+
+	<!-- Fisher -->	
+	<If Condition="&FSH; == 1 and not IsQuestCompleted(69702)">
+		<While Condition="&FSH; == 1 and not ClassName == ClassJobType.Fisher">
+			<ChangeClass Job="Fisher" Force="True"/>
+			<WaitTimer WaitTime="3" />		
+		</While>	
+    <!-- Fear the Thesis -->
+    <If Condition="IsQuestCompleted(69916) and not IsQuestCompleted(69696)">
+      <If Condition="not HasQuest(69696)">
+      <GetTo ZoneId="962" XYZ="-348.9175, 21.64856, -87.31713"/>  
+        <If Condition="IsQuestAcceptQualified(69696)">
+          <LLPickupQuest QuestId="69696" NpcId="1038549"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69696) == 1">
+				<GetTo ZoneId="962" XYZ="-4.637122, 3.225, 8.663466"/>  
+				<LLTalkTo NpcId="1038550" XYZ="-6.637756, 3.224995, 9.872559" QuestId="69696" StepId="1"/>
+			</If>	
+			<If Condition="GetQuestStep(69696) == 255">
+				<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
+				<LLTurnIn QuestId="69696" NpcId="1038551" XYZ="-348.5618, 21.84602, -79.9726"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>	
+		
+    <!-- Go with the Flow -->
+    <If Condition="IsQuestCompleted(69696) and not IsQuestCompleted(69697)">
+      <If Condition="not HasQuest(69697)">
+      <GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
+        <If Condition="IsQuestAcceptQualified(69697)">
+          <LLPickupQuest QuestId="69697" NpcId="1038551"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69697) == 255">
+				<If condition="LLItemCollectableCount(35604) &lt; 6">
+					<!-- Buy Bait: Gold Salmon Roe -->
+					<If condition="not HasAtLeast(36588, 50)">
+						<GetTo ZoneId="956" XYZ="419.8518, 166.1927, -430.8995"/>
+						<BuyItem NpcId="1037478" DialogOption="6" ItemId="36588" ItemCount="99" XYZ="419.8518, 166.1927, -430.8995"/>
+						<!--<Lisbeth Json="[{'Group':1,'Item':36588,'Amount':99,'Enabled':true,'Type':'Purchase','AmountMode':'Restock'}]"/> Currently Broken -->				
+					</If>	
+					<LisbethTravel ZoneId="956" XYZ="-159.8663, 156.93, -812.0608"/>
+						<ExFish Collect="True" patience="Patience2" Hookset="PrecisionHookset" Condition="LLItemCollectableCount(35604) &lt; 6" Bait="Gold Salmon Roe" MinFish="7" MaxFish="15" ShuffleFishSpots="True" SitRate="0.65" Radius="1.0">
+							<Collectables>
+								<Collectable Name="Giant Aetherlouse" Value="166" />
+							</Collectables>
+							<FishSpots>
+								<FishSpot XYZ="-159.8663, 156.93, -812.0608" Heading="3.99012" />
+								<FishSpot XYZ="-193.9043, 156.93, -841.3032" Heading="4.075792" />
+								<FishSpot XYZ="-218.9116, 156.93, -807.9551" Heading="2.069363" />
+								<FishSpot XYZ="-187.9723, 156.93, -773.066" Heading="2.923878" />
+							</FishSpots>
+						</ExFish>
+				</If>
+				<If condition="LLItemCollectableCount(35604) &gt; 5">				
+					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69697" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
+					<LLSmallTalk/>					
+				</If>
+				<If Condition="IsQuestCompleted(69697) and HasAtLeast(36397,1) or HasAtLeast(36400,1) or HasAtLeast(36402,1) or HasAtLeast(36399,1) or HasAtLeast(35604,1)">
+					<While condition="HasAtLeast(36397,1) or HasAtLeast(36400,1) or HasAtLeast(36402,1) or HasAtLeast(36399,1)">
+						<LLDesynth ItemIds="36397,36400,36402,36399" />
+					</While>
+					<While conidition="HasAtLeast(35604,1)">
+						<LLDiscardItem ItemId="35604"/>
+					</While>
+				</If>				
+			</If>			
+    </If>
+
+    <!-- Data across the Decades --> 
+		<If Condition="Core.Me.ClassLevel &lt; 83">
+			<LLToast message="You must be 83 to accept the next quest in Fisher deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69697) and not IsQuestCompleted(69698) and Core.Me.ClassLevel &gt; 82">
+      <If Condition="not HasQuest(69698)">
+      <GetTo ZoneId="962" XYZ="-344.6945, 21.68679, -82.61787"/>  
+        <If Condition="IsQuestAcceptQualified(69698)">
+          <LLPickupQuest QuestId="69698" NpcId="1038551"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69698) == 255">
+				<If condition="LLItemCollectableCount(35605) &lt; 6">
+					<!-- Buy Bait: Shrimp Ball -->
+					<If condition="not HasAtLeast(36592, 50)">
+						<GetTo ZoneId="956" XYZ="419.8518, 166.1927, -430.8995"/>
+						<BuyItem NpcId="1037478" DialogOption="6" ItemId="36592" ItemCount="99" XYZ="419.8518, 166.1927, -430.8995"/>
+						<!--<Lisbeth Json="[{'Group':1,'Item':36592,'Amount':99,'Enabled':true,'Type':'Purchase','AmountMode':'Restock'}]"/> Currently Broken -->				
+					</If>	
+						<LisbethTravel Area="Thavnair (West)" XYZ="-519.85, 2.585427, 35.05098" />
+						<ExFish Collect="True" patience="Patience2" Hookset="PowerfulnHookset" Condition="LLItemCollectableCount(35605) &lt; 6" Bait="Shrimp Ball" MinFish="7" MaxFish="15" ShuffleFishSpots="True" SitRate="0.65" Radius="1.0">
+							<Collectables>
+								<Collectable Name="Garjana Wrasse" Value="166" />
+							</Collectables>
+							<FishSpots>
+								<FishSpot XYZ="-551.8535, 1.120665, 26.58157" Heading="5.620076" />
+								<FishSpot XYZ="-549.5218, 1.60232, 52.27456" Heading="5.019188" />
+								<FishSpot XYZ="-521.5768, 4.700038, 53.42847" Heading="1.746629" />
+								<FishSpot XYZ="-487.7268, 4.820656, 47.85351" Heading="1.212416" />
+								<FishSpot XYZ="-518.286, 2.585427, 29.381" Heading="2.320395" />
+							</FishSpots>
+						</ExFish>
+				</If>
+				<If condition="LLItemCollectableCount(35605) &gt; 5">				
+					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69698" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
+					<LLSmallTalk/>					
+				</If>
+				<If Condition="IsQuestCompleted(69698) and HasAtLeast(36420,1) or HasAtLeast(35605,1) or HasAtLeast(36421,1) or HasAtLeast(36430,1)">
+					<While condition="HasAtLeast(36420,1) or HasAtLeast(36421,1) or HasAtLeast(36430,1)">
+						<LLDesynth ItemIds="36420,36421,36430" />
+					</While>
+					<While condition="HasAtLeast(35605,1)">
+						<LLDiscardItem ItemId="35605"/>
+					</While>
+				</If>				
+			</If>			
+    </If>
+
+    <!-- History Lesson -->
+		<If Condition="Core.Me.ClassLevel &lt; 85">
+			<LLToast message="You must be 85 to accept the next quest in Fisher deliveries."/>
+		</If>					
+    <If Condition="IsQuestCompleted(69698) and not IsQuestCompleted(69699) and Core.Me.ClassLevel &gt; 84">
+      <If Condition="not HasQuest(69699)">
+      <GetTo ZoneId="962" XYZ="-344.5181, 21.68494, -82.75121"/>  
+        <If Condition="IsQuestAcceptQualified(69699)">
+          <LLPickupQuest QuestId="69699" NpcId="1038551"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69699) == 255">
+				<If condition="LLItemCollectableCount(35606) &lt; 6">
+					<!-- Buy Bait: Versatile Lure -->
+					<If condition="not HasAtLeast(29717, 1)">
+						<Lisbeth Json="[{'Group':1,'Item':29717,'Amount':1,'Enabled':true,'Type':'Purchase','AmountMode':'Restock'}]"/>				
+					</If>					
+					<LisbethTravel Area="Garlemald" XYZ="331.4777, -6.484802, -737.6904"/>
+						<ExFish Collect="True" patience="Patience2" Hookset="PowerfulnHookset" Condition="LLItemCollectableCount(35606) &lt; 6" Bait="Versatile Lure" MinFish="7" MaxFish="15" ShuffleFishSpots="True" SitRate="0.65" Radius="1.0">
+							<Collectables>
+								<Collectable Name="Garlean Clam" Value="166" />
+							</Collectables>
+							<FishSpots>
+								<FishSpot XYZ="457.6866, -6.484802, -768.1098" Heading="4.033092" />
+								<FishSpot XYZ="418.3842, -6.484802, -753.0245" Heading="3.372091" />
+								<FishSpot XYZ="372.0701, -6.484803, -742.8135" Heading="3.273644" />
+								<FishSpot XYZ="313.8577, -6.484802, -738.3758" Heading="3.212906" />
+							</FishSpots>
+						</ExFish>	
+				</If>
+				<If condition="LLItemCollectableCount(35606) &gt; 5">
+					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69699" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
+					<LLSmallTalk/>
+				</If>
+				<If Condition="IsQuestCompleted(69699) and HasAtLeast(35606,1) or HasAtLeast(36456,1) or HasAtLeast(36462,1) or HasAtLeast(36460,1) or HasAtLeast(36461,1)">
+					<While condition="HasAtLeast(36456,1) or HasAtLeast(36462,1) or HasAtLeast(36460,1) or HasAtLeast(36461,1)">
+						<LLDesynth ItemIds="36456,36462,36460,36461" />
+					</While>
+					<While condition="HasAtLeast(35606,1)">
+						<LLDiscardItem ItemId="35606"/>
+					</While>
+				</If>
+			</If>			
+    </If>		
+
+
+    <!-- The Wandering Whale -->
+		<If Condition="Core.Me.ClassLevel &lt; 85">
+			<LLToast message="You must be 85 to accept the next quest in Fisher deliveries."/>
+		</If>				
+    <If Condition="IsQuestCompleted(69699) and not IsQuestCompleted(69700) and Core.Me.ClassLevel &gt; 84">
+      <If Condition="not HasQuest(69700)">
+      <GetTo ZoneId="962" XYZ="-344.5359, 21.68514, -82.73566"/>  
+        <If Condition="IsQuestAcceptQualified(69700)">
+          <LLPickupQuest QuestId="69700" NpcId="1038551"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69700) == 1">
+				<GetTo ZoneId="962" XYZ="-114.8344, -16.147, 181.19"/>  
+				<LLTalkTo NpcId="1038553" XYZ="-117.2045, -16.147, 182.9709" QuestId="69700" StepId="1"/>
+			</If>	
+			<If Condition="GetQuestStep(69700) == 2">
+				<GetTo ZoneId="962" XYZ="-344.6371, 21.68522, -82.84962"/>  
+				<UseObject NpcId="2011753" XYZ="-345.9678, 21.83563, -81.71216" QuestId="69700" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69700) == 3">
+				<GetTo ZoneId="957" XYZ="159.8189, 5.251362, 602.0352"/>  
+				<LLTalkTo NpcId="1038569" XYZ="159.7466, 5.508812, 599.1454" QuestId="69700" StepId="3"/>
+			</If>	
+			<If Condition="GetQuestStep(69700) == 4 and GetQuestById(69700).QuestI8A == 0">
+				<LisbethTravel ZoneId="957" XYZ="210.4602, 0.829895, 716.1877"/>  
+				<LLTalkTo NpcId="1038567" XYZ="212.9701, 9.965152E-08, 718.4099" QuestId="69700" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(69700) == 4 and GetQuestById(69700).QuestI8A == 17">
+				<LisbethTravel ZoneId="957" XYZ="210.9017, 9.776974, 558.5917"/> 
+				<LLTalkTo NpcId="1038566" XYZ="211.4137, 9.776994, 556.4508" QuestId="69700" StepId="4"/>
+			</If>	
+			<If Condition="GetQuestStep(69700) == 4 and GetQuestById(69700).QuestI8A == 33">
+				<LisbethTravel ZoneId="957" XYZ="205.6579, 15.13672, 522.6955"/> 
+				<LLTalkTo NpcId="1038568" XYZ="206.897, 15.13672, 520.714" QuestId="69700" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(69700) == 5">
+				<LisbethTravel ZoneId="957" XYZ="158.5974, 5.297511, 601.9464"/> 
+				<LLTalkTo NpcId="1038569" XYZ="159.7466, 5.508812, 599.1454" QuestId="69700" StepId="5"/>
+			</If>
+			<If Condition="GetQuestStep(69700) == 6">
+				<If condition="not HasAtLeast(35849,1)">
+					<!-- Buy Bait: Versatile Lure -->
+					<If condition="not HasAtLeast(29717, 50)">
+						<Lisbeth Json="[{'Group':1,'Item':29717,'Amount':1,'Enabled':true,'Type':'Purchase','AmountMode':'Restock'}]"/>				
+					</If>	
+					<LisbethTravel Area="Thavnair (East)" Position="282.197, 4.258592, -175.6604"/>
+						<ExFish patience="Patience2" Hookset="PowerfulnHookset" Condition="not HasAtLeast(35849,1)" Bait="Versatile Lure" MinFish="7" MaxFish="15" ShuffleFishSpots="True" SitRate="0.65" Radius="1.0">
+							<Keepers>
+								<Keeper Name="Alnairan Salmon" />
+							</Keepers>
+							<FishSpots>
+								<FishSpot XYZ="280.2415, 4.248203, -175.9191" Heading="4.756773" />
+								<FishSpot XYZ="311.5863, 4.202878, -165.8807" Heading="1.355475" />
+								<FishSpot XYZ="350.7604, 4.233637, -152.0734" Heading="1.072733" />
+							</FishSpots>
+						</ExFish>					
+				</If>
+				<If condition="HasAtLeast(35849,1)">
+					<LisbethTravel ZoneId="957" XYZ="158.5974, 5.297511, 601.9464"/> 
+					<LLHandOver ItemId="35849" NpcId="1038569" XYZ="159.7466, 5.508812, 599.1454" QuestId="69700" StepId="6"/>				
+				</If>
+			</If>
+			<If Condition="GetQuestStep(69700) == 255">
+				<GetTo ZoneId="962" XYZ="-344.5359, 21.68514, -82.73566"/> 
+				<LLTurnIn QuestId="69700" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
+				<LLSmallTalk/>				
+			</If>
+			<If Condition="IsQuestCompleted(69700) and HasAtLeast(36436,1) or HasAtLeast(36441,1) or HasAtLeast(36438,1) or HasAtLeast(36442,1)">
+				<While condition="HasAtLeast(36436,1) or HasAtLeast(36441,1) or HasAtLeast(36438,1) or HasAtLeast(36442,1)">
+					<LLDesynth ItemIds="36436,36441,36438,36442" />
+				</While>
+			</If>			
+    </If>	
+
+
+    <!-- Fish Time Forgot -->
+		<If Condition="Core.Me.ClassLevel &lt; 88">
+			<LLToast message="You must be 88 to accept the next quest in Fisher deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69700) and not IsQuestCompleted(69701) and Core.Me.ClassLevel &gt; 87">
+      <If Condition="not HasQuest(69701)">
+        <LisbethTravel ZoneId="962" XYZ="-345.3455, 21.84602, -81.94486"/> 
+        <If Condition="IsQuestAcceptQualified(69701)">
+          <LLPickupQuest QuestId="69701" NpcId="1038551"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69701) == 255">
+				<If condition="LLItemCollectableCount(35607) &lt; 6">
+					<!-- Buy Bait: Sky Spoon Lure -->
+					<If condition="not HasAtLeast(36590, 1)">
+						<Lisbeth Json="[{'Group':1,'Item':36590,'Amount':1,'Enabled':true,'Type':'Exchange','AmountMode':'Restock'}]"/>				
+					</If>				
+					<LisbethTravel Area="Elpis (Misopses Euros)" Position="642.208, 146.0554, -321.9083"/>
+						<ExFish Collect="True" patience="Patience2" Hookset="PowerfulnHookset" Condition="LLItemCollectableCount(35607) &lt; 6" Bait="Versatile Lure" MinFish="7" MaxFish="15" ShuffleFishSpots="True" SitRate="0.65" Radius="1.0">
+							<Collectables>
+								<Collectable Name="Smaragdos" Value="166" />
+							</Collectables>
+							<FishSpots>
+								<FishSpot XYZ="645.0404, 146.0538, -324.4345" Heading="2.234695" />
+								<FishSpot XYZ="699.1092, 146.0772, -283.0663" Heading="1.014048" />
+								<FishSpot XYZ="727.7017, 149.3024, -384.1453" Heading="4.254088" />
+								<FishSpot XYZ="553.8262, 146.0408, -367.1742" Heading="3.072849" />
+							</FishSpots>
+						</ExFish>	
+				</If>
+				<If condition="LLItemCollectableCount(35607) &gt; 5">
+					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
+					</While>				
+					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
+					<RunCode name="TurnIn"/>  
+					<LLTurnIn QuestId="69701" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
+					<LLSmallTalk/>
+				</If>
+				<If Condition="IsQuestCompleted(69701) and HasAtLeast(36476,1) or HasAtLeast(36477,1) or HasAtLeast(36484,1) or HasAtLeast(35607,1)">
+					<While condition="HasAtLeast(36476,1) or HasAtLeast(36477,1) or HasAtLeast(36484,1)">
+						<LLDesynth ItemIds="36476,36477,36484" />
+					</While>
+					<While condition="HasAtLeast(35607,1)">
+						<LLDiscardItem ItemId="35607"/>
+					</While>
+				</If>					
+			</If>			
+    </If>
+		
+    <!-- Pastures New -->
+		<If Condition="Core.Me.ClassLevel &lt; 90">
+			<LLToast message="You must be 90 to accept the next quest in Fisher deliveries."/>
+		</If>			
+    <If Condition="IsQuestCompleted(69701) and not IsQuestCompleted(69702) and Core.Me.ClassLevel &gt; 89">
+      <If Condition="not HasQuest(69702)">
+      <GetTo ZoneId="962" XYZ="-345.5887, 21.84602, -82.32476"/>  
+        <If Condition="IsQuestAcceptQualified(69702)">
+          <LLPickupQuest QuestId="69702" NpcId="1038551"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69702) == 1">
+				<GetTo ZoneId="962" XYZ="-215.7747, 10.65075, -6.230132"/>  
+				<UseObject NpcId="2011754" XYZ="-212.726, 10.45239, -5.325439" QuestId="69702" StepId="1"/>
+			</If>
+			<If Condition="GetQuestStep(69702) == 2">
+				<LisbethTravel ZoneId="959" XYZ="-75.46144, -133, -571.3948"/> 
+				<LLTalkTo NpcId="1038560" XYZ="-76.73767, -133, -573.1136" QuestId="69702" StepId="2"/>
+			</If>	
+			<If Condition="GetQuestStep(69702) == 3">
+				<If condition="not HasAtLeast(35850,1)">
+					<!-- Buy Bait: Grey Worm -->
+					<If condition="not HasAtLeast(36594, 50)">
+						<GetTo ZoneId="959" XYZ="-19.88251,-132.9464,-461.3871" />
+						<BuyItem ItemIds="36594" DialogOption="6" ItemCounts="99" NpcId="1037791" XYZ="-19.88251,-132.9464,-461.3871" />
+					</If>
+					<LisbethTravel Area="Mare Lamentorum" XYZ="46.2568, 21.86282, 475.0424"/>
+						<ExFish patience="Patience2" Hookset="PowerfulnHookset" Condition="not HasAtLeast(35850,1)" Bait="Grey Worm" MinFish="7" MaxFish="15" ShuffleFishSpots="True" SitRate="0.65" Radius="1.0">
+							<Keepers>
+								<Keeper Name="Lunar Lamenter" />
+							</Keepers>
+							<FishSpots>
+								<FishSpot XYZ="70.13641, 22.00996, 481.7784" Heading="0.4480619" />
+								<FishSpot XYZ="37.34667, 21.63738, 489.812" Heading="5.954227" />
+								<FishSpot XYZ="10.91976, 23.17719, 462.5832" Heading="5.200245" />
+							</FishSpots>
+						</ExFish>					
+				</If>
+				<If condition="HasAtLeast(35850,1)">
+					<LisbethTravel ZoneId="962" XYZ="-345.5887, 21.84602, -82.32476"/> 
+					<LLHandOver ItemId="35850" NpcId="1038551" XYZ="-345.5887, 21.84602, -82.32476" QuestId="69702" StepId="3"/>				
+				</If>				
+			</If>
+			<If Condition="GetQuestStep(69702) == 4">
+				<GetTo ZoneId="962" XYZ="-363.1088, 22.3, -123.733"/>  
+				<LLTalkTo NpcId="1038561" XYZ="-364.828, 22.3, -122.3316" QuestId="69702" StepId="4"/>
+			</If>
+			<If Condition="GetQuestStep(69702) == 255">
+				<GetTo ZoneId="962" XYZ="-345.5975, 21.84602, -82.19011"/>  
+				<LLTurnIn QuestId="69702" NpcId="1039239" XYZ="-348.5009, 21.84602, -80.18622"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>		
+		
+	</If>
+	
+	
+	    <!-- The Meeting of Minds -->
+	<If condition="IsQuestCompleted(69702) and IsQuestCompleted(69695) 
+									and IsQuestCompleted(69688) and IsQuestCompleted(69674) 
+										and IsQuestCompleted(69681)">
+    <If Condition="not IsQuestCompleted(70010)">
+      <If Condition="not HasQuest(70010)">
+      <GetTo ZoneId="962" XYZ="-355.6583, 21.84602, -93.0631"/>  
+        <If Condition="IsQuestAcceptQualified(70010)">
+          <LLPickupQuest QuestId="70010" NpcId="1038500"/>
+          <LLSmallTalk/>
+        </If>
+      </If>
+			<If Condition="GetQuestStep(70010) == 1">
+				<GetTo ZoneId="962" XYZ="-381.0002, 22.04674, -124.8012"/>  
+				<LLTalkTo NpcId="1040917" XYZ="-383.505, 21.79993, -125.7496" QuestId="70010" StepId="1"/>
+			</If>	
+			<If Condition="GetQuestStep(70010) == 2 and GetQuestById(70010).QuestI8A == 0">
+				<GetTo ZoneId="962" XYZ="-365.2714, 21.84602, -104.7757"/>  
+				<LLTalkTo NpcId="1039321" XYZ="-367.3305, 21.84602, -102.9832" QuestId="70010" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70010) == 2 and GetQuestById(70010).QuestI8A == 16">
+				<GetTo ZoneId="962" XYZ="-346.3374, 21.84602, -82.16278"/>  
+				<LLTalkTo NpcId="1039239" XYZ="-348.5009, 21.84602, -80.18622" QuestId="70010" StepId="2"/>
+			</If>	
+			<If Condition="GetQuestStep(70010) == 2 and GetQuestById(70010).QuestI8A == 32">
+				<GetTo ZoneId="962" XYZ="-279.3637, 21.84602, -137.977"/>  
+				<LLTalkTo NpcId="1040912" XYZ="-277.699, 21.84602, -139.0861" QuestId="70010" StepId="2"/>
+			</If>	
+			<If Condition="GetQuestStep(70010) == 2 and GetQuestById(70010).QuestI8A == 48">
+				<GetTo ZoneId="962" XYZ="-288.884, 21.84602, -148.6458"/>  
+				<LLTalkTo NpcId="1040913" XYZ="-287.1595, 21.84602, -150.7745" QuestId="70010" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(70010) == 2 and GetQuestById(70010).QuestI8A == 64">
+				<GetTo ZoneId="962" XYZ="-300.2347, 21.82397, -164.3823"/>  
+				<LLTalkTo NpcId="1038565" XYZ="-297.5052, 21.94602, -165.8503" QuestId="70010" StepId="2"/>
+			</If>	
+			<If Condition="GetQuestStep(70010) == 3">
+				<GetTo ZoneId="962" XYZ="-355.0416, 21.84602, -93.70749"/>  
+				<LLTalkTo NpcId="1038500" XYZ="-357.8394, 21.84602, -91.32526" QuestId="70010" StepId="3"/>
+			</If>	
+			<If Condition="GetQuestStep(70010) == 4">
+				<GetTo ZoneId="962" XYZ="-82.68676, -13.777, 122.4118"/>  
+				<LLTalkTo NpcId="1041423" XYZ="-85.2522, -13.777, 121.6907" QuestId="70010" StepId="4"/>
+			</If>	
+			<If Condition="GetQuestStep(70010) == 5">
+				<GetTo ZoneId="962" XYZ="-400.3659, 20.8, -117.8189"/>  
+				<UseObject NpcId="2012479" XYZ="-401.236, 20.79803, -116.7468" QuestId="70010" StepId="5"/>
+			</If>
+			<If Condition="GetQuestStep(70010) == 255">
+				<GetTo ZoneId="962" XYZ="-356.0836, 21.84602, -93.03786"/>  
+				<LLTurnIn QuestId="70010" NpcId="1038500" XYZ="-357.8394, 21.84602, -91.32526"/>
+				<LLSmallTalk/>
+			</If>			
+    </If>
+	</If>
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+		<CodeChunk Name="TurnIn">
+			<![CDATA[	
+        uint[] questNpcIds = { 1038525, 1039203, 1039220, 1038501, 1038551 };
+        var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+
+        if (!npcId.IsWithinInteractRange)
+        {
+          var _target = npcId.Location;
+          Navigator.PlayerMover.MoveTowards(_target);
+          
+          while (_target.Distance2D(Core.Me.Location) >= 4)
+          {
+            Navigator.PlayerMover.MoveTowards(_target);
+            await Coroutine.Sleep(100);
+          }
+          
+          Navigator.PlayerMover.MoveStop();
+        }
+
+        npcId.Interact();
+				await Buddy.Coroutines.Coroutine.Wait(10000, () => LlamaLibrary.RemoteWindows.SharlayanCraftworksSupply.Instance.IsOpen || Talk.DialogOpen);
+				
+				if (Talk.DialogOpen)
+					{
+						while (Talk.DialogOpen)
+						{
+							Talk.Next();
+							await Coroutine.Wait(1000, () => !Talk.DialogOpen);
+							await Coroutine.Wait(1000, () => Talk.DialogOpen);
+							await Coroutine.Yield();
+						}
+					}
+					
+				if (LlamaLibrary.RemoteWindows.SharlayanCraftworksSupply.Instance.IsOpen)
+				{
+						await LlamaLibrary.RemoteWindows.SharlayanCraftworksSupply.Instance.HandOverItems();
+				}
+			]]> 
+		</CodeChunk>	
+  </CodeChunks>
+</Profile>  
