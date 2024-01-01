@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Heavensturn 2024
+  Authors: DomesticWarlord86
+
+-->
+<!DOCTYPE Profile [
+  <!ENTITY Necrologos "649">
+]>
+
+<Profile>
+  <Name>Heavensturn 2024</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- To Be a Mascot -->
+    <If Condition="not IsQuestCompleted(70215)">
+      <If Condition="not HasQuest(70215)">
+        <GetTo ZoneId="128" XYZ="15.94095, 45.656, 133.4181" />
+        <If Condition="IsQuestAcceptQualified(70215)">
+          <PickupQuest QuestId="70215" NpcId="1044364" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70215) == 1">
+        <GetTo ZoneId="128" XYZ="12.54799, 44.07496, 110.1802" />
+        <TalkTo NpcId="1044366" XYZ="14.14508, 43.59999, 106.0959" QuestId="70215" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70215) == 2">
+        <GetTo ZoneId="128" XYZ="5.097225, 39.88746, 15.97609" />
+        <TalkTo NpcId="1044369" XYZ="7.614197, 40.00041, 16.25085" QuestId="70215" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70215) == 3 and GetQuestById(70215).QuestI8A == 0">
+        <GetTo ZoneId="129" XYZ="-129.0448, 18.04254, 15.27207" />
+        <TalkTo NpcId="1044371" XYZ="-131.5481, 18.2, 13.53473" QuestId="70215" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70215) == 3 and GetQuestById(70215).QuestI8A == 1">
+        <GetTo ZoneId="129" XYZ="-148.2845, 18, 30.01758" />
+        <TalkTo NpcId="1044370" XYZ="-149.2485, 18.2, 33.37146" QuestId="70215" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70215) == 4">
+        <GetTo ZoneId="129" XYZ="13.02487, 20, 4.940629" />
+        <TalkTo NpcId="1044373" XYZ="14.54175, 20.01195, 6.94281" QuestId="70215" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70215) == 255">
+        <GetTo ZoneId="134" XYZ="-25.93092, 54.32861, -172.957" />
+        <TurnIn QuestId="70215" NpcId="1044374" XYZ="-32.08978, 53.12623, -171.5267" />
+      </If>
+    </If>
+
+    <!-- Unlike a Dragon -->
+    <If Condition="not IsQuestCompleted(70216)">
+      <If Condition="not HasQuest(70216)">
+        <GetTo ZoneId="134" XYZ="-28.20155, 53.97316, -171.7086" />
+        <If Condition="IsQuestAcceptQualified(70216)">
+          <PickupQuest QuestId="70216" NpcId="1044377" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70216) == 1">
+        <GetTo ZoneId="134" XYZ="-69.41356, 43.02824, -391.0485" />
+        <TalkTo NpcId="1044381" XYZ="-68.89453, 42.72965, -397.1466" QuestId="70216" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70216) == 2">
+        <GetTo ZoneId="128" XYZ="9.029906, 44.49999, 115.9245" />
+        <TalkTo NpcId="1044383" XYZ="10.48285, 44.49999, 118.4252" QuestId="70216" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70216) == 3 and GetQuestById(70216).QuestI8A == 0">
+        <GetTo ZoneId="128" XYZ="-4.078133, 39.51757, -1.500774" />
+        <TalkTo NpcId="1044389" XYZ="-5.783203, 39.51757, -2.426208" QuestId="70216" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70216) == 3 and GetQuestById(70216).QuestI8A == 1">
+        <GetTo ZoneId="128" XYZ="-78.91323, 41.27575, -149.421" />
+        <TalkTo NpcId="1044386" XYZ="-81.07117, 41, -150.866" QuestId="70216" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70216) == 3 and GetQuestById(70216).QuestI8A == 2">
+        <GetTo ZoneId="128" XYZ="0.9912305, 43.99995, -194.1013" />
+        <TalkTo NpcId="1044388" XYZ="3.585815, 43.86963, -193.4692" QuestId="70216" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70216) == 255">
+        <GetTo ZoneId="128" XYZ="15.76842, 45.65599, 131.7869" />
+        <TurnIn QuestId="70216" NpcId="1044364" XYZ="17.50208, 45.65599, 134.02" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
