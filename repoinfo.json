@@ -1,0 +1,10 @@
+{
+  "Name": "RebornProfiles",
+  "Url": "https://github.com/domesticwarlord86/RebornProfiles.git",
+  "Branch": "master",
+  "CloneIfNotExist": true,
+  "IsPrivate": false,
+  "RepoType": "Profile",
+  "UpdateFrequency": "EveryDay",
+  "Description": "A collection of various currently maintained OrderBot scripts. Including event, msq, relic weapons, fate farming, and more."
+}
