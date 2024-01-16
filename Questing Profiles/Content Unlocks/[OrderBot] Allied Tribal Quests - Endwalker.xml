@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Allied Tribal Quests - Endwalker
+  Authors: DomesticWarlord86
+
+-->
+<!DOCTYPE Profile [
+  <!ENTITY Necrologos "649">
+]>
+
+<Profile>
+  <Name>Allied Tribal Quests - Endwalker</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Dinner and a Show -->
+    <If Condition="not IsQuestCompleted(70323)">
+      <If Condition="not HasQuest(70323)">
+        <If condition="not IsOnSubMap(4041)">
+          <GetTo ZoneId="960" XYZ="457.3243, 437.0014, 314.6563" />
+          <UseTransport NpcId="2013072" InteractDistance="3.0" XYZ="456.6567, 438.0408, 310.2312" />
+        </If>
+        <GetTo ZoneId="960" XYZ="306.8512, 481.9944, 154.6632" />
+        <If Condition="IsQuestAcceptQualified(70323)">
+          <PickupQuest QuestId="70323" NpcId="1043515" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70323) == 1">
+        <If condition="not IsOnSubMap(4290)">
+          <If condition="not IsOnMap(959)">
+            <TeleportTo Name="Bestways Burrow" AetheryteId="175" />
+          </If>
+          <FlyTo AllowedVariance="1" ZoneId="959" XYZ="-26.54576, -132.0223, -445.9344" Land="True" />
+          <UseTransport NpcId="2013249" InteractDistance="3.0" XYZ="-26.99323, -130.4189, -443.595" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="959" XYZ="-166.3198, -49.2998, -285.7143" Land="True" />
+        <TalkTo NpcId="1045899" XYZ="-164.9958, -49.30212, -284.2299" QuestId="70323" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70323) == 2">
+        <If condition="not IsOnSubMap(4290)">
+          <If condition="not IsOnMap(959)">
+            <TeleportTo Name="Bestways Burrow" AetheryteId="175" />
+          </If>
+          <FlyTo AllowedVariance="1" ZoneId="959" XYZ="-26.54576, -132.0223, -445.9344" Land="True" />
+          <UseTransport NpcId="2013249" InteractDistance="3.0" XYZ="-26.99323, -130.4189, -443.595" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="959" XYZ="-191.6618, -49.19972, -264.0702" Land="True" />
+        <TalkTo NpcId="1044402" XYZ="-193.8964, -49.19972, -262.1348" QuestId="70323" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70323) == 3">
+        <If condition="not IsOnMap(957)">
+          <TeleportTo Name="Yedlihmad" AetheryteId="169" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="957" XYZ="-78.11559, 39.98602, 314.4515" Land="True" />
+        <TalkTo NpcId="1042300" XYZ="-76.82922, 39.97754, 309.9871" QuestId="70323" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70323) == 4">
+        <If condition="not IsOnMap(957)">
+          <TeleportTo Name="Yedlihmad" AetheryteId="169" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="957" XYZ="-78.11559, 39.98602, 314.4515" Land="True" />
+        <TalkTo NpcId="1045901" XYZ="-79.6369, 39.98132, 311.7875" QuestId="70323" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70323) == 5">
+        <If condition="not IsOnMap(957)">
+          <TeleportTo Name="Yedlihmad" AetheryteId="169" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="957" XYZ="-78.11559, 39.98602, 314.4515" Land="True" />
+        <TalkTo NpcId="1042300" XYZ="-76.82922, 39.97754, 309.9871" QuestId="70323" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70323) == 255">
+        <If condition="not IsOnMap(957)">
+          <TeleportTo Name="Yedlihmad" AetheryteId="169" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="957" XYZ="-78.11559, 39.98602, 314.4515" Land="True" />
+        <TurnIn QuestId="70323" NpcId="1045901" XYZ="-79.6369, 39.98132, 311.7875" />
+      </If>
+    </If>
+
+    <!-- A Dream Worth Chasing -->
+    <If Condition="IsQuestCompleted(70323) and not IsQuestCompleted(70324)">
+      <If Condition="not HasQuest(70324)">
+        <If condition="not IsOnMap(957)">
+          <TeleportTo Name="Yedlihmad" AetheryteId="169" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="957" XYZ="-78.06567, 39.98629, 314.5107" Land="True" />
+        <If Condition="IsQuestAcceptQualified(70324)">
+          <PickupQuest QuestId="70324" NpcId="1045901" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70324) == 1">
+        <If condition="not IsOnSubMap(3989)">
+          <If condition="not IsOnSubMap(4041)">
+            <GetTo ZoneId="960" XYZ="457.3243, 437.0014, 314.6563" />
+            <UseTransport NpcId="2013072" InteractDistance="3.0" XYZ="456.6567, 438.0408, 310.2312" />
+          </If>
+          <GetTo ZoneId="960" XYZ="303.9648, 482.1364, 164.2826" />
+          <UseTransport NpcId="1043865" InteractDistance="3.0" XYZ="301.8081, 482.1364, 165.0262" />
+        </If>
+        <GetTo ZoneId="960" XYZ="204.7632, 567.4998, 243.4538" />
+        <TalkTo NpcId="1045904" XYZ="201.4648, 567.4998, 241.3214" QuestId="70324" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70324) == 2">
+        <GetTo ZoneId="960" XYZ="490.6266, 436.9997, 304.1728" />
+        <TalkTo NpcId="1045905" XYZ="491.6609, 436.9997, 301.2283" QuestId="70324" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70324) == 3">
+        <If condition="not IsOnSubMap(4041)">
+          <GetTo ZoneId="960" XYZ="457.3243, 437.0014, 314.6563" />
+          <UseTransport NpcId="2013072" InteractDistance="3.0" XYZ="456.6567, 438.0408, 310.2312" />
+        </If>
+        <GetTo ZoneId="960" XYZ="305.6477, 481.9944, 155.371" />
+        <TalkTo NpcId="1043951" XYZ="303.8529, 481.9944, 154.8333" QuestId="70324" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70324) == 4">
+        <If condition="not IsOnMap(960)">
+          <TeleportTo Name="Reah Tahra" AetheryteId="179" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="960" XYZ="-384.9497, 80.98089, 601.7337" Land="True" />
+        <UseTransport NpcId="2013445" InteractDistance="3.0" XYZ="-386.8315, 80.85742, 603.6621" QuestId="70324" />
+      </If>
+      <If Condition="GetQuestStep(70324) == 255">
+        <If condition="not IsOnSubMap(3989)">
+          <If condition="not IsOnSubMap(4041)">
+            <GetTo ZoneId="960" XYZ="457.3243, 437.0014, 314.6563" />
+            <UseTransport NpcId="2013072" InteractDistance="3.0" XYZ="456.6567, 438.0408, 310.2312" />
+          </If>
+          <GetTo ZoneId="960" XYZ="303.9648, 482.1364, 164.2826" />
+          <UseTransport NpcId="1043865" InteractDistance="3.0" XYZ="301.8081, 482.1364, 165.0262" />
+        </If>
+        <GetTo ZoneId="960" XYZ="206.547, 567.4998, 245.4835" />
+        <TurnIn QuestId="70324" NpcId="1045914" XYZ="202.8992, 567.4998, 239.9176" />
+        <UseInventoryItem ItemId="41457"/>
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
