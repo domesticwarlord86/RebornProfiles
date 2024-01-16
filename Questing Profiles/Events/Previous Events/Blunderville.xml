@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Blunderville - Fall Guys Crossover
+  Authors: DomesticWarlord
+ Aura Name: Spectator, Aura Id: 3708
+
+Gentlebean's Fever
+Start: : <-199.5, 11.28107, -105>
+End" <-199.5671, 13.59089, -370.0803>
+
+Manderville can parade
+: <198.633, 12.65273, 136.231>
+<-0.360404, 18.94336, -379.8701>
+
+Gold Swirl
+Start: <217.5764, 10, -138.7138>
+
+Saucery Siege
+Start: <-223.3827, 3.017114, 238.5>
+
+This profile isn't going to win Blunderville but it will join the game and dance before leaving when it looses.
+You get MGP every time you join, so eventually it'll cap out and get you the items needed
+
+-->
+<!DOCTYPE Profile [
+  <!-- Static Entities -->
+]>
+
+<Profile>
+  <Name>Blunderville - Fall Guys Crossover</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Just Crowning Around -->
+    <If Condition="not IsQuestCompleted(70337)">
+      <If Condition="not HasQuest(70337)">
+        <GetTo ZoneId="144" XYZ="-61.94369, 0.0442799, 1.749305" />
+        <If Condition="IsQuestAcceptQualified(70337)">
+          <PickupQuest QuestId="70337" NpcId="1011145" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70337) == 1">
+        <GetTo ZoneId="144" XYZ="3.170004, 3.99973, 64.08665" />
+        <TalkTo NpcId="1046442" XYZ="1.87677, 3.99973, 66.60559" QuestId="70337" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70337) == 255">
+        <If condition="not IsOnMap(1197)">
+          <GetTo ZoneId="144" XYZ="3.629009, 3.99973, 65.20491" />
+          <UseTransport NpcId="1046442" InteractDistance="3.0" XYZ="1.87677, 3.99973, 66.60559" />
+        </If>
+        <TurnIn QuestId="70337" NpcId="1046439" XYZ="-17.86841, -3.873237E-12, -37.85767" />
+      </If>
+    </If>
+
+    <While condition="LlamaLibrary.Helpers.CurrencyHelper.GetAmountOfCurrency(41629) &lt; 10000">
+
+      <If condition="IsQuestCompleted(70337) and not IsOnMap(1165)">
+        <If condition="not IsOnMap(1197)">
+          <GetTo ZoneId="144" XYZ="3.629009, 3.99973, 65.20491" />
+          <UseTransport NpcId="1046442" InteractDistance="3.0" XYZ="1.87677, 3.99973, 66.60559" />
+        </If>
+        <RunCode name="QueueBlunderville" />
+      </If>
+      <If condition="IsOnMap(1165)">
+        <!-- Gentlebean's Fever -->
+        <If condition="Core.Me.Z &gt; 0">
+          <UseObject NpcId="1111" XYZ="-0.360404, 18.94336, -379.8701" condition="not LlamaLibrary.RemoteWindows._FGSEliminated.Instance.IsOpen and not LlamaLibrary.RemoteWindows._FGSQualified.Instance.IsOpen" />
+        </If>
+        <!-- Manderville-Can Parade -->
+        <If condition="Core.Me.Z &lt; 0">
+          <LLToast Red="252" Blue="204" Green="116" Font="Times New Roman" message="We're in Manderville-Can Parade, we can't navigate this map." />
+          <LLToast Red="252" Blue="204" Green="116" Font="Times New Roman" message="We'll hang around and dance instead." />
+          <UseObject NpcId="1111" XYZ="-199.5671, 13.59089, -370.0803" condition="not LlamaLibrary.RemoteWindows._FGSEliminated.Instance.IsOpen and not LlamaLibrary.RemoteWindows._FGSQualified.Instance.IsOpen" />
+        </If>
+        <If condition="LlamaLibrary.RemoteWindows._FGSEliminated.Instance.IsOpen">
+          <RunCode name="LeaveBlunderville" />
+        </If>
+      </If>
+
+    </While>
+
+  </Order>
+  <GrindAreas> </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Type="Definition" Name="Logger">
+      <![CDATA[
+
+        public static readonly LlamaLibrary.Logging.LLogger Log = new("Blunderville", Colors.DeepPink);
+
+    ]]>
+    </CodeChunk>
+
+    <CodeChunk Type="Definition" Name="Dances">
+      <![CDATA[
+
+      public static LlamaLibrary.Helpers.ChatBroadcaster EmoteBroadcaster = new LlamaLibrary.Helpers.ChatBroadcaster(MessageType.StandardEmotes);
+
+      public static readonly string[] Dances = new string[]
+      {
+          "mogdance",
+          "dance",
+          "stepdance",
+          "golddance",
+          "moonlift",
+          "balldance",
+          "mdance",
+          "hdance",
+          "tdance",
+          "sundance",
+          "beesknees",
+          "yoldance",
+          "flamedance",
+          "cheeron",
+          "cheerwave",
+          "cheerjump",
+          "mmambo"
+      };
+
+      public static readonly LlamaLibrary.Structs.ShuffleCircularQueue<string> _danceQueue = new LlamaLibrary.Structs.ShuffleCircularQueue<string>(Dances);
+
+    ]]>
+    </CodeChunk>
+    <CodeChunk Name="QueueBlunderville">
+      <![CDATA[
+
+
+      LlamaLibrary.Helpers.NPC.Npc BlundervilleRegistrar = new((uint)1046440, 1197, new Vector3(-11.8955f, -1.841517f, -40.36932f));
+
+      if (!await LlamaLibrary.Helpers.Navigation.GetToInteractNpc(BlundervilleRegistrar, LlamaLibrary.RemoteWindows.FGSEnterDialog.Instance))
+      {
+        Log.Information($"Failed to get to {DataManager.GetLocalizedNPCName((int)BlundervilleRegistrar.NpcId)}");
+          return;
+      }
+
+      if (LlamaLibrary.RemoteWindows.FGSEnterDialog.Instance.IsOpen)
+      {
+          LlamaLibrary.RemoteWindows.FGSEnterDialog.Instance.Register();
+      }
+
+      Log.Information("Waiting for Blunderville queue.");
+      await Coroutine.Wait(-1, () => DutyManager.QueueState == QueueState.CommenceAvailable || DutyManager.QueueState == QueueState.JoiningInstance);
+      Log.Information("Queued for Blunderville");
+
+      while (DutyManager.QueueState != QueueState.None || DutyManager.QueueState != QueueState.InDungeon || CommonBehaviors.IsLoading)
+      {
+          if (DutyManager.QueueState == QueueState.CommenceAvailable)
+          {
+              Log.Information("Waiting for queue pop.");
+              await Coroutine.Wait(-1,
+                                   () => DutyManager.QueueState == QueueState.JoiningInstance ||
+                                         DutyManager.QueueState == QueueState.None);
+          }
+
+          if (DutyManager.QueueState == QueueState.JoiningInstance)
+          {
+              var rnd = new Random();
+              var waitTime = rnd.Next(1000, 10000);
+
+              Log.Information($"Dungeon popped, commencing in {waitTime / 1000} seconds.");
+              await Coroutine.Sleep(waitTime);
+              DutyManager.Commence();
+              await Coroutine.Wait(-1,
+                                   () => DutyManager.QueueState == QueueState.LoadingContent ||
+                                         DutyManager.QueueState == QueueState.CommenceAvailable);
+          }
+
+          if (DutyManager.QueueState == QueueState.LoadingContent)
+          {
+              Log.Information("Waiting for everyone to accept queue.");
+              await Coroutine.Wait(-1, () => CommonBehaviors.IsLoading || DutyManager.QueueState == QueueState.CommenceAvailable);
+              await Coroutine.Sleep(1000);
+          }
+
+          if (CommonBehaviors.IsLoading)
+          {
+              break;
+          }
+
+          await Coroutine.Sleep(500);
+      }
+
+      if (DutyManager.QueueState == QueueState.None)
+      {
+          return;
+      }
+
+      await Coroutine.Sleep(500);
+      if (CommonBehaviors.IsLoading)
+      {
+          await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+      }
+
+      if (QuestLogManager.InCutscene)
+      {
+          TreeRoot.StatusText = "InCutscene";
+          if (ff14bot.RemoteAgents.AgentCutScene.Instance != null)
+          {
+              ff14bot.RemoteAgents.AgentCutScene.Instance.PromptSkip();
+              await Coroutine.Wait(2000, () => SelectString.IsOpen || SelectYesno.IsOpen);
+
+              if (SelectString.IsOpen)
+              {
+                  SelectString.ClickSlot(0);
+              }
+
+              if (SelectYesno.IsOpen)
+              {
+                  SelectYesno.Yes();
+              }
+          }
+      }
+
+      Log.Information("Should be in Blunderville");
+
+      var danceChoice = _danceQueue.Dequeue();
+
+      Log.Information("Waiting for game to start.");
+      if (WorldManager.ZoneId == 1165)
+      {
+        Log.Information($"Using '{danceChoice}' emote to look cute");
+        await EmoteBroadcaster.Send(danceChoice);
+      }
+      await Coroutine.Wait(-1, () => LlamaLibrary.RemoteWindows.FGSStageDescription.Instance.IsOpen);
+
+      if (LlamaLibrary.RemoteWindows.FGSStageDescription.Instance.IsOpen)
+      {
+        Log.Information("Waiting for Stage Description to close.");
+        await Coroutine.Wait(-1, () => LlamaLibrary.RemoteWindows.FGSStageIntroBanner.Instance.IsOpen);
+      }
+
+
+      if (LlamaLibrary.RemoteWindows.FGSStageIntroBanner.Instance.IsOpen)
+      {
+        Log.Information("Waiting for Stage Intro to close.");
+        await Coroutine.Wait(-1, () => CommonBehaviors.IsLoading);
+        if (CommonBehaviors.IsLoading)
+        {
+            await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        }
+        Log.Information($"Using '{danceChoice}' emote to look cute");
+        await EmoteBroadcaster.Send(danceChoice);
+        await Coroutine.Wait(-1, () => LlamaLibrary.RemoteWindows._FGSCountDown.Instance.IsOpen);
+      }
+
+      if (LlamaLibrary.RemoteWindows._FGSCountDown.Instance.IsOpen)
+      {
+        Log.Information("Waiting for count down to end.");
+        await Coroutine.Wait(-1, () => !LlamaLibrary.RemoteWindows._FGSCountDown.Instance.IsOpen);
+      }
+
+      Log.Information("Let's go!.");
+
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="LeaveBlunderville">
+      <![CDATA[
+
+      Log.Information("We have been eliminated. Leaving Blunderville");
+      ff14bot.Managers.DutyManager.LeaveActiveDuty();
+      await Coroutine.Wait(-1, () => WorldManager.ZoneId == 1197);
+      if (WorldManager.ZoneId == 1197)
+      {
+        if (CommonBehaviors.IsLoading)
+        {
+            await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        }
+        await Coroutine.Sleep(1000);
+        Log.Information("All done.");
+      }
+
+      /*
+      Log.Information("Waiting for FGSSpectatorMenu to show.");
+      await Coroutine.Wait(-1, () => LlamaLibrary.RemoteWindows.FGSSpectatorMenu.Instance.IsOpen);
+
+      if (LlamaLibrary.RemoteWindows.FGSSpectatorMenu.Instance.IsOpen)
+      {
+        Log.Information("Pressing Leave on Spectator Menu.");
+        LlamaLibrary.RemoteWindows.FGSSpectatorMenu.Instance.Leave();
+        await Coroutine.Wait(-1, () => LlamaLibrary.RemoteWindows.FGSExitDialog.Instance.IsOpen);
+        LlamaLibrary.RemoteWindows.FGSExitDialog.Instance.Leave();
+      }
+
+      Log.Information("Waiting for results window.");
+      await Coroutine.Wait(-1, () => LlamaLibrary.RemoteWindows.FGSResult.Instance.IsOpen);
+
+
+      if (LlamaLibrary.RemoteWindows.FGSResult.Instance.IsOpen)
+      {
+        Log.Information("Leaving.");
+        LlamaLibrary.RemoteWindows.FGSResult.Instance.Leave();
+        Log.Information("Waiting to get back to Gold Saucer.");
+        await Coroutine.Wait(-1, () => WorldManager.ZoneId == 1197);
+      }
+
+      if (WorldManager.ZoneId == 1197)
+      {
+        Log.Information("All done.");
+        if (CommonBehaviors.IsLoading)
+        {
+            await Coroutine.Wait(-1, () => !CommonBehaviors.IsLoading);
+        }
+        await Coroutine.Sleep(1000);
+      }
+        */
+      ]]>
+    </CodeChunk>
+
+  </CodeChunks>
+</Profile>
