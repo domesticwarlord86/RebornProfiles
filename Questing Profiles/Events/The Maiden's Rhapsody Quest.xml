@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+############################################
+# Profile: [O] The Maiden's Rhapsody Quest #
+############################################
+# Author: y2krazy                          #
+############################################
+# Version: 3.0.0                           #
+############################################
+# Required Level: 30                       #
+############################################
+# Required Setup:                          #
+# 	None                                   #
+############################################
+# Required User Interaction:               #
+# 	None                                   #
+############################################
+-->
+<!-- User Configuration -->
+<!DOCTYPE Profile [
+
+  <!-- Log Colors -->
+
+  <!ENTITY LogColor "#66FF66"> <!-- Normal -->
+  <!ENTITY LogColorAck "#FF0000"> <!-- Warnings -->
+]>
+<!-- End User Configuration -->
+<Profile>
+  <Name>The Maiden's Rhapsody Quest (v3.0.0)</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <KillRadius>90</KillRadius>
+  <Order>
+
+    <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Checking for completed quests..." />
+
+    <!-- A Journey to Remember -->
+
+    <If Condition="not IsQuestCompleted(67742)">
+      <If Condition="not HasQuest(67742)">
+        <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Picking up the A Journey to Remember quest!" />
+        <GetTo ZoneId="128" XYZ="18.26495, 40.21512, 0.1983643" /> <!-- Remumu -->
+        <If Condition="IsQuestAcceptQualified(67742)">
+          <PickupQuest NpcId="1016143" QuestId="67742" XYZ="18.26495, 40.21512, 0.1983643" />
+        </If>
+      </If>
+      <If Condition="HasQuest(67742)">
+        <If Condition="GetQuestStep(67742) == 1">
+          <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Talking to Remumu..." />
+          <GetTo ZoneId="137" XYZ="505.7296, 16.63227, 454.1847" /> <!-- Remumu -->
+          <TalkTo NpcId="1016144" XYZ="505.7296, 16.63227, 454.1847" QuestId="67742" StepId="1" />
+        </If>
+        <While Condition="GetQuestStep(67742) == 2">
+          <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Training with Iroha..." />
+          <GetTo ZoneId="137" XYZ="528.6136, 8.874862, 557.9169" /> <!-- FATE: Our Favorite Pastime -->
+          <LLFate MinLevel="29" FateId="932" MaxLevel="31" while="not IsTodoChecked(67742, 2, 0)" />
+        </While>
+        <If Condition="GetQuestStep(67742) == 3">
+          <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Handing over the Strange Stone to Iroha..." />
+          <GetTo ZoneId="129" XYZ="-4.867676, 20, -16.25085" /> <!-- Iroha -->
+          <HandOver ItemId="2001928" QuestId="67742" StepId="3" NpcId="1016145" XYZ="-4.867676, 20, -16.25085" />
+        </If>
+        <While Condition="GetQuestStep(67742) == 4">
+          <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Training with Iroha..." />
+          <GetTo ZoneId="148" XYZ="-475.3495, 65.23953, 69.01758" /> <!-- FATE: The Way of the Samurai -->
+          <LLFate MinLevel="30" MaxLevel="32" FateId="933" while="not IsTodoChecked(67742, 4, 0)" />
+        </While>
+        <If Condition="GetQuestStep(67742) == 5">
+          <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Handing over the Strange Stone to Iroha..." />
+          <GetTo ZoneId="132" XYZ="31.14368, -8, 96.87952" /> <!-- Iroha -->
+          <HandOver ItemId="2001929" QuestId="67742" StepId="5" NpcId="1016146" XYZ="31.14368, -8, 96.87952" />
+        </If>
+        <While Condition="GetQuestStep(67742) == 6">
+          <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Training with Iroha..." />
+          <GetTo ZoneId="146" XYZ="42.625, -0.08352578, 758.6061" /> <!-- FATE: Serket Breaker -->
+          <LLFate MinLevel="31" MaxLevel="33" FateId="934" while="not IsTodoChecked(67742, 6, 0)" />
+        </While>
+        <If Condition="GetQuestStep(67742) == 7">
+          <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Handing over the Strange Stone to Iroha..." />
+          <GetTo ZoneId="130" XYZ="24.00244, 7.199992, -89.98254" /> <!-- Iroha -->
+          <HandOver ItemId="2001930" QuestId="67742" StepId="7" NpcId="1016147" XYZ="24.00244, 7.199992, -89.98254" />
+        </If>
+        <While Condition="GetQuestStep(67742) == 8">
+          <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Training with Iroha..." />
+          <GetTo ZoneId="139" XYZ="266.1631, -3.067139, 60.77661" /> <!-- FATE: The Key to Amatsu Kyori -->
+          <RunCode Name="A_Journey_to_Remember" />
+          <LLFate MinLevel="32" MaxLevel="34" FateId="935" while="not IsTodoChecked(67742, 8, 0)" />
+        </While>
+        <If Condition="GetQuestStep(67742) == 9">
+          <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Handing over the Strange Stone to Iroha..." />
+          <GetTo ZoneId="129" XYZ="-4.867676, 20, -16.25085" /> <!-- Iroha -->
+          <HandOver ItemId="2001928" QuestId="67742" StepId="9" NpcId="1016145" XYZ="-4.867676, 20, -16.25085" />
+        </If>
+        <If Condition="GetQuestStep(67742) == 255">
+          <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Turning in the A Journey to Remember quest!" />
+          <GetTo ZoneId="128" XYZ="18.26495, 40.21512, 0.1983643" /> <!-- Remumu -->
+
+          <!-- Rewards
+
+					Amatsu Armor Set
+
+					-->
+
+          <TurnIn QuestId="67742" NpcId="1016143" XYZ="18.26495, 40.21512, 0.1983643" />
+        </If>
+      </If>
+    </If>
+
+    <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="You've completed The Maiden's Rhapsody seasonal event quest!" />
+
+  </Order>
+  <CodeChunks>
+    <CodeChunk Name="A_Journey_to_Remember">
+			<![CDATA[ 
+				await Buddy.Coroutines.Coroutine.Sleep(1000);
+				ff14bot.Managers.GameObjectManager.GetObjectByNPCId(2006700).Interact();
+				await Buddy.Coroutines.Coroutine.Sleep(8000);
+				if (ff14bot.RemoteWindows.SelectYesno.IsOpen)
+					ff14bot.RemoteWindows.SelectYesno.ClickYes();
+				await Buddy.Coroutines.Coroutine.Sleep(5000);
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+  <GrindAreas>
+  </GrindAreas>
+</Profile>
