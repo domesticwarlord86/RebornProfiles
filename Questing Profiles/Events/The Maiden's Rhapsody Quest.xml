@@ -52,7 +52,7 @@
         <While Condition="GetQuestStep(67742) == 2">
           <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Training with Iroha..." />
           <GetTo ZoneId="137" XYZ="528.6136, 8.874862, 557.9169" /> <!-- FATE: Our Favorite Pastime -->
-          <LLFate MinLevel="29" FateId="932" MaxLevel="31" while="not IsTodoChecked(67742, 2, 0)" />
+          <LLFate UseFlight="False"  MinLevel="29" FateId="932" MaxLevel="31" while="not IsTodoChecked(67742, 2, 0)" />
         </While>
         <If Condition="GetQuestStep(67742) == 3">
           <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Handing over the Strange Stone to Iroha..." />
@@ -62,7 +62,7 @@
         <While Condition="GetQuestStep(67742) == 4">
           <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Training with Iroha..." />
           <GetTo ZoneId="148" XYZ="-475.3495, 65.23953, 69.01758" /> <!-- FATE: The Way of the Samurai -->
-          <LLFate MinLevel="30" MaxLevel="32" FateId="933" while="not IsTodoChecked(67742, 4, 0)" />
+          <LLFate UseFlight="False"  MinLevel="30" MaxLevel="32" FateId="933" while="not IsTodoChecked(67742, 4, 0)" />
         </While>
         <If Condition="GetQuestStep(67742) == 5">
           <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Handing over the Strange Stone to Iroha..." />
@@ -72,7 +72,7 @@
         <While Condition="GetQuestStep(67742) == 6">
           <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Training with Iroha..." />
           <GetTo ZoneId="146" XYZ="42.625, -0.08352578, 758.6061" /> <!-- FATE: Serket Breaker -->
-          <LLFate MinLevel="31" MaxLevel="33" FateId="934" while="not IsTodoChecked(67742, 6, 0)" />
+          <LLFate UseFlight="False"  MinLevel="31" MaxLevel="33" FateId="934" while="not IsTodoChecked(67742, 6, 0)" />
         </While>
         <If Condition="GetQuestStep(67742) == 7">
           <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Handing over the Strange Stone to Iroha..." />
@@ -83,7 +83,7 @@
           <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Training with Iroha..." />
           <GetTo ZoneId="139" XYZ="266.1631, -3.067139, 60.77661" /> <!-- FATE: The Key to Amatsu Kyori -->
           <RunCode Name="A_Journey_to_Remember" />
-          <LLFate MinLevel="32" MaxLevel="34" FateId="935" while="not IsTodoChecked(67742, 8, 0)" />
+          <LLFate UseFlight="False" MinLevel="32" MaxLevel="34" FateId="935" while="not IsTodoChecked(67742, 8, 0)" />
         </While>
         <If Condition="GetQuestStep(67742) == 9">
           <Log Color="&LogColor;" Name="The Maiden's Rhapsody" Message="Handing over the Strange Stone to Iroha..." />
