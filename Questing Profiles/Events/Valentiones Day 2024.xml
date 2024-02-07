@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Valentiones Day 2024
+  Authors: DomesticWarlord86
+
+-->
+<!DOCTYPE Profile [
+  <!ENTITY Necrologos "649">
+]>
+
+<Profile>
+  <Name>Valentiones Day 2024</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- The Symbol of Love -->
+    <If Condition="not IsQuestCompleted(70344)">
+      <If Condition="not HasQuest(70344)">
+        <GetTo ZoneId="133" XYZ="-50.38177, 6.499984, -92.11405" />
+        <If Condition="IsQuestAcceptQualified(70344)">
+          <PickupQuest QuestId="70344" NpcId="1046166" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70344) == 1">
+        <GetTo ZoneId="133" XYZ="55.32247, 9.346306, -83.9988" />
+        <TalkTo NpcId="1046167" XYZ="56.22937, 9.30869, -80.70502" QuestId="70344" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70344) == 255">
+        <GetTo ZoneId="133" XYZ="-49.60363, 6.499994, -91.66509" />
+        <TurnIn QuestId="70344" NpcId="1046166" XYZ="-50.00385, 6.499999, -90.013" />
+      </If>
+    </If>
+
+    <!-- It's All about Heart -->
+    <If Condition="IsQuestCompleted(70344) and not IsQuestCompleted(70345)">
+      <If Condition="not HasQuest(70345)">
+        <GetTo ZoneId="133" XYZ="-49.41047, 6.499984, -93.56897" />
+        <If Condition="IsQuestAcceptQualified(70345)">
+          <PickupQuest QuestId="70345" NpcId="1046166" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70345) == 1 and GetQuestById(70345).QuestI8A == 0">
+        <GetTo ZoneId="133" XYZ="-92.05648, 7, -169.5355" />
+        <EmoteNPC Emote="loveheart" NpcId="1046170" XYZ="-91.02008, 7, -167.895" Condition="GetQuestStep(70345) == 1 and GetQuestById(70345).QuestI8A == 0" />
+      </If>
+      <If Condition="GetQuestStep(70345) == 1 and GetQuestById(70345).QuestI8A == 1">
+        <GetTo ZoneId="133" XYZ="143.9178, 11.20465, -236.3987" />
+        <EmoteNPC Emote="loveheart" NpcId="1046171" XYZ="145.4336, 11.05464, -237.171" Condition="GetQuestStep(70345) == 1 and GetQuestById(70345).QuestI8A == 1" />
+      </If>
+      <If Condition="GetQuestStep(70345) == 1 and GetQuestById(70345).QuestI8A == 2">
+        <GetTo ZoneId="133" XYZ="114.3931, 11.41175, -95.77625" />
+        <EmoteNPC Emote="loveheart" NpcId="1046169" XYZ="114.9767, 11.60616, -94.01086" Condition="GetQuestStep(70345) == 1 and GetQuestById(70345).QuestI8A == 2" />
+      </If>
+      <If Condition="GetQuestStep(70345) == 2">
+        <GetTo ZoneId="133" XYZ="-50.29603, 6.499988, -91.60505" />
+        <TalkTo NpcId="1046166" XYZ="-50.00385, 6.499999, -90.013" QuestId="70345" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70345) == 3">
+        <GetTo ZoneId="132" XYZ="43.13908, -8.046947, 129.2098" />
+        <TalkTo NpcId="1046172" XYZ="41.39771, -8.047056, 131.9752" QuestId="70345" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70345) == 255">
+        <GetTo ZoneId="133" XYZ="-49.60363, 6.499994, -91.66509" />
+        <TurnIn QuestId="70345" NpcId="1046166" XYZ="-50.00385, 6.499999, -90.013" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
