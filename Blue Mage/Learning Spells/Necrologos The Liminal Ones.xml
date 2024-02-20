@@ -15,16 +15,16 @@
 		<While condition="not ActionManager.KnownBlueMageSpells.ContainsKey(11399)">
 			<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(657)">
 				<LisbethTravel Area="Mor Dhona" Position="420.7729, -5.853507, -443.9117"/>
-				<ExPickupGuildLeve leveIds="657" leveType="Battlecraft" npcId="1004348" npcLocation="415.9761,-6.061038,-444.419" Timeout="5" /> <!-- Necrologos: The Liminal Ones -->
+				<PickupGuildLeve leveIds="657" leveType="Battlecraft" npcId="1004348" npcLocation="415.9761,-6.061038,-444.419" Timeout="5" /> <!-- Necrologos: The Liminal Ones -->
 				<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(657)">
-					<ExPickupGuildLeve leveIds="656" leveType="Battlecraft" npcId="1004348" npcLocation="415.9761,-6.061038,-444.419" Timeout="5" /> <!-- Turnabout's Fair Play -->
+					<PickupGuildLeve leveIds="656" leveType="Battlecraft" npcId="1004348" npcLocation="415.9761,-6.061038,-444.419" Timeout="5" /> <!-- Turnabout's Fair Play -->
 				</If>
 			</If>	
 
 			<!-- Necrologos: The Liminal Ones -->	
 			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(657)">
 				<LisbethTravel Area="Mor Dhona" Position="109.913, -5.043104, -496.5076"/>			
-				<InitiateLeve LeveId="657"/> 
+				<LLInitiateLeve LeveId="657"/> 
 				<WaitTimer WaitTime="2" />
 				<While condition="not GameObjectManager.GetObjectByNPCId(1769)">
 					<UseObject NpcId="2001098" UseTimes="5">
@@ -38,7 +38,7 @@
 				<Grind GrindRef="Denizen" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 				
 				<WaitTimer WaitTime="1" />					
 				<RunCode Name="CloseTimer"/> 
-				<ExTurnInGuildLeve NpcId="1004348" NpcLocation="415.9761,-6.061038,-444.419"/>
+				<TurnInLeve NpcId="1004348" NpcLocation="415.9761,-6.061038,-444.419"/>
 				<LLoadProfile Path="../../Start.xml"/>
 			</If>
 
@@ -46,12 +46,12 @@
 			<!-- Turnabout's Fair Play -->	
 			<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(656)">
 				<LisbethTravel Area="Mor Dhona" Position="131.4192, -15.22016, -455.426"/>
-				<InitiateLeve LeveId="656"/> <!-- Turnabout's Fair Play -->
+				<LLInitiateLeve LeveId="656"/> <!-- Turnabout's Fair Play -->
 				<WaitTimer WaitTime="2" />
 				<Grind GrindRef="TurnaboutsFairPlay" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
 				<WaitTimer WaitTime="1" />					
 				<RunCode Name="CloseTimer"/> 
-				<ExTurnInGuildLeve NpcId="1004348" NpcLocation="415.9761,-6.061038,-444.419"/>
+				<TurnInLeve NpcId="1004348" NpcLocation="415.9761,-6.061038,-444.419"/>
 				<LLoadProfile Path="../../Start.xml"/>			
 			</If>
 		

@@ -15,18 +15,18 @@
 	<While condition="not ActionManager.KnownBlueMageSpells.ContainsKey(18300)">
 		<If Condition="not ExBuddy.Windows.GuildLeve.HasLeve(903)">
 			<LisbethTravel Area="Ishgard (Foundation)" Position="-55.46103, 15.14058, -41.67292"/>
-			<ExPickupGuildLeve leveIds="903" leveType="Battlecraft" npcId="1011208" npcLocation="-53.54395,15.19559,-42.67957" Timeout="5" />
+			<PickupGuildLeve leveIds="903" leveType="Battlecraft" npcId="1011208" npcLocation="-53.54395,15.19559,-42.67957" Timeout="5" />
 		</If>
 		
 		<If Condition="ExBuddy.Windows.GuildLeve.HasLeve(903)">
 			<LisbethTravel Area="The Dravanian Hinterlands (East)" Position="179.245, 69.80235, -157.6981"/>
-			<InitiateLeve LeveId="903"/> <!-- Necrologos: His Treasure Forhelen -->
+			<LLInitiateLeve LeveId="903"/> <!-- Necrologos: His Treasure Forhelen -->
 			<WaitTimer WaitTime="2" />
 			<Grind GrindRef="Necrologos" While="not ff14bot.RemoteWindows.SelectYesno.IsOpen"/> 						
 			<WaitTimer WaitTime="2" />					
 			<RunCode Name="CloseTimer"/>
 			<LisbethTravel Area="Ishgard (Foundation)" Position="-55.46103, 15.14058, -41.67292"/>	
-			<ExTurnInGuildLeve NpcId="1011208" NpcLocation="-53.54395,15.19559,-42.67957"/>		
+			<TurnInLeve NpcId="1011208" NpcLocation="-53.54395,15.19559,-42.67957"/>		
 		</If>
 	</While>
 
