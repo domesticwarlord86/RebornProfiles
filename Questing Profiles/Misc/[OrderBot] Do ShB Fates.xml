@@ -101,11 +101,6 @@
   </Order>
   <GrindAreas>
   </GrindAreas>
-  <CodeChunks>
-    <CodeChunk Name="UpdateFates">
-    <![CDATA[
-        await LlamaLibrary.ScriptConditions.Extras.UpdateSharedFates();
-    ]]>
-    </CodeChunk>	
+  <CodeChunks>	
   </CodeChunks>
 </Profile>  
