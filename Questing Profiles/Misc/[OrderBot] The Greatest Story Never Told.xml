@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Greatest Story Never Told
+  Authors: DomesticWarlord86
+
+-->
+<!DOCTYPE Profile [
+]>
+
+<Profile>
+  <Name>The Greatest Story Never Told</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- The Greatest Story Never Told -->
+    <If Condition="IsQuestCompleted(70058) and not IsQuestCompleted(66973)">
+      <If Condition="not HasQuest(66973)">
+        <GetTo ZoneId="140" XYZ="-157.4346, 14.51385, -203.3938" />
+        <If Condition="IsQuestAcceptQualified(66973)">
+          <PickupQuest QuestId="66973" NpcId="1008961" />
+        </If>
+      </If>
+
+      <If Condition="GetQuestStep(66973) == 1">
+        <!-- REN / FLO / SPI / TEL / ‘S / RE, Florentel’s Spire -->
+        <If Condition="IsQuestCompleted(66218)">
+          <GetTo ZoneId="154" XYZ="-292.8359, -13.60442, 192.4315" />
+          <TalkTo NpcId="1008964" XYZ="-292.8359, -13.60442, 192.4315" QuestId="66973" StepId="1" />
+        </If>
+        <!-- AL / TH / SPI / ‘S / RE / TE, Thal's Respite-->
+        <If Condition="IsQuestCompleted(66217)">
+          <GetTo ZoneId="145" XYZ="247.0282, 9.264028, -267.9637" />
+          <TalkTo NpcId="1008963" XYZ="247.0282, 9.264028, -267.9637" QuestId="66973" StepId="1" />
+        </If>
+        <!-- HO / OSC / BRA / N’S / EM / CE, Oschon’s Embrace -->
+        <If Condition="IsQuestCompleted(66216)">
+          <GetTo ZoneId="135" XYZ="99.26366, 68.15523, 347.309" />
+          <TalkTo NpcId="1008962" XYZ="94.40759, 68.15522, 360.2808" QuestId="66973" StepId="1" />
+        </If>
+      </If>
+
+      <If Condition="GetQuestStep(66973) == 2">
+        <GetTo ZoneId="140" XYZ="-157.1179, 14.51384, -203.1342" />
+        <TalkTo NpcId="1008961" XYZ="-157.4884, 14.51384, -200.3663" QuestId="66973" StepId="2" />
+      </If>
+
+      <If Condition="GetQuestStep(66973) == 3">
+
+
+        <If Condition="GetQuestById(66973).QuestI8CL == 1">
+          <If Condition="IsQuestCompleted(66216)">
+            <!-- Memenugu knows the steps -->
+            <!-- GNND NG SGF BNFTQMBKBV -->
+            <GetTo ZoneId="153" XYZ="445.239, 0.644624, -107.7498" />
+            <UseObject NpcId="2004113" XYZ="446.9824, 1.113892, -110.0634" QuestId="66973" StepId="3" />
+          </If>
+          <If Condition="IsQuestCompleted(66217)">
+            <!-- Jahelle knows her sums -->
+            <!-- 08051212190218151504 0815120519 -->
+            <GetTo ZoneId="141" XYZ="-273.5137, 1.482663, -322.0855" />
+            <UseObject NpcId="2004109" XYZ="-277.3328, -0.2289429, -324.1475" QuestId="66973" StepId="3" />
+          </If>
+          <!-- Isouda knows the truth -->
+          <!-- ETAG FLOW ETHW -->
+          <If Condition="IsQuestCompleted(66218)">
+            <GetTo ZoneId="132" XYZ="-113.9793, -7.5, 97.50002" />
+            <UseObject NpcId="2004107" XYZ="-112.4438, -7.461731, 97.94763" QuestId="66973" StepId="3" />
+          </If>
+        </If>
+        <If Condition="GetQuestById(66973).QuestI8CL == 2">
+          <If Condition="IsQuestCompleted(66216)">
+            <!-- Memenugu knows the steps -->
+            <!-- GNMKNXDC IDZWDMTOHMKZS AQJCFF -->
+            <GetTo ZoneId="154" XYZ="-14.37646, -54.25867, 527.3426" />
+            <UseObject NpcId="2004110" XYZ="-14.23676, -53.54395, 531.1512" QuestId="66973" StepId="3" />
+          </If>
+          <If Condition="IsQuestCompleted(66217)">
+            <!-- Jahelle knows her sums -->
+            <!-- 180504 130114200919 0601121219 -->
+            <GetTo ZoneId="137" XYZ="-253.8753, 33.92682, 295.2753" />
+            <UseObject NpcId="2004111" XYZ="-266.4073, 35.3551, 305.684" QuestId="66973" StepId="3" />
+          </If>
+          <If Condition="IsQuestCompleted(66218)">
+            <!-- Isouda knows the truth -->
+            <!-- SEMALF FO LLAH EHT -->
+            <GetTo ZoneId="130" XYZ="-120.3068, 3.799994, -106.5202" />
+            <UseObject NpcId="2004112" XYZ="-122.179, 4.013123, -107.2557" QuestId="66973" StepId="3" />
+          </If>
+        </If>
+        <If Condition="GetQuestById(66973).QuestI8CL == 3">
+          <If Condition="IsQuestCompleted(66216)">
+            <!-- Memenugu knows the steps -->
+            <!-- AQPMYF KZLD GPS RQQHOFR -->
+            <GetTo ZoneId="139" XYZ="499.8818, 15.99269, 72.0052" />
+            <UseObject NpcId="2004108" XYZ="504.4784, 16.89172, 71.67151" QuestId="66973" StepId="3" />
+          </If>
+          <If Condition="IsQuestCompleted(66217)">
+            <!-- Jahelle knows her sums -->
+            <!-- 260516082518 0418090620 -->
+            <GetTo ZoneId="134" XYZ="81.41171, 58.10505, 234.9379" />
+            <UseObject NpcId="2004114" XYZ="80.49133, 58.39624, 238.8799" QuestId="66973" StepId="3" />
+          </If>
+          <If Condition="IsQuestCompleted(66218)">
+            <!-- Isouda knows the truth -->
+            <!-- SCITEHTSEA S’EMIATHSE -->
+            <GetTo ZoneId="131" XYZ="-58.0544, 18, 49.01038" />
+            <UseObject NpcId="2004115" XYZ="-60.47156, 18.02081, 47.16565" QuestId="66973" StepId="3" />
+          </If>
+        </If>
+
+      </If>
+
+      <If Condition="GetQuestStep(66973) == 4">
+        <GetTo ZoneId="140" XYZ="-158.0472, 14.51384, -203.7486" />
+        <TalkTo NpcId="1008961" XYZ="-157.4884, 14.51384, -200.3663" QuestId="66973" StepId="4" />
+      </If>
+
+      <If Condition="GetQuestStep(66973) == 5">
+
+        <If Condition="GetQuestById(66973).QuestI8CL == 1">
+          <If Condition="IsQuestCompleted(66216)">
+            <!-- All foR fen-YLL -->
+            <GetTo ZoneId="133" XYZ="39.86563, 0, -128.992" />
+            <EmoteNPC Emote="rally" NpcId="2004120" XYZ="39.56665, 0.5950317, -132.1584" QuestId="66973" StepId="5" />
+          </If>
+          <If Condition="IsQuestCompleted(66218)">
+            <GetTo AllowedVariance="1" ZoneId="145" XYZ="-324.2905, -7.068995, -213.6194" />
+            <EmoteNPC Emote="joy" NpcId="2004122" XYZ="-320.1495, -5.996826, -209.0028" QuestId="66973" StepId="5" />
+          </If>
+          <!-- rope ANd wooD aCross thE gully -->
+          <If Condition="IsQuestCompleted(66217)">
+            <GetTo ZoneId="137" XYZ="-51.67846, 34.85709, 443.5667" />
+            <EmoteNPC Emote="dance" NpcId="2004121" XYZ="-52.81152, 34.92786, 445.3041" QuestId="66973" StepId="5" />
+          </If>
+        </If>
+        <If Condition="GetQuestById(66973).QuestI8CL == 2">
+          <If Condition="IsQuestCompleted(66216)">
+            <!-- HylLfyr’s cUtthroAts and briGands	 -->
+            <GetTo ZoneId="129" XYZ="-211.4892, 24.00467, 194.5303" />
+            <EmoteNPC Emote="laugh" NpcId="2004123" XYZ="-208.9418, 24.52124, 194.5067" QuestId="66973" StepId="5" />
+          </If>
+          <If Condition="IsQuestCompleted(66217)">
+            <!-- UndertRanqUilIty’s FoOtpathS -->
+            <GetTo ZoneId="153" XYZ="-185.5952, -0.4537964, 440.2008" />
+            <EmoteNPC Emote="furious" NpcId="2004124" XYZ="-185.9617, -0.07635498, 444.4495" QuestId="66973" StepId="5" />
+          </If>
+          <If Condition="IsQuestCompleted(66218)">
+            <!-- red ligHt amidst the blUe Haze -->
+            <GetTo ZoneId="147" XYZ="-15.12574, 20.51809, 401.8609" />
+            <EmoteNPC Emote="huh" NpcId="2004125" XYZ="-18.05151, 22.38489, 398.5809" QuestId="66973" StepId="5" />
+          </If>
+        </If>
+
+        <If Condition="GetQuestById(66973).QuestI8CL == 3">
+          <If Condition="IsQuestCompleted(66216)">
+            <!-- PulPy, NuTritiOus, And decIDedly DElicious cItruS -->
+            <GetTo ZoneId="134" XYZ="22.93427, 60.50195, -281.5748" />
+            <EmoteNPC Emote="disappointed" NpcId="2004126" XYZ="22.93427, 60.50195, -281.5748" QuestId="66973" StepId="5" />
+          </If>
+          <If Condition="IsQuestCompleted(66217)">
+            <!-- sappHires and peaRls, fortUnes Great and Small -->
+            <GetTo ZoneId="131" XYZ="117.819, 5.631566, -33.87963" />
+            <EmoteNPC Emote="shrug" NpcId="2004127" XYZ="115.465, 6.149353, -34.50073" QuestId="66973" StepId="5" />
+          </If>
+          <!-- CherIsh the sPinniNg wAter lullaby -->
+          <If Condition="IsQuestCompleted(66218)">
+            <GetTo ZoneId="154" XYZ="383.4005, -8.817253, -97.33205" />
+            <EmoteNPC Emote="panic" NpcId="2004128" XYZ="384.2985, -8.529846, -95.59784" QuestId="66973" StepId="5" />
+          </If>
+
+        </If>
+
+
+      </If>
+
+      <If Condition="GetQuestStep(66973) == 6">
+        <GetTo ZoneId="140" XYZ="-158.0472, 14.51384, -203.7486" />
+        <TalkTo NpcId="1008961" XYZ="-157.4884, 14.51384, -200.3663" QuestId="66973" StepId="6" />
+      </If>
+
+      <If Condition="GetQuestStep(66973) == 7">
+        <If Condition="GetQuestById(66973).QuestI8CL == 1">
+          <If Condition="IsQuestCompleted(66216)">
+            <!-- G of A -->
+            <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Earring].RawItemId != 4214">
+              <If condition="not HasItem(4214)">
+                <GetTo ZoneId="131" XYZ="-58.94924, 18.51745, 65.03259" />
+                <BuyItem ItemId="4214" ItemCount="1" NpcId="1001977" XYZ="-60.1969, 18.5, 67.58215" DialogOption="0" />
+              </If>
+              <RunCode Name="EquipSunstoneEarring" />
+              <WaitTimer WaitTime="2" />
+            </While>
+            <GetTo ZoneId="140" XYZ="-159.2765, 14.51384, -199.949" />
+            <UseTransport NpcId="2004132" XYZ="-158.0378, 14.8775, -197.0398" QuestId="66973" StepId="7" />
+          </If>
+          <If Condition="IsQuestCompleted(66218)">
+            <!-- G of R -->
+            <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Earring].RawItemId != 4222">
+              <If condition="not HasItem(4222)">
+                <GetTo ZoneId="131" XYZ="-58.94924, 18.51745, 65.03259" />
+                <BuyItem ItemId="4222" ItemCount="1" NpcId="1001977" XYZ="-60.1969, 18.5, 67.58215" DialogOption="0" />
+              </If>
+              <RunCode Name="EquipFlouriteEarring" />
+              <WaitTimer WaitTime="2" />
+            </While>
+            <GetTo ZoneId="140" XYZ="-159.2765, 14.51384, -199.949" />
+            <UseTransport NpcId="2004132" XYZ="-158.0378, 14.8775, -197.0398" QuestId="66973" StepId="7" />
+          </If>
+          <!-- G of O -->
+          <If Condition="IsQuestCompleted(66217)">
+            <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Earring].RawItemId != 4218">
+              <If condition="not HasItem(4218)">
+                <GetTo ZoneId="131" XYZ="-58.94924, 18.51745, 65.03259" />
+                <BuyItem ItemId="4218" ItemCount="1" NpcId="1001977" XYZ="-60.1969, 18.5, 67.58215" DialogOption="0" />
+              </If>
+              <RunCode Name="EquipMalachiteEarring" />
+              <WaitTimer WaitTime="2" />
+            </While>
+            <GetTo ZoneId="140" XYZ="-159.2765, 14.51384, -199.949" />
+            <UseTransport NpcId="2004132" XYZ="-158.0378, 14.8775, -197.0398" QuestId="66973" StepId="7" />
+          </If>
+        </If>
+        <If Condition="GetQuestById(66973).QuestI8CL == 2">
+          <If Condition="IsQuestCompleted(66216)">
+            <!-- W of A -->
+            <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Bracelet].RawItemId != 4109">
+              <If condition="not HasItem(4109)">
+                <GetTo ZoneId="131" XYZ="-58.94924, 18.51745, 65.03259" />
+                <BuyItem ItemId="4109" ItemCount="1" NpcId="1001977" XYZ="-60.1969, 18.5, 67.58215" DialogOption="0" />
+              </If>
+              <RunCode Name="EquipSunstoneBracelet" />
+              <WaitTimer WaitTime="2" />
+            </While>
+            <GetTo ZoneId="140" XYZ="-159.2765, 14.51384, -199.949" />
+            <UseTransport NpcId="2004133" XYZ="-158.0378, 14.8775, -197.0398" QuestId="66973" StepId="7" />
+          </If>
+          <If Condition="IsQuestCompleted(66217)">
+            <!-- W of O -->
+            <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Bracelet].RawItemId != 4113">
+              <If condition="not HasItem(4113)">
+                <GetTo ZoneId="131" XYZ="-58.94924, 18.51745, 65.03259" />
+                <BuyItem ItemId="4113" ItemCount="1" NpcId="1001977" XYZ="-60.1969, 18.5, 67.58215" DialogOption="0" />
+              </If>
+              <RunCode Name="EquipMalachiteBracelet" />
+              <WaitTimer WaitTime="2" />
+            </While>
+            <GetTo ZoneId="140" XYZ="-159.2765, 14.51384, -199.949" />
+            <UseTransport NpcId="2004133" XYZ="-158.0378, 14.8775, -197.0398" QuestId="66973" StepId="7" />
+          </If>
+          <If Condition="IsQuestCompleted(66218)">
+            <!-- W of R -->
+            <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Bracelet].RawItemId != 4117">
+              <If condition="not HasItem(4117)">
+                <GetTo ZoneId="131" XYZ="-58.94924, 18.51745, 65.03259" />
+                <BuyItem ItemId="4117" ItemCount="1" NpcId="1001977" XYZ="-60.1969, 18.5, 67.58215" DialogOption="0" />
+              </If>
+              <RunCode Name="EquipFlouriteBracelet" />
+              <WaitTimer WaitTime="2" />
+            </While>
+            <GetTo ZoneId="140" XYZ="-159.2765, 14.51384, -199.949" />
+            <UseTransport NpcId="2004133" XYZ="-158.0378, 14.8775, -197.0398" QuestId="66973" StepId="7" />
+          </If>
+        </If>
+        <If Condition="GetQuestById(66973).QuestI8CL == 3">
+          <If Condition="IsQuestCompleted(66216)">
+            <!-- S of A -->
+            <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Ring1].RawItemId != 4442 and ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Ring2].RawItemId != 4442">
+              <If condition="not HasItem(4442)">
+                <GetTo ZoneId="131" XYZ="-58.94924, 18.51745, 65.03259" />
+                <BuyItem ItemId="4442" ItemCount="1" NpcId="1001977" XYZ="-60.1969, 18.5, 67.58215" DialogOption="0" />
+              </If>
+              <RunCode Name="EquipSunstoneRing" />
+              <WaitTimer WaitTime="2" />
+            </While>
+            <GetTo ZoneId="140" XYZ="-159.2765, 14.51384, -199.949" />
+            <UseTransport NpcId="2004134" XYZ="-158.0378, 14.8775, -197.0398" QuestId="66973" StepId="7" />
+          </If>
+          <If Condition="IsQuestCompleted(66217)">
+            <!-- S of O -->
+            <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Ring1].RawItemId != 4446 and ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Ring2].RawItemId != 4446">
+              <If condition="not HasItem(4446)">
+                <GetTo ZoneId="131" XYZ="-58.94924, 18.51745, 65.03259" />
+                <BuyItem ItemId="4446" ItemCount="1" NpcId="1001977" XYZ="-60.1969, 18.5, 67.58215" DialogOption="0" />
+              </If>
+              <RunCode Name="EquipMalachiteRing" />
+              <WaitTimer WaitTime="2" />
+            </While>
+            <GetTo ZoneId="140" XYZ="-159.2765, 14.51384, -199.949" />
+            <UseTransport NpcId="2004134" XYZ="-158.0378, 14.8775, -197.0398" QuestId="66973" StepId="7" />
+          </If>
+          <!-- S of R -->
+          <If Condition="IsQuestCompleted(66218)">
+            <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Ring1].RawItemId != 4450 and ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Ring2].RawItemId != 4450">
+              <If condition="not HasItem(4450)">
+                <GetTo ZoneId="131" XYZ="-58.94924, 18.51745, 65.03259" />
+                <BuyItem ItemId="4450" ItemCount="1" NpcId="1001977" XYZ="-60.1969, 18.5, 67.58215" DialogOption="0" />
+              </If>
+              <RunCode Name="EquipFlouriteRing" />
+              <WaitTimer WaitTime="2" />
+            </While>
+            <GetTo ZoneId="140" XYZ="-159.2765, 14.51384, -199.949" />
+            <UseTransport NpcId="2004134" XYZ="-158.0378, 14.8775, -197.0398" QuestId="66973" StepId="7" />
+          </If>
+        </If>
+      </If>
+
+      <If Condition="GetQuestStep(66973) == 8">
+        <GetTo ZoneId="140" XYZ="-159.2765, 14.51384, -199.949" />
+        <TalkTo NpcId="1008961" XYZ="-157.4884, 14.51384, -200.3663" QuestId="66973" StepId="8" />
+      </If>
+
+      <If Condition="GetQuestStep(66973) == 255">
+        <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Necklace].RawItemId != 4305">
+          <If condition="not HasItem(4305)">
+            <GetTo ZoneId="131" XYZ="121.1214, 4, -68.84539" />
+            <BuyItem ItemId="4305" ItemCount="1" DialogOption="0" NpcId="1001964" XYZ="118.4862, 4.456362, -67.85687" QuestId="66973" StepId="255" />
+          </If>
+          <RunCode Name="EquipCopperGorget" />
+          <WaitTimer WaitTime="2" />
+        </While>
+        <GetTo ZoneId="140" XYZ="-155.0336, 14.51384, -191.6629" />
+        <TurnIn QuestId="66973" NpcId="2004136" XYZ="-156.5728, 14.96906, -192.4926" />
+
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="EquipCopperGorget">
+			<![CDATA[
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Necklace];
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 4305)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+			]]>
+		</CodeChunk>
+    <CodeChunk Name="EquipSunstoneEarring">
+			<![CDATA[
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Earring];
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 4214)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+			]]>
+		</CodeChunk>
+    <CodeChunk Name="EquipFlouriteEarring">
+			<![CDATA[
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Earring];
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 4222)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+			]]>
+		</CodeChunk>
+    <CodeChunk Name="EquipMalachiteEarring">
+			<![CDATA[
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Earring];
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 4218)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+			]]>
+		</CodeChunk>
+    <CodeChunk Name="EquipFlouriteRing">
+			<![CDATA[
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Ring1];
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 4450)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+			]]>
+		</CodeChunk>
+    <CodeChunk Name="EquipSunstoneRing">
+			<![CDATA[
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Ring1];
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 4442)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+			]]>
+		</CodeChunk>
+    <CodeChunk Name="EquipMalachiteRing">
+			<![CDATA[
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Ring1];
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 4446)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+			]]>
+		</CodeChunk>
+    <CodeChunk Name="EquipSunstoneBracelet">
+			<![CDATA[
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Bracelet];
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 4109)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+			]]>
+		</CodeChunk>
+    <CodeChunk Name="EquipFlouriteBracelet">
+			<![CDATA[
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Bracelet];
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 4117)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+			]]>
+		</CodeChunk>
+    <CodeChunk Name="EquipMalachiteBracelet">
+			<![CDATA[
+				BagSlot EquipSlot = ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.Bracelet];
+				foreach(ff14bot.Managers.BagSlot slot in ff14bot.Managers.InventoryManager.FilledInventoryAndArmory)
+				{
+					if(slot.RawItemId == 4113)
+					{
+						slot.Move(EquipSlot);
+					}
+				}
+			]]>
+		</CodeChunk>
+  </CodeChunks>
+</Profile> 
