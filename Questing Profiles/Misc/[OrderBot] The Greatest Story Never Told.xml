@@ -320,7 +320,7 @@
         </While>
         <GetTo ZoneId="140" XYZ="-155.0336, 14.51384, -191.6629" />
         <TurnIn QuestId="66973" NpcId="2004136" XYZ="-156.5728, 14.96906, -192.4926" />
-
+        <AutoEquip/>
       </If>
     </If>
 
