@@ -64,15 +64,15 @@
       <If Condition="GetQuestStep(70347) == 2">
         <If Condition="GetQuestById(70347).QuestI8A == 0">
           <GetTo ZoneId="131" XYZ="-1.348511, 15.00001, 9.238849" />
-          <TalkTo NpcId="1046107" XYZ="-0.1068726, 15.00001, 10.81854" Condition="GetQuestById(70347).QuestI8A == 0" />
+          <TalkTo NpcId="1046107" XYZ="-0.1068726, 15.00001, 10.81854" />
         </If>
         <If Condition="GetQuestById(70347).QuestI8A == 1">
           <GetTo ZoneId="131" XYZ="122.7138, 3.999999, -74.28232" />
-          <TalkTo NpcId="1046105" XYZ="124.3457, 4, -73.10602" QuestId="70347" Condition="GetQuestById(70347).QuestI8A == 1" />
+          <TalkTo NpcId="1046105" XYZ="124.3457, 4, -73.10602" />
         </If>
         <If Condition="GetQuestById(70347).QuestI8A == 2">
           <GetTo ZoneId="131" XYZ="148.4705, 4, -12.34485" />
-          <TalkTo NpcId="1046106" XYZ="149.5536, 4, -11.09338" Condition="GetQuestById(70347).QuestI8A == 2" />
+          <TalkTo NpcId="1046106" XYZ="149.5536, 4, -11.09338" />
         </If>
       </If>
       <If Condition="GetQuestStep(70347) == 3">
@@ -92,6 +92,8 @@
         <TurnIn QuestId="70347" NpcId="1046108" XYZ="-27.48151, 3.999999, -147.6006" />
       </If>
     </If>
+
+    <UseInventoryItem ItemId="41497" />
 
   </Order>
   <GrindAreas>
