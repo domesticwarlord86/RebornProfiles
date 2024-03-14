@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Hatching Tide 2024
+  Authors: DomesticWarlord86
+
+-->
+<!DOCTYPE Profile [
+]>
+
+<Profile>
+  <Name>Hatching Tide 2024</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- The Princesses and the Eggs -->
+    <If Condition="not IsQuestCompleted(70346)">
+      <If Condition="not HasQuest(70346)">
+        <GetTo ZoneId="133" XYZ="-49.48012, 6.499996, -91.6713" />
+        <If Condition="IsQuestAcceptQualified(70346)">
+          <PickupQuest QuestId="70346" NpcId="1046093" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70346) == 1">
+        <GetTo ZoneId="148" XYZ="48.96059, -7.307573, 81.52173" />
+        <TalkTo NpcId="1046249" XYZ="50.43103, -7.213974, 82.35291" QuestId="70346" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70346) == 2">
+        <GetTo ZoneId="148" XYZ="49.04859, -7.301251, 81.57163" />
+        <TalkTo NpcId="1046096" XYZ="50.43103, -7.213974, 82.35291" QuestId="70346" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70346) == 3">
+        <If condition="not CurrentMount() == 341">
+          <GetTo ZoneId="148" XYZ="49.04859, -7.301251, 81.57163" />
+          <TalkTo NpcId="1046096" InteractDistance="3.0" XYZ="50.43103, -7.213974, 82.35291" QuestId="70346" />
+        </If>
+        <If Condition="GetQuestStep(70346) == 3 and GetQuestById(70346).QuestI8A == 0">
+          <LLUseSpell UseDistance="5" SpellId="33268" NpcId="1046099" XYZ="29.98401, -6.00144, 57.60278" condition="GetQuestById(70346).QuestI8A == 0" />
+        </If>
+        <If Condition="GetQuestStep(70346) == 3 and GetQuestById(70346).QuestI8A == 1">
+          <LLUseSpell UseDistance="5" SpellId="33268" NpcId="1046102" XYZ="14.84698, -1.123853, 21.04218" condition="GetQuestById(70346).QuestI8A == 1" />
+        </If>
+        <If Condition="GetQuestStep(70346) == 3 and GetQuestById(70346).QuestI8A == 2">
+          <LLUseSpell UseDistance="5" SpellId="33268" NpcId="1046100" XYZ="-42.64899, 0, 17.50208" condition="GetQuestById(70346).QuestI8A == 2" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70346) == 255">
+        <GetTo ZoneId="148" XYZ="47.02489, -7.450547, 81.87762" />
+        <TurnIn QuestId="70346" NpcId="1046096" XYZ="50.43103, -7.213974, 82.35291" />
+      </If>
+    </If>
+
+    <!-- Peatie in Pink -->
+    <If Condition="IsQuestCompleted(70346) and not IsQuestCompleted(70347)">
+      <If Condition="not HasQuest(70347)">
+        <GetTo ZoneId="148" XYZ="47.50316, -7.421622, 81.27327" />
+        <If Condition="IsQuestAcceptQualified(70347)">
+          <PickupQuest QuestId="70347" NpcId="1046098" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70347) == 1">
+        <GetTo ZoneId="130" XYZ="-36.42355, 5, -131.9149" />
+        <TalkTo NpcId="1046104" XYZ="-35.11102, 5.000001, -130.3884" QuestId="70347" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70347) == 2">
+        <If Condition="GetQuestById(70347).QuestI8A == 0">
+          <GetTo ZoneId="131" XYZ="-1.348511, 15.00001, 9.238849" />
+          <TalkTo NpcId="1046107" XYZ="-0.1068726, 15.00001, 10.81854" Condition="GetQuestById(70347).QuestI8A == 0" />
+        </If>
+        <If Condition="GetQuestById(70347).QuestI8A == 1">
+          <GetTo ZoneId="131" XYZ="122.7138, 3.999999, -74.28232" />
+          <TalkTo NpcId="1046105" XYZ="124.3457, 4, -73.10602" QuestId="70347" Condition="GetQuestById(70347).QuestI8A == 1" />
+        </If>
+        <If Condition="GetQuestById(70347).QuestI8A == 2">
+          <GetTo ZoneId="131" XYZ="148.4705, 4, -12.34485" />
+          <TalkTo NpcId="1046106" XYZ="149.5536, 4, -11.09338" Condition="GetQuestById(70347).QuestI8A == 2" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70347) == 3">
+        <GetTo ZoneId="130" XYZ="-25.62466, 3.999999, -146.5722" />
+        <TalkTo NpcId="1046108" XYZ="-27.48151, 3.999999, -147.6006" QuestId="70347" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70347) == 4">
+        <GetTo ZoneId="130" XYZ="-25.62466, 3.999999, -146.5722" />
+        <EmoteNPC Emote="rally" NpcId="1046110" XYZ="-28.64117, 3.999999, -150.4082" QuestId="70347" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70347) == 5">
+        <GetTo ZoneId="130" XYZ="-36.98296, 4, -142.4267" />
+        <UseObject NpcId="2013532" XYZ="-37.76611, 3.982544, -141.3749" QuestId="70347" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70347) == 255">
+        <GetTo ZoneId="130" XYZ="-28.72115, 3.999999, -145.0303" />
+        <TurnIn QuestId="70347" NpcId="1046108" XYZ="-27.48151, 3.999999, -147.6006" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
