@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Path Infernal - FFXVI Crossover
+  Authors: DomesticWarlord
+Aura Name: Precision, Aura Id: 3710
+  └─ Casting (36246) Spreading Fire => (12564) Infernal Shadow
+    └─ Casting (36051) Incinerate => (12565) Clive
+  └─ Casting (35037) Crimson Rush => <-20.004639, -0.015319824, -0.015319824>
+
+-->
+<!DOCTYPE Profile [
+  <!ENTITY Necrologos "649">
+]>
+
+<Profile>
+  <Name>The Path Infernal - FFXVI Crossover</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <Hook Name="UseDutyActions" Operation="A" Location="TreeStart" />
+
+    <!-- A Land on Fire -->
+    <If Condition="not IsQuestCompleted(70332)">
+      <If Condition="not HasQuest(70332)">
+        <GetTo ZoneId="130" XYZ="-119.07055, 3.9999998, -68.61258" />
+        <If Condition="IsQuestAcceptQualified(70332)">
+          <PickupQuest QuestId="70332" NpcId="1046043" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70332) == 1">
+        <If condition="not IsOnMap(145)">
+          <TeleportTo Name="Camp Drybone" AetheryteId="18" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="145" XYZ="341.2873, -7.693983, 151.89561" Land="True" />
+        <TalkTo NpcId="1046044" XYZ="346.33398, -6.979388, 151.90344" QuestId="70332" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70332) == 2">
+        <FlyTo AllowedVariance="1" ZoneId="145" XYZ="343.99274, -7.039487, 154.02226" Land="True" />
+        <Snipe NpcId="2013582" XYZ="347.219, -6.668213, 155.04688" QuestId="70332" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70332) == 3">
+        <GetTo ZoneId="131" XYZ="-86.43147, 41, 65.54217" />
+        <UseObject NpcId="2013507" XYZ="-85.49634, 40.97046, 67.36853" QuestId="70332" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70332) == 255">
+        <GetTo ZoneId="131" XYZ="-86.43147, 41, 65.54217" />
+        <TurnIn QuestId="70332" NpcId="1046046" XYZ="-86.90015, 41, 66.14783" />
+      </If>
+    </If>
+
+    <!-- Pain to Recall -->
+    <If Condition="IsQuestCompleted(70332) and not IsQuestCompleted(70333)">
+      <If Condition="not HasQuest(70333)">
+        <GetTo ZoneId="131" XYZ="-86.43147, 41, 65.54217" />
+        <If Condition="IsQuestAcceptQualified(70333)">
+          <PickupQuest QuestId="70333" NpcId="1046046" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70333) == 1">
+        <GetTo ZoneId="130" XYZ="-27.28378, 83, -15.843321" />
+        <TalkTo NpcId="1046047" XYZ="-28.732727, 82.99999, -15.884705" QuestId="70333" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70333) == 2">
+        <GetTo ZoneId="132" XYZ="36.79611, -18.800005, 95.10688" />
+        <TalkTo NpcId="1046048" XYZ="35.26355, -18.800001, 91.47778" QuestId="70333" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70333) == 3">
+        <GetTo ZoneId="132" XYZ="24.22545, -8.2, 124.56606" />
+        <TalkTo NpcId="1046048" XYZ="26.502047, -8.200004, 125.70765" QuestId="70333" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70333) == 4">
+        <GetTo ZoneId="132" XYZ="44.069077, -0.94197726, 68.752144" />
+        <TalkTo NpcId="1046048" XYZ="45.274643, -0.80923617, 70.56606" QuestId="70333" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70333) == 5">
+        <GetTo ZoneId="132" XYZ="52.653397, 0.009224772, 33.6942" />
+        <TalkTo NpcId="1046048" XYZ="53.51031, -0.12168619, 35.69654" QuestId="70333" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70333) == 6">
+        <GetTo ZoneId="132" XYZ="-63.26552, -2.2492104, 21.777128" />
+        <TalkTo NpcId="1046048" XYZ="-61.942616, -2.4551313, 20.04692" QuestId="70333" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70333) == 7">
+        <GetTo ZoneId="133" XYZ="-148.1449, 4.043605, -32.68537" />
+        <TalkTo NpcId="1046049" XYZ="-146.2273, 4.023748, -31.99823" QuestId="70333" StepId="7" />
+      </If>
+      <If Condition="GetQuestStep(70333) == 255">
+        <GetTo ZoneId="133" XYZ="-148.1449, 4.043605, -32.68537" />
+        <TurnIn QuestId="70333" NpcId="1046050" XYZ="-146.1662, 4.10845, -33.188354" />
+      </If>
+    </If>
+
+    <!-- The Path Infernal -->
+    <If Condition="IsQuestCompleted(70333) and not IsQuestCompleted(70334)">
+      <If Condition="not HasQuest(70334)">
+        <GetTo ZoneId="133" XYZ="-148.5229, 4.054453, -33.01137" />
+        <If Condition="IsQuestAcceptQualified(70334)">
+          <PickupQuest QuestId="70334" NpcId="1046050" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70334) == 1">
+        <If condition="not IsOnMap(1166)">
+          <GetTo ZoneId="133" XYZ="-32.539883, 10.431727, -257.36435" />
+        </If>
+        <LLSimpleDuty InteractInCombat="True" InteractNpcId="1046055" XYZ="-32.539883, 10.431727, -257.36435" QuestId="70334" StepId="1">
+          <InteractObjects>
+            <InteractObject Name="Defend Clive" NpcId="2013511" />
+          </InteractObjects>
+          <Hotspots>
+            <Hotspot Radius="90" XYZ="-15, 7.1054274E-15, 0" name="Name" />
+          </Hotspots>
+          <TargetMobs>
+            <TargetMob Id="12564" Weight="1" /> <!-- Infernal Shadow -->
+          </TargetMobs>
+        </LLSimpleDuty>
+        <!--
+        <UserDialog IsBotContinueAllowed="False" DialogText="This fight contains an ATM that RB cannot perform, pleease complete it manually. Use the dodge ability when the NPC tells you to." />
+      -->
+      </If>
+      <If Condition="GetQuestStep(70334) == 2">
+        <WaitWhile condition="GetQuestStep(70334) == 2" />
+      </If>
+      <If Condition="GetQuestStep(70334) == 3">
+        <If condition="not IsOnMap(145)">
+          <TeleportTo Name="Camp Drybone" AetheryteId="18" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="145" XYZ="433.05728, 7.094205, 154.12558" Land="True" />
+        <TalkTo NpcId="1046054" XYZ="434.1648, 7.745693, 152.14758" QuestId="70334" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70334) == 4">
+        <If condition="not IsOnMap(145)">
+          <TeleportTo Name="Camp Drybone" AetheryteId="18" />
+        </If>
+        <FlyTo AllowedVariance="1" ZoneId="145" XYZ="433.05728, 7.094205, 154.12558" Land="True" />
+        <TalkTo NpcId="1046052" XYZ="433.40198, 7.738654, 151.38477" QuestId="70334" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70334) == 5">
+        <RunCode name="TurnOffMount" />
+        <MoveTo XYZ="397.10724,-8.031658,200.02051" />
+        <WaitTimer WaitTime="2" />
+        <MoveTo XYZ="433.24286,-21.590546,217.0988" />
+        <WaitTimer WaitTime="2" />
+        <MoveTo XYZ="457.7753, -3.6990569, 284.17978" />
+        <RunCode name="TurnOnMount" />
+        <TalkTo NpcId="1046052" XYZ="456.5805, -3.714738, 282.97458" QuestId="70334" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70334) == 255">
+        <FlyTo AllowedVariance="1" ZoneId="145" XYZ="457.7753, -3.6990569, 284.17978" Land="True" />
+        <TurnIn QuestId="70334" NpcId="1046056" XYZ="461.14282, -4.926489, 275.80676" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="TurnOffMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="TurnOnMount">
+      <![CDATA[
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+      ]]>
+    </CodeChunk>
+    <CodeChunk Type="Hook" Name="UseDutyActions">
+			<![CDATA[
+        if (DifficultySelectYesNo.IsOpen)
+        {
+            DifficultySelectYesNo.Proceed(2);
+        }
+
+        if (DutyManager.DutyAction1 != null && DutyManager.DutyAction2 != null)
+        {
+          if (WorldManager.ZoneId == 1166)
+          {
+              BattleCharacter infernalShadowNpc = GameObjectManager.GetObjectsByNPCId<BattleCharacter>(NpcId: 12564)
+                  .FirstOrDefault(bc => bc.IsCasting);
+
+              if (LlamaLibrary.Helpers.QTEHelper.QteOpen)
+              {
+                await LlamaLibrary.Helpers.QTEHelper.HandleQte();
+              }
+
+              if (Core.Me.HasAura(Precision))
+              {
+                  if (ActionManager.CanCast(DutyManager.DutyAction1, Core.Me.CurrentTarget))
+                  {
+                      ff14bot.Helpers.Logging.WriteDiagnostic($"Using {DutyManager.DutyAction1.Name}");
+                      ActionManager.DoAction(DutyManager.DutyAction1, Core.Me.CurrentTarget);
+                      await Coroutine.Sleep(500);
+                  }
+              }
+
+              if (infernalShadowNpc != null && infernalShadowNpc.IsCasting && infernalShadowNpc.SpellCastInfo.RemainingCastTime.TotalMilliseconds <= 1000)
+              {
+                  if (ActionManager.CanCast(DutyManager.DutyAction1, Core.Me))
+                  {
+                      ff14bot.Helpers.Logging.WriteDiagnostic($"Using {DutyManager.DutyAction1.Name}");
+                      ActionManager.DoAction(DutyManager.DutyAction1, Core.Me);
+                      await Coroutine.Sleep(500);
+                  }
+              }
+
+              if (ActionManager.CanCast(DutyManager.DutyAction2, Core.Me.CurrentTarget))
+              {
+                  ff14bot.Helpers.Logging.WriteDiagnostic($"Using {DutyManager.DutyAction2.Name}");
+                  ActionManager.DoAction(DutyManager.DutyAction2, Core.Me.CurrentTarget);
+                  await Coroutine.Sleep(500);
+              }
+          }
+        }
+			return false;
+			]]>
+	</CodeChunk>
+    <CodeChunk Type="Definition" Name="PlayerAura">
+		<![CDATA[
+		
+      public const int Precision = 3710;
+
+		]]>
+	</CodeChunk>
+  </CodeChunks>
+</Profile> 
