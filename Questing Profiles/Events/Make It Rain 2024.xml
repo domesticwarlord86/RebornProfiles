@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Make It Rain 2024
+  Authors: DomesticWarlord86
+
+-->
+<!DOCTYPE Profile [
+]>
+
+<Profile>
+  <Name>Make It Rain 2024</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Of Impish Importance -->
+    <If Condition="not IsQuestCompleted(70350)">
+      <If Condition="not HasQuest(70350)">
+        <GetTo ZoneId="130" XYZ="-92.07572, 4, -104.61902" />
+        <If Condition="IsQuestAcceptQualified(70350)">
+          <PickupQuest QuestId="70350" NpcId="1046178" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70350) == 1">
+        <GetTo ZoneId="144" XYZ="-28.60831, 0.044279933, 15.969508" />
+        <TalkTo NpcId="1046179" XYZ="-30.777527, 0.044279885, 16.464417" QuestId="70350" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70350) == 2">
+        <GetTo ZoneId="144" XYZ="41.00333, 3.999728, 82.52674" />
+        <TalkTo NpcId="1046183" XYZ="42.038574, 3.9997275, 84.367065" QuestId="70350" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70350) == 3">
+        <GetTo ZoneId="144" XYZ="2.816158, 20.99973, 43.78909" />
+        <TalkTo NpcId="1046184" XYZ="0.9613037, 20.99973, 42.801514" QuestId="70350" StepId="3" />
+      </If>
+      <While Condition="GetQuestStep(70350) == 4">
+        <If condition="not Core.Me.HasAura(2579)">
+          <GetTo ZoneId="144" XYZ="2.816158, 20.99973, 43.78909" />
+          <TalkTo NpcId="1046184" XYZ="0.9613037, 20.99973, 42.801514" />
+        </If>
+        <If Condition="GetQuestStep(70350) == 4 and GetQuestById(70350).QuestI8A == 0 and Core.Me.HasAura(2579)">
+          <GetTo ZoneId="144" XYZ="30.12392, -5.0000005, -38.042145" />
+          <TalkTo NpcId="1046185" XYZ="29.373535, -5.0000005, -40.268616" QuestId="70350" StepId="4" />
+        </If>
+        <If Condition="GetQuestStep(70350) == 4 and GetQuestById(70350).QuestI8A == 1 and Core.Me.HasAura(2579)">
+          <GetTo ZoneId="144" XYZ="105.420334, -5.0000005, -56.439697" />
+          <TalkTo NpcId="1046187" XYZ="108.32373, -5.0000005, -55.10034" QuestId="70350" StepId="4" />
+        </If>
+        <If Condition="GetQuestStep(70350) == 4 and GetQuestById(70350).QuestI8A == 2 and Core.Me.HasAura(2579)">
+          <GetTo ZoneId="144" XYZ="105.62869, 13.001354, -11.801803" />
+          <TalkTo NpcId="1046186" XYZ="106.7063, 13.001876, -9.87262" QuestId="70350" StepId="4" />
+        </If>
+      </While>
+      <If Condition="GetQuestStep(70350) == 5">
+        <GetTo ZoneId="144" XYZ="2.4804783, 20.999727, 43.145996" />
+        <TalkTo NpcId="1046184" XYZ="0.9613037, 20.99973, 42.801514" QuestId="70350" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70350) == 255">
+        <GetTo ZoneId="144" XYZ="-24.473532, 0.044280052, 21.86747" />
+        <TurnIn QuestId="70350" NpcId="1046189" XYZ="-22.354492, 3.8146973E-06, 22.354431" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
