@@ -51,7 +51,7 @@
         </If>
       </While>
       <If Condition="GetQuestStep(70350) == 5">
-        <GetTo ZoneId="144" XYZ="2.4804783, 20.999727, 43.145996" />
+        <MoveTo ZoneId="144" XYZ="2.4804783, 20.999727, 43.145996" />
         <TalkTo NpcId="1046184" XYZ="0.9613037, 20.99973, 42.801514" QuestId="70350" StepId="5" />
       </If>
       <If Condition="GetQuestStep(70350) == 255">
