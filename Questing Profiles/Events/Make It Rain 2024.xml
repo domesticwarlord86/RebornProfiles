@@ -38,15 +38,15 @@
           <TalkTo NpcId="1046184" XYZ="0.9613037, 20.99973, 42.801514" />
         </If>
         <If Condition="GetQuestStep(70350) == 4 and GetQuestById(70350).QuestI8A == 0 and Core.Me.HasAura(2579)">
-          <GetTo ZoneId="144" XYZ="30.12392, -5.0000005, -38.042145" />
+          <MoveTo XYZ="30.12392, -5.0000005, -38.042145" />
           <TalkTo NpcId="1046185" XYZ="29.373535, -5.0000005, -40.268616" QuestId="70350" StepId="4" />
         </If>
         <If Condition="GetQuestStep(70350) == 4 and GetQuestById(70350).QuestI8A == 1 and Core.Me.HasAura(2579)">
-          <GetTo ZoneId="144" XYZ="105.420334, -5.0000005, -56.439697" />
+          <MoveTo XYZ="105.420334, -5.0000005, -56.439697" />
           <TalkTo NpcId="1046187" XYZ="108.32373, -5.0000005, -55.10034" QuestId="70350" StepId="4" />
         </If>
         <If Condition="GetQuestStep(70350) == 4 and GetQuestById(70350).QuestI8A == 2 and Core.Me.HasAura(2579)">
-          <GetTo ZoneId="144" XYZ="105.62869, 13.001354, -11.801803" />
+          <MoveTo XYZ="105.62869, 13.001354, -11.801803" />
           <TalkTo NpcId="1046186" XYZ="106.7063, 13.001876, -9.87262" QuestId="70350" StepId="4" />
         </If>
       </While>
