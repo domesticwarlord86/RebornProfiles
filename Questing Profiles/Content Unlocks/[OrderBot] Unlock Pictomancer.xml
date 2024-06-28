@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Unlock Pictomancer
+  Authors: DomesticWarlord
+
+-->
+<!DOCTYPE Profile [
+]>
+
+<Profile>
+  <Name>Unlock Pictomancer</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- The Joy of Pictomancy -->
+    <If Condition="not IsQuestCompleted(70390)">
+      <If Condition="not HasQuest(70390)">
+        <GetTo ZoneId="133" XYZ="-157.84363, 4.354392, -44.208385" />
+        <If Condition="IsQuestAcceptQualified(70390)">
+          <PickupQuest QuestId="70390" NpcId="1049794" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70390) == 1">
+        <GetTo ZoneId="132" XYZ="-3.7916536, -1.0957042, 6.9623613" />
+        <UseObject NpcId="2013738" XYZ="-6.9123535, -1.4191895, 5.508484" QuestId="70390" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70390) == 2">
+        <GetTo ZoneId="132" XYZ="56.38601, -8.040981, 94.05098" />
+        <TalkTo NpcId="1049795" XYZ="54.306763, -8.321841, 94.13281" QuestId="70390" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70390) == 255">
+        <GetTo ZoneId="132" XYZ="56.38601, -8.040981, 94.05098" />
+        <TurnIn QuestId="70390" NpcId="1049795" XYZ="54.306763, -8.321841, 94.13281" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
