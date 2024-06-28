@@ -28,7 +28,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/20/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
+[300]: https://progress-bar.dev/31/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [X] Lv. 90 A New World to Explore	
@@ -51,17 +51,17 @@ After: https://progress-bar.dev/70
 - [X] Lv. 90 Knowing the Pelupelu
 - [X] Lv. 91 The Success of Others
 - [X] Lv. 91 For All Turali
-- [ ] Lv. 92 A Leaking Workpot
-- [ ] Lv. 92 Lending a Helphand
-- [ ] Lv. 92 The Feat of Pots
-- [ ] Lv. 92 A Father First
-- [ ] Lv. 92 The Shape of Peace
-- [ ] Lv. 92 Lost Promise
-- [ ] Lv. 92 A Brother's Duty
-- [ ] Lv. 92 Feeding the River
-- [ ] Lv. 92 Sibling Rescue
-- [ ] Lv. 93 History's Keepers
-- [ ] Lv. 93 The Feat of Proof
+- [X] Lv. 92 A Leaking Workpot
+- [X] Lv. 92 Lending a Helphand
+- [X] Lv. 92 The Feat of Pots
+- [X] Lv. 92 A Father First
+- [X] Lv. 92 The Shape of Peace
+- [X] Lv. 92 Lost Promise * Probably going to have issues with talking to NPC that move.
+- [X] Lv. 92 A Brother's Duty
+- [X] Lv. 92 Feeding the River
+- [X] Lv. 92 Sibling Rescue
+- [X] Lv. 93 History's Keepers
+- [X] Lv. 93 The Feat of Proof
 - [ ] Lv. 93 The High Luminary
 - [ ] Lv. 93 An Echo of Madness
 - [ ] Lv. 93 Pointing the Way
