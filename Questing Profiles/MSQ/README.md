@@ -15,125 +15,119 @@ Using OrderBot, run the `[OrderBot] 5.3-5.58 Shadowbringers.xml` script in this 
 
 ## 6.0 Endwalker (WIP)
 
-![6.0 Endwalker Progress][300]
-
 Using OrderBot, run the `[OrderBot] 6.0 Endwalker.xml` script in this folder.
 
-Scripting Endwalker is still a work in progress -- see below for current status. Do not expect it to fully complete the MSQ yet, and even "finished" quests may not behave correctly.  Please report bugs on Discord, per the [main README][301].
+## 7.0 Dawntrail (WIP)
+
+![7.0 Dawntrail Progress][300]
+
+Scripting Dawntrail is still a work in progress -- see below for current status. Do not expect it to fully complete the MSQ yet, and even "finished" quests may not behave correctly.  Please report bugs on Discord, per the [main README][301].
 
 <!--
 To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/106/?scale=106&title=6.0%20Endwalker&suffix=/106%20Quests&width=256 "6.0 Endwalker Progress"
+[300]: https://progress-bar.dev/0/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
-- [x] Lv. 80 The Next Ship to Sail
-- [x] Lv. 80 Old Sharlayan, New to You
-- [x] Lv. 80 Hitting the Books
-- [x] Lv. 80 A Seat at the Last Stand
-- [x] Lv. 80 A Labyrinthine Descent
-- [x] Lv. 80 Glorified Ratcatcher
-- [x] Lv. 80 Deeper into the Maze
-- [x] Lv. 80 The Medial Circuit
-- [x] Lv. 80 The Full Report, Warts and All
-- [x] Lv. 80 A Guide of Sorts
-- [x] Lv. 80 Estate Visitor
-- [x] Lv. 80 For Thavnair Bound
-- [x] Lv. 80 On Low Tide
-- [x] Lv. 80 A Fisherman's Friend
-- [x] Lv. 80 House of Divinities
-- [x] Lv. 80 The Great Work
-- [x] Lv. 80 Shadowed Footsteps
-- [x] Lv. 80 A Boy's Errand
-- [x] Lv. 80 Tipping the Scale
-- [x] Lv. 80 The Satrap of Radz-at-Han
-- [x] Lv. 81 In the Dark of the Tower
-- [x] Lv. 81 The Jewel of Thavnair
-- [x] Lv. 81 The Color of Joy
-- [x] Lv. 82 Sound the Bell, School's In
-- [x] Lv. 82 A Capital Idea
-- [x] Lv. 82 Best of the Best
-- [x] Lv. 82 A Frosty Reception
-- [x] Lv. 82 Tracks in the Snow
-- [x] Lv. 82 How the Mighty Are Fallen
-- [x] Lv. 82 At the End of the Trail
-- [x] Lv. 82 A Way Forward
-- [x] Lv. 82 The Last Bastion
-- [x] Lv. 82 Personae non Gratae
-- [x] Lv. 83 His Park Materials
-- [x] Lv. 83 No Good Deed
-- [x] Lv. 83 Alea Iacta Est
-- [x] Lv. 83 Strange Bedfellows
-- [x] Lv. 83 In from the Cold
-- [x] Lv. 83 Gateway of the Gods
-- [x] Lv. 83 A Trip to the Moon
-- [x] Lv. 83 Sea of Sorrow
-- [x] Lv. 83 The Martyr
-- [x] Lv. 84 In Shadow's Wake
-- [x] Lv. 84 Helping Hands
-- [x] Lv. 84 A Harey Situation
-- [x] Lv. 84 A Taste of the Moon
-- [x] Lv. 84 Styled a Hero
-- [x] Lv. 84 All's Vale That Endsvale
-- [x] Lv. 84 Back to Old Tricks
-- [x] Lv. 84 Setting Things Straight
-- [x] Lv. 84 Heart of the Matter
-- [x] Lv. 84 Returning Home
-- [x] Lv. 85 Skies Aflame
-- [x] Lv. 85 The Blasphemy Unmasked
-- [x] Lv. 85 Amidst the Apocalypse
-- [x] Lv. 85 Beyond the Depths of Despair
-- [x] Lv. 85 That We Might Live
-- [x] Lv. 85 When All Hope Seems Lost
-- [x] Lv. 85 Warm Hearts, Rekindled Hopes
-- [x] Lv. 85 Simple Pleasures
-- [x] Lv. 85 Under His Wing
-- [x] Lv. 85 At World's End
-- [X] Lv. 86 Return to the Crystarium
-- [X] Lv. 86 Hope Upon a Flower
-- [X] Lv. 86 Petalouda Hunt
-- [X] Lv. 86 In Search of Hermes
-- [X] Lv. 86 Ponder, Warrant, Cherish, Welcome
-- [X] Lv. 86 Lives Apart
-- [X] Lv. 86 Their Greatest Contribution
-- [X] Lv. 86 Aether to Aether
-- [X] Lv. 86 A Sentimental Gift
-- [X] Lv. 86 Verdict and Execution
-- [X] Lv. 87 Travelers at the Crossroads
-- [X] Lv. 87 A Past, Not Yet Come to Pass
-- [X] Lv. 87 Witness to the Spectacle
-- [X] Lv. 87 Worthy of His Back
-- [X] Lv. 87 A Flower upon Your Return
-- [X] Lv. 87 Hunger in the Garden
-- [X] Lv. 87 Words without Sound
-- [X] Lv. 87 Follow, Wander, Stumble, Listen
-- [X] Lv. 87 Caging the Messenger
-- [X] Lv. 87 Thou Must Live, Die, and Know
-- [X] Lv. 88 As the Heavens Burn
-- [X] Lv. 88 Outside Help
-- [X] Lv. 88 Going Underground
-- [X] Lv. 88 No Job Too Small
-- [X] Lv. 88 Wise Guides
-- [X] Lv. 88 Agriculture Shock
-- [X] Lv. 88 Sage Council
-- [X] Lv. 88 Hither and Yarns
-- [X] Lv. 88 Once Forged
-- [X] Lv. 88 Bonds of Adamant(ite)
-- [X] Lv. 89 Her Children, One and All
-- [X] Lv. 89 A Bold Decision
-- [X] Lv. 89 Friends Gathered
-- [X] Lv. 89 Unto the Heavens
-- [X] Lv. 89 A §trαnge New World
-- [X] Lv. 89 On Burdεned ωings
-- [X] Lv. 89 Α Test of Wιll
-- [X] Lv. 89 Roads Pαved││Sacri┣ice
-- [X] Lv. 89 F//εsh AbanΔon┨Δ
-- [X] Lv. 89 Where Kn∞wledge Leads
-- [X] Lv. 90 Vic┨οry  ̈ ̈ ̈╳, │̆││ε Lost
-- [X] Lv. 90 ┣┨̈//̈ No┨ΦounΔ•••
-- [X] Lv. 90 Hello, World
-- [X] Lv. 90 Forge Ahead
-- [X] Lv. 90 You're Not Alone
-- [X] Lv. 90 Endwalker
+- [ ] Lv. 90 A New World to Explore	
+- [ ] Lv. 90 The Nation of Tuliyollal
+- [ ] Lv. 90 A City of Stairs
+- [ ] Lv. 90 A Saga in Stone
+- [ ] Lv. 90 The Rite of Succession
+- [ ] Lv. 90 To Kozama'uka
+- [ ] Lv. 90 A Festive People
+- [ ] Lv. 90 The Feat of Reeds
+- [ ] Lv. 90 A Well-mannered Shipwright
+- [ ] Lv. 90 The Lifting of Wings
+- [ ] Lv. 90 Knowing the Hanuhanu
+- [ ] Lv. 90 To Urqopacha
+- [ ] Lv. 90 Traders of Happiness
+- [ ] Lv. 90 The Feat of Gold
+- [ ] Lv. 90 Mablu's Dream
+- [ ] Lv. 90 A Premium Deal
+- [ ] Lv. 90 Wuk Lamat in the Saddle
+- [ ] Lv. 90 Knowing the Pelupelu
+- [ ] Lv. 91 The Success of Others
+- [ ] Lv. 91 For All Turali
+- [ ] Lv. 92 A Leaking Workpot
+- [ ] Lv. 92 Lending a Helphand
+- [ ] Lv. 92 The Feat of Pots
+- [ ] Lv. 92 A Father First
+- [ ] Lv. 92 The Shape of Peace
+- [ ] Lv. 92 Lost Promise
+- [ ] Lv. 92 A Brother's Duty
+- [ ] Lv. 92 Feeding the River
+- [ ] Lv. 92 Sibling Rescue
+- [ ] Lv. 93 History's Keepers
+- [ ] Lv. 93 The Feat of Proof
+- [ ] Lv. 93 The High Luminary
+- [ ] Lv. 93 An Echo of Madness
+- [ ] Lv. 93 Pointing the Way
+- [ ] Lv. 93 The Skyruin
+- [ ] Lv. 93 The Feat of Ice
+- [ ] Lv. 93 The Promise of Peace
+- [ ] Lv. 94 The Leap to Yak T'el
+- [ ] Lv. 94 Village of the Hunt
+- [ ] Lv. 94 A History of Violence
+- [ ] Lv. 94 The Feat of Repast
+- [ ] Lv. 94 A Father's Grief
+- [ ] Lv. 94 Taking a Stand
+- [ ] Lv. 94 Into the Traverse
+- [ ] Lv. 94 City of Silence
+- [ ] Lv. 94 Blessed Siblings
+- [ ] Lv. 94 Scale of Trust
+- [ ] Lv. 95 Mamook Speaks
+- [ ] Lv. 95 The Feat of the Brotherhood
+- [ ] Lv. 95 Road to the Golden City
+- [ ] Lv. 95 Dawn of a New Tomorrow
+- [ ] Lv. 95 Ever Greater, Ever Brighter
+- [ ] Lv. 95 The Long Road to Xak Tural
+- [ ] Lv. 95 Saddled Up
+- [ ] Lv. 95 Braced for Trouble
+- [ ] Lv. 95 Blowing Smoke
+- [ ] Lv. 95 Law of the Land
+- [ ] Lv. 95 On Track
+- [ ] Lv. 96 One with Nature
+- [ ] Lv. 96 And the Land Would Tremble
+- [ ] Lv. 96 No Time for Tears
+- [ ] Lv. 96 Pick up the Pieces
+- [ ] Lv. 96 Together as One
+- [ ] Lv. 96 In Yyasulani's Shadow
+- [ ] Lv. 96 Putting Plans into Locomotion
+- [ ] Lv. 96 A Hot Commodity
+- [ ] Lv. 97 All Aboard
+- [ ] Lv. 97 The Land of Levin
+- [ ] Lv. 97 A Royal Welcome
+- [ ] Lv. 97 A Day in the Life
+- [ ] Lv. 97 On the Cloud
+- [ ] Lv. 97 Gone and Forgotten
+- [ ] Lv. 97 Embracing Oblivion
+- [ ] Lv. 97 Solution Nine
+- [ ] Lv. 97 The Queen's Tour
+- [ ] Lv. 98 Her People, Her Family
+- [ ] Lv. 98 Scales of Blue
+- [ ] Lv. 98 Gives You Teeth
+- [ ] Lv. 98 Little Footfalls
+- [ ] Lv. 98 Drowned Vestiges
+- [ ] Lv. 98 Memories of a Knight
+- [ ] Lv. 98 At a Crossroads
+- [ ] Lv. 98 The Protector and the Destroyer
+- [ ] Lv. 99 A Comforting Hand
+- [ ] Lv. 99 Unto the Summit
+- [ ] Lv. 99 The Resilient Son
+- [ ] Lv. 99 A New Family
+- [ ] Lv. 99 In Pursuit of Sphene
+- [ ] Lv. 99 Through the Gate of Gold
+- [ ] Lv. 99 Those Who Live Forever
+- [ ] Lv. 99 In Serenity and Sorrow
+- [ ] Lv. 99 The Land of Dreams
+- [ ] Lv. 99 A Knight of Alexandria
+- [ ] Lv. 100 The Sanctuary of the Strong
+- [ ] Lv. 100 The Taste of Family
+- [ ] Lv. 100 Leafing through the Past
+- [ ] Lv. 100 An Explorer's Delight
+- [ ] Lv. 100 In Search of Discovery
+- [ ] Lv. 100 A Journey Never-ending
+- [ ] Lv. 100 Dawntrail

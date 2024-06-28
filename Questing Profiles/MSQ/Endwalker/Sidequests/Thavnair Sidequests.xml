@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Thavnair Sidequests
+  Authors: DomesticWarlord86, Manta
+-->
+<Profile>
+  <Name>Thavnair Sidequests</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+  
+    <!-- Lisbeth check -->
+	<If condition="not LisbethPresent">
+	  <LLToast message="This profile requires the BotBase Lisbeth to run."/>
+	  <LLToast message="Please make sure Lisbeth is installed correctly before proceeding."/>
+	  <StopBot/>
+	</If>
+	<If condition="LisbethPresent">
+	  <Log Message="Lisbeth found. Starting profile..." />
+	</If>
+
+	<!-- and GetQuestById(66098).QuestI8A == 0-->
+	<!-- Profile start here -->	
+
+	<!-- Yedlihmad -->
+	<If Condition="IsQuestCompleted(69909)">	
+    <!--  Tikka Hike -->
+    <If Condition="not HasQuest(69734) and not IsQuestCompleted(69734)">
+      <LisbethTravel Zone="957" Subzone="3880" Position="148.6031, 5.206059, 610.2223"/> <!-- Area="Thavnair (West)" -->
+      <If Condition="IsQuestAcceptQualified(69734)">
+        <LLPickupQuest QuestId="69734" NpcId="1039375"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69734) == 1">
+      <LisbethTravel Zone="957" Subzone="3879" Position="-13.75131, 35.71573, 392.6241"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1039376" XYZ="-15.64056, 35.74207, 392.2026" QuestId="69734" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69734) == 2">
+      <LisbethTravel Zone="957" Subzone="3879" Position="-14.98355, 35.48554, 394.6485"/> <!-- Area="Thavnair (West)" -->
+      <UseObject NpcId="2011900" XYZ="-17.13599, 35.62976, 394.3998" QuestId="69734" StepId="2"/>
+			<WaitWhile condition="GetQuestStep(69734) == 2"/>
+    </If>	
+    <If Condition="GetQuestStep(69734) == 3">
+      <LisbethTravel Zone="957" Subzone="3879" Position="-14.98355, 35.48554, 394.6485"/> <!-- Area="Thavnair (West)" -->
+      <LLHandOver ItemId="2003178" NpcId="1039376" XYZ="-15.64056, 35.74207, 392.2026" QuestId="69734" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(69734) == 255">
+      <LisbethTravel Zone="957" Subzone="3880" Position="149.4363, 5.232457, 609.2457"/> <!-- Area="Thavnair (West)" -->
+      <LLTurnIn QuestId="69734" NpcId="1039377" XYZ="147.6005, 5.186336, 610.6202"/>
+      <LLSmallTalk/>
+    </If>		
+		
+    <!--  Fruit Savior -->
+    <If Condition="not HasQuest(69732) and not IsQuestCompleted(69732)">
+      <LisbethTravel Zone="957" Subzone="3880" Position="190.4085, 0.941432, 702.7067"/> <!-- Area="Thavnair (West)" -->
+      <If Condition="IsQuestAcceptQualified(69732)">
+        <LLPickupQuest QuestId="69732" NpcId="1037622"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69732) == 1">
+      <MoveTo XYZ="234.2905, 9.91647, 614.3591"/> <!-- Zone: "957" Subzone="3880" Area="Thavnair (West)" -->
+      <UseObject NpcId="2011979" XYZ="236.1333, 10.66602, 613.2753" QuestId="69732" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69732) == 255">
+      <LisbethTravel Zone="957" Subzone="3880" Position="190.2328, 0.7874489, 702.1366"/> <!-- Area="Thavnair (West)" -->
+      <LLTurnIn QuestId="69732" NpcId="1037622" XYZ="187.9148, 0.2644781, 700.1296"/>
+      <LLSmallTalk/>
+    </If>	
+
+    <!--  Steppe Child -->
+    <If Condition="not HasQuest(70025) and not IsQuestCompleted(70025)">
+      <LisbethTravel Zone="957" Subzone="3880" Position="201.8331, 1.769939, 725.705"/> <!-- Area="Thavnair (West)" -->
+      <If Condition="IsQuestAcceptQualified(70025)">
+        <LLPickupQuest QuestId="70025" NpcId="1041331"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70025) == 1">
+      <LisbethTravel Zone="957" Subzone="3880" Position="191.521, 14.11859, 492.4968"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041333" XYZ="190.6919, 14.11859, 489.4635" QuestId="70025" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(70025) == 2">
+      <LisbethTravel Zone="957" Subzone="3879" Position="125.4784, 16.49497, 539.5084"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041334" XYZ="123.125, 16.52279, 537.8042" QuestId="70025" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(70025) == 3">
+      <LisbethTravel Zone="957" Subzone="3879" Position="166.538, 41.49747, 410.0825"/> <!-- Area="Thavnair (West)" -->
+			<WaitWhile condition="GetQuestStep(70025) == 3"/>
+    </If>
+    <If Condition="GetQuestStep(70025) == 4">
+      <LisbethTravel Zone="957" Subzone="3879" Position="167.4613, 41.62528, 410.0955"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041338" XYZ="167.1626, 41.61481, 409.5369" QuestId="70025" StepId="4"/>
+    </If>	
+    <If Condition="GetQuestStep(70025) == 5">
+      <LisbethTravel Zone="957" Subzone="3879" Position="126.0098, 17.27524, 535.975"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041334" XYZ="123.125, 16.52279, 537.8042" QuestId="70025" StepId="5"/>
+    </If>	
+    <If Condition="GetQuestStep(70025) == 255">
+      <LisbethTravel Zone="957" Subzone="3880" Position="189.6869, 15.13671, 513.1949"/> <!-- Area="Thavnair (West)" -->
+      <LLTurnIn QuestId="70025" NpcId="1041332" XYZ="194.6898, 14.1186, 485.9845"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!--  The Matanga along the Way -->
+    <If Condition="IsQuestCompleted(70025) and not HasQuest(70026) and not IsQuestCompleted(70026)">
+        <LisbethTravel Zone="957" Subzone="3880" Position="190.3052, 15.13671, 512.429"/> <!-- Area="Thavnair (West)" -->
+      <If Condition="IsQuestAcceptQualified(70026)">
+        <LLPickupQuest QuestId="70026" NpcId="1041332"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70026) == 1">
+      <LisbethTravel Zone="957" Subzone="3879" Position="-130.7528, 1.244637, 613.4392"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041340" XYZ="-124.4374, 1.320735, 613.9467" QuestId="70026" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(70026) == 2">
+      <LisbethTravel Zone="957" Subzone="3879" Position="-124.7194, 1.185344, 618.4181"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041341" XYZ="-122.7589, 1.275796, 616.5408" QuestId="70026" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(70026) == 3 and GetQuestById(70026).QuestI8A == 0">
+			<RunCode name="TurnOffMount"/>
+      <MoveTo XYZ="-124.021, 0.4198661, 640.0505"/> <!-- Zone: "957" Subzone="3879" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041342" XYZ="-123.9491, 0.3411509, 642.8778" QuestId="70026" StepId="3"/>\
+			<RunCode name="TurnOnMount"/>
+    </If>
+    <If Condition="GetQuestStep(70026) == 3 and GetQuestById(70026).QuestI8A == 16">
+			<RunCode name="TurnOffMount"/>
+      <MoveTo XYZ="-160.0107, -0.1000296, 659.0579"/> <!-- Zone: "957" Subzone="3879" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041344" XYZ="-160.296, -0.1000298, 661.86" QuestId="70026" StepId="3"/>
+			<RunCode name="TurnOnMount"/>
+    </If>
+    <If Condition="GetQuestStep(70026) == 3 and GetQuestById(70026).QuestI8A == 32">
+			<RunCode name="TurnOffMount"/>
+      <MoveTo XYZ="-179.2552, 0.1867468, 641.9266"/> <!-- Zone: "957" Subzone="3879" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041343" XYZ="-181.1094, 0.2237328, 640.2533" QuestId="70026" StepId="3"/>
+			<RunCode name="TurnOnMount"/>
+    </If>
+    <If Condition="GetQuestStep(70026) == 4">
+			<RunCode name="TurnOffMount"/>
+      <MoveTo XYZ="-126.5012, 1.237216, 615.9541"/> <!-- Zone: "957" Subzone="3879" Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041340" XYZ="-124.4374, 1.320735, 613.9467" QuestId="70026" StepId="4"/>
+			<RunCode name="TurnOnMount"/>
+    </If>
+    <If Condition="GetQuestStep(70026) == 5">
+      <LisbethTravel Zone="957" Subzone="3879" Position="-110.2422, 33.90484, 394.7283"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041345" XYZ="-112.5659, 34.30294, 392.874" QuestId="70026" StepId="5"/>
+    </If>	
+    <If Condition="GetQuestStep(70026) == 6">
+      <LisbethTravel Zone="957" Subzone="3885" Position="-206.1837, 20.46414, 232.0386"/> <!-- Area="Thavnair (West)" -->
+      <UseObject NpcId="2012325" XYZ="-206.1647, 20.64545, 229.2057" QuestId="70026" StepId="6"/>
+			<WaitWhile condition="GetQuestStep(70026) == 6"/>
+    </If>	
+    <If Condition="GetQuestStep(70026) == 255">
+      <LisbethTravel Zone="957" Subzone="3879" Position="-127.5745, 1.27084, 614.151"/> <!-- Area="Thavnair (West)" -->
+      <LLTurnIn QuestId="70026" NpcId="1041340" XYZ="-124.4374, 1.320735, 613.9467"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!--  Ogul Repays Her Favors -->
+    <If Condition="IsQuestCompleted(70026) and not HasQuest(70027) and not IsQuestCompleted(70027)">
+        <LisbethTravel Zone="957" Subzone="3879" Position="-126.2026, 1.1957, 617.3321"/> <!-- Area="Thavnair (West)" -->
+      <If Condition="IsQuestAcceptQualified(70027)">
+        <LLPickupQuest QuestId="70027" NpcId="1041341"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70027) == 1">
+      <LisbethTravel Zone="957" Subzone="3880" Position="188.9259, 15.13671, 514.5427"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041332" XYZ="194.6898, 14.1186, 485.9845" QuestId="70027" StepId="1"/>
+			<GetTo ZoneId="957" XYZ="191.4381, 15.13671, 513.3464" />
+    </If>
+    <If Condition="GetQuestStep(70027) == 2">
+      <LisbethTravel Zone="957" Subzone="3880" Position="173.3928, 4.763732, 668.3351"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041347" XYZ="171.4045, 4.763732, 670.7103" QuestId="70027" StepId="2"/>
+    </If>		
+    <If Condition="GetQuestStep(70027) == 3">
+      <LisbethTravel Zone="957" Subzone="3880" Position="180.2473, 10.45172, 550.6859"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041348" XYZ="176.8368, 10.17038, 549.0044" QuestId="70027" StepId="3"/>
+    </If>
+    <If Condition="GetQuestStep(70027) == 4 and GetQuestById(70027).QuestI8A == 0">
+      <LisbethTravel Zone="957" Subzone="3880" Position="215.0343, 10.03514, 604.7568"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1037655" XYZ="218.738, 10.08736, 605.249" QuestId="70027" StepId="4"/>
+    </If>	
+    <If Condition="GetQuestStep(70027) == 4 and GetQuestById(70027).QuestI8A == 17">
+      <LisbethTravel Zone="957" Subzone="3880" Position="208.8049, 4.598973, 669.9804"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1037656" XYZ="208.1482, 4.598973, 672.0835" QuestId="70027" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(70027) == 4 and GetQuestById(70027).QuestI8A == 33">
+      <LisbethTravel Zone="957" Subzone="3880" Position="160.9248, 1.82941, 706.9642"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1037708" XYZ="160.8453, 1.82941, 710.6888" QuestId="70027" StepId="4"/>
+    </If>
+    <If Condition="GetQuestStep(70027) == 255">
+      <LisbethTravel Zone="957" Subzone="3880" Position="190.6937, 15.13671, 511.9879"/> <!-- Area="Thavnair (West)" -->
+      <LLTurnIn QuestId="70027" NpcId="1041389" XYZ="192.7977, 14.11859, 487.6936"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!--  The Yedlihmad Hunt -->
+    <If Condition="IsQuestCompleted(70027) and not HasQuest(70028) and not IsQuestCompleted(70028)">
+        <LisbethTravel Zone="957" Subzone="3880" Position="190.8987, 15.13671, 511.0772"/> <!-- Area="Thavnair (West)" -->
+      <If Condition="IsQuestAcceptQualified(70028)">
+        <LLPickupQuest QuestId="70028" NpcId="1041389"/>
+        <LLSmallTalk/>
+				<GetTo ZoneId="957" XYZ="190.8978, 15.13671, 511.2333" />
+      </If>
+    </If>
+    <If Condition="GetQuestStep(70028) == 1">
+      <LisbethTravel Zone="957" Subzone="3880" Position="214.5149, 10.06184, 593.9619"/> <!-- Area="Thavnair (West)" -->
+      <UseObject NpcId="2012451" XYZ="215.5337, 9.903015, 597.4059" QuestId="70028" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(70028) == 2">
+			<RunCode name="TurnOffMount"/>
+			<WaitTimer WaitTime="5"/>
+      <GetTo ZoneId="957" XYZ="199.3368, 10.35582, 566.986" />
+			<WaitTimer WaitTime="20"/>
+			<GetTo ZoneId="957" XYZ="138.9842, 10.64935, 563.0919" />
+			<WaitTimer WaitTime="11"/>
+			<GetTo ZoneId="957" XYZ="155.0123, 23.6829, 484.0479" />
+			<LLSmallTalk/>
+			<RunCode name="TurnOnMount"/>
+    </If>
+    <If Condition="GetQuestStep(70028) == 3">
+      <LisbethTravel Zone="957" Subzone="3879" Position="-28.98563, 30.22374, 461.125"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1041394" XYZ="-30.28925, 29.86739, 458.152" QuestId="70028" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(70028) == 255">
+      <LisbethTravel Zone="957" Subzone="3880" Position="191.3036, 15.13671, 511.6696"/> <!-- Area="Thavnair (West)" -->
+      <LLTurnIn QuestId="70028" NpcId="1041332" XYZ="194.6898, 14.1186, 485.9845"/>
+      <LLSmallTalk/>
+    </If>		
+	
+    <!--  Shelling Out -->
+    <If Condition="not HasQuest(69733) and not IsQuestCompleted(69733)">
+        <LisbethTravel Zone="957" Subzone="3880" Position="176.6422, 1.874219, 797.7274"/> <!-- Area="Thavnair (West)" -->
+      <If Condition="IsQuestAcceptQualified(69733)">
+        <LLPickupQuest QuestId="69733" NpcId="1037625"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69733) == 1">
+      <LisbethTravel ZoneId="957" XYZ="-7.210649, 1.555743, 635.5352" />
+			<Grind GrindRef="Shelling Out" While="GetQuestStep(69733) == 1"/>		
+    </If>
+    <If Condition="GetQuestStep(69733) == 255">
+      <LisbethTravel Zone="957" Subzone="3880" Position="176.1307, 1.874219, 796.199"/> <!-- Area="Thavnair (West)" -->
+      <LLTurnIn ItemId="2003177" QuestId="69733" NpcId="1037625" XYZ="176.4706, 1.874218, 799.2217"/>
+      <LLSmallTalk/>
+    </If>		
+	</If>
+	
+	<!-- The Great Work -->
+	<If Condition="IsQuestCompleted(69909)">
+		<If condition="not IsOnMap(957)">
+			<TeleportTo AetheryteId="170"/>
+		</If>
+		
+    <!--  High Importance, Low Urgency -->
+    <If Condition="not IsQuestCompleted(69737)">
+      <If Condition="not HasQuest(69737)">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-553.779, 11.40261, 121.0503" /> <!-- Area="" -->
+        <If Condition="IsQuestAcceptQualified(69737)">
+          <LLPickupQuest QuestId="69737" NpcId="1039516" />
+          <LLSmallTalk />
+        </If>
+      </If>
+			<If Condition="GetQuestStep(69737) == 1 and GetQuestById(69737).QuestI8A == 0">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-504.4479, 12.37528, 115.5781" /> <!-- Area="" -->
+        <!-- <LLEmoteNpc Emote="greet" NpcId="1037676" XYZ="-502.9526, 12.37528, 116.3195" QuestId="69737" StepId="3" /> -->
+        <RunCode name="GreetEmote"/>
+				<WaitWhile condition="GetQuestById(69737).QuestI8A == 0"/>					
+			</If> 
+			<If Condition="GetQuestStep(69737) == 1 and GetQuestById(69737).QuestI8A == 16">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-548.7992, 1.60232, 50.65025" />
+        <!-- <LLEmoteNpc Emote="greet" NpcId="1037680" XYZ="-550.1946, 1.60232, 50.76672" QuestId="69737" StepId="3" />	-->
+        <RunCode name="GreetEmote"/>
+				<WaitWhile condition="GetQuestById(69737).QuestI8A == 16"/>			
+			</If>			
+			<If Condition="GetQuestStep(69737) == 1 and GetQuestById(69737).QuestI8A == 32">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-508.2682, -3.433228E-05, -18.99338" />
+        <!-- <LLEmoteNpc Emote="greet" NpcId="1037670" XYZ="-508.8426, -3.710991E-05, -20.76758" QuestId="69737" StepId="3" />	-->
+				<RunCode name="GreetEmote"/>
+				<WaitWhile condition="GetQuestById(69737).QuestI8A == 32"/>	
+			</If> 
+      <If Condition="GetQuestStep(69737) == 255">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-554.4083, 11.40261, 121.5447" /> <!-- Area="" -->
+        <LLTurnIn QuestId="69737" NpcId="1039516" XYZ="-554.8943, 11.40261, 125.1086" />
+        <LLSmallTalk />
+      </If>
+    </If>
+		
+    <!--  The Great Heist -->
+    <If Condition="not IsQuestCompleted(69735)">
+      <If Condition="not HasQuest(69735)">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-561.8284, 11.80261, 123.7523" /> <!-- Area="" -->
+        <If Condition="IsQuestAcceptQualified(69735)">
+          <LLPickupQuest QuestId="69735" NpcId="1037682" />
+          <LLSmallTalk />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69735) == 1">
+        <LisbethTravel Zone="957" Subzone="3879" Position="-102.5917, 2.801154, 595.7351" /> <!-- Area="" -->
+        <LLTalkTo NpcId="1039378" XYZ="-103.2578, 2.571234, 597.589" QuestId="69735" StepId="1" />
+        <WaitWhile Condition="GetQuestStep(69735) != 2" />
+      </If>
+			<If Condition="GetQuestStep(69735) == 2">
+				<LisbethTravel Zone="957" Subzone="3879" Position="-102.7473, 2.736613, 596.2709"/> <!-- Area="Thavnair (West)" -->
+				<UseObject NpcId="2011933" XYZ="-102.6169, 3.005981, 598.9319" QuestId="69735" StepId="2"/>
+			</If>
+			<If Condition="GetQuestStep(69735) == 255">
+					<LisbethTravel Zone="957" Subzone="3886" Position="-560.9436, 11.80261, 122.7091"/> <!-- Area="Thavnair (West)" -->
+				<LLTurnIn ItemId="2003188" QuestId="69735" NpcId="1037682" XYZ="-564.1108, 11.80261, 124.2847"/>
+				<LLSmallTalk/>
+			</If>
+    </If>
+		
+    <!--  Paint, Perfume, and Pecs -->
+    <If Condition="not IsQuestCompleted(69738)">
+      <If Condition="not HasQuest(69738)">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-479.1861, 39.34004, 96.70508" /> <!-- Area="" -->
+        <If Condition="IsQuestAcceptQualified(69738)">
+          <LLPickupQuest QuestId="69738" NpcId="1039379" />
+          <LLSmallTalk />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69738) == 1">
+        <LisbethTravel Zone="957" Subzone="3885" Position="-387.7333, 21.85166, 205.2708" /> <!-- Area="" -->
+        <LLTalkTo NpcId="1039380" XYZ="-386.862, 21.83286, 206.775" QuestId="69738" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(69738) == 2">
+        <LisbethTravel Zone="957" Subzone="3885" Position="-387.5407, 21.84213, 205.8098" /> <!-- Area="" -->
+        <UseObject NpcId="1039380" XYZ="-386.862, 21.83286, 206.775" QuestId="69738" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(69738) == 3">
+        <LisbethTravel Zone="957" Subzone="3885" Position="-388.688, 21.74483, 209.1651" /> <!-- Area="" -->
+        <UseObject NpcId="2011911" XYZ="-387.2892, 21.74402, 208.8806" QuestId="69738" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(69738) == 4">
+        <LisbethTravel Zone="957" Subzone="3885" Position="-388.688, 21.74483, 209.1651" /> <!-- Area="" -->
+        <LLHandOver ItemId="2003194" NpcId="1039380" XYZ="-386.862, 21.83286, 206.775" QuestId="69738" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(69738) == 255">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-479.1568, 39.33834, 96.50095" /> <!-- Area="" -->
+        <LLTurnIn QuestId="69738" NpcId="1039379" XYZ="-478.3246, 39.63675, 95.47571" />
+        <LLSmallTalk />
+      </If>
+    </If>
+		
+    <!--  A Nose for Trouble -->
+    <If Condition="not IsQuestCompleted(69740)">
+      <If Condition="not HasQuest(69740)">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-495.3438, 4.97422, 60.8912" /> <!-- Area="" -->
+        <If Condition="IsQuestAcceptQualified(69740)">
+          <LLPickupQuest QuestId="69740" NpcId="1039365" />
+          <LLSmallTalk />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69740) == 1">
+        <LisbethTravel Zone="957" Subzone="3885" Position="-382.8237, 14.95331, 61.89846" /> <!-- Area="" -->
+        <LLTalkTo NpcId="1039366" XYZ="-385.2446, 15.09576, 62.974" QuestId="69740" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(69740) == 2">
+        <LisbethTravel Zone="957" Subzone="3885" Position="-160.5925, 32.90128, 208.1469" /> <!-- Area="" -->
+        <LLTalkTo NpcId="1039367" XYZ="-161.8525, 32.73273, 210.7423" QuestId="69740" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(69740) == 3">
+        <LisbethTravel Zone="957" Subzone="3885" Position="-173.1613, 31.48317, 198.3309" /> <!-- Area="" -->
+        <UseObject NpcIds="2011903,2011904,2011902" XYZ="-173.1613, 31.48317, 198.3309" QuestId="69740" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(69740) == 4">
+        <LisbethTravel Zone="957" Subzone="3885" Position="-163.6145, 32.51263, 212.9023" /> <!-- Area="" -->
+        <LLTalkTo NpcId="1039367" XYZ="-161.8525, 32.73273, 210.7423" QuestId="69740" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(69740) == 255">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-493.2419, 5.203309, 61.56188" /> <!-- Area="" -->
+        <LLTurnIn QuestId="69740" NpcId="1039365" XYZ="-490.3792, 5.667216, 63.55383" />
+        <LLSmallTalk />
+      </If>
+    </If>
+		
+    <!--  Wish Upon a Crystal -->
+    <If Condition="not IsQuestCompleted(69736)">
+      <If Condition="not HasQuest(69736)">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-553.5522, 1.120665, 24.15071" /> <!-- Area="" -->
+        <If Condition="IsQuestAcceptQualified(69736)">
+          <LLPickupQuest QuestId="69736" NpcId="1037671" />
+          <LLSmallTalk />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69736) == 1">
+        <LisbethTravel Zone="957" Subzone="3880" Position="222.4839, 10.21173, 564.1449" /> <!-- Area="" -->
+        <LLHandOver DialogOption="0" ItemId="2003189" NpcId="1039384" XYZ="223.2242, 10.21112, 562.4321" QuestId="69736" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(69736) == 255">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-552.4713, 1.120665, 24.3883" /> <!-- Area="" -->
+        <LLTurnIn ItemId="2003190" QuestId="69736" NpcId="1037671" XYZ="-554.3755, 1.120665, 22.69012" />
+      </If>
+    </If>
+		
+    <!--  Alchemist or Dancer (Aether Current) -->
+    <If Condition="not IsQuestCompleted(69739)">
+      <If Condition="not HasQuest(69739)">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-510.1086, -3.935147E-05, -18.44796" /> <!-- Area="" -->
+        <If Condition="IsQuestAcceptQualified(69739)">
+          <LLPickupQuest QuestId="69739" NpcId="1037670" />
+          <LLSmallTalk />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69739) == 1">
+        <LisbethTravel Zone="957" Subzone="3887" Position="17.87984, 90.24879, -134.6453" /> <!-- Area="" -->
+        <LLTalkTo NpcId="1039382" XYZ="17.07483, 90.24879, -133.3486" QuestId="69739" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(69739) == 2 and GetQuestById(69739).QuestI8A == 0">	
+				<LisbethTravel Zone="957" Subzone="3887" Position="64.26604, 94.60124, -130.9011"/> <!-- Area="Thavnair (West)" -->
+				<UseObject NpcId="2011912" XYZ="65.29333, 96.29968, -130.2358" UseTimes="1"/>
+			</If>
+			<If Condition="GetQuestStep(69739) == 2 and GetQuestById(69739).QuestI8A == 16">
+				<LisbethTravel Zone="957" Subzone="3887" Position="78.54785, 93.69992, -155.3696"/> <!-- Area="Thavnair (West)" -->
+				<UseObject NpcId="2011913" XYZ="79.51477, 93.0647, -157.0917" UseTimes="1"/>
+			</If>
+    <If Condition="GetQuestStep(69739) == 2 and GetQuestById(69739).QuestI8A == 33">
+      <LisbethTravel Zone="957" Subzone="3887" Position="60.86591, 94.60124, -159.5955"/> <!-- Area="Thavnair (West)" -->
+			<RunCode name="Alchemist_or_Dancer"/>
+			<WaitWhile condition="GetQuestStep(69739) == 2"/>
+    </If>			
+      <If Condition="GetQuestStep(69739) == 3">
+        <LisbethTravel Zone="957" Subzone="3887" Position="53.09776, 94.60124, -155.6801" /> <!-- Area="" -->
+        <LLTalkTo NpcId="1039382" XYZ="17.07483, 90.24879, -133.3486" QuestId="69739" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(69739) == 255">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-503.3315, -1.955032E-05, -18.40355" /> <!-- Area="" -->
+        <LLTurnIn QuestId="69739" NpcId="1037670" XYZ="-508.8426, -3.710991E-05, -20.76758" />
+        <LLSmallTalk />
+      </If>
+    </If>
+		
+    <!--  Missing Alchemist -->
+    <If Condition="not IsQuestCompleted(69741)">
+      <If Condition="not HasQuest(69741)">
+        <LisbethTravel Zone="957" Subzone="3885" Position="-411.2014, 11.06173, 35.66256" /> <!-- Area="" -->
+        <If Condition="IsQuestAcceptQualified(69741)">
+          <LLPickupQuest QuestId="69741" NpcId="1039371" />
+          <LLSmallTalk />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(69741) == 1">
+        <LisbethTravel Zone="957" Subzone="3880" Position="198.2959, 4.763732, 650.987" /> <!-- Area="" -->
+        <LLTalkTo NpcId="1039372" XYZ="195.9105, 4.763732, 658.2893" QuestId="69741" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(69741) == 2">
+        <LisbethTravel Zone="957" Subzone="3884" Position="-315.1619, 0.823529, 559.6489" /> <!-- Area="" -->
+        <LLTalkTo NpcId="1039373" XYZ="-314.6258, 0.7063265, 561.12" QuestId="69741" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(69741) == 3 and GetQuestById(69741).QuestI8A == 0">
+        <LisbethTravel Zone="957" Subzone="3879" Position="-487.9989, -0.6, 795.6929" /> <!-- Area="" -->
+				<While condition="GetQuestById(69741).QuestI8A &lt; 33">
+					<RunCode name="Missing Alchemist"/>
+				</While>				
+			</If>
+			<If Condition="GetQuestStep(69741) == 3 and GetQuestById(69741).QuestI8A &gt; 32">
+				<LisbethTravel Zone="957" Subzone="3879" Position="-487.9989, -0.6, 795.6929" /> <!-- Area="" -->
+				<RunCode name="Dive"/>
+				<While condition="GetQuestStep(69741) == 3">
+					<RunCode name="Missing Alchemist"/>
+				</While>
+				<WaitWhile condition="GetQuestStep(69741) != 255"/>
+				<If condition="GetQuestStep(69741) == 255">
+					<TeleportTo AetheryteId="170" Force="True"/>
+				</If>	
+      </If>
+      <If Condition="GetQuestStep(69741) == 255">
+        <LisbethTravel Zone="957" Subzone="3885" Position="-434.7931, 8.070304, 27.73847" /> <!-- Area="" -->
+        <LLTurnIn ItemIds="2003183,2003184" QuestId="69741" NpcId="1039371" XYZ="-409.9337, 10.75121, 33.03577" />
+        <LLSmallTalk />
+      </If>
+    </If>
+	</If>
+	
+	
+	<If Condition="not IsQuestCompleted(69910)">
+		<LLToast message="Please complete the MSQ 'A Boys Errand' for more SideQuests."/>
+	</If>
+	<If Condition="IsQuestCompleted(69910)">
+	
+    <!--  Hamsa Retrieval -->
+    <If Condition="not HasQuest(69742) and not IsQuestCompleted(69742)">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-467.2928, 6.308228, 4.273296"/> <!-- Area="Thavnair (West)" -->
+      <If Condition="IsQuestAcceptQualified(69742)">
+        <LLPickupQuest QuestId="69742" NpcId="1037685"/>
+        <LLSmallTalk/>
+      </If>
+    </If>	
+    <If Condition="GetQuestStep(69742) == 1">
+      <LisbethTravel Zone="957" Subzone="3885" Position="-567.45, 41.04185, -450.7383"/> <!-- Area="Thavnair (West)" -->
+			<WaitWhile condition="GetQuestStep(69742) == 1"/>
+    </If>
+    <If Condition="GetQuestStep(69742) == 2">
+        <LisbethTravel Zone="957" Subzone="3885" Position="-566.5012, 41.19473, -450.1306"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1039383" XYZ="-567.6509, 41.31327, -448.4169" QuestId="69742" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69742) == 255">
+      <LisbethTravel Zone="957" Subzone="3886" Position="-471.4855, 6.115161, 4.840503"/> <!-- Area="Thavnair (West)" -->
+      <LLTurnIn ItemId="2003191" QuestId="69742" NpcId="1037685" XYZ="-468.864, 6.291257, 3.463745"/>
+      <LLSmallTalk/>
+    </If>
+
+    <!--  Finding Your Voice -->
+    <If Condition="not HasQuest(67820) and not IsQuestCompleted(67820)">
+      <LisbethTravel Zone="957" Subzone="3886" Position="-478.9779, 5.265773, 34.09375"/> <!-- Area="Thavnair (West)" -->
+      <If Condition="IsQuestAcceptQualified(67820)">
+        <LLPickupQuest QuestId="67820" NpcId="1039385"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69743) == 1">
+      <LisbethTravel Zone="957" Subzone="3888" Position="-429.015, 72.61802, -553.103"/> <!-- Area="Thavnair (West)" -->
+      <LLTalkTo NpcId="1039386" XYZ="-431.7846, 72.61802, -555.3826" QuestId="69743" StepId="1"/>
+    </If>	
+    <If Condition="GetQuestStep(69743) == 2">
+      <LisbethTravel Zone="957" Subzone="3888" Position="-467.6853, 72.61803, -530.2961"/> <!-- Area="Thavnair (West)" -->
+      <UseItem ItemId="2003199" NpcIds="2011966,2011967,2011965,2011964,2011963,2011962" XYZ="-467.6853, 72.61803, -530.2961" QuestId="69743" StepId="2"/>
+    </If>
+    <If Condition="GetQuestStep(69743) == 3">
+      <LisbethTravel Zone="957" Subzone="3888" Position="-432.1563, 72.61802, -551.1603"/> <!-- Area="Thavnair (West)" -->
+      <LLHandOver ItemId="2003200" NpcId="1039386" XYZ="-431.7846, 72.61802, -555.3826" QuestId="69743" StepId="3"/>
+    </If>	
+    <If Condition="GetQuestStep(69743) == 255">
+      <LisbethTravel Zone="957" Subzone="3886" Position="-479.3993, 5.029546, 33.53256"/> <!-- Area="Thavnair (West)" -->
+      <LLTurnIn QuestId="69743" NpcId="1039385" XYZ="-480.1252, 5.362214, 37.58289"/>
+      <LLSmallTalk/>
+    </If>	
+
+    <!--  Cutting Edge Solutions -->
+    <If Condition="not HasQuest(69744) and not IsQuestCompleted(69744)">
+        <LisbethTravel Zone="957" Subzone="3886" Position="-515.7566, 11.41851, 85.87968"/> <!-- Area="Thavnair (West)" -->
+      <If Condition="IsQuestAcceptQualified(69744)">
+        <LLPickupQuest QuestId="69744" NpcId="1037673"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="HasQuest(69744) and GetQuestStep(69744) &lt; 2">
+      <LisbethTravel Zone="957" Subzone="3889" Position="-67.39875, 89.43801, -638.7594"/> <!-- Area="Thavnair (West)" -->
+      <LLHandOver ItemId="2003185" NpcId="1039369" XYZ="-66.14789, 89.4264, -635.8892" QuestId="69744" StepId="1"/>
+      <LisbethTravel Zone="957" Subzone="3889" Position="-65.79294, 89.86078, -657.4791"/> <!-- Area="Thavnair (West)" -->
+      <LLHandOver ItemId="2003185" NpcId="1039368" XYZ="-65.07977, 89.86088, -659.8764" QuestId="69744" StepId="1"/>
+      <LisbethTravel Zone="957" Subzone="3889" Position="-105.9771, 95.5194, -699.509"/> <!-- Area="Thavnair (West)" -->
+      <LLHandOver ItemId="2003185" NpcId="1039370" XYZ="-106.2181, 95.53504, -700.4959" QuestId="69744" StepId="1"/>   
+		</If>
+    <If Condition="GetQuestStep(69744) == 255">
+      <LisbethTravel Zone="957" Subzone="3886" Position="-514.3055, 10.57861, 83.3375"/> <!-- Area="Thavnair (West)" -->
+      <LLTurnIn QuestId="69744" NpcId="1037673" XYZ="-517.0215, 11.97528, 100.5416"/>
+      <LLSmallTalk/>
+    </If>	
+
+    <!--  Rushing up That Hill -->
+    <If Condition="not HasQuest(69745) and not IsQuestCompleted(69745)">
+      <LisbethTravel Zone="957" Subzone="3886" Position="-552.4598, 11.74286, 101.7017"/> <!-- Area="Thavnair (West)" -->
+      <If Condition="IsQuestAcceptQualified(69745)">
+        <LLPickupQuest QuestId="69745" NpcId="1037681"/>
+        <LLSmallTalk/>
+      </If>
+    </If>
+    <If Condition="GetQuestStep(69745) == 1">
+      <LisbethTravel Zone="957" Subzone="3885" Position="-277.748, 94.13286, -290.2027"/> <!-- Area="Thavnair (West)" -->
+      <UseObject NpcId="2011910" XYZ="-280.9949, 95.87244, -287.6478" QuestId="69745" StepId="1"/>
+    </If>
+    <If Condition="GetQuestStep(69745) == 255">
+      <LisbethTravel Zone="957" Subzone="3886" Position="-552.4562, 11.72963, 103.0487"/> <!-- Area="Thavnair (West)" -->
+      <LLTurnIn ItemIds="2003187,2003186" QuestId="69745" NpcId="1037681" XYZ="-554.7418, 11.40261, 137.3159"/>
+      <LLSmallTalk/>
+    </If>		
+	
+	</If>
+	
+  </Order>
+	<GrindAreas>
+    <GrindArea name="Shelling Out">
+      <Hotspots>
+        <Hotspot Radius="200" XYZ="-7.210649, 1.555743, 635.5352" name="Name"/>
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Id="10699" Weight="1"/> <!-- Kacchapa -->
+      </TargetMobs>
+    </GrindArea>
+	</GrindAreas>
+	<CodeChunks>
+	    <CodeChunk Name="TurnOffMount">
+      <![CDATA[ 
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="TurnOnMount">
+      <![CDATA[ 
+        ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Dive">
+      <![CDATA[
+        MovementManager.StartDescending();
+        await Coroutine.Wait(10000, () => MovementManager.IsDiving);
+        MovementManager.StopDescending();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Ascend">
+      <![CDATA[
+          MovementManager.MoveStop();
+          MovementManager.StartAscending();
+          while (MovementManager.IsDiving)  {  await Coroutine.Yield();  }	
+          while (CommonBehaviors.IsLoading)  {  await Coroutine.Yield();  }
+          MovementManager.StopAscending();
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="GreetEmote">
+      <![CDATA[ 
+					uint[] questNpcIds = { 1037676,1037680,1037670 };
+					var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+				
+          npcId.Target();
+					
+          if (ff14bot.Core.Player.IsMounted)
+          {
+            await CommonTasks.StopAndDismount();
+          }					
+
+          ChatManager.SendChat("/greet");
+          await Coroutine.Sleep(500);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Missing Alchemist">
+      <![CDATA[ 
+					uint[] questNpcIds = { 2011905,2011906,2011907,2011908,2011909 };
+					var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+
+				if (!npcId.IsWithinInteractRange)
+
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
+					while (_target.Distance2D(Core.Me.Location) >= 2)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
+					Navigator.PlayerMover.MoveStop();
+				}
+							
+				npcId.Interact();		
+        await Coroutine.Sleep(7000);
+      ]]>
+    </CodeChunk>
+    <CodeChunk Name="Alchemist_or_Dancer">
+      <![CDATA[ 
+					uint[] questNpcIds = { 2011914 };
+					var npcId = GameObjectManager.GameObjects.Where(r => r.IsTargetable && questNpcIds.Contains(r.NpcId)).OrderBy(r => r.Distance()).FirstOrDefault();
+
+				if (!npcId.IsWithinInteractRange)
+
+				{
+					var _target = npcId.Location;
+					Navigator.PlayerMover.MoveTowards(_target);
+					while (_target.Distance2D(Core.Me.Location) >= 4)
+					{
+						Navigator.PlayerMover.MoveTowards(_target);
+						await Coroutine.Sleep(100);
+					}
+					Navigator.PlayerMover.MoveStop();
+				}
+							
+				npcId.Interact();		
+        await Coroutine.Sleep(7000);
+      ]]>
+    </CodeChunk>		
+	</CodeChunks>
+	</Profile>
