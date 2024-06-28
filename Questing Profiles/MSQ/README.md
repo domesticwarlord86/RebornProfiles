@@ -28,7 +28,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/19/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
+[300]: https://progress-bar.dev/20/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [X] Lv. 90 A New World to Explore	
@@ -50,7 +50,7 @@ After: https://progress-bar.dev/70
 - [X] Lv. 90 Wuk Lamat in the Saddle
 - [X] Lv. 90 Knowing the Pelupelu
 - [X] Lv. 91 The Success of Others
-- [ ] Lv. 91 For All Turali
+- [X] Lv. 91 For All Turali
 - [ ] Lv. 92 A Leaking Workpot
 - [ ] Lv. 92 Lending a Helphand
 - [ ] Lv. 92 The Feat of Pots

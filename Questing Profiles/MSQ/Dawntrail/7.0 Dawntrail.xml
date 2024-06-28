@@ -734,6 +734,23 @@
       <If Condition="GetQuestStep(70415) == 4">
         <WaitWhile Condition="GetQuestStep(70415) == 4" />
       </If>
+      <If Condition="GetQuestStep(70415) == 5">
+        <GetTo ZoneId="1188" XYZ="750.69574, 114.61812, 563.1073" />
+        <TalkTo NpcId="1046790" XYZ="748.71436, 114.61811, 565.3314" QuestId="70415" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70415) == 6">
+        <GetTo ZoneId="1188" XYZ="552.64575, 115.73868, 224.52975" />
+        <TalkTo NpcId="1046776" XYZ="552.1476, 115.77393, 222.156" QuestId="70415" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70415) == 255">
+        <GetTo ZoneId="1188" XYZ="577.8559, 119.49004, 150.9423" />
+        <TurnIn QuestId="70415" NpcId="1046781" XYZ="579.9801, 119.49004, 148.76013" />
+      </If>
+    </If>
+
+    
+    <If Condition="IsQuestCompleted(70415)">
+      <UserDialog DialogText="You have completed all the MSQ that this profile supports for now. Stay tuned for more updates!" />
     </If>
 
   </Order>
