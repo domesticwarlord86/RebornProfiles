@@ -13,7 +13,7 @@ See [y2krazy's][100] and [sodimm's][101] repositories for scripts to complete ea
 
 Using OrderBot, run the `[OrderBot] 5.3-5.58 Shadowbringers.xml` script in this folder.
 
-## 6.0 Endwalker (WIP)
+## 6.0 Endwalker
 
 Using OrderBot, run the `[OrderBot] 6.0 Endwalker.xml` script in this folder.
 
@@ -28,18 +28,18 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/0/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
+[300]: https://progress-bar.dev/9/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
-- [ ] Lv. 90 A New World to Explore	
-- [ ] Lv. 90 The Nation of Tuliyollal
-- [ ] Lv. 90 A City of Stairs
-- [ ] Lv. 90 A Saga in Stone
-- [ ] Lv. 90 The Rite of Succession
-- [ ] Lv. 90 To Kozama'uka
-- [ ] Lv. 90 A Festive People
-- [ ] Lv. 90 The Feat of Reeds
-- [ ] Lv. 90 A Well-mannered Shipwright
+- [X] Lv. 90 A New World to Explore	
+- [X] Lv. 90 The Nation of Tuliyollal
+- [X] Lv. 90 A City of Stairs
+- [X] Lv. 90 A Saga in Stone
+- [X] Lv. 90 The Rite of Succession
+- [X] Lv. 90 To Kozama'uka
+- [X] Lv. 90 A Festive People
+- [X] Lv. 90 The Feat of Reeds
+- [X] Lv. 90 A Well-mannered Shipwright
 - [ ] Lv. 90 The Lifting of Wings
 - [ ] Lv. 90 Knowing the Hanuhanu
 - [ ] Lv. 90 To Urqopacha
