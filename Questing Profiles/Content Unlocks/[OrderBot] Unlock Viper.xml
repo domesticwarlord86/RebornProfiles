@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Unlock Viper
+  Authors: DomesticWarlord
+
+-->
+<!DOCTYPE Profile [
+]>
+
+<Profile>
+  <Name>Unlock Viper</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Enter The Viper -->
+    <If Condition="not IsQuestCompleted(70384)">
+      <If Condition="not HasQuest(70384)">
+        <GetTo ZoneId="130" XYZ="-93.98395, 4, -102.26977" />
+        <If Condition="IsQuestAcceptQualified(70384)">
+          <PickupQuest QuestId="70384" NpcId="1046333" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70384) == 1">
+        <GetTo ZoneId="131" XYZ="89.86602, 12, 51.11948" />
+        <TalkTo NpcId="1046334" XYZ="66.20886, 4.099995, -143.145" QuestId="70384" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70384) == 2">
+        <GetTo ZoneId="145" XYZ="-407.4089, -56.035835, 120.46228" />
+        <TalkTo NpcId="1046336" XYZ="66.20886, 4.099995, -143.145" QuestId="70384" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70384) == 255">
+        <GetTo ZoneId="131" XYZ="89.75897, 12, 50.11601" />
+        <TurnIn NpcId="1046337" XYZ="66.20886, 4.099995, -143.145" QuestId="70384" StepId="255" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
