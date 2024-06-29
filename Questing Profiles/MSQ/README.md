@@ -28,7 +28,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/40/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
+[300]: https://progress-bar.dev/47/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [X] Lv. 90 A New World to Explore	
@@ -71,13 +71,13 @@ After: https://progress-bar.dev/70
 - [X] Lv. 94 The Leap to Yak T'el
 - [X] Lv. 94 Village of the Hunt
 - [X] Lv. 94 A History of Violence
-- [ ] Lv. 94 The Feat of Repast
-- [ ] Lv. 94 A Father's Grief
-- [ ] Lv. 94 Taking a Stand
-- [ ] Lv. 94 Into the Traverse
-- [ ] Lv. 94 City of Silence
-- [ ] Lv. 94 Blessed Siblings
-- [ ] Lv. 94 Scale of Trust
+- [X] Lv. 94 The Feat of Repast
+- [X] Lv. 94 A Father's Grief
+- [X] Lv. 94 Taking a Stand
+- [X] Lv. 94 Into the Traverse
+- [X] Lv. 94 City of Silence
+- [X] Lv. 94 Blessed Siblings
+- [X] Lv. 94 Scale of Trust
 - [ ] Lv. 95 Mamook Speaks
 - [ ] Lv. 95 The Feat of the Brotherhood
 - [ ] Lv. 95 Road to the Golden City
