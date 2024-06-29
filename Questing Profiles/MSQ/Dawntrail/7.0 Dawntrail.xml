@@ -852,8 +852,9 @@
         <TalkTo NpcId="1048375" XYZ="-166.85742, -14.999356, 208.30078" QuestId="70419" StepId="1" />
       </If>
       <If Condition="GetQuestStep(70419) == 2">
-        <!-- <GetTo ZoneId="1185" XYZ="-193.6689, 120.795235, -357.33368" /> -->
-        <Hook Name="QTE" Operation="A" Location="TreeStart" />
+        <GetTo ZoneId="1185" XYZ="-193.6689, 120.795235, -357.33368" />
+        <!-- <Hook Name="QTE" Operation="A" Location="TreeStart" /> -->
+        <UserDialog DialogText="Please manually complete the solo duty." QuestId="70419" StepId="2" />
         <SimpleDuty InteractNpcId="1046681" XYZ="-194.78143, 120.795235, -359.24316" QuestId="70419" StepId="2">
           <Hotspots>
             <Hotspot Radius="90" XYZ="0, 0, 64" name="Name" />
@@ -862,7 +863,7 @@
             <TargetMob Id="12675" Weight="1" /> <!-- Gulool Ja Ja -->
           </TargetMobs>
         </SimpleDuty>
-        <Hook Name="QTE" Operation="R" Location="TreeStart" />
+        <!-- <Hook Name="QTE" Operation="R" Location="TreeStart" /> -->
       </If>
       <If Condition="GetQuestStep(70419) == 3">
         <WaitWhile Condition="GetQuestStep(70419) == 3" />
@@ -1407,6 +1408,16 @@
       <If Condition="GetQuestStep(70435) == 255">
         <GetTo ZoneId="1189" XYZ="475.76276, 19.590014, -360.165" />
         <TurnIn QuestId="70435" NpcId="1047763" XYZ="477.5005, 19.52627, -359.8841" />
+      </If>
+    </If>
+
+    <!-- The Feat of Repast -->
+    <If Condition="IsQuestCompleted(70435) and not IsQuestCompleted(70436)">
+      <If Condition="not HasQuest(70436)">
+        <GetTo ZoneId="1189" XYZ="475.76276, 19.590014, -360.165" />
+        <If Condition="IsQuestAcceptQualified(70436)">
+          <PickupQuest QuestId="70436" NpcId="1047764" />
+        </If>
       </If>
     </If>
 
