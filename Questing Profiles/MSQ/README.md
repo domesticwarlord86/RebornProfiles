@@ -28,7 +28,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/48/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
+[300]: https://progress-bar.dev/49/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [X] Lv. 90 A New World to Explore	
@@ -79,7 +79,7 @@ After: https://progress-bar.dev/70
 - [X] Lv. 94 Blessed Siblings
 - [X] Lv. 94 Scale of Trust
 - [X] Lv. 95 Mamook Speaks
-- [ ] Lv. 95 The Feat of the Brotherhood
+- [X] Lv. 95 The Feat of the Brotherhood
 - [ ] Lv. 95 Road to the Golden City
 - [ ] Lv. 95 Dawn of a New Tomorrow
 - [ ] Lv. 95 Ever Greater, Ever Brighter

@@ -1669,10 +1669,6 @@
       </If>
     </If>
 
-    <If Condition="IsQuestCompleted(70443)">
-      <UserDialog DialogText="You have completed all the MSQ that this profile supports for now. Stay tuned for more updates!" />
-    </If>
-
     <!-- The Feat of the Brotherhood -->
     <If Condition="IsQuestCompleted(70443) and not IsQuestCompleted(70444)">
       <If Condition="not HasQuest(70444)">
@@ -1681,6 +1677,70 @@
           <PickupQuest QuestId="70444" NpcId="1047622" />
         </If>
       </If>
+      <If Condition="GetQuestStep(70444) == 1">
+        <GetTo ZoneId="1189" XYZ="-13.515305, -166.23305, 1.5778416" />
+        <UseObject NpcId="2013656" XYZ="-12.3446045, -166.24707, 2.3651123" QuestId="70444" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70444) == 2">
+        <GetTo ZoneId="1189" XYZ="492.1894, -146.73586, 480.3001" />
+        <TalkTo NpcId="1047678" XYZ="498.37476, -146.73578, 481.07104" QuestId="70444" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70444) == 3">
+        <GetTo ZoneId="1189" XYZ="358.7305, -113.97447, 592.7364" />
+        <UserDialog DialogText="Please manually complete the solo duty." QuestId="70444" StepId="3" />
+        <SimpleDuty InteractNpcId="1047682" XYZ="353.56665, -113.97447, 597.0397" QuestId="70444" StepId="3">
+          <Hotspots>
+            <Hotspot Radius="90" XYZ="341.6749, -113.97447, 599.0894" name="Name" />
+          </Hotspots>
+          <TargetMobs>
+            <TargetMob Id="12734" Weight="1" /> <!-- Gulool Ja Ja's Glory -->
+            <TargetMob Id="12738" Weight="10" /> <!-- Oath of Fire -->
+          </TargetMobs>
+        </SimpleDuty>
+      </If>
+      <If Condition="GetQuestStep(70444) == 4">
+        <WaitWhile Condition="GetQuestStep(70444) == 4" />
+      </If>
+      <If Condition="GetQuestStep(70444) == 255">
+        <GetTo ZoneId="1189" XYZ="357.66364, -113.97447, 596.4737" />
+        <TurnIn QuestId="70444" NpcId="1047688" XYZ="359.48718, -113.97447, 595.45276" />
+      </If>
+    </If>
+
+    <!-- The Feat of the Brotherhood -->
+    <If Condition="IsQuestCompleted(70444) and not IsQuestCompleted(70445)">
+      <If Condition="not HasQuest(70445)">
+        <GetTo ZoneId="1189" XYZ="498.06363, -137.174, 561.0804" />
+        <If Condition="IsQuestAcceptQualified(70445)">
+          <PickupQuest QuestId="70445" NpcId="1047695" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70445) == 1">
+        <GetTo ZoneId="1189" XYZ="570.7387, -117.35814, 287.61252" />
+        <TalkTo NpcId="1047701" XYZ="572.7473, -117.35814, 288.3192" QuestId="70445" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70445) == 2">
+        <GetTo ZoneId="1189" XYZ="531.861, -130.81319, 307.22006" />
+        <TalkTo NpcId="1047623" XYZ="531.18164, -130.77031, 307.45398" QuestId="70445" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70445) == 3">
+        <GetTo ZoneId="1189" XYZ="738.9593, -133.17584, 515.80536" />
+        <UseObject NpcId="2013658" XYZ="740.93225, -133.19604, 515.80054" QuestId="70445" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70445) == 4">
+        <GetTo ZoneId="1189" XYZ="-709.01825, -199.5873, 624.1475" />
+        <TalkTo NpcId="1047707" XYZ="-711.1162, -199.5873, 624.1703" QuestId="70445" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70445) == 5">
+        <UserDialog DialogText="Please complete the 4 player dungeon The Skydeep Cenote manually" QuestId="70445" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70445) == 6">
+        <WaitWhile Condition="GetQuestStep(70445) == 6" />
+      </If>
+    </If>
+
+    <If Condition="GetQuestStep(70445) &gt; 6 or IsQuestCompleted(70445">
+      <UserDialog DialogText="You have completed all the MSQ that this profile supports for now. Stay tuned for more updates!" />
     </If>
 
   </Order>
