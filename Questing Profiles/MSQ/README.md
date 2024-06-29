@@ -28,7 +28,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/31/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
+[300]: https://progress-bar.dev/40/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [X] Lv. 90 A New World to Explore	
@@ -62,15 +62,15 @@ After: https://progress-bar.dev/70
 - [X] Lv. 92 Sibling Rescue
 - [X] Lv. 93 History's Keepers
 - [X] Lv. 93 The Feat of Proof
-- [ ] Lv. 93 The High Luminary
-- [ ] Lv. 93 An Echo of Madness
-- [ ] Lv. 93 Pointing the Way
-- [ ] Lv. 93 The Skyruin
-- [ ] Lv. 93 The Feat of Ice
-- [ ] Lv. 93 The Promise of Peace
-- [ ] Lv. 94 The Leap to Yak T'el
-- [ ] Lv. 94 Village of the Hunt
-- [ ] Lv. 94 A History of Violence
+- [X] Lv. 93 The High Luminary
+- [X] Lv. 93 An Echo of Madness
+- [X] Lv. 93 Pointing the Way * Probably going to have issues with talking to NPC that move.
+- [X] Lv. 93 The Skyruin
+- [X] Lv. 93 The Feat of Ice
+- [X] Lv. 93 The Promise of Peace
+- [X] Lv. 94 The Leap to Yak T'el
+- [X] Lv. 94 Village of the Hunt
+- [X] Lv. 94 A History of Violence
 - [ ] Lv. 94 The Feat of Repast
 - [ ] Lv. 94 A Father's Grief
 - [ ] Lv. 94 Taking a Stand
