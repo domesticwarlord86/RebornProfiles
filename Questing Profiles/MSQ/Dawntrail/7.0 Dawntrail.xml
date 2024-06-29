@@ -1620,16 +1620,65 @@
       </If>
     </If>
 
-    <If Condition="IsQuestCompleted(70442)">
-      <UserDialog DialogText="You have completed all the MSQ that this profile supports for now. Stay tuned for more updates!" />
-    </If>
-
     <!-- Mamook Speaks -->
     <If Condition="IsQuestCompleted(70442) and not IsQuestCompleted(70443)">
       <If Condition="not HasQuest(70443)">
         <GetTo ZoneId="1189" XYZ="-11.4954195, -166.08884, 6.4444995" />
         <If Condition="IsQuestAcceptQualified(70443)">
           <PickupQuest QuestId="70443" NpcId="1047649" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70443) == 1">
+        <GetTo ZoneId="1189" XYZ="-11.17385, -166.1919, 2.3151515" />
+        <If Condition="GetQuestStep(70443) == 1 and GetQuestById(70443).QuestI8A == 0">
+          <TalkTo NpcId="1047659" XYZ="-8.133057, -166.18016, 2.1209717" QuestId="70443" StepId="1" />
+        </If>
+        <If Condition="GetQuestStep(70443) == 1 and GetQuestById(70443).QuestI8A == 1">
+          <TalkTo NpcId="1047655" XYZ="-9.567444, -166.3551, -3.5858765" QuestId="70443" StepId="1" />
+        </If>
+        <If Condition="GetQuestStep(70443) == 1 and GetQuestById(70443).QuestI8A == 2">
+          <TalkTo NpcId="1047656" XYZ="-12.64978, -166.20668, -3.2807007" QuestId="70443" StepId="1" />
+        </If>
+        <If Condition="GetQuestStep(70443) == 1 and GetQuestById(70443).QuestI8A == 3">
+          <TalkTo NpcId="1047557" XYZ="-11.001831, -166.37114, -6.1799316" QuestId="70443" StepId="1" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70443) == 2">
+        <GetTo ZoneId="1189" XYZ="-11.540055, -166.22229, -0.34967995" />
+        <TalkTo NpcId="1047649" XYZ="-13.382202, -166.21887, 2.1209717" QuestId="70443" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70443) == 3">
+        <GetTo ZoneId="1189" XYZ="65.38693, -178.22446, 398.06406" />
+        <TalkTo NpcId="1047664" XYZ="64.16406, -178.47437, 399.70996" QuestId="70443" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70443) == 4">
+        <If condition="GetQuestById(70443).GetTodoArgs(4, 0).Item1 &lt; 2">
+          <GetTo ZoneId="1189" XYZ="-128.65877, -215.01514, 352.10236" />
+          <UseObject NpcIds="2013675,2013672" XYZ="-128.65877, -215.01514, 352.10236" condition="GetQuestById(70443).GetTodoArgs(4, 0).Item1 &lt; 2" />
+        </If>
+        <GetTo ZoneId="1189" XYZ="-24.6616, -215.01514, 507.91342" />
+        <UseObject NpcIds="2013655,2013653,2013654" XYZ="-24.6616, -215.01514, 507.91342" QuestId="70443" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70443) == 5">
+        <GetTo ZoneId="1189" XYZ="-94.756035, -213.75914, 388.16028" />
+        <HandOver ItemId="2003488" NpcId="1047669" XYZ="-96.87958, -214.29678, 385.27502" QuestId="70443" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70443) == 255">
+        <GetTo ZoneId="1189" XYZ="-13.515305, -166.23305, 1.5778416" />
+        <TurnIn QuestId="70443" NpcId="1047622" XYZ="-15.701599, -166.02748, 0.47296143" />
+      </If>
+    </If>
+
+    <If Condition="IsQuestCompleted(70443)">
+      <UserDialog DialogText="You have completed all the MSQ that this profile supports for now. Stay tuned for more updates!" />
+    </If>
+
+    <!-- The Feat of the Brotherhood -->
+    <If Condition="IsQuestCompleted(70443) and not IsQuestCompleted(70444)">
+      <If Condition="not HasQuest(70444)">
+        <GetTo ZoneId="1189" XYZ="-13.515305, -166.23305, 1.5778416" />
+        <If Condition="IsQuestAcceptQualified(70444)">
+          <PickupQuest QuestId="70444" NpcId="1047622" />
         </If>
       </If>
     </If>
