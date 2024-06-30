@@ -1739,7 +1739,7 @@
       </If>
     </If>
 
-    <If Condition="GetQuestStep(70445) &gt; 6 or IsQuestCompleted(70445">
+    <If Condition="GetQuestStep(70445) &gt; 6 or IsQuestCompleted(70445)">
       <UserDialog DialogText="You have completed all the MSQ that this profile supports for now. Stay tuned for more updates!" />
     </If>
 
