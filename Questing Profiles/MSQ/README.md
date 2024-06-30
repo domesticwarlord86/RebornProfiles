@@ -28,7 +28,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/51/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
+[300]: https://progress-bar.dev/66/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [X] Lv. 90 A New World to Explore	
@@ -83,20 +83,20 @@ After: https://progress-bar.dev/70
 - [X] Lv. 95 Road to the Golden City
 - [X] Lv. 95 Dawn of a New Tomorrow
 - [X] Lv. 95 Ever Greater, Ever Brighter
-- [ ] Lv. 95 The Long Road to Xak Tural
-- [ ] Lv. 95 Saddled Up
-- [ ] Lv. 95 Braced for Trouble
-- [ ] Lv. 95 Blowing Smoke
-- [ ] Lv. 95 Law of the Land
-- [ ] Lv. 95 On Track
-- [ ] Lv. 96 One with Nature
-- [ ] Lv. 96 And the Land Would Tremble
-- [ ] Lv. 96 No Time for Tears
-- [ ] Lv. 96 Pick up the Pieces
-- [ ] Lv. 96 Together as One
-- [ ] Lv. 96 In Yyasulani's Shadow
-- [ ] Lv. 96 Putting Plans into Locomotion
-- [ ] Lv. 96 A Hot Commodity
+- [X] Lv. 95 The Long Road to Xak Tural
+- [X] Lv. 95 Saddled Up
+- [X] Lv. 95 Braced for Trouble
+- [X] Lv. 95 Blowing Smoke
+- [X] Lv. 95 Law of the Land * Might have problems with interacting with the objects
+- [X] Lv. 95 On Track
+- [X] Lv. 96 One with Nature
+- [X] Lv. 96 And the Land Would Tremble
+- [X] Lv. 96 No Time for Tears
+- [X] Lv. 96 Pick up the Pieces
+- [X] Lv. 96 Together as One
+- [X] Lv. 96 In Yyasulani's Shadow
+- [X] Lv. 96 Putting Plans into Locomotion
+- [X] Lv. 96 A Hot Commodity
 - [ ] Lv. 97 All Aboard
 - [ ] Lv. 97 The Land of Levin
 - [ ] Lv. 97 A Royal Welcome
