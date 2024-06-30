@@ -307,8 +307,7 @@
       </If>
       <If Condition="GetQuestStep(70403) == 4">
         <GetTo ZoneId="1188" XYZ="-101.88939, 9.773314, -533.5469" />
-        <UserDialog DialogText="Please doe the zoomie soom manually" QuestId="70403" StepId="4" />
-        <!-- <Snipe NpcId="1046718" XYZ="-101.18262, 9.773315, -532.15845" QuestId="70403" StepId="4" /> -->
+        <Snipe NpcId="1046718" XYZ="-101.18262, 9.773315, -532.15845" QuestId="70403" StepId="4" />
       </If>
       <If Condition="GetQuestStep(70403) == 255">
         <GetTo ZoneId="1188" XYZ="-102.32286, 9.773315, -535.97424" />
@@ -784,8 +783,7 @@
       </If>
       <If Condition="GetQuestStep(70417) == 1">
         <GetTo ZoneId="1188" XYZ="-471.11057, 121.633415, 341.59573" />
-        <UserDialog DialogText="Please doe the zoomie soom manually" QuestId="70417" StepId="1" />
-        <!-- <Snipe NpcId="1046614" XYZ="-473.5943, 121.63345, 343.7704" QuestId="70417" StepId="1" /> -->
+        <Snipe NpcId="1046614" XYZ="-473.5943, 121.63345, 343.7704" QuestId="70417" StepId="1" />
       </If>
       <If Condition="GetQuestStep(70417) == 2">
         <GetTo ZoneId="1188" XYZ="-471.11057, 121.633415, 341.59573" />
@@ -2147,8 +2145,7 @@
       </If>
       <If Condition="GetQuestStep(70457) == 1">
         <GetTo ZoneId="1185" XYZ="65.06386, -14, 28.424187" />
-        <UserDialog DialogText="Please doe the zoomie soom manually" QuestId="70457" StepId="1" />
-        <!-- <Snipe NpcId="2014033" XYZ="65.659546, -14.023071, 25.680908" QuestId="70457" StepId="1" /> -->
+        <Snipe NpcId="2014033" XYZ="65.659546, -14.023071, 25.680908" QuestId="70457" StepId="1" />
       </If>
       <If Condition="GetQuestStep(70457) == 2">
         <GetTo ZoneId="1185" XYZ="-180.12888, 120.75, -344.12988" />
