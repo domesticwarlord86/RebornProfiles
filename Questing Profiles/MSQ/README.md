@@ -28,7 +28,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/66/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
+[300]: https://progress-bar.dev/81/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [X] Lv. 90 A New World to Explore	
@@ -86,7 +86,7 @@ After: https://progress-bar.dev/70
 - [X] Lv. 95 The Long Road to Xak Tural
 - [X] Lv. 95 Saddled Up
 - [X] Lv. 95 Braced for Trouble
-- [X] Lv. 95 Blowing Smoke
+- [X] Lv. 95 Blowing Smoke 
 - [X] Lv. 95 Law of the Land * Might have problems with interacting with the objects
 - [X] Lv. 95 On Track
 - [X] Lv. 96 One with Nature
@@ -97,21 +97,21 @@ After: https://progress-bar.dev/70
 - [X] Lv. 96 In Yyasulani's Shadow
 - [X] Lv. 96 Putting Plans into Locomotion
 - [X] Lv. 96 A Hot Commodity
-- [ ] Lv. 97 All Aboard
-- [ ] Lv. 97 The Land of Levin
-- [ ] Lv. 97 A Royal Welcome
-- [ ] Lv. 97 A Day in the Life
-- [ ] Lv. 97 On the Cloud
-- [ ] Lv. 97 Gone and Forgotten
-- [ ] Lv. 97 Embracing Oblivion
-- [ ] Lv. 97 Solution Nine
-- [ ] Lv. 97 The Queen's Tour
-- [ ] Lv. 98 Her People, Her Family
-- [ ] Lv. 98 Scales of Blue
-- [ ] Lv. 98 Gives You Teeth
-- [ ] Lv. 98 Little Footfalls
-- [ ] Lv. 98 Drowned Vestiges
-- [ ] Lv. 98 Memories of a Knight
+- [X] Lv. 97 All Aboard
+- [X] Lv. 97 The Land of Levin
+- [X] Lv. 97 A Royal Welcome
+- [X] Lv. 97 A Day in the Life
+- [X] Lv. 97 On the Cloud
+- [X] Lv. 97 Gone and Forgotten
+- [X] Lv. 97 Embracing Oblivion
+- [X] Lv. 97 Solution Nine
+- [X] Lv. 97 The Queen's Tour
+- [X] Lv. 98 Her People, Her Family
+- [X] Lv. 98 Scales of Blue * Going to have problems talking to NPCs
+- [X] Lv. 98 Gives You Teeth
+- [X] Lv. 98 Little Footfalls
+- [X] Lv. 98 Drowned Vestiges
+- [X] Lv. 98 Memories of a Knight
 - [ ] Lv. 98 At a Crossroads
 - [ ] Lv. 98 The Protector and the Destroyer
 - [ ] Lv. 99 A Comforting Hand
