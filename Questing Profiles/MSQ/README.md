@@ -28,7 +28,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/81/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
+[300]: https://progress-bar.dev/85/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [X] Lv. 90 A New World to Explore	
@@ -112,10 +112,10 @@ After: https://progress-bar.dev/70
 - [X] Lv. 98 Little Footfalls
 - [X] Lv. 98 Drowned Vestiges
 - [X] Lv. 98 Memories of a Knight
-- [ ] Lv. 98 At a Crossroads
-- [ ] Lv. 98 The Protector and the Destroyer
-- [ ] Lv. 99 A Comforting Hand
-- [ ] Lv. 99 Unto the Summit
+- [X] Lv. 98 At a Crossroads
+- [X] Lv. 98 The Protector and the Destroyer
+- [X] Lv. 99 A Comforting Hand
+- [X] Lv. 99 Unto the Summit
 - [ ] Lv. 99 The Resilient Son
 - [ ] Lv. 99 A New Family
 - [ ] Lv. 99 In Pursuit of Sphene
