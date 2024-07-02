@@ -28,7 +28,7 @@ To update progress bar, change the first number in URL:
 Before: https://progress-bar.dev/62
 After: https://progress-bar.dev/70
 -->
-[300]: https://progress-bar.dev/91/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
+[300]: https://progress-bar.dev/98/?scale=99&title=7.0%20Dawntrail&suffix=/99%20Quests&width=256 "7.0 Dawntrail Progress"
 [301]: ../../README.md "README.md#troubleshooting"
 
 - [X] Lv. 90 A New World to Explore	
@@ -122,12 +122,12 @@ After: https://progress-bar.dev/70
 - [X] Lv. 99 Through the Gate of Gold
 - [X] Lv. 99 Those Who Live Forever
 - [X] Lv. 99 In Serenity and Sorrow
-- [ ] Lv. 99 The Land of Dreams
-- [ ] Lv. 99 A Knight of Alexandria
-- [ ] Lv. 100 The Sanctuary of the Strong
-- [ ] Lv. 100 The Taste of Family
-- [ ] Lv. 100 Leafing through the Past
-- [ ] Lv. 100 An Explorer's Delight
-- [ ] Lv. 100 In Search of Discovery
-- [ ] Lv. 100 A Journey Never-ending
+- [X] Lv. 99 The Land of Dreams
+- [X] Lv. 99 A Knight of Alexandria
+- [X] Lv. 100 The Sanctuary of the Strong
+- [X] Lv. 100 The Taste of Family
+- [X] Lv. 100 Leafing through the Past
+- [X] Lv. 100 An Explorer's Delight
+- [X] Lv. 100 In Search of Discovery
+- [X] Lv. 100 A Journey Never-ending
 - [ ] Lv. 100 Dawntrail
