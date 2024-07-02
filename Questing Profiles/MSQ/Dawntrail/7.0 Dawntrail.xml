@@ -3021,6 +3021,244 @@
       <If Condition="GetQuestStep(70481) == 3">
         <WaitWhile Condition="GetQuestStep(70481) == 3" />
       </If>
+      <If Condition="GetQuestStep(70481) == 4">
+        <UserDialog DialogText="Please complete the 8 player trial Everkeep manually" QuestId="70481" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70481) == 5">
+        <WaitWhile Condition="GetQuestStep(70481) == 5" />
+      </If>
+      <If Condition="GetQuestStep(70481) == 6">
+        <If condition="not IsOnMap(1200)">
+          <GetTo ZoneId="1191" XYZ="-612.89734, -13.387645, -565.43097" />
+          <UseTransport NpcId="1048145" InteractDistance="3.0" XYZ="-614.1909, -13.382202, -567.5288" />
+        </If>
+        <TalkTo NpcId="1048183" XYZ="97.45935, 0, 107.2251" QuestId="70481" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70481) == 7">
+        <If condition="not IsOnMap(1200)">
+          <GetTo ZoneId="1191" XYZ="-612.89734, -13.387645, -565.43097" />
+          <UseTransport NpcId="1048145" InteractDistance="3.0" XYZ="-614.1909, -13.382202, -567.5288" />
+        </If>
+        <TalkTo NpcId="1048156" XYZ="104.57007, 0, 105.79077" QuestId="70481" StepId="7" />
+      </If>
+      <If Condition="GetQuestStep(70481) == 255">
+        <If condition="not IsOnMap(1207)">
+          <GetTo ZoneId="1186" XYZ="302.01505, 51.199978, 201.66032" />
+          <UseTransport NpcId="1048083" InteractDistance="3.0" XYZ="302.05237, 51.199978, 205.0354" />
+        </If>
+        <TurnIn QuestId="70481" NpcId="1048158" XYZ="-4.837158, -3.4458935E-08, 5.8441772" />
+      </If>
+    </If>
+
+    <!-- A New Family -->
+    <If Condition="IsQuestCompleted(70481) and not IsQuestCompleted(70482)">
+      <If Condition="not HasQuest(70482)">
+        <If condition="not IsOnMap(1207)">
+          <GetTo ZoneId="1186" XYZ="302.01505, 51.199978, 201.66032" />
+          <UseTransport NpcId="1048083" InteractDistance="3.0" XYZ="302.05237, 51.199978, 205.0354" />
+        </If>
+        <If Condition="IsQuestAcceptQualified(70482)">
+          <PickupQuest QuestId="70482" NpcId="1048158" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70482) == 1">
+        <GetTo ZoneId="1185" XYZ="-97.897865, 100.04266, -191.50247" />
+        <UseObject NpcId="2013767" XYZ="-99.321045, 99.99231, -193.89642" QuestId="70482" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70482) == 2">
+        <GetTo ZoneId="1185" XYZ="-34.14863, 95.5, -80.83192" />
+        <TalkTo NpcId="1047794" XYZ="-32.974792, 95.5, -79.02649" QuestId="70482" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70482) == 3">
+        <GetTo ZoneId="1185" XYZ="119.10924, 47, -132.90657" />
+        <TalkTo NpcId="1047797" XYZ="120.10376, 47, -129.38129" QuestId="70482" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70482) == 4">
+        <GetTo ZoneId="1185" XYZ="42.350178, 46.999996, -287.50894" />
+        <TalkTo NpcId="1047800" XYZ="42.038574, 46.999996, -290.15033" QuestId="70482" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70482) == 5">
+        <GetTo ZoneId="1185" XYZ="121.58204, 42, -341.77725" />
+        <TalkTo NpcId="1047803" XYZ="123.552246, 42, -341.75635" QuestId="70482" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70482) == 255">
+        <GetTo ZoneId="1185" XYZ="121.58204, 42, -341.77725" />
+        <TurnIn QuestId="70482" NpcId="1047803" XYZ="123.552246, 42, -341.75635" />
+      </If>
+    </If>
+
+    <!-- In Pursuuit of Sphene -->
+    <If Condition="IsQuestCompleted(70482) and not IsQuestCompleted(70483)">
+      <If Condition="not HasQuest(70483)">
+        <GetTo ZoneId="1185" XYZ="121.58204, 42, -341.77725" />
+        <If Condition="IsQuestAcceptQualified(70483)">
+          <PickupQuest QuestId="70483" NpcId="1047804" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70483) == 1">
+        <GetTo ZoneId="1185" XYZ="-181.9025, 120.795235, -337.4939" />
+        <TalkTo NpcId="1047806" XYZ="-179.55298, 120.75, -332.87555" QuestId="70483" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70483) == 255">
+        <GetTo ZoneId="1185" XYZ="-46.05913, -10.00001, 98.09699" />
+        <TurnIn QuestId="70483" NpcId="1047809" XYZ="-47.56244, -10.00001, 97.21521" />
+      </If>
+    </If>
+
+    <!-- Through the Gate of Gold -->
+    <If Condition="IsQuestCompleted(70483) and not IsQuestCompleted(70484)">
+      <If Condition="not HasQuest(70484)">
+        <GetTo ZoneId="1185" XYZ="-46.05913, -10.00001, 98.09699" />
+        <If Condition="IsQuestAcceptQualified(70484)">
+          <PickupQuest QuestId="70484" NpcId="1047810" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70484) == 1">
+        <If condition="not IsOnSubMap(4638)">
+          <GetTo ZoneId="1189" XYZ="-709.1866, -199.5873, 626.5572" />
+          <UseTransport NpcId="1048029" InteractDistance="3.0" XYZ="-711.1162, -199.5873, 624.1703" QuestId="70484" />
+        </If>
+        <MoveTo XYZ="-825.2115, -297.8752, 873.59454" />
+        <TalkTo NpcId="1047813" XYZ="-826.32184, -297.8752, 875.15063" QuestId="70484" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70484) == 2">
+        <WaitWhile Condition="GetQuestStep(70484) == 2" />
+      </If>
+      <If Condition="GetQuestStep(70484) == 3">
+        <TalkTo NpcId="1047818" XYZ="-0.9918823, 0.20000042, -51.499268" QuestId="70484" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70484) == 4">
+        <WaitWhile Condition="GetQuestStep(70484) == 4" />
+      </If>
+      <If Condition="GetQuestStep(70484) == 5">
+        <TalkTo NpcId="1047829" XYZ="-0.13739014, 105.00008, 848.7831" QuestId="70484" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70484) == 6">
+        <GetTo ZoneId="1192" XYZ="-24.355495, 53.20001, 799.0493" />
+        <TalkTo NpcId="1047833" XYZ="-26.657532, 53.200012, 794.67444" QuestId="70484" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70484) == 7">
+        <GetTo ZoneId="1192" XYZ="-0.41910765, 50.124947, 368.5188" />
+        <TalkTo NpcId="1047837" XYZ="-0.045776367, 50.124947, 365.16357" QuestId="70484" StepId="7" />
+      </If>
+      <If Condition="GetQuestStep(70484) == 255">
+        <GetTo ZoneId="1192" XYZ="-0.41910765, 50.124947, 368.5188" />
+        <TurnIn QuestId="70484" NpcId="1047842" XYZ="0.015197754, 50.124947, 361.95923" />
+      </If>
+    </If>
+
+    <!-- Those Who Live Forever -->
+    <If Condition="IsQuestCompleted(70484) and not IsQuestCompleted(70485)">
+      <If Condition="not HasQuest(70485)">
+        <GetTo ZoneId="1192" XYZ="-0.3695754, 50.124947, 367.77063" />
+        <If Condition="IsQuestAcceptQualified(70485)">
+          <PickupQuest QuestId="70485" NpcId="1047842" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70485) == 1">
+        <GetTo ZoneId="1192" XYZ="1.0881096, 53.200012, 774.52484" />
+        <UseObject NpcId="2013770" XYZ="-0.045776367, 53.177612, 772.8236" QuestId="70485" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70485) == 2">
+        <GetTo ZoneId="1192" XYZ="-33.70509, 53.200012, 755.1066" />
+        <TalkTo NpcId="1047850" XYZ="-36.30127, 53.200012, 753.56665" QuestId="70485" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70485) == 3">
+        <GetTo ZoneId="1192" XYZ="-129.62198, 6.380001, 553.71893" />
+        <TalkTo NpcId="1047855" XYZ="-131.12079, 6.380001, 551.75085" QuestId="70485" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70485) == 4">
+        <If Condition="GetQuestStep(70485) == 4 and GetQuestById(70485).QuestI8A == 0">
+          <GetTo ZoneId="1192" XYZ="-192.73611, 0.049999952, 532.96405" />
+          <TalkTo NpcId="1047860" XYZ="-194.75098, 0.049999997, 532.1278" QuestId="70485" StepId="4" />
+        </If>
+        <If Condition="GetQuestStep(70485) == 4 and GetQuestById(70485).QuestI8A == 16">
+          <GetTo ZoneId="1192" XYZ="-203.74338, 6.4019995, 554.1562" />
+          <TalkTo NpcId="1047861" XYZ="-205.52374, 6.4019995, 555.01636" QuestId="70485" StepId="4" />
+        </If>
+        <If Condition="GetQuestStep(70485) == 4 and GetQuestById(70485).QuestI8A == 33">
+          <GetTo ZoneId="1192" XYZ="-184.94614, 0.049998164, 578.0673" />
+          <TalkTo NpcId="1047862" XYZ="-183.73395, 0.049998913, 580.8651" QuestId="70485" StepId="4" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70485) == 5">
+        <GetTo ZoneId="1192" XYZ="-179.53297, 0, 605.5193" />
+        <TalkTo NpcId="1047868" XYZ="-183.18463, -6.346533E-12, 606.71387" QuestId="70485" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70485) == 255">
+        <GetTo ZoneId="1192" XYZ="-265.9941, 0.049999714, 536.702" />
+        <TurnIn QuestId="70485" NpcId="1047869" XYZ="-266.0716, 0.049999483, 533.77576" />
+      </If>
+    </If>
+
+    <!-- In Serenity and Sorrow -->
+    <If Condition="IsQuestCompleted(70485) and not IsQuestCompleted(70486)">
+      <If Condition="not HasQuest(70486)">
+        <GetTo ZoneId="1192" XYZ="-265.9941, 0.049999774, 536.702" />
+        <If Condition="IsQuestAcceptQualified(70486)">
+          <PickupQuest QuestId="70486" NpcId="1047869" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70486) == 1">
+        <GetTo ZoneId="1192" XYZ="-341.7679, 0, 564.5021" />
+        <TalkTo NpcId="1047870" XYZ="-343.00757, 0, 567.254" QuestId="70486" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70486) == 2">
+        <GetTo ZoneId="1192" XYZ="-271.58136, 0, 609.65424" />
+        <UseObject NpcId="2013771" XYZ="-270.924, -0.015319824, 610.7423" QuestId="70486" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70486) == 3">
+        <GetTo ZoneId="1192" XYZ="-341.4832, 0, 565.25507" />
+        <HandOver ItemId="2003504" NpcId="1047870" XYZ="-343.00757, 0, 567.254" QuestId="70486" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70486) == 4">
+        <GetTo ZoneId="1192" XYZ="-291.03073, 0.04995203, 526.37354" />
+        <TalkTo NpcId="1047871" XYZ="-289.78418, 0.049857892, 523.9795" QuestId="70486" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70486) == 5">
+        <GetTo ZoneId="1192" XYZ="-572.72797, 0.050000012, 495.75958" />
+        <TalkTo NpcId="1047873" XYZ="-570.428, 0.05000001, 498.46643" QuestId="70486" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70486) == 6">
+        <GetTo ZoneId="1192" XYZ="-444.73917, -0.8152948, 460.27148" />
+        <TalkTo NpcId="1047874" XYZ="-440.0855, -0.81529194, 458.4878" QuestId="70486" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70486) == 7">
+        <If Condition="GetQuestStep(70486) == 7 and GetQuestById(70486).QuestI8A == 0">
+          <GetTo ZoneId="1192" XYZ="-410.6683, 0.049999952, 485.13522" />
+          <UseObject NpcId="2013772" XYZ="-409.35382, 1.3884888, 487.29688" condition="GetQuestById(70486).QuestI8A == 0" />
+        </If>
+        <If Condition="GetQuestStep(70486) == 7 and GetQuestById(70486).QuestI8A == 1">
+          <GetTo ZoneId="1192" XYZ="-429.1821, 0.049999952, 497.33054" />
+          <UseObject NpcId="2013773" XYZ="-433.43256, 1.3580322, 500.2975" condition="GetQuestById(70486).QuestI8A == 1" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70486) == 8">
+        <GetTo ZoneId="1192" XYZ="-443.92722, -0.8152985, 460.7683" />
+        <TalkTo NpcId="1047876" XYZ="-441.48932, -0.8153026, 459.1897" QuestId="70486" StepId="8" />
+      </If>
+      <If Condition="GetQuestStep(70486) == 9">
+        <GetTo ZoneId="1192" XYZ="-700.443, 14.900001, 310.71393" />
+        <TalkTo NpcId="1047879" XYZ="-701.9303, 14.9, 308.76624" QuestId="70486" StepId="9" />
+      </If>
+      <If Condition="GetQuestStep(70486) == 255">
+        <GetTo ZoneId="1192" XYZ="-698.75226, 14.900001, 310.20212" />
+        <TurnIn QuestId="70486" NpcId="1047879" XYZ="-701.9303, 14.9, 308.76624" />
+      </If>
+    </If>
+
+    <If Condition="IsQuestCompleted(70486)">
+      <UserDialog DialogText="You have completed all the MSQ that this profile supports for now. Stay tuned for more updates!" />
+    </If>
+
+    <!-- The Land of Dreams -->
+    <If Condition="IsQuestCompleted(70486) and not IsQuestCompleted(70487)">
+      <If Condition="not HasQuest(70487)">
+        <GetTo ZoneId="1192" XYZ="-698.75226, 14.900001, 310.20212" />
+        <If Condition="IsQuestAcceptQualified(70487)">
+          <PickupQuest QuestId="70487" NpcId="1047883" />
+        </If>
+      </If>
     </If>
 
   </Order>
