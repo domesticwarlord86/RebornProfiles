@@ -3592,6 +3592,19 @@
       <If Condition="GetQuestStep(70495) == 2">
         <UserDialog DialogText="Please complete the 4 player dungeon Alexandria manually" QuestId="70495" StepId="2" />
       </If>
+      <If Condition="GetQuestStep(70495) == 3">
+        <WaitWhile Condition="GetQuestStep(70495) == 3" />
+      </If>
+      <If Condition="GetQuestStep(70495) == 4">
+        <UserDialog DialogText="Please complete the 8 player trial The Interphos manually" QuestId="70495" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70495) == 5">
+        <WaitWhile Condition="GetQuestStep(70495) == 5" />
+      </If>
+      <If Condition="GetQuestStep(70495) == 255">
+        <GetTo ZoneId="1185" XYZ="-159.13123, -14.999357, 206.10124" />
+        <TurnIn QuestId="70495" NpcId="1048022" XYZ="-160.7843, -14.999356, 204.42505" />
+      </If>
     </If>
 
   </Order>
