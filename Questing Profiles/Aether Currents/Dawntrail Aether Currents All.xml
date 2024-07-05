@@ -890,8 +890,6 @@ Author: Angles24, Manta, DomesticWarlord
 				</If>
 			</If>
 
-			<StopBot />
-
 			<If Condition="not IsAetherCurrentCompleted(1192, 14)">
 				<!-- TODO: Verify pathing works -->
 				<GetTo ZoneId="1192" XYZ="-698.848, 1.00028, 472.007" />
