@@ -891,52 +891,42 @@ Author: Angles24, Manta, DomesticWarlord
 			</If>
 
 			<If Condition="not IsAetherCurrentCompleted(1192, 14)">
-				<!-- TODO: Verify pathing works -->
 				<GetTo ZoneId="1192" XYZ="-698.848, 1.00028, 472.007" />
 				<UseObject NpcId="2013974" XYZ="-698.848, 1.00028, 472.007" Condition="not IsAetherCurrentCompleted(1192, 14)" />
 			</If>
 			<If Condition="not IsAetherCurrentCompleted(1192, 13)">
-				<!-- TODO: Verify pathing works -->
 				<GetTo ZoneId="1192" XYZ="753.37, 45.0924, 347.051" />
 				<UseObject NpcId="2013975" XYZ="753.37, 45.0924, 347.051" Condition="not IsAetherCurrentCompleted(1192, 13)" />
 			</If>
 			<If Condition="not IsAetherCurrentCompleted(1192, 12)">
-				<!-- TODO: Verify pathing works -->
 				<GetTo ZoneId="1192" XYZ="509.7, 36.9993, -648.81" />
 				<UseObject NpcId="2013979" XYZ="509.7, 36.9993, -648.81" Condition="not IsAetherCurrentCompleted(1192, 12)" />
 			</If>
 			<If Condition="not IsAetherCurrentCompleted(1192, 11)">
-				<!-- TODO: Verify pathing works -->
 				<GetTo ZoneId="1192" XYZ="-559.59, -6.00049, -508.52" />
 				<UseObject NpcId="2013980" XYZ="-559.59, -6.00049, -508.52" Condition="not IsAetherCurrentCompleted(1192, 11)" />
 			</If>
 			<If Condition="not IsAetherCurrentCompleted(1192, 10)">
-				<!-- TODO: Verify pathing works -->
 				<GetTo ZoneId="1192" XYZ="-516.675, 0.0500011, 681.003" />
 				<UseObject NpcId="2013976" XYZ="-516.675, 0.0500011, 681.003" Condition="not IsAetherCurrentCompleted(1192, 10)" />
 			</If>
 			<If Condition="not IsAetherCurrentCompleted(1192, 9)">
-				<!-- TODO: Verify pathing works -->
 				<GetTo ZoneId="1192" XYZ="232.36, 0.000501633, 544.51" />
 				<UseObject NpcId="2013977" XYZ="232.36, 0.000501633, 544.51" Condition="not IsAetherCurrentCompleted(1192, 9)" />
 			</If>
 			<If Condition="not IsAetherCurrentCompleted(1192, 8)">
-				<!-- TODO: Verify pathing works -->
 				<GetTo ZoneId="1192" XYZ="627.534, 9.05097, 637.736" />
 				<UseObject NpcId="2013978" XYZ="627.534, 9.05097, 637.736" Condition="not IsAetherCurrentCompleted(1192, 8)" />
 			</If>
 			<If Condition="not IsAetherCurrentCompleted(1192, 7)">
-				<!-- TODO: Verify pathing works -->
 				<GetTo ZoneId="1192" XYZ="315.229, 43.7318, -539.307" />
 				<UseObject NpcId="2013981" XYZ="315.229, 43.7318, -539.307" Condition="not IsAetherCurrentCompleted(1192, 7)" />
 			</If>
 			<If Condition="not IsAetherCurrentCompleted(1192, 6)">
-				<!-- TODO: Verify pathing works -->
 				<GetTo ZoneId="1192" XYZ="169.581, 29.2416, -308.061" />
 				<UseObject NpcId="2013982" XYZ="169.581, 29.2416, -308.061" Condition="not IsAetherCurrentCompleted(1192, 6)" />
 			</If>
 			<If Condition="not IsAetherCurrentCompleted(1192, 5)">
-				<!-- TODO: Verify pathing works -->
 				<GetTo ZoneId="1192" XYZ="-484.18, 38, -49.99" />
 				<UseObject NpcId="2013983" XYZ="-484.18, 38, -49.99" Condition="not IsAetherCurrentCompleted(1192, 5)" />
 			</If>
