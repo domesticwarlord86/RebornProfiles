@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Dawntrail Bicolor Gemstone Voucher Farm
+  Authors: DomesticWarlord86, Kayla D'orden, Peti, xivlover
+  
+-->
+<!DOCTYPE Profile [
+	<!-- Profile Settings -->
+	<!ENTITY Vouchers "500">
+	<!ENTITY Rank4Done "1">
+	<!ENTITY Leveling "0">
+	<!ENTITY UseLisbethFlightNav "False"> <!-- True to use Lisbeth, False to use RB nav-->
+
+	<!-- What quantity should we get to before cashing in gemstones? -->
+	<!ENTITY GemStones "1401">
+
+	<!-- FATE Blacklist, if the bot cannot guarantee the success -->
+	<!ENTITY BlackList "1871,1922,1905,1931,1936,1937,1865,1869,1949,1957,1906,1913,1917,1957">
+
+	<!-- What zone should we grind in if not using Leveling? -->
+	<!ENTITY Urqopacha "1">
+	<!ENTITY KozamaUka "1">
+	<!ENTITY YakTel "0">
+	<!ENTITY Shaaloani "1">
+	<!ENTITY HeritageFound "0">
+	<!ENTITY LivingMemory "0">
+]>
+<Profile>
+	<Name>Bicolor Gemstone Voucher Farm</Name>
+	<BehaviorDirectory></BehaviorDirectory>
+	<Order>
+
+		<If Condition="&Rank4Done; == 0">
+			<LLToast message="Buying vouchers requires you to have Rank 4 Shared Fates in all Dawntrail zones." />
+			<LogMessage Message="Buying vouchers requires you to have Rank 4 Shared Fates in all Dawntrail zones. Please change Rank4Done '0' to Rank4Done '1' if you have." />
+			<LLToast message="Please change Rank4Done '0' to Rank4Done '1' if you have." />
+		</If>
+
+		<While Condition="ItemCount(43961) &lt; &Vouchers;"> <!-- 43961 = Turali Bicolor Gemstone Voucher -->
+			<If condition="ItemCount(26807) &gt; &GemStones; or ItemCount(26807) == &GemStones; and &Rank4Done; == 1">
+				<GetTo ZoneId="1185" XYZ="-25.918114, -10.00001, 101.99045" />
+				<BuyShopExchangeCurrency Dialog="True" NpcId="1048383" ItemId="43961" Count="15" />
+			</If>
+
+			<If Condition="&Leveling; == 0">
+
+				<!-- Urqopacha -->
+				<If Condition="&Urqopacha; == 1">
+					<If condition="not IsOnMap(1187)">
+						<TeleportTo AetheryteId="200" /> <!-- Wachunpelo -->
+					</If>
+					<If condition="IsAnyFateActive()">
+						<Log Message="Starting Urqopacha FATE grind." />
+						<LLFate UseFlight="&UseLisbethFlightNav;" MinLevel="0" MaxLevel="101" BlacklistIds="&BlackList;" MinProgress="10" while="IsOnMap(1187) and ItemCount(26807) &lt; &GemStones; and IsAnyFateActive()" />
+					</If>
+					<If condition="not IsAnyFateActive() and (&HeritageFound; == 0 and &Shaaloani; == 0 and &YakTel; == 0 and &KozamaUka; == 1 and &Urqopacha; == 0 and &LivingMemory; == 0)">
+						<Log Message="Not fates active and no other zones selected. Waiting for fate to become active." />
+						<WaitWhile condition="not IsAnyFateActive()" />
+					</If>
+				</If>
+
+				<!-- Kozama'uka -->
+				<If Condition="&KozamaUka; == 1">
+					<If condition="not IsOnMap(1188)">
+						<TeleportTo AetheryteId="202" /> <!-- Ok'hanu -->
+					</If>
+					<If condition="IsAnyFateActive()">
+						<Log Message="Starting Kozama'uka FATE grind." />
+						<LLFate UseFlight="&UseLisbethFlightNav;" MinLevel="0" MaxLevel="101" BlacklistIds="&BlackList;" while="IsOnMap(1188) and ItemCount(26807) &lt; &GemStones; and IsAnyFateActive()" />
+					</If>
+					<If condition="not IsAnyFateActive() and (&HeritageFound; == 0 and &Shaaloani; == 0 and &YakTel; == 0 and &KozamaUka; == 1 and &Urqopacha; == 0 and &LivingMemory; == 0)">
+						<Log Message="Not fates active and no other zones selected. Waiting for fate to become active." />
+						<WaitWhile condition="not IsAnyFateActive()" />
+					</If>
+				</If>
+
+				<!-- Yak T'el -->
+				<If Condition="&YakTel; == 1">
+					<If condition="not IsOnMap(1189)">
+						<TeleportTo AetheryteId="205" /> <!-- Iq Br'aax -->
+					</If>
+					<If condition="IsAnyFateActive()">
+						<Log Message="Starting Yak'Tel FATE grind." />
+						<LLFate UseFlight="&UseLisbethFlightNav;" MinLevel="0" MaxLevel="101" BlacklistIds="&BlackList;" while="IsOnMap(1189) and ItemCount(26807) &lt; &GemStones; and IsAnyFateActive()" />
+					</If>
+					<If condition="not IsAnyFateActive() and (&HeritageFound; == 0 and &Shaaloani; == 0 and &YakTel; == 1 and &KozamaUka; == 0 and &Urqopacha; == 0 and &LivingMemory; == 0)">
+						<Log Message="Not fates active and no other zones selected. Waiting for fate to become active." />
+						<WaitWhile condition="not IsAnyFateActive()" />
+					</If>
+				</If>
+
+				<!-- Shaaloani -->
+				<If Condition="&Shaaloani; == 1">
+					<If condition="not IsOnMap(1190)">
+						<TeleportTo AetheryteId="207" /> <!-- Hhusatahwi -->
+					</If>
+					<If condition="IsAnyFateActive()">
+						<Log Message="Starting Shaaloani FATE grind." />
+						<LLFate UseFlight="&UseLisbethFlightNav;" MinLevel="0" MaxLevel="101" BlacklistIds="&BlackList;" while="IsOnMap(1190) and ItemCount(26807) &lt; &GemStones; and IsAnyFateActive()" />
+					</If>
+					<If condition="not IsAnyFateActive() and (&HeritageFound; == 0 and &Shaaloani; == 1 and &YakTel; == 0 and &KozamaUka; == 0 and &Urqopacha; == 0 and &LivingMemory; == 0)">
+						<Log Message="Not fates active and no other zones selected. Waiting for fate to become active." />
+						<WaitWhile condition="not IsAnyFateActive()" />
+					</If>
+				</If>
+
+				<!-- Heritage Found -->
+				<If Condition="&HeritageFound; == 1">
+					<If condition="not IsOnMap(1191)">
+						<TeleportTo AetheryteId="212" /> <!-- Electrope Strike -->
+					</If>
+					<If condition="IsAnyFateActive()">
+						<Log Message="Starting Heritage Found FATE grind." />
+						<LLFate UseFlight="&UseLisbethFlightNav;" MinProgress="10" MinLevel="0" MaxLevel="101" BlacklistIds="&BlackList;" while="IsOnMap(1191) and ItemCount(26807) &lt; &GemStones; and IsAnyFateActive()" />
+					</If>
+					<If condition="not IsAnyFateActive() and (&HeritageFound; == 1 and &Shaaloani; == 0 and &YakTel; == 0 and &KozamaUka; == 0 and &Urqopacha; == 0 and &LivingMemory; == 0)">
+						<Log Message="Not fates active and no other zones selected. Waiting for fate to become active." />
+						<WaitWhile condition="not IsAnyFateActive()" />
+					</If>
+				</If>
+
+				<!-- Living Memory -->
+				<If Condition="&LivingMemory; == 1">
+					<If condition="not IsOnMap(1192)">
+						<TeleportTo AetheryteId="213" /> <!-- Reah Tahra -->
+					</If>
+					<If condition="IsAnyFateActive()">
+						<Log Message="Starting Living Memory FATE grind." />
+						<LLFate UseFlight="&UseLisbethFlightNav;" MinProgress="10" MinLevel="0" MaxLevel="101" BlacklistIds="&BlackList;" while="IsOnMap(1192) and ItemCount(26807) &lt; &GemStones; and IsAnyFateActive()" />
+					</If>
+					<If condition="not IsAnyFateActive() and (&HeritageFound; == 0 and &Shaaloani; == 0 and &YakTel; == 0 and &KozamaUka; == 0 and &Urqopacha; == 0 and &LivingMemory; == 1)">
+						<Log Message="Not fates active and no other zones selected. Waiting for fate to become active." />
+						<WaitWhile condition="not IsAnyFateActive()" />
+					</If>
+				</If>
+
+
+			</If>
+
+			<If Condition="&Leveling; == 1">
+				<If Condition="Core.Me.ClassLevel &lt; 93">
+					<!-- Kozama'uka -->
+					<If condition="not IsOnMap(1188)">
+						<TeleportTo AetheryteId="202" />
+					</If>
+					<If condition="IsOnMap(1188)">
+						<LLFate UseFlight="&UseLisbethFlightNav;" MinLevel="0" MaxLevel="93" BlacklistIds="&BlackList;" while="IsOnMap(1188)" While="ItemCount(26807) &lt; &GemStones; and Core.Me.ClassLevel &lt; 93" />
+					</If>
+				</If>
+				<If Condition="Core.Me.ClassLevel &lt; 96">
+					<!-- Yak'Tel -->
+					<If condition="not IsOnMap(1189)">
+						<TeleportTo AetheryteId="205" />
+					</If>
+					<If condition="IsOnMap(1189)">
+						<LLFate UseFlight="&UseLisbethFlightNav;" MinLevel="0" MaxLevel="96" BlacklistIds="&BlackList;" while="IsOnMap(1189)" While="ItemCount(26807) &lt; &GemStones; and Core.Me.ClassLevel &lt; 96" />
+					</If>
+				</If>
+				<If Condition="Core.Me.ClassLevel &lt; 100">
+					<!-- Heritage Found -->
+					<If condition="not IsOnMap(1191)">
+						<TeleportTo AetheryteId="212" />
+					</If>
+					<If condition="IsOnMap(1191)">
+						<LLFate UseFlight="&UseLisbethFlightNav;" MinLevel="0" MaxLevel="101" BlacklistIds="&BlackList;" while="IsOnMap(1191)" While="ItemCount(26807) &lt; &GemStones; and Core.Me.ClassLevel &lt; 100" />
+					</If>
+				</If>
+			</If>
+		</While>
+
+	</Order>
+	<GrindAreas>
+	</GrindAreas>
+	<CodeChunks>
+	</CodeChunks>
+</Profile>      
