@@ -18,10 +18,10 @@
 	<!ENTITY BlackList "1871,1922,1905,1931,1936,1937,1865,1869,1949,1957,1906,1913,1917,1957">
 
 	<!-- What zone should we grind in if not using Leveling? -->
-	<!ENTITY Urqopacha "1">
-	<!ENTITY KozamaUka "1">
+	<!ENTITY Urqopacha "0">
+	<!ENTITY KozamaUka "0">
 	<!ENTITY YakTel "0">
-	<!ENTITY Shaaloani "1">
+	<!ENTITY Shaaloani "0">
 	<!ENTITY HeritageFound "0">
 	<!ENTITY LivingMemory "0">
 ]>
