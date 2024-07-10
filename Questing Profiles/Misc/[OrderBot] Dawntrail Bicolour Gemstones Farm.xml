@@ -36,6 +36,10 @@
 			<LLToast message="Please change Rank4Done '0' to Rank4Done '1' if you have." />
 		</If>
 
+		<If Condition="&Leveling; == 0 and &Urqopacha; == 0 and &KozamaUka; == 0 and &YakTel; == 0 and &Shaaloani; == 0 and &HeritageFound; == 0 and &LivingMemory; == 0">
+			<UserDialog DialogText="Please open the profile and set at least one zone to 1." />
+		</If>
+
 		<While Condition="ItemCount(43961) &lt; &Vouchers;"> <!-- 43961 = Turali Bicolor Gemstone Voucher -->
 			<If condition="ItemCount(26807) &gt; &GemStones; or ItemCount(26807) == &GemStones; and &Rank4Done; == 1">
 				<GetTo ZoneId="1185" XYZ="-25.918114, -10.00001, 101.99045" />
