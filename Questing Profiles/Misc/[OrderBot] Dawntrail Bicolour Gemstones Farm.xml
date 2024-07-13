@@ -57,7 +57,7 @@
 						<Log Message="Starting Urqopacha FATE grind." />
 						<LLFate UseFlight="&UseLisbethFlightNav;" MinLevel="0" MaxLevel="101" BlacklistIds="&BlackList;" MinProgress="10" while="IsOnMap(1187) and ItemCount(26807) &lt; &GemStones; and IsAnyFateActive()" />
 					</If>
-					<If condition="not IsAnyFateActive() and (&HeritageFound; == 0 and &Shaaloani; == 0 and &YakTel; == 0 and &KozamaUka; == 1 and &Urqopacha; == 0 and &LivingMemory; == 0)">
+					<If condition="not IsAnyFateActive() and (&HeritageFound; == 0 and &Shaaloani; == 0 and &YakTel; == 0 and &KozamaUka; == 0 and &Urqopacha; == 1 and &LivingMemory; == 0)">
 						<Log Message="Not fates active and no other zones selected. Waiting for fate to become active." />
 						<WaitWhile condition="not IsAnyFateActive()" />
 					</If>
