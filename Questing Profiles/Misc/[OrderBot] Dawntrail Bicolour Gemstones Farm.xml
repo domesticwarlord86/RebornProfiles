@@ -151,7 +151,7 @@
 						<LLFate UseFlight="&UseLisbethFlightNav;" MinLevel="0" MaxLevel="93" BlacklistIds="&BlackList;" while="IsOnMap(1188)" While="ItemCount(26807) &lt; &GemStones; and Core.Me.ClassLevel &lt; 93" />
 					</If>
 				</If>
-				<If Condition="Core.Me.ClassLevel &lt; 96">
+				<If Condition="Core.Me.ClassLevel &gt; 92 and Core.Me.ClassLevel &lt; 96">
 					<!-- Yak'Tel -->
 					<If condition="not IsOnMap(1189)">
 						<TeleportTo AetheryteId="205" />
@@ -160,7 +160,7 @@
 						<LLFate UseFlight="&UseLisbethFlightNav;" MinLevel="0" MaxLevel="96" BlacklistIds="&BlackList;" while="IsOnMap(1189)" While="ItemCount(26807) &lt; &GemStones; and Core.Me.ClassLevel &lt; 96" />
 					</If>
 				</If>
-				<If Condition="Core.Me.ClassLevel &lt; 100">
+				<If Condition="Core.Me.ClassLevel &gt; 95 and Core.Me.ClassLevel &lt; 100">
 					<!-- Heritage Found -->
 					<If condition="not IsOnMap(1191)">
 						<TeleportTo AetheryteId="212" />
