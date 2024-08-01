@@ -13,34 +13,34 @@
   <Name>For Want of a Memory</Name>
   <BehaviorDirectory></BehaviorDirectory>
   <Order>
-  
+
 	<RunCode name="Disable_Flight"/>
 
     <!--  For Want of a Memory -->
     <If Condition="not HasQuest(69506)">
-		<If Condition="not IsOnMap(915)">	
+		<If Condition="not IsOnMap(915)">
 			<While Condition="not IsOnMap(759)">
 				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
-			</While>				
+			</While>
 			<GetTo ZoneId="759" XYZ="126.2195, -4.178713, 97.66013"/>
 			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
-		</If>	  	
+		</If>
       <MoveTo XYZ="2.502354, 3.161222, -57.83289"/>
       <If Condition="IsQuestAcceptQualified(69506)">
 		<If condition="not IsQuestCompleted(69506)">
 			<While Condition="not HasQuest(69506)">
 				<RunCode name="FirstTimeForWantofaMemory"/>
-			</While>	
+			</While>
 		</If>
 		<If condition="IsQuestCompleted(69506)">
 			<While Condition="not HasQuest(69506)">
 				<RunCode name="NotFirstTimeForWantofaMemory"/>
-			</While>	
-		</If>		
+			</While>
+		</If>
       </If>
     </If>
-	
-	
+
+
 
 		<!-- Tortured Memory of the Dying -->
 		<If Condition="not HasAtLeast(31573,20)">
@@ -48,51 +48,51 @@
 			<While Condition="HasQuest(69506) and not HasAtLeast(31573,20)">
 				<While Condition="not IsOnMap(397)">
 					<TeleportTo AetheryteId="71"/> <!-- Coerthas Western Highlands -->
-				</While>		
+				</While>
 				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31573,20) and IsOnMap(397)" BlacklistId="793,807"/>
-			</While>	
+			</While>
 			<If Condition="&CleanInventory; == 1">
 				<!-- Deepeye Tears, Yeti Fang, Gelato Flesh, Dragon Fang, Yak Milk, Archaeornis Skin, Pudding Flesh, Icetrap Leaf, Hippogryph Sinew, Hippogryph Skin, Garlean Steel Plate, Ogre Horn -->
 				<LLSellItem ItemIds="12628,12575,12635,12576,12888,12568,5558,12637,5321,5316,5105,5439,12571,12630,12576,12609,12627,5444,12599,12572"/>
-			</If>			
+			</If>
 		</If>
-		
+
 		<!-- Sorrowful Memory of the Dying -->
 		<If Condition="not HasAtLeast(31574,20)">
 			<Log Message="Farming Sorrowful Memory of the Dying in Dravanian Forelands..." />
-			<While Condition="HasQuest(69506) and not HasAtLeast(31574,20)">		
+			<While Condition="HasQuest(69506) and not HasAtLeast(31574,20)">
 				<While Condition="not IsOnMap(398)">
 					<TeleportTo AetheryteId="76"/> <!-- Dravanian Forelands -->
-				</While>		
+				</While>
 				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31574,20) and IsOnMap(398)" BlacklistId="821,838,902"/>
-			</While>	
+			</While>
 			<If Condition="&CleanInventory; == 1">
 				<!-- Dragon Skin, Dragon Blood, Dragon Fang, Bear Fat, Dragon Scale, Wolf Fang -->
 				<LLSellItem ItemIds="12628,12575,12635,12576,12888,12568,5558,12637,5321,5316,5105,5439,12571,12630,12576,12609,12627,5444,12599,12572"/>
-			</If>		
+			</If>
 		</If>
 
 		<!-- Harrowing Memory of the Dying -->
-		<If Condition="not HasAtLeast(31575,20)">	
+		<If Condition="not HasAtLeast(31575,20)">
 			<Log Message="Farming Harrowing Memory of the Dying in Azys Lla..." />
-			<While Condition="HasQuest(69506) and not HasAtLeast(31575,20)">		
+			<While Condition="HasQuest(69506) and not HasAtLeast(31575,20)">
 				<If Condition="not IsOnMap(402)">
 					<TeleportTo AetheryteId="74"/> <!-- Azys Lla -->
-				</If>		
-				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31575,20) and IsOnMap(402)" BlacklistId="887"/>
-			</While>		
+				</If>
+				<LLFate MinLevel="1" MaxLevel="80" while="not HasAtLeast(31575,20) and IsOnMap(402)" BlacklistId="887,883,884,886,881,900"/>
+			</While>
 			<If Condition="&CleanInventory; == 1">
 				<!-- Chimera Mane, Amphiptere Skin -->
 				<LLSellItem ItemIds="12628,12575,12635,12576,12888,12568,5558,12637,5321,5316,5105,5439,12571,12630,12576,12609,12627,5444,12599,12572"/>
 			</If>
 		</If>
-		
 
-	
+
+
 
 	<If Condition="HasQuest(69506) and HasAtLeast(31574,20) and HasAtLeast(31573,20) and HasAtLeast(31575,20)">
 		<Log Message="Obtained all memories. Headed to turn them in." />
-		<If Condition="not IsOnMap(915)">	
+		<If Condition="not IsOnMap(915)">
 			<If Condition="not IsOnMap(759)">
 				<TeleportTo AetheryteId="127"/> <!-- The Doman Enclave -->
 			</If>
@@ -100,11 +100,11 @@
 			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 		</If>
 		<MoveTo XYZ="2.502354, 3.161222, -57.83289"/>
-        <TurnIn QuestId="69506" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>		
+        <TurnIn QuestId="69506" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>
 	</If>
-	
+
 	<LLoadProfile Path="../Start.xml"/>
-	
+
   </Order>
 	<CodeChunks>
 		<CodeChunk Name="FirstTimeForWantofaMemory">
@@ -124,22 +124,22 @@
 									Navigator.PlayerMover.MoveStop();
 								}
 
-					npcId.Interact();			
+					npcId.Interact();
 
 					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
-					
+
 					if (!SelectIconString.IsOpen)
 					{
 						npcId.Interact();
 
 						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
-					}	
-	
+					}
+
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
 						Logging.WriteDiagnostic("Choosing 'For Want of a Memory'.");
 						ff14bot.RemoteWindows.SelectIconString.ClickSlot(0);
-					}					
+					}
 
 					await Coroutine.Wait(10000, () => Talk.DialogOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
@@ -149,8 +149,8 @@
 						await Coroutine.Wait(1000, () => !Talk.DialogOpen);
 						await Coroutine.Wait(1000, () => Talk.DialogOpen);
 						await Coroutine.Yield();
-					}	
-					
+					}
+
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
@@ -160,7 +160,7 @@
 
 					await Buddy.Coroutines.Coroutine.Sleep(1000);
 					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
-					JournalAccept.Accept();					
+					JournalAccept.Accept();
 
 					await Coroutine.Wait(10000, () => Talk.DialogOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
@@ -172,9 +172,9 @@
 						await Coroutine.Yield();
 					}
 
-					
-			]]>			
-		</CodeChunk>	
+
+			]]>
+		</CodeChunk>
 		<CodeChunk Name="NotFirstTimeForWantofaMemory">
 			<![CDATA[
 				var npcId = GameObjectManager.GetObjectByNPCId(1032905);
@@ -192,29 +192,29 @@
 									Navigator.PlayerMover.MoveStop();
 								}
 
-					npcId.Interact();	
+					npcId.Interact();
 
 					await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
-					
+
 					if (!SelectIconString.IsOpen)
 					{
 						npcId.Interact();
 
 						await Coroutine.Wait(10000, () => SelectIconString.IsOpen);
-					}					
-					
+					}
+
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
 						Logging.WriteDiagnostic("Choosing 'Resistance Weapon Forging'.");
 						SelectIconString.ClickLineContains("Forging");
-					}					
-					
+					}
+
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
 						Logging.WriteDiagnostic("Choosing 'For Want of a Memory'.");
 						SelectString.ClickLineContains("Memory");
-					}					
+					}
 
 					await Coroutine.Wait(10000, () => Talk.DialogOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
@@ -225,7 +225,7 @@
 						await Coroutine.Wait(1000, () => Talk.DialogOpen);
 						await Coroutine.Yield();
 					}
-					
+
 					await Coroutine.Wait(10000, () => SelectString.IsOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
 					{
@@ -235,7 +235,7 @@
 
 					await Buddy.Coroutines.Coroutine.Sleep(1000);
 					await Coroutine.Wait(1000, () => JournalAccept.IsOpen);
-					JournalAccept.Accept();					
+					JournalAccept.Accept();
 
 					await Coroutine.Wait(10000, () => Talk.DialogOpen);
 					await Buddy.Coroutines.Coroutine.Sleep(500);
@@ -246,8 +246,8 @@
 						await Coroutine.Wait(1000, () => Talk.DialogOpen);
 						await Coroutine.Yield();
 					}
-					
-			]]>			
+
+			]]>
 		</CodeChunk>
   		<CodeChunk Name="Disable_Flight">
 		<![CDATA[
@@ -260,6 +260,6 @@
 			catch (Exception ex) {  }
 			}
 		]]>
-		</CodeChunk>		
-	</CodeChunks>   
-</Profile>  
+		</CodeChunk>
+	</CodeChunks>
+</Profile>
