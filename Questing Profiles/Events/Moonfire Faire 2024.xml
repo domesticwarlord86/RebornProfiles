@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Moonfire Faire 2024
+  Authors: DomesticWarlord
+
+-->
+<!DOCTYPE Profile [
+  <!ENTITY Necrologos "649">
+]>
+
+<Profile>
+  <Name>Moonfire Faire 2024</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Fire Red, Beast Green -->
+    <If Condition="not IsQuestCompleted(70718)">
+      <If Condition="not HasQuest(70718)">
+        <GetTo ZoneId="128" XYZ="14.816434, 45.40635, 127.339745" />
+        <If Condition="IsQuestAcceptQualified(70718)">
+          <PickupQuest QuestId="70718" NpcId="1050816" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70718) == 1">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="721.27155, 10.395869, 257.8173" Land="True" />
+        <TalkTo NpcId="1050817" XYZ="735.25586, 11.306824, 261.8601" QuestId="70718" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70718) == 2">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="683.35406, 9.651962, 205.59778" Land="True" />
+        <TalkTo NpcId="1050818" XYZ="681.3915, 9.601691, 202.86865" QuestId="70718" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70718) == 3">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="767.7656, 9.676655, 244.91016" Land="True" />
+        <TalkTo NpcId="1050819" XYZ="770.13806, 9.687993, 246.29578" QuestId="70718" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70718) == 4">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="767.7656, 9.676655, 244.91016" Land="True" />
+        <UseObject NpcId="2014098" XYZ="769.0698, 9.719971, 246.99768" QuestId="70718" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70718) == 255">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="694.2319, 9.64486, 293.48083" Land="True" />
+        <TurnIn QuestId="70718" NpcId="1050820" XYZ="695.46045, 9.614362, 295.70447" />
+      </If>
+    </If>
+
+    <!-- Festival Fan Frenzy -->
+    <If Condition="IsQuestCompleted(70718) and not IsQuestCompleted(70719)">
+      <If Condition="not HasQuest(70719)">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="693.8748, 9.637222, 293.71896" Land="True" />
+        <If Condition="IsQuestAcceptQualified(70719)">
+          <PickupQuest QuestId="70719" NpcId="1050828" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70719) == 1 and GetQuestById(70719).QuestI8A == 0">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="508.25604, 9.631069, 431.63107" Land="True" />
+        <EmoteNPC Emote="uchiwasshoi" NpcId="1050824" XYZ="507.68274, 9.541115, 428.54944" Condition="GetQuestStep(70719) == 1 and GetQuestById(70719).QuestI8A == 0" />
+      </If>
+      <If Condition="GetQuestStep(70719) == 1 and GetQuestById(70719).QuestI8A == 1">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="637.81287, 10.976633, 525.5121" Land="True" />
+        <EmoteNPC Emote="uchiwasshoi" NpcId="1050825" XYZ="641.44336, 11.697773, 526.604" QuestId="70719" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70719) == 2">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="693.26447, 9.585619, 300.72662" Land="True" />
+        <HandOver ItemId="2003600" NpcId="1050829" XYZ="694.2092, 9.619679, 294.81946" QuestId="70719" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70719) == 255">
+        <If condition="not IsOnMap(137)">
+          <TeleportTo Name="Costa del Sol" AetheryteId="11" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="727.4176, 10.313238, 271.322" Land="True" />
+        <TurnIn QuestId="70719" NpcId="1050817" XYZ="735.25586, 11.306824, 261.8601" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
