@@ -20,31 +20,18 @@
 
 ### Automatic Setup (recommended)
 
-Want **automatic installation and updates**, including prerequisites?
-
-Install the [RepoBuddy][12] plugin -- `RebornProfiles `is configured by default!
-
-#### Adding `RebornProfiles` to RepoBuddy
-
-ℹ️ New users can skip this step.
-
-In case your repoBuddy config is too old or otherwise missing `RebornProfiles`, you can add it via repoBuddy's settings menu:
-
-- **Name:** RebornProfiles
-- **Type:** Profile
-- **URL:** `https://github.com/domesticwarlord86/RebornProfiles.git/trunk`
-
-![repBuddy Settings](https://i.imgur.com/KJhwxtw.png)
-
-OR by closing the bot and editing `RebornBuddy\Plugins\repoBuddy\repoBuddyRepos.xml`:
-
-```xml
-<Repo>
-  <Name>RebornProfiles</Name>
-  <Type>Profile</Type>
-  <URL>https://github.com/domesticwarlord86/RebornProfiles.git/trunk</URL>
-</Repo>
+The easiest way to install LlamaLibrary is to install the [updateBuddy](https://loader.updatebuddy.net/UpdateBuddy.zip) plugin. It would be installed in the **/plugins** folder of your rebornBuddy folder as such:
 ```
+RebornBuddy
+└── Plugins
+    └── updateBuddy
+        ├── git2-a2bde63.dll
+        ├── LibGit2Sharp.dll
+        ├── Loader.cs
+        └── UpdateBuddy.dll
+```
+
+It will automatically install the files into the correct folders and keep them up to date.
 
 ### Manual Setup
 
@@ -76,7 +63,7 @@ To load an OrderBot script:
 
 ## Troubleshooting
 
-For live volunteer support, join the [Project BR Discord][4] channel `#domesticwarlord86-profile-help`.
+For live volunteer support, join the [Project BR Discord][4] channel `#support`.
 
 When asking for help, always include:
 
@@ -86,6 +73,10 @@ When asking for help, always include:
 - relevant logs from the `RebornBuddy\Logs\` folder.
 
 No need to ask if anyone's around or for permission to ask -- just go for it!
+
+## Want more?
+
+If you're interested in more of my work, check out [LlamaMagic](https://llamamagic.net/plugins/pandafarmer/). There you can find all of my more advanced plugins that give you an easy to use interface for my various OrderBot profiles. Including one click MSQ support. Duty Leveling for your various jobs. As well as farming nearly every Duty Support dungeon in the game. Check it out!
 
 <!-- ## Looking to Donate? ❤️
 
