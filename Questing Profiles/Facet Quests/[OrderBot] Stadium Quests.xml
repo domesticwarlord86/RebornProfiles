@@ -35,8 +35,7 @@
 	<!-- Craftsman's Command Materia IX		33927 -->
 
 <!ENTITY BuyCraftItem "33927">	
-
-
+<!ENTITY PurpleCraftersScrip "33913">	
 
 <!-- Set this to what item you'd like to buy when you're near capped on Gatherer White Scrips -->
 	<!-- For reference, here's the top three items with Gatherer's Scrips -->
@@ -45,7 +44,7 @@
 	<!-- Gatherer's Grasp Materia IX 		33924 -->
 
 <!ENTITY BuyGatherItem "33923">	   
-
+<!ENTITY PurpleGathersScrip "33914">	
 
 ]>
 
@@ -172,7 +171,7 @@
 					</If>					
 				</If>
 				<If condition="LLItemCollectableCount(35592) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
@@ -208,7 +207,7 @@
 					</If>					
 				</If>
 				<If condition="LLItemCollectableCount(35593) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
@@ -244,7 +243,7 @@
 					</If>					
 				</If>
 				<If condition="LLItemCollectableCount(35594) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
@@ -335,7 +334,7 @@
 					</If>					
 				</If>
 				<If condition="LLItemCollectableCount(35595) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
@@ -453,7 +452,7 @@
 					</If>					
 				</If>
 				<If condition="LLItemCollectableCount(35588) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/>					
@@ -490,7 +489,7 @@
 					</If>					
 				</If>
 				<If condition="LLItemCollectableCount(35589) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/>					
@@ -526,7 +525,7 @@
 					</If>					
 				</If>
 				<If condition="LLItemCollectableCount(35590) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/> 					
@@ -608,7 +607,7 @@
 					</If>					
 				</If>
 				<If condition="LLItemCollectableCount(35591) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/> 				
@@ -720,7 +719,7 @@
 					</If>				
 				</If>
 				<If condition="LLItemCollectableCount(35596) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  				
@@ -754,7 +753,7 @@
 					</If>				
 				</If>
 				<If condition="LLItemCollectableCount(35597) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>
 					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  
@@ -787,7 +786,7 @@
 					</If>				
 				</If>
 				<If condition="LLItemCollectableCount(35598) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  
@@ -880,7 +879,7 @@
 					</If>				
 				</If>
 				<If condition="LLItemCollectableCount(35599) &gt; 5">
-					<While Condition="ItemCount(25199) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleCraftersScrip;) &gt; 1000"> <!-- 25199 = White Crafters' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyCraftItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  
@@ -993,7 +992,7 @@
 					<Lisbeth Json="[{'Group':1,'Item':35600,'Amount':6,'Enabled':true,'Type':'Gather','AmountMode':'Restock','Collectable':true}]"/>				
 				</If>
 				<If condition="LLItemCollectableCount(35600) &gt; 5">
-					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleGathersScrip;) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
@@ -1021,7 +1020,7 @@
 					<Lisbeth Json="[{'Group':1,'Item':35601,'Amount':6,'Enabled':true,'Type':'Gather','AmountMode':'Restock','Collectable':true}]"/>				
 				</If>
 				<If condition="LLItemCollectableCount(35601) &gt; 5">
-					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleGathersScrip;) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
@@ -1049,7 +1048,7 @@
 					<Lisbeth Json="[{'Group':1,'Item':35602,'Amount':6,'Enabled':true,'Type':'Gather','AmountMode':'Restock','Collectable':true}]"/>				
 				</If>
 				<If condition="LLItemCollectableCount(35602) &gt; 5">
-					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleGathersScrip;) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
@@ -1125,7 +1124,7 @@
 					<Lisbeth Json="[{'Group':1,'Item':35603,'Amount':6,'Enabled':true,'Type':'Gather','AmountMode':'Restock','Collectable':true}]"/>				
 				</If>
 				<If condition="LLItemCollectableCount(35603) &gt; 5">
-					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleGathersScrip;) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
@@ -1235,7 +1234,7 @@
 						</ExFish>
 				</If>
 				<If condition="LLItemCollectableCount(35604) &gt; 5">				
-					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleGathersScrip;) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
@@ -1289,7 +1288,7 @@
 						</ExFish>
 				</If>
 				<If condition="LLItemCollectableCount(35605) &gt; 5">				
-					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleGathersScrip;) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
@@ -1340,7 +1339,7 @@
 						</ExFish>	
 				</If>
 				<If condition="LLItemCollectableCount(35606) &gt; 5">
-					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleGathersScrip;) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
@@ -1468,7 +1467,7 @@
 						</ExFish>	
 				</If>
 				<If condition="LLItemCollectableCount(35607) &gt; 5">
-					<While Condition="ItemCount(25200) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
+					<While Condition="ItemCount(&PurpleGathersScrip;) &gt; 1000"> <!-- 25199 = White Gatherers' Scrip Scrip -->
 						<BuyInclusionShopItem ItemId="&BuyGatherItem;" Count="0"/>
 					</While>				
 					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
