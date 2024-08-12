@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Unlock Dawntrail Hunts
+  Authors: DomesticWarlord
+
+-->
+
+<Profile>
+  <Name>Unlock Dawntrail Hunts</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <If Condition="not IsQuestCompleted(70400)">
+      <UserDialog IsBotContinueAllowed="False" DialogText="Please reach level 100 to unlock 'The Rite of Succession'" />
+    </If>
+
+    <!-- A New Dawn, a New Hunt -->
+    <If Condition="IsQuestCompleted(70400) and not IsQuestCompleted(70545)">
+      <If Condition="not HasQuest(70545)">
+        <GetTo ZoneId="1185" XYZ="-73.81681, -10.00001, 139.11807" />
+        <If Condition="IsQuestAcceptQualified(70545)">
+          <PickupQuest QuestId="70545" NpcId="1051413" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70545) == 255">
+        <GetTo ZoneId="1185" XYZ="21.526062, -14, 135.53648" />
+        <TurnIn QuestId="70545" NpcId="1048541" XYZ="23.5141, -14, 137.40747" />
+      </If>
+    </If>
+
+    <If Condition="Core.Player.ClassLevel &lt; 94 and not IsQuestCompleted(70546)">
+      <UserDialog IsBotContinueAllowed="False" DialogText="Please reach level 100 to unlock 'Why We Hunt '" />
+    </If>
+
+    <!-- Why We Hunt -->
+    <If Condition="Core.Player.ClassLevel &gt; 93 and IsQuestCompleted(70545) and not IsQuestCompleted(70546)">
+      <If Condition="not HasQuest(70546)">
+        <If condition="not IsOnMap(1185)">
+          <GetTo ZoneId="1185" XYZ="19.717344, -14, 134.69644" />
+        </If>
+        <If Condition="IsQuestAcceptQualified(70546)">
+          <PickupQuest QuestId="70546" NpcId="1048541" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70546) == 1">
+        <GetTo ZoneId="1185" XYZ="-86.608864, -19.378004, 212.28615" />
+        <TalkTo NpcId="1051414" XYZ="-90.348694, -19.6019, 212.54285" QuestId="70546" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70546) == 255">
+        <GetTo ZoneId="1185" XYZ="21.808084, -14, 135.50803" />
+        <TurnIn QuestId="70546" NpcId="1048541" XYZ="23.5141, -14, 137.40747" />
+      </If>
+    </If>
+
+    <If Condition="Core.Player.ClassLevel &lt; 99 and not IsQuestCompleted(70547)">
+      <UserDialog IsBotContinueAllowed="False" DialogText="Please reach level 100 to unlock 'Hunting the Hunter'" />
+    </If>
+
+    <!-- Hunting the Hunter -->
+    <If Condition="Core.Player.ClassLevel &gt; 98 and IsQuestCompleted(70546) and not IsQuestCompleted(70547)">
+      <If Condition="not HasQuest(70547)">
+        <If condition="not IsOnMap(1185)">
+          <GetTo ZoneId="1185" XYZ="20.080511, -14, 134.75781" />
+        </If>
+        <If Condition="IsQuestAcceptQualified(70547)">
+          <PickupQuest QuestId="70547" NpcId="1048541" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70547) == 1">
+        <If condition="not IsOnMap(1191)">
+          <TeleportTo Name="The Outskirts" AetheryteId="211" />
+        </If>
+        <GetTo ZoneId="1191" XYZ="-221.52377, 29.999996, -601.50226" />
+        <TalkTo NpcId="1049457" XYZ="-223.92621, 30, -603.11285" QuestId="70547" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70547) == 2">
+        <GetTo ZoneId="1186" XYZ="-65.4518, 38.80659, -459.52884" />
+        <TalkTo NpcId="1049180" XYZ="-67.27704, 38.80659, -459.22028" QuestId="70547" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70547) == 3">
+        <GetTo ZoneId="1186" XYZ="-398.6074, 14.029072, 114.75524" />
+        <TalkTo NpcId="1051415" XYZ="-400.351, 14.029996, 112.26062" QuestId="70547" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70547) == 255">
+        <GetTo ZoneId="1185" XYZ="18.391731, -14, 134.02528" />
+        <TurnIn QuestId="70547" NpcId="1048541" XYZ="23.5141, -14, 137.40747" />
+      </If>
+    </If>
+
+    <If Condition="Core.Player.ClassLevel &lt; 100 and not IsQuestCompleted(70548)">
+      <UserDialog IsBotContinueAllowed="False" DialogText="Please reach level 100 to unlock 'The Hunt Goes On'" />
+    </If>
+
+    <!-- The Hunt Goes On -->
+    <If Condition="Core.Player.ClassLevel &gt; 99 and IsQuestCompleted(70547) and not IsQuestCompleted(70548)">
+      <If Condition="not HasQuest(70548)">
+        <GetTo ZoneId="1185" XYZ="18.577677, -14, 134.14806" />
+        <If Condition="IsQuestAcceptQualified(70548)">
+          <PickupQuest QuestId="70548" NpcId="1048541" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70548) == 1">
+        <GetTo ZoneId="1186" XYZ="-398.8492, 14.029476, 114.246864" />
+        <TalkTo NpcId="1051415" XYZ="-400.351, 14.029996, 112.26062" QuestId="70548" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70548) == 255">
+        <GetTo ZoneId="1185" XYZ="18.577677, -14, 134.14806" />
+        <TurnIn QuestId="70548" NpcId="1048541" XYZ="18.577677, -14, 134.14806" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
