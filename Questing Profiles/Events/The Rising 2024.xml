@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: The Rising 2024
+  Authors: DomesticWarlord
+
+-->
+<!DOCTYPE Profile [
+
+  <!ENTITY GoldfinCavalli "43674">
+  <!ENTITY KingPuffer "43903">
+  <!ENTITY BluePurse "43673">
+  <!ENTITY FloatingFife "43672">
+  <!ENTITY ReasonscaleSilverside "43667">
+]>
+
+<Profile>
+  <Name>The Rising 2024</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Rising to the Call -->
+    <If Condition="not IsQuestCompleted(70551)">
+      <If Condition="not HasQuest(70551)">
+        <GetTo ZoneId="128" XYZ="3.4269438, 44.499992, 123.13981" />
+        <If Condition="IsQuestAcceptQualified(70551)">
+          <PickupQuest QuestId="70551" NpcId="1050998" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70551) == 1">
+        <GetTo ZoneId="128" XYZ="2.3467178, 31.475832, -257.40045" />
+        <TalkTo NpcId="1050999" XYZ="4.837097, 31.47563, -256.97723" QuestId="70551" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70551) == 2">
+        <GetTo ZoneId="129" XYZ="-98.729744, 18.000334, -12.872238" />
+        <TalkTo NpcId="1051000" XYZ="-100.175476, 18.00033, -15.030151" QuestId="70551" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70551) == 3">
+        <If Condition="GetQuestStep(70551) == 3 and GetQuestById(70551).QuestI8A == 0">
+          <GetTo ZoneId="129" XYZ="-139.18443, 18.2, 18.412457" />
+          <TalkTo NpcId="1001217" XYZ="-140.85602, 18.199999, 17.013733" QuestId="70551" StepId="3" />
+        </If>
+        <If Condition="GetQuestStep(70551) == 3 and GetQuestById(70551).QuestI8A == 1">
+          <GetTo ZoneId="129" XYZ="-188.7302, 15.999998, 36.162544" />
+          <TalkTo NpcId="1051003" XYZ="-188.12854, 16, 33.37146" QuestId="70551" StepId="3" />
+        </If>
+        <If Condition="GetQuestStep(70551) == 3 and GetQuestById(70551).QuestI8A == 2">
+          <GetTo ZoneId="129" XYZ="-203.6752, 15.999994, 70.524704" />
+          <TalkTo NpcId="1051002" XYZ="-205.005, 15.999994, 71.97681" QuestId="70551" StepId="3" />
+        </If>
+        <If Condition="GetQuestStep(70551) == 3 and GetQuestById(70551).QuestI8A == 3">
+          <GetTo ZoneId="129" XYZ="-242.85849, 16, 43.10697" />
+          <TalkTo NpcId="1051004" XYZ="-243.03046, 16.199997, 40.97046" QuestId="70551" StepId="3" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70551) == 4">
+        <GetTo ZoneId="129" XYZ="-387.20966, 5.999976, 35.702396" />
+        <UseObject NpcId="2014209" XYZ="-385.1225, 5.996765, 33.707153" QuestId="70551" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70551) == 255">
+        <GetTo ZoneId="128" XYZ="2.95168, 44.499996, 123.811676" />
+        <TurnIn QuestId="70551" NpcId="1051001" XYZ="3.7994385, 44.499992, 126.05469" />
+      </If>
+    </If>
+
+    <!-- We Who Are About to Set Sail Salute You -->
+    <If Condition="IsQuestCompleted(70551) and not IsQuestCompleted(70552)">
+      <If Condition="not HasQuest(70552)">
+        <GetTo ZoneId="128" XYZ="3.005549, 44.499992, 121.997086" />
+        <If Condition="IsQuestAcceptQualified(70552)">
+          <PickupQuest QuestId="70552" NpcId="1051007" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70552) == 1">
+        <GetTo ZoneId="128" XYZ="1.052951, 44, -207.33974" />
+        <TalkTo NpcId="1051008" XYZ="2.5481567, 43.999977, -206.71399" QuestId="70552" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70552) == 2">
+        <GetTo ZoneId="128" XYZ="1.052951, 44, -207.33974" />
+        <TalkTo NpcId="1051009" XYZ="1.5106201, 44, -205.8595" QuestId="70552" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70552) == 3">
+        <GetTo ZoneId="128" XYZ="-175.21976, 41, 184.43726" />
+        <UseObject NpcId="2014210" XYZ="-176.62323, 40.97046, 185.35132" QuestId="70552" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70552) == 4">
+        <GetTo ZoneId="128" XYZ="-175.21976, 41, 184.43726" />
+        <TalkTo NpcId="1051010" XYZ="-178.11859, 40.999958, 184.67993" QuestId="70552" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70552) == 255">
+        <GetTo ZoneId="128" XYZ="-177.17041, 40.999916, 186.2256" />
+        <TurnIn QuestId="70552" NpcId="1051011" XYZ="-178.63745, 40.999916, 186.3584" />
+      </If>
+    </If>
+
+    <UseInventoryItem ItemID="43587"/>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
