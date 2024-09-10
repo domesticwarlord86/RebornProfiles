@@ -5,6 +5,8 @@
 
 -->
 <!DOCTYPE Profile [
+  <!ENTITY WeatheredPaintersAttireCoffer "43538">
+  <!ENTITY WeatheredRoundBrush "41809">
 ]>
 
 <Profile>
@@ -34,9 +36,26 @@
       </If>
     </If>
 
+    <If Condition="HasItem(&WeatheredPaintersAttireCoffer;) or ClassName != ClassJobType.Pictomancer">
+      <If condition="ClassName != ClassJobType.Pictomancer">
+        <EquipWeapon ItemID="&WeatheredRoundBrush;" />
+        <WaitWhile condition="ClassName != ClassJobType.Pictomancer" />
+        <RunCode name="GearsetSave" />
+      </If>
+      <UseInventoryItem ItemID="&WeatheredPaintersAttireCoffer;" />
+      <WaitTimer WaitTime="3" />
+      <AutoInventoryEquip />
+    </If>
+
   </Order>
   <GrindAreas>
   </GrindAreas>
   <CodeChunks>
+    <CodeChunk Name="GearsetSave">
+      <![CDATA[
+      await CommonTasks.StopAndDismount();
+      ChatManager.SendChat("/gs save");
+      ]]>
+    </CodeChunk>
   </CodeChunks>
 </Profile> 

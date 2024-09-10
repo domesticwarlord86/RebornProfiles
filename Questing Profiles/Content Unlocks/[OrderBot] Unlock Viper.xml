@@ -5,6 +5,8 @@
 
 -->
 <!DOCTYPE Profile [
+<!ENTITY WeatheredSnakebiteAttireCoffer "43537">
+<!ENTITY WeatheredTwinfangs "41808">
 ]>
 
 <Profile>
@@ -34,9 +36,26 @@
       </If>
     </If>
 
+    <If Condition="HasItem(&WeatheredSnakebiteAttireCoffer;) or ClassName != ClassJobType.Viper">
+      <If condition="ClassName != ClassJobType.Viper9">
+        <EquipWeapon ItemID="&WeatheredTwinfangs;" />
+        <WaitWhile condition="ClassName != ClassJobType.Viper" />
+        <RunCode name="GearsetSave" />
+      </If>
+      <UseInventoryItem ItemID="&WeatheredSnakebiteAttireCoffer;" />
+      <WaitTimer WaitTime="3" />
+      <AutoInventoryEquip />
+    </If>
+
   </Order>
   <GrindAreas>
   </GrindAreas>
   <CodeChunks>
+    <CodeChunk Name="GearsetSave">
+      <![CDATA[
+      await CommonTasks.StopAndDismount();
+      ChatManager.SendChat("/gs save");
+      ]]>
+    </CodeChunk>
   </CodeChunks>
 </Profile> 
