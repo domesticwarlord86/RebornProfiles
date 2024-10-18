@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: All Saint's Wake 2024
+  Authors: DomesticWarlord
+
+-->
+<!DOCTYPE Profile [
+  <!ENTITY Necrologos "649">
+]>
+
+<Profile>
+  <Name>All Saint's Wake 2024</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- The Aether-starved Ahriman -->
+    <If Condition="not IsQuestCompleted(70720)">
+      <If Condition="not HasQuest(70720)">
+        <GetTo ZoneId="133" XYZ="-48.94797, 6.4999943, -93.45637" />
+        <If Condition="IsQuestAcceptQualified(70720)">
+          <PickupQuest QuestId="70720" NpcId="1050484" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70720) == 1">
+        <GetTo ZoneId="133" XYZ="-153.2339, 7.7735376, -142.1472" />
+        <TalkTo NpcId="1050479" XYZ="-157.33582, 7.982081, -143.69421" QuestId="70720" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70720) == 2">
+        <GetTo ZoneId="133" XYZ="-153.47089, 5.3902435, -54.553543" />
+        <TalkTo NpcId="1050483" XYZ="-151.07965, 5.417452, -53.330322" QuestId="70720" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70720) == 3">
+        <GetTo ZoneId="133" XYZ="-153.47089, 5.390244, -54.553543" />
+        <EmoteNPC Emote="soothe" NpcId="1050483" XYZ="-151.07965, 5.417452, -53.330322" QuestId="70720" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70720) == 255">
+        <GetTo ZoneId="133" XYZ="-50.036377, 6.499976, -93.09066" />
+        <TurnIn QuestId="70720" NpcId="1050484" XYZ="-50.003845, 6.5, -88.39557" />
+      </If>
+    </If>
+
+    <!-- All Fiends Sated on All Saints' Wake -->
+    <If Condition="IsQuestCompleted(70720) and not IsQuestCompleted(70721)">
+      <If Condition="not HasQuest(70721)">
+        <GetTo ZoneId="133" XYZ="-49.578026, 6.499977, -94.14653" />
+        <If Condition="IsQuestAcceptQualified(70721)">
+          <PickupQuest QuestId="70721" NpcId="1050485" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70721) == 1">
+        <GetTo ZoneId="133" XYZ="-102.19554, 7.3418217, -132.48386" />
+        <TalkTo NpcId="1050486" XYZ="-105.97394, 6.9391603, -133.95898" QuestId="70721" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70721) == 2">
+        <GetTo ZoneId="133" XYZ="11.762648, 13.042161, -290.71362" />
+        <TalkTo NpcId="1050488" XYZ="12.619202, 13.1293745, -292.31714" QuestId="70721" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70721) == 3">
+        <GetTo ZoneId="133" XYZ="151.53677, 11.177304, -222.61714" />
+        <TalkTo NpcId="1050489" XYZ="153.76514, 11.213254, -221.5763" QuestId="70721" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70721) == 255">
+        <GetTo ZoneId="133" XYZ="-49.502934, 5.5935507, -95.84879" />
+        <TurnIn QuestId="70721" NpcId="1050484" XYZ="-50.003845, 6.5, -88.39557" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
