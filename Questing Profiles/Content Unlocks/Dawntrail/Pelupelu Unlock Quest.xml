@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Pelu Pelu Tribal Quests
+  Authors: DomesticWarlord
+
+-->
+
+<Profile>
+  <Name>Pelupelu Unlock Quest</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!--  An Intrepid New Enterprise -->
+    <If Condition="not IsQuestCompleted(70729)">
+      <If Condition="not HasQuest(70729)">
+        <GetTo ZoneId="1185" XYZ="14.605626, -14, 97.70072" />
+        <If Condition="IsQuestAcceptQualified(70729)">
+          <PickupQuest QuestId="70729" NpcId="1051712" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70729) == 1">
+        <If condition="not IsOnMap(1188)">
+          <TeleportTo Name="Ok'hanu" AetheryteId="202" />
+        </If>
+        <GetTo ZoneId="1188" XYZ="-68.82068, 2.4000018, -401.95892" />
+        <UseObject NpcId="2014421" XYZ="-65.72064, 2.39563, -400.22894" QuestId="70729" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70729) == 2">
+        <GetTo ZoneId="1188" XYZ="-68.46763, 2.4000018, -401.7619" />
+        <TalkTo NpcId="1051713" XYZ="-67.88745, 2.4000018, -399.64905" QuestId="70729" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70729) == 3">
+        <GetTo ZoneId="1188" XYZ="-68.46763, 2.4000018, -401.7619" />
+        <TalkTo NpcId="1051713" XYZ="-67.88745, 2.4000018, -399.64905" QuestId="70729" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70729) == 4">
+        <If condition="not IsOnMap(1188)">
+          <TeleportTo Name="Ok'hanu" AetheryteId="202" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="60.66932, 0.7218611, -336.2608" Land="True" /> <!-- ZoneId="1188" -->
+        <TalkTo NpcId="1051718" XYZ="62.210938, 0.7218611, -333.94366" QuestId="70729" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70729) == 5">
+        <If condition="not IsOnMap(1188)">
+          <TeleportTo Name="Ok'hanu" AetheryteId="202" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-37.74858, 21.480701, -90.50063" Land="True" /> <!-- ZoneId="1188" -->
+        <TalkTo NpcId="1051719" XYZ="-42.923706, 21.48239, -88.76172" QuestId="70729" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70729) == 6">
+        <If condition="not IsOnMap(1188)">
+          <TeleportTo Name="Ok'hanu" AetheryteId="202" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-177.40102, 0.39999998, -76.84465" Land="True" /> <!-- ZoneId="1188" -->
+        <TalkTo NpcId="1051720" XYZ="-183.45923, 0.39999998, -73.74689" QuestId="70729" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70729) == 7">
+        <If condition="not IsOnMap(1188)">
+          <TeleportTo Name="Ok'hanu" AetheryteId="202" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-73.70407, 2.4000018, -394.48175" Land="True" /> <!-- ZoneId="1188" -->
+        <TalkTo NpcId="1051859" XYZ="-73.411194, 2.4000018, -398.61145" QuestId="70729" StepId="7" />
+      </If>
+      <If Condition="GetQuestStep(70729) == 255">
+        <If condition="not IsOnMap(1188)">
+          <TeleportTo Name="Many Fires" AetheryteId="203" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="734.74384, 8.0207815, -279.5551" Land="True" /> <!-- ZoneId="1188" -->
+        <TurnIn QuestId="70729" NpcId="1051721" XYZ="737.5753, 8.14118, -278.0957" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
