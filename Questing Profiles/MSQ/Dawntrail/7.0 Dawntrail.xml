@@ -3651,15 +3651,5 @@
           }
       ]]> 
     </CodeChunk>
-    <!--
-    <CodeChunk Type="Hook" Name="QTE">
-			<![CDATA[
-        if (LlamaLibrary.Helpers.QTEHelper.QteOpen)
-        {
-          await LlamaLibrary.Helpers.QTEHelper.HandleQte();
-        }			return false;
-			]]>
-	</CodeChunk>
-  -->
   </CodeChunks>
 </Profile> 

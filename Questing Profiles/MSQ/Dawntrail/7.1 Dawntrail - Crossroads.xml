@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Dawntrail 7.1 MSQ
+  Authors: DomesticWarlord
+
+-->
+
+<Profile>
+  <Name>Dawntrail 7.1 MSQ</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <If Condition="not IsQuestCompleted(70495)">
+      <UserDialog DialogText="Please complete all the 7.0 Dawntrail MSQ content before starting this profile!" />
+    </If>
+
+    <!-- A Royal Invitation -->
+    <If Condition="IsQuestCompleted(70495) and not IsQuestCompleted(70780)">
+      <If Condition="not HasQuest(70780)">
+        <GetTo ZoneId="1185" XYZ="-161.10936, -14.999356, 205.45009" />
+        <If Condition="IsQuestAcceptQualified(70780)">
+          <PickupQuest QuestId="70780" NpcId="1047679" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70780) == 1">
+        <GetTo ZoneId="1185" XYZ="-47.234608, -17.970001, 183.64426" />
+        <TalkTo NpcId="1046521" XYZ="-46.616333, -17.97287, 180.3158" QuestId="70780" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70780) == 2">
+        <GetTo ZoneId="1185" XYZ="-33.533386, -17.972866, 186.60797" />
+        <UseObject NpcId="2014470" XYZ="-32.700073, -17.47168, 184.9851" QuestId="70780" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70780) == 3">
+        <GetTo ZoneId="1185" XYZ="-189.00525, 120.74999, -362.12497" />
+        <TalkTo NpcId="1047501" XYZ="-189.80707, 120.74999, -367.14734" QuestId="70780" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70780) == 4">
+        <WaitWhile Condition="GetQuestStep(70780) == 4" />
+      </If>
+      <If Condition="GetQuestStep(70780) == 255">
+        <If condition="not IsOnMap(1207)">
+          <GetTo ZoneId="1186" XYZ="301.3448, 51.199978, 201.38959" />
+          <UseTransport NpcId="1048083" InteractDistance="3.0" XYZ="302.05237, 51.199978, 205.0354" QuestId="70780" />
+        </If>
+        <TurnIn QuestId="70780" NpcId="1052185" XYZ="-4.837158, -3.632158E-08, 5.996765" />
+      </If>
+    </If>
+
+    <!-- Alexandria Mourns -->
+    <If Condition="IsQuestCompleted(70780) and not IsQuestCompleted(70781)">
+      <If Condition="not HasQuest(70781)">
+        <If condition="not IsOnMap(1207)">
+          <GetTo ZoneId="1186" XYZ="301.3448, 51.199978, 201.38959" />
+          <UseTransport NpcId="1048083" InteractDistance="3.0" XYZ="302.05237, 51.199978, 205.0354" />
+        </If>
+        <If Condition="IsQuestAcceptQualified(70781)">
+          <PickupQuest QuestId="70781" NpcId="1052185" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70781) == 1">
+        <GetTo ZoneId="1186" XYZ="17.711655, 38.0566, -386.3031" />
+        <TalkTo NpcId="1052191" XYZ="20.248657, 38.0566, -388.90674" QuestId="70781" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70781) == 255">
+        <GetTo ZoneId="1186" XYZ="-306.76248, 9.519508, 49.59975" />
+        <TurnIn QuestId="70781" NpcId="1052198" XYZ="-303.2426, 9.519508, 51.80432" />
+      </If>
+    </If>
+
+    <!-- In Search of the Past -->
+    <If Condition="IsQuestCompleted(70781) and not IsQuestCompleted(70782)">
+      <If Condition="not HasQuest(70782)">
+        <If Condition="IsQuestAcceptQualified(70782)">
+          <PickupQuest QuestId="70782" NpcId="1052202" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70782) == 1">
+        <If Condition="GetQuestStep(70782) == 1 and GetQuestById(70782).QuestI8A == 0">
+          <GetTo ZoneId="1191" XYZ="-253.87979, 30, -575.49756" />
+          <TalkTo NpcId="1052205" XYZ="-257.0382, 30, -569.05475" QuestId="70782" StepId="1" />
+        </If>
+        <If Condition="GetQuestStep(70782) == 1 and GetQuestById(70782).QuestI8A == 1">
+          <If condition="not IsOnMap(1191)">
+            <TeleportTo Name="The Outskirts" AetheryteId="211" />
+          </If>
+          <FlyTo AllowedVariance="1" XYZ="-141.81204, 35, -565.7415" Land="True" /> <!-- ZoneId="1191" -->
+          <TalkTo NpcId="1052206" XYZ="-137.86536, 35, -568.29175" QuestId="70782" StepId="1" />
+        </If>
+        <If Condition="GetQuestStep(70782) == 1 and GetQuestById(70782).QuestI8A == 2">
+          <If condition="not IsOnMap(1191)">
+            <TeleportTo Name="The Outskirts" AetheryteId="211" />
+          </If>
+          <FlyTo AllowedVariance="1" XYZ="-163.2665, 25.987026, -520.9891" Land="True" /> <!-- ZoneId="1191" -->
+          <TalkTo NpcId="1052204" XYZ="-158.25134, 25.984516, -521.90436" QuestId="70782" StepId="1" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70782) == 2">
+        <If condition="not IsOnMap(1207)">
+          <GetTo ZoneId="1186" XYZ="301.3448, 51.199978, 201.38959" />
+          <UseTransport NpcId="1048083" InteractDistance="3.0" XYZ="302.05237, 51.199978, 205.0354" />
+        </If>
+        <HandOver ItemIds="2003714,2003712,2003713" NpcId="1048161" XYZ="-5.874817, -3.6188258E-08, 6.8512573" QuestId="70782" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70782) == 3">
+        <If condition="not IsOnMap(1191)">
+          <TeleportTo Name="The Outskirts" AetheryteId="211" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-604.35876, -2.9440968, -501.6594" Land="True" /> <!-- ZoneId="1191" -->
+        <TalkTo NpcId="1052207" XYZ="-609.3385, -3.3580189, -504.5701" QuestId="70782" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70782) == 4">
+        <UserDialog DialogText="Please complete the 4-Player duty Yuweyawata Field Station manually." QuestId="70782" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70782) == 5">
+        <WaitWhile Condition="GetQuestStep(70782) == 5" />
+      </If>
+      <If Condition="GetQuestStep(70782) == 255">
+        <If condition="not IsOnSubMap(5129)">
+          <If condition="not IsOnMap(1191)">
+            <TeleportTo Name="The Outskirts" AetheryteId="211" />
+          </If>
+          <FlyTo AllowedVariance="1" XYZ="-611.9887, -3.3880177, -509.75143" Land="True" /> <!-- ZoneId="1191" -->
+          <UseTransport NpcId="1052240" InteractDistance="3.0" XYZ="-614.7097, -3.388018, -510.70422" />
+        </If>
+        <TurnIn NpcId="1052213" XYZ="117.02136, 12.5, -67.826416" QuestId="70782" StepId="255" />
+      </If>
+    </If>
+
+    <!-- IAmong the Abandoned -->
+    <If Condition="IsQuestCompleted(70782) and not IsQuestCompleted(70783)">
+      <If Condition="not HasQuest(70783)">
+        <If condition="not IsOnSubMap(5129)">
+          <If condition="not IsOnMap(1191)">
+            <TeleportTo Name="The Outskirts" AetheryteId="211" />
+          </If>
+          <FlyTo AllowedVariance="1" XYZ="-611.9887, -3.3880177, -509.75143" Land="True" /> <!-- ZoneId="1191" -->
+          <UseTransport NpcId="1052240" InteractDistance="3.0" XYZ="-614.7097, -3.388018, -510.70422" />
+        </If>
+        <If Condition="IsQuestAcceptQualified(70783)">
+          <PickupQuest QuestId="70783" NpcId="1052217" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70783) == 1">
+        <If condition="not IsOnMap(1254)">
+          <If condition="not IsOnMap(1191)">
+            <TeleportTo Name="The Outskirts" AetheryteId="211" />
+          </If>
+          <FlyTo AllowedVariance="1" XYZ="-611.9887, -3.3880177, -509.75143" Land="True" /> <!-- ZoneId="1191" -->
+          <UseTransport NpcId="1052240" InteractDistance="3.0" XYZ="-614.7097, -3.388018, -510.70422" />
+        </If>
+        <UseObject NpcId="2014471" XYZ="39.32251, 13.260071, 51.865356" QuestId="70783" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70783) == 2">
+        <If condition="not IsOnMap(1254)">
+          <If condition="not IsOnMap(1191)">
+            <TeleportTo Name="The Outskirts" AetheryteId="211" />
+          </If>
+          <FlyTo AllowedVariance="1" XYZ="-611.9887, -3.3880177, -509.75143" Land="True" /> <!-- ZoneId="1191" -->
+          <UseTransport NpcId="1052240" InteractDistance="3.0" XYZ="-614.7097, -3.388018, -510.70422" />
+        </If>
+        <UseObject NpcId="2014472" XYZ="101.8844, 12.588623, 130.44934" QuestId="70783" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70783) == 3">
+        <If condition="not IsOnMap(1254)">
+          <If condition="not IsOnMap(1191)">
+            <TeleportTo Name="The Outskirts" AetheryteId="211" />
+          </If>
+          <FlyTo AllowedVariance="1" XYZ="-611.9887, -3.3880177, -509.75143" Land="True" /> <!-- ZoneId="1191" -->
+          <UseTransport NpcId="1052240" InteractDistance="3.0" XYZ="-614.7097, -3.388018, -510.70422" />
+        </If>
+        <TalkTo NpcId="2014473" XYZ="39.597046, 13.260071, 53.45227" QuestId="70783" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70783) == 4">
+        <If condition="not IsOnMap(1191)">
+          <TeleportTo Name="The Outskirts" AetheryteId="211" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-582.8521, -1.9983474, -502.691" Land="True" /> <!-- ZoneId="1191" -->
+        <TalkTo NpcId="1052227" XYZ="-581.2009, -1.7638817, -505.45514" QuestId="70783" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70783) == 255">
+        <!-- Get To om -->
+        <If condition="not IsOnMap(1207)">
+          <GetTo ZoneId="1186" XYZ="301.3448, 51.199978, 201.38959" />
+          <UseTransport NpcId="1048083" InteractDistance="3.0" XYZ="302.05237, 51.199978, 205.0354" />
+        </If>
+        <TurnIn QuestId="70783" NpcId="1048161" XYZ="-5.874817, -3.6188258E-08, 6.8512573" />
+      </If>
+    </If>
+
+    <!-- Guidance of the Hhetso -->
+    <If Condition="IsQuestCompleted(70783) and not IsQuestCompleted(70784)">
+      <If Condition="not HasQuest(70784)">
+        <!-- Get To om -->
+        <If condition="not IsOnMap(1207)">
+          <GetTo ZoneId="1186" XYZ="301.3448, 51.199978, 201.38959" />
+          <UseTransport NpcId="1048083" InteractDistance="3.0" XYZ="302.05237, 51.199978, 205.0354" />
+        </If>
+        <If Condition="IsQuestAcceptQualified(70784)">
+          <PickupQuest QuestId="70784" NpcId="1052233" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70784) == 1">
+        <GetTo ZoneId="1190" XYZ="-360.77332, 20.14268, -89.820946" />
+        <TalkTo NpcId="1051495" XYZ="-365.28577, 20.14268, -88.51758" QuestId="70784" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70784) == 2">
+        <GetTo ZoneId="1190" XYZ="300.84677, -15.629961, -517.4173" />
+        <TalkTo NpcId="1046988" XYZ="302.96777, -15.629961, -514.6716" QuestId="70784" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70784) == 3">
+        <GetTo ZoneId="1190" XYZ="300.84677, -15.629961, -517.4173" />
+        <TalkTo NpcId="1051013" XYZ="303.79175, -15.629962, -516.25854" QuestId="70784" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70784) == 4">
+        <If Condition="not IsTodoChecked(70784,4,0)">
+          <GetTo ZoneId="1190" XYZ="330.0856, -14.837671, -556.7729" />
+          <TalkTo NpcId="1052243" XYZ="332.26514, -14.986355, -558.95325" QuestId="70784" StepId="4" />
+        </If>
+        <If Condition="not IsTodoChecked(70784,4,1)">
+          <GetTo ZoneId="1190" XYZ="350.77216, -16.9038, -454.76953" />
+          <HandOver ItemId="2003711" NpcId="1052239" XYZ="354.57385, -17.082237, -452.5063" QuestId="70784" StepId="4" />
+        </If>
+        <If Condition="not IsTodoChecked(70784,4,2)">
+          <GetTo ZoneId="1190" XYZ="282.36487, -16.40588, -563.77893" />
+          <HandOver ItemId="2003710" NpcId="1052245" XYZ="276.78333, -16.53927, -562.7985" QuestId="70784" StepId="4" />
+        </If>
+        <If Condition="not IsTodoChecked(70784,4,3)">
+          <GetTo ZoneId="1190" XYZ="228.88846, -16.633781, -526.02686" />
+          <TalkTo NpcId="1052247" XYZ="224.96375, -16.329428, -527.6417" SelectStringOverride="1" QuestId="70784" StepId="4" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70784) == 255">
+        <GetTo ZoneId="1190" XYZ="298.34378, -15.629961, -518.40454" />
+        <TurnIn QuestId="70784" NpcId="1051013" XYZ="303.79175, -15.629962, -516.25854" />
+      </If>
+    </If>
+
+    <!-- The Warmth of Family -->
+    <If Condition="IsQuestCompleted(70784) and not IsQuestCompleted(70785)">
+      <If Condition="not HasQuest(70785)">
+        <GetTo ZoneId="1190" XYZ="291.7731, -16.862602, -525.6928" />
+        <If Condition="IsQuestAcceptQualified(70785)">
+          <PickupQuest QuestId="70785" NpcId="1052248" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70785) == 1">
+        <GetTo ZoneId="1190" XYZ="291.7731, -16.862602, -525.6928" />
+        <UserDialog DialogText="Please manually complete the solo duty." QuestId="70785" StepId="1" />
+        <!-- <Hook Name="WarmthOfFamily" Operation="A" Location="TreeStart" /> -->
+        <SimpleDuty InteractNpcId="1052248" XYZ="293.93445, -16.71379, -528.70984" QuestId="70785" StepId="1">
+          <HotSpots>
+            <HotSpot Radius="500" XYZ="417.58298, -16.443596, -137.5303" name="Name" />
+          </HotSpots>
+          <TargetMobs>
+            <TargetMob Id="13589" Weight="1" /> <!-- Yeheheceyaa -->
+            <TargetMob Id="13590" Weight="1" /> <!-- Ceratoraptor -->
+            <TargetMob Id="13591" Weight="1" /> <!-- Horned Lizard -->
+            <TargetMob Id="13592" Weight="1" /> <!-- Alligator -->
+            <TargetMob Id="13593" Weight="1" /> <!-- Alpha Alligator -->
+            <TargetMob Id="13594" Weight="1" /> <!-- Tturuhhetso -->
+            <TargetMob Id="13595" Weight="1000" /> <!-- Scale-armored Leg -->
+          </TargetMobs>
+        </SimpleDuty>
+        <!-- <Hook Name="WarmthOfFamily" Operation="R" Location="TreeStart" /> -->
+      </If>
+      <If Condition="GetQuestStep(70785) == 2">
+        <WaitWhile Condition="GetQuestStep(70785) == 2" />
+      </If>
+      <If Condition="GetQuestStep(70785) == 3">
+        <GetTo ZoneId="1190" XYZ="299.0752, -15.629961, -514.0403" />
+        <TalkTo NpcId="1052252" XYZ="299.15308, -15.629961, -518.4253" QuestId="70785" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70785) == 4">
+        <If condition="not IsOnMap(1190)">
+          <TeleportTo Name="Sheshenewezi Springs" AetheryteId="208" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-124.875145, 16.278196, -291.84988" Land="True" /> <!-- ZoneId="1190" -->
+        <TalkTo NpcId="1052255" XYZ="-123.91852, 16.187744, -296.80328" QuestId="70785" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70785) == 255">
+        <If condition="not IsOnMap(1190)">
+          <TeleportTo Name="Sheshenewezi Springs" AetheryteId="208" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-173.3184, 15.7780285, -373.7177" Land="True" /> <!-- ZoneId="1190" -->
+        <TurnIn QuestId="70785" NpcId="1052259" XYZ="-171.03839, 15.75679, -372.45752" />
+      </If>
+    </If>
+
+    <!-- Crossroads -->
+    <If Condition="IsQuestCompleted(70785) and not IsQuestCompleted(70786)">
+      <If Condition="not HasQuest(70786)">
+        <If condition="not IsOnMap(1190)">
+          <TeleportTo Name="Sheshenewezi Springs" AetheryteId="208" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-173.3184, 15.7780285, -373.7177" Land="True" /> <!-- ZoneId="1190" -->
+        <If Condition="IsQuestAcceptQualified(70786)">
+          <PickupQuest QuestId="70786" NpcId="1052261" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70786) == 1">
+        <!-- Get To om -->
+        <If condition="not IsOnMap(1207)">
+          <GetTo ZoneId="1186" XYZ="301.3448, 51.199978, 201.38959" />
+          <UseTransport NpcId="1048083" InteractDistance="3.0" XYZ="302.05237, 51.199978, 205.0354" />
+        </If>
+        <TalkTo NpcId="1052521" XYZ="-1.8463745, -3.4458935E-08, 5.8441772" QuestId="70786" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70786) == 2">
+        <!-- Get To om -->
+        <If condition="not IsOnMap(1207)">
+          <GetTo ZoneId="1186" XYZ="301.3448, 51.199978, 201.38959" />
+          <UseTransport NpcId="1048083" InteractDistance="3.0" XYZ="302.05237, 51.199978, 205.0354" />
+        </If>
+        <TalkTo NpcId="1052269" XYZ="-2.456726, -7.2107476E-08, 8.987488" QuestId="70786" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70786) == 3">
+        <!-- Get To om -->
+        <If condition="not IsOnMap(1207)">
+          <GetTo ZoneId="1186" XYZ="301.3448, 51.199978, 201.38959" />
+          <UseTransport NpcId="1048083" InteractDistance="3.0" XYZ="302.05237, 51.199978, 205.0354" />
+        </If>
+        <TalkTo NpcId="1052271" XYZ="-0.41204834, -3.9115548E-08, 6.240906" QuestId="70786" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70786) == 4">
+        <GetTo ZoneId="1186" XYZ="-0.6257126, 0.00054359436, -91.39936" />
+        <TalkTo NpcId="1052272" XYZ="0.19836426, 0.00054359436, -94.98743" QuestId="70786" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70786) == 255">
+        <!-- Get To om -->
+        <If condition="not IsOnMap(1207)">
+          <GetTo ZoneId="1186" XYZ="301.3448, 51.199978, 201.38959" />
+          <UseTransport NpcId="1048083" InteractDistance="3.0" XYZ="302.05237, 51.199978, 205.0354" />
+        </If>
+        <TurnIn QuestId="70786" NpcId="1052267" XYZ="-3.7080078, -7.4505806E-08, 9.170593" />
+      </If>
+    </If>
+
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
