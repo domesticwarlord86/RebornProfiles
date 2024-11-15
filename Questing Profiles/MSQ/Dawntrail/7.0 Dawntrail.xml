@@ -210,7 +210,7 @@
 
     <!-- To Kozama'uka  -->
     <If Condition="IsQuestCompleted(70400) and not IsQuestCompleted(70401)">
-      <If Condition="not HasQuest(70401)">
+      <If Condition="not HasQuest(70401) and (IsQuestCompleted(70413) or not IsQuestCompleted(70407))">
         <GetTo ZoneId="1185" XYZ="-34.052048, -10.0000105, 143.32156" />
         <If Condition="IsQuestAcceptQualified(70401)">
           <PickupQuest QuestId="70401" NpcId="1046684" />
@@ -440,7 +440,7 @@
     </If>
 
     <!-- To Urqopacha -->
-    <If Condition="IsQuestCompleted(70406) and not IsQuestCompleted(70407)">
+    <If Condition="IsQuestCompleted(70400) and not IsQuestCompleted(70407)">
       <If Condition="not HasQuest(70407)">
         <GetTo ZoneId="1185" XYZ="-31.289007, -10.00001, 142.87117" />
         <If Condition="IsQuestAcceptQualified(70407)">
@@ -687,6 +687,7 @@
       <If Condition="GetQuestStep(70413) == 255">
         <GetTo ZoneId="1185" XYZ="-31.455248, -10.00001, 142.30771" />
         <TurnIn QuestId="70413" NpcId="1046537" XYZ="-32.822205, -10.00001, 142.93127" />
+        <RunCode name="LoadLastProfile"/>
       </If>
     </If>
 
@@ -3631,6 +3632,19 @@
       <![CDATA[
         ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
       ]]>
+    </CodeChunk>
+    <CodeChunk Name="LoadLastProfile">
+      <![CDATA[
+        if (CharacterSettings.Instance.LastNeoProfile == null)
+        {
+            Log.Error("Last profile not found. Exiting");
+            _isDone = true;
+        }
+        Log.Information($"Reloading profile to make sure all quests are done.");
+        NeoProfileManager.Load(CharacterSettings.Instance.LastNeoProfile, false);
+        NeoProfileManager.UpdateCurrentProfileBehavior();
+
+        _isDone = true;      ]]>
     </CodeChunk>
     <CodeChunk Name="Knowing the Hanuhanuu">
       <![CDATA[		
