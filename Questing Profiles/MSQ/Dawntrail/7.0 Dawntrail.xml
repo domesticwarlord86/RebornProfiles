@@ -617,15 +617,15 @@
       <If Condition="GetQuestStep(70411) == 6">
         <If Condition="GetQuestStep(70411) == 6 and GetQuestById(70411).QuestI8A == 0">
           <GetTo ZoneId="1187" XYZ="306.78937, -173.08777, -667.43427" />
-          <UseObject NpcId="2013595" XYZ="309.49866, -173.11359, -667.3228" QuestId="70411" StepId="6" />
+          <UseObject NpcId="2013595" XYZ="309.49866, -173.11359, -667.3228" Condition="GetQuestStep(70411) == 6 and GetQuestById(70411).QuestI8A == 0" />
         </If>
         <If Condition="GetQuestStep(70411) == 6 and GetQuestById(70411).QuestI8A == 16">
           <GetTo ZoneId="1187" XYZ="284.99857, -173.09145, -712.02844" />
-          <UseObject NpcId="2013596" XYZ="282.6123, -173.11359, -715.1751" QuestId="70411" StepId="6" />
+          <UseObject NpcId="2013596" XYZ="282.6123, -173.11359, -715.1751" Condition="GetQuestStep(70411) == 6 and GetQuestById(70411).QuestI8A == 16" />
         </If>
         <If Condition="GetQuestStep(70411) == 6 and GetQuestById(70411).QuestI8A == 33">
           <GetTo ZoneId="1187" XYZ="344.27643, -173.08125, -725.7365" />
-          <UseObject NpcId="2013597" XYZ="346.60852, -173.05261, -725.85645" QuestId="70411" StepId="6" />
+          <UseObject NpcId="2013597" XYZ="346.60852, -173.05261, -725.85645" Condition="GetQuestStep(70411) == 6 and GetQuestById(70411).QuestI8A == 33" />
         </If>
       </If>
       <If Condition="GetQuestStep(70411) == 7">
