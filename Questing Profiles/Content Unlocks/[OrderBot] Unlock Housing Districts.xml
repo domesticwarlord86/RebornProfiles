@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Unlock Housing Districts
+  Authors: DomesticWarlord86
+-->
+<Profile>
+  <Name>Unlock Housing Districts</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Where the Heart Is (Mist) -->
+    <If Condition="not IsQuestCompleted(66750)">
+      <If Condition="not HasQuest(66750)">
+        <GetTo ZoneId="135" XYZ="506.5817, 79.0255, -61.38364" />
+        <If Condition="IsQuestAcceptQualified(66750)">
+          <PickupQuest NpcId="1002579" QuestId="66750" XYZ="506.5817, 79.0255, -61.38364" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(66750) == 1">
+        <GetTo ZoneId="135" XYZ="593.123, 61.75192, -114.5167" />
+        <TalkTo NpcId="1005529" XYZ="593.123, 61.75192, -114.5167" QuestId="66750" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(66750) == 2">
+        <RunCode Name="GetToMists" />
+        <WaitTimer waitTime="8" />
+      </If>
+      <If Condition="GetQuestStep(66750) == 3">
+        <MoveTo XYZ="-18.1501, 49.0172, -114.0773" />
+        <TalkTo NpcId="1005881" XYZ="-18.1501, 49.0172, -114.0773" QuestId="66750" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(66750) == 255">
+        <GetTo ZoneId="135" XYZ="506.5817, 79.0255, -61.38364" />
+        <TurnIn QuestId="66750" NpcId="1002579" XYZ="506.5817, 79.0255, -61.38364" />
+      </If>
+    </If>
+
+    <!-- Where the Heart Is (Goblet) -->
+    <If Condition="not IsQuestCompleted(66749)">
+      <If Condition="not HasQuest(66749)">
+        <GetTo ZoneId="140" XYZ="227.8129, 52.03812, 132.646" />
+        <If Condition="IsQuestAcceptQualified(66749)">
+          <PickupQuest NpcId="1002001" QuestId="66749" XYZ="227.8129, 52.03812, 132.646" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(66749) == 1">
+        <GetTo ZoneId="140" XYZ="320.558, 67.27534, 231.6152" />
+        <TalkTo NpcId="1005531" XYZ="320.558, 67.27534, 231.6152" QuestId="66749" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(66749) == 2">
+        <RunCode Name="GetToGoblet" />
+        <WaitTimer waitTime="8" />
+      </If>
+      <If Condition="GetQuestStep(66749) == 3">
+        <MoveTo XYZ="4.979665, -11.07667, -188.7435" />
+        <TalkTo NpcId="1005880" XYZ="4.979665, -11.07667, -188.7435" QuestId="66749" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(66749) == 255">
+        <If Condition="not IsOnMap(140)">
+          <TeleportTo AetheryteId="9" />
+        </If>
+        <GetTo ZoneId="140" XYZ="227.8129, 52.03812, 132.646" />
+        <TurnIn QuestId="66749" NpcId="1002001" XYZ="227.8129, 52.03812, 132.646" />
+      </If>
+    </If>
+
+    <!-- Where the Heart Is (Lavender Beds) -->
+    <If Condition="not IsQuestCompleted(66748)">
+      <If Condition="not HasQuest(66748)">
+        <GetTo ZoneId="148" XYZ="12.2908, -1.204158, 22.0943" />
+        <If Condition="IsQuestAcceptQualified(66748)">
+          <PickupQuest NpcId="1000478" QuestId="66748" XYZ="12.2908, -1.204158, 22.0943" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(66748) == 1">
+        <GetTo ZoneId="148" XYZ="186.2194, -32.16103, 326.7155" />
+        <TalkTo NpcId="1005530" XYZ="186.2194, -32.16103, 326.7155" QuestId="66748" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(66748) == 2">
+        <RunCode Name="GetToLavender" />
+        <WaitTimer waitTime="8" />
+      </If>
+      <If Condition="GetQuestStep(66748) == 3">
+        <MoveTo XYZ="0.7721003, 2.888489, 182.941" />
+        <TalkTo NpcId="1005879" XYZ="0.7721003, 2.888489, 182.941" QuestId="66748" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(66748) == 255">
+        <GetTo ZoneId="148" XYZ="12.2908, -1.204158, 22.0943" />
+        <TurnIn QuestId="66748" NpcId="1000478" XYZ="12.2908, -1.204158, 22.0943" />
+      </If>
+    </If>
+
+    <!-- Ascending to Empyreum -->
+    <If Condition="not IsQuestCompleted(69708) and Core.Player.ClassLevel &gt; 59">
+      <If Condition="not IsQuestCompleted(67783)">
+        <UserDialog IsBotContinueAllowed="True" DialogText="Please complete the Main Story Quest 'Litany of Peace'." />
+      </If>
+      <If Condition="IsQuestCompleted(67783) and not IsQuestCompleted(69708)">
+        <If Condition="not HasQuest(69708)">
+          <GetTo ZoneId="418" XYZ="-64.50623, 8.113304, 30.64428" />
+          <If Condition="IsQuestAcceptQualified(69708)">
+            <PickupQuest QuestId="69708" NpcId="1012155" />
+          </If>
+        </If>
+        <If Condition="GetQuestStep(69708) == 1">
+          <GetTo ZoneId="418" XYZ="150.8885, -20, 63.97537" />
+          <TalkTo NpcId="1031682" XYZ="152.9716, -20, 63.76746" QuestId="69708" StepId="1" />
+        </If>
+        <If Condition="GetQuestStep(69708) == 2">
+          <WaitWhile condition="GetQuestStep(69708) == 2" />
+        </If>
+        <If Condition="GetQuestStep(69708) == 3">
+          <MoveTo XYZ="19.0048, -16, 160.9244" />
+          <TalkTo NpcId="1039506" XYZ="20.40125, -16, 159.9603" QuestId="69708" StepId="3" />
+        </If>
+        <If Condition="GetQuestStep(69708) == 255">
+          <GetTo ZoneId="418" XYZ="-64.07493, 8.113304, 30.37012" />
+          <TurnIn QuestId="69708" NpcId="1012155" XYZ="-63.21814, 8.25915, 28.73267" />
+        </If>
+      </If>
+    </If>
+
+    <!-- I Dream of Shirogane -->
+    <If Condition="not IsQuestCompleted(68167) and Core.Player.ClassLevel &gt; 60">
+      <If Condition="not IsQuestCompleted(68008)">
+        <UserDialog IsBotContinueAllowed="True" DialogText="Please complete the Main Story Quest 'By the Grace of Lord Lolorito'." />
+      </If>
+      <If Condition="IsQuestCompleted(68008) and not IsQuestCompleted(68167)">
+        <If Condition="not HasQuest(68167)">
+          <GetTo ZoneId="628" XYZ="38.92448, 2.999988, -65.89082" />
+          <If Condition="IsQuestAcceptQualified(68167)">
+            <PickupQuest NpcId="1022628" QuestId="68167" XYZ="38.92448, 2.999988, -65.89082" />
+          </If>
+        </If>
+        <If Condition="GetQuestStep(68167) == 1">
+          <GetTo ZoneId="628" XYZ="-114.0701, -7.01003, -40.08799" />
+          <TalkTo NpcId="1023604" XYZ="-114.0701, -7.01003, -40.08799" QuestId="68167" StepId="1" />
+        </If>
+        <If Condition="GetQuestStep(68167) == 2">
+          <RunCode Name="GetToShirogane" />
+          <WaitTimer waitTime="8" />
+        </If>
+        <If Condition="GetQuestStep(68167) == 3">
+          <MoveTo XYZ="-100.2188, 2.119999, 119.0229" />
+          <TalkTo NpcId="1023605" XYZ="-100.2188, 2.119999, 119.0229" QuestId="68167" StepId="3" />
+        </If>
+        <If Condition="GetQuestStep(68167) == 255">
+          <GetTo ZoneId="628" XYZ="38.92448, 2.999988, -65.89082" />
+          <TurnIn QuestId="68167" NpcId="1022628" XYZ="38.92448, 2.999988, -65.89082" />
+        </If>
+      </If>
+    </If>
+
+
+  </Order>
+  <GrindAreas></GrindAreas>
+  <CodeChunks>
+    <CodeChunk Name="MistTansition">
+      <![CDATA[
+        Core.Me.SetFacing(3.15f);
+        MovementManager.MoveForwardStart();
+        while (WorldManager.SubZoneId != 3004)  {  await Coroutine.Yield();  }
+        Navigator.PlayerMover.MoveStop();
+      ]]>
+      </CodeChunk>
+    <CodeChunk Name="GetToMists">
+      <![CDATA[
+        Logging.Write("[GetToMists] calling");
+        await LlamaLibrary.Utilities.Housing.GetToMistsWindow();
+        await LlamaLibrary.Utilities.Housing.OpenHousingWards();
+        if (LlamaLibrary.RemoteWindows.HousingSelectBlock.Instance.IsOpen)
+        {
+          LlamaLibrary.RemoteWindows.HousingSelectBlock.Instance.GoToWard(0);		
+          await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+              
+          if (SelectYesno.IsOpen)
+            SelectYesno.Yes();
+          
+        }
+  
+        await Coroutine.Sleep(1000);
+              if (ff14bot.Behavior.CommonBehaviors.IsLoading) await Coroutine.Wait(-1, () => !ff14bot.Behavior.CommonBehaviors.IsLoading);
+        
+        await Coroutine.Sleep(2000);
+        
+        Logging.Write("In Zone");
+      ]]>
+      </CodeChunk>
+    <CodeChunk Name="GetToLavender">
+      <![CDATA[
+        Logging.Write("[GetToLavender] calling");
+        await LlamaLibrary.Utilities.Housing.GetToLavenderWindow();
+        await LlamaLibrary.Utilities.Housing.OpenHousingWards();
+        if (LlamaLibrary.RemoteWindows.HousingSelectBlock.Instance.IsOpen)
+        {
+          LlamaLibrary.RemoteWindows.HousingSelectBlock.Instance.GoToWard(0);		
+          await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+              
+          if (SelectYesno.IsOpen)
+            SelectYesno.Yes();
+          
+        }
+  
+        await Coroutine.Sleep(1000);
+              if (ff14bot.Behavior.CommonBehaviors.IsLoading) await Coroutine.Wait(-1, () => !ff14bot.Behavior.CommonBehaviors.IsLoading);
+        
+        await Coroutine.Sleep(2000);
+        
+        Logging.Write("In Zone");
+      ]]>
+      </CodeChunk>
+    <CodeChunk Name="GetToGoblet">
+      <![CDATA[
+        Logging.Write("[GetToGoblet] calling");
+        await LlamaLibrary.Utilities.Housing.GetToGobletWindow();
+        await LlamaLibrary.Utilities.Housing.OpenHousingWards();
+        if (LlamaLibrary.RemoteWindows.HousingSelectBlock.Instance.IsOpen)
+        {
+          LlamaLibrary.RemoteWindows.HousingSelectBlock.Instance.GoToWard(0);		
+          await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+              
+          if (SelectYesno.IsOpen)
+            SelectYesno.Yes();
+          
+        }
+  
+        await Coroutine.Sleep(1000);
+              if (ff14bot.Behavior.CommonBehaviors.IsLoading) await Coroutine.Wait(-1, () => !ff14bot.Behavior.CommonBehaviors.IsLoading);
+        
+        await Coroutine.Sleep(2000);
+        
+        Logging.Write("In Zone");
+      ]]>
+      </CodeChunk>
+    <CodeChunk Name="GetToShirogane">
+      <![CDATA[
+        Logging.Write("[GetToMists] calling");
+        await LlamaLibrary.Utilities.Housing.GetToShiroganeWindow();
+        await LlamaLibrary.Utilities.Housing.OpenHousingWards();
+        if (LlamaLibrary.RemoteWindows.HousingSelectBlock.Instance.IsOpen)
+        {
+          LlamaLibrary.RemoteWindows.HousingSelectBlock.Instance.GoToWard(0);		
+          await Coroutine.Wait(5000, () => SelectYesno.IsOpen);
+              
+          if (SelectYesno.IsOpen)
+            SelectYesno.Yes();
+          
+        }
+  
+        await Coroutine.Sleep(1000);
+              if (ff14bot.Behavior.CommonBehaviors.IsLoading) await Coroutine.Wait(-1, () => !ff14bot.Behavior.CommonBehaviors.IsLoading);
+        
+        await Coroutine.Sleep(2000);
+        
+        Logging.Write("In Zone");
+      ]]>
+      </CodeChunk>
+  </CodeChunks>
+</Profile>  
