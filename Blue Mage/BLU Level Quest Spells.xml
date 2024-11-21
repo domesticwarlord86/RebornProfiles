@@ -245,7 +245,7 @@ Known Issues:  Final Sting, Self Destruct, Acorn Bomb, and 1000 Needles have to 
 			</If>
 			<If Condition="GetQuestStep(68729) == 255">
 				<LisbethTravel ZoneId="131" XYZ="64.46936, 14.005, 88.70068" />
-				<LLTurnIn QuestId="68729" NpcId="1026937" ItemId="2002646" XYZ="65.7511, 14.005, 90.44019" DialogOption="0"/>
+				<TurnIn QuestId="68729" NpcId="1026937" ItemId="2002646" XYZ="65.7511, 14.005, 90.44019" DialogOption="0"/>
 			</If> 
 		</If> 	
 		

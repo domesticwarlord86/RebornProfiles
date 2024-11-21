@@ -29,7 +29,7 @@
 		  <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 		</If>
       <MoveTo ZoneId="915" XYZ="9.81843, 2.87424, -50.29003"/>
-      <LLTurnIn ItemId="2002994" QuestId="69380" NpcId="1032903" XYZ="9.048584, 2.969442, -52.99463"/>	
+      <TurnIn ItemId="2002994" QuestId="69380" NpcId="1032903" XYZ="9.048584, 2.969442, -52.99463"/>	
     </If>	
 	
     <!-- Where Eagles Nest -->
@@ -80,7 +80,7 @@
     </If>
     <If Condition="GetQuestStep(69477) == 255">
       <MoveTo ZoneId="920" XYZ="-206.3452, 5, 817.8428"/>
-      <LLTurnIn QuestId="69477" NpcId="1034004" XYZ="-207.2633, 5, 816.495"/>
+      <TurnIn QuestId="69477" NpcId="1034004" XYZ="-207.2633, 5, 816.495"/>
     </If>
 	
     <!-- An Expected Engagement -->
@@ -104,7 +104,7 @@
     </If>
     <If Condition="GetQuestStep(69479) == 255">
       <MoveTo ZoneId="920" XYZ="-185.2452, 5, 813.149"/>
-      <LLTurnIn NpcId="1034006" XYZ="-182.7268, 5, 813.2295" QuestId="69479" StepId="255"/>
+      <TurnIn NpcId="1034006" XYZ="-182.7268, 5, 813.2295" QuestId="69479" StepId="255"/>
     </If>
 
     <!-- Lost No Longer -->
@@ -151,7 +151,7 @@
     </If>
     <If Condition="GetQuestStep(69481) == 255">
       <MoveTo XYZ="494.9031, 34.79501, 568.0817"/>
-      <LLTurnIn QuestId="69481" NpcId="1034008" XYZ="495.8114, 34.9, 566.0944"/>
+      <TurnIn QuestId="69481" NpcId="1034008" XYZ="495.8114, 34.9, 566.0944"/>
     </If>
 
     <!-- Time to Focus -->
@@ -189,7 +189,7 @@
     </If>
     <If Condition="GetQuestStep(69482) == 255">
       <MoveTo XYZ="-206.6894, 5, 817.9982"/>
-      <LLTurnIn QuestId="69482" NpcId="1034004" XYZ="-207.2633, 5, 816.495"/>
+      <TurnIn QuestId="69482" NpcId="1034004" XYZ="-207.2633, 5, 816.495"/>
       <LLSmallTalk/>
     </If>
 
@@ -220,7 +220,7 @@
     </If>
     <If Condition="GetQuestStep(69483) == 255">
       <MoveTo XYZ="-208.3565, 5, 817.5992"/>
-      <LLTurnIn QuestId="69483" NpcId="1034004" XYZ="-207.2633, 5, 816.495"/>
+      <TurnIn QuestId="69483" NpcId="1034004" XYZ="-207.2633, 5, 816.495"/>
       <LLSmallTalk/>
     </If>
 
@@ -244,7 +244,7 @@
     </If>
     <If Condition="GetQuestStep(69484) == 255">
       <MoveTo XYZ="-228.976, 35.97115, 530.2501"/>
-      <LLTurnIn QuestId="69484" NpcId="1034009" XYZ="-231.1895, 35.95686, 531.9142"/>
+      <TurnIn QuestId="69484" NpcId="1034009" XYZ="-231.1895, 35.95686, 531.9142"/>
       <LLSmallTalk/>
     </If>
 
@@ -282,7 +282,7 @@
     </If>
     <If Condition="GetQuestStep(69485) == 255">
       <MoveTo XYZ="-215.314, 5, 832.5221"/>
-      <LLTurnIn QuestId="69485" NpcId="1034001" XYZ="-216.4492, 4.999997, 830.8689"/>
+      <TurnIn QuestId="69485" NpcId="1034001" XYZ="-216.4492, 4.999997, 830.8689"/>
       <LLSmallTalk/>
     </If>
 
@@ -323,7 +323,7 @@
     </If>	
     <If Condition="GetQuestStep(69486) == 255">
       <MoveTo XYZ="-212.4263, 5, 816.5759"/>
-      <LLTurnIn QuestId="69486" NpcId="1034005" XYZ="-213.0617, 5, 814.847"/>
+      <TurnIn QuestId="69486" NpcId="1034005" XYZ="-213.0617, 5, 814.847"/>
       <LLSmallTalk/>
     </If>
 

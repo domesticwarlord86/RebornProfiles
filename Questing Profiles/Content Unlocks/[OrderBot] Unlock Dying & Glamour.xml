@@ -40,7 +40,7 @@
 			</If>	 
 			<If condition="HasAtLeast(4745,1)">
 				<GetTo ZoneId="140" XYZ="-439.6739, 23.66992, -356.869"/>  
-				<LLTurnIn ItemId="4745" QuestId="66235" NpcId="1004990" XYZ="-441.6419, 23.66986, -358.9685"/>
+				<TurnIn ItemId="4745" QuestId="66235" NpcId="1004990" XYZ="-441.6419, 23.66986, -358.9685"/>
 				<LLSmallTalk/>
 			</If>
     </If>
@@ -51,7 +51,7 @@
     </If>
     <If Condition="GetQuestStep(68553) == 255">
       <GetTo ZoneId="140" XYZ="-440.8651, 23.6699, -355.9759"/>  
-      <LLTurnIn ItemId="2002416" QuestId="68553" NpcId="1004990" XYZ="-441.6419, 23.66986, -358.9685"/>
+      <TurnIn ItemId="2002416" QuestId="68553" NpcId="1004990" XYZ="-441.6419, 23.66986, -358.9685"/>
       <LLSmallTalk/>
     </If>		
  

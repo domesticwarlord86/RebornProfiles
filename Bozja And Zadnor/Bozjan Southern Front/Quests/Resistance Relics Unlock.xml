@@ -409,7 +409,7 @@
 			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 		</If>
       <MoveTo ZoneId="915" XYZ="9.81843, 2.87424, -50.29003"/>
-      <LLTurnIn ItemId="2002994" QuestId="69380" NpcId="1032903" XYZ="9.048584, 2.969442, -52.99463"/>	
+      <TurnIn ItemId="2002994" QuestId="69380" NpcId="1032903" XYZ="9.048584, 2.969442, -52.99463"/>	
     </If>	
 	
 	<If Condition="IsQuestCompleted(69380)">
@@ -493,4 +493,3 @@
 	</CodeChunk>	
   </CodeChunks>
 </Profile>
-

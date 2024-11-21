@@ -86,7 +86,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="-270.9734, -144, -477.5538"/>  <!-- Subzone="3968" Area="Mare Lamentorum" -->
       </If>
-      <LLTurnIn QuestId="69779" NpcId="1041792" XYZ="-270.6799, -144, -475.7001"/>
+      <TurnIn QuestId="69779" NpcId="1041792" XYZ="-270.6799, -144, -475.7001"/>
       <LLSmallTalk/>
     </If>
     <!--  Over the Rainbow Crystal -->
@@ -175,7 +175,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="-356.8569, -168, -604.9831"/>  <!-- Subzone="3968" Area="Mare Lamentorum" -->
       </If>
-      <LLTurnIn QuestId="69780" NpcId="1041795" XYZ="-356.7407, -168, -606.1647"/>
+      <TurnIn QuestId="69780" NpcId="1041795" XYZ="-356.7407, -168, -606.1647"/>
       <LLSmallTalk/>
     </If>
     <If Condition="GetQuestStep(69781) == 255">
@@ -185,7 +185,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="-40.88351, -132.9464, -544.2989"/>  <!-- Subzone="3966" Area="Mare Lamentorum" -->
       </If>
-      <LLTurnIn QuestId="69781" NpcId="1041797" XYZ="-39.68878, -132.9464, -543.2365"/>
+      <TurnIn QuestId="69781" NpcId="1041797" XYZ="-39.68878, -132.9464, -543.2365"/>
       <LLSmallTalk/>
     </If>
     <If Condition="GetQuestStep(69778) == 1">
@@ -231,7 +231,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="-109.353, -133.0734, -465.8347"/>  <!-- Subzone="3966" Area="Mare Lamentorum" -->
       </If>
-      <LLTurnIn ItemId="2003366" QuestId="69778" NpcId="1037807" XYZ="-110.1244, -133.0734, -466.0563"/>
+      <TurnIn ItemId="2003366" QuestId="69778" NpcId="1037807" XYZ="-110.1244, -133.0734, -466.0563"/>
       <LLSmallTalk/>
     </If>
     <If Condition="GetQuestStep(69790) == 255">
@@ -241,7 +241,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="38.20468, -129, -501.7963"/>  <!-- Subzone="3966" Area="Mare Lamentorum" -->
       </If>
-      <LLTurnIn QuestId="69790" NpcId="1041826" XYZ="38.74268, -129, -501.915"/>
+      <TurnIn QuestId="69790" NpcId="1041826" XYZ="38.74268, -129, -501.915"/>
       <LLSmallTalk/>
     </If>
     <!--  Dangerous Work -->
@@ -438,7 +438,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="-21.62299, -137.4167, -614.5411"/>  
       </If>
-      <LLTurnIn QuestId="69788" NpcId="1041822" XYZ="-20.67603, -137.4167, -615.3506"/>
+      <TurnIn QuestId="69788" NpcId="1041822" XYZ="-20.67603, -137.4167, -615.3506"/>
       <LLSmallTalk/>
     </If>
     <If Condition="GetQuestStep(69785) == 255">
@@ -448,7 +448,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="10.78321, -127.3485, -573.3376"/>  
       </If>
-      <LLTurnIn QuestId="69785" NpcId="1041809" XYZ="12.37506, -127.3485, -574.0292"/>
+      <TurnIn QuestId="69785" NpcId="1041809" XYZ="12.37506, -127.3485, -574.0292"/>
       <LLSmallTalk/>
     </If>
     <If Condition="GetQuestStep(69782) == 255">
@@ -458,7 +458,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="127.3135, -133.0734, -552.7415"/>  
       </If>
-      <LLTurnIn QuestId="69782" NpcId="1041799" XYZ="127.7943, -132.6198, -554.4976"/>
+      <TurnIn QuestId="69782" NpcId="1041799" XYZ="127.7943, -132.6198, -554.4976"/>
       <LLSmallTalk/>
     </If>
     <If Condition="GetQuestStep(69786) == 255">
@@ -468,7 +468,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="123.5654, -137.4167, -526.6233"/>  
       </If>
-      <LLTurnIn ItemId="2003371" QuestId="69786" NpcId="1037817" XYZ="123.5828, -137.4167, -525.5665"/>
+      <TurnIn ItemId="2003371" QuestId="69786" NpcId="1037817" XYZ="123.5828, -137.4167, -525.5665"/>
       <LLSmallTalk/>
     </If>
     <!--  A Way to Make a Living -->
@@ -630,7 +630,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="293.8647, -144, -537.2902"/>  
       </If>
-      <LLTurnIn QuestId="69791" NpcId="1037856" XYZ="292.8663, -144, -537.8653"/>
+      <TurnIn QuestId="69791" NpcId="1037856" XYZ="292.8663, -144, -537.8653"/>
       <LLSmallTalk/>
     </If>
     <If Condition="GetQuestStep(69784) == 255">
@@ -640,7 +640,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="319.8116, -144, -480.1205"/>  
       </If>
-      <LLTurnIn QuestId="69784" NpcId="1037861" XYZ="320.4851, -144, -479.4537"/>
+      <TurnIn QuestId="69784" NpcId="1037861" XYZ="320.4851, -144, -479.4537"/>
       <LLSmallTalk/>
     </If>
     <If Condition="GetQuestStep(69783) == 255">
@@ -650,7 +650,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="46.65134, -137.4167, -613.2941"/>  
       </If>
-      <LLTurnIn QuestId="69783" NpcId="1040865" XYZ="45.70081, -137.4167, -612.9702"/>
+      <TurnIn QuestId="69783" NpcId="1040865" XYZ="45.70081, -137.4167, -612.9702"/>
       <LLSmallTalk/>
     </If>
     <If Condition="GetQuestStep(69787) == 1">
@@ -714,7 +714,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="277.1711, -144, -525.1057"/>  
       </If>
-      <LLTurnIn QuestId="69787" NpcId="1041820" XYZ="277.0275, -144, -525.9327"/>
+      <TurnIn QuestId="69787" NpcId="1041820" XYZ="277.0275, -144, -525.9327"/>
       <LLSmallTalk/>
     </If>
     <If Condition="GetQuestStep(70053) == 255">
@@ -724,7 +724,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="292.3673, -144, -479.0541"/>  
       </If>
-      <LLTurnIn QuestId="70053" NpcId="1041557" XYZ="292.2865, -144, -477.8363"/>
+      <TurnIn QuestId="70053" NpcId="1041557" XYZ="292.2865, -144, -477.8363"/>
       <LLSmallTalk/>
     </If>
     <!--  One Way or Another -->
@@ -795,7 +795,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="-340.3284, -168, -612.0158"/>  
       </If>
-      <LLTurnIn QuestId="70054" NpcId="1041564" XYZ="-338.3688, -168, -613.7637"/>
+      <TurnIn QuestId="70054" NpcId="1041564" XYZ="-338.3688, -168, -613.7637"/>
       <LLSmallTalk/>
     </If>
     <!--  Dream a Little Dream -->
@@ -879,7 +879,7 @@
       <If Condition="not LisbethPresent">
         <GetTo ZoneId="959" XYZ="-297.0706, -144, -546.7418"/>  
       </If>
-      <LLTurnIn QuestId="70055" NpcId="1041819" XYZ="-295.6436, -144, -546.2882"/>
+      <TurnIn QuestId="70055" NpcId="1041819" XYZ="-295.6436, -144, -546.2882"/>
       <LLSmallTalk/>
     </If>
 	

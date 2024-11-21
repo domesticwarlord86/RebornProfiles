@@ -28,7 +28,7 @@
 		</If>
 		<If Condition="GetQuestStep(67087) == 255">
 			<GetTo ZoneId="478" XYZ="-71.83349, 206.6002, 30.11054" />
-			<LLTurnIn QuestId="67087" NpcId="1019615" XYZ="-71.76324, 206.5002, 32.63892" />
+			<TurnIn QuestId="67087" NpcId="1019615" XYZ="-71.76324, 206.5002, 32.63892" />
 			<LLSmallTalk />
 		</If>
 
@@ -48,7 +48,7 @@
 			</If>
 			<If Condition="GetQuestStep(68541) == 255">
 				<GetTo ZoneId="635" XYZ="171.1595, 13.02367, -88.07846" />
-				<LLTurnIn QuestId="68541" NpcId="1020337" XYZ="171.313, 13.02367, -89.95197" />
+				<TurnIn QuestId="68541" NpcId="1020337" XYZ="171.313, 13.02367, -89.95197" />
 				<LLSmallTalk />
 			</If>
 		</If>
@@ -80,7 +80,7 @@
 			</If>
 			<If Condition="GetQuestStep(68240) == 255">
 				<GetTo ZoneId="613" XYZ="-61.70034, -199.0023, -65.69437" />
-				<LLTurnIn QuestId="68240" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735" />
+				<TurnIn QuestId="68240" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735" />
 				<LLSmallTalk />
 			</If>
 			<!-- A Part of Your World -->
@@ -115,7 +115,7 @@
 					<LLChangeZone Heading="5.257571" />
 				</If>
 				<GetTo ZoneId="613" XYZ="-62.34636, -199.0114, -66.435" />
-				<LLTurnIn QuestId="68241" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735" />
+				<TurnIn QuestId="68241" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735" />
 				<LLSmallTalk />
 			</If>
 			<!-- The Elixir of Life -->
@@ -172,7 +172,7 @@
 					<LLChangeZone Heading="5.257571" />
 				</If>
 				<GetTo ZoneId="613" XYZ="-61.23541, -198.9879, -64.88971" />
-				<LLTurnIn QuestId="68242" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735" />
+				<TurnIn QuestId="68242" NpcId="1023280" XYZ="-62.79089, -198.9651, -64.34735" />
 				<LLSmallTalk />
 			</If>
 			<!-- The Two Princesses of Sui-no-Sato -->
@@ -204,7 +204,7 @@
 					<LLChangeZone Heading="5.257571" />
 				</If>
 				<GetTo ZoneId="613" XYZ="7.59002, -198.3741, -155.2006" />
-				<LLTurnIn QuestId="68243" NpcId="1023291" XYZ="8.46875, -198.3421, -157.1526" />
+				<TurnIn QuestId="68243" NpcId="1023291" XYZ="8.46875, -198.3421, -157.1526" />
 				<LLSmallTalk />
 			</If>
 			<!-- The Seaweed Is Always Greener -->
@@ -221,7 +221,7 @@
 			</If>
 			<If Condition="GetQuestStep(68675) == 255">
 				<LisbethTravel ZoneId="613" XYZ="342.9043, -120.336, -304.5736" />
-				<LLTurnIn QuestId="68675" NpcId="1025878" XYZ="343.984, -120.3295, -306.0197" />
+				<TurnIn QuestId="68675" NpcId="1025878" XYZ="343.984, -120.3295, -306.0197" />
 				<LLSmallTalk />
 			</If>
 		</If>
@@ -246,7 +246,7 @@
 			</If>
 			<If Condition="GetQuestStep(68294) == 255">
 				<LisbethTravel Zone="622" Subzone="2814" Position="592.3301, -19.50578, 286.1235" />
-				<LLTurnIn ItemId="2002321" QuestId="68294" NpcId="1023253" XYZ="594.4456, -19.50579, 285.603" />
+				<TurnIn ItemId="2002321" QuestId="68294" NpcId="1023253" XYZ="594.4456, -19.50579, 285.603" />
 				<LLSmallTalk />
 			</If>
 			<!-- Between a Rock and the Hard Place -->
@@ -263,7 +263,7 @@
 			</If>
 			<If Condition="GetQuestStep(68713) == 255">
 				<LisbethTravel Zone="478" Subzone="2096" Position="-61.97561, 206.6002, 24.15582" />
-				<LLTurnIn QuestId="68713" NpcId="1018393" XYZ="-60.38, 206.5002, 26.16919" />
+				<TurnIn QuestId="68713" NpcId="1018393" XYZ="-60.38, 206.5002, 26.16919" />
 				<LLSmallTalk />
 			</If>
 		</If>
@@ -288,7 +288,7 @@
 			</If>
 			<If Condition="GetQuestStep(69265) == 255">
 				<GetTo ZoneId="820" XYZ="51.50173, 83.00108, -64.31295" />
-				<LLTurnIn QuestId="69265" NpcId="1031801" XYZ="52.8114, 83.00108, -65.38495" />
+				<TurnIn QuestId="69265" NpcId="1031801" XYZ="52.8114, 83.00108, -65.38495" />
 				<LLSmallTalk />
 			</If>
 		</If>
@@ -327,7 +327,7 @@
 		</If>
 		<If Condition="GetQuestStep(69261) == 255">
 			<LisbethTravel Zone="886" Subzone="3436" Position="-5.518055, -16, 163.7018" />
-			<LLTurnIn QuestId="69261" NpcId="1031991" XYZ="-7.766907, -16, 163.3783" />
+			<TurnIn QuestId="69261" NpcId="1031991" XYZ="-7.766907, -16, 163.3783" />
 			<LLSmallTalk />
 		</If>
 
@@ -348,7 +348,7 @@
 		</While>
 		<If Condition="GetQuestStep(69262) == 255">
 			<LisbethTravel Zone="886" Subzone="3436" Position="-7.064736, -16, 163.8962" />
-			<LLTurnIn QuestId="69262" NpcId="1032832" XYZ="-8.255188, -16, 162.4017" />
+			<TurnIn QuestId="69262" NpcId="1032832" XYZ="-8.255188, -16, 162.4017" />
 			<LLSmallTalk />
 		</If>
 
@@ -373,7 +373,7 @@
 		</If>
 		<If Condition="GetQuestStep(69263) == 255">
 			<LisbethTravel Zone="886" Subzone="3474" Position="208.2713, -40, 8.47094" />
-			<LLTurnIn QuestId="69263" NpcId="1031996" XYZ="209.5521, -40, 8.132996" />
+			<TurnIn QuestId="69263" NpcId="1031996" XYZ="209.5521, -40, 8.132996" />
 			<LLSmallTalk />
 		</If>
 
@@ -407,7 +407,7 @@
 		</If>
 		<If Condition="GetQuestStep(69264) == 255">
 			<LisbethTravel Zone="886" Subzone="3474" Position="208.6244, -40, 8.057937" />
-			<LLTurnIn QuestId="69264" NpcId="1031996" XYZ="209.5521, -40, 8.132996" />
+			<TurnIn QuestId="69264" NpcId="1031996" XYZ="209.5521, -40, 8.132996" />
 			<LLSmallTalk />
 		</If>
 
@@ -429,7 +429,7 @@
 		</If>
 		<If Condition="GetQuestStep(69373) == 255">
 			<LisbethTravel Zone="886" Subzone="3474" Position="112.4378, -20, 1.123449" />
-			<LLTurnIn QuestId="69373" NpcId="1032786" XYZ="113.7865, -20, -0.3204956" />
+			<TurnIn QuestId="69373" NpcId="1032786" XYZ="113.7865, -20, -0.3204956" />
 			<LLSmallTalk />
 		</If>
 
@@ -463,7 +463,7 @@
 		</If>
 		<If Condition="GetQuestStep(69425) == 255">
 			<LisbethTravel Zone="886" Subzone="3474" Position="114.3166, -20, 0.3218191" />
-			<LLTurnIn QuestId="69425" NpcId="1033543" XYZ="113.3898, -20, -0.9613647" />
+			<TurnIn QuestId="69425" NpcId="1033543" XYZ="113.3898, -20, -0.9613647" />
 			<LLSmallTalk />
 		</If>
 

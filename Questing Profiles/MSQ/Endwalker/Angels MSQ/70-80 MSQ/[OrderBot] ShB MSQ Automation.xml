@@ -48,7 +48,7 @@ Authors:  Sodimm, TuckMeIntoBread
     </If>
     <If Condition="HasQuest(66698) and not IsQuestCompleted(66698) and GetQuestStep(66698) == 255">
       <LisbethTravel Zone="148" Subzone="94" Position="-42.39758, 0, 8.814557"/>
-      <LLTurnIn QuestId="66698" NpcId="1000471" XYZ="-60.47156, 0.2, 6.301941"/>
+      <TurnIn QuestId="66698" NpcId="1000471" XYZ="-60.47156, 0.2, 6.301941"/>
     </If>
     <!-- Unlocking Materia Melding & Extraction -->
     <If Condition="not IsQuestCompleted(66999) or not IsQuestCompleted(66174)">

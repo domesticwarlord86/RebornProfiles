@@ -28,7 +28,7 @@ Modified: DomesticWarlord86
     </If>
     <If Condition="GetQuestStep(66788) == 255">
       <LisbethTravel ZoneId="152" XYZ="46.84676, 6.073428, 249.6407"/>
-      <LLTurnIn QuestId="66788" NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913"/>
+      <TurnIn QuestId="66788" NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913"/>
     </If>
 	
     <!-- Voyce of Concern -->
@@ -52,7 +52,7 @@ Modified: DomesticWarlord86
     </If>
     <If Condition="GetQuestStep(66789) == 255">
       <LisbethTravel ZoneId="152" XYZ="46.3531, 6.073428, 249.0289"/>
-      <LLTurnIn QuestId="66789" NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913"/>
+      <TurnIn QuestId="66789" NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913"/>
     </If>    
 		
 		<!-- Rank up -->	
@@ -114,7 +114,7 @@ Modified: DomesticWarlord86
     </If>	
     <If Condition="GetQuestStep(66790) == 255">
       <GetTo ZoneId="152" XYZ="23.61268, -6.07478, 250.6139"/>
-      <LLTurnIn QuestId="66790" NpcId="1005565" XYZ="22.47644, -6.21051, 252.552"/>
+      <TurnIn QuestId="66790" NpcId="1005565" XYZ="22.47644, -6.21051, 252.552"/>
       <LLSmallTalk/>
     </If>
 
@@ -149,7 +149,7 @@ Modified: DomesticWarlord86
 				</If>
 				<If Condition="GetQuestStep(66791) == 255">
 					<LisbethTravel ZoneId="152" XYZ="33.84829, -5.498399, 250.4499"/> 
-					<LLTurnIn QuestId="66791" NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913"/>
+					<TurnIn QuestId="66791" NpcId="1005564" XYZ="48.20313, 6.07347, 247.7913"/>
 					<LLSmallTalk/>
 					<GetTo ZoneId="152" XYZ="31.09737, -5.906188, 249.6026" />	
 				</If>				
@@ -1041,61 +1041,61 @@ Modified: DomesticWarlord86
     <!-- Ripe for the Picking -->
     <If Condition="HasQuest(66813) and GetQuestStep(66813) == 255">
         <LisbethTravel ZoneId="152" XYZ="48.87463, 6.073461, 251.1787"/>
-      <LLTurnIn ItemId="2001122" QuestId="66813" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
+      <TurnIn ItemId="2001122" QuestId="66813" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
     </If>
 	
     <!-- A Sticky Situation -->
     <If Condition="HasQuest(66814) and GetQuestStep(66814) == 255">
         <LisbethTravel ZoneId="152" XYZ="48.87463, 6.073461, 251.1787"/>
-      <LLTurnIn QuestId="66814" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
+      <TurnIn QuestId="66814" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
     </If>
 	
     <!-- Sympathy for the Sentinel -->
     <If Condition="HasQuest(66815) and GetQuestStep(66815) == 255">
         <LisbethTravel ZoneId="152" XYZ="48.87463, 6.073461, 251.1787"/>
-      <LLTurnIn ItemIds="2001168,2001169" QuestId="66815" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
+      <TurnIn ItemIds="2001168,2001169" QuestId="66815" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
     </If>
 	
     <!-- No Root for You -->
     <If Condition="HasQuest(66816) and GetQuestStep(66816) == 255">
         <LisbethTravel ZoneId="152" XYZ="48.87463, 6.073461, 251.1787"/>
-      <LLTurnIn QuestId="66816" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
+      <TurnIn QuestId="66816" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
     </If>
 	
     <!-- Mist Opportunities -->
     <If Condition="HasQuest(66817) and GetQuestStep(66817) == 255">
         <LisbethTravel ZoneId="152" XYZ="48.87463, 6.073461, 251.1787"/>
-      <LLTurnIn QuestId="66817" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
+      <TurnIn QuestId="66817" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
     </If>
 	
     <!-- Clearing the Air -->
     <If Condition="HasQuest(66818) and GetQuestStep(66818) == 255">
         <LisbethTravel ZoneId="152" XYZ="48.87463, 6.073461, 251.1787"/>
-      <LLTurnIn QuestId="66818" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
+      <TurnIn QuestId="66818" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
     </If>
 	
     <!-- Podling Peril -->
     <If Condition="HasQuest(66819) and GetQuestStep(66819) == 255">
         <LisbethTravel ZoneId="152" XYZ="48.87463, 6.073461, 251.1787"/>
-      <LLTurnIn QuestId="66819" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
+      <TurnIn QuestId="66819" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
     </If>
 	
     <!-- Boar Wars -->
     <If Condition="HasQuest(66820) and GetQuestStep(66820) == 255">
         <LisbethTravel ZoneId="152" XYZ="48.87463, 6.073461, 251.1787"/>
-      <LLTurnIn ItemId="7003" QuestId="66820" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
+      <TurnIn ItemId="7003" QuestId="66820" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
     </If>
 	
     <!-- Moxia's Magnum Opus -->
     <If Condition="HasQuest(66821) and GetQuestStep(66821) == 255">
         <LisbethTravel ZoneId="152" XYZ="48.87463, 6.073461, 251.1787"/>
-      <LLTurnIn QuestId="66821" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
+      <TurnIn QuestId="66821" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
     </If>
 	
     <!-- Bane of the Barbs -->
     <If Condition="HasQuest(66822) and GetQuestStep(66822) == 255">
         <LisbethTravel ZoneId="152" XYZ="48.87463, 6.073461, 251.1787"/>
-      <LLTurnIn QuestId="66822" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
+      <TurnIn QuestId="66822" NpcId="1005563" XYZ="48.87463, 6.073461, 251.1787"/>
     </If>
 	
     <!-- Rank 2 -->
@@ -1103,61 +1103,61 @@ Modified: DomesticWarlord86
     <!-- With One Stone -->
     <If Condition="HasQuest(66803) and GetQuestStep(66803) == 255">
         <LisbethTravel ZoneId="152" XYZ="36.85046, -4.877863, 249.1951"/>
-      <LLTurnIn QuestId="66803" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
+      <TurnIn QuestId="66803" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
     </If>
 	
     <!-- I Dream of Slimy -->
     <If Condition="HasQuest(66804) and GetQuestStep(66804) == 255">
         <LisbethTravel ZoneId="152" XYZ="36.85046, -4.877863, 249.1951"/>
-      <LLTurnIn ItemId="2001121" QuestId="66804" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
+      <TurnIn ItemId="2001121" QuestId="66804" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
     </If>
 	
     <!-- Mushroom Madness -->
     <If Condition="HasQuest(66805) and GetQuestStep(66805) == 255">
         <LisbethTravel ZoneId="152" XYZ="36.85046, -4.877863, 249.1951"/>
-      <LLTurnIn QuestId="66805" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
+      <TurnIn QuestId="66805" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
     </If>
 	
     <!-- Milkroot in Moderation -->
     <If Condition="HasQuest(66806) and GetQuestStep(66806) == 255">
         <LisbethTravel ZoneId="152" XYZ="36.85046, -4.877863, 249.1951"/>
-      <LLTurnIn QuestId="66806" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
+      <TurnIn QuestId="66806" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
     </If>
 	
     <!-- Something to Sneeze At -->
     <If Condition="HasQuest(66807) and GetQuestStep(66807) == 255">
         <LisbethTravel ZoneId="152" XYZ="36.85046, -4.877863, 249.1951"/>
-      <LLTurnIn QuestId="66807" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
+      <TurnIn QuestId="66807" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
     </If>
 	
     <!-- Shocking Developments -->
     <If Condition="HasQuest(66808) and GetQuestStep(66808) == 255">
         <LisbethTravel ZoneId="152" XYZ="36.85046, -4.877863, 249.1951"/>
-      <LLTurnIn QuestId="66808" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
+      <TurnIn QuestId="66808" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
     </If>
 	
     <!-- Waterbringer -->
     <If Condition="HasQuest(66809) and GetQuestStep(66809) == 255">
         <LisbethTravel ZoneId="152" XYZ="36.85046, -4.877863, 249.1951"/>
-      <LLTurnIn QuestId="66809" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
+      <TurnIn QuestId="66809" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
     </If>
 	
     <!-- In The Sylphlands, Treasure Hunts You -->
     <If Condition="HasQuest(66810) and GetQuestStep(66810) == 255">
         <LisbethTravel ZoneId="152" XYZ="36.85046, -4.877863, 249.1951"/>
-      <LLTurnIn QuestId="66810" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
+      <TurnIn QuestId="66810" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
     </If>
 	
     <!-- Perilous Pumpkins -->
     <If Condition="HasQuest(66811) and GetQuestStep(66811) == 255">
         <LisbethTravel ZoneId="152" XYZ="36.85046, -4.877863, 249.1951"/>
-      <LLTurnIn QuestId="66811" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
+      <TurnIn QuestId="66811" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
     </If>
 	
     <!-- Fungal Foulness -->
     <If Condition="HasQuest(66812) and GetQuestStep(66812) == 255">
         <LisbethTravel ZoneId="152" XYZ="36.85046, -4.877863, 249.1951"/>
-      <LLTurnIn QuestId="66812" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
+      <TurnIn QuestId="66812" NpcId="1005562" XYZ="36.85046, -4.877863, 249.1951"/>
     </If>
 	
     <!-- Rank 1 -->
@@ -1165,62 +1165,62 @@ Modified: DomesticWarlord86
     <!-- Deck the Hut -->
     <If Condition="HasQuest(66793) and GetQuestStep(66793) == 255">
         <LisbethTravel ZoneId="152" XYZ="46.92583, 6.073466, 253.9145"/>
-      <LLTurnIn QuestId="66793" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
+      <TurnIn QuestId="66793" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
     </If>
 	
     <!-- Malodorous Mischief -->
     <If Condition="HasQuest(66794) and GetQuestStep(66794) == 255">
         <LisbethTravel ZoneId="152" XYZ="46.92583, 6.073466, 253.9145"/>
-      <LLTurnIn ItemIds="2001118,2001119,2001120" QuestId="66794" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
+      <TurnIn ItemIds="2001118,2001119,2001120" QuestId="66794" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
     </If>
 	
     <!-- Gourd Grief -->
     <If Condition="HasQuest(66795) and GetQuestStep(66795) == 255">
         <LisbethTravel ZoneId="152" XYZ="46.92583, 6.073466, 253.9145"/>
-      <LLTurnIn ItemId="2001163" QuestId="66795" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
+      <TurnIn ItemId="2001163" QuestId="66795" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
     </If>
 	
     <!-- Feed Me -->
     <If Condition="HasQuest(66796) and GetQuestStep(66796) == 255">
         <LisbethTravel ZoneId="152" XYZ="46.92583, 6.073466, 253.9145"/>
-      <LLTurnIn QuestId="66796" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
+      <TurnIn QuestId="66796" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
     </If>
 	
     <!-- Giddy for Goobbues -->
     <If Condition="HasQuest(66797) and GetQuestStep(66797) == 255">
         <LisbethTravel ZoneId="152" XYZ="46.92583, 6.073466, 253.9145"/>
-      <LLTurnIn QuestId="66797" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
+      <TurnIn QuestId="66797" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
     </If>
 	
     <!-- Now You See Me -->
     <If Condition="HasQuest(66798) and GetQuestStep(66798) == 255">
         <LisbethTravel ZoneId="152" XYZ="46.92583, 6.073466, 253.9145"/>
-      <LLTurnIn ItemId="2001177" QuestId="66798" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
+      <TurnIn ItemId="2001177" QuestId="66798" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
     </If>
 	
     <!-- Imperial Intruders -->
     <If Condition="HasQuest(66799) and GetQuestStep(66799) == 255">
         <LisbethTravel ZoneId="152" XYZ="46.92583, 6.073466, 253.9145"/>
-      <LLTurnIn QuestId="66799" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
+      <TurnIn QuestId="66799" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
     </If>
 	
     <!-- The Magitek Menace -->
     <If Condition="GetQuestStep(66800) == 255">
       <LisbethTravel Zone="152" Subzone="113" Position="45.99133, 6.073469, 252.971"/>
-      <LLTurnIn ItemId="7002" QuestId="66800" NpcId="1005561" XYZ="47.01306, 6.073462, 254.0168"/>
+      <TurnIn ItemId="7002" QuestId="66800" NpcId="1005561" XYZ="47.01306, 6.073462, 254.0168"/>
       <LLSmallTalk/>
     </If>
 	
     <!-- Not Who They Seem -->
     <If Condition="HasQuest(66801) and GetQuestStep(66801) == 255">
         <LisbethTravel ZoneId="152" XYZ="46.92583, 6.073466, 253.9145"/>
-      <LLTurnIn QuestId="66801" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
+      <TurnIn QuestId="66801" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
     </If>
 	
     <!-- Raising a Stink -->
     <If Condition="HasQuest(66802) and GetQuestStep(66802) == 255">
         <LisbethTravel ZoneId="152" XYZ="46.92583, 6.073466, 253.9145"/>
-      <LLTurnIn QuestId="66802" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
+      <TurnIn QuestId="66802" NpcId="1005561" XYZ="46.92583, 6.073466, 253.9145"/>
     </If>
 	
   </Order>

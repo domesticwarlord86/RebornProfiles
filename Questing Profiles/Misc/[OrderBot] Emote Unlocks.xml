@@ -251,7 +251,7 @@
     </If>	
     <If Condition="GetQuestStep(66961) == 255">
       <GetTo ZoneId="132" XYZ="-86.0774, -3.308192, 41.62041"/>
-      <LLTurnIn QuestId="66961" NpcId="1007792" XYZ="-87.84625, -3.308192, 41.70288"/>
+      <TurnIn QuestId="66961" NpcId="1007792" XYZ="-87.84625, -3.308192, 41.70288"/>
       <LLSmallTalk/>
     </If>		
 	</If>
@@ -301,7 +301,7 @@
     </If>	
     <If Condition="GetQuestStep(67011) == 255">
       <GetTo ZoneId="156" XYZ="29.91827, 50.99997, -816.3873"/>
-      <LLTurnIn QuestId="67011" NpcId="1016809" XYZ="29.86182, 50.99997, -818.2651"/>
+      <TurnIn QuestId="67011" NpcId="1016809" XYZ="29.86182, 50.99997, -818.2651"/>
       <LLSmallTalk/>
     </If>
     <!-- The Oaths We Swear -->
@@ -331,7 +331,7 @@
     </If>	
     <If Condition="GetQuestStep(67012) == 255">
       <GetTo ZoneId="398" XYZ="469.5043, -49.89133, 21.93567"/>
-      <LLTurnIn QuestId="67012" NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079"/>
+      <TurnIn QuestId="67012" NpcId="1011916" XYZ="470.0236, -49.89133, 20.37079"/>
       <LLSmallTalk/>
     </If>	
     <!-- The Legacies We Leave -->
@@ -365,7 +365,7 @@
     </If>
     <If Condition="GetQuestStep(67013) == 255">
       <GetTo ZoneId="131" XYZ="11.56272, 34, -40.43004"/>
-      <LLTurnIn QuestId="67013" NpcId="1017123" XYZ="12.92438, 34, -39.32251"/>
+      <TurnIn QuestId="67013" NpcId="1017123" XYZ="12.92438, 34, -39.32251"/>
       <LLSmallTalk/>
     </If>		
     <!-- The Triumphs We Share -->
@@ -402,7 +402,7 @@
     </If>
     <If Condition="GetQuestStep(67014) == 255">
       <GetTo ZoneId="478" XYZ="71.38739, 205.72, 23.556"/>
-      <LLTurnIn QuestId="67014" NpcId="1012097" XYZ="73.3501, 205.8896, 23.48358"/>
+      <TurnIn QuestId="67014" NpcId="1012097" XYZ="73.3501, 205.8896, 23.48358"/>
       <LLSmallTalk/>
     </If>
     <!-- The Burdens We Bear -->
@@ -440,7 +440,7 @@
     </If>
     <If Condition="GetQuestStep(67015) == 255">
       <LisbethTravel Zone="155" Subzone="381" Position="52.17316, 374.6279, -676.0972"/>
-      <LLTurnIn QuestId="67015" NpcId="2007066" XYZ="50.33948, 374.4716, -676.5088"/>
+      <TurnIn QuestId="67015" NpcId="2007066" XYZ="50.33948, 374.4716, -676.5088"/>
       <LLSmallTalk/>
     </If>		
 	</If>
@@ -590,7 +590,7 @@
         <If Condition="GetQuestStep(69094) == 255">
           <LisbethTravel ZoneId="814" XYZ="-517.3772, 392.1036, -479.3842"/>
           <RunCode Name="69094"/>
-          <LLTurnIn QuestId="69094" NpcId="1030786" XYZ="-519.646, 392.919, -482.7192"/>
+          <TurnIn QuestId="69094" NpcId="1030786" XYZ="-519.646, 392.919, -482.7192"/>
         </If>
       </If>
       <!-- Learning to Lali-ho -->
@@ -682,7 +682,7 @@
     </If>	
     <If Condition="GetQuestStep(67405) == 255">
       <GetTo ZoneId="419" XYZ="-250.0005, -20.03492, -89.00067"/>
-      <LLTurnIn DialogOption="4" QuestId="67405" NpcId="1012181" XYZ="-248.5543, -20.03492, -90.98956"/>
+      <TurnIn DialogOption="4" QuestId="67405" NpcId="1012181" XYZ="-248.5543, -20.03492, -90.98956"/>
       <LLSmallTalk/>
     </If>
     <!-- Contradicting Convictions -->
@@ -703,7 +703,7 @@
     </If>
     <If Condition="GetQuestStep(67688) == 255">
       <GetTo ZoneId="419" XYZ="-248.2268, -20.03492, -87.42289"/>
-      <LLTurnIn QuestId="67688" NpcId="1012181" XYZ="-248.5543, -20.03492, -90.98956"/>
+      <TurnIn QuestId="67688" NpcId="1012181" XYZ="-248.5543, -20.03492, -90.98956"/>
       <LLSmallTalk/>
     </If>
     <!-- The Benefits of Consultation -->
@@ -751,7 +751,7 @@
 				<GetTo ZoneId="419" XYZ="-142.3668, 14.80313, -131.3677"/>
 				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>					
 			</If>		
-      <LLTurnIn QuestId="67689" NpcId="1012266" XYZ="-7.950012, 0.2, -10.51355"/>
+      <TurnIn QuestId="67689" NpcId="1012266" XYZ="-7.950012, 0.2, -10.51355"/>
       <LLSmallTalk/>
     </If>
     <!-- Balancing the Spear -->
@@ -796,7 +796,7 @@
 				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>					
 			</If>		
       <MoveTo XYZ="-0.2126149, 0.04326189, -8.513334"/>
-      <LLTurnIn QuestId="67690" NpcId="1015952" XYZ="-1.388611, 0.2, -9.903137"/>
+      <TurnIn QuestId="67690" NpcId="1015952" XYZ="-1.388611, 0.2, -9.903137"/>
       <LLSmallTalk/>
     </If>
     <!-- More than Meets Her Eye -->
@@ -846,7 +846,7 @@
     </If>
     <If Condition="GetQuestStep(67691) == 255">
       <GetTo ZoneId="419" XYZ="-121.5391, 14.55313, -164.5502"/>
-      <LLTurnIn QuestId="67691" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
+      <TurnIn QuestId="67691" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
       <LLSmallTalk/>
     </If>
     <!-- Divine Reckoning -->
@@ -886,7 +886,7 @@
 				<UseTransport NpcId="1011215" InteractDistance="3.0" XYZ="-145.3727, 14.80313, -129.2592"/>						
 			</If>		
       <MoveTo XYZ="4.592953, 0.2249995, -5.945186"/>
-      <LLTurnIn QuestId="67743" NpcId="1017874" XYZ="6.42395, 0.2249996, -6.149414"/>
+      <TurnIn QuestId="67743" NpcId="1017874" XYZ="6.42395, 0.2249996, -6.149414"/>
       <LLSmallTalk/>
     </If>
     <!-- Through the Grapevine -->
@@ -923,7 +923,7 @@
     </If>	
     <If Condition="GetQuestStep(67744) == 255">
       <GetTo ZoneId="419" XYZ="-121.6026, 14.55313, -164.3492"/>
-      <LLTurnIn QuestId="67744" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
+      <TurnIn QuestId="67744" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
       <LLSmallTalk/>
     </If>
     <!-- A Familial Resemblance -->
@@ -951,7 +951,7 @@
     </If>
     <If Condition="GetQuestStep(67745) == 255">
       <GetTo ZoneId="419" XYZ="-120.4845, 14.55313, -163.0192"/>
-      <LLTurnIn ItemId="2001493" QuestId="67745" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
+      <TurnIn ItemId="2001493" QuestId="67745" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
       <LLSmallTalk/>
     </If>
     <!-- Finding Ulaa -->
@@ -989,7 +989,7 @@
     </If>	
     <If Condition="GetQuestStep(67746) == 255">
       <GetTo ZoneId="419" XYZ="-120.6807, 14.55313, -163.2708"/>
-      <LLTurnIn QuestId="67746" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
+      <TurnIn QuestId="67746" NpcId="1015976" XYZ="-122.5147, 14.55313, -166.9796"/>
       <LLSmallTalk/>
     </If>
     <!-- The Student Body's Revenge -->
@@ -1025,7 +1025,7 @@
     </If>
     <If Condition="GetQuestStep(67897) == 255">
       <MoveTo XYZ="-4.94389, 0.02499962, -4.808268"/>
-      <LLTurnIn QuestId="67897" NpcId="1017897" XYZ="-5.020264, 0.07901219, -8.651917"/>
+      <TurnIn QuestId="67897" NpcId="1017897" XYZ="-5.020264, 0.07901219, -8.651917"/>
       <LLSmallTalk/>
     </If>
     <!-- The Whipping Boy -->
@@ -1081,7 +1081,7 @@
     </If>	
     <If Condition="GetQuestStep(67899) == 255">
       <GetTo ZoneId="419" XYZ="-47.44103, 15.73161, -91.40448"/>
-      <LLTurnIn QuestId="67899" NpcId="1017923" XYZ="-45.09052, 15.87441, -91.32526"/>
+      <TurnIn QuestId="67899" NpcId="1017923" XYZ="-45.09052, 15.87441, -91.32526"/>
       <LLSmallTalk/>
     </If>		
 	</If>	
@@ -1115,7 +1115,7 @@
     </If>	
     <If Condition="GetQuestStep(66962) == 255">
       <GetTo ZoneId="129" XYZ="-188.5276, 16, 56.4686"/>
-      <LLTurnIn ItemId="2001250" QuestId="66962" NpcId="1003505" XYZ="-186.2059, 16, 56.9314"/>
+      <TurnIn ItemId="2001250" QuestId="66962" NpcId="1003505" XYZ="-186.2059, 16, 56.9314"/>
       <LLSmallTalk/>
     </If>		
 	</If>	
@@ -1132,7 +1132,7 @@
     </If>
     <If Condition="GetQuestStep(66846) == 255">
       <LisbethTravel Zone="155" Subzone="385" Position="242.8152, 222.2244, 326.9453"/>
-      <LLTurnIn QuestId="66846" NpcId="1006385" XYZ="241.5045, 222.2589, 325.4597"/>
+      <TurnIn QuestId="66846" NpcId="1006385" XYZ="241.5045, 222.2589, 325.4597"/>
       <LLSmallTalk/>
     </If>		
 	</If>			

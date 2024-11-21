@@ -82,13 +82,13 @@
 		</If>
     <If Condition="GetQuestStep(69759) == 255">
       <LisbethTravel Zone="958" Subzone="3903" Position="-423.0634, 22.11221, 421.2341"/> <!-- Area="Garlemald" -->
-      <LLTurnIn QuestId="69759" NpcId="1037751" XYZ="-424.155, 22.1966, 423.4835"/>
+      <TurnIn QuestId="69759" NpcId="1037751" XYZ="-424.155, 22.1966, 423.4835"/>
       <LLSmallTalk/>
     </If>
 		<!--  Your Inventory Is Not Full -->
     <If Condition="GetQuestStep(69755) == 255">
       <LisbethTravel Zone="958" Subzone="3903" Position="-439.0564, 22.20889, 428.6745"/> <!-- Area="Garlemald" -->
-      <LLTurnIn QuestId="69755" NpcId="1039381" XYZ="-437.7661, 22.20903, 431.937"/>
+      <TurnIn QuestId="69755" NpcId="1039381" XYZ="-437.7661, 22.20903, 431.937"/>
       <LLSmallTalk/>
     </If>		
 	
@@ -157,13 +157,13 @@
 		<!--  Heroes All -->
     <If Condition="GetQuestStep(69757) == 255">
         <LisbethTravel Zone="958" Subzone="3903" Position="-376.7822, 22, 511.6874"/> <!-- Area="Garlemald" -->
-      <LLTurnIn QuestId="69757" NpcId="1037733" XYZ="-375.1431, 22, 513.5424"/>
+      <TurnIn QuestId="69757" NpcId="1037733" XYZ="-375.1431, 22, 513.5424"/>
       <LLSmallTalk/>
     </If>
 		<!--  Under Lock and Code -->
     <If Condition="GetQuestStep(69760) == 255">
       <LisbethTravel Zone="958" Subzone="3903" Position="-345.1016, 22.25254, 468.3523"/> <!-- Area="Garlemald" -->
-      <LLTurnIn QuestId="69760" NpcId="1037729" XYZ="-342.6719, 22.37715, 466.8496"/>
+      <TurnIn QuestId="69760" NpcId="1037729" XYZ="-342.6719, 22.37715, 466.8496"/>
       <LLSmallTalk/>
     </If>
 	</If>	
@@ -269,7 +269,7 @@
 		</If>
 		<If Condition="GetQuestStep(70034) == 255">
 		  <GetTo ZoneId="958" XYZ="-341.6592, 22, 501.8206"/>  <!-- Subzone="3903" Area="Garlemald" -->
-		  <LLTurnIn QuestId="70034" NpcId="1041755" XYZ="-340.3525, 22, 502.037"/>
+		  <TurnIn QuestId="70034" NpcId="1041755" XYZ="-340.3525, 22, 502.037"/>
 		  <LLSmallTalk/>
 		  <RunCode name="TurnOnMount"/>
 		</If>
@@ -381,7 +381,7 @@
 		<!-- Camp Broken Engines -->
     <If Condition="GetQuestStep(70035) == 255">
       <LisbethTravel ZoneId="958" XYZ="-344.2525, 22, 500.2903"/> 
-      <LLTurnIn ItemId="2003378" QuestId="70035" NpcId="1041754" XYZ="-340.8408, 22, 500.5721"/>
+      <TurnIn ItemId="2003378" QuestId="70035" NpcId="1041754" XYZ="-340.8408, 22, 500.5721"/>
       <LLSmallTalk/>
     </If>
     <!--  Operation: Reactivation -->
@@ -404,7 +404,7 @@
     </If>
     <If Condition="GetQuestStep(70036) == 255">
       <LisbethTravel ZoneId="958" XYZ="411.883, -18.79628, 614.8682"/> 
-      <LLTurnIn QuestId="70036" NpcId="2012622" XYZ="413.3516, -18.81439, 614.4349"/>
+      <TurnIn QuestId="70036" NpcId="2012622" XYZ="413.3516, -18.81439, 614.4349"/>
       <LLSmallTalk/>
     </If>
     <!--  Energy for All -->
@@ -565,7 +565,7 @@
     </If>
     <If Condition="GetQuestStep(69752) == 255">
       <LisbethTravel ZoneId="958" XYZ="135.0165, -13.28034, 649.3398"/>  <!-- Subzone="3908" Area="Garlemald" -->
-      <LLTurnIn QuestId="69752" NpcId="1041122" XYZ="134.844, -13.28632, 649.8054"/>
+      <TurnIn QuestId="69752" NpcId="1041122" XYZ="134.844, -13.28632, 649.8054"/>
       <LLSmallTalk/>
     </If>	
 
@@ -589,7 +589,7 @@
     </If>
     <If Condition="GetQuestStep(69753) == 255">
       <LisbethTravel Zone="958" Subzone="3907" Position="137.2944, -17.39836, 566.626"/> <!-- Area="Garlemald" -->
-      <LLTurnIn QuestId="69753" NpcId="1041119" XYZ="135.851, -17.136, 567.8645"/>
+      <TurnIn QuestId="69753" NpcId="1041119" XYZ="135.851, -17.136, 567.8645"/>
       <LLSmallTalk/>
     </If>
 
@@ -617,7 +617,7 @@
     </If>
     <If Condition="GetQuestStep(69754) == 255">
       <LisbethTravel Zone="958" Subzone="3903" Position="-431.1128, 22.11865, 462.4686"/> <!-- Area="Garlemald" -->
-      <LLTurnIn QuestId="69754" NpcId="1040898" XYZ="-433.1274, 22.22189, 460.8071"/>
+      <TurnIn QuestId="69754" NpcId="1040898" XYZ="-433.1274, 22.22189, 460.8071"/>
       <LLSmallTalk/>
     </If>
 
@@ -626,69 +626,69 @@
 		<!-- The Hero Never Bombs -->
     <If Condition="GetQuestStep(69771) == 255">
       <LisbethTravel ZoneId="958" XYZ="-421.9594, 22.14304, 424.8949"/> 
-      <LLTurnIn QuestId="69771" NpcId="1037751" XYZ="-424.155, 22.1966, 423.4835"/>
+      <TurnIn QuestId="69771" NpcId="1037751" XYZ="-424.155, 22.1966, 423.4835"/>
       <LLSmallTalk/>
     </If>
 		
 		<!-- In the Skies Above Garlemald -->
     <If Condition="GetQuestStep(69775) == 255">
       <LisbethTravel ZoneId="958" XYZ="-371.6724, 22.23325, 382.7241"/> 
-      <LLTurnIn QuestId="69775" NpcId="1040662" XYZ="-373.1899, 22.2688, 385.0002"/>
+      <TurnIn QuestId="69775" NpcId="1040662" XYZ="-373.1899, 22.2688, 385.0002"/>
       <LLSmallTalk/>
     </If>
 
 		<!-- Help Me to Help You -->
     <If Condition="GetQuestStep(69756) == 255">
       <LisbethTravel ZoneId="958" XYZ="-367.8479, 22.09229, 388.7413"/> 
-      <LLTurnIn QuestId="69756" NpcId="1037728" XYZ="-369.5278, 22.1491, 391.9584"/>
+      <TurnIn QuestId="69756" NpcId="1037728" XYZ="-369.5278, 22.1491, 391.9584"/>
       <LLSmallTalk/>
     </If>
 
 		<!-- Mama, She Is In Rubble Deep -->
     <If Condition="GetQuestStep(69769) == 255">
       <LisbethTravel ZoneId="958" XYZ="-307.5594, 22, 419.029"/> 
-      <LLTurnIn QuestId="69769" NpcId="1037722" XYZ="-308.0949, 22, 415.3047"/>
+      <TurnIn QuestId="69769" NpcId="1037722" XYZ="-308.0949, 22, 415.3047"/>
       <LLSmallTalk/>
     </If>
 
 		<!-- Ordnance Cleanup Committee -->
     <If Condition="GetQuestStep(69773) == 255">
       <LisbethTravel ZoneId="958" XYZ="-313.2947, 22.0311, 432.3152"/> 
-      <LLTurnIn ItemId="2003213" QuestId="69773" NpcId="1037747" XYZ="-314.2596, 22.00559, 430.4722"/>
+      <TurnIn ItemId="2003213" QuestId="69773" NpcId="1037747" XYZ="-314.2596, 22.00559, 430.4722"/>
       <LLSmallTalk/>
     </If>
 		
 		<!-- Energy for All -->
     <If Condition="GetQuestStep(70037) == 255">
         <LisbethTravel ZoneId="958" XYZ="-320.3184, 22.37715, 448.6068"/> 
-      <LLTurnIn QuestId="70037" NpcId="1040963" XYZ="-325.2766, 22.46231, 450.4919"/>
+      <TurnIn QuestId="70037" NpcId="1040963" XYZ="-325.2766, 22.46231, 450.4919"/>
       <LLSmallTalk/>
     </If>		
 
 		<!-- Scouting For Scouts -->
     <If Condition="GetQuestStep(69758) == 255">
       <LisbethTravel ZoneId="958" XYZ="-347.0467, 22.189, 449.0649"/> 
-      <LLTurnIn QuestId="69758" NpcId="1037755" XYZ="-338.7656, 22.46231, 449.0883"/>
+      <TurnIn QuestId="69758" NpcId="1037755" XYZ="-338.7656, 22.46231, 449.0883"/>
       <LLSmallTalk/>
     </If>	
 		<!-- A Place of Greater Safety -->
     <If Condition="GetQuestStep(69774) == 255">
       <LisbethTravel ZoneId="958" XYZ="-343.1518, 22.37715, 449.2179"/> 
-      <LLTurnIn QuestId="69774" NpcId="1037755" XYZ="-338.7656, 22.46231, 449.0883"/>
+      <TurnIn QuestId="69774" NpcId="1037755" XYZ="-338.7656, 22.46231, 449.0883"/>
       <LLSmallTalk/>
     </If>
 
 		<!-- Put Your Plasma Where Your Mouth Is -->
     <If Condition="GetQuestStep(69770) == 255">
       <LisbethTravel ZoneId="958" XYZ="-345.2344, 22.23032, 467.3597"/> 
-      <LLTurnIn QuestId="69770" NpcId="1037729" XYZ="-342.6719, 22.37715, 466.8496"/>
+      <TurnIn QuestId="69770" NpcId="1037729" XYZ="-342.6719, 22.37715, 466.8496"/>
       <LLSmallTalk/>
     </If>
 
 		<!-- Beasts of the Imperial Wild -->
     <If Condition="GetQuestStep(69772) == 255">
       <LisbethTravel Zone="958" Subzone="3903" Position="-432.7568, 22, 471.7663"/> <!-- Area="Garlemald" -->
-      <LLTurnIn QuestId="69772" NpcId="1037741" XYZ="-434.5007, 22.00912, 470.3287"/>
+      <TurnIn QuestId="69772" NpcId="1037741" XYZ="-434.5007, 22.00912, 470.3287"/>
       <LLSmallTalk/>
     </If>		
  

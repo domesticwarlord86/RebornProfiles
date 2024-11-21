@@ -43,7 +43,7 @@
 			</If>
 			<If Condition="GetQuestStep(70007) == 255">
 				<GetTo ZoneId="130" XYZ="-30.21568, 3.999999, -150.6416"/>  
-				<LLTurnIn QuestId="70007" NpcId="1041580" XYZ="-29.61786, 4.099995, -152.8496"/>
+				<TurnIn QuestId="70007" NpcId="1041580" XYZ="-29.61786, 4.099995, -152.8496"/>
 				<LLSmallTalk/>
 			</If>			
     </If>	

@@ -36,7 +36,7 @@
     </If>
     <If Condition="GetQuestStep(69603) == 255">
       <GetTo ZoneId="134" XYZ="-25.89312, 42.59772, 161.6769"/>  <!-- Subzone="179" Area="Middle La Noscea" -->
-      <LLTurnIn QuestId="69603" NpcId="1039265" XYZ="-27.5426, 42.59772, 163.7445"/>			
+      <TurnIn QuestId="69603" NpcId="1039265" XYZ="-27.5426, 42.59772, 163.7445"/>			
       <LLSmallTalk/>
 	  <If Condition="IsQuestCompleted(69603)">
 		<If Condition="not ClassName == ((ClassJobType.Sage))"> 
@@ -98,7 +98,7 @@
     </If>
     <If Condition="GetQuestStep(69604) == 255">
       <GetTo ZoneId="478" XYZ="1.865792, 211, -19.56077"/>  <!-- Subzone="2093" Area="Idyllshire" -->
-      <LLTurnIn QuestId="69604" NpcId="1039249" XYZ="0.3508911, 211, -17.74628"/>
+      <TurnIn QuestId="69604" NpcId="1039249" XYZ="0.3508911, 211, -17.74628"/>
       <LLSmallTalk/>
     </If>	
     <!-- Sands of Despair -->
@@ -141,7 +141,7 @@
     </If>
     <If Condition="GetQuestStep(69605) == 255">
       <GetTo ZoneId="478" XYZ="-0.3722954, 211, -20.02772"/>  <!-- Subzone="2093" Area="Idyllshire" -->
-      <LLTurnIn QuestId="69605" NpcId="1039249" XYZ="0.3508911, 211, -17.74628"/>
+      <TurnIn QuestId="69605" NpcId="1039249" XYZ="0.3508911, 211, -17.74628"/>
       <LLSmallTalk/>
     </If>	
     <!-- Sands of Despair -->
@@ -172,7 +172,7 @@
     </If>
     <If Condition="GetQuestStep(69606) == 255">
       <GetTo ZoneId="478" XYZ="1.786251, 211, -18.65874"/>  <!-- Subzone="2093" Area="Idyllshire" -->
-      <LLTurnIn QuestId="69606" NpcId="1039249" XYZ="0.3508911, 211, -17.74628"/>
+      <TurnIn QuestId="69606" NpcId="1039249" XYZ="0.3508911, 211, -17.74628"/>
       <LLSmallTalk/>
     </If>
     <!-- Pledge of Hope -->
@@ -208,7 +208,7 @@
     </If>
     <If Condition="GetQuestStep(69607) == 255">
       <GetTo ZoneId="478" XYZ="1.528054, 211, -18.7179"/>  <!-- Subzone="2093" Area="Idyllshire" -->
-      <LLTurnIn QuestId="69607" NpcId="1039249" XYZ="0.3508911, 211, -17.74628"/>
+      <TurnIn QuestId="69607" NpcId="1039249" XYZ="0.3508911, 211, -17.74628"/>
       <LLSmallTalk/>
     </If>
     <!-- Life Ephemeral, Path Eternal -->
@@ -232,7 +232,7 @@
     </If>
     <If Condition="GetQuestStep(69608) == 255">
       <GetTo ZoneId="478" XYZ="2.732094, 211, -17.95716"/>  <!-- Subzone="2093" Area="Idyllshire" -->
-      <LLTurnIn QuestId="69608" NpcId="1039280" XYZ="1.205444, 211, -16.495"/>
+      <TurnIn QuestId="69608" NpcId="1039280" XYZ="1.205444, 211, -16.495"/>
       <LLSmallTalk/>
     </If>		
  

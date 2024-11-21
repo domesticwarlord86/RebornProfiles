@@ -40,7 +40,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67357) == 255">
       <LisbethTravel Zone="400" Subzone="2012" Position="473.3815, -4.650878, 720.587"/>
-      <LLTurnIn QuestId="67357" NpcId="1014427" XYZ="474.6012, -4.475057, 721.5532"/>
+      <TurnIn QuestId="67357" NpcId="1014427" XYZ="474.6012, -4.475057, 721.5532"/>
       <LLSmallTalk/>
     </If>		
     <!-- Spineless Wadjets -->
@@ -85,7 +85,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>			
     <If Condition="GetQuestStep(67360) == 255">
       <LisbethTravel Zone="400" Subzone="2045" Position="-75.64741, -8.844475, 166.6745"/>
-      <LLTurnIn QuestId="67360" NpcId="1014431" XYZ="-77.37854, -8.65556, 166.369"/>
+      <TurnIn QuestId="67360" NpcId="1014431" XYZ="-77.37854, -8.65556, 166.369"/>
       <LLSmallTalk/>
     </If>
     <!-- Far from Home -->
@@ -122,7 +122,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67367) == 255">
       <LisbethTravel Zone="400" Subzone="2045" Position="-107.2119, -8.844471, 209.6262"/>
-      <LLTurnIn QuestId="67367" NpcId="1014435" XYZ="-109.0563, -8.84447, 209.3385"/>
+      <TurnIn QuestId="67367" NpcId="1014435" XYZ="-109.0563, -8.84447, 209.3385"/>
       <LLSmallTalk/>
     </If>
     <!-- A Nutty Initiation -->
@@ -151,7 +151,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67368) == 255">
       <LisbethTravel Zone="400" Subzone="2042" Position="379.5634, -69.42967, 691.4939"/>
-      <LLTurnIn QuestId="67368" NpcId="1012082" XYZ="381.7043, -69.41491, 691.5541"/>
+      <TurnIn QuestId="67368" NpcId="1012082" XYZ="381.7043, -69.41491, 691.5541"/>
       <LLSmallTalk/>
     </If>
     <!-- Protecting the Pom -->
@@ -172,7 +172,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67399) == 255">
       <LisbethTravel Zone="400" Subzone="2045" Position="-105.921, 36.39444, 187.0798"/>
-      <LLTurnIn QuestId="67399" NpcId="1014293" XYZ="-106.8895, 36.39444, 186.1753"/>
+      <TurnIn QuestId="67399" NpcId="1014293" XYZ="-106.8895, 36.39444, 186.1753"/>
       <LLSmallTalk/>
     </If>
     <!-- Save the Pomguard -->
@@ -201,7 +201,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67400) == 255">
       <LisbethTravel Zone="400" Subzone="2046" Position="-694.4335, 79, 269.2751"/>
-      <LLTurnIn QuestId="67400" NpcId="1014300" XYZ="-696.3455, 79, 269.0012"/>
+      <TurnIn QuestId="67400" NpcId="1014300" XYZ="-696.3455, 79, 269.0012"/>
       <LLSmallTalk/>
     </If>
     <!-- An Urgent Message -->
@@ -218,7 +218,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67401) == 255">
       <LisbethTravel Zone="400" Subzone="2016" Position="-472.2539, 39.89993, 154.6618"/>
-      <LLTurnIn QuestId="67401" NpcId="1014304" XYZ="-471.7937, 39.90609, 156.2981"/>
+      <TurnIn QuestId="67401" NpcId="1014304" XYZ="-471.7937, 39.90609, 156.2981"/>
       <LLSmallTalk/>
     </If>
     <!-- An Uneasy Feeling -->
@@ -243,7 +243,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>	
     <If Condition="GetQuestStep(67402) == 255">
       <LisbethTravel Zone="400" Subzone="2046" Position="-662.4742, 73, 172.5872"/>
-      <LLTurnIn QuestId="67402" NpcId="1014307" XYZ="-661.4023, 73, 171.0383"/>
+      <TurnIn QuestId="67402" NpcId="1014307" XYZ="-661.4023, 73, 171.0383"/>
       <LLSmallTalk/>
     </If>
     <!-- A Moogle's Intuition -->
@@ -268,7 +268,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>	
     <If Condition="GetQuestStep(67403) == 255">
       <LisbethTravel Zone="400" Subzone="2046" Position="-744.7829, 73, 317.6353"/>
-      <LLTurnIn QuestId="67403" NpcId="1014308" XYZ="-746.1204, 73, 318.7456"/>
+      <TurnIn QuestId="67403" NpcId="1014308" XYZ="-746.1204, 73, 318.7456"/>
       <LLSmallTalk/>
     </If>	
     <!-- Trouble at Zenith -->
@@ -290,7 +290,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67404) == 255">
       <LisbethTravel Zone="400" Subzone="2042" Position="378.8647, -69.42964, 690.6765"/>
-      <LLTurnIn QuestId="67404" NpcId="1012082" XYZ="381.7043, -69.41491, 691.5541"/>
+      <TurnIn QuestId="67404" NpcId="1012082" XYZ="381.7043, -69.41491, 691.5541"/>
       <LLSmallTalk/>
     </If>
     <!-- Into the Mists -->
@@ -311,7 +311,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67408) == 255">
       <LisbethTravel Zone="400" Subzone="2016" Position="14.41871, 81.8406, -315.9996"/>
-      <LLTurnIn QuestId="67408" NpcId="1013560" XYZ="15.60992, 81.84059, -317.3724"/>
+      <TurnIn QuestId="67408" NpcId="1013560" XYZ="15.60992, 81.84059, -317.3724"/>
       <LLSmallTalk/>
     </If>
     <!-- Bitter Is the Night -->
@@ -338,7 +338,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>		
     <If Condition="GetQuestStep(67414) == 255">
       <LisbethTravel Zone="400" Subzone="2016" Position="13.55293, 81.8406, -316.4184"/>
-      <LLTurnIn QuestId="67414" NpcId="1013560" XYZ="15.60992, 81.84059, -317.3724"/>
+      <TurnIn QuestId="67414" NpcId="1013560" XYZ="15.60992, 81.84059, -317.3724"/>
       <LLSmallTalk/>
     </If>		
     <!-- Cleaning House -->
@@ -358,7 +358,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>		
     <If Condition="GetQuestStep(67417) == 255">
       <LisbethTravel Zone="400" Subzone="2016" Position="331.1581, 223.0154, -483.6427"/>
-      <LLTurnIn QuestId="67417" NpcId="1013569" XYZ="330.7391, 223.0154, -480.3693"/>
+      <TurnIn QuestId="67417" NpcId="1013569" XYZ="330.7391, 223.0154, -480.3693"/>
       <LLSmallTalk/>
     </If>
     <!-- Finders Keepers -->
@@ -383,7 +383,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>		
     <If Condition="GetQuestStep(67418) == 255">
       <LisbethTravel Zone="400" Subzone="2016" Position="13.51916, 81.8406, -316.4612"/>
-      <LLTurnIn ItemId="2001659" QuestId="67418" NpcId="1013560" XYZ="15.60992, 81.84059, -317.3724"/>
+      <TurnIn ItemId="2001659" QuestId="67418" NpcId="1013560" XYZ="15.60992, 81.84059, -317.3724"/>
       <LLSmallTalk/>
     </If>
     <!-- These Things Take Time -->
@@ -404,7 +404,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>		
     <If Condition="GetQuestStep(67415) == 255">
       <LisbethTravel Zone="400" Subzone="2078" Position="-752.5455, 285.6512, -167.5762"/>
-      <LLTurnIn QuestId="67415" NpcId="1013566" XYZ="-753.5974, 285.6566, -168.658"/>
+      <TurnIn QuestId="67415" NpcId="1013566" XYZ="-753.5974, 285.6566, -168.658"/>
       <LLSmallTalk/>
     </If>
     <!-- An Unwelcome Surprise -->
@@ -425,7 +425,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>		
     <If Condition="GetQuestStep(67419) == 255">
       <LisbethTravel Zone="400" Subzone="2016" Position="-555.2961, 266.0172, -673.8636"/>
-      <LLTurnIn ItemId="2001660" QuestId="67419" NpcId="1013570" XYZ="-556.4203, 266.003, -673.7926"/>
+      <TurnIn ItemId="2001660" QuestId="67419" NpcId="1013570" XYZ="-556.4203, 266.003, -673.7926"/>
       <LLSmallTalk/>
     </If>
     <!-- A Meter Too Far -->
@@ -483,7 +483,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67420) == 255">
       <LisbethTravel Zone="400" Subzone="2016" Position="13.6135, 81.8406, -318.102"/>
-      <LLTurnIn QuestId="67420" NpcId="1013567" XYZ="15.60992, 81.84059, -317.3724"/>
+      <TurnIn QuestId="67420" NpcId="1013567" XYZ="15.60992, 81.84059, -317.3724"/>
       <LLSmallTalk/>
     </If>		
     <!-- Thar Be Dragons -->
@@ -500,7 +500,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>		
     <If Condition="GetQuestStep(67416) == 255">
       <LisbethTravel Zone="400" Subzone="2016" Position="13.2552, 81.8406, -317.3497"/>
-      <LLTurnIn ItemId="2001684" QuestId="67416" NpcId="1013560" XYZ="15.60992, 81.84059, -317.3724"/>
+      <TurnIn ItemId="2001684" QuestId="67416" NpcId="1013560" XYZ="15.60992, 81.84059, -317.3724"/>
       <LLSmallTalk/>
     </If>
     <!-- Laying the First Brick -->
@@ -529,7 +529,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67407) == 255">
       <LisbethTravel Zone="400" Subzone="2016" Position="11.02906, 81.8406, -317.3058"/>
-      <LLTurnIn QuestId="67407" NpcId="1014314" XYZ="12.10034, 81.8406, -318.0133"/>
+      <TurnIn QuestId="67407" NpcId="1014314" XYZ="12.10034, 81.8406, -318.0133"/>
       <LLSmallTalk/>
     </If>	
     <!-- Tricks and Stones ** -->
@@ -655,7 +655,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>		
     <If Condition="GetQuestStep(67857) == 255">
       <LisbethTravel Zone="400" Subzone="2095" Position="-341.7479, 59.03801, 317.1715"/>
-      <LLTurnIn QuestId="67857" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445"/>
+      <TurnIn QuestId="67857" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445"/>
       <LLSmallTalk/>
     </If>
 
@@ -728,7 +728,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67858) == 255">
       <LisbethTravel Zone="400" Subzone="2095" Position="-341.2839, 59.03801, 318.9798"/>
-      <LLTurnIn QuestId="67858" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587"/>
+      <TurnIn QuestId="67858" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587"/>
       <LLSmallTalk/>
     </If>
 
@@ -777,7 +777,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>
     <If Condition="GetQuestStep(67859) == 255">
       <FlyTo XYZ="-340.3455, 59.03801, 316.6327" Land="True"/>
-      <LLTurnIn QuestId="67859" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445"/>
+      <TurnIn QuestId="67859" NpcId="1017169" XYZ="-342.1531, 59.03801, 315.1445"/>
       <LLSmallTalk/>
     </If>	
 
@@ -835,7 +835,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
 			</If>
 			<If Condition="HqHasAtLeast(15722,1)">
 				<LisbethTravel Zone="400" Subzone="2095" Position="-343.0392, 59.03801, 318.4308"/>
-				<LLTurnIn ItemId="15722" QuestId="67860" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587"/>
+				<TurnIn ItemId="15722" QuestId="67860" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587"/>
 				<LLSmallTalk/>
 			</If>      
     </If>
@@ -898,7 +898,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
 			</If>
 			<If condition="HqHasAtLeast(15723,1)">
 				<LisbethTravel Zone="400" Subzone="2095" Position="-340.2963, 59.03797, 314.9558"/>
-				<LLTurnIn ItemId="15723" QuestId="67861" NpcId="1017320" XYZ="-342.1531, 59.03801, 315.1445"/>
+				<TurnIn ItemId="15723" QuestId="67861" NpcId="1017320" XYZ="-342.1531, 59.03801, 315.1445"/>
 				<LLSmallTalk/>
 			</If>      
     </If>	
@@ -969,7 +969,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
 			</If>
 			<If condition="HqHasAtLeast(15724,1)">
 				<LisbethTravel Zone="400" Subzone="2095" Position="-341.7459, 59.03801, 317.4069"/>
-				<LLTurnIn ItemId="15724" QuestId="67862" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587"/>
+				<TurnIn ItemId="15724" QuestId="67862" NpcId="1017170" XYZ="-344.2283, 59.03801, 317.1587"/>
 				<LLSmallTalk/>
 			</If>      
     </If>	
@@ -993,7 +993,7 @@ Required User Setup:  Be on your desired Crafting Class before starting the Prof
     </If>	
     <If Condition="GetQuestStep(67863) == 255">
       <LisbethTravel Zone="400" Subzone="2095" Position="-341.7852, 59.03801, 317.7703"/>
-      <LLTurnIn QuestId="67863" NpcId="1017320" XYZ="-342.1531, 59.03801, 315.1445"/>
+      <TurnIn QuestId="67863" NpcId="1017320" XYZ="-342.1531, 59.03801, 315.1445"/>
       <LLSmallTalk/>
     </If>		
 		

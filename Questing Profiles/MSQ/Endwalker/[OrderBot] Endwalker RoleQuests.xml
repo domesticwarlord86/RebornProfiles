@@ -53,7 +53,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69650) == 255">
 		  <GetTo ZoneId="128" XYZ="68.3556, 40, 67.86102"/>  
-		  <LLTurnIn QuestId="69650" NpcId="1040174" XYZ="67.27698, 40, 66.63611"/>
+		  <TurnIn QuestId="69650" NpcId="1040174" XYZ="67.27698, 40, 66.63611"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- The Crushing Tide -->
@@ -105,7 +105,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69651) == 255">
 		  <GetTo ZoneId="128" XYZ="67.07475, 40, 68.3831"/>  
-		  <LLTurnIn QuestId="69651" NpcId="1040174" XYZ="67.27698, 40, 66.63611"/>
+		  <TurnIn QuestId="69651" NpcId="1040174" XYZ="67.27698, 40, 66.63611"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- Old Heroes Never Die -->
@@ -132,7 +132,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69652) == 255">
 		  <GetTo ZoneId="128" XYZ="68.06559, 40, 67.88313"/>  
-		  <LLTurnIn QuestId="69652" NpcId="1040166" XYZ="68.74182, 40, 66.30042"/>
+		  <TurnIn QuestId="69652" NpcId="1040166" XYZ="68.74182, 40, 66.30042"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- A Mother's Suffering -->
@@ -163,7 +163,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69653) == 255">
 		  <GetTo ZoneId="128" XYZ="66.55308, 40, 68.4847"/>  
-		  <LLTurnIn QuestId="69653" NpcId="1040174" XYZ="67.27698, 40, 66.63611"/>
+		  <TurnIn QuestId="69653" NpcId="1040174" XYZ="67.27698, 40, 66.63611"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- Out of the Shadows -->
@@ -194,7 +194,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69654) == 255">
 		  <GetTo ZoneId="128" XYZ="68.15235, 40, 67.78489"/>  
-		  <LLTurnIn QuestId="69654" NpcId="1040166" XYZ="68.74182, 40, 66.30042"/>
+		  <TurnIn QuestId="69654" NpcId="1040166" XYZ="68.74182, 40, 66.30042"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- To Calmer Seas -->
@@ -251,7 +251,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69655) == 255">
 		  <GetTo ZoneId="963" XYZ="-173.366, 4.061, -81.14206"/>  
-		  <LLTurnIn QuestId="69655" NpcId="1040165" XYZ="-175.0058, 4.061, -81.22388"/>
+		  <TurnIn QuestId="69655" NpcId="1040165" XYZ="-175.0058, 4.061, -81.22388"/>
 		  <LLSmallTalk/>
 		</If>
 	</If>
@@ -290,7 +290,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69644) == 255">
 		  <GetTo ZoneId="621" XYZ="738.9022, 70, 513.0149"/>  
-		  <LLTurnIn QuestId="69644" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
+		  <TurnIn QuestId="69644" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- The Butcher's Blade -->
@@ -339,7 +339,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69645) == 255">
 		  <GetTo ZoneId="621" XYZ="738.5493, 70, 512.9842"/>  
-		  <LLTurnIn QuestId="69645" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
+		  <TurnIn QuestId="69645" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- A New Battleground -->
@@ -387,7 +387,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69646) == 255">
 		  <GetTo ZoneId="621" XYZ="737.3214, 70, 513.5985"/>  
-		  <LLTurnIn QuestId="69646" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
+		  <TurnIn QuestId="69646" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- Laying the Past to Rest -->
@@ -423,7 +423,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69647) == 255">
 		  <GetTo ZoneId="621" XYZ="738.6639, 70, 515.4063"/>  
-		  <LLTurnIn QuestId="69647" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
+		  <TurnIn QuestId="69647" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- Trail of Skulls -->
@@ -454,7 +454,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69648) == 255">
 		  <GetTo ZoneId="621" XYZ="738.991, 70, 512.8589"/>  
-		  <LLTurnIn QuestId="69648" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
+		  <TurnIn QuestId="69648" NpcId="1039410" XYZ="738.7045, 70, 511.0398"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- Trail of Skulls -->
@@ -479,7 +479,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69649) == 255">
 		  <GetTo ZoneId="963" XYZ="-181.9732, 4.059999, -79.10074"/>  
-		  <LLTurnIn QuestId="69649" NpcId="1039411" XYZ="-182.208, 4.06, -80.73547"/>
+		  <TurnIn QuestId="69649" NpcId="1039411" XYZ="-182.208, 4.06, -80.73547"/>
 		  <LLSmallTalk/>
 		</If>
 	</If>
@@ -514,7 +514,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69656) == 255">
 			<GetTo ZoneId="759" XYZ="1.322733, 0, 9.036406"/> <!-- Area="The Doman Enclave" -->
-		  <LLTurnIn QuestId="69656" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
+		  <TurnIn QuestId="69656" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- When the Kami Answer -->
@@ -557,7 +557,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69657) == 255">
 		  <GetTo ZoneId="759" XYZ="1.233511, 0, 8.707384"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
-		  <LLTurnIn QuestId="69657" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
+		  <TurnIn QuestId="69657" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- Home No Longer -->
@@ -601,7 +601,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69658) == 255">
 		  <GetTo ZoneId="759" XYZ="0.1667996, 0, 9.36346"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
-		  <LLTurnIn QuestId="69658" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
+		  <TurnIn QuestId="69658" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- The Devoted Daughter -->
@@ -628,7 +628,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69659) == 255">
 		  <GetTo ZoneId="759" XYZ="1.014674, 0, 8.963577"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
-		  <LLTurnIn QuestId="69659" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
+		  <TurnIn QuestId="69659" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- A Singular Gift -->
@@ -673,7 +673,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69660) == 255">
 		  <GetTo ZoneId="759" XYZ="1.636931, 1.423018E-12, 7.105349"/>  <!-- Subzone="0" Area="The Doman Enclave" -->
-		  <LLTurnIn QuestId="69660" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
+		  <TurnIn QuestId="69660" NpcId="1038457" XYZ="-0.8392944, 0, 8.865417"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- Laid to Rest -->
@@ -706,7 +706,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69661) == 255">
 		  <GetTo ZoneId="963" XYZ="-175.8056, 4.061, -89.37521"/>  <!-- Subzone="3871" Area="" -->
-		  <LLTurnIn QuestId="69661" NpcId="1039102" XYZ="-177.9661, 4.05, -90.44025"/>
+		  <TurnIn QuestId="69661" NpcId="1039102" XYZ="-177.9661, 4.05, -90.44025"/>
 		  <LLSmallTalk/>
 		</If>
 	</If>
@@ -756,7 +756,7 @@ Author: Angles24
 			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
 			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
 		  </If>	
-		  <LLTurnIn QuestId="69662" NpcId="1037016" XYZ="1.174927, 0, -6.393555"/>
+		  <TurnIn QuestId="69662" NpcId="1037016" XYZ="1.174927, 0, -6.393555"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- No Forgiveness, No Deliverance -->
@@ -797,7 +797,7 @@ Author: Angles24
 			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
 			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
 		  </If>	
-		  <LLTurnIn QuestId="69663" NpcId="1037016" XYZ="1.174927, 0, -6.393555"/>
+		  <TurnIn QuestId="69663" NpcId="1037016" XYZ="1.174927, 0, -6.393555"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- Only Justice, Only Vengeance -->
@@ -826,7 +826,7 @@ Author: Angles24
 			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
 			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
 		  </If>
-		  <LLTurnIn QuestId="69664" NpcId="1037015" XYZ="0.04577637, 0, -7.126038"/>
+		  <TurnIn QuestId="69664" NpcId="1037015" XYZ="0.04577637, 0, -7.126038"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- Wills Unending, Faith Unbending -->
@@ -874,7 +874,7 @@ Author: Angles24
 			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
 			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
 		  </If>
-		  <LLTurnIn QuestId="69665" NpcId="1037016" XYZ="0.04577637, 0, -7.126038"/>
+		  <TurnIn QuestId="69665" NpcId="1037016" XYZ="0.04577637, 0, -7.126038"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- O Mighty Fury, Guide Us to Victory -->
@@ -916,7 +916,7 @@ Author: Angles24
 			<GetTo ZoneId="418" XYZ="114.58, 24.41283, -11.06281"/>
 			<UseTransport NpcId="1011223" InteractDistance="3.0" XYZ="114.58, 24.41283, -11.06281"/>				
 		  </If>
-		  <LLTurnIn QuestId="69666" NpcId="1037015" XYZ="0.04577637, 0, -7.126038"/>
+		  <TurnIn QuestId="69666" NpcId="1037015" XYZ="0.04577637, 0, -7.126038"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- Ever March Heavensward -->
@@ -961,7 +961,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69667) == 255">
 		  <GetTo ZoneId="963" XYZ="-168.2771, 4.05, -91.04063"/>  <!-- Subzone="3871" Area="" -->
-		  <LLTurnIn QuestId="69667" NpcId="1039101" XYZ="-168.0781, 4.05, -91.66095"/>
+		  <TurnIn QuestId="69667" NpcId="1039101" XYZ="-168.0781, 4.05, -91.66095"/>
 		  <LLSmallTalk/>
 		</If>
 	</If>
@@ -1011,7 +1011,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69638) == 255">
 		  <GetTo ZoneId="132" XYZ="-68.2303, -0.5033571, 5.097731"/>  
-		  <LLTurnIn QuestId="69638" NpcId="1038411" XYZ="-69.41333, -0.5033642, 5.020142"/>
+		  <TurnIn QuestId="69638" NpcId="1038411" XYZ="-69.41333, -0.5033642, 5.020142"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- To Give Voice -->
@@ -1067,7 +1067,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69639) == 255">
 		  <GetTo ZoneId="132" XYZ="-67.13451, -0.5033444, 5.980598"/>  
-		  <LLTurnIn QuestId="69639" NpcId="1038411" XYZ="-69.41333, -0.5033642, 5.020142"/>
+		  <TurnIn QuestId="69639" NpcId="1038411" XYZ="-69.41333, -0.5033642, 5.020142"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- A Gift Undone -->
@@ -1109,7 +1109,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69640) == 255">
 		  <GetTo ZoneId="132" XYZ="-65.83009, -0.503343, 4.825698"/>  
-		  <LLTurnIn QuestId="69640" NpcId="1038411" XYZ="-69.41333, -0.5033642, 5.020142"/>
+		  <TurnIn QuestId="69640" NpcId="1038411" XYZ="-69.41333, -0.5033642, 5.020142"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- A Pact Proven -->
@@ -1145,7 +1145,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69641) == 255">
 		  <GetTo ZoneId="132" XYZ="-67.76003, -0.5033544, 5.00577"/>  
-		  <LLTurnIn QuestId="69641" NpcId="1038411" XYZ="-69.41333, -0.5033642, 5.020142"/>
+		  <TurnIn QuestId="69641" NpcId="1038411" XYZ="-69.41333, -0.5033642, 5.020142"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- Hearts True -->
@@ -1186,7 +1186,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69642) == 255">
 		  <GetTo ZoneId="132" XYZ="-66.60619, -0.5033568, 5.307928"/>  
-		  <LLTurnIn QuestId="69642" NpcId="1038411" XYZ="-69.41333, -0.5033642, 5.020142"/>
+		  <TurnIn QuestId="69642" NpcId="1038411" XYZ="-69.41333, -0.5033642, 5.020142"/>
 		  <LLSmallTalk/>
 		</If>
 		<!-- A Path Unveiled -->
@@ -1223,7 +1223,7 @@ Author: Angles24
 		</If>
 		<If Condition="GetQuestStep(69643) == 255">
 		  <GetTo ZoneId="963" XYZ="-177.3615, 4.059999, -76.02895"/>  
-		  <LLTurnIn QuestId="69643" NpcId="1038397" XYZ="-178.9731, 4.05, -74.69299"/>
+		  <TurnIn QuestId="69643" NpcId="1038397" XYZ="-178.9731, 4.05, -74.69299"/>
 		  <LLSmallTalk/>
 		</If>
 	</If>

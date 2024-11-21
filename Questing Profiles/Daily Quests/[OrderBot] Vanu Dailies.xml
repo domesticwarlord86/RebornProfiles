@@ -63,7 +63,7 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67700) and not IsQuestCompleted(67700) and GetQuestStep(67700) == 255">
       <LisbethTravel ZoneId="401" Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67700" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+      <TurnIn QuestId="67700" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
     </If>
     <If Condition="IsQuestCompleted(67700) and not HasQuest(67701) and not HasQuest(67702) and not HasQuest(67703) and not HasQuest(67704) and not HasQuest(67705) and not HasQuest(67706) and not HasQuest(67761) and not HasAtLeastOneQuest(Array[int]([67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736]))">
       <LisbethTravel ZoneId="401" Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
@@ -232,7 +232,7 @@ Authors:  Sodimm.
     </If>
 	<If Condition="HasQuest(67709) and GetQuestStep(67709) == 255">
       <LisbethTravel ZoneId="401" Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67709" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
+      <TurnIn QuestId="67709" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
     </If>
     <!-- Chigoe Cha-Cha -->
     <If Condition="HasQuest(67711) and GetQuestStep(67711) == 1">
@@ -269,7 +269,7 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67711) and GetQuestStep(67711) == 255">
       <LisbethTravel ZoneId="401" Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67711" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
+      <TurnIn QuestId="67711" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
     </If>
     <!-- Sanuwa Samba (Possibly multiple location sets) -->
     <If Condition="HasQuest(67714) and GetQuestStep(67714) == 1">
@@ -307,7 +307,7 @@ Authors:  Sodimm.
     <!--<HotSpot XYZ="137.9568, -87.38033, 434.6227" Radius="10"/>-->
     <If Condition="HasQuest(67714) and GetQuestStep(67714) == 255">
       <LisbethTravel ZoneId="401" Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67714" NpcId="1016089" ItemId="2000681" XYZ="-799.4659, -133.2695, -404.1352"/>
+      <TurnIn QuestId="67714" NpcId="1016089" ItemId="2000681" XYZ="-799.4659, -133.2695, -404.1352"/>
     </If>
     <!-- Flight of the Midges -->
     <If Condition="HasQuest(67718) and GetQuestStep(67718) == 1">
@@ -348,7 +348,7 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67718) and GetQuestStep(67718) == 255">
       <LisbethTravel ZoneId="401" Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67718" NpcId="1016091" XYZ="-804.2573, -133.2695, -390.8904"/>
+      <TurnIn QuestId="67718" NpcId="1016091" XYZ="-804.2573, -133.2695, -390.8904"/>
     </If>
     <!-- The Binding Soil -->
     <If Condition="HasQuest(67717) and GetQuestStep(67717) == 1">
@@ -464,7 +464,7 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67736) and GetQuestStep(67736) == 255">
       <LisbethTravel ZoneId="401" Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67736" NpcId="1016088" ItemId="2001703" XYZ="-818.143, -129.9326, -414.0231"/>
+      <TurnIn QuestId="67736" NpcId="1016088" ItemId="2001703" XYZ="-818.143, -129.9326, -414.0231"/>
     </If>
     <!-- Fishing in Troubled Waters -->
     <If Condition="HasQuest(67719) and GetQuestStep(67719) == 1">
@@ -501,7 +501,7 @@ Authors:  Sodimm.
 	</If>
     <If Condition="HasQuest(67720) and GetQuestStep(67720) == 255">
       <LisbethTravel ZoneId="401" Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67720" NpcId="1016090" XYZ="-836.5148, -133.2695, -386.6179"/>
+      <TurnIn QuestId="67720" NpcId="1016090" XYZ="-836.5148, -133.2695, -386.6179"/>
     </If>
     <!-- Veni, Vundu, Vici -->
     <If Condition="HasQuest(67707) and GetQuestStep(67707) == 1 and not GetQuestById(67707).GetTodoArgs(1, 0).Item1 == 2">
@@ -524,7 +524,7 @@ Authors:  Sodimm.
     </If>
     <If Condition="HasQuest(67707) and GetQuestStep(67707) == 255">
       <LisbethTravel ZoneId="401" Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67707" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
+      <TurnIn QuestId="67707" NpcId="1016089" XYZ="-799.4659, -133.2695, -404.1352"/>
     </If>
     <!-- Pussyfooting About -->
     <If Condition="HasQuest(67708) and GetQuestStep(67708) == 1">
@@ -885,95 +885,95 @@ Authors:  Sodimm.
       <LisbethTravel ZoneId="401" XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
       <!-- Pussyfooting About -->
       <If Condition="HasQuest(67708) and GetQuestStep(67708) == 255">
-        <LLTurnIn QuestId="67708" NpcId="1016089" ItemId="2001906" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
+        <TurnIn QuestId="67708" NpcId="1016089" ItemId="2001906" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Pilfering Pots From The Pantry -->
       <If Condition="HasQuest(67710) and GetQuestStep(67710) == 255">
-        <LLTurnIn QuestId="67710" NpcId="1016089" ItemId="2001907" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
+        <TurnIn QuestId="67710" NpcId="1016089" ItemId="2001907" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Water Crystal Waltz -->
       <If Condition="HasQuest(67712) and GetQuestStep(67712) == 255">
-        <LLTurnIn QuestId="67712" NpcId="1016089" ItemId="2001908" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
+        <TurnIn QuestId="67712" NpcId="1016089" ItemId="2001908" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Hardboiled Hustle -->
       <If Condition="HasQuest(67713) and GetQuestStep(67713) == 255">
-        <LLTurnIn QuestId="67713" NpcId="1016089" ItemId="2001931" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
+        <TurnIn QuestId="67713" NpcId="1016089" ItemId="2001931" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Bird Watching -->
       <If Condition="HasQuest(67715) and GetQuestStep(67715) == 255">
-        <LLTurnIn QuestId="67715" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
+        <TurnIn QuestId="67715" NpcId="1016089" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Comb And Get It -->
       <If Condition="HasQuest(67716) and GetQuestStep(67716) == 255">
-        <LLTurnIn QuestId="67716" NpcId="1016089" ItemId="2001910" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
+        <TurnIn QuestId="67716" NpcId="1016089" ItemId="2001910" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- The Binding Soil -->
       <If Condition="HasQuest(67717) and GetQuestStep(67717) == 255">
-        <LLTurnIn QuestId="67717" NpcId="1016091" ItemIds="2001911, 2001926" InteractDistance="3.0" XYZ="-804.2573, -133.2695, -390.8904"/>
+        <TurnIn QuestId="67717" NpcId="1016091" ItemIds="2001911, 2001926" InteractDistance="3.0" XYZ="-804.2573, -133.2695, -390.8904"/>
       </If>
       <!-- Fishing in Troubled Waters -->
       <If Condition="HasQuest(67719) and GetQuestStep(67719) == 255">
-        <LLTurnIn QuestId="67719" NpcId="1016090" InteractDistance="3.0" XYZ="-836.5148, -133.2695, -386.6179"/>
+        <TurnIn QuestId="67719" NpcId="1016090" InteractDistance="3.0" XYZ="-836.5148, -133.2695, -386.6179"/>
       </If>
       <!-- Nailed Down -->
       <If Condition="HasQuest(67721) and GetQuestStep(67721) == 255">
-        <LLTurnIn QuestId="67721" NpcId="1016092" ItemId="2001914" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
+        <TurnIn QuestId="67721" NpcId="1016092" ItemId="2001914" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
       </If>
       <!-- The House That Ginu Built -->
       <If Condition="HasQuest(67722) and GetQuestStep(67722) == 255">
-        <LLTurnIn QuestId="67722" NpcId="1016092" ItemId="2001915" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
+        <TurnIn QuestId="67722" NpcId="1016092" ItemId="2001915" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
       </If>
       <!-- A Bone To Pick -->
       <If Condition="HasQuest(67723) and GetQuestStep(67723) == 255">
-        <LLTurnIn QuestId="67723" NpcId="1016092" ItemIds="2001916,2001937" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
+        <TurnIn QuestId="67723" NpcId="1016092" ItemIds="2001916,2001937" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
       </If>
       <!-- A Hut To Dye For -->
       <If Condition="HasQuest(67724) and GetQuestStep(67724) == 255">
-        <LLTurnIn QuestId="67724" NpcId="1016092" ItemId="2001917" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
+        <TurnIn QuestId="67724" NpcId="1016092" ItemId="2001917" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
       </If>
       <!-- Shady Premonitions -->
       <If Condition="HasQuest(67725) and GetQuestStep(67725) == 255">
-        <LLTurnIn QuestId="67725" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
+        <TurnIn QuestId="67725" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
       <!-- Pestered Ancestors -->
       <If Condition="HasQuest(67726) and GetQuestStep(67726) == 255">
-        <LLTurnIn QuestId="67726" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
+        <TurnIn QuestId="67726" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
       <!-- Smooth As Silk, Cool As Air -->
       <If Condition="HasQuest(67727) and GetQuestStep(67727) == 255">
-        <LLTurnIn QuestId="67727" NpcId="1016088" ItemId="2001918" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
+        <TurnIn QuestId="67727" NpcId="1016088" ItemId="2001918" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
       <!-- Gaelcat's Out The Bag -->
       <If Condition="HasQuest(67728) and GetQuestStep(67728) == 255">
-        <LLTurnIn QuestId="67728" NpcId="1016092" ItemId="2001919" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
+        <TurnIn QuestId="67728" NpcId="1016092" ItemId="2001919" InteractDistance="3.0" XYZ="-792.6299, -133.3218, -425.5589"/>
       </If>
       <!-- Rotten To The Korrigan -->
       <If Condition="HasQuest(67729) and GetQuestStep(67729) == 255">
-        <LLTurnIn QuestId="67729" NpcId="1016091" ItemId="2001920" InteractDistance="3.0" XYZ="-804.2573, -133.2695, -390.8904"/>
+        <TurnIn QuestId="67729" NpcId="1016091" ItemId="2001920" InteractDistance="3.0" XYZ="-804.2573, -133.2695, -390.8904"/>
       </If>
       <!-- Gastornis Groove -->
       <If Condition="HasQuest(67730) and GetQuestStep(67730) == 255">
-        <LLTurnIn QuestId="67730" NpcId="1016093" ItemId="2001921" InteractDistance="3.0" XYZ="-776.0281, -133.3556, -414.3282"/>
+        <TurnIn QuestId="67730" NpcId="1016093" ItemId="2001921" InteractDistance="3.0" XYZ="-776.0281, -133.3556, -414.3282"/>
       </If>
       <!-- The Cats Meow -->
       <If Condition="HasQuest(67731) and GetQuestStep(67731) == 255">
-        <LLTurnIn QuestId="67731" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
+        <TurnIn QuestId="67731" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
       <!-- Easy As Paissa -->
       <If Condition="HasQuest(67732) and GetQuestStep(67732) == 255">
-        <LLTurnIn QuestId="67732" NpcId="1016089" ItemId="2001923" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
+        <TurnIn QuestId="67732" NpcId="1016089" ItemId="2001923" InteractDistance="3.0" XYZ="-799.4659, -133.2695, -404.1352"/>
       </If>
       <!-- Dance Commander -->
       <If Condition="HasQuest(67733) and GetQuestStep(67733) == 255">
-        <LLTurnIn QuestId="67733" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
+        <TurnIn QuestId="67733" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
       <!-- Electric Gunduloo -->
       <If Condition="HasQuest(67734) and GetQuestStep(67734) == 255">
-        <LLTurnIn QuestId="67734" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
+        <TurnIn QuestId="67734" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
       <!-- Wildwort and Sundrop -->
       <If Condition="HasQuest(67735) and GetQuestStep(67735) == 255">
-        <LLTurnIn QuestId="67735" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
+        <TurnIn QuestId="67735" NpcId="1016088" InteractDistance="3.0" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
     </If>
     <If Condition="IsQuestCompleted(67700) and not HasAtLeastOneQuest(Array[int]([67707,67708,67709,67710,67711,67712,67713,67714,67715,67716,67717,67718,67719,67720,67721,67722,67723,67724,67725,67726,67727,67728,67729,67730,67731,67732,67733,67734,67735,67736]))">
@@ -1007,7 +1007,7 @@ Authors:  Sodimm.
       </If>
       <If Condition="HasQuest(67701) and not IsQuestCompleted(67701) and GetQuestStep(67701) == 255">
         <LisbethTravel ZoneId="401" XYZ="-796.7498, -133.2695, -410.6966" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <LLTurnIn QuestId="67701" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+        <TurnIn QuestId="67701" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
       </If>
       <!-- Linu's Lovely Bones -->
       <If Condition="IsQuestCompleted(67701) and not HasQuest(67702) and not IsQuestCompleted(67702)">
@@ -1045,7 +1045,7 @@ Authors:  Sodimm.
       </If>
       <If Condition="HasQuest(67702) and not IsQuestCompleted(67702) and GetQuestStep(67702) == 255">
         <LisbethTravel ZoneId="401" XYZ="-799.4659, -133.2695, -404.1352" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <LLTurnIn QuestId="67702" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+        <TurnIn QuestId="67702" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
       </If>
       <!-- In The Skycage Over The Sea -->
       <If Condition="IsQuestCompleted(67702) and not HasQuest(67703) and not IsQuestCompleted(67703)">
@@ -1073,7 +1073,7 @@ Authors:  Sodimm.
       <If Condition="HasQuest(67703) and not IsQuestCompleted(67703) and GetQuestStep(67703) == 255">
         <TeleportTo Name="Ok' Zundu" AetheryteId="73"/>
         <LisbethTravel ZoneId="401" XYZ="-796.7498, -133.2695, -410.6966" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True"/>
-        <LLTurnIn QuestId="67703" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+        <TurnIn QuestId="67703" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
       </If>
       <!-- Fishing for Friendship -->
       <If Condition="IsQuestCompleted(67703) and not HasQuest(67704) and not IsQuestCompleted(67704)">
@@ -1100,7 +1100,7 @@ Authors:  Sodimm.
       </If>
       <If Condition="HasQuest(67704) and not IsQuestCompleted(67704) and GetQuestStep(67704) == 255">
         <LisbethTravel ZoneId="401" XYZ="-796.7498, -133.2695, -410.6966" Land="True" IgnoreIndoors="True"/>
-        <LLTurnIn QuestId="67704" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
+        <TurnIn QuestId="67704" NpcId="1016087" XYZ="-796.7498, -133.2695, -410.6966"/>
       </If>
       <!-- Sundrop the Beat -->
       <If Condition="IsQuestCompleted(67704) and not HasQuest(67705) and not IsQuestCompleted(67705)">
@@ -1138,7 +1138,7 @@ Authors:  Sodimm.
       </If>
       <If Condition="HasQuest(67705) and not IsQuestCompleted(67705) and GetQuestStep(67705) == 255">
         <LisbethTravel ZoneId="401" XYZ="-606.4088, -51.07104, -370.8705"/>
-        <LLTurnIn QuestId="67705" NpcId="1016174" InteractDistance="3.0" XYZ="-606.4088, -51.07104, -370.8705"/>
+        <TurnIn QuestId="67705" NpcId="1016174" InteractDistance="3.0" XYZ="-606.4088, -51.07104, -370.8705"/>
       </If>
       <!-- Nest Side Story -->
       <If Condition="IsQuestCompleted(67705) and not HasQuest(67706) and not IsQuestCompleted(67706)">
@@ -1160,7 +1160,7 @@ Authors:  Sodimm.
       </If>
       <If Condition="HasQuest(67706) and not IsQuestCompleted(67706) and GetQuestStep(67706) == 255">
         <LisbethTravel ZoneId="401" XYZ="-220.4777, -4.959229, -582.3301" ArrivalTolerance="0.5" AllowedVariance="1.0" Land="True" IgnoreIndoors="True"/>
-        <LLTurnIn QuestId="67706" NpcId="2006637" XYZ="-220.4777, -4.959229, -582.3301"/>
+        <TurnIn QuestId="67706" NpcId="2006637" XYZ="-220.4777, -4.959229, -582.3301"/>
       </If>
       <!-- The Nest of Honor -->
       <If Condition="IsQuestCompleted(67706) and not HasQuest(67761) and not IsQuestCompleted(67761)">
@@ -1170,7 +1170,7 @@ Authors:  Sodimm.
       </If>
       <If Condition="HasQuest(67761) and not IsQuestCompleted(67761) and GetQuestStep(67761) == 255">
         <LisbethTravel ZoneId="401" Name="Ok' Gundu Nakki." XYZ="-799.4659, -133.2695, -404.1352" Land="True" IgnoreIndoors="True"/>
-        <LLTurnIn QuestId="67761" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231"/>
+        <TurnIn QuestId="67761" NpcId="1016088" XYZ="-818.143, -129.9326, -414.0231"/>
       </If>
     </If>
   </Order>

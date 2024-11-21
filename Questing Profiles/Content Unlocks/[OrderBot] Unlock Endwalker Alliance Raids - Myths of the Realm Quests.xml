@@ -47,7 +47,7 @@ Author: Angles24
     </If>
     <If Condition="GetQuestStep(70072) == 255">
         <MoveTo ZoneId="1061" XYZ="3.943037, 0.09999967, 15.03655"/>  
-        <LLTurnIn QuestId="70072" NpcId="1042273" XYZ="3.524841, 0.0999997, 14.14508"/>
+        <TurnIn QuestId="70072" NpcId="1042273" XYZ="3.524841, 0.0999997, 14.14508"/>
     </If>
 	<!-- The Realm of the Gods -->
     <If Condition="not IsQuestCompleted(70073) and IsQuestCompleted(70072)">
@@ -79,7 +79,7 @@ Author: Angles24
 			<UseTransport NpcId="2012870" InteractDistance="3.0" XYZ="154.467, -26.29132, -437.4609"/>	  
 		</If>
         <MoveTo ZoneId="1061" XYZ="16.24576, 0.09999967, -1.845173"/> 
-        <LLTurnIn QuestId="70073" NpcId="1042278" XYZ="12.13086, 0.0999997, -0.8392944"/>
+        <TurnIn QuestId="70073" NpcId="1042278" XYZ="12.13086, 0.0999997, -0.8392944"/>
       </If>
     <!-- A Divine Dilemma -->
     <If Condition="not IsQuestCompleted(70074) and IsQuestCompleted(70073)">
@@ -124,7 +124,7 @@ Author: Angles24
       </If>
       <If Condition="GetQuestStep(70074) == 255">
         <LisbethTravel ZoneId="635" XYZ="-2.437736, 2.745737, -40.08055"/> 
-        <LLTurnIn QuestId="70074" NpcId="1042285" XYZ="-4.623535, 2.745737, -39.50568"/>
+        <TurnIn QuestId="70074" NpcId="1042285" XYZ="-4.623535, 2.745737, -39.50568"/>
       </If>
     <!-- The Face of an Explorer -->
     <If Condition="not IsQuestCompleted(70075) and IsQuestCompleted(70074)">
@@ -165,7 +165,7 @@ Author: Angles24
       </If>
       <If Condition="GetQuestStep(70075) == 255">
         <LisbethTravel ZoneId="156" XYZ="124.917, 18.98672, -616.0241"/> 
-        <LLTurnIn QuestId="70075" NpcId="1042264" XYZ="124.2236, 19.32629, -617.4258"/>
+        <TurnIn QuestId="70075" NpcId="1042264" XYZ="124.2236, 19.32629, -617.4258"/>
       </If>
     <!-- Return to the Phantom Realm -->
     <If Condition="not IsQuestCompleted(70202) and IsQuestCompleted(70075)">
@@ -200,7 +200,7 @@ Author: Angles24
 			<UseTransport NpcId="2012870" InteractDistance="3.0" XYZ="154.467, -26.29132, -437.4609"/>	  
 		</If>
         <MoveTo ZoneId="1061" XYZ="-8.916502, 0.0999997, 7.745884"/>  
-        <LLTurnIn QuestId="70202" NpcId="1044303" XYZ="-7.278625, 0.0999997, 5.874695"/>
+        <TurnIn QuestId="70202" NpcId="1044303" XYZ="-7.278625, 0.0999997, 5.874695"/>
       </If>
     <!-- In Heavenly Company -->
     <If Condition="not IsQuestCompleted(70203) and IsQuestCompleted(70202)">
@@ -229,7 +229,7 @@ Author: Angles24
       </If>
       <If Condition="GetQuestStep(70203) == 255">
         <LisbethTravel ZoneId="155" XYZ="80.39261, 373.8458, -672.0927"/> 
-        <LLTurnIn QuestId="70203" NpcId="1044315" XYZ="80.24719, 373.7315, -674.4946"/>
+        <TurnIn QuestId="70203" NpcId="1044315" XYZ="80.24719, 373.7315, -674.4946"/>
       </If>
     <!-- Divine Nonintervention -->
     <If Condition="not IsQuestCompleted(70204) and IsQuestCompleted(70203)">
@@ -259,7 +259,7 @@ Author: Angles24
       </If>
       <If Condition="GetQuestStep(70204) == 255">
         <LisbethTravel ZoneId="153" XYZ="204.9603, 6.15349, -29.91238"/> 
-        <LLTurnIn QuestId="70204" NpcId="1044331" XYZ="204.0588, 6.200633, -32.05927"/>
+        <TurnIn QuestId="70204" NpcId="1044331" XYZ="204.0588, 6.200633, -32.05927"/>
       </If>
     <!-- The Secret of the Twelve -->
     <If Condition="not IsQuestCompleted(70205) and IsQuestCompleted(70204)">
@@ -287,7 +287,7 @@ Author: Angles24
       </If>
       <If Condition="GetQuestStep(70205) == 255">
         <LisbethTravel ZoneId="156" XYZ="123.6841, 19.0195, -616.0771"/> 
-        <LLTurnIn QuestId="70205" NpcId="1042264" XYZ="124.2236, 19.32629, -617.4258"/>
+        <TurnIn QuestId="70205" NpcId="1042264" XYZ="124.2236, 19.32629, -617.4258"/>
       </If>
     <!-- The Heart of the Myth -->
     <If Condition="not IsQuestCompleted(70327) and IsQuestCompleted(70189)">
@@ -338,7 +338,7 @@ Author: Angles24
       </If>
       <If Condition="GetQuestStep(70327) == 255">
         <GetTo ZoneId="1178" XYZ="943.574, -950, -940.6877"/>  
-        <LLTurnIn QuestId="70327" NpcId="1045982" XYZ="945.2506, -950, -940.5508"/>
+        <TurnIn QuestId="70327" NpcId="1045982" XYZ="945.2506, -950, -940.5508"/>
       </If>
     <!-- Embraced by Gods -->
     <If Condition="not IsQuestCompleted(70328) and IsQuestCompleted(70327)">
@@ -386,7 +386,7 @@ Author: Angles24
       </If>
 	  <If Condition="GetQuestStep(70328) == 255">
         <LisbethTravel ZoneId="135" XYZ="10.7088, 66.55367, 410.4637"/> 
-        <LLTurnIn QuestId="70328" NpcId="1045998" XYZ="9.048584, 66.55368, 409.5369"/>
+        <TurnIn QuestId="70328" NpcId="1045998" XYZ="9.048584, 66.55368, 409.5369"/>
 		<UserDialog DialogText="Myths of the Realm Quests completed."/>
       </If>
 	

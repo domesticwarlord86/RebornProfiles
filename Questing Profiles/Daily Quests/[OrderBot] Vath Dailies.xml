@@ -58,7 +58,7 @@ Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow
     </If>
     <If Condition="HasQuest(67791) and not IsQuestCompleted(67791) and GetQuestStep(67791) == 255">
       <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67791" NpcId="1016837" InteractDistance="3.0" XYZ="58.88452, -48, -171.0689"/>
+      <TurnIn QuestId="67791" NpcId="1016837" InteractDistance="3.0" XYZ="58.88452, -48, -171.0689"/>
     </If>
     <If Condition="IsQuestCompleted(67791) and not HasQuest(67792) and not HasQuest(67793) and not HasQuest(67794) and not HasQuest(67795) and not HasQuest(67796) and not HasAtLeastOneQuest(Array[int]([67797,67798,67799,67800,67801,67802,67803,67804,67805,67806,67807,67808,67809,67810,67811,67812,67813,67814,67815,67816]))">
       <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
@@ -158,7 +158,7 @@ Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow
     </If>
     <If Condition="HasQuest(67797) and GetQuestStep(67797) == 255">
       <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67797" ItemId="2001951" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      <TurnIn QuestId="67797" ItemId="2001951" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
     </If>
     <!-- Breath of Fresh Air -->
     <If Condition="HasQuest(67798) and GetQuestStep(67798) == 1">
@@ -286,7 +286,7 @@ Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow
     </If>
     <If Condition="HasQuest(67802) and GetQuestStep(67802) == 255">
       <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67802" ItemIds="2001956,2001957" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      <TurnIn QuestId="67802" ItemIds="2001956,2001957" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
     </If>
     <!-- Where the Silver Dew Grows -->
     <If Condition="HasQuest(67803) and GetQuestStep(67803) == 1 and not GetQuestById(67803).GetTodoArgs(1, 0).Item1 == 2">
@@ -309,7 +309,7 @@ Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow
     </If>
     <If Condition="HasQuest(67803) and GetQuestStep(67803) == 255">
       <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67803" ItemId="2001958" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      <TurnIn QuestId="67803" ItemId="2001958" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
     </If>
     <!-- The Caelumtree Wine Spree -->
     <If Condition="HasQuest(67804) and GetQuestStep(67804) == 1">
@@ -453,7 +453,7 @@ Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow
     </If>
     <If Condition="HasQuest(67809) and GetQuestStep(67809) == 255">
       <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
-      <LLTurnIn QuestId="67809" ItemId="2001964" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+      <TurnIn QuestId="67809" ItemId="2001964" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
     </If>
     <!-- Fifty Shades of Yellow -->
     <If Condition="HasQuest(67813) and GetQuestStep(67813) == 1 and GetQuestById(67813).GetTodoArgs(1, 0).Item1 == 0">
@@ -634,67 +634,67 @@ Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow
       <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
       <!-- Breath of Fresh Air -->
       <If Condition="HasQuest(67798) and GetQuestStep(67798) == 255">
-        <LLTurnIn QuestId="67798" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67798" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Bugging the Bugs -->
       <If Condition="HasQuest(67799) and GetQuestStep(67799) == 255">
-        <LLTurnIn QuestId="67799" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67799" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Too Much to Bear -->
       <If Condition="HasQuest(67800) and GetQuestStep(67800) == 255">
-        <LLTurnIn QuestId="67800" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67800" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- The Foodstuffs of Champions -->
       <If Condition="HasQuest(67801) and GetQuestStep(67801) == 255">
-        <LLTurnIn QuestId="67801" ItemIds="2001954,2001955" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67801" ItemIds="2001954,2001955" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- The Caelumtree Wine Spree -->
       <If Condition="HasQuest(67804) and GetQuestStep(67804) == 255">
-        <LLTurnIn QuestId="67804" ItemIds="2001960" NpcId="1016855" InteractDistance="3.0" XYZ="74.90649, -48, -175.6771"/>
+        <TurnIn QuestId="67804" ItemIds="2001960" NpcId="1016855" InteractDistance="3.0" XYZ="74.90649, -48, -175.6771"/>
       </If>
       <!-- Ploughing Ahead -->
       <If Condition="HasQuest(67805) and GetQuestStep(67805) == 255">
-        <LLTurnIn QuestId="67805" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67805" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- At Full Pelt -->
       <If Condition="HasQuest(67806) and GetQuestStep(67806) == 255">
-        <LLTurnIn QuestId="67806" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67806" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Failure to Deliver -->
       <If Condition="HasQuest(67807) and GetQuestStep(67807) == 255">
-        <LLTurnIn QuestId="67807" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67807" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Shoo Fly, Don't Bother Me -->
       <If Condition="HasQuest(67808) and GetQuestStep(67808) == 255">
-        <LLTurnIn QuestId="67808" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67808" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Smells Like Trouble -->
       <If Condition="HasQuest(67810) and GetQuestStep(67810) == 255">
-        <LLTurnIn QuestId="67810" ItemId="2001967" InteractDistance="3.0" NpcId="1016863" XYZ="67.94836, -48.43746, -168.2307"/>
+        <TurnIn QuestId="67810" ItemId="2001967" InteractDistance="3.0" NpcId="1016863" XYZ="67.94836, -48.43746, -168.2307"/>
       </If>
       <!-- When Hunting Goes Wrong -->
       <If Condition="HasQuest(67811) and GetQuestStep(67811) == 255">
-        <LLTurnIn QuestId="67811" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67811" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Flea Troubles -->
       <If Condition="HasQuest(67812) and GetQuestStep(67812) == 255">
-        <LLTurnIn QuestId="67812" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67812" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Fifty Shades of Yellow -->
       <If Condition="HasQuest(67813) and GetQuestStep(67813) == 255">
-        <LLTurnIn QuestId="67813" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67813" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- A Romp Around the Foothills -->
       <If Condition="HasQuest(67814) and GetQuestStep(67814) == 255">
-        <LLTurnIn QuestId="67814" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67814" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Neighborhood Squabbles -->
       <If Condition="HasQuest(67815) and GetQuestStep(67815) == 255">
-        <LLTurnIn QuestId="67815" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67815" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
       <!-- Not for the Faint of Heart -->
       <If Condition="HasQuest(67816) and GetQuestStep(67816) == 255">
-        <LLTurnIn QuestId="67816" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
+        <TurnIn QuestId="67816" NpcId="1016803" InteractDistance="3.0" XYZ="58.45544, -48, -170.6133"/>
       </If>
     </If>
     <If Condition="IsQuestCompleted(67791) and not HasAtLeastOneQuest(Array[int]([67797,67798,67799,67800,67801,67802,67803,67804,67805,67806,67807,67808,67809,67810,67811,67812,67813,67814,67815,67816]))">
@@ -739,7 +739,7 @@ Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow
       </If>
       <If Condition="HasQuest(67792) and not IsQuestCompleted(67792) and GetQuestStep(67792) == 255">
         <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
-        <LLTurnIn QuestId="67792" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+        <TurnIn QuestId="67792" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
       </If>
       <!-- An Acquired Taste -->
       <If Condition="IsQuestCompleted(67792) and not HasQuest(67793) and not IsQuestCompleted(67793)">
@@ -786,7 +786,7 @@ Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow
       </If>
       <If Condition="HasQuest(67793) and not IsQuestCompleted(67793) and GetQuestStep(67793) == 255">
         <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
-        <LLTurnIn QuestId="67793" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+        <TurnIn QuestId="67793" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
       </If>
       <!--  Your Enemy and Mine -->
       <If Condition="IsQuestCompleted(67793) and not HasQuest(67794) and not IsQuestCompleted(67794)">
@@ -828,7 +828,7 @@ Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow
       </If>
       <If Condition="HasQuest(67794) and not IsQuestCompleted(67794) and GetQuestStep(67794) == 255">
         <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
-        <LLTurnIn QuestId="67794" NpcId="1011928" InteractDistance="3.0" XYZ="73.19751, -49.19563, -139.0555"/>
+        <TurnIn QuestId="67794" NpcId="1011928" InteractDistance="3.0" XYZ="73.19751, -49.19563, -139.0555"/>
       </If>
       <!-- Resistance Is Futile -->
       <If Condition="IsQuestCompleted(67794) and not HasQuest(67795) and not IsQuestCompleted(67795)">
@@ -854,7 +854,7 @@ Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow
       </If>
       <If Condition="HasQuest(67795) and not IsQuestCompleted(67795) and GetQuestStep(67795) == 255">
         <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
-        <LLTurnIn QuestId="67795" ItemId="2001956" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
+        <TurnIn QuestId="67795" ItemId="2001956" NpcId="1016802" InteractDistance="3.0" XYZ="53.36072, -48, -169.9703"/>
       </If>
       <!-- A Symbiotic Friendship -->
       <If Condition="IsQuestCompleted(67795) and not HasQuest(67796) and not IsQuestCompleted(67796)">
@@ -864,7 +864,7 @@ Known Issues: Ensure Game Camera is zoomed out for Quest: Fifty Shades of Yellow
       </If>
       <If Condition="HasQuest(67796) and not IsQuestCompleted(67796) and GetQuestStep(67796) == 255">
         <LisbethTravel ZoneId="398" Name="Loth ast Vath." XYZ="60.0333, -48.57026, -163.1491" Land="True" IgnoreIndoors="True"/>
-        <LLTurnIn QuestId="67796" NpcId="1011928" InteractDistance="3.0" XYZ="73.19751, -49.19563, -139.0555"/> 
+        <TurnIn QuestId="67796" NpcId="1011928" InteractDistance="3.0" XYZ="73.19751, -49.19563, -139.0555"/> 
       </If>
     </If>
   </Order>

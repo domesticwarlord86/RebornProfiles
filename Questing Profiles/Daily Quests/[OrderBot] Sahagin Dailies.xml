@@ -46,7 +46,7 @@ Authors:  Sodimm.
     </If>
     <If Condition="GetQuestStep(66910) == 255">
       <LisbethTravel ZoneId="138" XYZ="-237.8191, -40.88364, 65.56162"/>
-      <LLTurnIn QuestId="66910" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406"/>
+      <TurnIn QuestId="66910" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406"/>
     </If>
 	
     <!-- Clutch and Kin -->
@@ -72,7 +72,7 @@ Authors:  Sodimm.
 	</While>	
     <If Condition="GetQuestStep(66911) == 255">
       <LisbethTravel ZoneId="138" XYZ="-238.9635, -40.99921, 64.81894"/>
-      <LLTurnIn QuestId="66911" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406"/>
+      <TurnIn QuestId="66911" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406"/>
     </If> 
   
     <!-- Register Dailies -->
@@ -129,7 +129,7 @@ Authors:  Sodimm.
 				<GetTo ZoneId="138" XYZ="310.4669, -31.9, 281.9113"/>		
 			</If>	
       <LisbethTravel Zone="138" Subzone="945" Position="-238.9304, -40.95455, 66.40385"/>
-      <LLTurnIn ItemId="2001293" QuestId="66912" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406"/>
+      <TurnIn ItemId="2001293" QuestId="66912" NpcId="1005937" XYZ="-238.0255, -40.82826, 68.28406"/>
       <LLSmallTalk/>
     </If>
     
@@ -693,181 +693,181 @@ Authors:  Sodimm.
     <!-- Tines of the Trident -->
     <If Condition="HasQuest(66936) and GetQuestStep(66936) == 255">
         <LisbethTravel ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
-      <LLTurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66936" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
     </If>
 	
     <!-- Shellfish Schemes -->
     <If Condition="HasQuest(66937) and GetQuestStep(66937) == 255">
         <LisbethTravel ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
-      <LLTurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66937" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
     </If>
 	
     <!-- An Enthralling Engagement -->
     <If Condition="HasQuest(66938) and GetQuestStep(66938) == 255">
         <LisbethTravel ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
-      <LLTurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66938" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
     </If>
 	
     <!-- Up in Shhhmoke  -->
     <If Condition="HasQuest(66939) and GetQuestStep(66939) == 255">
         <LisbethTravel ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
-      <LLTurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66939" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
     </If>
 	
     <!-- Reaving in a Hurry -->
     <If Condition="HasQuest(66940) and GetQuestStep(66940) == 255">
         <LisbethTravel ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
-      <LLTurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66940" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
     </If>
 	
     <!-- The Tail's the Best Part -->
     <If Condition="HasQuest(66941) and GetQuestStep(66941) == 255">
         <LisbethTravel ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
-      <LLTurnIn ItemId="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn ItemId="2001281" QuestId="66941" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
     </If>
 	
     <!-- Unfair Trading -->
     <If Condition="HasQuest(66942) and GetQuestStep(66942) == 255">
         <LisbethTravel ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
-      <LLTurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66942" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
     </If>
 	
     <!-- Sea Scraps -->
     <If Condition="HasQuest(66943) and GetQuestStep(66943) == 255">
         <LisbethTravel ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
-      <LLTurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66943" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
     </If>
 	
     <!-- Plunder Fire -->
     <If Condition="HasQuest(66944) and GetQuestStep(66944) == 255">
         <LisbethTravel ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
-      <LLTurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn QuestId="66944" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
     </If>
 	
     <!-- Removing the Stain -->
     <If Condition="HasQuest(66945) and GetQuestStep(66945) == 255">
         <LisbethTravel ZoneId="138" XYZ="-226.188, -40.48583, 57.16531"/>
-      <LLTurnIn ItemId="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
+      <TurnIn ItemId="7805" QuestId="66945" NpcId="1005940" XYZ="-226.188, -40.48583, 57.16531"/>
     </If>
 	
     <!-- Move Along, Nothing to Heal Here -->
     <If Condition="HasQuest(66926) and GetQuestStep(66926) == 255">
         <LisbethTravel ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
-      <LLTurnIn QuestId="66926" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66926" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
     </If>
 	
     <!-- Aint Got Time to Breed -->
     <If Condition="HasQuest(66927) and GetQuestStep(66927) == 255">
         <LisbethTravel ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
-      <LLTurnIn QuestId="66927" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66927" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
     </If>
 	
     <!-- Get a Lode of This -->
     <If Condition="HasQuest(66928) and GetQuestStep(66928) == 255">
         <LisbethTravel ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
-      <LLTurnIn QuestId="66928" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66928" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
     </If>
 	
     <!-- Ballista Bust-up -->
     <If Condition="HasQuest(66929) and GetQuestStep(66929) == 255">
         <LisbethTravel ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
-      <LLTurnIn QuestId="66929" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66929" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
     </If>
 	
     <!-- Better Ash Than Blood -->
     <If Condition="HasQuest(66930) and GetQuestStep(66930) == 255">
         <LisbethTravel ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
-      <LLTurnIn QuestId="66930" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66930" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
     </If>
 	
     <!-- Put a Shhhock in It -->
     <If Condition="HasQuest(66931) and GetQuestStep(66931) == 255">
         <LisbethTravel ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
-      <LLTurnIn QuestId="66931" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66931" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
     </If>
 	
     <!-- Clutchfather Knows Best -->
     <If Condition="HasQuest(66932) and GetQuestStep(66932) == 255">
         <LisbethTravel ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
-      <LLTurnIn QuestId="66932" ItemId="7804" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66932" ItemId="7804" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
     </If>
 	
     <!-- A Nap Before Drowning -->
     <If Condition="HasQuest(66933) and GetQuestStep(66933) == 255">
         <LisbethTravel ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
-      <LLTurnIn QuestId="66933" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66933" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
     </If>
 	
     <!-- In the Shadow of the Moon -->
     <If Condition="HasQuest(66934) and GetQuestStep(66934) == 255">
         <LisbethTravel ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
-      <LLTurnIn QuestId="66934" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66934" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
     </If>
 	
     <!-- Learn by Destroying -->
     <If Condition="HasQuest(66935) and GetQuestStep(66935) == 255">
         <LisbethTravel ZoneId="138" XYZ="-247.4205, -42.14037, 52.06385"/>
-      <LLTurnIn QuestId="66935" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
+      <TurnIn QuestId="66935" NpcId="1005939" XYZ="-247.4205, -42.14037, 52.06385"/>
     </If>
 	
     <!-- A Killer Strategy -->
     <If Condition="HasQuest(66915) and GetQuestStep(66915) == 255">
         <LisbethTravel ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
-      <LLTurnIn ItemId="7798" QuestId="66915" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn ItemId="7798" QuestId="66915" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
     </If>
 	
     <!-- Standard Procedure -->
     <If Condition="HasQuest(66916) and GetQuestStep(66916) == 255">
         <LisbethTravel ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
-      <LLTurnIn QuestId="66916" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn QuestId="66916" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
     </If>
 	
     <!-- Enemy at the Gates -->
     <If Condition="HasQuest(66917) and GetQuestStep(66917) == 255">
         <LisbethTravel ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
-      <LLTurnIn QuestId="66917" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn QuestId="66917" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
     </If>
 	
     <!-- A Taste for Paste -->
     <If Condition="HasQuest(66918) and GetQuestStep(66918) == 255">
         <LisbethTravel ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
-      <LLTurnIn ItemId="2001277" QuestId="66918" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn ItemId="2001277" QuestId="66918" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
     </If>
 	
     <!-- Spawning Ground Salvation -->
     <If Condition="HasQuest(66919) and GetQuestStep(66919) == 255">
         <LisbethTravel ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
-      <LLTurnIn QuestId="66919" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn QuestId="66919" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
     </If>
 	
     <!-- A Quick Snip -->
     <If Condition="HasQuest(66920) and GetQuestStep(66920) == 255">
         <LisbethTravel ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
-      <LLTurnIn ItemId="2001268" QuestId="66920" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn ItemId="2001268" QuestId="66920" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
     </If>
 	
     <!-- Violence of the Clams -->
     <If Condition="HasQuest(66921) and GetQuestStep(66921) == 255">
         <LisbethTravel ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
-      <LLTurnIn ItemId="2001269" QuestId="66921" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn ItemId="2001269" QuestId="66921" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
     </If>
 	
     <!-- Wind from their Sails -->
     <If Condition="HasQuest(66922) and GetQuestStep(66922) == 255">
         <LisbethTravel ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
-      <LLTurnIn QuestId="66922" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn QuestId="66922" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
     </If>
 	
     <!-- A Crate-ful Response -->
     <If Condition="HasQuest(66923) and GetQuestStep(66923) == 255">
         <LisbethTravel ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
-      <LLTurnIn ItemId="2001291" QuestId="66923" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn ItemId="2001291" QuestId="66923" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
     </If>
 	
     <!-- Skullduggery -->
     <If Condition="HasQuest(66924) and GetQuestStep(66924) == 255">
         <LisbethTravel ZoneId="138" XYZ="-221.3095, -40.80545, 35.92793"/>
-      <LLTurnIn QuestId="66924" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
+      <TurnIn QuestId="66924" NpcId="1005938" XYZ="-221.3095, -40.80545, 35.92793"/>
     </If>
 	
   </Order>

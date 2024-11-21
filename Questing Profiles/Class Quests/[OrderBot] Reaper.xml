@@ -44,7 +44,7 @@
 	    <GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
 	    <UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
 	  </If>
-      <LLTurnIn NpcId="1037014" XYZ="0.9002075, 0.01480778, -4.379395" QuestId="69609" StepId="255"/>
+      <TurnIn NpcId="1037014" XYZ="0.9002075, 0.01480778, -4.379395" QuestId="69609" StepId="255"/>
 	  <If Condition="IsQuestCompleted(69609)">
 	    <If Condition="not ClassName == ((ClassJobType.Reaper))"> 
 	  	  <While Condition="ff14bot.Managers.InventoryManager.GetBagByInventoryBagId(ff14bot.Enums.InventoryBagId.EquippedItems)[ff14bot.Enums.EquipmentSlot.MainHand].RawItemId != 35760">
@@ -88,7 +88,7 @@
 		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
 		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
 	  </If>	
-      <LLTurnIn QuestId="69610" NpcId="1036629" XYZ="0.7781982, 0.01480778, -1.968445"/>
+      <TurnIn QuestId="69610" NpcId="1036629" XYZ="0.7781982, 0.01480778, -1.968445"/>
       <LLSmallTalk/>
     </If>	
     <!-- On The Hunt -->
@@ -120,7 +120,7 @@
 		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
 		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
 	  </If>	
-      <LLTurnIn QuestId="69611" NpcId="1036629" XYZ="0.7781982, 0.01480778, -1.968445"/>
+      <TurnIn QuestId="69611" NpcId="1036629" XYZ="0.7781982, 0.01480778, -1.968445"/>
       <LLSmallTalk/>
     </If>
     <!-- Dark Days -->
@@ -155,7 +155,7 @@
 		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
 		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
 	  </If>	
-      <LLTurnIn QuestId="69612" NpcId="1036629" XYZ="0.7781982, 0.01480778, -1.968445"/>
+      <TurnIn QuestId="69612" NpcId="1036629" XYZ="0.7781982, 0.01480778, -1.968445"/>
       <LLSmallTalk/>
     </If>
     <!-- Thicker Than Blood -->
@@ -205,7 +205,7 @@
 		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
 		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
 	  </If>	
-      <LLTurnIn QuestId="69613" NpcId="1036631" XYZ="2.792297, -2.740355E-07, -0.4425049"/>
+      <TurnIn QuestId="69613" NpcId="1036631" XYZ="2.792297, -2.740355E-07, -0.4425049"/>
       <LLSmallTalk/>
     </If>
     <!-- The Killing Act -->
@@ -229,7 +229,7 @@
 		<GetTo ZoneId="131" XYZ="113.5413, 7.999975, 15.99276"/>  <!-- Subzone="647" Area="Ul'dah (Steps of Thal)" -->
 		<UseTransport NpcId="1036632" InteractDistance="3.0" XYZ="115.0988, 8, 15.3963"/>				
 	  </If>	
-      <LLTurnIn QuestId="69614" NpcId="1036630" XYZ="0.7781982, 0.01480778, -1.968445"/>
+      <TurnIn QuestId="69614" NpcId="1036630" XYZ="0.7781982, 0.01480778, -1.968445"/>
       <LLSmallTalk/>
     </If>
 		

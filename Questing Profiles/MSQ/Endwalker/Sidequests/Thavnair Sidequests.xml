@@ -46,7 +46,7 @@
     </If>	
     <If Condition="GetQuestStep(69734) == 255">
       <LisbethTravel Zone="957" Subzone="3880" Position="149.4363, 5.232457, 609.2457"/> <!-- Area="Thavnair (West)" -->
-      <LLTurnIn QuestId="69734" NpcId="1039377" XYZ="147.6005, 5.186336, 610.6202"/>
+      <TurnIn QuestId="69734" NpcId="1039377" XYZ="147.6005, 5.186336, 610.6202"/>
       <LLSmallTalk/>
     </If>		
 		
@@ -64,7 +64,7 @@
     </If>
     <If Condition="GetQuestStep(69732) == 255">
       <LisbethTravel Zone="957" Subzone="3880" Position="190.2328, 0.7874489, 702.1366"/> <!-- Area="Thavnair (West)" -->
-      <LLTurnIn QuestId="69732" NpcId="1037622" XYZ="187.9148, 0.2644781, 700.1296"/>
+      <TurnIn QuestId="69732" NpcId="1037622" XYZ="187.9148, 0.2644781, 700.1296"/>
       <LLSmallTalk/>
     </If>	
 
@@ -98,7 +98,7 @@
     </If>	
     <If Condition="GetQuestStep(70025) == 255">
       <LisbethTravel Zone="957" Subzone="3880" Position="189.6869, 15.13671, 513.1949"/> <!-- Area="Thavnair (West)" -->
-      <LLTurnIn QuestId="70025" NpcId="1041332" XYZ="194.6898, 14.1186, 485.9845"/>
+      <TurnIn QuestId="70025" NpcId="1041332" XYZ="194.6898, 14.1186, 485.9845"/>
       <LLSmallTalk/>
     </If>
 
@@ -153,7 +153,7 @@
     </If>	
     <If Condition="GetQuestStep(70026) == 255">
       <LisbethTravel Zone="957" Subzone="3879" Position="-127.5745, 1.27084, 614.151"/> <!-- Area="Thavnair (West)" -->
-      <LLTurnIn QuestId="70026" NpcId="1041340" XYZ="-124.4374, 1.320735, 613.9467"/>
+      <TurnIn QuestId="70026" NpcId="1041340" XYZ="-124.4374, 1.320735, 613.9467"/>
       <LLSmallTalk/>
     </If>
 
@@ -192,7 +192,7 @@
     </If>
     <If Condition="GetQuestStep(70027) == 255">
       <LisbethTravel Zone="957" Subzone="3880" Position="190.6937, 15.13671, 511.9879"/> <!-- Area="Thavnair (West)" -->
-      <LLTurnIn QuestId="70027" NpcId="1041389" XYZ="192.7977, 14.11859, 487.6936"/>
+      <TurnIn QuestId="70027" NpcId="1041389" XYZ="192.7977, 14.11859, 487.6936"/>
       <LLSmallTalk/>
     </If>
 
@@ -226,7 +226,7 @@
     </If>	
     <If Condition="GetQuestStep(70028) == 255">
       <LisbethTravel Zone="957" Subzone="3880" Position="191.3036, 15.13671, 511.6696"/> <!-- Area="Thavnair (West)" -->
-      <LLTurnIn QuestId="70028" NpcId="1041332" XYZ="194.6898, 14.1186, 485.9845"/>
+      <TurnIn QuestId="70028" NpcId="1041332" XYZ="194.6898, 14.1186, 485.9845"/>
       <LLSmallTalk/>
     </If>		
 	
@@ -244,7 +244,7 @@
     </If>
     <If Condition="GetQuestStep(69733) == 255">
       <LisbethTravel Zone="957" Subzone="3880" Position="176.1307, 1.874219, 796.199"/> <!-- Area="Thavnair (West)" -->
-      <LLTurnIn ItemId="2003177" QuestId="69733" NpcId="1037625" XYZ="176.4706, 1.874218, 799.2217"/>
+      <TurnIn ItemId="2003177" QuestId="69733" NpcId="1037625" XYZ="176.4706, 1.874218, 799.2217"/>
       <LLSmallTalk/>
     </If>		
 	</If>
@@ -284,7 +284,7 @@
 			</If> 
       <If Condition="GetQuestStep(69737) == 255">
         <LisbethTravel Zone="957" Subzone="3886" Position="-554.4083, 11.40261, 121.5447" /> <!-- Area="" -->
-        <LLTurnIn QuestId="69737" NpcId="1039516" XYZ="-554.8943, 11.40261, 125.1086" />
+        <TurnIn QuestId="69737" NpcId="1039516" XYZ="-554.8943, 11.40261, 125.1086" />
         <LLSmallTalk />
       </If>
     </If>
@@ -309,7 +309,7 @@
 			</If>
 			<If Condition="GetQuestStep(69735) == 255">
 					<LisbethTravel Zone="957" Subzone="3886" Position="-560.9436, 11.80261, 122.7091"/> <!-- Area="Thavnair (West)" -->
-				<LLTurnIn ItemId="2003188" QuestId="69735" NpcId="1037682" XYZ="-564.1108, 11.80261, 124.2847"/>
+				<TurnIn ItemId="2003188" QuestId="69735" NpcId="1037682" XYZ="-564.1108, 11.80261, 124.2847"/>
 				<LLSmallTalk/>
 			</If>
     </If>
@@ -341,7 +341,7 @@
       </If>
       <If Condition="GetQuestStep(69738) == 255">
         <LisbethTravel Zone="957" Subzone="3886" Position="-479.1568, 39.33834, 96.50095" /> <!-- Area="" -->
-        <LLTurnIn QuestId="69738" NpcId="1039379" XYZ="-478.3246, 39.63675, 95.47571" />
+        <TurnIn QuestId="69738" NpcId="1039379" XYZ="-478.3246, 39.63675, 95.47571" />
         <LLSmallTalk />
       </If>
     </If>
@@ -373,7 +373,7 @@
       </If>
       <If Condition="GetQuestStep(69740) == 255">
         <LisbethTravel Zone="957" Subzone="3886" Position="-493.2419, 5.203309, 61.56188" /> <!-- Area="" -->
-        <LLTurnIn QuestId="69740" NpcId="1039365" XYZ="-490.3792, 5.667216, 63.55383" />
+        <TurnIn QuestId="69740" NpcId="1039365" XYZ="-490.3792, 5.667216, 63.55383" />
         <LLSmallTalk />
       </If>
     </If>
@@ -393,7 +393,7 @@
       </If>
       <If Condition="GetQuestStep(69736) == 255">
         <LisbethTravel Zone="957" Subzone="3886" Position="-552.4713, 1.120665, 24.3883" /> <!-- Area="" -->
-        <LLTurnIn ItemId="2003190" QuestId="69736" NpcId="1037671" XYZ="-554.3755, 1.120665, 22.69012" />
+        <TurnIn ItemId="2003190" QuestId="69736" NpcId="1037671" XYZ="-554.3755, 1.120665, 22.69012" />
       </If>
     </If>
 		
@@ -429,7 +429,7 @@
       </If>
       <If Condition="GetQuestStep(69739) == 255">
         <LisbethTravel Zone="957" Subzone="3886" Position="-503.3315, -1.955032E-05, -18.40355" /> <!-- Area="" -->
-        <LLTurnIn QuestId="69739" NpcId="1037670" XYZ="-508.8426, -3.710991E-05, -20.76758" />
+        <TurnIn QuestId="69739" NpcId="1037670" XYZ="-508.8426, -3.710991E-05, -20.76758" />
         <LLSmallTalk />
       </If>
     </If>
@@ -470,7 +470,7 @@
       </If>
       <If Condition="GetQuestStep(69741) == 255">
         <LisbethTravel Zone="957" Subzone="3885" Position="-434.7931, 8.070304, 27.73847" /> <!-- Area="" -->
-        <LLTurnIn ItemIds="2003183,2003184" QuestId="69741" NpcId="1039371" XYZ="-409.9337, 10.75121, 33.03577" />
+        <TurnIn ItemIds="2003183,2003184" QuestId="69741" NpcId="1039371" XYZ="-409.9337, 10.75121, 33.03577" />
         <LLSmallTalk />
       </If>
     </If>
@@ -500,7 +500,7 @@
     </If>
     <If Condition="GetQuestStep(69742) == 255">
       <LisbethTravel Zone="957" Subzone="3886" Position="-471.4855, 6.115161, 4.840503"/> <!-- Area="Thavnair (West)" -->
-      <LLTurnIn ItemId="2003191" QuestId="69742" NpcId="1037685" XYZ="-468.864, 6.291257, 3.463745"/>
+      <TurnIn ItemId="2003191" QuestId="69742" NpcId="1037685" XYZ="-468.864, 6.291257, 3.463745"/>
       <LLSmallTalk/>
     </If>
 
@@ -526,7 +526,7 @@
     </If>	
     <If Condition="GetQuestStep(69743) == 255">
       <LisbethTravel Zone="957" Subzone="3886" Position="-479.3993, 5.029546, 33.53256"/> <!-- Area="Thavnair (West)" -->
-      <LLTurnIn QuestId="69743" NpcId="1039385" XYZ="-480.1252, 5.362214, 37.58289"/>
+      <TurnIn QuestId="69743" NpcId="1039385" XYZ="-480.1252, 5.362214, 37.58289"/>
       <LLSmallTalk/>
     </If>	
 
@@ -548,7 +548,7 @@
 		</If>
     <If Condition="GetQuestStep(69744) == 255">
       <LisbethTravel Zone="957" Subzone="3886" Position="-514.3055, 10.57861, 83.3375"/> <!-- Area="Thavnair (West)" -->
-      <LLTurnIn QuestId="69744" NpcId="1037673" XYZ="-517.0215, 11.97528, 100.5416"/>
+      <TurnIn QuestId="69744" NpcId="1037673" XYZ="-517.0215, 11.97528, 100.5416"/>
       <LLSmallTalk/>
     </If>	
 
@@ -566,7 +566,7 @@
     </If>
     <If Condition="GetQuestStep(69745) == 255">
       <LisbethTravel Zone="957" Subzone="3886" Position="-552.4562, 11.72963, 103.0487"/> <!-- Area="Thavnair (West)" -->
-      <LLTurnIn ItemIds="2003187,2003186" QuestId="69745" NpcId="1037681" XYZ="-554.7418, 11.40261, 137.3159"/>
+      <TurnIn ItemIds="2003187,2003186" QuestId="69745" NpcId="1037681" XYZ="-554.7418, 11.40261, 137.3159"/>
       <LLSmallTalk/>
     </If>		
 	

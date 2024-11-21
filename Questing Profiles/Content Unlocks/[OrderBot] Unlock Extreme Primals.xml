@@ -39,7 +39,7 @@
     </If>
     <If Condition="GetQuestStep(66730) == 255">
       <GetTo ZoneId="132" XYZ="-74.18166, -0.5019636, -3.780119"/>
-      <LLTurnIn QuestId="66730" NpcId="1000168" XYZ="-75.48645, -0.5013741, -5.081299"/>
+      <TurnIn QuestId="66730" NpcId="1000168" XYZ="-75.48645, -0.5013741, -5.081299"/>
       <LLSmallTalk/>
     </If>
 
@@ -74,7 +74,7 @@
 				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
 			</If>		
 			<MoveTo Zone="212" Subzone="356" XYZ="-1.094497, -3.000001, -56.10085"/>
-      <LLTurnIn ItemId="2001139" QuestId="66731" NpcId="1007478" XYZ="-2.822998, -3.000001, -56.22955"/>
+      <TurnIn ItemId="2001139" QuestId="66731" NpcId="1007478" XYZ="-2.822998, -3.000001, -56.22955"/>
       <LLSmallTalk/>
     </If>
 
@@ -118,7 +118,7 @@
 				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
 			</If>		
 			<MoveTo Zone="212" Subzone="356" XYZ="-1.094497, -3.000001, -56.10085"/>
-      <LLTurnIn ItemId="2001140" QuestId="66732" NpcId="1007478" XYZ="-2.822998, -3.000001, -56.22955"/>
+      <TurnIn ItemId="2001140" QuestId="66732" NpcId="1007478" XYZ="-2.822998, -3.000001, -56.22955"/>
       <LLSmallTalk/>
     </If>
 
@@ -162,7 +162,7 @@
 				<UseTransport NpcId="2001711" InteractDistance="3.0" XYZ="-480.9186, 17.99036, -386.862"/>		
 			</If>		
 			<MoveTo Zone="212" Subzone="356" XYZ="-1.094497, -3.000001, -56.10085"/>
-      <LLTurnIn ItemId="2001141" QuestId="66733" NpcId="1007478" XYZ="-2.822998, -3.000001, -56.22955"/>
+      <TurnIn ItemId="2001141" QuestId="66733" NpcId="1007478" XYZ="-2.822998, -3.000001, -56.22955"/>
       <LLSmallTalk/>
     </If>
 
@@ -185,7 +185,7 @@
     </If>
     <If Condition="GetQuestStep(66734) == 255">
       <GetTo ZoneId="156" XYZ="71.90326, 33.06656, -710.9344"/>
-      <LLTurnIn ItemIds="2001143,2001144,2001142" QuestId="66734" NpcId="1006951" XYZ="73.77734, 33.06658, -709.7734"/>
+      <TurnIn ItemIds="2001143,2001144,2001142" QuestId="66734" NpcId="1006951" XYZ="73.77734, 33.06658, -709.7734"/>
       <LLSmallTalk/>
     </If>		
 	
@@ -207,7 +207,7 @@
       <GetTo ZoneId="132" XYZ="230.2532, 1.999974, 44.29363"/>
 			<UseTransport NpcId="1000423" InteractDistance="3.0" XYZ="232.0438, 1.999974, 45.57861"/>		
       <MoveTo ZoneId="204" XYZ="0.1496464, 0.5000255, -0.8195266"/>
-      <LLTurnIn QuestId="66543" NpcId="1003061" XYZ="-0.01531982, 0.500025, -4.379395"/>
+      <TurnIn QuestId="66543" NpcId="1003061" XYZ="-0.01531982, 0.500025, -4.379395"/>
       <LLSmallTalk/>
     </If>				
 		
@@ -259,7 +259,7 @@
     </If>
     <If Condition="GetQuestStep(66949) == 255">
       <GetTo ZoneId="135" XYZ="159.9812, 8.973653, 586.1437"/>
-      <LLTurnIn QuestId="66949" NpcId="1005409" XYZ="159.6246, 8.974117, 582.7573"/>
+      <TurnIn QuestId="66949" NpcId="1005409" XYZ="159.6246, 8.974117, 582.7573"/>
       <LLSmallTalk/>
     </If>		
   
@@ -278,7 +278,7 @@
     </If>
     <If Condition="GetQuestStep(66948) == 255">
       <LisbethTravel Zone="152" Subzone="75" Position="-315.7156, 11.97047, -35.01218"/>
-      <LLTurnIn QuestId="66948" NpcId="1008544" XYZ="-316.4263, 12.0503, -35.38574"/>
+      <TurnIn QuestId="66948" NpcId="1008544" XYZ="-316.4263, 12.0503, -35.38574"/>
       <LLSmallTalk/>
     </If>	
 

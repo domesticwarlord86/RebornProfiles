@@ -38,7 +38,7 @@
     </If>
     <If Condition="GetQuestStep(68622) == 255">
       <LisbethTravel Zone="156" Subzone="411" Position="69.07791, 30.80195, -723.0386"/>
-      <LLTurnIn QuestId="68622" NpcId="2009436" XYZ="70.05408, 30.74683, -722.8657"/>
+      <TurnIn QuestId="68622" NpcId="2009436" XYZ="70.05408, 30.74683, -722.8657"/>
       <LLSmallTalk/>
     </If>
 
@@ -76,7 +76,7 @@
     </If>
     <If Condition="GetQuestStep(65581) == 255">
       <LisbethTravel Zone="156" Subzone="411" Position="53.99285, 31.17486, -761.8626"/>
-      <LLTurnIn QuestId="65581" NpcId="1009813" XYZ="55.43604, 31.18755, -763.4241"/>
+      <TurnIn QuestId="65581" NpcId="1009813" XYZ="55.43604, 31.18755, -763.4241"/>
       <LLSmallTalk/>
     </If>
 
@@ -115,7 +115,7 @@
     </If>
     <If Condition="GetQuestStep(65586) == 255">
       <LisbethTravel Zone="156" Subzone="411" Position="54.05804, 31.1745, -761.7084"/>
-      <LLTurnIn QuestId="65586" NpcId="1009813" XYZ="55.43604, 31.18755, -763.4241"/>
+      <TurnIn QuestId="65586" NpcId="1009813" XYZ="55.43604, 31.18755, -763.4241"/>
       <LLSmallTalk/>
     </If>
 
@@ -154,7 +154,7 @@
     </If>
     <If Condition="GetQuestStep(65636) == 255">
       <LisbethTravel Zone="156" Subzone="411" Position="23.53536, 20.03602, -680.5381"/>
-      <LLTurnIn ItemId="2001463" QuestId="65636" NpcId="1006530" XYZ="21.92719, 20.74697, -682.063"/>
+      <TurnIn ItemId="2001463" QuestId="65636" NpcId="1006530" XYZ="21.92719, 20.74697, -682.063"/>
       <LLSmallTalk/>
     </If>		
 		
@@ -184,7 +184,7 @@
     </If>
     <If Condition="GetQuestStep(68623) == 255">
       <GetTo ZoneId="759" XYZ="31.62062, 0.2657571, 26.75028"/>
-      <LLTurnIn QuestId="68623" NpcId="1024791" XYZ="31.60144, 0.265757, 28.91589"/>
+      <TurnIn QuestId="68623" NpcId="1024791" XYZ="31.60144, 0.265757, 28.91589"/>
       <LLSmallTalk/>
     </If>
 
@@ -205,7 +205,7 @@
 				<TeleportTo Name="Camp Bronze Lake" AetheryteId="15"/>
 			</If>
       <MoveTo ZoneId="759" XYZ="31.24518, 0.2657571, 26.82043"/>
-      <LLTurnIn QuestId="68677" NpcId="1024791" XYZ="31.60144, 0.265757, 28.91589"/>
+      <TurnIn QuestId="68677" NpcId="1024791" XYZ="31.60144, 0.265757, 28.91589"/>
       <LLSmallTalk/>
     </If>		
   

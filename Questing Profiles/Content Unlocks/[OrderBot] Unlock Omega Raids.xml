@@ -52,7 +52,7 @@
 		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
 	  </If>	
       <MoveTo XYZ="-211.2561, -223.5, -125.8573"/>
-      <LLTurnIn QuestId="68464" NpcId="1021942" XYZ="-208.5756, -223.5, -124.1627"/>
+      <TurnIn QuestId="68464" NpcId="1021942" XYZ="-208.5756, -223.5, -124.1627"/>
       <LLSmallTalk/>
     </If>	
 	
@@ -88,7 +88,7 @@
 		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
 	  </If>		
       <MoveTo XYZ="-211.3062, -223.5, -122.7875"/>
-      <LLTurnIn QuestId="68465" NpcId="1021942" XYZ="-208.5756, -223.5, -124.1627"/>
+      <TurnIn QuestId="68465" NpcId="1021942" XYZ="-208.5756, -223.5, -124.1627"/>
       <LLSmallTalk/>
     </If>
 
@@ -124,7 +124,7 @@
 		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
 	  </If>		
       <MoveTo XYZ="-210.4384, -223.5, -124.7957"/>
-      <LLTurnIn QuestId="68466" NpcId="1021943" XYZ="-207.2023, -223.5, -124.9562"/>
+      <TurnIn QuestId="68466" NpcId="1021943" XYZ="-207.2023, -223.5, -124.9562"/>
       <LLSmallTalk/>
     </If>
 
@@ -160,7 +160,7 @@
 		<UseTransport NpcId="1021947" InteractDistance="3.0" XYZ="476.7377, 69.83099, 526.604"/>	  
 	  </If>			
       <MoveTo XYZ="-212.2224, -223.5, -123.2504"/>
-      <LLTurnIn QuestId="68467" NpcId="1021942" XYZ="-208.5756, -223.5, -124.1627"/>
+      <TurnIn QuestId="68467" NpcId="1021942" XYZ="-208.5756, -223.5, -124.1627"/>
       <LLSmallTalk/>
     </If>	
 	

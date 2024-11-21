@@ -102,7 +102,7 @@
     </If>
     <If Condition="GetQuestStep(70009) == 255">
       <GetTo ZoneId="962" XYZ="-355.8746, 21.84602, -93.05553"/> <!-- Area="Old Sharlayan" -->
-      <LLTurnIn QuestId="70009" NpcId="1038500" XYZ="-357.8394, 21.84602, -91.32526"/>
+      <TurnIn QuestId="70009" NpcId="1038500" XYZ="-357.8394, 21.84602, -91.32526"/>
       <LLSmallTalk/>
     </If>
 	</If>	
@@ -144,7 +144,7 @@
 			</If>
 			<If Condition="GetQuestStep(69675) == 255">
 				<GetTo ZoneId="962" XYZ="-298.1129, 21.84602, -159.9294"/>  
-				<LLTurnIn QuestId="69675" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
+				<TurnIn QuestId="69675" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
 				<LLSmallTalk/>
 			</If>			
     </If>
@@ -176,7 +176,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69676" NpcId="1038525" XYZ="-299.9291, 21.68615, -159.1658"/>
+					<TurnIn QuestId="69676" NpcId="1038525" XYZ="-299.9291, 21.68615, -159.1658"/>
 					<LLSmallTalk/>
 				</If>
 			</If>						
@@ -212,7 +212,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69677" NpcId="1038525" XYZ="-299.254, 21.84602, -160.175"/>
+					<TurnIn QuestId="69677" NpcId="1038525" XYZ="-299.254, 21.84602, -160.175"/>
 					<LLSmallTalk/>
 				</If>
 			</If>			
@@ -248,7 +248,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69678" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
+					<TurnIn QuestId="69678" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
 					<LLSmallTalk/>
 				</If>
 			</If>
@@ -304,7 +304,7 @@
 			</If>	
 			<If Condition="GetQuestStep(69679) == 255">
 				<GetTo ZoneId="962" XYZ="-299.1556, 21.84602, -160.6533"/>  
-				<LLTurnIn DialogOption="0" QuestId="69679" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
+				<TurnIn DialogOption="0" QuestId="69679" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
 				<LLSmallTalk/>
 			</If>			
     </If>
@@ -339,7 +339,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-299.9291, 21.68615, -159.1658"/> 
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69680" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
+					<TurnIn QuestId="69680" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
 					<LLSmallTalk/>
 				</If>
 			</If>			
@@ -390,7 +390,7 @@
 			</If>
 			<If Condition="GetQuestStep(69681) == 255">
 				<GetTo ZoneId="962" XYZ="-298.8772, 21.84602, -160.0801"/>  
-				<LLTurnIn QuestId="69681" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
+				<TurnIn QuestId="69681" NpcId="1038525" XYZ="-296.5591, 21.84602, -162.1577"/>
 				<LLSmallTalk/>
 			</If>			
     </If>		
@@ -425,7 +425,7 @@
 			</If>
 			<If Condition="GetQuestStep(69668) == 255">
 				<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/>  
-				<LLTurnIn QuestId="69668" NpcId="1039203" XYZ="-277.699, 21.84602, -139.0861"/>
+				<TurnIn QuestId="69668" NpcId="1039203" XYZ="-277.699, 21.84602, -139.0861"/>
 				<LLSmallTalk/>
 			</If>			
     </If>
@@ -457,7 +457,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/>					
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69669" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
+					<TurnIn QuestId="69669" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
 					<LLSmallTalk/>
 				</If>
 			</If>			
@@ -494,7 +494,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/>					
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69670" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
+					<TurnIn QuestId="69670" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
 					<LLSmallTalk/>
 				</If>
 			</If>	
@@ -530,7 +530,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/> 					
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69671" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
+					<TurnIn QuestId="69671" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
 					<LLSmallTalk/>
 				</If>
 			</If>			
@@ -576,7 +576,7 @@
 				</If>	
 				<If condition="HasHqItem(35836)">			
 					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/> 				
-					<LLTurnIn ItemId="35836" QuestId="69672" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
+					<TurnIn ItemId="35836" QuestId="69672" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
 					<LLSmallTalk/>
 				</If>
 			</If>			
@@ -612,7 +612,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-279.287, 21.84602, -138.3546"/> 				
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69673" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
+					<TurnIn QuestId="69673" NpcId="1039203" XYZ="-279.287, 21.84602, -138.3546"/>
 					<LLSmallTalk/>
 				</If>
 			</If>			
@@ -660,7 +660,7 @@
 			</If>
 			<If Condition="GetQuestStep(69674) == 255">
 				<GetTo ZoneId="962" XYZ="-279.9196, 21.84602, -137.6927"/>  
-				<LLTurnIn QuestId="69674" NpcId="1039203" XYZ="-277.699, 21.84602, -139.0861"/>
+				<TurnIn QuestId="69674" NpcId="1039203" XYZ="-277.699, 21.84602, -139.0861"/>
 				<LLSmallTalk/>
 			</If>			
     </If>		
@@ -695,7 +695,7 @@
 			</If>			
 			<If Condition="GetQuestStep(69682) == 255">
 				<GetTo ZoneId="962" XYZ="-289.2391, 21.84602, -149.1731"/>  
-				<LLTurnIn QuestId="69682" NpcId="1039220" XYZ="-287.1595, 21.84602, -150.7745"/>
+				<TurnIn QuestId="69682" NpcId="1039220" XYZ="-287.1595, 21.84602, -150.7745"/>
 				<LLSmallTalk/>
 			</If>			
     </If>
@@ -724,7 +724,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  				
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69683" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
+					<TurnIn QuestId="69683" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
 					<LLSmallTalk/>
 				</If>
 			</If>			
@@ -758,7 +758,7 @@
 					</While>
 					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69684" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
+					<TurnIn QuestId="69684" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
 					<LLSmallTalk/>
 				</If>
 			</If>			
@@ -791,7 +791,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69685" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
+					<TurnIn QuestId="69685" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
 					<LLSmallTalk/>
 				</If>
 			</If>				
@@ -851,7 +851,7 @@
 			</If>
 			<If Condition="GetQuestStep(69686) == 255">
 				<GetTo ZoneId="962" XYZ="-289.9919, 21.81535, -148.3173"/>  
-				<LLTurnIn QuestId="69686" NpcId="1039220" XYZ="-287.1595, 21.84602, -150.7745"/>
+				<TurnIn QuestId="69686" NpcId="1039220" XYZ="-287.1595, 21.84602, -150.7745"/>
 				<LLSmallTalk/>
 			</If>			
     </If>
@@ -884,7 +884,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-289.3946, 21.84602, -148.49"/>  
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69687" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
+					<TurnIn QuestId="69687" NpcId="1039220" XYZ="-289.3946, 21.84602, -148.49"/>
 					<LLSmallTalk/>
 				</If>
 			</If>			
@@ -936,7 +936,7 @@
 			</If>
 			<If Condition="GetQuestStep(69688) == 255">
 				<GetTo ZoneId="962" XYZ="-289.5336, 21.84602, -148.8398"/>  
-				<LLTurnIn QuestId="69688" NpcId="1039220" XYZ="-287.1595, 21.84602, -150.7745"/>
+				<TurnIn QuestId="69688" NpcId="1039220" XYZ="-287.1595, 21.84602, -150.7745"/>
 				<LLSmallTalk/>
 			</If>			
     </If>		
@@ -973,7 +973,7 @@
 			</If>
 			<If Condition="GetQuestStep(69689) == 255">
 				<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/>  
-				<LLTurnIn QuestId="69689" NpcId="1038501" XYZ="-367.3305, 21.84602, -102.9832"/>
+				<TurnIn QuestId="69689" NpcId="1038501" XYZ="-367.3305, 21.84602, -102.9832"/>
 				<LLSmallTalk/>
 			</If>			
     </If>
@@ -997,7 +997,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69690" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
+					<TurnIn QuestId="69690" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
 					<LLSmallTalk/>
 				</If>
 			</If>				
@@ -1025,7 +1025,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69691" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
+					<TurnIn QuestId="69691" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
 					<LLSmallTalk/>
 				</If>
 			</If>				
@@ -1053,7 +1053,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69692" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
+					<TurnIn QuestId="69692" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
 					<LLSmallTalk/>
 				</If>
 			</If>			
@@ -1102,7 +1102,7 @@
 			</If>
 			<If Condition="GetQuestStep(69693) == 255">
 				<GetTo ZoneId="962" XYZ="-365.2083, 21.84602, -104.4485"/>  
-				<LLTurnIn QuestId="69693" NpcId="1038501" XYZ="-367.3305, 21.84602, -102.9832"/>
+				<TurnIn QuestId="69693" NpcId="1038501" XYZ="-367.3305, 21.84602, -102.9832"/>
 				<LLSmallTalk/>
 			</If>			
     </If>		
@@ -1129,7 +1129,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-365.2913, 21.84602, -104.0976"/> 
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69694" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
+					<TurnIn QuestId="69694" NpcId="1038501" XYZ="-365.2913, 21.84602, -104.0976"/>
 					<LLSmallTalk/>
 				</If>
 			</If>			
@@ -1169,7 +1169,7 @@
 			</If>
 			<If Condition="GetQuestStep(69695) == 255">
 				<GetTo ZoneId="962" XYZ="-364.7938, 21.84602, -104.2666"/>  
-				<LLTurnIn QuestId="69695" NpcId="1038501" XYZ="-367.3305, 21.84602, -102.9832"/>
+				<TurnIn QuestId="69695" NpcId="1038501" XYZ="-367.3305, 21.84602, -102.9832"/>
 				<LLSmallTalk/>
 			</If>			
     </If>	
@@ -1198,7 +1198,7 @@
 			</If>	
 			<If Condition="GetQuestStep(69696) == 255">
 				<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
-				<LLTurnIn QuestId="69696" NpcId="1038551" XYZ="-348.5618, 21.84602, -79.9726"/>
+				<TurnIn QuestId="69696" NpcId="1038551" XYZ="-348.5618, 21.84602, -79.9726"/>
 				<LLSmallTalk/>
 			</If>			
     </If>	
@@ -1239,7 +1239,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69697" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
+					<TurnIn QuestId="69697" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
 					<LLSmallTalk/>					
 				</If>
 				<If Condition="IsQuestCompleted(69697) and HasAtLeast(36397,1) or HasAtLeast(36400,1) or HasAtLeast(36402,1) or HasAtLeast(36399,1) or HasAtLeast(35604,1)">
@@ -1293,7 +1293,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69698" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
+					<TurnIn QuestId="69698" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
 					<LLSmallTalk/>					
 				</If>
 				<If Condition="IsQuestCompleted(69698) and HasAtLeast(36420,1) or HasAtLeast(35605,1) or HasAtLeast(36421,1) or HasAtLeast(36430,1)">
@@ -1344,7 +1344,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69699" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
+					<TurnIn QuestId="69699" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
 					<LLSmallTalk/>
 				</If>
 				<If Condition="IsQuestCompleted(69699) and HasAtLeast(35606,1) or HasAtLeast(36456,1) or HasAtLeast(36462,1) or HasAtLeast(36460,1) or HasAtLeast(36461,1)">
@@ -1424,7 +1424,7 @@
 			</If>
 			<If Condition="GetQuestStep(69700) == 255">
 				<GetTo ZoneId="962" XYZ="-344.5359, 21.68514, -82.73566"/> 
-				<LLTurnIn QuestId="69700" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
+				<TurnIn QuestId="69700" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
 				<LLSmallTalk/>				
 			</If>
 			<If Condition="IsQuestCompleted(69700) and HasAtLeast(36436,1) or HasAtLeast(36441,1) or HasAtLeast(36438,1) or HasAtLeast(36442,1)">
@@ -1472,7 +1472,7 @@
 					</While>				
 					<GetTo ZoneId="962" XYZ="-346.1146, 21.84602, -81.55103"/>  
 					<RunCode name="TurnIn"/>  
-					<LLTurnIn QuestId="69701" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
+					<TurnIn QuestId="69701" NpcId="1038551" XYZ="-346.1146, 21.84602, -81.55103"/>
 					<LLSmallTalk/>
 				</If>
 				<If Condition="IsQuestCompleted(69701) and HasAtLeast(36476,1) or HasAtLeast(36477,1) or HasAtLeast(36484,1) or HasAtLeast(35607,1)">
@@ -1536,7 +1536,7 @@
 			</If>
 			<If Condition="GetQuestStep(69702) == 255">
 				<GetTo ZoneId="962" XYZ="-345.5975, 21.84602, -82.19011"/>  
-				<LLTurnIn QuestId="69702" NpcId="1039239" XYZ="-348.5009, 21.84602, -80.18622"/>
+				<TurnIn QuestId="69702" NpcId="1039239" XYZ="-348.5009, 21.84602, -80.18622"/>
 				<LLSmallTalk/>
 			</If>			
     </If>		
@@ -1594,7 +1594,7 @@
 			</If>
 			<If Condition="GetQuestStep(70010) == 255">
 				<GetTo ZoneId="962" XYZ="-356.0836, 21.84602, -93.03786"/>  
-				<LLTurnIn QuestId="70010" NpcId="1038500" XYZ="-357.8394, 21.84602, -91.32526"/>
+				<TurnIn QuestId="70010" NpcId="1038500" XYZ="-357.8394, 21.84602, -91.32526"/>
 				<LLSmallTalk/>
 			</If>			
     </If>

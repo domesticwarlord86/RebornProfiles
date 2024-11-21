@@ -43,7 +43,7 @@
       </If>
       <If Condition="GetQuestStep(66740) == 255">
         <LisbethTravel ZoneId="146" XYZ="5.400472, 7.431678, 884.5921" />
-        <LLTurnIn QuestId="66740" DialogOption="1" NpcId="1005710" XYZ="4.440308, 7.276754, 885.5573" />
+        <TurnIn QuestId="66740" DialogOption="1" NpcId="1005710" XYZ="4.440308, 7.276754, 885.5573" />
       </If>
 
       <!-- Back in the Saddle -->
@@ -69,7 +69,7 @@
       </If>
       <If Condition="GetQuestStep(66741) == 255">
         <GetTo ZoneId="130" XYZ="-68.13717, 4, -126.4661" />
-        <LLTurnIn QuestId="66741" NpcId="1001285" XYZ="-68.77246, 4.041112, -126.5126" />
+        <TurnIn QuestId="66741" NpcId="1001285" XYZ="-68.77246, 4.041112, -126.5126" />
       </If>
 
       <!-- After Her Own Heart -->
@@ -103,7 +103,7 @@
       </If>
       <If Condition="GetQuestStep(66742) == 255">
         <GetTo ZoneId="130" XYZ="-146.3875, 12, -0.7206106" />
-        <LLTurnIn QuestId="66742" NpcId="1005716" XYZ="-144.7624, 12, 0.9917603" />
+        <TurnIn QuestId="66742" NpcId="1005716" XYZ="-144.7624, 12, 0.9917603" />
       </If>
 
       <!-- The Immaculate Deception -->
@@ -178,7 +178,7 @@
       <If Condition="GetQuestStep(66743) == 255">
         <LisbethTravel ZoneId="145" XYZ="-536.2001, 5.393188, -253.4831" />
         <MoveTo XYZ="-527.2703, 5.404997, -247.2365" />
-        <LLTurnIn QuestId="66743" NpcId="1005731" XYZ="-526.8788, 5.404997, -246.5095" />
+        <TurnIn QuestId="66743" NpcId="1005731" XYZ="-526.8788, 5.404997, -246.5095" />
       </If>
 
       <!-- 2.2 Through the Maelstrom -->
@@ -228,7 +228,7 @@
       </If>
       <If Condition="GetQuestStep(66851) == 255">
         <LisbethTravel ZoneId="140" XYZ="-70.81197, 13.40277, 156.8006" />
-        <LLTurnIn QuestId="66851" ItemId="2001220" NpcId="1008716" XYZ="-68.00946, 13.44318, 157.5188" />
+        <TurnIn QuestId="66851" ItemId="2001220" NpcId="1008716" XYZ="-68.00946, 13.44318, 157.5188" />
       </If>
 
       <!-- The Hammer -->
@@ -250,7 +250,7 @@
       </If>
       <If Condition="GetQuestStep(66852) == 255">
         <LisbethTravel ZoneId="147" XYZ="111.028, 18.39579, 119.6741" />
-        <LLTurnIn QuestId="66852" NpcId="2003666" XYZ="111.1925, 19.42468, 121.2024" />
+        <TurnIn QuestId="66852" NpcId="2003666" XYZ="111.1925, 19.42468, 121.2024" />
       </If>
 
       <!-- Manderville Men -->
@@ -274,7 +274,7 @@
       </If>
       <If Condition="GetQuestStep(66853) == 255">
         <LisbethTravel ZoneId="140" XYZ="-419.0764, 23.11398, -368.3139" />
-        <LLTurnIn QuestId="66853" NpcId="1008735" XYZ="-420.2793, 23.11398, -367.1779" />
+        <TurnIn QuestId="66853" NpcId="1008735" XYZ="-420.2793, 23.11398, -367.1779" />
       </If>
 
       <!-- The Three Collectors -->
@@ -315,7 +315,7 @@
       </If>
       <If Condition="GetQuestStep(66854) == 255">
         <LisbethTravel ZoneId="140" XYZ="-421.5769, 23.11398, -366.4158" />
-        <LLTurnIn QuestId="66854" NpcId="1008788" XYZ="-421.4695, 23.11398, -367.5746" />
+        <TurnIn QuestId="66854" NpcId="1008788" XYZ="-421.4695, 23.11398, -367.5746" />
       </If>
 
       <!-- 2.3 Defenders of Eorzea -->
@@ -354,7 +354,7 @@
       </If>
       <If Condition="GetQuestStep(66974) == 255">
         <LisbethTravel ZoneId="137" XYZ="515.7374, 9.199365, 524.6945" />
-        <LLTurnIn QuestId="66974" NpcId="2004317" XYZ="515.9838, 9.384277, 525.8105" />
+        <TurnIn QuestId="66974" NpcId="2004317" XYZ="515.9838, 9.384277, 525.8105" />
       </If>
 
       <!-- A Burst of Inspiration -->
@@ -380,7 +380,7 @@
       </If>
       <If Condition="GetQuestStep(66975) == 255">
         <LisbethTravel ZoneId="138" XYZ="310.5917, -36.40591, 345.1732" />
-        <LLTurnIn QuestId="66975" NpcId="1009331" XYZ="311.5435, -36.40591, 344.7166" />
+        <TurnIn QuestId="66975" NpcId="1009331" XYZ="311.5435, -36.40591, 344.7166" />
       </If>
 
       <!-- Seeds of Rebellion -->
@@ -420,7 +420,7 @@
       </If>
       <If Condition="GetQuestStep(66976) == 255">
         <LisbethTravel ZoneId="137" XYZ="-47.98275, 75.95114, 9.822153" />
-        <LLTurnIn QuestId="66976" NpcId="1009337" XYZ="-46.86047, 75.95114, 10.87964" />
+        <TurnIn QuestId="66976" NpcId="1009337" XYZ="-46.86047, 75.95114, 10.87964" />
       </If>
 
       <!-- A Case of Indecency -->
@@ -450,7 +450,7 @@
       </If>
       <If Condition="GetQuestStep(66977) == 255">
         <LisbethTravel ZoneId="137" XYZ="521.966, 17.44805, 455.2128" />
-        <LLTurnIn QuestId="66977" NpcId="2004328" XYZ="523.4607, 17.83771, 455.2528" />
+        <TurnIn QuestId="66977" NpcId="2004328" XYZ="523.4607, 17.83771, 455.2528" />
       </If>
 
       <!-- 2.4 Dreams of Ice -->
@@ -485,7 +485,7 @@
       </If>
       <If Condition="GetQuestStep(65702) == 255">
         <GetTo ZoneId="130" XYZ="-144.22, 12, -2.295492" />
-        <LLTurnIn QuestId="65702" NpcId="1010287" XYZ="-142.7177, 12, -3.92157" />
+        <TurnIn QuestId="65702" NpcId="1010287" XYZ="-142.7177, 12, -3.92157" />
       </If>
 
       <!-- What Price Victory -->
@@ -515,7 +515,7 @@
       </If>
       <If Condition="GetQuestStep(65738) == 255">
         <GetTo ZoneId="130" XYZ="-145.536, 12, -4.00579" />
-        <LLTurnIn QuestId="65738" NpcId="1010290" XYZ="-144.7319, 12, -5.661133" />
+        <TurnIn QuestId="65738" NpcId="1010290" XYZ="-144.7319, 12, -5.661133" />
       </If>
 
       <!-- The Trouble with Truffles -->
@@ -553,7 +553,7 @@
       </If>
       <If Condition="GetQuestStep(65739) == 255">
         <GetTo ZoneId="131" XYZ="138.4381, 4, -58.54543" />
-        <LLTurnIn QuestId="65739" ItemId="2001509" NpcId="1001679" XYZ="140.4897, 4.009998, -59.80017" />
+        <TurnIn QuestId="65739" ItemId="2001509" NpcId="1001679" XYZ="140.4897, 4.009998, -59.80017" />
       </If>
 
       <!-- The Coliseum Conundrum -->
@@ -586,7 +586,7 @@
       </If>
       <If Condition="GetQuestStep(65740) == 255">
         <GetTo ZoneId="131" XYZ="-71.05546, 6.983969, -2.068918" />
-        <LLTurnIn QuestId="65740" NpcId="1010330" XYZ="-69.5354, 6.983969, 0.07623291" />
+        <TurnIn QuestId="65740" NpcId="1010330" XYZ="-69.5354, 6.983969, 0.07623291" />
       </If>
 
       <!-- 2.5 Before the Fall -->
@@ -613,7 +613,7 @@
       </If>
       <If Condition="GetQuestStep(66026) == 255">
         <LisbethTravel ZoneId="140" XYZ="363.0035, 74.74335, 169.548" />
-        <LLTurnIn QuestId="66026" NpcId="1011677" XYZ="363.546, 74.74335, 171.1299" />
+        <TurnIn QuestId="66026" NpcId="1011677" XYZ="363.546, 74.74335, 171.1299" />
       </If>
 
       <!-- Sibling Strife -->
@@ -655,7 +655,7 @@
       </If>
       <If Condition="GetQuestStep(66027) == 255">
         <GetTo ZoneId="131" XYZ="-115.9743, 40, 95.31705" />
-        <LLTurnIn QuestId="66027" NpcId="1011675" XYZ="-118.1506, 40, 96.29968" />
+        <TurnIn QuestId="66027" NpcId="1011675" XYZ="-118.1506, 40, 96.29968" />
       </If>
 
       <!-- Beneath the Mask -->
@@ -697,7 +697,7 @@
       </If>
       <If Condition="GetQuestStep(66028) == 255">
         <GetTo ZoneId="131" XYZ="41.33467, 34, 28.07324" />
-        <LLTurnIn QuestId="66028" NpcId="1011697" XYZ="39.07837, 34, 27.2373" />
+        <TurnIn QuestId="66028" NpcId="1011697" XYZ="39.07837, 34, 27.2373" />
       </If>
 
       <!-- Truths Untold -->
@@ -723,7 +723,7 @@
       </If>
       <If Condition="GetQuestStep(66029) == 255">
         <GetTo ZoneId="131" XYZ="43.43333, 34, 27.50404" />
-        <LLTurnIn QuestId="66029" ItemIds="2001559,2001560" NpcId="1011707" XYZ="42.89307, 34, 29.34302" />
+        <TurnIn QuestId="66029" ItemIds="2001559,2001560" NpcId="1011707" XYZ="42.89307, 34, 29.34302" />
       </If>
 
       <!-- Her Last Vow -->
@@ -1579,7 +1579,7 @@
       </If>
       <If Condition="GetQuestStep(70078) == 255">
         <LisbethTravel ZoneId="813" XYZ="222.3412, 12.84731, 229.882" />
-        <LLTurnIn QuestId="70078" NpcId="1042497" XYZ="220.7522, 12.69931, 229.8466" />
+        <TurnIn QuestId="70078" NpcId="1042497" XYZ="220.7522, 12.69931, 229.8466" />
         <LLSmallTalk />
       </If>
     </If>
@@ -1684,7 +1684,7 @@
     </If>
     <If Condition="GetQuestStep(70177) == 255">
       <LisbethTravel ZoneId="959" XYZ="324.3507, 130.1783, 710.2124" />
-      <LLTurnIn QuestId="70177" NpcId="1042544" XYZ="324.422, 130.1783, 711.9401" />
+      <TurnIn QuestId="70177" NpcId="1042544" XYZ="324.422, 130.1783, 711.9401" />
       <LLSmallTalk />
     </If>
 
@@ -1715,7 +1715,7 @@
     </If>
     <If Condition="GetQuestStep(70178) == 255">
       <LisbethTravel ZoneId="963" XYZ="30.37345, -1.045439E-06, -3.875133" />
-      <LLTurnIn QuestId="70178" NpcId="1042555" XYZ="31.20471, -5.351952E-07, -0.7781982" />
+      <TurnIn QuestId="70178" NpcId="1042555" XYZ="31.20471, -5.351952E-07, -0.7781982" />
       <LLSmallTalk />
     </If>
 

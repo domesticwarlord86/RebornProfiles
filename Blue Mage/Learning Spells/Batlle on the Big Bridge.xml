@@ -40,7 +40,7 @@
     </If>
     <If Condition="HasQuest(66740) and not IsQuestCompleted(66740) and GetQuestStep(66740) == 255">
       <LisbethTravel ZoneId="146" XYZ="4.483184, 7.274037, 885.5565"/>
-      <LLTurnIn QuestId="66740" NpcId="1005710" DialogOption="1" XYZ="4.483184, 7.274037, 885.5565"/>
+      <TurnIn QuestId="66740" NpcId="1005710" DialogOption="1" XYZ="4.483184, 7.274037, 885.5565"/>
     </If>
 		
     <!-- Back in the Saddle (Level 50) -->

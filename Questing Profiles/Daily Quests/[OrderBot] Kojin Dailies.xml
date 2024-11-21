@@ -1164,7 +1164,7 @@ Authors:  Sodimm.
             <If Condition="not IsOnMap(613)">
               <TeleportTo Name="Tamamizu" AetheryteId="105"/>
             </If>
-            <LLTurnIn QuestId="68513" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
+            <TurnIn QuestId="68513" NpcId="1024215" XYZ="400.0762, -119.5893, -247.5471"/>
           </If>
         </If>
         <!-- True-blue -->

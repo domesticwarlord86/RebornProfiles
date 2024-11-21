@@ -23,7 +23,7 @@
     </If>
     <If Condition="GetQuestStep(69573) == 255">
       <GetTo ZonId="915" SubZonId="0" XYZ="2.824108, 3.194337, -58.06374"/>
-      <LLTurnIn QuestId="69573" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>
+      <TurnIn QuestId="69573" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>
       <LLSmallTalk/>
     </If>  
    
@@ -81,7 +81,7 @@
 			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 		</If>		
         <GetTo ZonId="915" SubZonId="0" XYZ="0.4522509, 3.071334, -57.42433"/>
-        <LLTurnIn ItemId="32956" QuestId="69574" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>
+        <TurnIn ItemId="32956" QuestId="69574" NpcId="1032905" XYZ="1.113892, 3.312975, -59.55603"/>
         <LLSmallTalk/>	
 	  </If>
     </If>

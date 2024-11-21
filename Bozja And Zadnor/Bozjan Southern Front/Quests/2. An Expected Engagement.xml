@@ -31,7 +31,7 @@
     </If>
     <If Condition="GetQuestStep(69479) == 255">
       <MoveTo ZoneId="920" XYZ="-185.2452, 5, 813.149"/>
-      <LLTurnIn NpcId="1034006" XYZ="-182.7268, 5, 813.2295" QuestId="69479" StepId="255"/>
+      <TurnIn NpcId="1034006" XYZ="-182.7268, 5, 813.2295" QuestId="69479" StepId="255"/>
 	  <NoCombatMoveTo ZoneId="920" XYZ="-196.5356, 5, 873.1154"/>
 	  <RunCode name="RankUp"/>	  
     </If>

@@ -17,7 +17,7 @@
     </If>
     <If Condition="GetQuestStep(69484) == 255">
       <LisbethTravel ZoneId="920" XYZ="-228.976, 35.97115, 530.2501"/>
-      <LLTurnIn QuestId="69484" NpcId="1034009" XYZ="-231.1895, 35.95686, 531.9142"/>
+      <TurnIn QuestId="69484" NpcId="1034009" XYZ="-231.1895, 35.95686, 531.9142"/>
       <LLSmallTalk/>
 	  <MoveTo XYZ="-257.9538,35.93494,534.3556" />
 	  <RunCode name="LearnLunyaStand"/>

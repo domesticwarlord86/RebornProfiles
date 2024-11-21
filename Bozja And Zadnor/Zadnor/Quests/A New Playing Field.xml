@@ -54,7 +54,7 @@
     </If>
     <If Condition="GetQuestStep(69620) == 255">
       <MoveTo XYZ="697.725, 296.0999, 675.8618"/>
-      <LLTurnIn QuestId="69620" NpcId="1036752" XYZ="696.437, 296.0963, 677.5463"/>
+      <TurnIn QuestId="69620" NpcId="1036752" XYZ="696.437, 296.0963, 677.5463"/>
       <LLSmallTalk/>
     </If>	
 	

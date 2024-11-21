@@ -38,7 +38,7 @@ Modified: DomesticWarlord86
     </If>
     <If Condition="HasQuest(68112) and not IsQuestCompleted(68112) and GetQuestStep(68112) == 255">
       <LisbethTravel ZoneId="141" XYZ="-96.84906, -11.35, -47.3183"/>
-      <LLTurnIn QuestId="68112" NpcId="1021438" XYZ="-96.84906, -11.35, -47.3183"/>
+      <TurnIn QuestId="68112" NpcId="1021438" XYZ="-96.84906, -11.35, -47.3183"/>
     </If>
 	
     <!-- The Crimson Duelist (Level 50) -->

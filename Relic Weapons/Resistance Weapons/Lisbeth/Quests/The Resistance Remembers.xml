@@ -45,7 +45,7 @@
 			<UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 		</If>	  
 		  <LisbethTravel Zone="915" Subzone="0" Position="-7.498815, 3.461973, -64.31144"/>
-		  <LLTurnIn ItemIds="32957,32958" QuestId="69575" NpcId="1035623" XYZ="-8.835022, 3.643881, -65.81219"/>
+		  <TurnIn ItemIds="32957,32958" QuestId="69575" NpcId="1035623" XYZ="-8.835022, 3.643881, -65.81219"/>
 		  <LLSmallTalk/>
 	  </If>	  
     </If>

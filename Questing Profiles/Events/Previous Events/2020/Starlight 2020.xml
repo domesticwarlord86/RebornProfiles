@@ -65,7 +65,7 @@
     <If Condition="GetQuestStep(69553) == 255">
       <GetTo ZoneId="133" XYZ="-48.6704, 6.499992, -91.35535"/>
       <RunCode name="TurnInQuest"/>
-	  <!-- <LLTurnIn QuestId="69553" NpcId="1035480" XYZ="-48.6704, 6.499992, -91.35535"/> -->
+	  <!-- <TurnIn QuestId="69553" NpcId="1035480" XYZ="-48.6704, 6.499992, -91.35535"/> -->
     </If>
 
     <!-- Starlight Slapdashery -->
@@ -103,7 +103,7 @@ Strange-seeming Snowman 0x18B26F235F0-2011319
     <If Condition="GetQuestStep(69554) == 255">
       <GetTo ZoneId="133" XYZ="-51.96695, 6.499994, -90.49537"/>
 	  <RunCode name="TurnInQuest"/>
-      <!-- <LLTurnIn QuestId="69554" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/> -->
+      <!-- <TurnIn QuestId="69554" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/> -->
     </If>
 
     <!-- The True Spirit of Starlight -->
@@ -132,7 +132,7 @@ Strange-seeming Snowman 0x18B26F235F0-2011319
     <If Condition="GetQuestStep(69555) == 255">
       <GetTo ZoneId="133" XYZ="-49.62709, 6.499992, -91.86739"/>
 	  <RunCode name="TurnInQuest"/>
-      <!-- <LLTurnIn QuestId="69555" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/> -->
+      <!-- <TurnIn QuestId="69555" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/> -->
     </If>
 
     <!-- One Happy Family -->
@@ -171,7 +171,7 @@ Strange-seeming Snowman 0x18B26F235F0-2011319
     <If Condition="GetQuestStep(69556) == 255">
       <GetTo ZoneId="133" XYZ="-48.80632, 6.499989, -91.96474"/>
 	  <RunCode name="TurnInQuest"/>
-      <!--<LLTurnIn QuestId="69556" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/>-->
+      <!--<TurnIn QuestId="69556" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/>-->
     </If>
 
     <!-- Wish Upon a Starlight -->
@@ -196,7 +196,7 @@ Strange-seeming Snowman 0x18B26F235F0-2011319
     <If Condition="GetQuestStep(69557) == 255">
       <GetTo ZoneId="133" XYZ="-48.77381, 6.499993, -91.25424"/>
 	  <RunCode name="TurnInQuest"/>
-      <!--<LLTurnIn QuestId="69557" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/>-->
+      <!--<TurnIn QuestId="69557" NpcId="1035473" XYZ="-50.00385, 6.5, -89.58569"/>-->
     </If>
 
     <!-- Annihilation -->
@@ -211,7 +211,7 @@ Strange-seeming Snowman 0x18B26F235F0-2011319
     </If>
     <If Condition="GetQuestStep(69558) == 255">
       <GetTo ZoneId="133" XYZ="-43.41718, 6.910172, -125.1378"/>
-      <LLTurnIn QuestId="69558" NpcId="1035502" XYZ="-41.88605, 6.803435, -125.597"/>
+      <TurnIn QuestId="69558" NpcId="1035502" XYZ="-41.88605, 6.803435, -125.597"/>
     </If>	
   </Order>
 </Profile>

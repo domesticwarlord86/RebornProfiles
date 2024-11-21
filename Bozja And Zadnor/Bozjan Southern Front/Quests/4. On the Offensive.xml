@@ -27,7 +27,7 @@
 	</If>  
     <If Condition="GetQuestStep(69481) == 255">
       <NoCombatMoveTo XYZ="494.9031, 34.79501, 568.0817"/>
-      <LLTurnIn QuestId="69481" NpcId="1034008" XYZ="495.8114, 34.9, 566.0944"/>
+      <TurnIn QuestId="69481" NpcId="1034008" XYZ="495.8114, 34.9, 566.0944"/>
 	  <NoCombatMoveTo XYZ="487.611, 34.9, 533.3499" />
 	  <RunCode name="LearnOlanasStand"/>
     </If>	

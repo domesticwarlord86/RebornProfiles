@@ -61,7 +61,7 @@
 						</If>
 						<If Condition="GetQuestStep(65755) == 255">
 							<GetTo ZoneId="132" XYZ="209.5521, 0.9999819, 35.01941" /> <!-- Luciane -->
-							<LLTurnIn QuestId="65755" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
+							<TurnIn QuestId="65755" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
 						</If>
 					</If>
 				</If>
@@ -108,7 +108,7 @@
 							</If>
 							<If Condition="GetQuestStep(65582) == 255">
 								<GetTo ZoneId="132" XYZ="209.5521, 0.9999819, 35.01941" /> <!-- Luciane -->
-								<LLTurnIn QuestId="65582" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
+								<TurnIn QuestId="65582" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
 							</If>
 						</If>
 					</If>
@@ -162,7 +162,7 @@
 							</If>
 							<If Condition="GetQuestStep(65603) == 255">
 								<GetTo ZoneId="132" XYZ="209.5521, 0.9999819, 35.01941" /> <!-- Luciane -->
-								<LLTurnIn QuestId="65603" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
+								<TurnIn QuestId="65603" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
 							</If>
 						</If>
 					</If>
@@ -219,7 +219,7 @@
 							</If>
 							<If Condition="GetQuestStep(65670) == 255">
 								<GetTo ZoneId="132" XYZ="209.5521, 0.9999819, 35.01941" /> <!-- Luciane -->
-								<LLTurnIn QuestId="65670" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
+								<TurnIn QuestId="65670" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
 							</If>
 						</If>
 					</If>
@@ -280,7 +280,7 @@
 							</If>
 							<If Condition="GetQuestStep(65604) == 255">
 								<GetTo ZoneId="132" XYZ="209.5521, 0.9999819, 35.01941" /> <!-- Luciane -->
-								<LLTurnIn QuestId="65604" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
+								<TurnIn QuestId="65604" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
 							</If>
 						</If>
 					</If>
@@ -356,7 +356,7 @@
 									<GetTo ZoneId="132" XYZ="209.5521, 0.9999819, 35.01941" />
 								</If>
 								<MoveTo Name="Luciane" XYZ="209.5521, 0.9999819, 35.01941" />
-								<LLTurnIn QuestId="65606" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
+								<TurnIn QuestId="65606" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
 							</If>
 						</If>
 					</If>
@@ -417,7 +417,7 @@
 									<GetTo ZoneId="132" XYZ="209.5521, 0.9999819, 35.01941" />
 								</If>
 								<MoveTo Name="Luciane" XYZ="209.5521, 0.9999819, 35.01941" />
-								<LLTurnIn QuestId="65607" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
+								<TurnIn QuestId="65607" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
 							</If>
 						</If>
 					</If>
@@ -477,7 +477,7 @@
 									<GetTo ZoneId="132" XYZ="209.5521, 0.9999819, 35.01941" />
 								</If>
 								<MoveTo Name="Luciane" XYZ="209.5521, 0.9999819, 35.01941" />
-								<LLTurnIn QuestId="65612" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
+								<TurnIn QuestId="65612" NpcId="1000200" XYZ="209.5521, 0.9999819, 35.01941" />
 							</If>
 						</If>
 					</If>
@@ -534,7 +534,7 @@
 									<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661" />
 								</If>
 								<NoCombatMoveTo Name="Jehantel" XYZ="16.46442, 6.750492, -7.339661" />
-								<LLTurnIn QuestId="66621" NpcId="1006750" ItemId="2000813" XYZ="16.46442, 6.750492, -7.339661" />
+								<TurnIn QuestId="66621" NpcId="1006750" ItemId="2000813" XYZ="16.46442, 6.750492, -7.339661" />
 							</If>
 						</If>
 					</If>
@@ -585,7 +585,7 @@
 									<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661" />
 								</If>
 								<NoCombatMoveTo Name="Jehantel" XYZ="16.46442, 6.750492, -7.339661" />
-								<LLTurnIn QuestId="66622" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
+								<TurnIn QuestId="66622" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
 							</If>
 						</If>
 					</If>
@@ -617,7 +617,7 @@
 									<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661" />
 								</If>
 								<NoCombatMoveTo Name="Jehantel" XYZ="16.46442, 6.750492, -7.339661" />
-								<LLTurnIn QuestId="66623" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
+								<TurnIn QuestId="66623" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
 							</If>
 						</If>
 					</If>
@@ -660,7 +660,7 @@
 									<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661" />
 								</If>
 								<NoCombatMoveTo Name="Jehantel" XYZ="16.46442, 6.750492, -7.339661" />
-								<LLTurnIn QuestId="66624" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
+								<TurnIn QuestId="66624" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
 							</If>
 						</If>
 					</If>
@@ -720,7 +720,7 @@
 									<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661" />
 								</If>
 								<NoCombatMoveTo Name="Jehantel" XYZ="16.46442, 6.750492, -7.339661" />
-								<LLTurnIn QuestId="66625" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
+								<TurnIn QuestId="66625" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
 							</If>
 						</If>
 					</If>
@@ -764,7 +764,7 @@
 									<GetTo ZoneId="155" XYZ="70.17627, 226.7221, 381.3076" />
 								</If>
 								<NoCombatMoveTo Name="Jehantel" XYZ="70.17627, 226.7221, 381.3076" />
-								<LLTurnIn QuestId="66626" NpcId="1007891" XYZ="70.17627, 226.7221, 381.3076" />
+								<TurnIn QuestId="66626" NpcId="1007891" XYZ="70.17627, 226.7221, 381.3076" />
 							</If>
 						</If>
 					</If>
@@ -845,7 +845,7 @@
 									<GetTo ZoneId="418" XYZ="-52.5368, 8.059148, 31.72351" />
 								</If>
 								<MoveTo Name="Sanson" XYZ="-52.5368, 8.059148, 31.72351" />
-								<LLTurnIn QuestId="67249" NpcId="1014208" XYZ="-52.5368, 8.059148, 31.72351" />
+								<TurnIn QuestId="67249" NpcId="1014208" XYZ="-52.5368, 8.059148, 31.72351" />
 							</If>
 						</If>
 					</If>
@@ -898,7 +898,7 @@
 									<GetTo ZoneId="397" XYZ="445.365, 212.5398, 699.7938" />
 								</If>
 								<NoCombatMoveTo Name="Sanson" XYZ="445.365, 212.5398, 699.7938" />
-								<LLTurnIn QuestId="67250" NpcId="1014216" XYZ="445.365, 212.5398, 699.7938" />
+								<TurnIn QuestId="67250" NpcId="1014216" XYZ="445.365, 212.5398, 699.7938" />
 							</If>
 						</If>
 					</If>
@@ -972,7 +972,7 @@
 									<GetTo ZoneId="398" XYZ="544.976, -51.27571, 65.38477" />
 								</If>
 								<NoCombatMoveTo Name="Sanson" XYZ="544.976, -51.27571, 65.38477" />
-								<LLTurnIn QuestId="67251" NpcId="1014232" XYZ="544.976, -51.27571, 65.38477" />
+								<TurnIn QuestId="67251" NpcId="1014232" XYZ="544.976, -51.27571, 65.38477" />
 							</If>
 						</If>
 					</If>
@@ -1021,7 +1021,7 @@
 									<GetTo ZoneId="398" XYZ="544.976, -51.27571, 65.38477" />
 								</If>
 								<NoCombatMoveTo Name="Sanson" XYZ="544.976, -51.27571, 65.38477" />
-								<LLTurnIn QuestId="67252" NpcId="1014231" XYZ="544.976, -51.27571, 65.38477" />
+								<TurnIn QuestId="67252" NpcId="1014231" XYZ="544.976, -51.27571, 65.38477" />
 							</If>
 						</If>
 					</If>
@@ -1109,7 +1109,7 @@
 									<GetTo ZoneId="400" XYZ="381.7043, -66.84979, 700.8619" />
 								</If>
 								<NoCombatMoveTo Name="Moglin" XYZ="381.7043, -66.84979, 700.8619" />
-								<LLTurnIn QuestId="67253" NpcId="1012077" XYZ="381.7043, -66.84979, 700.8619" />
+								<TurnIn QuestId="67253" NpcId="1012077" XYZ="381.7043, -66.84979, 700.8619" />
 							</If>
 						</If>
 					</If>
@@ -1190,7 +1190,7 @@
 									<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661" />
 								</If>
 								<NoCombatMoveTo Name="Jehantel" XYZ="16.46442, 6.750492, -7.339661" />
-								<LLTurnIn QuestId="67254" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
+								<TurnIn QuestId="67254" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
 							</If>
 						</If>
 					</If> -->
@@ -1221,7 +1221,7 @@
 							</If>
 							<If Condition="GetQuestStep(68426) == 255">
 								<GetTo ZoneId="612" XYZ="-653.132, 130, -523.827" /> <!-- Nourval -->
-								<LLTurnIn QuestId="68426" NpcId="1022511" XYZ="-653.132, 130, -523.827" />
+								<TurnIn QuestId="68426" NpcId="1022511" XYZ="-653.132, 130, -523.827" />
 							</If>
 						</If>
 					</If>
@@ -1252,7 +1252,7 @@
 							</If>
 							<If Condition="GetQuestStep(68427) == 255">
 								<GetTo ZoneId="612" XYZ="-650.9041, 130, -520.8667" /> <!-- Guydelot -->
-								<LLTurnIn QuestId="68427" NpcId="1022513" XYZ="-650.9041, 130, -520.8667" />
+								<TurnIn QuestId="68427" NpcId="1022513" XYZ="-650.9041, 130, -520.8667" />
 							</If>
 						</If>
 					</If>
@@ -1295,7 +1295,7 @@
 							</If>
 							<If Condition="GetQuestStep(68428) == 255">
 								<GetTo ZoneId="612" XYZ="-653.0403, 130, -522.179" /> <!-- Sanson -->
-								<LLTurnIn QuestId="68428" NpcId="1022523" XYZ="-653.0403, 130, -522.179" />
+								<TurnIn QuestId="68428" NpcId="1022523" XYZ="-653.0403, 130, -522.179" />
 							</If>
 						</If>
 					</If>
@@ -1330,7 +1330,7 @@
 							</If>
 							<If Condition="GetQuestStep(68429) == 255">
 								<GetTo ZoneId="132" XYZ="-52.35376, -3.326972, 20.58435" /> <!-- Guydelot -->
-								<LLTurnIn QuestId="68429" NpcId="1022528" XYZ="-52.35376, -3.326972, 20.58435" />
+								<TurnIn QuestId="68429" NpcId="1022528" XYZ="-52.35376, -3.326972, 20.58435" />
 							</If>
 						</If>
 					</If>
@@ -1389,7 +1389,7 @@
 							</If>
 							<If Condition="GetQuestStep(68430) == 255">
 								<GetTo ZoneId="153" XYZ="16.46442, 6.750492, -7.339661" /> <!-- Jehantel -->
-								<LLTurnIn QuestId="68430" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
+								<TurnIn QuestId="68430" NpcId="1006750" XYZ="16.46442, 6.750492, -7.339661" />
 							</If>
 						</If>
 					</If>
@@ -1447,7 +1447,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67233" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67233" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -1535,7 +1535,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67234" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67234" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -1560,7 +1560,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67235" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67235" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -1641,7 +1641,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67236" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67236" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -1666,7 +1666,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67237" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67237" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -1731,7 +1731,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67238" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67238" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -1795,7 +1795,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67239" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67239" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -1859,7 +1859,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67240" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67240" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -1898,7 +1898,7 @@
 								<GetTo ZoneId="418" XYZ="-152.8802, 17, -52.90308" />
 							</If>
 							<MoveTo Name="Count Baurendouin De Haillenarte" XYZ="-152.8802, 17, -52.90308" />
-							<LLTurnIn QuestId="67241" NpcId="1014796" XYZ="-152.8802, 17, -52.90308" />
+							<TurnIn QuestId="67241" NpcId="1014796" XYZ="-152.8802, 17, -52.90308" />
 						</If>
 					</If>
 				</If>
@@ -1966,7 +1966,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67242" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67242" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -2035,7 +2035,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67243" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67243" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -2103,7 +2103,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67244" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67244" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -2153,7 +2153,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67246" NpcId="1014577" ItemId="2001818" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67246" NpcId="1014577" ItemId="2001818" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -2192,7 +2192,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67247" NpcId="1014577" ItemId="2001818" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67247" NpcId="1014577" ItemId="2001818" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -2262,7 +2262,7 @@
 								<GetTo ZoneId="418" XYZ="-154.3146, 16.99999, -53.3609" />
 							</If>
 							<MoveTo Name="Stephanivien" XYZ="-154.3146, 16.99999, -53.3609" />
-							<LLTurnIn QuestId="67248" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
+							<TurnIn QuestId="67248" NpcId="1014577" XYZ="-154.3146, 16.99999, -53.3609" />
 						</If>
 					</If>
 				</If>
@@ -2295,7 +2295,7 @@
 						</If>
 						<If Condition="GetQuestStep(68441) == 255">
 							<GetTo ZoneId="418" XYZ="12.31396, -12.02088, 40.26843" /> <!-- Hilda -->
-							<LLTurnIn QuestId="68441" NpcId="1012251" XYZ="12.31396, -12.02088, 40.26843" />
+							<TurnIn QuestId="68441" NpcId="1012251" XYZ="12.31396, -12.02088, 40.26843" />
 						</If>
 					</If>
 				</If>
@@ -2334,7 +2334,7 @@
 						</If>
 						<If Condition="GetQuestStep(68442) == 255">
 							<GetTo ZoneId="418" XYZ="12.31396, -12.02088, 40.26843" /> <!-- Hilda -->
-							<LLTurnIn QuestId="68442" NpcId="1012251" XYZ="12.31396, -12.02088, 40.26843" />
+							<TurnIn QuestId="68442" NpcId="1012251" XYZ="12.31396, -12.02088, 40.26843" />
 						</If>
 					</If>
 				</If>
@@ -2374,7 +2374,7 @@
 						</If>
 						<If Condition="GetQuestStep(68443) == 255">
 							<GetTo ZoneId="418" XYZ="12.31396, -12.02088, 40.26843" /> <!-- Hilda -->
-							<LLTurnIn QuestId="68443" NpcId="1012251" XYZ="12.31396, -12.02088, 40.26843" />
+							<TurnIn QuestId="68443" NpcId="1012251" XYZ="12.31396, -12.02088, 40.26843" />
 						</If>
 					</If>
 				</If>
@@ -2414,7 +2414,7 @@
 						</If>
 						<If Condition="GetQuestStep(68444) == 255">
 							<GetTo ZoneId="418" XYZ="12.31396, -12.02088, 40.26843" /> <!-- Hilda -->
-							<LLTurnIn QuestId="68444" NpcId="1012251" XYZ="12.31396, -12.02088, 40.26843" />
+							<TurnIn QuestId="68444" NpcId="1012251" XYZ="12.31396, -12.02088, 40.26843" />
 						</If>
 					</If>
 				</If>
@@ -2453,7 +2453,7 @@
 						</If>
 						<If Condition="GetQuestStep(68445) == 255">
 							<GetTo ZoneId="418" XYZ="12.31396, -12.02088, 40.26843" /> <!-- Hilda -->
-							<LLTurnIn QuestId="68445" NpcId="1012251" XYZ="12.31396, -12.02088, 40.26843" />
+							<TurnIn QuestId="68445" NpcId="1012251" XYZ="12.31396, -12.02088, 40.26843" />
 						</If>
 					</If>
 				</If>
@@ -2487,7 +2487,7 @@
 				<If Condition="not IsOnMap(129)">
 					<GetTo ZoneId="137" XYZ="479.5868, 16.43277, 449.0984"/>
 				</If>
-				<LLTurnIn QuestId="68786" NpcId="1028735" XYZ="480.186, 16.4324, 447.8064"/>
+				<TurnIn QuestId="68786" NpcId="1028735" XYZ="480.186, 16.4324, 447.8064"/>
 			</If>
 			
 			<!-- A Soirée in the Sultanate (Level 63) -->
@@ -2545,7 +2545,7 @@
 			</If>
 			<If Condition="HasQuest(68787) and not IsQuestCompleted(68787) and GetQuestStep(68787) == 255">
 				<GetTo ZoneId="130" XYZ="48.61893, 8.000001, -119.9137"/>
-				<LLTurnIn QuestId="68787" NpcId="1028741" XYZ="47.62329, 8, -118.6695"/>
+				<TurnIn QuestId="68787" NpcId="1028741" XYZ="47.62329, 8, -118.6695"/>
 			</If>
 			<!-- Dances with Duskwights (Level 65) -->
 			<If Condition="IsQuestCompleted(68787) and not HasQuest(68788) and not IsQuestCompleted(68788)">
@@ -2581,7 +2581,7 @@
 			</If>
 			<If Condition="HasQuest(68788) and not IsQuestCompleted(68788) and GetQuestStep(68788) == 255">
 				<GetTo ZoneId="132" XYZ="-55.26096, -1.887048, 9.264828"/>
-				<LLTurnIn QuestId="68788" NpcId="1000193" XYZ="-56.77887, -1.717185, 7.888855"/>
+				<TurnIn QuestId="68788" NpcId="1000193" XYZ="-56.77887, -1.717185, 7.888855"/>
 			</If>
 			<!-- High-steppin' in the Holy See (Level 68) -->
 			<If Condition="IsQuestCompleted(68788) and not HasQuest(68789) and not IsQuestCompleted(68789)">
@@ -2617,7 +2617,7 @@
 			</If>
 			<If Condition="HasQuest(68789) and not IsQuestCompleted(68789) and GetQuestStep(68789) == 255">
 				<GetTo ZoneId="132" XYZ="-57.63911, -2.851751, 26.76148"/>
-				<LLTurnIn QuestId="68789" NpcId="1028757" XYZ="-58.2132, -2.844746, 28.91589"/>
+				<TurnIn QuestId="68789" NpcId="1028757" XYZ="-58.2132, -2.844746, 28.91589"/>
 			</If>
 			
 			<!-- Save the Last Dance for Me (Level 70) -->
@@ -2648,7 +2648,7 @@
 			</If>
 			<If Condition="HasQuest(68790) and not IsQuestCompleted(68790) and GetQuestStep(68790) == 255">
 				<GetTo ZoneId="129" XYZ="-105.8594, 5.999999, 195.4027"/>
-				<LLTurnIn QuestId="68790" NpcId="1028792" XYZ="-104.6312, 6, 197.4364"/>
+				<TurnIn QuestId="68790" NpcId="1028792" XYZ="-104.6312, 6, 197.4364"/>
 			</If>
 		</If>
 	

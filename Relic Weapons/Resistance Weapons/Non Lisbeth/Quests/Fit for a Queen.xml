@@ -39,7 +39,7 @@
 	    <UseTransport NpcId="1032884" InteractDistance="3.0" XYZ="127.2754, -4.178713, 98.68005"/>
 	  </If>	
       <GetTo ZonId="915" SubZonId="0" XYZ="15.83466, 0.02431321, -17.38521"/>
-      <LLTurnIn QuestId="69562" NpcId="1032881" XYZ="16.70856, 0.03045718, -17.92938"/>
+      <TurnIn QuestId="69562" NpcId="1032881" XYZ="16.70856, 0.03045718, -17.92938"/>
       <LLSmallTalk/>
     </If>
 
