@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Starlight Celebration 2024
+  Authors: DomesticWarlord
+
+-->
+<!DOCTYPE Profile [
+  <!ENTITY StarlightStalls "1247">
+]>
+
+
+<Profile>
+  <Name>Starlight Celebration 2024</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Reach for the Stalls -->
+    <If Condition="not IsQuestCompleted(70763)">
+      <If Condition="not HasQuest(70763)">
+        <GetTo ZoneId="133" XYZ="-49.43314, 6.4999876, -93.042175" />
+        <If Condition="IsQuestAcceptQualified(70763)">
+          <PickupQuest QuestId="70763" NpcId="1051801" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70763) == 1">
+        <GetTo ZoneId="133" XYZ="-51.162212, 5.7829885, -101.18378" />
+        <TalkTo NpcId="1051808" XYZ="-53.60504, 5.772882, -99.931335" QuestId="70763" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70763) == 2">
+        <If condition="not IsOnMap(&StarlightStalls;)">
+          <GetTo ZoneId="133" XYZ="-52.4814, 5.861984, -102.1876" />
+          <UseTransport NpcId="1051807" InteractDistance="3.0" XYZ="-53.635498, 5.793307, -99.931335" />
+          <WaitWhile condition="not IsOnMap(&StarlightStalls;)" />
+        </If>
+        <TalkTo NpcId="1051803" XYZ="33.951294, -0.36796698, 24.185547" QuestId="70763" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70763) == 3">
+        <If condition="not IsOnMap(&StarlightStalls;)">
+          <GetTo ZoneId="133" XYZ="-52.4814, 5.861984, -102.1876" />
+          <UseTransport NpcId="1051807" InteractDistance="3.0" XYZ="-53.635498, 5.793307, -99.931335" />
+          <WaitWhile condition="not IsOnMap(&StarlightStalls;)" />
+        </If>
+        <If Condition="GetQuestStep(70763) == 3 and GetQuestById(70763).QuestI8A == 0">
+          <TalkTo NpcId="1052469" XYZ="-15.640564, 0.0026466753, 18.142944" QuestId="70763" StepId="3" />
+        </If>
+        <If Condition="GetQuestStep(70763) == 3 and GetQuestById(70763).QuestI8A == 16">
+          <TalkTo NpcId="1051813" XYZ="-5.1118164, 1.21852545E-05, -31.99823" QuestId="70763" StepId="3" />
+        </If>
+        <If Condition="GetQuestStep(70763) == 3 and GetQuestById(70763).QuestI8A == 32">
+          <TalkTo NpcId="1051816" XYZ="18.142944, 0.0028544795, -0.289917" QuestId="70763" StepId="3" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70763) == 4">
+        <If condition="not IsOnMap(&StarlightStalls;)">
+          <GetTo ZoneId="133" XYZ="-52.4814, 5.861984, -102.1876" />
+          <UseTransport NpcId="1051807" InteractDistance="3.0" XYZ="-53.635498, 5.793307, -99.931335" />
+          <WaitWhile condition="not IsOnMap(&StarlightStalls;)" />
+        </If>
+        <TalkTo NpcId="1051804" XYZ="-3.4943848, 0.0028544795, -18.417664" QuestId="70763" StepId="4" />
+      </If>
+      <If Condition="GetQuestStep(70763) == 255">
+        <If condition="not IsOnMap(&StarlightStalls;)">
+          <GetTo ZoneId="133" XYZ="-52.4814, 5.861984, -102.1876" />
+          <UseTransport NpcId="1051807" InteractDistance="3.0" XYZ="-53.635498, 5.793307, -99.931335" />
+          <WaitWhile condition="not IsOnMap(&StarlightStalls;)" />
+        </If>
+        <TurnIn QuestId="70763" NpcId="1051819" XYZ="-1.6937866, 0.0028544795, -21.042236" />
+      </If>
+    </If>
+
+    <!-- Spreading the Warmth and Cheer -->
+    <If Condition="IsQuestCompleted(70763) and not IsQuestCompleted(70764)">
+      <If Condition="not HasQuest(70764)">
+        <If condition="not IsOnMap(&StarlightStalls;)">
+          <GetTo ZoneId="133" XYZ="-52.4814, 5.861984, -102.1876" />
+          <UseTransport NpcId="1051807" InteractDistance="3.0" XYZ="-53.635498, 5.793307, -99.931335" />
+          <WaitWhile condition="not IsOnMap(&StarlightStalls;)" />
+        </If>
+        <If Condition="IsQuestAcceptQualified(70764)">
+          <PickupQuest QuestId="70764" NpcId="1051819" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70764) == 1">
+        <GetTo ZoneId="132" XYZ="63.56632, -6.8417683, 97.02154" />
+        <TalkTo NpcId="1051822" XYZ="61.478516, -7.7123985, 98.98523" QuestId="70764" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70764) == 2">
+        <If condition="not IsOnMap(&StarlightStalls;)">
+          <GetTo ZoneId="133" XYZ="-52.4814, 5.861984, -102.1876" />
+          <UseTransport NpcId="1051807" InteractDistance="3.0" XYZ="-53.635498, 5.793307, -99.931335" />
+          <WaitWhile condition="not IsOnMap(&StarlightStalls;)" />
+        </If>
+        <TalkTo NpcId="1051823" XYZ="34.164917, -0.37309912, 23.605652" QuestId="70764" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70764) == 3">
+        <If condition="not IsOnMap(&StarlightStalls;)">
+          <GetTo ZoneId="133" XYZ="-52.4814, 5.861984, -102.1876" />
+          <UseTransport NpcId="1051807" InteractDistance="3.0" XYZ="-53.635498, 5.793307, -99.931335" />
+          <WaitWhile condition="not IsOnMap(&StarlightStalls;)" />
+        </If>
+        <TalkTo NpcId="1051833" XYZ="35.568726, -0.24490167, 21.560913" QuestId="70764" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70764) == 4">
+        <If condition="not IsOnMap(&StarlightStalls;)">
+          <GetTo ZoneId="133" XYZ="-52.4814, 5.861984, -102.1876" />
+          <UseTransport NpcId="1051807" InteractDistance="3.0" XYZ="-53.635498, 5.793307, -99.931335" />
+          <WaitWhile condition="not IsOnMap(&StarlightStalls;)" />
+        </If>
+        <If Condition="GetQuestStep(70764) == 4 and GetQuestById(70764).QuestI8A == 0">
+          <TalkTo NpcId="1051816" XYZ="18.142944, 0.0028544795, -0.289917" QuestId="70764" StepId="4" />
+        </If>
+        <If Condition="GetQuestStep(70764) == 4 and GetQuestById(70764).QuestI8A == 1">
+          <TalkTo NpcId="1051813" XYZ="-5.1118164, 1.21852545E-05, -31.99823" QuestId="70764" StepId="4" />
+        </If>
+        <If Condition="GetQuestStep(70764) == 4 and GetQuestById(70764).QuestI8A == 2">
+          <TalkTo NpcId="1051809" XYZ="-15.823608, 0.0028544795, 9.84198" QuestId="70764" StepId="4" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70764) == 5">
+        <If condition="not IsOnMap(&StarlightStalls;)">
+          <GetTo ZoneId="133" XYZ="-52.4814, 5.861984, -102.1876" />
+          <UseTransport NpcId="1051807" InteractDistance="3.0" XYZ="-53.635498, 5.793307, -99.931335" />
+          <WaitWhile condition="not IsOnMap(&StarlightStalls;)" />
+        </If>
+        <TalkTo NpcId="1051825" XYZ="-1.7853394, 2.0028546, -86.38135" QuestId="70764" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70764) == 6">
+        <GetTo ZoneId="133" XYZ="-49.59314, 6.4999866, -92.73663" />
+        <TalkTo NpcId="1051802" XYZ="-50.06488, 6.499999, -89.58569" QuestId="70764" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70764) == 7">
+        <WaitWhile Condition="GetQuestStep(70764) == 7" />
+      </If>
+      <If Condition="GetQuestStep(70764) == 255">
+        <If condition="not IsOnMap(&StarlightStalls;)">
+          <GetTo ZoneId="133" XYZ="-52.4814, 5.861984, -102.1876" />
+          <UseTransport NpcId="1051807" InteractDistance="3.0" XYZ="-53.635498, 5.793307, -99.931335" />
+          <WaitWhile condition="not IsOnMap(&StarlightStalls;)" />
+        </If>
+        <TurnIn QuestId="70764" NpcId="1051805" XYZ="33.401978, -0.31104973, 22.079773" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
