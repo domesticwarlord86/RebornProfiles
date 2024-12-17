@@ -3,6 +3,10 @@
   Profile: Unlock Custom Deliveries
   Authors: DomesticWarlord86
 -->
+<!DOCTYPE Profile [
+	<!ENTITY TheWarmthofFamily "70785">
+]>
+
 <Profile>
 	<Name>[OrderBot] Unlock Custom Deliveries</Name>
 	<BehaviorDirectory></BehaviorDirectory>
@@ -547,6 +551,51 @@
 		</If>
 
 		<LLSellItem ItemIds="18266,18256,12862,12867,12864,12868,27864,27865,14139,28720,28721" />
+
+		<If condition="LlamaLibrary.Memory.OffsetManager.Is7_15">
+
+			<If Condition="not IsQuestCompleted(&TheWarmthofFamily;) and not IsQuestCompleted(70775)">
+				<UserDialog IsBotContinueAllowed="False" DialogText="The Main Story Quest 'The Warmth of Family' must be complete to unlock Nitowikwe deliveries." />
+			</If>
+
+			<If Condition="not IsCraftingClass() and not IsGatheringClass()">
+				<LogMessage Message="Not already on a crafter class, swapping." />
+				<RunCode Name="SwitchDoHJob" />
+			</If>
+
+			<If Condition="Core.Player.ClassLevel &lt; 90">
+				<UserDialog IsBotContinueAllowed="False" DialogText="You must be level 90 to unlock Nitowikwe deliveries." />
+			</If>
+
+			<!-- Laying New Tracks -->
+			<If Condition="IsQuestCompleted(&TheWarmthofFamily;) and not IsQuestCompleted(70775) and Core.Player.ClassLevel &gt; 89">
+				<If Condition="not HasQuest(70775)">
+					<GetTo ZoneId="1185" XYZ="36.468475, -13.993944, 59.341286" />
+					<If Condition="IsQuestAcceptQualified(70775)">
+						<PickupQuest QuestId="70775" NpcId="1048604" />
+					</If>
+				</If>
+				<If Condition="GetQuestStep(70775) == 1">
+					<If condition="not IsOnMap(1190)">
+						<TeleportTo Name="Sheshenewezi Springs" AetheryteId="208" />
+					</If>
+					<FlyTo AllowedVariance="1" XYZ="-84.07133, 15.678719, -246.3397" Land="True" /> <!-- ZoneId="1190" -->
+					<TalkTo NpcId="1051496" XYZ="-84.42822, 15.678356, -242.17596" QuestId="70775" StepId="1" />
+				</If>
+				<If Condition="GetQuestStep(70775) == 2">
+					<If condition="not IsOnMap(1190)">
+						<TeleportTo Name="Sheshenewezi Springs" AetheryteId="208" />
+					</If>
+					<FlyTo AllowedVariance="1" XYZ="-353.9331, 19.246649, -101.68413" Land="True" /> <!-- ZoneId="1190" -->
+					<TalkTo NpcId="1051495" XYZ="-365.28577, 20.14268, -88.51758" QuestId="70775" StepId="2" />
+				</If>
+				<If Condition="GetQuestStep(70775) == 255">
+					<GetTo ZoneId="1190" XYZ="-356.22513, 19.631376, -103.7614" />
+					<TurnIn QuestId="70775" NpcId="1048605" XYZ="-358.38867, 19.728025, -105.02789" />
+				</If>
+			</If>
+
+		</If>
 
 	</Order>
 	<GrindAreas>
