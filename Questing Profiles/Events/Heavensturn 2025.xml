@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Heavensturn 2025
+  Authors: DomesticWarlord
+
+-->
+<!DOCTYPE Profile [
+  <!ENTITY Necrologos "649">
+]>
+
+
+<Profile>
+  <Name>Heavensturn 2025</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- Heavensssturn Trivia -->
+    <If Condition="not IsQuestCompleted(70722)">
+      <If Condition="not HasQuest(70722)">
+        <GetTo ZoneId="128" XYZ="14.899582, 45.665993, 129.95708" />
+        <If Condition="IsQuestAcceptQualified(70722)">
+          <PickupQuest QuestId="70722" NpcId="1050356" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70722) == 1">
+        <GetTo ZoneId="128" XYZ="-3.0182505, 40, 76.775665" />
+        <TalkTo NpcId="1050357" XYZ="-4.6845703, 40.000004, 73.3501" QuestId="70722" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70722) == 2">
+        <GetTo ZoneId="128" XYZ="-16.163208, 44, -35.285545" />
+        <TalkTo NpcId="1050358" XYZ="-18.143005, 44, -33.49359" QuestId="70722" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70722) == 3">
+        <GetTo ZoneId="128" XYZ="-43.040817, 39.47361, -162.25795" />
+        <TalkTo NpcId="1050359" XYZ="-44.235962, 39.473606, -163.77509" QuestId="70722" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70722) == 255">
+        <GetTo ZoneId="128" XYZ="17.642809, 45.65599, 135.52605" />
+        <TurnIn QuestId="70722" NpcId="1050356" XYZ="17.288391, 45.656, 133.95886" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
