@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: An Otherworldly Encounter
+  Authors: DomesticWarlord
+
+-->
+
+<Profile>
+  <Name>An Otherworldly Encounter</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- An Otherworldly Encounter -->
+    <If Condition="not IsQuestCompleted(70769)">
+      <If Condition="not HasQuest(70769)">
+        <GetTo ZoneId="1185" XYZ="-15.972056, -6.4115584E-09, 27.944834" />
+        <If Condition="IsQuestAcceptQualified(70769)">
+          <PickupQuest QuestId="70769" NpcId="1051950" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70769) == 1">
+        <If condition="not IsOnMap(1189)">
+          <TeleportTo Name="Mamook" AetheryteId="206" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="577.2484, -137.174, 582.81586" Land="True" /> <!-- ZoneId="1189" -->
+        <TalkTo NpcId="1052166" XYZ="567.6814, -131.41925, 610.1013" QuestId="70769" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70769) == 2">
+        <If condition="not IsOnMap(1189)">
+          <TeleportTo Name="Iq Br'aax" AetheryteId="205" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-526.32056, -158.70184, 538.6112" Land="True" /> <!-- ZoneId="1189" -->
+        <UseObject NpcId="2014454" XYZ="-525.8412, -158.37347, 541.46643" QuestId="70769" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70769) == 3">
+        <If condition="not IsOnMap(1189)">
+          <TeleportTo Name="Iq Br'aax" AetheryteId="205" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-528.79, -152.72214, 648.216" Land="True" /> <!-- ZoneId="1189" -->
+        <TalkTo NpcId="1051954" XYZ="-531.57855, -152.53433, 645.777" QuestId="70769" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70769) == 3">
+        <If condition="not IsOnMap(1189)">
+          <TeleportTo Name="Iq Br'aax" AetheryteId="205" />
+        </If>
+        <FlyTo AllowedVariance="1" XYZ="-528.79, -152.72214, 648.216" Land="True" /> <!-- ZoneId="1189" -->
+        <TalkTo NpcId="1051954" XYZ="-531.57855, -152.53433, 645.777" QuestId="70769" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70769) == 4">
+        <UserDialog IsBotContinueAllowed="False" DialogText="Please Manually complete Jeuno: The First Walk" QuestId="70769" StepId="4" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
