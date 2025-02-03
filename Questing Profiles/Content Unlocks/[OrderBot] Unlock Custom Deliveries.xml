@@ -550,6 +550,28 @@
 			</If>
 		</If>
 
+		<!-- The Pride of Labyrinthos -->
+		<If Condition="IsQuestCompleted(70351) and not IsQuestCompleted(70352)">
+			<If Condition="not HasQuest(70352)">
+				<GetTo ZoneId="956" XYZ="-53.778904, -29.497334, -63.520332" />
+				<If Condition="IsQuestAcceptQualified(70352)">
+					<PickupQuest QuestId="70352" NpcId="1046073" />
+				</If>
+			</If>
+			<If Condition="GetQuestStep(70352) == 1">
+				<GetTo ZoneId="956" XYZ="-713.0175, -31.530432, 286.15454" />
+				<TalkTo NpcId="1046404" XYZ="-707.6982, -31.53043, 280.38452" QuestId="70352" StepId="1" />
+			</If>
+			<If Condition="GetQuestStep(70352) == 2">
+				<GetTo ZoneId="956" XYZ="-53.322094, -29.497372, -62.320057" />
+				<TalkTo NpcId="1046073" XYZ="-53.635498, -29.497286, -65.14081" QuestId="70352" StepId="2" />
+			</If>
+			<If Condition="GetQuestStep(70352) == 255">
+				<GetTo ZoneId="956" XYZ="-53.322094, -29.497372, -62.320057" />
+				<TurnIn QuestId="70352" NpcId="1046073" XYZ="-53.635498, -29.497286, -65.14081" />
+			</If>
+		</If>
+
 		<LLSellItem ItemIds="18266,18256,12862,12867,12864,12868,27864,27865,14139,28720,28721" />
 
 		<If condition="LlamaLibrary.Memory.OffsetManager.Is7_15">
@@ -592,6 +614,37 @@
 				<If Condition="GetQuestStep(70775) == 255">
 					<GetTo ZoneId="1190" XYZ="-356.22513, 19.631376, -103.7614" />
 					<TurnIn QuestId="70775" NpcId="1048605" XYZ="-358.38867, 19.728025, -105.02789" />
+				</If>
+			</If>
+
+			<!-- The Weight of a Train -->
+			<If Condition="IsQuestCompleted(70775) and not IsQuestCompleted(70776)">
+				<If Condition="not HasQuest(70776)">
+					<GetTo ZoneId="1190" XYZ="-356.83313, 19.652786, -105.161896" />
+					<If Condition="IsQuestAcceptQualified(70776)">
+						<PickupQuest QuestId="70776" NpcId="1048605" />
+					</If>
+				</If>
+				<If Condition="GetQuestStep(70776) == 1">
+					<If condition="not IsOnMap(1190)">
+						<TeleportTo Name="Sheshenewezi Springs" AetheryteId="208" />
+					</If>
+					<FlyTo AllowedVariance="1" XYZ="-130.85432, 16.344357, -290.87656" Land="True" /> <!-- ZoneId="1190" -->
+					<UseObject NpcId="2014456" XYZ="-128.64886, 16.311829, -290.69965" QuestId="70776" StepId="1" />
+				</If>
+				<If Condition="GetQuestStep(70776) == 2">
+					<If condition="not IsOnMap(1190)">
+						<TeleportTo Name="Sheshenewezi Springs" AetheryteId="208" />
+					</If>
+					<FlyTo AllowedVariance="1" XYZ="-131.115, 15.67948, -366.97952" Land="True" /> <!-- ZoneId="1190" -->
+					<TalkTo NpcId="1048608" XYZ="-126.57361, 15.67948, -369.46674" QuestId="70776" StepId="2" />
+				</If>
+				<If Condition="GetQuestStep(70776) == 255">
+					<If condition="not IsOnMap(1190)">
+						<TeleportTo Name="Sheshenewezi Springs" AetheryteId="208" />
+					</If>
+					<FlyTo AllowedVariance="1" XYZ="-355.44073, 19.533201, -107.88508" Land="True" /> <!-- ZoneId="1190" -->
+					<TurnIn QuestId="70776" NpcId="1048605" XYZ="-358.38867, 19.728025, -105.02789" />
 				</If>
 			</If>
 
