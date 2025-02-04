@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Profile: Valentione's Day 2025
+  Authors: DomesticWarlord
+
+-->
+
+<Profile>
+  <Name>Valentione's Day 2025</Name>
+  <BehaviorDirectory></BehaviorDirectory>
+  <Order>
+
+    <!-- I Promise You a Rose Garden -->
+    <If Condition="not IsQuestCompleted(70787)">
+      <If Condition="not HasQuest(70787)">
+        <GetTo ZoneId="133" XYZ="-50.13997, 6.499974, -93.43142" />
+        <If Condition="IsQuestAcceptQualified(70787)">
+          <PickupQuest QuestId="70787" NpcId="1052351" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70787) == 1">
+        <GetTo ZoneId="133" XYZ="-271.9236, 8.021239, -172.9387" />
+        <TalkTo NpcId="1052368" XYZ="-273.02972, 8.083828, -175.49408" QuestId="70787" StepId="1" />
+      </If>
+      <If Condition="GetQuestStep(70787) == 2">
+        <GetTo ZoneId="133" XYZ="-43.63435, 6.392288, -105.50114" />
+        <TalkTo NpcId="1052369" XYZ="-41.33673, 6.2679696, -104.14282" QuestId="70787" StepId="2" />
+      </If>
+      <If Condition="GetQuestStep(70787) == 3">
+        <GetTo ZoneId="133" XYZ="81.1193, 6.037302, -101.028564" />
+        <UseObject NpcId="2014516" XYZ="81.651, 6.0272217, -101.1521" QuestId="70787" StepId="3" />
+      </If>
+      <If Condition="GetQuestStep(70787) == 4">
+        <If Condition="not IsTodoChecked(70787,4,0)">
+          <GetTo ZoneId="133" XYZ="-71.8247, 6.9238605, -135.71538" />
+          <TalkTo NpcId="1052375" XYZ="-68.77246, 6.88836, -134.3252" QuestId="70787" StepId="4" />
+        </If>
+        <If Condition="not IsTodoChecked(70787,4,1)">
+          <GetTo ZoneId="133" XYZ="135.81476, 13.537265, -102.01751" />
+          <TalkTo NpcId="1052377" XYZ="138.01782, 13.595509, -102.64752" QuestId="70787" StepId="4" />
+        </If>
+        <If Condition="not IsTodoChecked(70787,4,2)">
+          <GetTo ZoneId="132" XYZ="10.001119, 0.75414085, -3.3595319" />
+          <TalkTo NpcId="1052380" XYZ="10.391357, 0.5406719, -1.7853394" QuestId="70787" StepId="4" />
+        </If>
+      </If>
+      <If Condition="GetQuestStep(70787) == 5">
+        <GetTo ZoneId="133" XYZ="-259.0199, -2.3841858E-07, -187.81824" />
+        <TalkTo NpcId="1052382" XYZ="-256.79407, -2.3841858E-07, -188.61682" QuestId="70787" StepId="5" />
+      </If>
+      <If Condition="GetQuestStep(70787) == 6">
+        <GetTo ZoneId="133" XYZ="-259.0199, -2.3841858E-07, -187.81824" />
+        <TalkTo NpcId="1052382" XYZ="-256.79407, -2.3841858E-07, -188.61682" QuestId="70787" StepId="6" />
+      </If>
+      <If Condition="GetQuestStep(70787) == 255">
+        <GetTo ZoneId="133" XYZ="-49.655518, 6.499979, -93.64733" />
+        <TurnIn QuestId="70787" NpcId="1052351" XYZ="-50.003845, 6.4999986, -90.013" />
+      </If>
+    </If>
+
+  </Order>
+  <GrindAreas>
+  </GrindAreas>
+  <CodeChunks>
+  </CodeChunks>
+</Profile> 
